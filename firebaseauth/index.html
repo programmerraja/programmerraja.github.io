@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Firebase Auth</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-auth.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h3>Sign in to get a secret text</h3>
+	</header>
+	
+	<div id="container">
+		
+		<div id="form_container">
+			<form action="">
+				<input type="text" name="email" placeholder="Email address" id="email">
+				<br>
+				<input type="password" name="password" placeholder="Password" id="password">
+				<br>
+				<input type="button" name="signin" value="Sign in" id="signin">
+				<input type="button" name="signup" value="Sign up" id="signup">
+				
+			</form>
+		</div>
+	
+		<p id="error"></p>
+		<div id="user_container">
+				<p id="msg"></p>
+				<p id="secrets"></p>
+				<input type="button" name="signout" value="Sign out" id="signout">
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" src="script.js">
+  
+</script>
+</html>

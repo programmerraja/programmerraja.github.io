@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="home.css">
+		<link rel="stylesheet" href="navbar.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="hotel.css">
+		<title> Hotel </title>
+		<!--https://www.makemytrip.com/hotels/hotel-details/?hotelId=200701122121192419&mtkeys=defaultMtkey&_uCurrency=INR&checkin=09192020&checkout=09202020&city=CTGOI&country=IN&lat=15.319851&lng=73.90191&locusId=CTGOI&locusType=city&rank=1&roomStayQualifier=2e0e&searchText=Goa%2C%20India&visitorId=567dc1b6-caf8-4675-9fdd-85b3440624df-->
+	</head>
+	<body>
+		<!-- side nav -->
+		<div class="container nav__side__container" >
+			<div class="nav__side">
+				<ul class="nav__item">
+					<li class="nav__list">
+						<a href="#" class="side__nav-link ">
+							<span class="icon"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+							<span class="text"> A</span>
+						</a>
+					</li>
+					<li class="nav__list">
+						<a href="#"  class="side__nav-link">
+							<span class="icon"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+							<span class="text">B</span></a>
+						</a>
+					</li>
+					
+					<li class="line"></li>
+					<li class="nav__list">
+						<a href="flights.html"  class="side__nav-link">
+							<span class="icon"><i class="fa fa-plane" aria-hidden="true"></i></span>
+							<span class="text">flights</span></a>
+						</a>
+					</li>
+					
+					<li class="nav__list">
+						<a href="#"  class="side__nav-link active">
+							<span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span>
+							<span class="text">Hotels</span></a>
+						</a>
+					</li>
+					<li class="nav__list">
+						<a href="#"  class="side__nav-link">
+							<span class="icon"><i class="fa fa-train" aria-hidden="true"></i></span>
+							<span class="text">Train</span></a>
+						</a>
+					</li>
+					<li class="nav__list">
+						<a href="#"  class="side__nav-link">
+							<span class="icon"><i class="fa fa-bus" aria-hidden="true"></i></span>
+							<span class="text">Bus</span></a>
+						</a>
+					</li>
+					<li class="nav__list">
+						<a href="#"  class="side__nav-link">
+							<span class="icon"><i class="fa fa-taxi" aria-hidden="true"></i></span>
+							<span class="text">cabs</span></a>
+						</a>
+					</li>
+					
+					<li class="line"></li>
+					
+					<li class="nav__list">
+						<a href="#"  class="side__nav-link">
+							<span class="icon"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+							<span class="text">C</span></a>
+						</a>
+					</li>
+					<li class="nav__list">
+						<a href="#"  class="side__nav-link">
+							<span class="icon"><i class="fa fa-id-card" aria-hidden="true"></i></span>
+							<span class="text">D</span></a>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- side nav end -->
+		<!--Break-->
+		<div class="searchbar">
+			<div class="search__city">
+				<label for="city" class="">CITY, AREA or PROPERTY</label>
+				<input id="city" type="text" class="" readonly="" value="Royal Orchid Beach R...">
+			</div>
+			<div class="search__checkin">
+				<label for="checkin" class="">CHECK-IN</label>
+				<input id="checkin" type="text" class="" readonly="" value="Tue, 22 Sep 2020">
+			</div>
+			<div class="search__checkout">
+				<label for="checkout" class="">CHECK-OUT</label>
+				<input id="checkout" type="text" class="" readonly="" value="Thu, 1 Oct 2020">
+			</div>
+			<div class="search__rooms">
+				<label for="guest" class="">ROOMS &amp; GUESTS</label>
+				<input id="guest" type="text" class="" readonly="" value="1 Room, 4 Adults">
+				
+			</div>
+			<div class="search__button">
+				<input type="button" name="search" value="SEARCH" class="hotelbutton">
+			</div>
+		</div>
+		<div class="hotel__container">
+			
+			<section class="hotel__summary">
+				
+				<div class="hotel__imgslider">
+					<div id="carouselControls" class="carousel slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img class="d-block w-100" src="https://r1imghtlak.mmtcdn.com/6031ed6cc1e311eab15b0242ac110004.jfif?&output-quality=75&downsize=910:612&crop=910:612;3,0&output-format=jpg" alt="First slide">
+							</div>
+							<div class="carousel-item">
+								<img class="d-block w-100" src="https://r1imghtlak.mmtcdn.com/6031ed6cc1e311eab15b0242ac110004.jfif?&output-quality=75&downsize=910:612&crop=910:612;3,0&output-format=jpg" alt="Second slide">
+							</div>
+							<div class="carousel-item">
+								<img class="d-block w-100" src="https://r1imghtlak.mmtcdn.com/6031ed6cc1e311eab15b0242ac110004.jfif?&output-quality=75&downsize=910:612&crop=910:612;3,0&output-format=jpg" alt="Third slide">
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+					<div class="hotel__name_container">
+						<p class="hotel__name">Royal Orchid Beach Resort</p>
+						<p class="hotel__location"><a href="">Utorda Beach,Salcette,South Goa</a></p>
+					</div>
+				</div>
+				<div class="hotel__pricebar__container">
+					<div class="hotel__pricebar">
+						<div class="pricebar">
+							<div class="pricebar__description">
+								<p class="roomname">Club Room</p>
+								<p class="timeline small_text">per night</p>
+								<ul class="condition">
+									<li>Non Refundable</li>
+									<li>Room only</li>
+								</ul>
+							</div>
+							<div class="price">
+								<p>INR 32,000</p>
+							</div>
+						</div>
+						
+						<div class="booknow">
+							<a href=""><p>OTHER ROOMS</p></a>
+							<input type="button" name="bookthisnow" value="Book This Now" class="bookthisnow__button">
+						</div>
+					</div>
+
+					<div class="hotel__review_container">
+						<div class="hotel__review">
+							<p>What guest said<br><span class="small_text">based on 579 reviews</span></p>
+							<div class="hotel__review_rating">
+								<p>4.0<br>Very Good</p>
+							</div>
+						</div>
+						<div class="hotel__review_tab">
+							<p>clean room</p>
+							<p>clean property </p>
+							<p>near beach </p>
+						</div>
+						<p class="hotel__allreview"><a href="">ALL REVIEWS</a></p>
+						
+					</div>
+				</div>
+			</section>
+			
+			<section >
+				<div class="hotel__offers">
+					<div class="hotel__offers_wifi">
+						<p>WIFI</p>
+					</div>
+					<div class="hotel__offers_swimingpool">
+						<p>SWIMINGPOOL</p>
+					</div>
+					<div class="hotel__offers_others">
+						<p>others</p>
+					</div>
+				</div>
+				<div class="hotel__features">
+					<ul class="hotel__features_list">
+						<li>
+							<a class="navLink active" id="detpg_hotel_rooms" href="#RoomType">Rooms</a>
+						</li>
+						<li>
+							<a class="navLink" id="detpg_hotel_facilities" href="#Facilities">Facilities</a>
+						</li>
+					</ul>
+				</div>
+				<!-- Room Table wrapper-->
+				<div class="room__type" id="RoomType">
+					<!-- Room Table header wrapper-->
+					<div class="room__header">
+						<div class="room__header_list">
+							<p class="room__header_item">ROOMTYPE</p>
+							<p class="room__header_item">OPTIONS</p>
+							<p class="room__header_item">INCLUDED IN THE PRICE</p>
+							<p class="room__header_item">PRICE</p>
+						</div>
+					</div>
+					<!-- Room Table col wrapper -->
+					<div class="room__wrap">
+						<!-- Room Table col-1 -->
+						<div class="room__roomtype">
+							<!-- Room Table row-1 -->
+						  <div class="roomtype__row1_wrapper">
+							<div class="roomtype__row1">
+								<h2 >Club Room </h2>
+								<img src="https://r1imghtlak.mmtcdn.com/14cc3720f28011e9aa990242ac110005.jpg?&output-quality=75&downsize=910:612&crop=910:612;63,0&output-format=jpg" alt="room Img" class="" style="width:100%">
+								<ul class="roomtype__row1_list">
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										Room Size: 224 sq.ft.
+									</li>
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										Bed Type: King Bed
+									</li>
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										View: Garden View
+									</li>
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										24-hour Room Service
+									</li>
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										Air Conditioning
+									</li>
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										Wi-Fi
+									</li>
+								</ul>
+								<a class="roomtype__row1_more">
+									More about this room
+								</a>
+							</div>
+						  </div>
+							<!-- Room Table row-2 -->
+						  <div class="roomtype__row1_wrapper">
+							<div class="roomtype__row1">
+								<h2 >Club Room </h2>
+								<img src="https://r1imghtlak.mmtcdn.com/14cc3720f28011e9aa990242ac110005.jpg?&output-quality=75&downsize=910:612&crop=910:612;63,0&output-format=jpg" alt="room Img" class="" style="width:100%">
+								<ul class="roomtype__row1_list">
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										Room Size: 224 sq.ft.
+									</li>
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										Bed Type: King Bed
+									</li>
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										View: Garden View
+									</li>
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										24-hour Room Service
+									</li>
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										Air Conditioning
+									</li>
+									<li class="roomtype__row1_item">
+										<span class="oval"></span>
+										Wi-Fi
+									</li>
+								</ul>
+								<a class="roomtype__row1_more">
+									More about this room
+								</a>
+							</div>
+						  </div>
+						</div>
+						<!-- Room Table col-2 -->
+						<div class="room__option" >
+							<!-- Room Table row-1 -->
+							<div class="room__option_row1">
+								<div class="room__option_header">
+									<p>
+										<span> Option 1	</span>
+										<span class="hotelbutton">RECOMMENDED </span>
+									</p>
+								</div>
+								<ul class="room__option_list">
+									<li class="room__option_item">
+										<span class="">Room Only</span>
+									</li>
+									<li class="room__option_list">
+										<span class="">Non-refundable</span>
+										<br>
+										<a>Read more</a>
+									</li>
+								</ul>
+							</div>
+							<!-- Room Table row-2 -->
+							<div class="room__option_row1">
+								<div class="room__option_header">
+									<p>
+										<span> Option 1	</span>
+										<span class="hotelbutton">RECOMMENDED </span>
+									</p>
+								</div>
+								<ul class="room__option_list">
+									<li class="room__option_item">
+										<span class="">Room Only</span>
+									</li>
+									<li class="room__option_list">
+										<span class="">Non-refundable</span>
+										<br>
+										<a>Read more</a>
+									</li>
+								</ul>
+							</div>
+							<!-- Room Table row-3 -->
+							<div class="room__option_row1">
+								<div class="room__option_header">
+									<p>
+										<span> Option 1	</span>
+										<span class="hotelbutton">RECOMMENDED </span>
+									</p>
+								</div>
+								<ul class="room__option_list">
+									<li class="room__option_item">
+										<span class="">Room Only</span>
+									</li>
+									<li class="room__option_list">
+										<span class="">Non-refundable</span>
+										<br>
+										<a>Read more</a>
+									</li>
+								</ul>
+							</div>
+							<!-- Room Table row-4 -->
+							<div class="room__option_row1">
+								<div class="room__option_header">
+									<p>
+										<span> Option 1	</span>
+										<span class="hotelbutton">RECOMMENDED </span>
+									</p>
+								</div>
+								<ul class="room__option_list">
+									<li class="room__option_item">
+										<span class="">Room Only</span>
+									</li>
+									<li class="room__option_list">
+										<span class="">Non-refundable</span>
+										<br>
+										<a>Read more</a>
+									</li>
+								</ul>
+							</div>
+							<!-- Room Table row-5 -->
+							<div class="room__option_row1">
+								<div class="room__option_header">
+									<p>
+										<span> Option 1	</span>
+										<span class="hotelbutton">RECOMMENDED </span>
+									</p>
+								</div>
+								<ul class="room__option_list">
+									<li class="room__option_item">
+										<span class="">Room Only</span>
+									</li>
+									<li class="room__option_list">
+										<span class="">Non-refundable</span>
+										<br>
+										<a>Read more</a>
+									</li>
+								</ul>
+							</div>
+							<!-- Room Table row-6 -->
+							<div class="room__option_row1">
+								<div class="room__option_header">
+									<p>
+										<span> Option 1	</span>
+										<span class="hotelbutton">RECOMMENDED </span>
+									</p>
+								</div>
+								<ul class="room__option_list">
+									<li class="room__option_item">
+										<span class="">Room Only</span>
+									</li>
+									<li class="room__option_list">
+										<span class="">Non-refundable</span>
+										<br>
+										<a>Read more</a>
+									</li>
+								</ul>
+							</div>
+							
+						</div>
+						<!-- Room Table col-3 -->
+						<div class="room__includeprice">
+							<!-- Room Table row-1 -->
+							<div class="room__includeprice_row1">
+								<ul class="room__includeprice_list">
+									<li class="room__includeprice_item">
+										Free Early Check in, Subject to Availability : Checkin Time - 10:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Late check-out, Subject to Availability : Checkout Time - 15:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Room Upgrade, Subject to Availability : Name of Room - Luxury Suite Room
+									</li>
+								</ul>
+							</div>
+							<!-- Room Table row-2 -->
+							<div class="room__includeprice_row1">
+								<ul class="room__includeprice_list">
+									<li class="room__includeprice_item">
+										Free Early Check in, Subject to Availability : Checkin Time - 10:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Late check-out, Subject to Availability : Checkout Time - 15:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Room Upgrade, Subject to Availability : Name of Room - Luxury Suite Room
+									</li>
+								</ul>
+							</div>
+							<!-- Room Table row-3 -->
+							<div class="room__includeprice_row1">
+								<ul class="room__includeprice_list">
+									<li class="room__includeprice_item">
+										Free Early Check in, Subject to Availability : Checkin Time - 10:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Late check-out, Subject to Availability : Checkout Time - 15:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Room Upgrade, Subject to Availability : Name of Room - Luxury Suite Room
+									</li>
+								</ul>
+							</div>
+							<!-- Room Table row-4 -->
+							<div class="room__includeprice_row1">
+								<ul class="room__includeprice_list">
+									<li class="room__includeprice_item">
+										Free Early Check in, Subject to Availability : Checkin Time - 10:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Late check-out, Subject to Availability : Checkout Time - 15:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Room Upgrade, Subject to Availability : Name of Room - Luxury Suite Room
+									</li>
+								</ul>
+							</div>
+							<!-- Room Table row-5 -->
+							<div class="room__includeprice_row1">
+								<ul class="room__includeprice_list">
+									<li class="room__includeprice_item">
+										Free Early Check in, Subject to Availability : Checkin Time - 10:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Late check-out, Subject to Availability : Checkout Time - 15:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Room Upgrade, Subject to Availability : Name of Room - Luxury Suite Room
+									</li>
+								</ul>
+							</div>
+							<!-- Room Table row-6 -->
+							<div class="room__includeprice_row1">
+								<ul class="room__includeprice_list">
+									<li class="room__includeprice_item">
+										Free Early Check in, Subject to Availability : Checkin Time - 10:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Late check-out, Subject to Availability : Checkout Time - 15:00
+									</li>
+									<li  class="room__includeprice_item">
+										Free Room Upgrade, Subject to Availability : Name of Room - Luxury Suite Room
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- Room Table col-4 -->
+						<div class="room__price">
+							<!-- Room Table row-1 -->
+							<div class="room__price_row1">
+								<div class="room__price_row1_deal">
+									<p style="margin: 0;text-align: left;padding: 0;">Deal Applied:
+										<span>BESTBUYMMT1</span>
+										<span >. Get INR 566 OFF</span>
+									</p>
+								</div>
+								<div class="room__price_row1_amount">
+									<div class="amount">
+										<p class="bold" style="text-align:left">INR 3,475<br>
+											<span class="small_text"  style="text-align:left">Per night</span>
+										</p>
+										<p class="small_text"  style="text-align:left">
+											To Get this @
+											<span>INR 3,196 or less
+											</span>
+											<a class="">Login Now</a>
+										</p>
+									</div>
+									<div class="room__price_row1_button">
+										<a class="hotelbutton">SELECT ROOM</a>
+									</div>
+								</div>
+							</div>
+							<!-- Room Table row-2 -->
+							<div class="room__price_row1">
+								<div class="room__price_row1_deal">
+									<p style="margin: 0;text-align: left;padding: 0;">Deal Applied:
+										<span>BESTBUYMMT1</span>
+										<span >. Get INR 566 OFF</span>
+									</p>
+								</div>
+								<div class="room__price_row1_amount">
+									<div class="amount">
+										<p class="bold" style="text-align:left">INR 3,475<br>
+											<span class="small_text"  style="text-align:left">Per night</span>
+										</p>
+										<p class="small_text"  style="text-align:left">
+											To Get this @
+											<span>INR 3,196 or less
+											</span>
+											<a class="">Login Now</a>
+										</p>
+									</div>
+									<div class="room__price_row1_button">
+										<a class="hotelbutton">SELECT ROOM</a>
+									</div>
+								</div>
+							</div>
+							<!-- Room Table row-3 -->
+							<div class="room__price_row1">
+								<div class="room__price_row1_deal">
+									<p style="margin: 0;text-align: left;padding: 0;">Deal Applied:
+										<span>BESTBUYMMT1</span>
+										<span >. Get INR 566 OFF</span>
+									</p>
+								</div>
+								<div class="room__price_row1_amount">
+									<div class="amount">
+										<p class="bold" style="text-align:left">INR 3,475<br>
+											<span class="small_text"  style="text-align:left">Per night</span>
+										</p>
+										<p class="small_text"  style="text-align:left">
+											To Get this @
+											<span>INR 3,196 or less
+											</span>
+											<a class="">Login Now</a>
+										</p>
+									</div>
+									<div class="room__price_row1_button">
+										<a class="hotelbutton">SELECT ROOM</a>
+									</div>
+								</div>
+							</div>
+							<!-- Room Table row-4 -->
+							<div class="room__price_row1">
+								<div class="room__price_row1_deal">
+									<p style="margin: 0;text-align: left;padding: 0;">Deal Applied:
+										<span>BESTBUYMMT1</span>
+										<span >. Get INR 566 OFF</span>
+									</p>
+								</div>
+								<div class="room__price_row1_amount">
+									<div class="amount">
+										<p class="bold" style="text-align:left">INR 3,475<br>
+											<span class="small_text"  style="text-align:left">Per night</span>
+										</p>
+										<p class="small_text"  style="text-align:left">
+											To Get this @
+											<span>INR 3,196 or less
+											</span>
+											<a class="">Login Now</a>
+										</p>
+									</div>
+									<div class="room__price_row1_button">
+										<a class="hotelbutton">SELECT ROOM</a>
+									</div>
+								</div>
+							</div>
+							<!-- Room Table row-5 -->
+							<div class="room__price_row1">
+								<div class="room__price_row1_deal">
+									<p style="margin: 0;text-align: left;padding: 0;">Deal Applied:
+										<span>BESTBUYMMT1</span>
+										<span >. Get INR 566 OFF</span>
+									</p>
+								</div>
+								<div class="room__price_row1_amount">
+									<div class="amount">
+										<p class="bold" style="text-align:left">INR 3,475<br>
+											<span class="small_text"  style="text-align:left">Per night</span>
+										</p>
+										<p class="small_text"  style="text-align:left">
+											To Get this @
+											<span>INR 3,196 or less
+											</span>
+											<a class="">Login Now</a>
+										</p>
+									</div>
+									<div class="room__price_row1_button">
+										<a class="hotelbutton">SELECT ROOM</a>
+									</div>
+								</div>
+							</div>
+							<!-- Room Table row-6 -->
+							<div class="room__price_row1">
+								<div class="room__price_row1_deal">
+									<p style="margin: 0;text-align: left;padding: 0;">Deal Applied:
+										<span>BESTBUYMMT1</span>
+										<span >. Get INR 566 OFF</span>
+									</p>
+								</div>
+								<div class="room__price_row1_amount">
+									<div class="amount">
+										<p class="bold" style="text-align:left">INR 3,475<br>
+											<span class="small_text"  style="text-align:left">Per night</span>
+										</p>
+										<p class="small_text"  style="text-align:left">
+											To Get this @
+											<span>INR 3,196 or less
+											</span>
+											<a class="">Login Now</a>
+										</p>
+									</div>
+									<div class="room__price_row1_button">
+										<a class="hotelbutton">SELECT ROOM</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<!-- Facilites -->
+				<div  class="room__facilites" id="Facilities">
+					<h2>Facilities at Royal Orchid Beach Resort &amp; Spa</h2>
+					<ul class="room__facility_list-box">
+						<li class="room__facility_item-box">						
+								<p>Doctor on Call</p>		
+						</li>
+						<li class="room__facility_item-box">							
+								<p>Free Wi-Fi</p>						
+						</li>
+						<li class="room__facility_item-box">					
+								<p>Free Parking</p>						
+						</li>
+						<li class="room__facility_item-box">							
+								<p>Restaurant</p>							
+						</li>
+					</ul>
+					<div class="room__facility_group_wrapper">
+							<div class="room__facility_group" >
+								<p class="bold-text">Food and Drinks</p>
+								<ul class="room__facility_list">
+									<li class="room__facility_item">
+										
+										Restaurant
+									</li>
+									<li class="room__facility_item">
+										
+										Bar
+									</li>
+								</ul>
+							</div>
+							<div class="room__facility_group" >
+								<p class="bold-text">Business Center and Conferences</p>
+								<ul class="room__facility_list">
+									<li class="room__facility_item">
+										
+										Conference Room
+									</li>
+									<li class="room__facility_item">
+										
+										Banquet
+									</li>
+								</ul>
+							</div>
+							<div class="room__facility_group" >
+								<p class="bold-text">Common Area</p>
+								<ul class="room__facility_list">
+									<li class="room__facility_item">
+										
+										Lawn
+									</li>
+									<li class="room__facility_item">
+										
+										Reception
+									</li>
+								</ul>
+							</div>
+							<div class="room__facility_group" >
+								<p class="bold-text">Beauty and Spa</p>
+								<ul class="room__facility_list">
+									<li class="room__facility_item">								
+										Spa
+									</li>
+									<li class="room__facility_item">								
+										Massage
+									</li>
+								</ul>
+							</div>
+							<div class="room__facility_group" >
+								<p class="bold-text">Health and wellness</p>
+								<ul class="room__facility_list">
+									<li class="room__facility_item">								
+										Gym
+									</li>
+								</ul>
+							</div>
+							<div class="room__facility_group" >
+								<p class="bold-text">Payment Services</p>
+								<ul class="room__facility_list">
+									<li class="room__facility_item">								
+										Currency Exchange
+									</li>
+								</ul>
+							</div>
+							<div class="room__facility_group" >
+								<p class="bold-text">Safety and Security</p>
+								<ul class="room__facility_list">
+									<li class="room__facility_item">
+										Safe
+									</li>
+									<li class="room__facility_item">Security</li>
+								</ul>
+							</div>
+							<div class="room__facility_group" >
+								<p class="bold-text">Media and technology</p>
+								<ul class="room__facility_list">
+									<li class="room__facility_item">Electrical Adapters</li>
+									<li class="room__facility_item">Electrical Chargers</li>
+								</ul>
+							</div>
+					</div>
+				</div>
+				<div class="room__facility_other">
+						<p class="bold-text" >Basic Facilities</p>
+						<ul class="room__facility_list">
+							<li class="room__facility_item">								
+								Free Wi-Fi
+							</li>
+							<li class="room__facility_item">								
+									Free Parking (Free - Onsite)
+							</li>
+							<li class="room__facility_item">								
+								Room Service
+							</li>
+							<li class="room__facility_item">								
+								Power Backup
+							</li>
+							<li class="room__facility_item">								
+								Air Conditioning (Room controlled)
+							</li>
+							<li class="room__facility_item">								
+								Swimming Pool (Common Pool)
+							</li>
+							<li class="room__facility_item">								
+								Dry Cleaning Service
+							</li>
+							<li class="room__facility_item">								
+								Intercom
+							</li>
+							<li class="room__facility_item">								
+								Telephone
+							</li>
+							<li class="room__facility_item">						
+								Refrigerator
+							</li>
+							<li class="room__facility_item">								
+								Housekeeping
+							</li>
+							<li class="room__facility_item">							
+								Laundry Service (Paid)
+							</li>
+							<li class="room__facility_item">								
+								Newspaper (English)
+							</li>
+							<li class="room__facility_item">								
+								Attached Bathroom
+							</li>
+							<li class="room__facility_item">								
+								Ironing Service (Paid)
+							</li>
+						</ul>
+				</div>
+				<div class="room__facility_other">
+						<p class="bold-text">Safety and Hygiene</p>
+						<ul class="room__facility_list">
+								<li class="room__facility_item">									
+									Masks
+								</li>
+							<li class="room__facility_item">								
+								Disinfectant wipes
+							</li>
+							<li class="room__facility_item">								
+								Gloves
+							</li>
+							<li class="room__facility_item">								
+								Sanitizers
+							</li>
+							<li class="room__facility_item">								
+								Shoe covers
+							</li>
+							<li class="room__facility_item">							
+								Hair nets
+							</li>
+							<li class="room__facility_item">								
+								Face shields
+							</li>
+							<li class="room__facility_item">								
+								Thermal Screening
+							</li>
+							<li class="room__facility_item">								
+								Sanitizers Installed
+							</li>
+							<li class="room__facility_item">								
+								Disinfection
+							</li>
+							<li class="room__facility_item">								
+								Contactless room service
+							</li>
+							<li class="room__facility_item">								
+								Disposable serveware
+							</li>
+							<li class="room__facility_item">								
+								Hospital in the vicinity
+							</li>
+							<li class="room__facility_item">
+								Safety authorization certificate
+							</li>
+						</ul>
+				</div>
+					<!-- Site footer -->
+					<footer class="site-footer">
+						<div class="container">
+							<div class="row">
+								<div class="col-12">
+									<h2><p>Our trusted travel partners around the world</p></h2>
+								</div>
+							</div>
+							<hr>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-6">
+									<h6>pickyourmap</h6>
+									<p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+								</div>
+								<div class="col-md-6">
+									<h6><p>logo</p></h6>
+								</div>
+							</div>
+							<hr>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-2">
+									<h6>About</h6>
+									<p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code.</p>
+								</div>
+								<div class="col-2">
+									<h6>Categories</h6>
+									<ul class="footer-links">
+										<li><a href="#">C</a></li>
+										<li><a href="#">UI Design</a></li>
+										<li><a href="#">PHP</a></li>
+										<li><a href="#">Java</a></li>
+										<li><a href="#">Android</a></li>
+										<li><a href="#">Templates</a></li>
+									</ul>
+								</div>
+								<div class="col-2">
+									<h6>Categories</h6>
+									<ul class="footer-links">
+										<li><a href="#">C</a></li>
+										<li><a href="#">UI Design</a></li>
+										<li><a href="#">PHP</a></li>
+										<li><a href="#">Java</a></li>
+										<li><a href="#">Android</a></li>
+										<li><a href="#">Templates</a></li>
+									</ul>
+								</div>
+								<div class="col-2">
+									<h6>Categories</h6>
+									<ul class="footer-links">
+										<li><a href="#">C</a></li>
+										<li><a href="#">UI Design</a></li>
+										<li><a href="#">PHP</a></li>
+										<li><a href="#">Java</a></li>
+										<li><a href="#">Android</a></li>
+										<li><a href="#">Templates</a></li>
+									</ul>
+								</div>
+								<div class="col-2">
+									<h6>Categories</h6>
+									<ul class="footer-links">
+										<li><a href="#">C</a></li>
+										<li><a href="#">UI Design</a></li>
+										<li><a href="#">PHP</a></li>
+										<li><a href="#">Java</a></li>
+										<li><a href="#">Android</a></li>
+										<li><a href="#">Templates</a></li>
+									</ul>
+								</div>
+								
+								<div class="col-2">
+									<h6>Quick Links</h6>
+									<ul class="footer-links">
+										<li><a href="#">About Us</a></li>
+										<li><a href="#">Contact Us</a></li>
+										<li><a href="#">Contribute</a></li>
+										<li><a href="#">Privacy Policy</a></li>
+										<li><a href="#">Sitemap</a></li>
+									</ul>
+								</div>
+							</div>
+							<hr>
+						</div>
+						<div class="container">
+							<div class="row">
+								<div class="col-md-8 col-sm-6 col-xs-12">
+									<p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
+										<a href="#">FindYourMap</a>.
+									</p>
+								</div>
+								<div class="col-md-4 col-sm-6 col-xs-12">
+									<ul class="social-icons">
+										<li><a class="facebook" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+										<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+										<li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+										<li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</footer>
+				</div>
+			</body>
+		</html>
