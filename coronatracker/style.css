@@ -1,0 +1,250 @@
+body
+{
+	background-color:#03a9f4;
+	animation-name:fadein;
+	animation-delay:1.3s;
+	opacity:0;
+	animation-fill-mode: forwards;
+	animation-duration: 3s;
+}
+.img-fluid
+{
+	margin-bottom: .5rem;
+}
+nav  span
+{
+	color:black;
+	font-size:1.9rem;
+	font-weight:400;
+	font-family:'Merriweather', serif;
+}
+.status
+{
+	
+	font-size:1.5rem;
+	font-style:italic;
+	font-weight:1000;
+	text-align:center;
+	width: 80%;
+	margin:auto;
+	color: white;
+	animation-name:slide;
+	animation-duration: 2s;
+		
+}
+
+/* top heading */
+#status-p
+{
+	color:white;
+}
+/* style the div in status */
+.status-div
+{
+	
+	height:130px;
+	width:200px;
+	margin:1rem;
+	color: black;
+	background-color:white;
+	font-size:1.3rem; 
+	font-weight:800;
+	padding:1rem;
+	border-radius: 10px;
+	box-shadow: 9px 11px black;
+	
+
+}
+.status-div:hover
+{
+	transform: scale(1.1);
+}
+/* styling the border */
+.status-div:nth-child(1)
+{
+	border-bottom: 1rem solid blue;
+}
+.status-div:nth-child(2)
+{
+	border-bottom: 1rem solid  orange;
+}
+.status-div:nth-child(3)
+{
+	border-bottom: 1rem solid #00ff00;
+}
+.status-div:nth-child(4)
+{
+	border-bottom: 1rem solid red;
+}
+
+/* style title */
+#title,
+#state-name
+{
+	text-align:center;
+	margin-top:1rem;
+	color:white;
+	font-size:1.5rem;
+	font-weight:500;
+}
+.error_container
+{
+	display: none;
+	font-size: 2rem;
+	color: white;
+	margin: auto;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+#search
+{
+	text-align:center;
+	margin-top:1rem;
+	font-size:1rem;
+	
+}
+#search input[type='text'],
+#search input[type='date']
+
+{
+	border-bottom: .1rem solid white;
+	border-top: 0;
+	border-left:0;
+	border-right: 0;
+	background-color:#03a9f4;
+	outline: none !important;
+	color:black;
+	margin-left: 2rem;
+	font-weight:600;
+	width: 200px;
+	margin: 15px;
+
+}
+#search input[type="button"]
+{
+	 height: 35px;
+    font-weight: 600;
+    background: orange;
+    width: 137px;
+    border: 0;
+    outline: 0;
+    border-radius: 10px;
+    margin: 20px;
+}
+#search input::placeholder
+{
+	color:black;
+
+}
+
+.hide
+{
+	display: none;
+}
+.show
+{
+	display:"";
+}
+.state-container ,
+.country-container,
+.district-container
+{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	animation-name:fadein;
+	animation-delay:3s;
+}
+.state-div,
+.country-div,
+.district-div
+{
+	height:auto;
+	width:300px;
+	margin: 2rem;
+	color: black;
+	background-color:white;
+	font-size:1rem; 
+	font-weight:800;
+	padding:1rem;
+	border-radius: 10px;
+	box-shadow: 9px 9px black;
+	
+}
+.state-div:hover,
+.country-div:hover,
+.district-div:hover
+{
+	transform: scale(1.1);
+}
+.state-name,
+.country-name,
+.district-name
+{
+	font-size:1.3rem;
+	font-style: bold;
+	text-align: center;
+	color:blue;
+	cursor: pointer;
+}
+.state_name
+{
+	text-decoration: underline;
+}
+.state-data,
+.country-data,
+.district-data
+{
+	padding: 1rem;
+}
+@keyframes fadein {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 0.25;
+	}
+	50% {
+		opacity: 0.50;
+	}
+	75% {
+		opacity: 0.95;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes slide {
+	0% {
+		transform: translateX(-10000px);
+	}
+	100%{
+		transform: translateX(0);
+	}
+}
+/* fro mobile device */
+@media  (max-width: 575.98px) {
+
+.img-fluid
+{
+	margin-bottom: 0rem;
+}
+nav  span
+{
+	color:black;
+	font-size:.9rem;
+	font-weight:900;
+	font-family:'Merriweather', serif;
+}
+nav a img
+{
+	width:30px;
+	height: 30px;
+}
+.status-list li
+{
+	margin-right: auto;	 
+}
+}

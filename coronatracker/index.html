@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    
+	<title>CoronaTracker</title>
+</head>
+<body>
+	<!-- ########################## Navigation ########################-->
+	<nav class="navbar navbar-expand-md border sticky-top navbar-light  " style="background-color:white;" >
+        <!-- nav brand -->
+        <a class="navbar-brand " href="#">
+          <img src="image/covid.png" width="30px" height="30px" class="img-fluid" ><span>CoronaTracker</span></a>
+        <!-- nav bread icon -->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#target" type="button">
+              <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- navgation menu-->
+        <div class="collapse navbar-collapse  justify-content-end " id="target" style="font-weight:600">
+              <ul class="navbar-nav ">
+                <li class="nav-item nav-link "> <a href="index"> Home</a></li>
+                 <li class="nav-item nav-link"><a href="country">Country</a></li>
+                  <li class="nav-item nav-link"><a href="https://github.com/programmerraja">About Me</a></li>
+              </ul>
+        </div>
+    </nav>
+	<!-- ########################## status live update  ########################-->
+	<div class="status mt-2 ">
+		<p id="status-p">Total</p>
+		<div class="d-flex justify-content-around  flex-wrap ">
+			<div class="status-div">Active<img src="image/reddot.png" height="20px" width="20px"><br><span id="active-no"></span></div>
+			<div class="status-div">Confirmed<img src="image/confirm.png" height="20px" width="20px"><br><span id="confirmed-no"></span><br></div>
+			<div class="status-div">Recovered<img src="image/recover.png" height="20px" width="20px"><br><span id="recovered-no"></span><br></div>
+			<div class="status-div">Deaths<img src="image/death.png" height="20px" width="20px"><br><span id="deaths-no"></span><br></div>
+		</div>
+	</div>
+	
+	<!-- ########################## search ########################-->
+	<h2 id="title">All Over India</h2>
+	<div id="search">
+				<input type="text" name="search-input" id="search_input" onkeyup="searchState()" placeholder="SEARCH HERE..."> 	
+        <input type="date" name="date" id="search_date" placeholder="Search by date" value="today">
+        <input type="button" name="Search" value="Search"  id="search_button">
+	</div>
+  <div class="error_container">
+    <p class="error-msg" style="margin:0;text-align: center;"></p>
+  </div>
+	<!-- ########################## Live Table ########################-->
+	 <div class="state-container d-flex flex-wrap">
+	 </div>
+</body>
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="script.js"></script>
+    
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+     --><script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    
+</html>

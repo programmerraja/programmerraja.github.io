@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="flights.css">  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title> Page Title </title>
+</head>
+
+<body>
+       <!--banner start-->
+  <div class="hero-image">
+    <nav class="navbar navbar-expand-md  fixed-top navbar-light bg">
+        <!-- nav brand -->
+           <a class="navbar-button show" type="button" >
+            <span class="navbar-toggler-icon"></span>
+           </a>
+        <div class="container">
+            <a href="index.html" class="navbar-brand text-uppercase font-weight-bold">Pick Your Maps</a>
+            <div class="start ">
+                <div class="row">	
+                    <div class="col-md-8">			
+                           <h6>book your flights</h6>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="strt btn-outline-info" href="#" role="button">start</a> 
+                    </div>  
+                </div>
+            </div>
+            
+            
+            
+
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="index.html" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">About</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Gallery</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-uppercase font-weight-bold">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    <!-- </div>-->
+    </nav>
+       <!-- navgation end -->
+           <!-- side nav -->
+    <div class="container nav__side__container" >
+        <div class="nav__side">
+            <ul class="nav__item">
+                <li class="nav__list">
+                    <a href="#" class="side__nav-link">
+                         <span class="icon"><i class="fa fa-id-card" aria-hidden="true"></i></span> 
+                         <span class="text"> A</span>
+                      </a>
+                </li>
+                <li class="nav__list">
+                    <a href="#"  class="side__nav-link">
+                          <span class="icon"><i class="fa fa-id-card" aria-hidden="true"></i></span> 
+                         <span class="text">B</span></a>
+                    </a> 
+                </li>
+                
+                <li class="line"></li>
+                
+            	<li class="nav__list">
+                    <a href="flights.html"  class="side__nav-link active
+                         <span class="icon"><i class="fa fa-plane" aria-hidden="true"></i></span> 
+                        <span class="text">flights</span></a>
+                   </a>            	
+               </li>
+                
+                <li class="nav__list"> 
+                      <a href="#"  class="side__nav-link">
+                          <span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span> 
+                         <span class="text">Hotels</span></a>
+                    </a> 
+                </li>
+                <li class="nav__list">
+                     <a href="#"  class="side__nav-link">
+                          <span class="icon"><i class="fa fa-train" aria-hidden="true"></i></span> 
+                         <span class="text">Train</span></a>
+                    </a> 
+                </li>
+                <li class="nav__list">
+                      <a href="#"  class="side__nav-link">
+                          <span class="icon"><i class="fa fa-bus" aria-hidden="true"></i></span> 
+                         <span class="text">Bus</span></a>
+                    </a> 
+                </li>
+                <li class="nav__list">
+                     <a href="#"  class="side__nav-link">
+                          <span class="icon"><i class="fa fa-taxi" aria-hidden="true"></i></span> 
+                         <span class="text">cabs</span></a>
+                    </a>            	
+                </li>
+                <li class="line"></li>
+       
+                <li class="nav__list">
+                     <a href="#"  class="side__nav-link">
+                          <span class="icon"><i class="fa fa-id-card" aria-hidden="true"></i></span> 
+                         <span class="text">C</span></a>
+                   </a> 
+                </li>
+                <li class="nav__list">
+                     <a href="#"  class="side__nav-link">
+                          <span class="icon"><i class="fa fa-id-card" aria-hidden="true"></i></span> 
+                         <span class="text">D</span></a>
+                   </a> 
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--sidenav end-->
+    <div class="trip__container">
+        <div class="trip-types">  
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home">oneway</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu1">Round-trip</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#menu2">multi-city</a>
+                        </li>
+                        </ul> 
+            <div class="tab-content">
+                <div id="home" class="container tab-pane active"><br>
+                    <div class="flights">
+                        <div class="row form">
+                            <div class="col-md-auto p-0">
+                                <h6>From</h6>
+                                <input type="text" name="From" class="from1" placeholder="From">
+                            </div>
+                            <div class="col-md-auto p-0">
+                                <input type="button" name="swap" class="button__swap" id="1" onclick="swapFromTo(event)">                                                 
+                            </div>
+                            <div class="col-md-auto p-0">
+                                <h6>to</h6>
+                                <input type="text" name="to" class="to1">                              
+                            </div>
+                            <div class="col-md-auto p-0">
+                                <h6>departure</h6>
+                                <input type="date" name="departure">                                
+                            </div>
+                            <div class="col-md-auto p-0">
+                                <h6>return</h6>
+                                <input type="date" name="return">                                
+                            </div>
+                            <div class="col-md-auto ">
+                                    <div class="travel-select-icon"style="padding-top : 7px; margin-top: 15px;">
+                                        <select class="form-control  ">
+
+                                              <option value="default">class</option><!-- /.option-->
+
+                                              <option value="A">economy</option><!-- /.option-->
+
+                                              <option value="B">Business</option><!-- /.option-->
+                                              <option value="C">C</option><!-- /.option-->
+
+                                        </select><!-- /.select-->
+                                    </div><!-- /.travel-select-icon -->
+                                <!--/.single-tab-select-box-->
+                            </div>
+                            <div class="col-md-auto p-0 " style="padding-top : 7px;padding-left: 15px; margin-top: 20px;">
+                                <a type="button" class="btn btn-outline-info"style="width:110px;" > search</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu1" class="container tab-pane fade"><br>
+                    <div class="flights">
+                        <div class="row form">
+                            <div class="col-md-auto p-0">
+                                <h6>From</h6>
+                               <input type="text" name="From" class="from2" placeholder="From">
+                            </div>
+                            <div class="col-md-auto p-0">
+                                <input type="button" name="swap" class="button__swap" id="2" onclick="swapFromTo(event)">
+                            </div>
+                            <div class="col-md-auto p-0">
+                                <h6>to</h6>
+                                <input type="text" name="to" class="to2">  
+                            </div>
+                            <div class="col-md-auto p-0">
+                                <h6>departure</h6>
+                                <input type="date" name="departure">                                
+                              </div>
+                            <div class="col-md-auto p-0">
+                                <h6>return</h6>
+                                <input type="date" name="return">                                
+                               
+                            </div>
+                            
+                      
+                            <div class="col-md-auto">
+                                    <div class="travel-select-icon"style="padding-top : 7px;margin-top: 15px;">
+                                        <select class="form-control ">
+
+                                              <option value="default">class</option><!-- /.option-->
+
+                                              <option value="A">economy</option><!-- /.option-->
+
+                                              <option value="B">Business</option><!-- /.option-->
+                                              <option value="C">C</option><!-- /.option-->
+
+                                        </select><!-- /.select-->
+                                    </div><!-- /.travel-select-icon -->
+                                <!--/.single-tab-select-box-->
+                            </div>
+                            
+                            <div class="col-md-auto p-0" style="padding-top : 7px;padding-left: 15px;margin-top: 20px;">
+                                <a type="button" class="btn btn-outline-info"style="width:110px;" > search</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="menu2" class="container tab-pane fade"><br>
+                    <div class="flights multi__city">
+                        <div class="row form">    
+                            <div class="form__container31 d-flex flex-wrap">              
+                              <div class="col-md-auto p-0 ">              
+                                  <h6>From</h6>             
+                                  <input type="text" name="From" class="from31" placeholder="From">
+                              </div>
+                              <div class="col-md-auto p-0"> 
+                                <input type="button" name="swap" class="button__swap" id="31" onclick="swapFromTo(event)">
+                              </div>       
+                              <div class="col-md-auto p-0">                        
+                                 <h6>to</h6>           
+                                  <input type="text" name="to" class="to31">
+                              </div>
+                              <div class="col-md-auto p-0">                            
+                                <h6>departure</h6>                            
+                                <input type="date" name="departure">
+                              </div>                        
+                              <div class="col-md-auto p-0">                            
+                                <h6>return</h6>                            
+                                <input type="date" name="return">                        
+                              </div>                       
+                              <div class="col-md-auto">                          
+                                <button class="button__close" type="button" onclick="removeForm(event)" id="31" disabled="true">                            
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%" style="width: 1.125rem; height: 1.125rem;" id="31">
+                                    <path d="M12 9.172l4.243-4.243a2 2 0 1 1 2.828 2.828L14.828 12l4.243 4.243a2 2 0 1 1-2.828 2.828L12 14.828l-4.243 4.243a2 2 0 1 1-2.828-2.828L9.172 12 4.929 7.757A2 2 0 1 1 7.757 4.93L12 9.172z" id="31"></path>    
+                                  </svg>                          
+                                </button>                        
+                              </div>                    
+                            </div>                  
+                        </div>
+                        <div class="row form">
+                          <div class="form__container30 d-flex flex-wrap">
+                                <div class="col-md-auto p-0 ">
+                                    <h6>From</h6>
+                                   <input type="text" name="From" class="from30" placeholder="From">                               
+                                </div>
+                                <div class="col-md-auto p-0">
+                                    <input type="button" name="swap" class="button__swap" id="30" onclick="swapFromTo(event)">
+                                    
+                                </div>
+                                <div class="col-md-auto p-0">
+                                    <h6>to</h6>
+                                    <input type="text" name="to" class="to30">  
+                                </div>
+                                <div class="col-md-auto p-0">
+                                    <h6>departure</h6>
+                                   <input type="date" name="departure">  
+                                </div>
+                                <div class="col-md-auto p-0">
+                                    <h6>return</h6>
+                                    <input type="date" name="return"> 
+                                </div>
+                                
+                                <div class="col-md-auto">
+                                  <button class="button__close" type="button"  onclick="removeForm(event)" id="30" disabled="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100%" height="100%" style="width: 1.125rem; height: 1.125rem;" id="30">
+                                      <path d="M12 9.172l4.243-4.243a2 2 0 1 1 2.828 2.828L14.828 12l4.243 4.243a2 2 0 1 1-2.828 2.828L12 14.828l-4.243 4.243a2 2 0 1 1-2.828-2.828L9.172 12 4.929 7.757A2 2 0 1 1 7.757 4.93L12 9.172z" id="30" >                            
+                                      </path>
+                                    </svg>
+                                  </button>
+                                </div>
+                          </div>
+
+                                <div class="col-md-auto">
+                                        <div class="travel-select-icon"style="padding-top : 7px;margin-top: 15px;">
+                                            <select class="form-control ">
+
+                                                  <option value="default">class</option><!-- /.option-->
+
+                                                  <option value="A">economy</option><!-- /.option-->
+
+                                                  <option value="B">Business</option><!-- /.option-->
+                                                  <option value="C">C</option><!-- /.option-->
+
+                                            </select><!-- /.select-->
+                                        </div><!-- /.travel-select-icon -->
+                                    <!--/.single-tab-select-box-->
+                                </div>
+                                
+                                <div class="col-md-auto p-0" style="padding-top : 7px;padding-left: 15px;margin-top: 20px;">
+                                    <a type="button" class="btn btn-outline-info"style="width:110px;" > search</a>
+                                </div>
+                                <div class="col-md-auto p-0" style="padding-top : 7px;padding-left: 15px;margin-top: 20px;">
+                                   <button type="button" class="btn btn-outline-info button__addflight">
+                                    <span style="line-height: 1.125rem; display: inline-block; margin-top: 0.1875rem; vertical-align: top;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" class="MulticityControls_MulticityControls__add-leg-icon__1sXTN" style="width: 1.125rem; height: 1.125rem;"><path d="M10 10V5a2 2 0 1 1 4 0v5h5a2 2 0 1 1 0 4h-5v5a2 2 0 1 1-4 0v-5H5a2 2 0 1 1 0-4h5z"></path></svg></span>&nbsp;Add another flight</button>
+                                </div>
+                          </div>
+                        </div>    
+                </div>
+
+            </div>            
+        </div>    
+</div>
+</div>
+  <!--banner end-->
+  <div class="flights-adblock">
+    <div class="row">
+       <div class="col-md-12"> 
+            <i class="Ad Banner" type="text" >ad Banner</i>
+       </div>
+    </div>
+</div>
+ 
+	
+	      	<!--Slider-1 img-->
+			<div class="container-fluid slider1-container">
+				<button1 class="button button__prev1 "type="button"><i class="fa fa-arrow-left" ></i></button1>
+				<div class="container-fluid" >
+					<div class="row">
+						<div class="col">
+					       <h2 class="Slider__title">Editor's Picks of the Week </h2>
+						</div>
+						<div class="col-md-2">
+							<a type="button" class="btn btn-outline-info" href="#" role="button">view all</a>   
+						</div>
+					</div>
+							<div class="slider1 p-2">
+						  <div class="col-9">
+						<div class="card card1" >
+							  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+							  <div><h5 class="card-title">Card title 5</h5></div>
+							<div class="card-body">
+							    
+							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							</div>
+						</div>
+
+						<div class="card card1" >
+							  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+							  <div><h5 class="card-title">Card title 5</h5></div>
+							<div class="card-body">
+							 
+							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							    
+							</div>
+						</div>
+						<div class="card card1" >
+							  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+							  <div><h5 class="card-title">Card title 5</h5></div>
+							<div class="card-body">
+							   
+							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							    
+							</div>
+						</div>
+						
+						<div class="card card1" >
+							  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+							  <div><h5 class="card-title">Card title 5</h5></div>
+							<div class="card-body">
+							   
+							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							    
+							</div>
+						</div>
+						
+						<div class="card card1" >
+							  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+							  <div><h5 class="card-title">Card title 5</h5></div>
+							<div class="card-body">
+							    
+							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							    
+							</div>
+						</div>
+						
+						<div class="card card1" >
+							  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+							  <div><h5 class="card-title">Card title 5</h5></div>
+							<div class="card-body">
+							    
+							    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							</div>
+						</div>
+			       	</div>
+		  			</div>
+				</div>
+				<button1 role="button" class="button button__next1"><i class="fa fa-arrow-right" ></i></button1>
+
+			</div>
+			<!--Slider-1 end-->
+
+	<!--Slider-2-->
+	<div class="container-fluid slider2-container">
+		<button1 type="button" class="button button__prev2"><i class="fa fa-arrow-left" ></i></button1>
+		<div class="container-fluid" >
+			<div class="row">
+				<div class="col">
+				   <h2 class="Slider__title">Editor's Picks of the Week </h2>
+				</div>
+				<div class="col-md-2">
+					<a type="button" class="btn btn-outline-info" href="#" role="button">view all</a>   
+				</div>
+			</div>
+			
+
+			  <div class="slider2 p-2">
+			   <div class="col-9">
+				<div class="card card2" >
+					  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" width="40%" alt="Card image cap">
+					  <h5 class="card-title">Card title 1</h5>
+					<div class="card-body">
+						
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			   </div>
+			   <div class="col-9">
+
+				<div class="card  card2" >
+					  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+					  <h5 class="card-title">Card title 2</h5>
+					<div class="card-body">
+					 
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						
+					</div>
+				</div>
+			   
+			</div>
+			<div class="col-9">
+				<div class="card  card2 " >
+					  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+					  <h5 class="card-title">Card title 3</h5>
+					<div class="card-body">
+					   
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-9">
+				<div class="card  card2" >
+					  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+					   <h5 class="card-title">Card title 4</h5>
+					<div class="card-body">
+					   
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						
+					</div>
+				</div>
+			   </div>
+			   <div class="col-9">
+				<div class="card  card2 " >
+					  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+					  <h5 class="card-title">Card title 5</h5>
+					<div class="card-body">
+						
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+						
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-9">
+				<div class="card  card2 " >
+					  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+					  <h5 class="card-title">Card title 6</h5>
+					<div class="card-body">
+						
+						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					</div>
+				</div>
+			   </div>
+			   </div>
+		   
+		</div>
+		<button1 type="button" class="button button__next2"><i class="fa fa-arrow-right" ></i></button1>
+
+	</div>
+	</div>
+<!--Slider-2 end-->
+
+<!--Slider-3-->
+<div class="container-fluid slider2-container">
+	<button1 type="button" class="button button__prev3"><i class="fa fa-arrow-left" ></i></button1>
+	<div class="container-fluid" >
+		
+		<div class="row">
+						<div class="col">
+					       <h2 class="Slider__title">Editor's Picks of the Week </h2>
+						</div>
+						<div class="col-md-2">
+							<a type="button" class="btn btn-outline-info" href="#" role="button">view all</a>   
+						</div>
+					</div>
+		
+
+		  <div class="slider3 p-2">
+		   <div class="col-9">
+			<div class="card card3" >
+				  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" width="40%" alt="Card image cap">
+				  <h5 class="card-title">Card title 1</h5>
+				<div class="card-body">
+					
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+		   </div>
+		   <div class="col-9">
+
+			<div class="card  card3" >
+				  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+				  <h5 class="card-title">Card title 2</h5>
+				<div class="card-body">
+				 
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					
+				</div>
+			</div>
+		   
+		</div>
+		<div class="col-9">
+			<div class="card  card3 " >
+				  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+				  <h5 class="card-title">Card title 3</h5>
+				<div class="card-body">
+				   
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-9">
+			<div class="card  card3" >
+				  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+				   <h5 class="card-title">Card title 4</h5>
+				<div class="card-body">
+				   
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					
+				</div>
+			</div>
+		   </div>
+		   <div class="col-9">
+			<div class="card  card3 " >
+				  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+				  <h5 class="card-title">Card title 5</h5>
+				<div class="card-body">
+					
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-9">
+			<div class="card  card3 " >
+				  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+				  <h5 class="card-title">Card title 6</h5>
+				<div class="card-body">
+					
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+		   </div>
+		   </div>
+	   
+	</div>
+	<button1 type="button" class="button button__next3"><i class="fa fa-arrow-right" ></i></button1>
+
+</div>
+</div>
+<!--Slider-3 end-->
+<!--Slider-4-->
+<div class="container-fluid slider4-container">
+	<button1 type="button" class="button button__prev4"><i class="fa fa-arrow-left" ></i></button1>
+	<div class="container-fluid" >
+		
+		<div class="row">
+						<div class="col">
+					       <h2 class="Slider__title">Editor's Picks of the Week </h2>
+						</div>
+						<div class="col-md-2">
+							<a type="button" class="btn btn-outline-info" href="#" role="button">view all</a>   
+						</div>
+					</div>
+		
+
+		  <div class="slider4 p-2">
+		   <div class="col-9">
+			<div class="card card4" >
+				  <img class="card-img-top" src="https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9&s=50827fd8476bfdffe6e04bc9ae0b8c02" width="40%" alt="Card image cap">
+				  <h5 class="card-title">Card title 1</h5>
+				<div class="card-body">
+					
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+		   </div>
+		   <div class="col-9">
+
+			<div class="card  card4" >
+				  <img class="card-img-top" src="https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=8aae34cf35df31a592f0bef16e6342ef" alt="Card image cap">
+				  <h5 class="card-title">Card title 2</h5>
+				<div class="card-body">
+				 
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					
+				</div>
+			</div>
+		   
+		</div>
+		<div class="col-9">
+			<div class="card  card4 " >
+				  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+				  <h5 class="card-title">Card title 3</h5>
+				<div class="card-body">
+				   
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-9">
+			<div class="card  card4" >
+				  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+				   <h5 class="card-title">Card title 4</h5>
+				<div class="card-body">
+				   
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					
+				</div>
+			</div>
+		   </div>
+		   <div class="col-9">
+			<div class="card  card4 " >
+				  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+				  <h5 class="card-title">Card title 5</h5>
+				<div class="card-body">
+					
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-9">
+			<div class="card  card4 " >
+				  <img class="card-img-top" src="https://source.unsplash.com/random/800x600" alt="Card image cap">
+				  <h5 class="card-title">Card title 6</h5>
+				<div class="card-body">
+					
+					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+				</div>
+			</div>
+		   </div>
+		   </div>
+	   
+	</div>
+	<button1 type="button" class="button button__next4"><i class="fa fa-arrow-right" ></i></button1>
+
+</div>
+</div>
+<!--Slider-4 end-->
+
+
+	          
+
+    <!-- Site footer --> 
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+				<h2><p>Our trusted travel partners around the world</p></h2>
+				</div>
+
+			</div>
+			<hr>
+		  </div>
+		  <div class="container">
+			<div class="row">
+			  <div class="col-6">
+				<h6>pickyourmap</h6>
+				<p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+			  </div>
+	
+			  <div class="col-md-6">
+
+				<h6><p>logo</p></h6>
+				  
+				
+			  </div>
+			
+			</div>
+			<hr>
+		  </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-2">
+              <h6>About</h6>
+              <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code.</p>
+            </div>
+  
+            <div class="col-2">
+              <h6>Categories</h6>
+              <ul class="footer-links">
+                <li><a href="#">C</a></li>
+                <li><a href="#">UI Design</a></li>
+                <li><a href="#">PHP</a></li>
+                <li><a href="#">Java</a></li>
+                <li><a href="#">Android</a></li>
+                <li><a href="#">Templates</a></li>
+              </ul>
+            </div>
+            <div class="col-2">
+                <h6>Categories</h6>
+                <ul class="footer-links">
+                  <li><a href="#">C</a></li>
+                  <li><a href="#">UI Design</a></li>
+                  <li><a href="#">PHP</a></li>
+                  <li><a href="#">Java</a></li>
+                  <li><a href="#">Android</a></li>
+                  <li><a href="#">Templates</a></li>
+                </ul>
+              </div>
+              <div class="col-2">
+                <h6>Categories</h6>
+                <ul class="footer-links">
+                  <li><a href="#">C</a></li>
+                  <li><a href="#">UI Design</a></li>
+                  <li><a href="#">PHP</a></li>
+                  <li><a href="#">Java</a></li>
+                  <li><a href="#">Android</a></li>
+                  <li><a href="#">Templates</a></li>
+                </ul>
+              </div>
+              <div class="col-2">
+                <h6>Categories</h6>
+                <ul class="footer-links">
+                  <li><a href="#">C</a></li>
+                  <li><a href="#">UI Design</a></li>
+                  <li><a href="#">PHP</a></li>
+                  <li><a href="#">Java</a></li>
+                  <li><a href="#">Android</a></li>
+                  <li><a href="#">Templates</a></li>
+                </ul>
+              </div>
+  
+            <div class="col-2">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Contribute</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Sitemap</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by 
+           <a href="#">FindYourMap</a>.
+              </p>
+            </div>
+  
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li><a class="facebook" href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+              </ul>
+            </div>
+          </div>
+        </div>
+  </footer>
+ 
+
+
+
+    <script src="navbar.js"></script>
+</body>
+</html>
