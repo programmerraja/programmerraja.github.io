@@ -22,6 +22,9 @@ function getAllData(argument)
 					let trecovered =state_data["trecovered"];
 					let tdeaths=state_data["tdeaths"];
 
+					console.log(tactive,tconfirmed,trecovered,state_data)
+
+
 					let diff_confirm=state_data["diff_confirm"];
 					let diff_recovered=state_data["diff_recovered"];
 					let diff_deaths=state_data["diff_deaths"];
@@ -140,7 +143,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 			let up_img_src="image/upimg.png";
 			let down_img_src="image/downimg.png";
 			let upgreen_img_src="image/upgreenimg.png"
-
+			let confirm_pic,active_element,recovered_pic,deaths_pic;
 			//img 
 			let increases="<br><img src="+up_img_src+" height='12px' width='12px'><span style='font-size:.7rem;'>"
 			let decreases="<br><img src="+down_img_src+" height='12px' width='12px'><span style='font-size:.7rem;'>"
@@ -151,6 +154,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 				var diff_confirm=prev_data_array[0]
 				var diff_recovered=prev_data_array[1]
 				var diff_deaths=prev_data_array[2]
+				let confirm_pic,active_element;
 				
 				//checking for diff and adding corresponding image for it 
 			    if(diff_confirm>0)
@@ -247,11 +251,11 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 			    //checking if active persent or not
 			    if(active)
 			    {
-					var active_element= "<div class='active-state'>Active<br><span id='active-no'>"+active+"</span></div>"
+					 active_element= "<div class='active-state'>Active<br><span id='active-no'>"+active+"</span></div>"
 
 			    }
 			    else{
-			    	var active_element="<div></div>";
+			    	 active_element="<div></div>";
 			    }
 			    //retriving state value 
 			    let district_name=data_array[4]?data_array[4]:"unknown state";
@@ -262,7 +266,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 			  	
 				let district_html="<div class='district-div "+class_name+"'>								\
 						  			<p class='district-name'>"+district_name+"<br>"+date+"</p>					\
-						  			<div class='district-data d-flex flex-wrap justify-content-between' >	\
+						  			<div class='district-data' >	\
 						  				"+active_element+
 						  				"<div class='confirmed-district'>Confirmed<br><span id='active-no'>"+confirm_pic+"</span></div>\
 						  				<div class='recovered-district'>Recovered<br><span id='active-no'>"+recovered_pic+"</span></div>\
@@ -307,6 +311,8 @@ function search()
 function getSpecificData(date)
 {
 	$(".district-container").empty();
+	document.querySelector(".district-container").style.display="flex";
+	document.querySelector(".error_container").style.display="none";
 	let link="https://api.covid19india.org/v3/data-"+date+".json";
 	$.getJSON(link,function(datas){
 		datas=datas[state_code];
@@ -380,18 +386,17 @@ function getSpecificData(date)
 				addDataToTable(data_array,prev_data_array,0,1);
 			}
 			
-		});
+		}).catch(handleError);
 	//call search func if user typed something
 	searchDistrict();
 
 }
 function handleError()
 {
-	$(".error_container").css({"display":"flex;"});
-	$(".error-msg").text("Sorry for inconvenience try again later");
+	document.querySelector(".district-container").style.display="none";
+	document.querySelector(".error_container").style.display="flex";
 }
 search();
 getAllData();
-$("#date_search").val(new Date().toDateInputValue());
 
 

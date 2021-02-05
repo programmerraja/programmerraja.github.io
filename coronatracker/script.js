@@ -53,7 +53,7 @@ function getAllData() {
 			let prev_confirm=data["cases_time_series"][prev_index-1]["totalconfirmed"];
 			let prev_recoverd=data["cases_time_series"][prev_index-1]["totalrecovered"];
 			let prev_deaths=data["cases_time_series"][prev_index-1]["totaldeceased"];
-
+			console.log(data)
 			//iterating only statewise object
 			$.each(data["statewise"],function(index,data){
 				//storing value for calculation
@@ -65,7 +65,7 @@ function getAllData() {
 				//adding the today  status of covid 
 				if(data["state"]==="Total")
 				{
-					//call function wit isstatus =1 
+					//call function with isstatus =1 
 				 	addDataToTable([date,active,confirmed,recovered,deaths],[prev_confirm,prev_recoverd,prev_deaths],1);	
 				}
 				//pushing the state details to table 
@@ -178,7 +178,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 				let up_img_src="image/upimg.png";
 				let down_img_src="image/downimg.png";
 				let upgreen_img_src="image/upgreenimg.png"
-	
+				let confirm_pic,active_element,recovered_pic,deaths_pic;
 
 				let increases="<br><img src="+up_img_src+" height='12px' width='12px'><span style='font-size:.7rem;'>"
 
@@ -250,11 +250,11 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 				    //checking if active persent or not
 				    if(active)
 				    {
-						var active_element= "<div class='active-state'>Active<br><span id='active-no'>"+active+"</span></div>"
+						 active_element= "<div class='active-state'>Active<br><span id='active-no'>"+active+"</span></div>"
 
 				    }
 				    else{
-				    	var active_element="<div></div>";
+				    	 active_element="<div></div>";
 				    }
 				    //retriving state value 
 				    let state_name=data_array[5]?data_array[5]:"unknown state";
@@ -352,82 +352,87 @@ function search()
 function getSpecificData(date)
 {
 	$(".state-container").empty();
+	document.querySelector(".state-container").style.display="flex";
+	document.querySelector(".error_container").style.display="none";
 	let link="https://api.covid19india.org/v3/data-"+date+".json";
 	$.getJSON(link,function(datas){
+		console.log(datas)
 			for(data in datas){
-
+				console.log(datas[data])
 				let data_array=[];
 				let prev_data_array=[];
 				data_array.push(date);
-				if(data["delta"])
+				if(datas[data]["delta"])
 				{
-					if(data["delta"]["confirmed"]===undefined)
+					if(datas[data]["delta"]["confirmed"]===undefined)
 					{			    
 				     	prev_data_array.push(0)
 					}
 					else
 					{
-						prev_data_array.push(data["delta"]["confirmed"])
+						prev_data_array.push(datas[data]["delta"]["confirmed"])
 					}
-				    if(data["delta"]["recovered"]===undefined)
+				    if(datas[data]["delta"]["recovered"]===undefined)
 				    {
 					    prev_data_array.push(0)
 					}
 					else
 					{
-						prev_data_array.push(data["delta"]["recovered"])
+						prev_data_array.push(datas[data]["delta"]["recovered"])
 					}			    
 				    //if none one died pushing zero 
-					if(data["delta"]["deceased"]===undefined)
+					if(datas[data]["delta"]["deceased"]===undefined)
 				    {
 					    prev_data_array.push(0)
 					}
 					else
 					{
-							prev_data_array.push(data["delta"]["deceased"])
+							prev_data_array.push(datas[data]["delta"]["deceased"])
 					}
 				}
-				if(data["total"])
+				if(datas[data]["total"])
 				{
-					if(data["total"]["confirmed"]===undefined)
+					if(datas[data]["total"]["confirmed"]===undefined)
 					{			    
 				     	data_array.push(0)
 					}
 					else
 					{
-						data_array.push(data["total"]["confirmed"])
+						data_array.push(datas[data]["total"]["confirmed"])
 					}
-				    if(data["total"]["recovered"]===undefined)
+				    if(datas[data]["total"]["recovered"]===undefined)
 				    {
 					    data_array.push(0)
 					}
 					else
 					{
-						data_array.push(data["total"]["recovered"])
+						data_array.push(datas[data]["total"]["recovered"])
 					}			    
 				    //if none one died pushing zero 
-					if(data["total"]["deceased"]===undefined)
+					if(datas[data]["total"]["deceased"]===undefined)
 				    {
 					    data_array.push(0)
 					}
 					else
 					{
-						data_array.push(data["total"]["deceased"])
+						data_array.push(datas[data]["total"]["deceased"])
 					}
 				}
 				//storing the coressponding sates name
 				data_array[5]=state_codes[data]?state_codes[data]:"state code is "+data;
+				
 				addDataToTable(data_array,prev_data_array,0,1);
 			}
 			//calling the search state function to filter if user entered
 			searchState();
-		});
+		}).catch(handleError);
 
 }
 function handleError()
 {
-	$(".error_container").css({"display":"flex;"});
-	$(".error-msg").text("Sorry for inconvenience try again later");
+	document.querySelector(".state-container").style.display="none";
+	document.querySelector(".error_container").style.display="flex";
+	console.log(document.querySelector(".error_container").style)
 }
 search();
 getAllData();

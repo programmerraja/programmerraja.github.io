@@ -116,7 +116,7 @@ function getCountryStatus()
 					let country_html="<div class='country-div "+class_name+" '>										\
 						  			<p class='country-name'>"+country_name+"</p>									\
 						  			<img src="+img_flag_src+" alt='flag'>													\
-						  			<div class='country-data d-flex flex-wrap justify-content-between' >			\
+						  			<div class='country-data' >			\
 						  				<div class='active-country'>Active<br><span id='active-no'>"+active+"</span></div>\
 						  				<div class='confirmed-country'>Confirmed<br><span id='active-no'>"+confirmed+"</span></div>\
 						  				<div class='recovered-country'>Recovered<br><span id='active-no'>"+recovered+"</span></div>\
