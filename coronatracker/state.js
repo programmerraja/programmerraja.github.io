@@ -1,6 +1,7 @@
 var district_name_array=[];
 var state_code;
-function getAllData(argument)
+const API_CLOSED_DATE="2021-02-01";
+function getAllData(isspecific=0)
  	{
  			let Districtlink="https://api.covid19india.org/state_district_wise.json"
  			//getting district data 
@@ -22,29 +23,30 @@ function getAllData(argument)
 					let trecovered =state_data["trecovered"];
 					let tdeaths=state_data["tdeaths"];
 
-					console.log(tactive,tconfirmed,trecovered,state_data)
-
 
 					let diff_confirm=state_data["diff_confirm"];
 					let diff_recovered=state_data["diff_recovered"];
 					let diff_deaths=state_data["diff_deaths"];
-
-					//call func to add to it status by passing args 1 at last
-					addDataToTable([tactive,tconfirmed,trecovered,tdeaths],[diff_confirm,diff_recovered,diff_deaths],1)
 					
-					//iterating only district  object
-					for(let i=3;i<districts.length;i++)
-					{
-						let district=districts[i];
-						let active=data[state_name]["districtData"][districts[i]]["active"]
-						let confirmed=data[state_name]["districtData"][districts[i]]["confirmed"]
-						let recovered=data[state_name]["districtData"][districts[i]]["recovered"]
-						let deaths=data[state_name]["districtData"][districts[i]]["deceased"]
-						//call func to add data to table 
-						getPrevDayData([active,confirmed,recovered,deaths,district])
+						//call func to add to it status by passing args 1 at last
+						addDataToTable([tactive,tconfirmed,trecovered,tdeaths],[diff_confirm,diff_recovered,diff_deaths],1)
+						//if it is specific not add the new data 
+						if(!isspecific)
+						{
+						//iterating only district  object
+						for(let i=3;i<districts.length;i++)
+						{
+							let district=districts[i];
+							let active=data[state_name]["districtData"][districts[i]]["active"]
+							let confirmed=data[state_name]["districtData"][districts[i]]["confirmed"]
+							let recovered=data[state_name]["districtData"][districts[i]]["recovered"]
+							let deaths=data[state_name]["districtData"][districts[i]]["deceased"]
+							//call func to add data to table 
+							getPrevDayData([active,confirmed,recovered,deaths,district])
+						}
+						//append state name 
+						$("#state-name").text(state_name);
 					}
-					//append state name 
-					$("#state-name").text(state_name);
 				}
 				else
 				{
@@ -162,7 +164,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 			    	$("#confirmed-no").append(confirmed+increases+diff_confirm+"</span>");
 			    }
 			    //check if is negative to avoid adding img for zero 
-			    else if (diff_confirm<0)
+			    else if (diff_confirm<=0)
 			    {
 			    	$("#confirmed-no").append(confirmed+decreases+Math.abs(diff_confirm)+"</span>");
 			    }
@@ -170,7 +172,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 			    {
 			    	$("#deaths-no").append(deaths+increases+diff_deaths+"</span>");
 			    }
-			    else if(diff_deaths<0)
+			    else if(diff_deaths<=0)
 			    {
 			    	$("#deaths-no").append(deaths+decreases+Math.abs(diff_deaths)+"</span>");
 			    }
@@ -180,7 +182,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 			    	let increases="<br><img src="+upgreen_img_src+" height='12px' width='12px'><span style='font-size:.7rem;'>"
 			    	$("#recovered-no").append(recovered+increases+diff_recovered+"</span>");
 			    }
-			    else if (diff_recovered<0)
+			    else if (diff_recovered<=0)
 			    {
 			    	$("#recovered-no").append(recovered+decreases+Math.abs(diff_recovered)+"</span>");
 			    }
@@ -214,7 +216,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 				{
 					confirm_pic=confirmed+increases+diff_confirm;
 				}
-			    else if(diff_confirm<0)
+			    else if(diff_confirm<=0)
 			    {
 			    	confirm_pic=confirmed+decreases+Math.abs(diff_confirm);
 			    }
@@ -226,7 +228,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 			    {
 			    	deaths_pic=deaths+ increases+Math.abs(diff_deaths);
 			    }
-			    else if(diff_deaths<0)
+			    else if(diff_deaths<=0)
 			    {	
 			    	deaths_pic=deaths+decreases+Math.abs(diff_deaths);
 			    }
@@ -240,7 +242,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 			    	let increases="<img src="+upgreen_img_src+" height='12px' width='12px'><span style='font-size:.5rem;'>"
 			    	recovered_pic=recovered+ "<br>"+increases+diff_recovered;
 			    }
-			    else if(diff_recovered<0)
+			    else if(diff_recovered<=0)
 			    {
 			    	recovered_pic=recovered+"<br>"+decreases+Math.abs(diff_recovered);	
 			    }
@@ -301,22 +303,30 @@ function search()
 
 	search_button.addEventListener("click",function(){
 		let date=$("#search_date").val();		
-		if(date)
+		if(new Date(date)<new Date(API_CLOSED_DATE))
 		{
 			getSpecificData(date);
+		}
+		else
+		{
+			handleError();
 		}
 	});
 }
 
-function getSpecificData(date)
+async function getSpecificData(date)
 {
+	//we calling getAll data to get the state code  need to wait until it finding the state code
+    await getAllData(1);
 	$(".district-container").empty();
 	document.querySelector(".district-container").style.display="flex";
 	document.querySelector(".error_container").style.display="none";
 	let link="https://api.covid19india.org/v3/data-"+date+".json";
 	$.getJSON(link,function(datas){
 		datas=datas[state_code];
-		 datas=datas["districts"];
+		console.log(datas)
+
+		datas=datas["districts"];
 		for(data in datas){
 				var data_array=[];
 				var prev_data_array=[];
@@ -397,6 +407,15 @@ function handleError()
 	document.querySelector(".error_container").style.display="flex";
 }
 search();
-getAllData();
+//added this at api closed on feb 6 2:47
+if(new Date()<new Date(API_CLOSED_DATE))
+{
+	getAllData();
+}
+else
+{
+	handleError();
+}
 
-
+//for only adding status
+getAllData(1);

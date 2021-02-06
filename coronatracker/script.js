@@ -1,7 +1,9 @@
 //global var to store the state name 
 var state_name_array=[];
 
-var state_codes={
+//change to 1 if user search by specific data because if user search by specific date it dont has active element
+var no_active=0;
+const STATE_CODES={
 				AN: "Andaman and Nicobar Islands",
 				AP: "Andhra Pradesh",
 				AR: "Arunachal Pradesh",
@@ -40,7 +42,9 @@ var state_codes={
 				UT: "Uttarakhand",
 				WB: "West Bengal",
 };
-function getAllData() {
+
+const API_CLOSED_DATE="2021-02-01";
+function getAllData(isstatus=0) {
 	/*
 		getting data from api which has  "cases_time_series"  "statewise" and "tested" details we only need statewise details
 	*/
@@ -53,7 +57,7 @@ function getAllData() {
 			let prev_confirm=data["cases_time_series"][prev_index-1]["totalconfirmed"];
 			let prev_recoverd=data["cases_time_series"][prev_index-1]["totalrecovered"];
 			let prev_deaths=data["cases_time_series"][prev_index-1]["totaldeceased"];
-			console.log(data)
+			
 			//iterating only statewise object
 			$.each(data["statewise"],function(index,data){
 				//storing value for calculation
@@ -69,7 +73,7 @@ function getAllData() {
 				 	addDataToTable([date,active,confirmed,recovered,deaths],[prev_confirm,prev_recoverd,prev_deaths],1);	
 				}
 				//pushing the state details to table 
-				else
+				else if(!isstatus)
 				{
 					//to change date fromat 
 					date=date.split("/").reverse().join("-");
@@ -174,6 +178,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 					var diff_deaths=prev_deaths;
 					var diff_recovered	=prev_recoverd;
 				}
+				console.log(diff_confirm,diff_deaths,diff_recovered,deaths)
 				//  img src 
 				let up_img_src="image/upimg.png";
 				let down_img_src="image/downimg.png";
@@ -192,7 +197,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 				    	$("#confirmed-no").append(confirmed+increases+diff_confirm+"</span>");
 				    }
 				    //check if is negative to avoid adding img for zero 
-				    else if (diff_confirm<0)
+				    else if (diff_confirm<=0)
 				    {
 
 				    	$("#confirmed-no").append(confirmed+decreases+Math.abs(diff_confirm)+"</span>");
@@ -201,7 +206,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 				    {
 				    	$("#deaths-no").append(deaths+increases+diff_deaths+"</span>");
 				    }
-				    else if(diff_deaths<0)
+				    else if(diff_deaths<=0)
 				    {
 				    	$("#deaths-no").append(deaths+decreases+Math.abs(diff_deaths)+"</span>");
 				    }
@@ -211,7 +216,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 				    	let increases="<br><img src="+upgreen_img_src+" height='12px' width='12px'><span style='font-size:.7rem;'>"
 				    	$("#recovered-no").append(recovered+increases+diff_recovered+"</span>");
 				    }
-				    else if (diff_recovered<0)
+				    else if (diff_recovered<=0)
 				    {
 				    	$("#recovered-no").append(recovered+decreases+Math.abs(diff_recovered)+"</span>");
 				    }
@@ -225,16 +230,18 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 					if(diff_confirm>0)
 					{
 						confirm_pic=confirmed+increases+diff_confirm;
+						
 					}
-				    else if(diff_confirm<0)
+				    else if(diff_confirm<=0)
 				    {
 				    	confirm_pic=confirmed+decreases+Math.abs(diff_confirm);
+				    	
 				    }
 				    if(diff_deaths>0)
 				    {
 				    	deaths_pic=deaths+increases+Math.abs(diff_deaths);
 				    }
-				    else if(diff_deaths<0)
+				    else if(diff_deaths<=0)
 				    {	
 				    	deaths_pic=deaths+decreases+Math.abs(diff_deaths);
 				    }
@@ -243,7 +250,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 				    	let increases="<br><img src="+upgreen_img_src+" height='12px' width='12px'><span style='font-size:.7rem;'>"
 				    	recovered_pic=recovered+increases+diff_recovered;
 				    }
-				    else if(diff_recovered<0)
+				    else if(diff_recovered<=0)
 				    {
 				    	recovered_pic=recovered+decreases+Math.abs(diff_recovered);	
 				    }
@@ -275,34 +282,47 @@ function goToState(event)
 { 
 	//it return total text 
 	let array=event.target.nextSibling.nextSibling.innerText.split("\n");
+	console.log(array)
+	debugger;
 	let tactive=tconfirmed=trecovered=tdeaths=diff_confirm=diff_recovered=diff_deaths=0;
-	if(array[1])
+	if(no_active)
 	{
+		 tactive="unknown";
+		 index=2
+	}
+	else{
+		if(array[1])
+		{
 		 tactive=array[1];
+		}
+		index=0;
 	}
-	if(array[3])
+
+
+	
+	if(array[3-index])
 	{
-		 tconfirmed=array[3];
+		 tconfirmed=array[3-index];
 	}
-	if(array[4])
+	if(array[4-index])
 	{
-		 diff_confirm=array[4];
+		 diff_confirm=array[4-index];
 	}
-	if(array[6])
+	if(array[6-index])
 	{
-		 trecovered=array[6];
+		 trecovered=array[6-index];
 	}
-	if(array[7])
+	if(array[7-index])
 	{
-		 diff_recovered=array[7];
+		 diff_recovered=array[7-index];
 	}
-	if(array[9])
+	if(array[9-index])
 	{
-	 tdeaths=array[9];
+	 tdeaths=array[9-index];
 	}
-	if(array[10])
+	if(array[10-index])
 	{
-		 diff_deaths=array[10];
+		 diff_deaths=array[10-index];
 	}
 	
 	//store all data as single object 
@@ -341,31 +361,39 @@ function search()
 	let search_button=document.querySelector("#search_button");
 
 	search_button.addEventListener("click",function(){
-		let date=$("#search_date").val();		
-		if(date)
+		let date=$("#search_date").val();
+		//if user requested date greater than API CLOSED DATE handle error
+		if(new Date(date)<new Date(API_CLOSED_DATE))
 		{
 			getSpecificData(date);
+		}
+		else
+		{
+			handleError();
 		}
 	});
 }
 
 function getSpecificData(date)
 {
+	//setting no active to 1
+	no_active=1;
 	$(".state-container").empty();
 	document.querySelector(".state-container").style.display="flex";
 	document.querySelector(".error_container").style.display="none";
 	let link="https://api.covid19india.org/v3/data-"+date+".json";
 	$.getJSON(link,function(datas){
-		console.log(datas)
 			for(data in datas){
-				console.log(datas[data])
 				let data_array=[];
 				let prev_data_array=[];
 				data_array.push(date);
+				//pushing active has no active
+				data_array.push(0)
+				
 				if(datas[data]["delta"])
 				{
 					if(datas[data]["delta"]["confirmed"]===undefined)
-					{			    
+					{	    
 				     	prev_data_array.push(0)
 					}
 					else
@@ -407,10 +435,12 @@ function getSpecificData(date)
 					else
 					{
 						data_array.push(datas[data]["total"]["recovered"])
-					}			    
+					}		
+					    
 				    //if none one died pushing zero 
 					if(datas[data]["total"]["deceased"]===undefined)
 				    {
+				    	
 					    data_array.push(0)
 					}
 					else
@@ -419,8 +449,7 @@ function getSpecificData(date)
 					}
 				}
 				//storing the coressponding sates name
-				data_array[5]=state_codes[data]?state_codes[data]:"state code is "+data;
-				
+				data_array[5]=STATE_CODES[data]?STATE_CODES[data]:"state code is "+data;
 				addDataToTable(data_array,prev_data_array,0,1);
 			}
 			//calling the search state function to filter if user entered
@@ -432,7 +461,17 @@ function handleError()
 {
 	document.querySelector(".state-container").style.display="none";
 	document.querySelector(".error_container").style.display="flex";
-	console.log(document.querySelector(".error_container").style)
 }
 search();
-getAllData();
+
+//added this at api closed on feb 6 2:47
+if(new Date()<new Date(API_CLOSED_DATE))
+{
+	getAllData();
+}
+else
+{
+	handleError();
+}
+//calling only for getting satus
+getAllData(1);

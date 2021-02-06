@@ -89,14 +89,26 @@ nav  span
 }
 .error_container
 {
-	display: none;
-	font-size: 1rem;
-	font-style: italic;
-	font-weight: bold;
-	color: white;
-	margin: auto;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    max-width: 350px;
+    margin: auto; 
+    color: white;
+    background-color: #ff0000e3;
+    font-size: 1rem;
+    font-weight: 800;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 9px 11px black;
     justify-content: center;
     align-items: center;
+}
+.error_img
+{
+	height: 112px;
+    display: block;
+    margin: auto;
 }
 #search
 {
