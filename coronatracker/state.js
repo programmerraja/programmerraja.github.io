@@ -314,18 +314,15 @@ function search()
 	});
 }
 
-async function getSpecificData(date)
+function getSpecificData(date)
 {
-	//we calling getAll data to get the state code  need to wait until it finding the state code
-    await getAllData(1);
+ 
 	$(".district-container").empty();
 	document.querySelector(".district-container").style.display="flex";
 	document.querySelector(".error_container").style.display="none";
 	let link="https://api.covid19india.org/v3/data-"+date+".json";
 	$.getJSON(link,function(datas){
 		datas=datas[state_code];
-		console.log(datas)
-
 		datas=datas["districts"];
 		for(data in datas){
 				var data_array=[];

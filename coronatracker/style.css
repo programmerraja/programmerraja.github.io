@@ -92,7 +92,7 @@ nav  span
     display: flex;
     flex-direction: column;
     height: auto;
-    max-width: 350px;
+    max-width: 300px;
     margin: auto; 
     color: white;
     background-color: #ff0000e3;
@@ -268,4 +268,9 @@ nav a img
 {
 	margin-right: auto;	 
 }
+.error_container
+{
+	max-width: 250px;
+}
+
 }

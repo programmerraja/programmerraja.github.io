@@ -178,7 +178,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 					var diff_deaths=prev_deaths;
 					var diff_recovered	=prev_recoverd;
 				}
-				console.log(diff_confirm,diff_deaths,diff_recovered,deaths)
+				
 				//  img src 
 				let up_img_src="image/upimg.png";
 				let down_img_src="image/downimg.png";
@@ -282,7 +282,7 @@ function goToState(event)
 { 
 	//it return total text 
 	let array=event.target.nextSibling.nextSibling.innerText.split("\n");
-	console.log(array)
+	
 	debugger;
 	let tactive=tconfirmed=trecovered=tdeaths=diff_confirm=diff_recovered=diff_deaths=0;
 	if(no_active)
