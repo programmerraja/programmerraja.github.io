@@ -75,9 +75,6 @@
         <input type="button" value="del" onclick="setValue('del')">
          <input type="button" value="clear" onclick="setValue('clear')">
 </div>
-
-
-<br>
 <p>Operation:</p>
     <input type="button" value="gcd"  onclick="findResult('gcd')">
     <input type="button" value="lcm" onclick="findResult('lcm')">
@@ -88,6 +85,7 @@
     <input type="button" value="p*" onclick="findResult('p*')">
     <input type="button" value="pGCD" onclick="findResult('pGCD')">
     <input type="button" value="factor" onclick="findResult('factor')">
+    <input type="button" value="SumFactor" onclick="findResult('sumfactor')">
     <input type="button" value="check prime" onclick="checkPrime()">
     <input type="button" value="10to2" onclick="baseConversion(10,2)">
     <input type="button" value="10to8" onclick="baseConversion(10,8)">
@@ -103,10 +101,15 @@
     <input type="button" value="8to10" onclick="baseConversion(8,10)">
 
 <div class="help">
-    <h3>HElP</h3>
-    <p>p --> are polynomial operation</p>
-    <p>Leave space between two different no</p>
-    <p>E.g 67 89 then press corresponding operation </p>
+    <h3>Instruction</h3>
+    <ol>
+    <li>p+,p-,p*,pGCD-->  polynomial operation</li>
+    <li>Factor --> No of factor for the number</li>
+    <li>SumFactor --> sum of the factor for the number</li>
+
+    <li>Leave space between two different no</li>
+    <li>E.g 67 89 then press corresponding operation </li>
+    </ol>
 
     
 
@@ -290,6 +293,15 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
             output.innerText=ans;
 
         }
+         if(type==="sumfactor")
+
+        {
+
+            values=document.querySelector(".value").value;
+            let ans=findSumFactor(values)
+            output.innerText=ans;
+
+        }
 
     }
 
@@ -408,7 +420,16 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
         return  p;
 
     }
-
+    function findSumFactor(num)
+    {
+        let sum=0;
+        for(let i = 1; i <= num; i++) {
+            if(num % i == 0) {
+                sum+=i;
+            }
+        }
+        return sum
+    }
     function findFactor(num)
     {
         let no=0;
