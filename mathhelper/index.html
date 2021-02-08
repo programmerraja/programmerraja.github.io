@@ -9,7 +9,6 @@
 </head>
 
 <style type="text/css">
-
     body
 
 {
@@ -17,9 +16,11 @@
      font-size: 1.3rem;
 
 }
-
+    input[type='text']
+    {
+        height: 30px;
+    }
     input
-
     {
 
         font-size: 1.3rem;
@@ -27,7 +28,10 @@
         margin: 10px;
 
     }
-
+    input[type='button']:hover
+    {
+        background-color: purple;
+    }
     .output
 
 {
@@ -39,6 +43,8 @@
 </style>
 
 <body>
+    <h3>Claculator for ANT</h3>
+
 
 <input type="text" name="val" class="value" >
 
@@ -59,6 +65,20 @@
 <input type="button" value="p*" onclick="findResult('p*')">
 
 <input type="button" value="pGCD" onclick="findResult('pGCD')">
+<input type="button" value="factor" onclick="findResult('factor')">
+
+<input type="button" value="check prime" onclick="checkPrime()">
+
+<input type="button" value="bintohex" onclick="baseConversion(2,16)">
+<input type="button" value="bintooctal" onclick="baseConversion(2,8)">
+
+<input type="button" value="hextobin" onclick="baseConversion(16,2)">
+<input type="button" value="hextooctal" onclick="baseConversion(16,8)">
+
+<input type="button" value="octaltobin" onclick="baseConversion(8,2)">
+<input type="button" value="octaltohex" onclick="baseConversion(8,16)">
+`
+
 
 <div class="keyboard">
 
@@ -164,6 +184,15 @@
 
 </div>
 
+<div class="help">
+    <h3>HElP</h3>
+    <p>p --> are polynomial operation</p>
+    <p>Leave space between two different no</p>
+    <p>E.g 67 89 then press corresponding operation </p>
+
+    
+
+</div>
 </body>
 
 <script type="text/javascript">
@@ -333,6 +362,16 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
             output.innerText=ans;
 
         }
+         if(type==="factor")
+
+        {
+
+            values=document.querySelector(".value").value;
+
+            let ans=findFactor(values)
+            output.innerText=ans;
+
+        }
 
     }
 
@@ -452,6 +491,44 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
 
     }
 
+    function findFactor(num)
+    {
+        let no=0;
+        for(let i = 1; i <= num; i++) {
+            if(num % i == 0) {
+                no+=1;
+            }
+        }
+        return no;
+    }
+
+    function baseConversion(initial,tobase)
+    {
+        let num=parseInt(document.querySelector(".value").value);
+        let ans=parseInt(num+ '', initial).toString(tobase);
+        output=document.querySelector(".output");
+        output.innerText=ans;
+    }
+    function checkPrime(num) { 
+              
+            var n, i, flag = true; 
+              output=document.querySelector(".output");
+              
+            // Getting the value form text 
+            // field using DOM 
+            n =  parseInt(document.querySelector(".value").value);
+            for(i = 2; i <= n - 1; i++) 
+                if (n % i == 0) { 
+                    flag = false; 
+                    break; 
+                } 
+                  
+                // Check and display alert message 
+            if (flag == true) 
+                output.innerText="yes";
+            else
+                output.innerText="no";  
+        } 
     function setValue(val)
 
     {
