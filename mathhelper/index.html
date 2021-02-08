@@ -82,9 +82,11 @@
     <input type="button" value="p+" onclick="findResult('p+')">
     <input type="button" value="p-" onclick="findResult('p-')">
     <input type="button" value="p/" onclick="findResult('p/')">
+    <input type="button" value="p%" onclick="findResult('pmod')">
     <input type="button" value="p*" onclick="findResult('p*')">
     <input type="button" value="pGCD" onclick="findResult('pGCD')">
-    <input type="button" value="factor" onclick="findResult('factor')">
+    <input type="button" value="factorial" onclick="findResult('factorial')">
+    <input type="button" value="nofactor" onclick="findResult('factor')">
     <input type="button" value="SumFactor" onclick="findResult('sumfactor')">
     <input type="button" value="check prime" onclick="checkPrime()">
     <input type="button" value="10to2" onclick="baseConversion(10,2)">
@@ -186,15 +188,12 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
         if(type==="lcm")
 
         {
-
             let lcm=findLcm(values[0],values[1])
 
             for(let i=2;i<values.length;i++)
-
             {
 
                 lcm=findLcm(lcm,values[i]);
-
             }
 
             output.innerText=lcm;
@@ -280,6 +279,19 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
             output.innerText=ans;
 
         }
+        if(type==="pmod")
+
+        {
+
+            values=document.querySelector(".value").value;
+
+            values=values.split(" ");
+
+            let ans=findPolymod(values[0],values[1])
+
+            output.innerText=ans;
+
+        }
          if(type==="factor")
 
         {
@@ -287,6 +299,15 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
             values=document.querySelector(".value").value;
 
             let ans=findFactor(values)
+            output.innerText=ans;
+
+        }
+        if(type==="factorial")
+
+        {
+            values=document.querySelector(".value").value;
+
+            let ans=findFactorial(values)
             output.innerText=ans;
 
         }
@@ -417,6 +438,15 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
         return  p;
 
     }
+     function findPolymod(eq1,eq2)
+
+    {
+
+        var p = new Polynomial(eq1).mod(eq2);
+
+        return  p;
+
+    }
     function findSumFactor(num)
     {
         let sum=0;
@@ -436,6 +466,14 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
             }
         }
         return no;
+    }
+    function findFactorial(num)
+    {
+      let no=1;
+        for(let i = 2; i <= num; i++) {
+                no*=i;
+        }
+        return no;  
     }
 
     function baseConversion(initial,tobase)
