@@ -10,12 +10,13 @@
 
 <style type="text/css">
     body
-
-{
-
+    {
      font-size: 1.3rem;
-
-}
+    }
+    p
+    {
+        margin: 0;
+    }
     input[type='text']
     {
         height: 30px;
@@ -24,9 +25,7 @@
     {
 
         font-size: 1.3rem;
-
-        margin: 10px;
-
+        margin: 5px;
     }
     input[type='button']:hover
     {
@@ -50,148 +49,58 @@
 
 <div class="output">
 
-    
-
 </div>
-
-<br>
-
-<input type="button" value="gcd"  onclick="findResult('gcd')">
-
-<input type="button" value="lcm" onclick="findResult('lcm')">
-
-<input type="button" value="=" onclick="findResult('=')">
-
-<input type="button" value="p+" onclick="findResult('p+')">
-
-<input type="button" value="p-" onclick="findResult('p-')">
-
-<input type="button" value="p/" onclick="findResult('p/')">
-
-<input type="button" value="p*" onclick="findResult('p*')">
-
-<input type="button" value="pGCD" onclick="findResult('pGCD')">
-<input type="button" value="factor" onclick="findResult('factor')">
-
-<input type="button" value="check prime" onclick="checkPrime()">
-
-<input type="button" value="10to2" onclick="baseConversion(10,2)">
-<input type="button" value="10to8" onclick="baseConversion(10,8)">
-<input type="button" value="10to16" onclick="baseConversion(10,16)">
-
-
-<input type="button" value="2to16" onclick="baseConversion(2,16)">
-<input type="button" value="2to8" onclick="baseConversion(2,8)">
-<input type="button" value="2to10" onclick="baseConversion(2,10)">
-
-
-<input type="button" value="16to2" onclick="baseConversion(16,2)">
-<input type="button" value="16to8" onclick="baseConversion(16,8)">
-<input type="button" value="16to10" onclick="baseConversion(16,10)">
-
-
-<input type="button" value="8to2" onclick="baseConversion(8,2)">
-<input type="button" value="8to16" onclick="baseConversion(8,16)">
-<input type="button" value="8to10" onclick="baseConversion(8,10)">
-
-
-
 <div class="keyboard">
 
 <p>Keyboard</p>
-
-<input type="button" value="1" onclick="setValue('1')">
-
-        
-
-<input type="button" value="2" onclick="setValue('2')">
-
-        
-
-<input type="button" value="3" onclick="setValue('3')">
-
+        <input type="button" value="1" onclick="setValue('1')">
+        <input type="button" value="2" onclick="setValue('2')">
+        <input type="button" value="3" onclick="setValue('3')">
         <input type="button" value="4" onclick="setValue('4')">
-
         <input type="button" value="5" onclick="setValue('5')">
-
         <input type="button" value="6" onclick="setValue('6')">
-
         <input type="button" value="7" onclick="setValue('7')">
-
-            
-
         <input type="button" value="8" onclick="setValue('8')">
-
-            
-
         <input type="button" value="9" onclick="setValue('9')">
-
-            
-
         <input type="button" value="0" onclick="setValue('0')">
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-        
-
-    <input type="button" value="+" onclick="setValue('+')">
-
-        
-
-    <input type="button" value="-" onclick="setValue('-')">
-
-    
-
-    <input type="button" value="*" onclick="setValue('*')">
-
-    
-
-    
-
-    <input type="button" value="/" onclick="setValue('/')">
-
-    
-
-    <input type="button" value="%" onclick="setValue('%')">
-
-    
-
-    <input type="button" value="^" onclick="setValue('^')">
-
-    
-
-    <input type="button" value="x" onclick="setValue('x')">
-
-    
-
-      
-
-    <input type="button" value="y" onclick="setValue('y')">
-
-    
-
-     <input type="button" value="space" onclick="setValue(' ')">
-
-         <input type="button" value="del" onclick="setValue('del')">
-
+        <input type="button" value="+" onclick="setValue('+')">
+        <input type="button" value="-" onclick="setValue('-')">
+        <input type="button" value="*" onclick="setValue('*')">
+        <input type="button" value="/" onclick="setValue('/')">
+        <input type="button" value="%" onclick="setValue('%')">
+        <input type="button" value="^" onclick="setValue('^')">
+        <input type="button" value="x" onclick="setValue('x')">
+        <input type="button" value="y" onclick="setValue('y')">
+        <input type="button" value="space" onclick="setValue(' ')">
+        <input type="button" value="del" onclick="setValue('del')">
          <input type="button" value="clear" onclick="setValue('clear')">
-
-        
-
-    
-
 </div>
 
+
+<br>
+<p>Operation:</p>
+    <input type="button" value="gcd"  onclick="findResult('gcd')">
+    <input type="button" value="lcm" onclick="findResult('lcm')">
+    <input type="button" value="=" onclick="findResult('=')">
+    <input type="button" value="p+" onclick="findResult('p+')">
+    <input type="button" value="p-" onclick="findResult('p-')">
+    <input type="button" value="p/" onclick="findResult('p/')">
+    <input type="button" value="p*" onclick="findResult('p*')">
+    <input type="button" value="pGCD" onclick="findResult('pGCD')">
+    <input type="button" value="factor" onclick="findResult('factor')">
+    <input type="button" value="check prime" onclick="checkPrime()">
+    <input type="button" value="10to2" onclick="baseConversion(10,2)">
+    <input type="button" value="10to8" onclick="baseConversion(10,8)">
+    <input type="button" value="10to16" onclick="baseConversion(10,16)">
+    <input type="button" value="2to16" onclick="baseConversion(2,16)">
+    <input type="button" value="2to8" onclick="baseConversion(2,8)">
+    <input type="button" value="2to10" onclick="baseConversion(2,10)">
+    <input type="button" value="16to2" onclick="baseConversion(16,2)">
+    <input type="button" value="16to8" onclick="baseConversion(16,8)">
+    <input type="button" value="16to10" onclick="baseConversion(16,10)">
+    <input type="button" value="8to2" onclick="baseConversion(8,2)">
+    <input type="button" value="8to16" onclick="baseConversion(8,16)">
+    <input type="button" value="8to10" onclick="baseConversion(8,10)">
 
 <div class="help">
     <h3>HElP</h3>
