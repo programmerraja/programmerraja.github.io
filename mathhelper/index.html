@@ -79,6 +79,8 @@
     <input type="button" value="gcd"  onclick="findResult('gcd')">
     <input type="button" value="lcm" onclick="findResult('lcm')">
     <input type="button" value="=" onclick="findResult('=')">
+    <input type="button" value="b%" onclick="findResult('b%')">
+    <input type="button" value="b/" onclick="findResult('b/')">
     <input type="button" value="p+" onclick="findResult('p+')">
     <input type="button" value="p-" onclick="findResult('p-')">
     <input type="button" value="p/" onclick="findResult('p/')">
@@ -160,7 +162,7 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
     function findResult(type)
 
     {
-
+            console.log(type)
         values=document.querySelector(".value").value;
 
         values=values.split(" ");
@@ -247,6 +249,48 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
             values=values.split(" ");
 
             let ans=findPolydiv(values[0],values[1])
+
+            output.innerText=ans;
+
+        }
+         if(type==="b/")
+
+        {
+
+           values=document.querySelector(".value").value;
+           let ans;
+            values=values.split(" ");
+            if(values.length>3)
+            {
+                  ans=findBigdiv(values[0],values[1],values[2])
+            }
+            else
+            {
+                  ans=findBigdiv(values[0],values[1],1)
+            }
+
+            output.innerText=ans;
+
+        }
+         if(type==="b%")
+
+        {
+            console.log("asn")
+
+            values=document.querySelector(".value").value;
+            let ans;
+            values=values.split(" ");
+            if(values.length>2)
+            {
+                  ans=findBigmod(values[0],values[1],values[2])
+                    console.log("asn",ans)
+            }
+            else
+            {
+                  ans=findBigmod(values[0],values[1],1)
+            }
+
+           
 
             output.innerText=ans;
 
@@ -438,8 +482,25 @@ f;b=(b*b%d+d)%d,f>>=1)f&1&&(e=(e*b%d+d)%d);return e},equals:function(b,f){return
         return  p;
 
     }
-     function findPolymod(eq1,eq2)
+    function findBigdiv(num1,num2,num3)
+    {
+            num1=BigInt(num1)
+            num2=BigInt(num2)
+            num3=BigInt(num3)
+            console.log(num1,num2,num3)
+            return (num1**num2/num3)
 
+    }
+     function findBigmod(num1,num2,num3)
+    {
+            num1=BigInt(num1)
+            num2=BigInt(num2)
+            num3=BigInt(num3)
+            return (num1**num2%num3)
+
+
+    }
+     function findPolymod(eq1,eq2)
     {
 
         var p = new Polynomial(eq1).mod(eq2);
