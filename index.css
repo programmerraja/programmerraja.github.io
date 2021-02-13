@@ -124,6 +124,7 @@ body
 	font-size: 2rem;
 	text-align: center;
 }
+
 .skill:hover
 {
 	transform: translateY(-10px);
@@ -224,6 +225,11 @@ body
     cursor: pointer;
     border:0;
     height: 25px;
+}
+.projects__links
+{
+	display: flex;
+	justify-content: space-around;
 }
 .footer__container
 {
