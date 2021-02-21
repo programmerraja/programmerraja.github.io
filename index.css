@@ -187,7 +187,7 @@ body
 .projects__card
 {
 	width: 350px;
-    height: 400px;
+    height: 450px;
 	margin: 15px;
 	background-color: var(--bgcolor);
 	border-radius: 10px;
@@ -226,10 +226,26 @@ body
     border:0;
     height: 25px;
 }
-.projects__links
+.projects__links,
+.project__tech
 {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
+}
+.project__tech p
+{
+	
+	margin: 0;
+	min-width: 30px;
+	margin-bottom:10px;
+	padding: 5px; 
+    text-align: center;
+    border-radius: 7px;
+    background-color: #28ca41bd;
+    color: var(--fontcolor);
+    border: 0;
+    height: 25px;
 }
 .footer__container
 {
@@ -248,6 +264,8 @@ body
 	padding:5px;
 	width: 35px;
 	border-radius: 10px; 
+	background-color: white;
+	text-align: center;
 	
 }
 .footer__item a
