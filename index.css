@@ -237,15 +237,15 @@ body
 {
 	
 	margin: 0;
+	font-size: 13px;
 	min-width: 30px;
 	margin-bottom:10px;
-	padding: 5px; 
+	padding: 3px; 
     text-align: center;
     border-radius: 7px;
     background-color: #28ca41bd;
     color: var(--fontcolor);
     border: 0;
-    height: 25px;
 }
 .footer__container
 {
