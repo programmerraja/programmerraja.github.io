@@ -1,4 +1,4 @@
-var district_name_array=[];
+ovar district_name_array=[];
 var state_code;
 const API_CLOSED_DATE="2021-02-01";
 function getAllData(isspecific=0)
@@ -302,13 +302,16 @@ function search()
 	let search_button=document.querySelector("#search_button");
 
 	search_button.addEventListener("click",function(){
-		let date=$("#search_date").val();		
+		let date=$("#search_date").val();	
+		let loading=document.querySelector(".loading__container");
+		loading.style["display"]="flex";	
 		if(new Date(date)<new Date(API_CLOSED_DATE))
 		{
 			getSpecificData(date);
 		}
 		else
 		{
+			loading.style["display"]="none";	
 			handleError();
 		}
 	});
@@ -318,6 +321,7 @@ function getSpecificData(date)
 {
  
 	$(".district-container").empty();
+	
 	document.querySelector(".district-container").style.display="flex";
 	document.querySelector(".error_container").style.display="none";
 	let link="https://api.covid19india.org/v3/data-"+date+".json";
@@ -391,6 +395,9 @@ function getSpecificData(date)
 				data_array[4]=district_name;
 				data_array[5]=date;
 				addDataToTable(data_array,prev_data_array,0,1);
+				let loading=document.querySelector(".loading__container");
+				loading.style["display"]="none";	
+
 			}
 			
 		}).catch(handleError);

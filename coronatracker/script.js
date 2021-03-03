@@ -360,17 +360,22 @@ function search()
 {
 	let search_button=document.querySelector("#search_button");
 
-	search_button.addEventListener("click",function(){
+	search_button.addEventListener("click",async function(){
+		let loading=document.querySelector(".loading__container");
+		loading.style["display"]="flex";
 		let date=$("#search_date").val();
 		//if user requested date greater than API CLOSED DATE handle error
 		if(new Date(date)<new Date(API_CLOSED_DATE))
 		{
-			getSpecificData(date);
+			await getSpecificData(date);
 		}
 		else
 		{
+			loading.style["display"]="none";
 			handleError();
+
 		}
+		
 	});
 }
 
@@ -453,6 +458,8 @@ function getSpecificData(date)
 				addDataToTable(data_array,prev_data_array,0,1);
 			}
 			//calling the search state function to filter if user entered
+			let loading=document.querySelector(".loading__container");
+			loading.style["display"]="none";
 			searchState();
 		}).catch(handleError);
 
