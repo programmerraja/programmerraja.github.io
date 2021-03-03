@@ -1,3 +1,4 @@
+
 let country_name_array=[];
 function getTodayStatus()
 {
@@ -134,7 +135,8 @@ function getCountryStatus()
 function searchCountry()
 {
 	let search_val=$("#search-input").val().toLowerCase();
-	$("#search-input").val(search_val.toUpperCase());
+	$(".search_result").css("display","none");
+	let is_has=false;
 	$.each(country_name_array,function(index,country_name){
 				//split the class name if it has space 
 				let class_name=country_name.split(" ")[0].replace(".","")
@@ -148,6 +150,10 @@ function searchCountry()
 					$("."+class_name).addClass("hide");
 				}
 	});
+	if(!is_has)
+	{
+		$(".search_result").css("display","flex");
+	}
 
 }
 

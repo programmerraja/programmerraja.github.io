@@ -1,4 +1,4 @@
-ovar district_name_array=[];
+var district_name_array=[];
 var state_code;
 const API_CLOSED_DATE="2021-02-01";
 function getAllData(isspecific=0)
@@ -261,7 +261,7 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 			    }
 			    //retriving state value 
 			    let district_name=data_array[4]?data_array[4]:"unknown state";
-			     //push to array for search 
+				     //push to array for search 
 			    district_name_array.push(district_name.toLowerCase());
 			    //split with space and add only first one and remove dot from it 
 			    let class_name=district_name.split(" ")[0].toLowerCase();
@@ -283,11 +283,22 @@ function addDataToTable(data_array,prev_data_array,isstatus,isold=0)
 function searchDistrict()
 {
 	let search_val=$("#search_input").val().toLowerCase();
+	$(".search_result").css("display","none");
+	let is_has;
+	if(district_name_array.length)
+	{
+		 is_has=false;
+	}
+	else
+	{
+		is_has=true;
+	}
 	$.each(district_name_array,function(index,district_name){
 				//split the class name if it has space 
 				let class_name=district_name.split(" ")[0].replace(".","")
 				if(district_name.startsWith(search_val))
 				{
+					is_has=true;
 					$("."+class_name).addClass("show");
 					$("."+class_name).removeClass("hide");
 				}
@@ -296,6 +307,11 @@ function searchDistrict()
 					$("."+class_name).addClass("hide");
 				}
 	});
+	if(!is_has)
+	{
+		$(".search_result").css("display","flex");
+
+	}
 }
 function search()
 {
@@ -409,6 +425,7 @@ function handleError()
 {
 	document.querySelector(".district-container").style.display="none";
 	document.querySelector(".error_container").style.display="flex";
+	document.querySelector(".loading__container").style.display="none";
 }
 search();
 //added this at api closed on feb 6 2:47

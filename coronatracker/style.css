@@ -179,7 +179,13 @@ nav  span
 	color:black;
 
 }
-
+.search_result
+{
+	display: none;
+	justify-content: center;
+	text-align: center;
+    color: red;
+}
 .hide
 {
 	display: none;
