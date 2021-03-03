@@ -352,7 +352,6 @@ function searchState()
 	{
 		is_has=true;
 	}
-	let is_has=false;
 	$.each(state_name_array,function(index,state_name){
 				//split the class name if it has space 
 				let class_name=state_name.split(" ")[0]
