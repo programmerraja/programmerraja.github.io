@@ -2,8 +2,7 @@
 let country_name_array=[];
 function getTodayStatus()
 {
-	let loading=document.querySelector(".loading__container");
-	loading.style["display"]="flex";	
+		
 	let status_link="https://corona.lmao.ninja/v2/all";
 	$.getJSON(status_link,function(data)
 			{
@@ -53,9 +52,7 @@ function getTodayStatus()
 		    {
 		    	$("#recovered-no").append(recovered+decreases+Math.abs(today_recovered)+"</span>");
 		    }
-		    $("#active-no").append(active);
-		    let loading=document.querySelector(".loading__container");
-			loading.style["display"]="none";	
+		    $("#active-no").append(active);	
 			}).fail(handleError);
 			getCountryStatus()
 
