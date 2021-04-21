@@ -31,6 +31,7 @@
 	img
 	{
 		height: 34px;
+		display: none;
 		margin: -7px 3px;
 	}
 
@@ -42,8 +43,6 @@
 		color: white;
 		background-color: #7510c7;
 		width: 40%;
-		
-
 	}
 
 	.right_container{
@@ -51,19 +50,16 @@
 		background-color: white;
 		padding-left: 30px;
 		margin: 0;
-
-
 	}
 
 	.hero_container{
-		   
     		text-align: center;
 	}
 	.hero_box{
 		
 		border-radius: 10px;
 		height: 150px;
-		width: 95%;
+		width: 84%;
 		margin:20px auto;
 
 	}
@@ -77,12 +73,14 @@
     width: 100%;
     height: 300px;
     margin: 0;
-border-radius: 50%;
+	border-radius: 50%;
     background-repeat: no-repeat;
 	}
 	.hero_text {
 		text-align: left;
 		padding:0 20px; 
+		border:1px solid;
+		border-radius: 10px;
 	}
 	.hero_text h4
 	{
@@ -152,6 +150,7 @@ border-radius: 50%;
 	}
 	.education_list{}
 	.education_item h3{
+		font-size: 17px;
 		margin: 10px 0;
 	}
 	.education_description p{ 
@@ -222,22 +221,24 @@ border-radius: 50%;
 </style>
 <body>
   <div class="container">
-	<div class="left_container">
-		<div class="hero_img">
-				<div class="College"></div>	
-			</div>
-		<div class="hero_container">
-			
-		
-			
+  	
+  	<div class="top_container">
+  		<div class="hero_container">
 			<h2 style="margin: 0;">K.Boopathi<span class="hero_role">Web Developer</span></h2>
-			<div class="hero_box">
-				
+			<div class="hero_box">	
 				<div class="hero_text">
 					<h4>About Me:</h4>
 					<p>Programmer with curious to learn different technology and develop cool product from that.</p>
 				</div>
 			</div>
+		</div>
+  	</div>
+
+	<div class="left_container">
+		<div class="hero_img">
+				<div class="College"></div>	
+			</div>
+		
 			<!-- CONTACT -->
 			<div class="contact_container">
 				<div class="contact_mail"><p><i class="fas fa-envelope-open-text"></i>boooathis123@gmail.com</p></div>
@@ -279,7 +280,7 @@ border-radius: 50%;
 				</li>
 
 				<li class="skills_item">
-					<h3>Framework<!-- <img src="./framework.png"> --></h3>
+					<h3>Other's<!-- <img src="./framework.png"> --></h3>
 					<p class="framework_list">
 						<span class="framework_item">React js</span>
 						<span class="framework_item">Express js</span>
@@ -348,6 +349,14 @@ border-radius: 50%;
 					<span class="line"></span>
 				</div>
 			<ol  class="projects_list">
+				
+				<li class="projects_item">
+					<h3>IP  Logger</h3>
+					<div class="projects_description">
+						My friends used to ask we wan't to know about the scammer who send the scam message to them so i decided to build this web app which used to gather information about the scammer by sending the link
+					</div>
+				</li>	
+
 				<li class="projects_item">
 					<h3>Corona Tracker</h3>
 					<div class="projects_description">
@@ -356,34 +365,30 @@ border-radius: 50%;
 				</li>
 				
 				<li class="projects_item">
-					<h3>IP  Logger</h3>
-					<div class="projects_description">
-						A web application to find the scammer IP and location.
-					</div>
-				</li>	
-				<li class="projects_item">
 					<h3>Weather App</h3>
 					<div class="projects_description">
-						A web application where user can get the weather details of city by searching
+						I just build this website after learning ReactJS to practice ReactJS
 					</div>
 				</li>
 				<li class="projects_item">
 					<h3>Typo speed</h3>
 					<div class="projects_description">
-						A web application to find the user typing speed
+						I try to learn touch typing to improve my typing speed so to practice that i used to use online website but one day i think why can't i made my own website to practice it so i buld this website using ReactJS
 					</div>
 				</li>	
+				
 				<li class="projects_item">
+				
 					<h3>Online Rock Paper Scissor Game</h3>
 					<div class="projects_description">
-						A dual player Rock Paper Scissor game 
+						I learned fiebase and I like implement what I learn so i build this dual player online game using python and firebase.
 					</div>
 				</li>	
+
 				<li class="projects_item">
 					<h3>Tech Scraper</h3>
 					<div class="projects_description">
-						A scraper developed in python which is used scrap
-						tech news from various tech website.
+						I used to read tech article from varoius website the thing i hate is i need to manully visit the each website and need to filter the thing that i need it was so much time consuming so i buid this scraper.
 					</div>
 				</li>		
 			</ol>

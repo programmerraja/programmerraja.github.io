@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resume</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">   
+</head>
+<style type="text/css">
+	:root{
+		--primary-color:#437897;
+		--secondary-color:#59a9b5;
+
+		/*--primary-color:#ffdb35;
+		--secondary-color:#3f3b37;*/
+
+		/*--primary-color:#2b2741;
+		--secondary-color:#e7f7f4;
+
+		--primary-color:#f4d474;
+		--secondary-color:#ef5253;
+		*/
+		--font-color:white;
+
+	}
+	body
+	{
+		
+		font-size: 19px;
+		margin: 0;
+		font-family: 'Ubuntu', sans-serif;
+
+	}
+	i{
+		margin-right:4px;
+
+	}
+	a{
+		color: black;
+
+	}
+	p,h3{
+		margin:0; 
+	}
+	h2,h3{
+		margin:9px 0px;
+	}
+	h2{
+		font-size: 25px;
+		text-decoration:underline;
+		color: red;
+	}
+	h3{
+		font-size: 20px;
+	}
+	.education_description p, 
+	.projects_description ,
+	.achievements_description p,
+	.experience_description p{ 
+		padding-left: 17px;
+		font-size: 17px;
+		margin: 5px 0;
+	}
+	.education_description p
+	{
+		color: black;
+	}
+	.achievements_description p{
+		margin-top: -10px;
+	}
+	/*	TOP 	*/
+	.top_container{
+		width: 100%;
+	}
+
+	.hero_container{
+    		 background:var(--primary-color);
+    		 display: flex;
+    		 justify-content: space-between;
+		    padding: 14px 18px;
+	}
+	.hero_box{
+		width: 84%;
+		color:var(--font-color);
+	}
+	.hero_role{
+		display: block;
+		font-size: 15px;
+		padding-left: 10px;
+	}
+	.hero_img{
+		background-size: 100px 100px;
+	    background-image: url("https://avatars.githubusercontent.com/u/44333589?v=4");
+	    width: 100px;
+	    height: 100px;
+	    margin: 0;
+		border-radius: 50%;
+		align-self: center;
+	    background-repeat: no-repeat;
+	}
+	.hero_text{
+		padding-left: 20px;
+	}
+	/*	CONTACT */
+	.contact_container{
+	    height: 46px;
+	    display: flex;
+		align-items: center;
+	    justify-content: space-around;
+    	background:var(--secondary-color);
+
+	}
+
+	/*	BOTTOM CONTAINER	*/
+	.bottom_container{
+		display: flex;
+	}
+	.bottom_container-left,
+	.bottom_container-right{
+		flex: 1;
+		border: 1px solid #e4e2e263;
+		padding: 0 20px;
+	}
+	.education_container,
+	.achievements_container,
+	.skills_container,
+	.soft_skills_container{
+	}
+	
+
+	.experience_item p,
+	
+
+	.skills_list{}
+	.soft_skills_list{
+		padding-left: 35px;
+	}
+
+	
+	.programming_list span,
+	.database_list span ,
+	.framework_list span ,
+	.soft_skills_list span
+	{
+    	display: inline-block;
+    	background:var(--primary-color);
+		border-radius: 3px;
+		padding:5px;
+		margin: 5px 0;
+		color:var(--font-color);
+	}
+	.hobby_list{
+		display: flex;
+		width: 300px;
+		justify-content: space-between;
+	}
+	.projects_item h3{
+		margin: 0;
+		margin-top: 16px;
+	}
+	
+</style>
+<body>
+  <div class="container">
+  	<div class="top_container">
+  	  <div class="hero_container">
+			<div class="hero_box">	
+				<h1 style="margin:10px 0;">K.Boopathi
+					<span class="hero_role" >&lt;/Programmer&gt;</span>
+				</h1>
+				<div class="hero_text">
+					<p>Programmer with curiosity to learn different tech and develop the awesome product from that.</p>
+				</div>
+			</div>
+			<div class="hero_img">
+			</div>
+	  </div>
+  	</div>
+
+			<!-- CONTACT -->
+			<div class="contact_container">
+				<div class="contact_mail">
+					<p><i class="fas fa-envelope-open-text"></i>boooathis123@gmail.com</p>
+				</div>
+				<div class="contact_phoneno">
+					<p><i class="fas fa-mobile-alt"></i>8072638765</p>
+				</div>
+				<div class="contact_linkedin">
+					<p><a href="https://in.linkedin.com/in/k-boopathi-5b475a169"><i class="fab fa-linkedin"></i>Linkedin</a>
+					</p>
+				</div>
+				<div class="contact_github">
+					<p><a href="https://github.com/programmerraja"><i class="fab fa-github-square"></i>Github</a></p>
+				</div>
+				<div class="contact_github">
+					<p><a href="https://programmerraja.github.io"> <i class="fas fa-laptop-code"></i>Portfolio</a></p>
+				</div>
+                                             
+
+			</div>
+	<!-- BOTTOM CONTAINER -->
+	<div class="bottom_container">
+		<div class="bottom_container-left">
+			<!-- EDUCATION -->
+			<div class="education_container">
+					<div class="education_title">
+						<h2 >Education</h2>
+						<span class="line"></span>
+					</div>
+					<ol  class="education_list">
+						<li class="education_item">
+						<h3>Computer Science Engineering</h3>
+						<div class="education_description">
+						     <p>7.9 CGPA 2018-2022</p>
+						     <p>Einstein College Of Engineering</p>
+						     <p>Tirunelveli ,Tamil Nadu</p>
+						</div>
+						</li>
+						<li class="education_item">
+							<h3>Higher Secondary </h3>
+							<div class="education_description">
+							     <p>76% 2017-2018</p>
+							     <p>Tilak Vidyalaya Hr Sec School</p>
+							     <p>Kallidaikurichi ,Tirunelveli,Tamil Nadu</p>
+							</div>
+						</li>
+					</ol>
+			</div>
+		
+			<!-- TECH SKILLS -->
+			<div class="skills_container">
+					<div class="skills_title">
+						<h2 >Tech Skills</h2>
+						<span class="line"></span>
+					</div>
+				<ol  class="skills_list">
+					<li class="skills_item">
+						<h3>Programming Language</h3>
+						<p class="programming_list">
+							<span class="programming_lang">Html </span>
+							<span class="programming_lang">css</span>
+							<span class="programming_lang">Java Script</span>
+							<span class="programming_lang">Python</span>
+							<span class="programming_lang">Java</span>
+							<span class="programming_lang">C</span>
+							<span class="programming_lang">C++</span>				
+						</p>
+					</li>
+
+					<li class="skills_item">
+						<h3>Database<!-- <i class="fas fa-database"></i> --></h3>
+						<p class="database_list">
+							<span class="database_item">Mongodb</span>	
+							<span class="database_item">Firebase</span>
+							<span class="database_item">MySql</span>
+						</p>
+					</li>
+
+					<li class="skills_item">
+						<h3>Other's<!-- <img src="./framework.png"> --></h3>
+						<p class="framework_list">
+							<span class="framework_item">React js</span>
+							<span class="framework_item">Express js</span>
+						</p>
+					</li>
+
+
+					
+				</ol>
+			</div>
+			<!-- SOFT SKILLS -->
+			<div class="soft_skills_container">
+				<div class="soft_skills_title">
+						<h2 >Soft Skills</h2>
+						<span class="line"></span>
+					</div>
+				<p  class="soft_skills_list">
+					<span class="soft_skills_item">
+						Time Management
+					</span>
+					<span class="soft_skills_item">
+						Growth Mindset
+					</span>
+					<span class="soft_skills_item">
+						Communication
+					</span>	
+				</p>
+			</div>
+			<!-- ACHIEVIEMENTS -->
+				<div class="achievements_container">
+					<div class="achievements_title">
+						<h2>Achievements</h2>
+						<span class="line"></span>
+					</div>
+					<ol  class="achievements_list">
+						
+						<li class="achievements_item">
+							<h3>Completed Hacktoberfest 2020</h3>
+							<div class="achievements_description">
+							     <p>A open source contribution online event conducted by digital ocean</p>
+							</div>
+						</li>
+
+						<li class="achievements_item">
+							<h3>1<sup>st</sup> Place in Tech Fist Quiz 2019</h3>
+							<div class="achievements_description">
+							     <p>Vv College Of Engineering</p>
+							</div>
+						</li>
+						<li class="achievements_item">
+							<h3> 1<sup>st</sup> place in Code debugging 2018</h3>
+							<div class="achievements_description">
+							     <p>Einstein College Of Engineering</p>
+							</div>
+						</li>	
+						<li class="achievements_item">
+							<h3>1<sup>st</sup> Place in Techtonic 2019</h3>
+							<div class="achievements_description">
+							     <p>National  Engineering College</p>
+							</div>
+						</li>
+
+						<li class="achievements_item">
+							<h3>3<sup>rd</sup> Place in KIT Hackathon 2019</h3>
+							<div class="achievements_description">
+							     <p>Kalasalingam Institute Of Technology</p>
+							</div>
+						</li>
+					</ol>
+				</div>
+
+			
+	    </div>
+     	<div class="bottom_container-right">
+     		<!-- 	EXPERIENCE   -->
+			<div class="experience_container">
+				<div class="experience_title">
+						<h2 >Expereince</h2>
+						<span class="line"></span>
+					</div>
+					<ol  class="experience_list">
+						<li class="experience_item">
+						<h3 style="margin: 0">Intern</h3>
+						<p style="font-weight: 600">Codespeedy Technology Private Limited.</p>
+						<div class="experience_description" style="padding-left: 10px;">
+						     <p>This was my first internship where I write a 10 blog for their website. I write the blog "Learn Reactjs Fundamental in 10day's by building the game"  where I cover the fundamental topic that needs to get start the reactjs. during this internship, I learn how to convey what I know through a blog.  </p>
+						</div>
+						</li>
+						
+					</ol>
+			</div>
+				<!-- PROJECTS -->
+			<div class="projects_container">
+				<div class="projects_title">
+						<h2>Projects</h2>
+						<span class="line"></span>
+					</div>
+				<ol  class="projects_list">
+					
+					<li class="projects_item">
+						<h3><a href="https://github.com/programmerraja/InfoG"><a href="https://github.com/programmerraja/InfoG">InfoG</a></h3>
+						<div class="projects_description">
+							<p>
+							My friends get irritated by spam messages through WhatsApp. So they asked me for a solution to find who is that scammer. For that, I build this website. We can get the information about the scammer by just sending the link.
+							<p>
+						</div>
+					</li>	
+
+					<li class="projects_item">
+						<h3><a href="https://github.com/programmerraja/CoronaTracker">Corona Tracker</a></h3>
+						<div class="projects_description">
+							<p>
+							This project I build during the lockdown. I have seen a lot of developers build their corona tracker website. So I decided to build my own.
+							<p>
+						</div>
+					</li>
+					
+					<li class="projects_item">
+						<h3><a href="https://github.com/programmerraja/Weather-App">Weather App</a></h3>
+						<div class="projects_description">
+							<p>
+							I  build this website after learning ReactJS to get comfort with ReactJS.
+							<p>
+						</div>
+					</li>
+					<li class="projects_item">
+						<h3><a href="https://github.com/programmerraja/TypoSpeed">Typo speed</a></h3>
+						<div class="projects_description">
+							<p>
+							I  learn touch typing to improve my typing speed. For practice, I used to use an online website. But I think why can't I made my own website to practice it. So I build this website using ReactJS.
+							<p>
+						</div>
+					</li>	
+					
+					<li class="projects_item">
+						<h3><a href="https://github.com/programmerraja/RPS_Battel">Online Rock Paper Scissor Game</a></h3>
+						<div class="projects_description">
+							<p>
+							I learned firebase. I like to implement what I learned. So I build this dual player online game using python and firebase.
+							<p>
+						</div>
+					</li>	
+
+					<li class="projects_item">
+						<h3><a href="https://github.com/programmerraja/TechScrap">Tech Scraper</a></h3>
+						<div class="projects_description">
+							<p>
+							I used to read tech articles from various websites. The thing I hate is I need to visit each site and to filtering the content that I need. It was so much time-consuming. So I build this scraper.
+							<p>
+						</div>
+					</li>		
+				</ol>
+			</div>
+			<!-- HOBBY -->
+				<div class="hobby_container">
+					<div class="hobby_title">
+						<h2 >Hobby</h2>
+						<span class="line"></span>
+					</div>
+					
+					<ol  class="hobby_list">
+						<li class="hobby_item">
+							Reading Books
+						</li>
+						<li class="hobby_item">
+							Youtuber
+						</li>	
+					</ol>
+				</div>
+				
+			</div>
+			</div>
+		</div>
+   </div>	
+
+</body>
+</html>
