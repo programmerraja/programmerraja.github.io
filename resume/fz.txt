@@ -1,0 +1,2080 @@
+HOME
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>ShareMyRide</title>
+  <!-- #############	HEADER #######################-->
+  <%- include('components/header.ejs');  -%>
+  <!--Custom css-->
+  <link rel="stylesheet" type="text/css" href="/public/styles/style.css">
+</head>
+
+<body>
+  <!-- ############# NAVIGATION #######################-->
+  <%- include('components/nav.ejs');  -%>
+
+  <!-- ############# SEARCH #######################-->
+  <%- include('components/search.ejs');  -%>
+  <!-- ############# SECTION 1 #######################-->
+  <%- include('components/section1.ejs');  -%>
+
+  <!-- #############	FOOTER #######################-->
+  <%- include('components/homeFooter.ejs');  -%>
+
+</body>
+<!-- #############	FOOTER #######################-->
+<%- include('components/footer.ejs');  -%>
+
+
+</html>
+
+
+Navigation 
+
+<div class="dropdown_wrapper  invisible">
+</div>
+
+<!-- ############# NAVIGATION #######################-->
+<nav class="navbar navbar-expand-lg navbar-light ">
+
+  <a class="navbar-brand" href="/" style="color:blue;"> <img src="/public/img/logo.svg" style="height: 25px;">ShareMyRide</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto ">
+      <% if((typeof rider==="undefined" && typeof user==="undefined" )) {%>
+      <li class="nav-item active">
+        <a class="nav-link" href="/">
+          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+            <g fill="none" stroke="#00AFF5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+              <path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
+            </g>
+          </svg>
+          Search a ride</a>
+      </li>
+      <li class="nav-item active mx-2">
+        <a class="nav-link" href="/rider/get/ride/options">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ifAKCX iIDpvI mr-m" width="24" height="24" aria-hidden="true">
+            <g fill="none" stroke="#00AFF5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+              <circle cx="12" cy="12" r="11"></circle>
+              <path d="M12 7v10M17 12H7"></path>
+            </g>
+          </svg>
+          Offer a ride</a>
+      </li>
+      <li class="nav-item active">
+        <img src="/public/img/user.svg" class="home_img">
+        <svg width="20px" height="20px" viewBox="0 0 1024 1024" data-aut-id="icon" class="home_arrow" fill-rule="evenodd">
+          <path class="rui-77aaa" d="M85.392 277.333h60.331l366.336 366.336 366.336-366.336h60.331v60.331l-408.981 409.003h-35.307l-409.045-409.003z"></path>
+        </svg>
+        <%- include('./homeDropDown.ejs');  -%>
+      </li>
+
+      <%}else if(typeof rider!="undefined"){%>
+      <% if(rider.is_admin){ %>
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin/dashboard">Admin</a>
+      </li>
+      <% } %>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/">
+          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+            <g fill="none" stroke="#00AFF5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+              <path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
+            </g>
+          </svg>
+          Search a ride</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/rider/get/ride/options">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="kirk-icon sc-ifAKCX iIDpvI mr-m" width="24" height="24" aria-hidden="true">
+            <g fill="none" stroke="#00AFF5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+              <circle cx="12" cy="12" r="11"></circle>
+              <path d="M12 7v10M17 12H7"></path>
+            </g>
+          </svg>
+          Post ride</a>
+      </li>
+
+      <li class="nav-item active">
+        <img src="/rider/profile/<%= rider.profile%>" class="user_img">
+        <svg width="20px" height="20px" viewBox="0 0 1024 1024" data-aut-id="icon" class="arrow" fill-rule="evenodd">
+          <path class="rui-77aaa" d="M85.392 277.333h60.331l366.336 366.336 366.336-366.336h60.331v60.331l-408.981 409.003h-35.307l-409.045-409.003z">
+
+          </path>
+        </svg>
+        <%- include('./riderProfileDropDown.ejs');  -%>
+
+      </li>
+
+      <%} else {%>
+
+      <li class="nav-item active">
+        <a class="nav-link" href="/">
+          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+            <g fill="none" stroke="#00AFF5" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+              <path d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
+            </g>
+          </svg>
+          Search a ride</a>
+      </li>
+
+
+      <li class="nav-item active">
+        <img src="/user/profile/<%= user.profile%>" class="user_img">
+        <svg width="20px" height="20px" viewBox="0 0 1024 1024" data-aut-id="icon" class="arrow" fill-rule="evenodd">
+          <path class="rui-77aaa" d="M85.392 277.333h60.331l366.336 366.336 366.336-366.336h60.331v60.331l-408.981 409.003h-35.307l-409.045-409.003z">
+
+          </path>
+        </svg>
+        <%- include('./userProfileDropDown.ejs');  -%>
+
+      </li>
+      <% } %>
+
+    </ul>
+  </div>
+</nav>
+
+
+
+Signin
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Sign In</title>
+  <!-- #############	HEADER #######################-->
+  <%- include('components/header.ejs');  -%>
+</head>
+
+<body>
+
+  <!-- ############# NAVIGATION #######################-->
+  <%- include('components/nav.ejs') -%>
+
+  <!-- ############# SIGNIN #######################-->
+ <section class="signin_container">
+
+  <form novalidate="" class="container form_container" action="/signin/<%= link %>" method="post">
+
+    <div class="form-group">
+      <label class="form-label" for="formBasicEmail">Email address</label>
+      <input placeholder="Enter email" type="email" id="formBasicEmail" class="form-control" name="email">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="formBasicPassword">Password</label>
+      <input placeholder="Password" required="" type="password" id="formBasicPassword" class="form-control" name="password">
+    </div>
+
+    <input type="submit" class="btn signin_button" value="Sign in">
+    <% if((typeof msg==="undefined")) {%>
+    <div class="msg"><span></span></div>
+    <%}else {%>
+    <div class="msg"><span><%= msg%></span></div>
+    <%}%>
+          <div class="mt-2 form-group">
+              <small class="text-primary"><a href="/<%= link %>/forget/password">Forget password?</a></small><br>
+    <small class="text">New to Share My Ride ?<a class="nav-link d-inline p-0" href="/signup/<%= link %>">Create an account</a></small>
+    </div>
+  </form>
+
+</section>
+
+
+</body>
+<!-- #############	FOOTER #######################-->
+<%- include('components/footer.ejs');  -%>
+
+</html>
+
+
+
+
+signup
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Sign Up</title>
+  <!-- ############# HEADER #######################-->
+  <%- include('components/header.ejs');  -%>
+</head>
+
+<body>
+  <!-- ############# NAVIGATION #######################-->
+  <%- include('components/nav.ejs') -%>
+
+  <!-- ############# SIGNUP #######################-->
+ 	<section class="signup_container">
+	  <% if((typeof msg==="undefined")) {%>
+	  <div class="msg"><span></span></div>
+	  <%}else {%>
+	  <div class="msg"><span><%= msg%></span></div>
+	  <%}%>
+        <form novalidate="" class="container form_container" method="post" action="/signup/user" enctype="multipart/form-data">
+             <div class="form-group">
+                <label class="form-label" for="formBasicName">Name</label>
+                <input name="name" name="name" placeholder="Enter Name" required="" type="text" id="formBasicName" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formBasicEmail">Email address</label>
+                <input name="email" placeholder="Enter email" required="" type="email" id="formBasicEmail" class="form-control">
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="formBasicPassword">Password</label>
+                <input name="password" placeholder="Password" required="" type="password" id="formBasicPassword" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="formBasicPhoneno">Whatsapp No</label>
+                <input name="whatsappno" placeholder="Whatsapp No" required="" type="number" id="formBasicPhoneno" class="form-control">
+              </div>
+              
+               <div class="form-group">
+                <label class="form-label" for="formBasicPhoneno">profile</label>
+                <input type="file" name="profile">
+              </div>
+
+              
+              <input type="submit" class="btn create_button" value="Create account">
+              
+        </form>
+  </section>
+</body>
+<!-- #############  FOOTER #######################-->
+<%- include('components/footer.ejs');  -%>
+
+</html>
+
+search page
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Rides</title>
+  <!-- #############	HEADER #######################-->
+  <%- include('components/header.ejs');  -%>
+  <!--Custom css-->
+
+  <link rel="stylesheet" type="text/css" href="/public/styles/searchResult.css">
+
+</head>
+
+<body>
+  <!-- ############# NAVIGATION #######################-->
+  <%- include('components/nav.ejs');  -%>
+
+  <!-- ############# POPUP #######################-->
+  <%- include('components/popup.ejs');  -%>
+
+  <!-- ############# SEARCH BAR #######################-->
+  <%- include('components/searchBar.ejs');  -%>
+
+  <!-- ############# SEARCH #######################-->
+ <div class="loading_wrapper invisible">
+  <!-- ################# LOADING ############# -->
+  <%- include('./loading.ejs');  -%>
+</div>
+<div class="search_container-result">
+  <% if(rides.length>0) { %>
+  <p class="text-uppercase text-muted search_result-title">available rides</p>
+
+  <% rides.forEach((ride,i)=>{ %>
+  <div class="search_result">
+    <div class="search_result-left">
+      <% if(ride.type==="taxi"){ %>
+      <img src="/public/img/taxi.jpg" alt="vechiles">
+      <% }else{ %>
+      <img src="/public/img/truck.svg" alt="vechiles">
+      <% } %>
+    </div>
+
+    <div class="search_result-right">
+      <a href="/search/ride/id/<%=ride._id%>">
+        <div class="vechile_type font-weight-bold">
+          <p class="text-capitalize m-0"><%=ride.type%></p>
+        </div>
+        <div class="search_result-right-location">
+          <div class="location_from text-muted  mx-2">
+
+            <p class="text-capitalize m-0"><i class="fas fa-circle" style="color: var(--secondary-color);"></i><%=ride.from%></p>
+          </div>
+          <span class="line"></span>
+          <div class="location_to text-muted mx-2">
+
+            <p class="text-capitalize m-0"><i class="fas fa-circle" style="color: var(--secondary-color);"></i><%=ride.to%>
+            <p>
+          </div>
+        </div>
+        <div class="search_result-right-detail">
+
+          <div class="ride_date text-muted mx-2">
+            <p class="text-capitalize m-0"><i class="far fa-calendar-alt"></i><%=new Date(ride.date).toDateString()%></p>
+          </div>
+          <div class="ride_time text-muted mx-2">
+            <p class="text-capitalize m-0"><i class="far fa-clock"></i><%=ride.time%></p>
+          </div>
+          <% if(ride.status==="unbooked") { %>
+          <div class="ride_model text-muted mx-2">
+            <p class="text-capitalize m-0 text-danger font-weight-bold"><%=ride.status%></p>
+          </div>
+
+          <% }else{ %>
+          <div class="ride_model text-muted mx-2">
+            <p class="text-capitalize m-0 text-success font-weight-bold"><%=ride.status%></p>
+          </div>
+          <% } %>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="search_result-link">
+      <a href="/search/ride/id/<%=ride._id%>">
+        <div class="search_result-arrow"></div>
+      </a>
+    </div>
+  </div>
+  <%});%>
+  <%}else { %>
+  <p class="text-muted text-capitalize text-center m-5">No ride's found</p>
+  <% if(typeof user!="undefined"){ %>
+  <div class="alert_box">
+    <p>Get ride alert for this search
+      <input type="button" name="alert" class="alert_box-btn" value="Set Alert" id="<%= user._id %>">
+    </p>
+  </div>
+  <% }} %>
+
+</div>
+
+</body>
+<!-- #############	FOOTER #######################-->
+<%- include('components/footer.ejs');  -%>
+<script src="/public/js/popup.js"></script>
+<script src="/public/js/searchResult.js"></script>
+
+</html>
+
+Booking page
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Ride</title>
+  <!-- ############# HEADER #######################-->
+  <%- include('components/header.ejs');  -%>
+  <!--Custom css-->
+  <link rel="stylesheet" type="text/css" href="/public/styles/vehicleDetail.css">
+
+</head>
+
+<body>
+  <!-- ############# NAVIGATION #######################-->
+  <%- include('components/nav.ejs') -%>
+
+  <!-- ############# vechicle detail #######################-->
+ <section class="vehicle_container">
+
+  <div class="vehicle_card">
+    <div class="vehicle_card-date text-center">
+      <h3 class="font-weight-bold"><i class="far fa-calendar-alt"></i><%= new Date(ride.date).toDateString()%></h3>
+    </div>
+
+    <div class="vehicle_card-location">
+      <div class="vehicle_card-from">
+        <div class="circle"></div>
+        <p class="m-0 font-weight-bold"><%= ride.from%></p>
+      </div>
+      <div class="line"></div>
+      <div class="vehicle_card-to">
+        <div class="circle"></div>
+        <p class="m-0 font-weight-bold"><%= ride.to%></p>
+      </div>
+    </div>
+    <div class="vehicle_card-time d-flex justify-content-around">
+      <p><i class="far fa-clock"></i><%= ride.time %></p>
+      <% if(ride.passenger) { %>
+      <p class="text-capitalize m-0"><i class="fas fa-users"></i><%=ride.passenger%></p>
+      <% } %>
+
+    </div>
+
+    <div class="vehicle_card-price">
+      <p class="text-capitalize m-0 text-muted">Amount for 1 passenger</p>
+      <p class="m-0 font-weight-bold"><i class="fas fa-rupee-sign"></i><%= ride.amount.toLocaleString() %></p>
+    </div>
+    <div class="vehicle_card-model">
+      <p class="text-capitalize m-0 text-muted">Vehicle Model</p>
+      <p class="m-0 font-weight-bold"><%= ride.model %></p>
+    </div>
+    <div class="vehicle_card-owner">
+
+      <div class="owner_name text-capitalize">
+        <p><%= owner.name %></p>
+      </div>
+      <div class="owner_link">
+        <a href="/rider/profile/id/<%=owner.id%>">
+          <img src="/rider/profile/<%= owner.profile%>" class="rider_img">
+
+        </a>
+      </div>
+    </div>
+    <% if(ride.status==="unbooked") { %>
+    <div class="ride_model text-muted mx-2 text-center p-2">
+      <p class="text-capitalize m-0 text-danger font-weight-bold"><%=ride.status%></p>
+    </div>
+
+    <% }else{ %>
+    <div class="ride_model text-muted mx-2 text-center p-2">
+      <p class="text-capitalize m-0 text-success font-weight-bold"><%=ride.status%></p>
+    </div>
+    <% } %>
+  </div>
+  <% if(ride.status!="Booked" && typeof rider==="undefined") { %>
+  <a href="/user/book/ride/<%= ride._id %>" class="text-decoration-none">
+    <input type="button" name="Book" value="Book This Ride" class="btn d-flex mx-auto mb-5 ">
+  </a>
+  <% } %>
+</section>
+</body>
+<!-- #############  FOOTER #######################-->
+<%- include('components/footer.ejs');  -%>
+
+</html>
+
+Admin
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Admin</title>
+  <!-- #############	HEADER #######################-->
+  <%- include('components/header.ejs');  -%>
+  <link rel="stylesheet" type="text/css" href="/public/styles/admin.css">
+
+<body>
+  <!-- ############# NAVIGATION #######################-->
+  <%- include('components/nav.ejs');  -%>
+  <!-- ############# POPUP #######################-->
+  <%- include('components/popup.ejs');  -%>
+  <!-- ############# USER #######################-->
+ <div class="loading_wrapper invisible">
+  <!-- ################# LOADING ############# -->
+  <%- include('./loading.ejs');  -%>
+</div>
+<p class="text-center font-weight-bold mt-2">Rider's</p>
+<div class="admin_container">
+  <h3 class="info_text info_text-rider ">No Rider Avalible</h3>
+  <div class="table table_rider">
+    <div class="tr table_head">
+      <div class="th">Name</div>
+      <div class="th">email</div>
+      <div class="th">email verified</div>
+      <div class="th">Created at</div>
+      <div class="th">License No</div>
+      <div class="th">date of birth</div>
+      <div class="th">Phone NO</div>
+      <div class="th">expereince</div>
+      <div class="th">Verified</div>
+      <div class="th">Remove</div>
+      <div class="th">Verifiy</div>
+    </div>
+  </div>
+</div>
+
+
+<p class="text-center font-weight-bold mt-2">User's</p>
+<div class="admin_container">
+  <h3 class="info_text info_text-user">No User Avalible</h3>
+  <div class="table table_user">
+    <div class="tr table_head">
+      <div class="th">Name</div>
+      <div class="th">email</div>
+      <div class="th">email verified</div>
+      <div class="th">Created at</div>
+      <div class="th">whatsapp no</div>
+      <div class="th">Remove</div>
+    </div>
+  </div>
+</div>
+</body>
+<!-- #############	FOOTER #######################-->
+<%- include('components/footer.ejs');  -%>
+<script src="/public/js/admin.js"></script>
+<script src="/public/js/popup.js"></script>
+
+</html>
+
+
+
+user controller
+
+//node modules
+const mongoose = require("mongoose");
+const bcrypt = require('bcrypt');
+const Grid = require('gridfs-stream');
+//models
+const Ride = require("../models/Ride");
+const Rider = require("../models/Rider");
+const Booking = require("../models/Booking");
+const Alert = require("../models/Alert");
+const User = require("../models/User");
+
+
+
+//db
+var conn = mongoose.createConnection(process.env.DBURL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+// Initialize GridFS
+let gfs;
+conn.once('open', () => {
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection('profiles');
+});
+
+//util
+const {
+  dbErrorHandler,
+  sendBookRideMail,
+  sendUnBookRideMail,
+  generateToken,
+  sendPasswordReset
+} = require("../util/util");
+
+//handling GET /signin
+function get(req, res) {
+  res.render("userProfile", {
+    user: req.user
+  });
+}
+
+function getProfilePicture(req, res) {
+  gfs.files.findOne({
+    filename: req.params.name
+  }, (err, file) => {
+    if (!file || file.length === 0) return res.status(404).json({
+      err: 'No file exists'
+    });
+    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+      const readstream = gfs.createReadStream(file.filename);
+      readstream.pipe(res);
+    } else {
+      res.status(404).json({
+        err: 'Not an image'
+      });
+    }
+  });
+}
+//handling GET /user/logout
+function logout(req, res) {
+  req.session.destroy();
+  res.redirect("/");
+}
+
+async function post(req, res) {
+  //if user change his mail  send the confirmation message
+  if (res.locals.is_correct) {
+    let {
+      name,
+      email,
+      password,
+      new_password,
+      whatsappno
+    } = req.body;
+    //don't remove this 
+    let old_password = password;
+
+    let user_id = req.user._id;
+
+    let user = await User.findOne({
+      _id: user_id
+    });
+
+    if (user) {
+      if (bcrypt.compareSync(old_password, user.password)) {
+        if (new_password) {
+          new_password = bcrypt.hashSync(new_password, 2);
+          user.password = new_password;
+        }
+        user.name = name;
+        user.email = email;
+        user.whatsappno = whatsappno;
+        if (req.file) {
+          user.profile = req.file.filename;
+        }
+        user = await user.save().catch((err) => {
+          let msg = dbErrorHandler(err)
+          res.render("userProfile", {
+            user: req.user,
+            name: req.user.name,
+            msg: msg
+          });
+        });
+        if (user) {
+          res.render("userProfile", {
+            user: user,
+            msg: "Sucess fully updated"
+          });
+        }
+
+      } else {
+        res.render("userProfile", {
+          user: req.user,
+          msg: "Password does not match"
+        });
+      }
+    }
+    return;
+  }
+  if (!req.body.password) {
+    res.render("userProfile", {
+      user: req.user,
+      msg: "Please provide password to update your account"
+    });
+    return;
+  }
+  res.render("userProfile", {
+    user: req.user,
+    msg: "Please provide all data"
+  });
+
+}
+
+async function getMyBookedRides(req, res) {
+  let user_id = req.user._id;
+  //getting all booking done by user
+  let booking = await Booking.find({
+    user_id: user_id
+  });
+  //to store all [rides id and passenger count] 
+  let rides_id = []
+  let rides = []
+  booking.forEach((booking, i) => {
+    //putting id and passenger in array
+    if (booking.ride_id) {
+      rides_id.push([booking.ride_id, booking.passenger])
+    }
+  });
+  let length = rides_id.length
+  async function getRides(index) {
+    //getting the ride id 
+    let ride = await Ride.findOne({
+      _id: rides_id[index][0]
+    });
+    if (ride) {
+      //over writing no of passenger to no of passenger he booked if it is car
+      ride.passenger = rides_id[index][1];
+      rides.push(ride);
+      if (index + 1 < length) {
+        await getRides(index + 1)
+      }
+    } else {
+      if (index + 1 < length) {
+        await getRides(index + 1)
+      }
+    }
+  }
+  //used recursion function so only we can use async await 
+  //call only if the booking avalible
+  if (length) {
+    await getRides(0);
+  }
+  res.render("BookedRides", {
+    user: req.user,
+    rides
+  });
+  return
+
+
+}
+
+async function bookARide(req, res) {
+  if (req.params.id) {
+    let ride_id = req.params.id;
+    let ride = await Ride.findOne({
+      _id: ride_id
+    });
+    if (ride) {
+      res.render("bookARide", {
+        user: req.user,
+        max_passenger: ride.passenger,
+        id: ride_id,
+        type: ride.type
+      });
+      return
+    }
+  }
+  //render 404 
+  res.render("error");
+}
+
+async function postBookARide(req, res) {
+  let {
+    id,
+    passenger,
+    message
+  } = req.body;
+  if (id && message) {
+    //getting ride
+    let ride = await Ride.findOne({
+      _id: id
+    });
+    //if the ride is full simply return booked
+    if (ride.status === "Booked") {
+      res.json({
+        status: "Failure",
+        msg: "seats all are booked"
+      });
+      return
+    }
+    //if user booking rider we need to check the passenger count
+    if (ride.type === "taxi" && passenger) {
+      //checking if the user entered more seats then rider given
+      if (Number(passenger) > Number(ride.passenger_left)) {
+        res.json({
+          status: "Failure",
+          msg: "seats are exceed"
+        });
+        return
+      }
+    }
+    //getting a rider detail to get email of rider
+    let rider = await Rider.findOne({
+      _id: ride.rider_id
+    });
+    if (rider) {
+      let to_mail = rider.email;
+      //user data
+      let user_data = {
+        name: req.user.name,
+        whatsappno: req.user.whatsappno,
+        passenger: passenger,
+        message: message
+      };
+      //link for the ride 
+      let link = req.protocol + "://" + req.get("host") + "/search/ride/id/" + ride._id;
+
+      //calculating balance seats if he booked taxi
+      if (ride.type === "taxi" && passenger) {
+        let seats = Number(ride.passenger_left) - Number(passenger);
+        if (seats) {
+          ride.status = seats + " Seats Left"
+        }
+        //if no seat 
+        else {
+          ride.status = "Booked";
+        }
+        ride.passenger_left = seats;
+      }
+      //if user book truck simply update staus as booked
+      else {
+        ride.status = "Booked";
+      }
+      ride.booked_id = req.user._id;
+      //1.updating ride data (status,passenger_left)
+      ride = await ride.save().catch((err) => {
+        let msg = dbErrorHandler(err);
+        res.json({
+          status: "Failure",
+          msg: msg
+        });
+      });
+      if (ride) {
+        //2. Second creating booking data
+        //checking if user booking same ride as second time
+        let booking = await Booking.findOne({
+          user_id: req.user._id,
+          ride_id: ride._id
+        });
+        //if user alreday booked same ride simply add the no of passenger
+        if (booking) {
+          //if user booking taxi
+          if (booking.passenger) {
+            booking.passenger = Number(passenger) + Number(booking.passenger);
+          }
+          //if user booking truck
+          else {
+            booking.passenger = null;
+          }
+        }
+        //if user book the first time 
+        else {
+          booking = new Booking({
+            user_id: req.user._id,
+            ride_id: ride._id,
+            passenger: passenger
+          });
+        }
+        //adding (user_id rider_id ,passenger count) 
+        //if this failed we need to rollback ride data
+        booking = await booking.save().catch((err) => {
+          let msg = dbErrorHandler(err);
+          res.json({
+            status: "Failure",
+            msg: msg
+          });
+        });
+        if (booking) {
+          let msg = await sendBookRideMail(to_mail, rider.name, user_data, link);
+          //todo if email fail we need to rollback
+          if (msg) {
+            res.json({
+              status: "Sucess",
+              msg: "Successfully Booked"
+            });
+            return
+          }
+          // else{
+          // 	res.json({status:"Failure",msg:"Sorry For We Unable To Send Mail To Rider"});
+
+          // }
+        }
+      }
+      //if  ride failed we need to rollback 	
+    }
+    //if no rider
+    else {
+      res.json({
+        status: "Failure",
+        msg: "Sorry Rider is not avalible"
+      })
+    }
+  }
+  //if user not provide data simply ignore it 
+}
+async function unBookMyRide(req, res) {
+  if (req.body.id) {
+    let ride_id = req.body.id;
+    let user = req.user;
+    let user_id = user._id;
+    let booking = await Booking.findOne({
+      ride_id: ride_id,
+      user_id: user_id
+    });
+    let passenger = booking.passenger;
+    if (booking) {
+      let ride = await Ride.findOne({
+        _id: ride_id
+      })
+      if (ride) {
+        //adding back the booked passenger to ride and setting status 
+        let passenger_left = Number(ride.passenger_left) + Number(passenger);
+        ride.passenger_left = passenger_left;
+        //need to check if the passenger left == passenger then we need to put unbooked
+        if (passenger_left === ride.passenger) {
+          ride.status = "unbooked";
+        } else {
+          ride.status = passenger_left + " Seats Left"
+        }
+        ride = await ride.save().catch((err) => {
+          let msg = dbErrorHandler(err);
+          res.json({
+            status: "Failure",
+            msg: msg
+          });
+        });
+        if (ride) {
+          let booking = await Booking.deleteOne({
+            ride_id: ride_id,
+            user_id: user_id
+          });
+          if (booking) {
+            //getting a rider detail to get email of rider
+            let rider = await Rider.findOne({
+              _id: ride.rider_id
+            });
+            if (rider) {
+              let to_mail = rider.email;
+              //user data
+              let user_data = {
+                name: req.user.name,
+                whatsappno: req.user.whatsappno,
+                passenger: passenger
+              };
+              //link for the ride 
+              let link = req.protocol + "://" + req.get("host") + "/search/ride/id/" + ride._id;
+              let msg = await sendUnBookRideMail(to_mail, rider.name, user_data, link);
+              if (msg) {
+                res.json({
+                  "status": "Sucess",
+                  msg: "Successfully Unbooked"
+                });
+                return;
+              }
+              //this send the response and also the errorhandler also 
+              //send res it cause error
+              // else{
+              // 	//if failed we need to rollback
+              //    						res.json({status:"Failure",msg:"Sorry For We Unable To Send Mail To Rider"});
+              //      			}
+            }
+          }
+        }
+      }
+    } else {
+      res.json({
+        "status": "Failure",
+        msg: "Sorry Something went wrong!"
+      });
+    }
+    return;
+  }
+  res.render("error");
+
+}
+
+async function setAlertOnSearch(req, res) {
+  if (req.body.from && req.body.to && req.body.date && req.body.user_id && req.body.type) {
+    //creating new alert
+    //converting to lower case
+    let user_id = req.body.user_id;
+    let from = req.body.from.toLowerCase();
+    let to = req.body.to.toLowerCase();
+    let type = req.body.type.toLowerCase();
+    let date = req.body.date;
+
+    let new_alert = new Alert({
+      user_id,
+      from,
+      to,
+      type,
+      date
+    });
+    new_alert = await new_alert.save()
+    if (new_alert) {
+      res.json({
+        "status": "Sucess",
+        "msg": "Alert Created Successfully"
+      });
+    } else {
+      res.json({
+        "status": "Failure",
+        "msg": "Sorry Something went wrong!"
+      });
+    }
+
+  } else {
+    res.json({
+      "status": "Failure",
+      "msg": "You missed some input"
+    });
+  }
+}
+
+async function unSetAlertOnSearch(req, res) {
+  if (req.params.id) {
+    let id = req.params.id;
+    let alert = await deleteOne({
+      _id: id
+    });
+    if (alert) {
+      res.json({
+        status: "Successfully Unalerted"
+      });
+    } else {
+      res.json({
+        status: "Something went wrong"
+      });
+
+    }
+  }
+}
+
+function forgetPassword(req, res) {
+  res.render("forgetPassword");
+
+}
+//handling POST /user/forget/password
+async function postForgetPassword(req, res) {
+  if (req.body.email) {
+    let email = req.body.email;
+    var user = await User.findOne({
+      email: email
+    });
+    if (user) {
+      let token = generateToken();
+      let link = req.protocol + "://" + req.get("host") + "/user/reset/password/" + token;
+
+      //we adding 20 mins to current date and converting in to mili sec
+      let password_reset_expires = Date.now() + 20 * 60 * 1000;
+      //updating the user token
+      let new_user = await User.findOneAndUpdate({
+        _id: user._id
+      }, {
+        password_reset_token: token,
+        password_reset_expires: password_reset_expires
+      });
+
+      //sending mail to user
+      let msg = await sendPasswordReset(user.email, user.name, link);
+      if (msg) {
+        res.json({
+          status: "Sucess",
+          msg: "Check your mail to reset the password"
+        });
+      } else {
+        res.json({
+          status: "Failure",
+          msg: "Sorry Something went wrong. Please try again"
+        });
+      }
+      return
+    }
+    res.json({
+      status: "Failure",
+      msg: "No user exit with given gmail"
+    })
+    return
+  }
+  res.render("error");
+
+}
+
+//handling GET /user/reset/password
+async function resetPassword(req, res) {
+  res.render("resetPassword");
+}
+
+//handling POST /user/reset/password
+async function postResetPassword(req, res) {
+
+  if (req.params && req.body.password) {
+
+    let password_reset_token = req.params.id;
+    let new_password = req.body.password;
+    //finding the user
+    var user = await User.findOne({
+      password_reset_token: password_reset_token,
+      password_reset_expires: {
+        $gt: Date.now()
+      }
+    });
+    if (user) {
+      let hash = bcrypt.hashSync(new_password, 2);
+      let new_user = await User.findOneAndUpdate({
+        _id: user._id
+      }, {
+        password: hash
+      });
+      res.json({
+        status: "Sucess",
+        msg: "Password Updated"
+      });
+    } else {
+      res.json({
+        status: "Failure",
+        msg: "Link Expires"
+      });
+    }
+    return
+  }
+  res.render("error");
+}
+
+async function emailVerified(req, res) {
+  if (req.params) {
+    let user_id = req.params.id;
+    var user = await User.findOne({
+      _id: user_id
+    });
+    if (user) {
+      user.is_email_verified = true;
+      new_user = await user.save();
+      res.render("emailVerified", {
+        user: ""
+      });
+      return
+    }
+    res.render("error");
+  }
+}
+
+module.exports = {
+  get,
+  getProfilePicture,
+  logout,
+  post,
+  bookARide,
+  postBookARide,
+  getMyBookedRides,
+  unBookMyRide,
+  setAlertOnSearch,
+  forgetPassword,
+  postForgetPassword,
+  resetPassword,
+  postResetPassword,
+  emailVerified
+};
+
+
+Driver controller
+
+//node modules
+const mongoose = require("mongoose");
+const Grid = require('gridfs-stream');
+const bcrypt = require('bcrypt');
+//models
+const Ride = require("../models/Ride");
+const Rider = require("../models/Rider");
+const Alert = require("../models/Alert");
+
+
+
+//util
+const {
+  generateToken,
+  sendPasswordReset,
+  sendAlertMail,
+  AppError,
+  dbErrorHandler,
+  convertTimeToString,
+  convertTimeToTime
+} = require("../util/util");
+
+
+//db
+var conn = mongoose.createConnection(process.env.DBURL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+// Initialize GridFS
+let gfs;
+conn.once('open', () => {
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection('profiles');
+});
+
+
+//handling GET /signin
+function get(req, res) {
+  res.render("riderProfile", {
+    rider: req.user
+  });
+}
+
+function getProfilePicture(req, res) {
+  gfs.files.findOne({
+    filename: req.params.name
+  }, (err, file) => {
+    if (!file || file.length === 0) return res.status(404).json({
+      err: 'No file exists'
+    });
+    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+      const readstream = gfs.createReadStream(file.filename);
+      readstream.pipe(res);
+    } else {
+      res.status(404).json({
+        err: 'Not an image'
+      });
+    }
+  });
+}
+
+//handling GET /rider/logout
+function logout(req, res) {
+  req.session.destroy();
+  res.redirect("/");
+}
+
+async function getProfileById(req, res) {
+  if (req.params.id) {
+    let id = req.params.id;
+    let rider_profile = await Rider.findOne({
+      _id: id
+    });
+    if (rider_profile) {
+      res.render("riderProfileId", {
+        rider_profile,
+        rider: req.user
+      });
+      return;
+    }
+
+    //render 404
+  }
+}
+
+async function post(req, res) {
+  //need to check if rider realy change anything else dont update if rider change his mail
+  //send the confirmation message
+  if (res.locals.is_correct) {
+    let {
+      name,
+      email,
+      password,
+      new_password,
+      date_of_birth,
+      gender,
+      phoneno,
+      whatsappno,
+      licenseno,
+      drivingexpereince,
+      bio
+    } = req.body;
+    //don't remove this
+    let old_password = password;
+
+    let rider_id = req.user._id;
+
+    let rider = await Rider.findOne({
+      _id: rider_id
+    });
+
+    if (rider) {
+      if (bcrypt.compareSync(old_password, rider.password)) {
+        if (new_password) {
+          new_password = bcrypt.hashSync(new_password, 2);
+          rider.password = new_password;
+        }
+        rider.name = name;
+        rider.email = email;
+        rider.gender = gender;
+        rider.date_of_birth = date_of_birth;
+        rider.phoneno = phoneno;
+        rider.whatsappno = whatsappno;
+        rider.licenseno = licenseno;
+        rider.drivingexpereince = drivingexpereince;
+        rider.bio = bio;
+        if (req.file) {
+          rider.profile = req.file.filename;
+        }
+        rider = await rider.save().catch((err) => {
+          let msg = dbErrorHandler(err)
+          res.render("riderProfile", {
+            rider: req.user,
+            name: req.user.name,
+            msg: msg
+          });
+        });
+        if (rider) {
+          res.render("riderProfile", {
+            rider: rider,
+            msg: "Sucessfully updated"
+          });
+        }
+
+      } else {
+        res.render("riderProfile", {
+          rider: req.user,
+          msg: "Password does not match"
+        });
+      }
+    }
+    return;
+  }
+  if (!req.body.password) {
+    res.render("riderProfile", {
+      rider: req.user,
+      msg: "Please provide password to update your account"
+    });
+    return;
+  }
+  res.render("riderProfile", {
+    rider: req.user,
+    msg: "Please provide all data"
+  });
+
+}
+
+async function getMyRides(req, res) {
+  let rider_id = req.user._id;
+  let rides = await Ride.find({
+    rider_id: rider_id
+  });
+  if (rides) {
+    res.render("myRides", {
+      rider: req.user,
+      rides
+    });
+    return
+  }
+  //render 404
+  res.render("error");
+}
+
+function getMyRideFormTaxi(req, res) {
+  res.render("myRideFormTaxi", {
+    rider: req.user
+  });
+}
+
+function getMyRideFormGoods(req, res) {
+  res.render("myRideFormGoods", {
+    rider: req.user
+  });
+}
+
+function getMyRideOptions(req, res) {
+  res.render("rideOptions", {
+    rider: req.user
+  });
+}
+
+async function getBookedUsers(req, res) {
+  if (req.params.id) {
+    let ride_id = req.params.id;
+    //getting ride detail to get rider_id so only we can check if the req rider has acess to see
+    let ride = await Ride.findOne({
+      _id: ride_id
+    });
+    //allow only if rider has access
+    if (ride.rider_id === req.user._id) {
+      //getting booking to get the booked user id
+      let booking = await Booking.find({
+        ride_id: ride_id
+      });
+      let users_id = [];
+      let users = [];
+      let booked = 0
+      booking.forEach((booking, i) => {
+        //putting user id and no of passenger to array
+        if (booking.ride_id) {
+          users_id.push([booking.user_id, booking.passenger]);
+        }
+      });
+
+      let length = users_id.length
+      async function getUsers(index) {
+        //getting the user data
+        let user = await User.findOne({
+          _id: users_id[index][0]
+        });
+        if (user) {
+          //adding no of passenget to user obj
+          user._doc.passenger = users_id[index][1];
+          //adding to find total booked seats
+          booked += users_id[index][1];
+          users.push(user);
+          if (index + 1 < length) {
+            await getUsers(index + 1)
+          }
+        } else {
+          if (index + 1 < length) {
+            await getUsers(index + 1)
+          }
+        }
+      }
+      if (length) {
+        await getUsers(0);
+        let unbooked = parseInt(ride.passenger) - parseInt(booked);
+        res.render("bookedUsers", {
+          seats: ride.passenger,
+          booked: booked,
+          unbooked: unbooked,
+          users: users,
+          rider: req.user
+        });
+      }
+    }
+  }
+}
+async function postMyRideForm(req, res) {
+    if (res.locals.is_correct_ride) {
+      let {
+        from,
+        to,
+        type,
+        model,
+        passenger,
+        amount,
+        time,
+        date
+      } = req.body;
+      let views = type === "taxi" ? "myRideFormTaxi" : "myRideFormGoods";
+
+      from = from.toLowerCase();
+      to = to.toLowerCase();
+      let time_array = convertTimeToString(time);
+      time = time_array[0] + ":" + time_array[1] + " " + time_array[2];
+      let rider = req.user;
+      let rider_id = rider._id;
+      new_ride = new Ride({
+        rider_id: rider_id,
+        from,
+        to,
+        type,
+        model,
+        passenger,
+        passenger_left: passenger,
+        amount,
+        time,
+        date
+      });
+      new_ride.save().catch((err) => {
+          let msg = dbErrorHandler(err);
+          res.render(views, {
+            msg: msg
+          });
+        });
+        if (new_ride) {
+          res.redirect("/rider/get/myrides/");
+          //after sucessfully created check if it has alert
+          type = type.toLowerCase();
+          let alert = await Alert.find({
+            from: from,
+            to: to,
+            date: {
+              "$eq": date
+            },
+            type: type
+          });
+          let length = alert.length;
+          if (length) {
+            async function sentAlert(index) {
+              //if we find alert get user id and get his email
+              let user_id = alert[index].user_id;
+              let user = await User.findOne({
+                _id: user_id
+              });
+              if (user) {
+                let email = user.email;
+                let name = user.name;
+                let link = req.protocol + "://" + req.get("host") + "/search/ride/id/" + new_ride._id;
+                let alert_link = req.protocol + "://" + req.get("host") + "/user/unset/alert/" + alert[index]._id;
+                //sending mail to user who set alert
+                let msg = await sendAlertMail(email, name, alert[index], link, alert_link);
+                //call recursively until empty
+                index = index + 1;
+                if (length > index) {
+                  await sentAlert(index);
+                }
+              }
+            }
+            //passing first
+            await sentAlert(0);
+          }
+        }
+      }
+      else {
+        res.render(views, {
+          msg: "Please provide all data"
+        });
+      }
+
+    }
+    async function editMyRideForm(req, res) {
+      if (req.params.id) {
+        //used rider id to avoid other rider to edit the ride
+        let rider_id = req.user._id;
+        let id = req.params.id;
+        let ride = await Ride.findOne({
+          rider_id: rider_id,
+          _id: id
+        });
+        if (ride) {
+          //depend on the type render the correspond form
+          let views = ride.type === "taxi" ? "myRideFormTaxi" : "myRideFormGoods";
+          //converting time format so we can set that as value
+          ride.time = convertTimeToTime(ride.time);
+          res.render(views, {
+            rider: req.user,
+            ride: ride
+          });
+          return
+        }
+      }
+      // render the 404 page
+      res.render("error");
+
+    }
+
+    async function postEditMyRideForm(req, res) {
+      if (res.locals.is_correct_ride && req.params.id) {
+
+        let id = req.params.id;
+        let {
+          from,
+          to,
+          type,
+          model,
+          passenger,
+          amount,
+          time,
+          date
+        } = req.body;
+        //depend on the type render the correspond form
+        let views = type === "taxi" ? "myRideFormTaxi" : "myRideFormGoods";
+        let time_array = convertTimeToString(time);
+        time = time_array[0] + ":" + time_array[1] + " " + time_array[2];
+
+        let rider = req.user;
+        let rider_id = rider._id;
+
+        ride = await Ride.findOneAndUpdate({
+          rider_id: rider_id,
+          _id: id
+        }, {
+          rider_id: rider_id,
+          from,
+          to,
+          type,
+          model,
+          passenger,
+          passenger_left: passenger,
+          amount,
+          time,
+          date
+        });
+
+
+        if (ride) {
+          res.redirect("/rider/get/myrides/");
+        }
+      } else {
+        res.render(views, {
+          msg: "Please provide all data"
+        });
+      }
+
+    }
+
+    async function removeMyRideForm(req, res) {
+      if (req.body.id) {
+        let ride_id = req.body.id;
+        let rider = req.user;
+        let rider_id = rider._id;
+        let ride = await Ride.deleteOne({
+          _id: ride_id,
+          rider_id: rider_id
+        });
+        let booking = await Booking.deleteMany({
+          ride_id: ride_id
+        });
+        //need to show rider if some thing bad for better use js in client side
+        if (ride && booking) {
+          res.json({
+            "status": "Sucess",
+            msg: "Successfully Removed"
+          });
+        } else {
+          res.json({
+            "status": "Failure",
+            msg: "Sorry Something went wrong!"
+          });
+        }
+        return;
+      }
+      res.render("error");
+
+    }
+
+
+    async function forgetPassword(req, res) {
+      res.render("forgetPassword", {
+        rider: req.user
+      })
+
+    }
+    //handling POST /rider/forget/password
+    async function postForgetPassword(req, res) {
+      if (req.body.email) {
+        let email = req.body.email;
+        var rider = await Rider.findOne({
+          email: email
+        });
+        if (rider) {
+          let token = generateToken();
+          let link = req.protocol + "://" + req.get("host") + "/rider/reset/password/" + token;
+
+          //we adding 20 mins to current date and converting in to mili sec
+          let password_reset_expires = Date.now() + 20 * 60 * 1000;
+          //updating the rider token
+          let new_rider = await Rider.findOneAndUpdate({
+            _id: rider._id
+          }, {
+            password_reset_token: token,
+            password_reset_expires: password_reset_expires
+          });
+
+          //sending mail to rider
+          let msg = await sendPasswordReset(rider.email, rider.name, link);
+          if (msg) {
+            res.json({
+              status: "Sucess",
+              msg: "Check your mail to reset the password"
+            });
+          } else {
+            res.json({
+              status: "Failure",
+              msg: "Sorry Something went wrong. Please try again"
+            });
+          }
+          return
+        }
+        res.json({
+          status: "Failure",
+          msg: "No rider exit with given gmail"
+        })
+        return
+      }
+      res.render("error");
+
+    }
+
+    //handling GET /rider/reset/password
+    async function resetPassword(req, res) {
+      res.render("resetPassword", {
+        rider: req.user
+      })
+    }
+
+    //handling POST /rider/reset/password
+    async function postResetPassword(req, res) {
+
+      if (req.params && req.body.password) {
+
+        let password_reset_token = req.params.id;
+        let new_password = req.body.password;
+        //finding the rider
+        var rider = await Rider.findOne({
+          password_reset_token: password_reset_token,
+          password_reset_expires: {
+            $gt: Date.now()
+          }
+        });
+        if (rider) {
+          let hash = bcrypt.hashSync(new_password, 2);
+          let new_rider = await Rider.findOneAndUpdate({
+            _id: rider._id
+          }, {
+            password: hash
+          });
+          res.json({
+            status: "Sucess",
+            msg: "Password Updated"
+          });
+        } else {
+          res.json({
+            status: "Failure",
+            msg: "Link Expires"
+          });
+        }
+        return
+      }
+      res.render("error");
+    }
+
+    async function emailVerified(req, res) {
+      if (req.params) {
+        let rider_id = req.params.id;
+        var rider = await Rider.findOne({
+          _id: rider_id
+        });
+        if (rider) {
+          rider.is_email_verified = true;
+          new_rider = await rider.save();
+          res.render("emailVerified", {
+            rider: req.user
+          });
+          return
+        }
+        res.render("error");
+      }
+    }
+
+    module.exports = {
+      get,
+      getProfilePicture,
+      logout,
+      getProfileById,
+      post,
+      getMyRideFormTaxi,
+      getMyRideFormGoods,
+      getMyRideOptions,
+      getBookedUsers,
+      editMyRideForm,
+      postEditMyRideForm,
+      postMyRideForm,
+      removeMyRideForm,
+      getMyRides,
+      forgetPassword,
+      postForgetPassword,
+      resetPassword,
+      postResetPassword,
+      emailVerified
+    };
+
+
+    admin controller
+
+    //node modules
+const passport = require("passport");
+//util
+const {
+  AppError
+} = require("../util/util");
+//models
+const Rider = require("../models/Rider");
+const User = require("../models/User");
+
+
+//handling GET /signin
+function get(req, res) {
+  res.render("admin", {
+    rider: req.user
+  });
+
+}
+
+async function getRider(req, res) {
+  let riders = await Rider.find({});
+  res.json({
+    status: "Sucess",
+    riders: riders
+  });
+}
+
+
+async function removeRiderById(req, res) {
+  if (req.body.id) {
+    let rider_id = req.body.id;
+    let rider = await Rider.deleteOne({
+      _id: rider_id
+    });
+    //remove ride also
+    // let ride=await deleteMany({ rider_id: rider_id,});
+    if (rider) {
+      res.json({
+        status: "Sucess",
+        msg: "sucessfully removed"
+      });
+    }
+  } else {
+    res.json({
+      status: "Failure",
+      msg: "Don't be fool!"
+    })
+  }
+}
+
+async function verifiyRiderById(req, res) {
+  if (req.body.id) {
+    let rider_id = req.body.id;
+    let rider = await Rider.findOneAndUpdate({
+      _id: rider_id
+    }, {
+      is_verified: true
+    });
+    if (rider) {
+      res.json({
+        status: "Sucess",
+        msg: "sucessfully Verified"
+      });
+    }
+  } else {
+    res.json({
+      status: "Failure",
+      msg: "Don't be fool!"
+    })
+  }
+}
+// for user
+
+async function getUser(req, res) {
+  let users = await User.find({});
+  res.json({
+    status: "Sucess",
+    users: users
+  });
+}
+
+
+async function removeUserById(req, res) {
+  if (req.body.id) {
+    let user_id = req.body.id;
+    let user = await User.deleteOne({
+      _id: user_id
+    });
+    //remove ride also
+    // let ride=await deleteMany({ user_id: user_id,});
+    if (user) {
+      res.json({
+        status: "Sucess",
+        msg: "sucessfully removed"
+      });
+    }
+  } else {
+    res.json({
+      status: "Failure",
+      msg: "Don't be fool!"
+    })
+  }
+}
+
+module.exports = {
+  get,
+  getRider,
+  removeRiderById,
+  verifiyRiderById,
+  getUser,
+  removeUserById,
+};
+
+signupcontroller
+
+const mongoose = require("mongoose");
+const bcrypt = require('bcrypt');
+var validator = require('validator');
+const Rider = require("../models/Rider");
+const User = require("../models/User");
+
+//util
+const {
+  generateToken,
+  forgetPassword,
+  AppError,
+  verfiyMail,
+  dbErrorHandler
+} = require("../util/util");
+
+const salt_rounds = 5;
+//handling GET /Signup
+
+function get(req, res) {
+  if (!req.user) {
+    res.render("signupRider");
+  } else {
+    res.redirect("/rider/get/myrides/")
+  }
+}
+
+//handling POST /signup/rider
+async function post(req, res) {
+  if (!validator.isEmail(req.body.email)) {
+    res.render("signupRider", {
+      msg: "Invalid Email"
+    });
+    return
+  }
+  //need to check if the new rider is not user
+  let user = await User.findOne({
+    email: req.body.email
+  });
+  if (!user) {
+    let profile = req.file.filename;
+    let hash = bcrypt.hashSync(req.body.password, salt_rounds);
+    req.body.password = hash;
+    let new_rider = new Rider({
+      name: req.body.name,
+      gender: req.body.gender,
+      email: req.body.email,
+      password: req.body.password,
+      date_of_birth: req.body.date_of_birth,
+      phoneno: req.body.phoneno,
+      whatsappno: req.body.whatsappno,
+      drivingexpereince: req.body.drivingexpereince,
+      licenseno: req.body.licenseno,
+      bio: req.body.bio,
+      profile: profile
+    });
+
+    new_rider = await new_rider.save().catch((err) => {
+      let msg = dbErrorHandler(err);
+      res.render("signupRider", {
+        msg: msg
+      });
+    });
+    if (new_rider) {
+      let link = req.protocol + "://" + req.get("host") + "/rider/verifiy/email/" + new_rider._id;
+      let msg = await verfiyMail(new_rider.email, new_rider.name, link);
+      if (msg) {
+        res.redirect("/signin/rider");
+      } else {
+        //need to remove rider from database if mail not send sucessfully
+        await Rider.deleteOne({
+          _id: new_rider._id
+        }).catch((err) => {
+          let msg = dbErrorHandler(err)
+          res.render("signupRider", {
+            msg: msg
+          });
+        });
+        res.render("signupRider", {
+          msg: "Sorry Something went wrong. Please try again"
+        });
+      }
+    }
+  }
+  //if he is user
+  else {
+    res.render("signupRider", {
+      msg: "Sorry Your Email Exit in user account try different email"
+    });
+
+  }
+}
+
+module.exports = {
+  get,
+  post
+};
+
+signin controller
+
+const passport = require("passport");
+
+//handling GET /signin/user
+function getHandler(req, res) {
+  if (!req.user) {
+    res.render("signin", {
+      link: "user"
+    });
+  } else {
+    res.redirect("/user/booked/rides")
+  }
+}
+
+function postHandler(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) {
+      return next(err);
+    }
+    //allow only he is user
+    if (info.user) {
+      if (!user) {
+        return res.render('signin', {
+          link: "user",
+          msg: info.message
+        });
+      }
+      //if user sucessfully login we need to call manually the login function
+      req.logIn(user, function(err) {
+        if (err) {
+          return next(err);
+        }
+        return res.redirect("/user/booked/rides");
+      });
+    } else {
+      return res.render("signin", {
+        link: "user",
+        msg: "No User Exit"
+      });
+    }
+  })(req, res, next);
+}
+
+module.exports = {
+  getHandler,
+  postHandler
+};
+
+
+search controller
+
+const Ride = require("../models/Ride");
+const Rider = require("../models/Rider");
+
+async function post(req, res) {
+  if (req.body) {
+    let {
+      from,
+      to,
+      type,
+      date
+    } = req.body;
+    type = type.toLowerCase();
+    from = from.toLowerCase();
+    to = to.toLowerCase();
+    let rides = await Ride.find({
+      from: from,
+      to: to,
+      date: {
+        "$gte": date
+      },
+      type: type
+    });
+    if (req.user) {
+      //if he is rider pass rider option
+      if (req.user.licenseno) {
+        res.render("searchResult", {
+          rides,
+          search: {
+            from,
+            to,
+            type,
+            date
+          },
+          rider: req.user
+        });
+        return
+      }
+    }
+    res.render("searchResult", {
+      rides,
+      search: {
+        from,
+        to,
+        type,
+        date
+      },
+      user: req.user
+    });
+
+  }
+  //say rider to enter the search options
+}
+
+
+async function getSpecificRide(req, res) {
+  if (req.params.id) {
+    let id = req.params.id;
+    let ride = await Ride.findOne({
+      _id: id
+    });
+    if (ride) {
+      owner = await Rider.findOne({
+        _id: ride.rider_id
+      });
+      if (req.user) {
+        //if he is rider pass rider option
+        if (req.user.licenseno) {
+          res.render("vehicleDetail", {
+            ride,
+            owner: {
+              id: owner._id,
+              name: owner.name,
+              profile: owner.profile
+            },
+            rider: req.user
+          })
+          return
+        }
+      }
+      res.render("vehicleDetail", {
+        ride,
+        owner: {
+          id: owner._id,
+          name: owner.name,
+          profile: owner.profile
+        },
+        user: req.user
+      })
+    }
+  }
+}
+module.exports = {
+  post,
+  getSpecificRide
+};

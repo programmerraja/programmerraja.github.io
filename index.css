@@ -93,6 +93,7 @@ body
 .text__container
 {
 	font-size: 1.4rem;
+	font-weight:bold;
 }
 .profile__img
 {
@@ -203,6 +204,8 @@ body
 .projects__img img
 {
 	display: block;
+	border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
 	height: 280px;
     width: 97%;
 	margin:auto;
