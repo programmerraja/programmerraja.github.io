@@ -105,6 +105,7 @@ body
 	width: 80%;
 	margin: auto;
 	display: flex;
+	overflow: hidden;
 	flex-wrap: wrap;
     background-color: var(--bgcolor);	
 	justify-content: space-around;
@@ -143,6 +144,7 @@ body
 	display:flex;
 	flex-wrap: wrap;
 	justify-content:center;
+	overflow: hidden;
 	background-color: var(--bgcolor);
 }
 .project-title-bar {
@@ -197,6 +199,7 @@ body
 	border-radius: 10px;
 	box-shadow: rgba(255, 255, 255, 0.05) -1vmin -1vmin 1vmin, rgba(0, 0, 0, 0.3) 1vmin 1vmin 1vmin;
 }
+
 .projects__img
 {
 	margin:10px;
