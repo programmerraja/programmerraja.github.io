@@ -23,6 +23,15 @@ body
   --font-size: 1.125rem;
   --line-height: 1.5;
 }
+.myself__img img
+{
+    height: 120px;
+    width: 120px;
+    top: 150px;
+    border-radius: 10px;
+    left: 45%;
+}
+}
 
 
 
@@ -543,7 +552,7 @@ body
 				{
 					font-size: .9rem;
 				}
-				
+
 				.footer__list
 				{
 					justify-content: space-around;
@@ -554,6 +563,9 @@ body
 				    flex-direction: row;
 				    margin: 0;
 				    padding: 0.5rem;
+				    border-radius: 32px 10px 0px 0px;
+					-moz-border-radius: 32px 10px 0px 0px;
+					-webkit-border-radius:32px 10px 0px 0px;
 				}
 				.footer__item{
 					padding: 0 !important;
