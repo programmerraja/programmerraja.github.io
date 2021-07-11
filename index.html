@@ -339,11 +339,13 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.from(".projects__card",{
 	scrollTrigger:{
 	trigger:".projects__card",
-	toggleActions:"restart pause none none"
+	toggleActions:"restart none none none"
 	},
 	x:400,
 	opacity:0,
-	duration:1
+	duration:1,
+	stagger:0.3
+
 })
 
 gsap.from(".skill",{
@@ -351,9 +353,10 @@ gsap.from(".skill",{
 	trigger:".skill",
 	toggleActions:"restart none none none"
 	},
-	x:400,
+	x:-1400,
 	rotation:180,
-	duration:1
+	duration:1,
+	stagger:0.3
 })
 gsap.from(".myname",{x:-1000,duration:1,opacity:0,ease: Elastic.easeOut.config(1,0.30),})
 gsap.from(".text__container",{x:-1000,duration:1,opacity:0,ease: Elastic.easeOut.config(1,0.30),delay:1})
