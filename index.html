@@ -18,12 +18,32 @@
 <body>
 	
   <div class="full__container" id="home"> 
-  <!-- 	<ul class="nav">
-		<li class="nav__item"><a href="#home"><img src="./images/home.svg"> <br>Home </a></li>
-		<li class="nav__item"><a href="#skills"><img src="./images/skills.svg"><br>Skills</a></li>
-		<li class="nav__item"><a href="#projects"><img src="./images/project.svg"><br>Projects </a></li>
-		<li class="nav__item"><a href="#contacts"><img src="./images/contacts.svg"><br>Contact</a></li>
-	</ul> -->
+  	<input id="page-nav-toggle" class="main-navigation-toggle" type="checkbox" />
+		<label for="page-nav-toggle">
+		  <svg class="icon--menu-toggle" viewBox="0 0 60 30">
+		    <g class="icon-group">
+		      <g class="icon--menu">
+		        <path d="M 6 0 L 54 0" />
+		        <path d="M 6 15 L 54 15" />
+		        <path d="M 6 30 L 54 30" />
+		      </g>
+		      <g class="icon--close">
+		        <path d="M 15 0 L 45 30" />
+		        <path d="M 15 30 L 45 0" />
+		      </g>
+		    </g>
+		  </svg>
+		</label>
+
+		<nav class="main-navigation">
+		  <ul>
+		    <li><a href="#home" class="nav__link">Home</a></li>
+		    <li><a href="#skills" class="nav__link">Skills</a></li>
+		    <li><a href="#projects" class="nav__link">Projects</a></li>
+		  </ul>
+		</nav>
+
+  
 	<div class="top__banner">
 		<div class="profile__img">
 			<img src="./images/hero.jpeg"  class="profile__img">
@@ -333,6 +353,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.js"></script>
 
 <script type="text/javascript">
+
+	let main_navigation=document.querySelector(".main-navigation-toggle");
+	let nav__link=document.querySelectorAll(".nav__link");
+	nav__link.forEach((link)=>{
+		link.addEventListener("click",()=>{
+			main_navigation.checked=false;
+		})
+	})
 gsap.registerPlugin(ScrollTrigger);
 
 
@@ -374,3 +402,5 @@ gsap.from(".text__container",{x:-1000,duration:1,opacity:0,ease: Elastic.easeOut
 
 </script>
 </html>
+
+
