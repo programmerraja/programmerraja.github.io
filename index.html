@@ -40,53 +40,53 @@
 	</div>
 	<h3 class="skills__heading" id="skills">Skills</h3>
 	<div class="skills__container">
-			<div class="skill html">	
+			<div class="skill html skill_programming">	
 				<img class="skill_image" src="./images/html.png" height="90%" width="90%"> 
 			</div>
-			<div class="skill css">	
+			<div class="skill skill_programming css">	
 				<img class="skill_image" src="./images/css.png">
 			</div>
-			<div class="skill js">	
+			<div class="skill skill_programming js">	
 				<img class="skill_image" src="./images/javascript.png">
 			</div>
 			
-			<div class="skill bootstrap">	
+			<div class="skill skill_programming bootstrap">	
 				<img class="skill_image" src="./images/bootstrap.png">							
 			</div>
-			<div class="skill jquery">	
+			<div class="skill skill_programming jquery">	
 				<img class="skill_image" src="./images/jquery.png">
 			</div>
-			<div class="skill  react">	
+			<div class="skill skill_programming  react">	
 				<img class="skill_image" src="./images/react.png">			
 			</div>
-			<div class="skill nodejs">	
+			<div class="skill skill_programming nodejs">	
 				<img class="skill_image" src="./images/nodejs.png">
 			</div>
-			<div class="skill expressjs">	
+			<div class="skill skill_programming expressjs">	
 				<img class="skill_image" src="./images/expressjs.png">
 			</div>
 			
 			
-			<div class="skill python">	
+			<div class="skill skill_programming python">	
 				<img class="skill_image" src="./images/python.png">							
 			</div>
-			<div class="skill java">	
+			<div class="skill skill_programming java">	
 				<img class="skill_image" src="./images/java.svg">							
 			</div>
-			<div class="skill c ">	
+			<div class="skill skill_programming c ">	
 				<img class="skill_image" src="./images/c.svg">				
 			</div>
-			<div class="skill c++">	
+			<div class="skill skill_programming c++">	
 				<img class="skill_image" src="./images/c++.svg">							
 			</div>
-			<div class="skill Firebase">	
+			<div class="skill Firebase skill_database">	
 				<img class="skill_image" src="./images/firebase.png">							
 			</div>
 		
-			<div class="skill mysql">	
+			<div class="skill skill_database mysql">	
 				<img class="skill_image" src="./images/mysql.svg">							
 			</div>
-			<div class="skill mongodb">	
+			<div class="skill skill_database mongodb">	
 				<img class="skill_image" src="./images/mongodb.svg">							
 			</div>	
 	</div>
@@ -325,7 +325,7 @@
 					<i data-test="fa" class="fab fa-youtube fa-2x" ></i>
 				</a>
 			</li>			
-		</ul>
+			</ul>
 		<div class="copyright"> © Copyright 2020 K.boopathi  All Rights Reserved</div>
 	</div>
 </body>
@@ -344,11 +344,10 @@ gsap.from(".projects__card",{
 	x:400,
 	opacity:0,
 	duration:1,
-	stagger:0.3
-
+	stagger:0.5,
+	ease: Elastic.easeOut.config(1,80)
 })
-
-gsap.from(".skill",{
+gsap.from(".skill_programming",{
 	scrollTrigger:{
 	trigger:".skill",
 	toggleActions:"restart none none none"
@@ -356,7 +355,19 @@ gsap.from(".skill",{
 	x:-1400,
 	rotation:180,
 	duration:1,
-	stagger:0.3
+	stagger:0.3,
+	ease: Elastic.easeOut.config(1,80)
+})
+gsap.from(".skill_database",{
+	scrollTrigger:{
+	trigger:".skill",
+	toggleActions:"restart none none none"
+	},
+	x:1400,
+	rotation:180,
+	duration:1,
+	stagger:0.6,
+	ease: Elastic.easeOut.config(1,80)
 })
 gsap.from(".myname",{x:-1000,duration:1,opacity:0,ease: Elastic.easeOut.config(1,0.30),})
 gsap.from(".text__container",{x:-1000,duration:1,opacity:0,ease: Elastic.easeOut.config(1,0.30),delay:1})

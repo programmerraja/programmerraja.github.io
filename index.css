@@ -132,7 +132,7 @@ body
 
 .skill:hover
 {
-	transform: translateY(-10px);
+	transform: translateY(-10px) !important;
 }
 .skill_image
 {
@@ -263,12 +263,11 @@ body
 .footer__list
 {
 
-	background: rgba( 255, 250, 250, 0.25 );
+	background: rgba( 4, 249, 89, 0.45 );
 	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-	backdrop-filter: blur( 4.0px );
-	-webkit-backdrop-filter: blur( 4.0px );
+	backdrop-filter: blur( 10.5px );
+	-webkit-backdrop-filter: blur( 10.5px );
 	border-radius: 10px;
-	border: 1px solid rgba( 255, 255, 255, 0.18 );
     position: fixed;
     top: 10%;
     right: 2px;
@@ -376,11 +375,26 @@ body
 {
 	font-size: .9rem;
 }
+.footer__list
+{
+	justify-content: space-around;
+    width: 100%;
+    height: 31px;
+    bottom: 0;
+    top: auto;
+    flex-direction: row;
+    margin: 0;
+    padding: 0.5rem;
+}
+.footer__item{
+	padding: 0 !important;
+}
 .footer__item i
 {
 	font-size: 1.5rem;
 
 }
+
 }
 
 /*
