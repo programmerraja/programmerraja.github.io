@@ -18,14 +18,13 @@
 <body>
 	
   <div class="full__container" id="home"> 
-  	<ul class="nav">
+  <!-- 	<ul class="nav">
 		<li class="nav__item"><a href="#home"><img src="./images/home.svg"> <br>Home </a></li>
 		<li class="nav__item"><a href="#skills"><img src="./images/skills.svg"><br>Skills</a></li>
 		<li class="nav__item"><a href="#projects"><img src="./images/project.svg"><br>Projects </a></li>
 		<li class="nav__item"><a href="#contacts"><img src="./images/contacts.svg"><br>Contact</a></li>
-	</ul>
+	</ul> -->
 	<div class="top__banner">
-
 		<div class="profile__img">
 			<img src="./images/hero.jpeg"  class="profile__img">
 		</div>
@@ -330,4 +329,34 @@
 		<div class="copyright"> © Copyright 2020 K.boopathi  All Rights Reserved</div>
 	</div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.js"></script>
+
+<script type="text/javascript">
+gsap.registerPlugin(ScrollTrigger);
+
+
+gsap.from(".projects__card",{
+	scrollTrigger:{
+	trigger:".projects__card",
+	toggleActions:"restart pause none none"
+	},
+	x:400,
+	opacity:0,
+	duration:1
+})
+
+gsap.from(".skill",{
+	scrollTrigger:{
+	trigger:".skill",
+	toggleActions:"restart none none none"
+	},
+	x:400,
+	rotation:180,
+	duration:1
+})
+gsap.from(".myname",{x:-1000,duration:1,opacity:0,ease: Elastic.easeOut.config(1,0.30),})
+gsap.from(".text__container",{x:-1000,duration:1,opacity:0,ease: Elastic.easeOut.config(1,0.30),delay:1})
+
+</script>
 </html>
