@@ -477,6 +477,7 @@ body
 }
 .copyright
 {
+  z-index: 3000;
 	text-align: center;
     background-color: #000000b8;
     color: var(--fontcolor);
