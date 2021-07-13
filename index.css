@@ -26,10 +26,18 @@ body
 .myself__img img
 {
     height: 120px;
+    cursor: pointer;
     width: 120px;
     top: 150px;
     border-radius: 10px;
     left: 45%;
+    transition: 1s transform ease-in;
+}
+.myself__img img:hover{
+  transform: rotate(-90deg) translateY(-100px);
+
+  /*transform: scaleX(2);*/
+
 }
 }
 
