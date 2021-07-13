@@ -303,6 +303,7 @@ body
 .projects__heading
 {
 	color: var(--fontcolor);
+  text-decoration: underline;
 	font-size: 2rem;
 	text-align: center;
 }
