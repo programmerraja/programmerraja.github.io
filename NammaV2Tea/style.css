@@ -1,10 +1,3 @@
-
-body
-{
-	margin:0;
-	padding:0;
-	font-family: 'Titillium Web', sans-serif;
-}
 :root {
   --color-primary: white;
   --color-secondary:#638c65;
@@ -17,6 +10,13 @@ body
   --font-size: 1.125rem;
   --line-height: 1.5;
 }
+body
+{
+	margin:0;
+	padding:0;
+	font-family: 'Titillium Web', sans-serif;
+}
+
 .btn-web{
   background-color: var(--color-secondary);
 }
@@ -210,22 +210,17 @@ footer{
   background: var(--color-secondary);
   padding: 40px 0px 0px 0px;
 }
-a{
-  color:black;
-}
-a:hover{
-  color:green;
-}
 footer h5,
 footer p,
-footer li a{
+footer li a
 {
   font-weight: bold;
   color:white;
 }
 .social-media-icon{
-  color: red;
+  color: black;
 }
+
 
 /* media query for mobile phones */
 @media (max-width:500px)
