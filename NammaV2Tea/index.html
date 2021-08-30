@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />   
-    
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link type="text/css" rel="stylesheet" href="style.css"/>
     
 	<title>Namma V2 Tea</title>
@@ -53,7 +53,10 @@
     </nav>
   </div>
     <Header>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        
+        <div id="carouselExampleIndicators" class="carousel  slide" data-ride="carousel"  data-aos="fade-down"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="200">
               <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -99,7 +102,7 @@
     <div class="container my-4 shadow ">
       <div class="row">
         <div class="col-12 col-sm-6 col-lg-4 my-2">
-            <div class="card align-items-center" >
+            <div class="card align-items-center " data-aos="flip-up"  data-aos-delay="200"data-aos-duration="1000">
               <i class="fas fa-leaf icons m-3"></i>
               <div class="card-body">
                 <h5 class="card-title font-weight-bold">Distinctiveness</h5>
@@ -111,7 +114,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-4 my-2">
-            <div class="card align-items-center" >
+            <div class="card align-items-center" data-aos="flip-up" data-aos-delay="200"data-aos-duration="1000">
               <i class="fas fa-store icons m-3"></i>
               <div class="card-body">
                 <h5 class="card-title font-weight-bold">Franchise</h5>
@@ -125,7 +128,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-4 my-2">
-            <div class="card align-items-center" >
+            <div class="card align-items-center" data-aos="flip-up" data-aos-delay="200"data-aos-duration="1000">
               <i class="fas fa-coffee icons m-3"></i>
               <div class="card-body">
                 <h5 class="card-title font-weight-bold">Tea as a Brand</h5>
@@ -194,7 +197,7 @@
   <footer class="page-footer font-small">
   <div class="container-fluid text-center text-md-left">
     <div class="row">
-      <div class="col-md-6 mt-md-0 mt-3">
+      <div class="col-md-2 mt-md-0 mt-3">
         <h5 class="text-uppercase text-white">Namma V2 Tea</h5>
           <img src="assests/logo.jpeg" width="130px" height="130px"><span></span></a>
          <ul class="social-media-icons list-unstyled d-flex  w-100">
@@ -238,13 +241,13 @@
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 
      -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/ScrollTrigger.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+     
+   <!--   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-   
-<script type="text/javascript">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+<script type="text/javascript">
+    AOS.init();
   let main_navigation=document.querySelector(".main-navigation-toggle");
   let nav__link=document.querySelectorAll(".nav__link");
   nav__link.forEach((link)=>{
@@ -253,32 +256,6 @@
     })
   })
 
-gsap.registerPlugin(ScrollTrigger);
-
-
-gsap.from(".card",{
-  scrollTrigger:{
-  trigger:".card",
-  toggleActions:"restart none none none"
-  },
-  x:400,
-  opacity:0,
-  duration:1,
-  stagger:0.5,
-  ease: Elastic.easeOut.config(1,80)
-})
-
-gsap.from(".become-franchise",{
-  scrollTrigger:{
-  trigger:".become-franchise",
-  toggleActions:"restart none none none"
-  },
-  x:400,
-  opacity:0,
-  duration:2,
-  stagger:0.5,
-  ease: Elastic.easeOut.config(1,80)
-})
 
 </script>
 </html>
