@@ -182,7 +182,7 @@ body
 }
 
 .card{
-	min-height: 290px ;
+	height: 400px ;
 }
 .section2{
   	background-image: url("assests/shop.jpeg");
