@@ -245,6 +245,20 @@ body
 .section2-card-title,
 .section2-card-text{
 }
+./* media query for mobile phones */
+@media (max-width:500px)
+{
+  .carousel-caption{
+    font-weight: bold;
+    top: 150px;
+    bottom: 0px;  
+    color: white;
+  }
+  .carousel-caption-heading
+  {
+    font-size: 30px;
+  }
+}
  <nav class="navbar navbar-expand-md border sticky-top navbar-light  " style="background-color:white;" >
         <!-- nav brand -->
         <a class="navbar-brand " href="#">
