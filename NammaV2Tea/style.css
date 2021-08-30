@@ -167,6 +167,7 @@ body
 }
 .icons{
   font-size: 44px;
+  color:var(--color-secondary);
 }
 .carousel-caption{
 	font-weight: bold;
@@ -185,10 +186,8 @@ body
 	color: white;
 }
 
-.card{
-	height: 400px ;
-}
-.section2{
+
+/*.section2{
   	background-image: url("assests/shop.jpeg");
   	background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -197,21 +196,35 @@ body
     display: flex;
     justify-content: space-around;	
     align-items: center;
-}
-.section2-card{
+}*/
+.card{
   backdrop-filter: blur(0px) saturate(147%);
   -webkit-backdrop-filter: blur(0px) saturate(147%);
   background-color: rgba(255, 255, 255, 0.68);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
-	width: 18rem;
-	height: 10rem;
-	min-height: 50px !important;
 	color: black;	
+  height: 400px ;
 }
 footer{
-  background: #f1f1f1;
-    padding: 40px 0px 0px 0px;
+  background: var(--color-secondary);
+  padding: 40px 0px 0px 0px;
+}
+a{
+  color:black;
+}
+a:hover{
+  color:green;
+}
+footer h5,
+footer p,
+footer li a{
+{
+  font-weight: bold;
+  color:white;
+}
+.social-media-icon{
+  color: red;
 }
 
 /* media query for mobile phones */
@@ -226,6 +239,9 @@ footer{
   .carousel-caption-heading
   {
     font-size: 25px;
+  }
+  .social-media-icons{
+    justify-content: center;
   }
 }
  
