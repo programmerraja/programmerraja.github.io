@@ -1,7 +1,4 @@
 
-.nav-item a{
-	color: black ;
-}
 body
 {
 	margin:0;
@@ -167,6 +164,68 @@ body
   animation-delay: calc((var(--duration) / 2) * 4 * 0.125);
 }
 
+.carousel-caption{
+	font-weight: bold;
+	top: 150px;
+	bottom: 0px;	
+	color: white;
+}
+
+.carousel-caption-heading
+{
+	font-size: 50px;
+}
+.carousel-caption h5,
+.carousel-caption p
+{
+	color: white;
+}
+
+.card{
+	min-height: 290px ;
+}
+.section2{
+  	background-image: url("assests/shop.jpeg");
+  	background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    height: 350px;
+    display: flex;
+    justify-content: space-around;	
+    align-items: center;
+}
+.section2-card{
+  backdrop-filter: blur(0px) saturate(147%);
+  -webkit-backdrop-filter: blur(0px) saturate(147%);
+  background-color: rgba(255, 255, 255, 0.68);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+	width: 18rem;
+	height: 10rem;
+	min-height: 50px !important;
+	color: black;	
+}
+footer{
+  background: #f1f1f1;
+    padding: 40px 0px 0px 0px;
+}
+
+/* media query for mobile phones */
+@media (max-width:500px)
+{
+  .carousel-caption{
+    font-weight: bold;
+    top: 150px;
+    bottom: 0px;  
+    color: white;
+  }
+  .carousel-caption-heading
+  {
+    font-size: 25px;
+  }
+}
+ 
+
 @keyframes nav-bg {
   from {
     transform: translateX(-100%) skewX(-15deg);
@@ -178,7 +237,7 @@ body
 @keyframes nav-line {
   0% {
     transform: scaleX(0);
-    transform-origin: 0 50%;	
+    transform-origin: 0 50%;  
   }
   35% {
     transform: scaleX(1.001);
@@ -200,81 +259,4 @@ body
   50%, 100% {
     transform: translateY(0);
   }
-}	
-.carousel-caption{
-	font-weight: bold;
-	top: 150px;
-	bottom: 0px;	
-	color: white;
-}
-.carousel-caption-heading
-{
-	font-size: 50px;
-}
-.carousel-caption h5,
-.carousel-caption p
-{
-	color: white;
-}
-
-.card{
-	min-height: 290px ;
-}
-.section2{
-	background-image: url("assests/shop.jpeg");
-	background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
-    height: 350px;
-    display: flex;
-    justify-content: space-around;	
-    align-items: center;
-}
-.section2-card{
-	 backdrop-filter: blur(0px) saturate(147%);
-    -webkit-backdrop-filter: blur(0px) saturate(147%);
-    background-color: rgba(255, 255, 255, 0.68);
-    border-radius: 12px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
-	width: 18rem;
-	height: 10rem;
-	min-height: 50px !important;
-	color: black;
-	
-}
-.section2-card-title,
-.section2-card-text{
-}
-./* media query for mobile phones */
-@media (max-width:500px)
-{
-  .carousel-caption{
-    font-weight: bold;
-    top: 150px;
-    bottom: 0px;  
-    color: white;
-  }
-  .carousel-caption-heading
-  {
-    font-size: 30px;
-  }
-}
- <nav class="navbar navbar-expand-md border sticky-top navbar-light  " style="background-color:white;" >
-        <!-- nav brand -->
-        <a class="navbar-brand " href="#">
-          <img src="assests/logo.jpeg" width="30px" height="30px"><span>Namma Vz Tea</span></a>
-        <!-- nav bread icon -->
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#target" type="button">
-              <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- navgation menu-->
-        <div class="collapse navbar-collapse  justify-content-end " id="target" style="font-weight:600">
-              <ul class="navbar-nav ">
-                <li class="nav-item nav-link "> <a href="/"> Home</a></li>
-                 <li class="nav-item nav-link"><a href="/about">About</a></li>
-                  <li class="nav-item nav-link"><a href="/why-franchise">Why Franchise</a></li>
-                  <li class="nav-item nav-link"><a href="/contact">Contact</a></li>
-                  <li class="nav-item nav-link"><a href="/branches">Branches</a></li>
-              </ul>
-        </div>
-    </nav>
+} 
