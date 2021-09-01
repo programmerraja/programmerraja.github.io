@@ -38,6 +38,9 @@ body
 .nav-link a{
   color: white;
 }
+.navbar-toggler{
+  outline: none !important;
+}
 .main-navigation-toggle {
   position: fixed;
   height: 1px;
