@@ -55,8 +55,11 @@ body
 }
 .carousel-caption{
 	font-weight: bold;
-	top: 150px;
-	bottom: 0px;	
+	display: flex !important; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 	color: white;
 }
 .carousel-wrapper{
@@ -70,7 +73,7 @@ body
 }
 .carousel-caption-heading
 {
-	font-size: 50px;
+	font-size:2.5rem;
 }
 .carousel-caption h5,
 .carousel-caption p
@@ -163,13 +166,7 @@ footer li a
 @media (max-width:768px)
 {
   
-  .carousel-caption{
-    font-weight: bold;
-    top:50%;
-    transform: translate(-50% ,-50%);
-    bottom: 0px;  
-    color: white;
-  }
+
   .carousel-caption-heading
   {
     font-size: 20px;
@@ -185,39 +182,3 @@ footer li a
     font-size: 0.5rem;
   }
 }
- 
-
-@keyframes nav-bg {
-  from {
-    transform: translateX(-100%) skewX(-15deg);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-@keyframes nav-line {
-  0% {
-    transform: scaleX(0);
-    transform-origin: 0 50%;  
-  }
-  35% {
-    transform: scaleX(1.001);
-    transform-origin: 0 50%;
-  }
-  65% {
-    transform: scaleX(1.001);
-    transform-origin: 100% 50%;
-  }
-  100% {
-    transform: scaleX(0);
-    transform-origin: 100% 50%;
-  }
-}
-@keyframes link-appear {
-  0%, 25% {
-    transform: translateY(100%);
-  }
-  50%, 100% {
-    transform: translateY(0);
-  }
-} 
