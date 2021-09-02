@@ -127,6 +127,10 @@ body
   width: 290px;
   margin: 0 !important;
 }
+.product-img{
+  height: 85%;
+  width: 290px;
+}
 .gallery-img-wrapper:hover{
     -moz-transition: ease all 0.5s;
     -o-transition: ease all 0.5s;
@@ -190,6 +194,10 @@ footer li a
   }
   .gallery-img{
     height: 160px;
+    width: 150px;
+  }
+  .product-img{
+    height: 85%;
     width: 150px;
   }
   .product-des{
