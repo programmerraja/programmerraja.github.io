@@ -53,6 +53,10 @@ body
   background-color: var(--color-secondary) !important;
   border :1px solid var(--color-secondary) !important;
 }
+.nav-icon{
+  height: 30px;
+  width: 30px;
+}
 .navbar-brand{
   color: white !important;
   font-family: 'Kaushan Script', sans-serif;
@@ -119,8 +123,8 @@ body
     width: 290px;
 }
 .gallery-img{
-  height: 80%;
-  width: 100%;
+  height: 290px;
+  width: 290px;
   margin: 0 !important;
 }
 .gallery-img-wrapper:hover{
@@ -150,6 +154,10 @@ footer{
   background: var(--color-secondary);
   padding: 40px 0px 0px 0px;
 }
+.footer-logo{
+  height: 130px;
+  width: 130px;
+}
 footer h5,
 footer li a
 {
@@ -177,6 +185,10 @@ footer li a
     justify-content: center;
   }
   .gallery-img-wrapper {
+    height: 160px;
+    width: 150px;
+  }
+  .gallery-img{
     height: 160px;
     width: 150px;
   }
