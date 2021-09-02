@@ -61,7 +61,8 @@ body
 }
 .carousel-wrapper{
     position: absolute;
-    top: 0;
+    top:50%;
+    transform: translateY(-50%);
     left: 0;
     width: 100%;
     height: 100%;
@@ -164,20 +165,24 @@ footer li a
   
   .carousel-caption{
     font-weight: bold;
-    top: 150px;
+    top:50%;
+    transform: translate(-50% ,-50%);
     bottom: 0px;  
     color: white;
   }
   .carousel-caption-heading
   {
-    font-size: 25px;
+    font-size: 20px;
   }
   .social-media-icons{
     justify-content: center;
   }
   .gallery-img-wrapper {
-    height: 150px;
+    height: 160px;
     width: 150px;
+  }
+  .product-des{
+    font-size: 0.5rem;
   }
 }
  
