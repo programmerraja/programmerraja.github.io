@@ -33,13 +33,7 @@ body
     left: 45%;
     transition: 1s transform ease-in;
 }
-.myself__img img:hover{
-  transform: rotate(360deg) translateY(-100px)  translateX(100px);
 
-  /*transform: scaleX(2);*/
-
-}
-}
 
 
 
