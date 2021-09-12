@@ -53,6 +53,9 @@
 	h3{
 		font-size: 20px;
 	}
+	li{
+		margin: 0.5rem;
+	}
 	.education_description p, 
 	.projects_description ,
 	.achievements_description p,
@@ -118,6 +121,7 @@
 	.bottom_container-left,
 	.bottom_container-right{
 		flex: 1;
+		justify-content: space-between;
 		border: 1px solid #e4e2e263;
 		padding: 0 20px;
 	}
@@ -125,11 +129,16 @@
 	.achievements_container,
 	.skills_container,
 	.soft_skills_container{
+		margin: 2.5rem 0;
 	}
 	
-
-	.experience_item p,
-	
+	.education_list{
+		list-style: none;
+	}
+	.achievements_list,
+	.experience_list
+	{
+	}
 
 	.skills_list{}
 	.soft_skills_list{
@@ -174,7 +183,7 @@
   	  <div class="hero_container">
 			<div class="hero_box">	
 				<h1 style="margin:10px 0;">K.Boopathi
-					<span class="hero_role" >&lt;/Programmer&gt;</span>
+					<span class="hero_role" >&lt;/MERN Stack Developer&gt;</span>
 				</h1>
 				<div class="hero_text">
 					<p>Programmer with curiosity to learn different tech and develop the awesome product from that.</p>
@@ -219,7 +228,7 @@
 						<li class="education_item">
 						<h3>Computer Science Engineering</h3>
 						<div class="education_description">
-						     <p>7.9 CGPA 2018-2022</p>
+						     <p>8.2 CGPA 2018-2022</p>
 						     <p>Einstein College Of Engineering</p>
 						     <p>Tirunelveli ,Tamil Nadu</p>
 						</div>
@@ -303,6 +312,12 @@
 					<ol  class="achievements_list">
 						
 						<li class="achievements_item">
+							<h3>Star of the Month </h3>
+							<div class="achievements_description">
+							     <p>During my internship at ChefAtHome I got this award for performing well in my internship</p>
+							</div>
+						</li>
+						<li class="achievements_item">
 							<h3>Completed Hacktoberfest 2020</h3>
 							<div class="achievements_description">
 							     <p>A open source contribution online event conducted by digital ocean</p>
@@ -336,6 +351,7 @@
 						</li>
 					</ol>
 				</div>
+				
 
 			
 	    </div>
@@ -347,13 +363,37 @@
 						<span class="line"></span>
 					</div>
 					<ol  class="experience_list">
+
 						<li class="experience_item">
-						<h3 style="margin: 0">Intern</h3>
-						<p style="font-weight: 600">Codespeedy Technology Private Limited.</p>
+						<p style="font-weight: 600">MERN Stack Developer  </p>
+						<p style="font-weight: 500;padding-left:2px; ">ChefAtHome FoodTech LLP  </p>
+						<small>03/2021-9/2021</small>   
 						<div class="experience_description" style="padding-left: 10px;">
-							<ol>
-						     <li>This was my first internship where I write a 10 blog for their website.</li>
-						     <li> I write the blog "Learn Reactjs Fundamental in 10day's by building the game"  where I cover the fundamental topic that needs to get start with reactjs. </li><li>During this internship, I learn how to convey what I know through a blog.<small>(<a href="https://www.codespeedy.com/author/boooathis123/">Link to artcile)></a></small> </li>
+							<ol  style="font-size: 18px;list-style:disc;" >
+							   	<li>After a month I prompted as leader for our tech team.</li>
+
+							   	<li>Fixed lot of security issues in the website.</li>
+							   	
+							   	<li>Optimized the front end.</li>
+
+							   	<li>Suggest them to documenting the project.</li>
+
+							</ol>
+
+						</div>
+						</li>
+						
+						<li class="experience_item">
+						<p style="font-weight: 600">Blogger</p>
+						<p style="font-weight: 500;padding-left:2px;">Codespeedy Technology Private Limited.</p>
+						<small>01/2021-03/2021</small>
+						<div class="experience_description" style="padding-left: 10px;">
+							<ol style="font-size: 18px;list-style:disc;" >
+						     <li>I write a 10 blog for their website.</li>
+
+						     <li>The blog topic is "Learn Reactjs Fundamental in 10day's by building the game"  where I cover the fundamental topic that needs to get start with reactjs. </li>
+
+						     <li>During this internship, I learn how to convey what I know through a blog.<small>(<a href="https://www.codespeedy.com/author/boooathis123/">Link to article)</a></small> </li>
 						</div>
 						</li>
 						
@@ -366,6 +406,14 @@
 						<span class="line"></span>
 					</div>
 				<ol  class="projects_list">
+					<li class="projects_item">
+						<h3><a href="https://github.com/programmerraja/ShareMyRide2.0">Share My Ride </a></h3>
+						<div class="projects_description">
+							<p>
+							It is  a carPooling website. i build this website for my friend final year project.
+							<p>
+						</div>
+					</li>
 					
 					<li class="projects_item">
 						<h3><a href="https://github.com/programmerraja/InfoG"><a href="https://github.com/programmerraja/InfoG">InfoG</a></h3>
@@ -385,14 +433,7 @@
 						</div>
 					</li>
 					
-					<li class="projects_item">
-						<h3><a href="https://github.com/programmerraja/Weather-App">Weather App</a></h3>
-						<div class="projects_description">
-							<p>
-							I  build this website after learning ReactJS to get comfort with ReactJS.
-							<p>
-						</div>
-					</li>
+					
 					<li class="projects_item">
 						<h3><a href="https://github.com/programmerraja/TypoSpeed">Typo speed</a></h3>
 						<div class="projects_description">
