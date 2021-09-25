@@ -9,6 +9,8 @@
             <meta name="author" content="">
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">   
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />   
+     		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+
 	<title>Miki Vcard</title>
 </head>
 <style type="text/css">
@@ -245,6 +247,9 @@
 		flex: 1;
 		margin-top: 10px;
 		
+	}
+	.aboutus_img img{
+		border-radius: 10px;
 	}
 
 	/*
@@ -683,7 +688,7 @@
 				<li class="nav_item login_but">LOG IN</li>
 			</ol>
 		</div>
-		<div class="hero_section">
+		<div class="hero_section" data-aos="fade-down" data-delay="100">
 		<div class="hero_text">
 			<h1>EASY TO CREATE YOUR <span class="color_text"> DIGITAL BUSINESS </span> CARD TODAY..!</h1>
 			<p>Digital vCard is one of the innovative ways to share your personal and business details with your prospect by just using your Mobile Phone</p>
@@ -706,7 +711,7 @@
 		<h3 class="bold_text">UPDATE YOUR VISTING CARD DIGITALLY WITH MIKIVCARD</h3>
 	</div>
 
-	<div class="aboutus_container">
+	<div class="aboutus_container"  >
 		<div class="aboutus_text">
 			<p>
 				Easily to create your digital visting card via Miki Vcard.this is a mini website.
@@ -717,7 +722,7 @@
 			</p>
 			<input type="button" name="create_vcard" value="Create V-Card">
 		</div>
-		<div class="aboutus_img">
+		<div class="aboutus_img" data-aos="zoom-in">
 			<img src="./hero.jpg"  height="200px" width="100%">
 		</div>
 	</div>
@@ -731,7 +736,7 @@
 		
 		<div class="service_container">
 			<!-- CARD -1 -->
-			<div class="service_card">
+			<div class="service_card" data-aos="flip-up">
 				<div class="service_card--header">
 					<div class="service_card--header_img">
 						<img src="">
@@ -747,7 +752,7 @@
 				</div>
 			</div>
 			<!-- CARD -2 -->
-			<div class="service_card">
+			<div class="service_card" data-aos="flip-down">
 				<div class="service_card--header">
 					<div class="service_card--header_img">
 						<img src="">
@@ -763,7 +768,7 @@
 				</div>
 			</div>
 			<!-- CARD -3 -->
-			<div class="service_card">
+			<div class="service_card" data-aos="flip-up">
 				<div class="service_card--header">
 					<div class="service_card--header_img">
 						<img src="">
@@ -791,7 +796,7 @@
 	</div>
 	<div class="pricing_container">
 		<!-- CARD -1 -->
-		<div class="pricing_card">
+		<div class="pricing_card" data-aos="fade-right">
 			<div class="pricing_card--header">
 				<div class="pricing_card--header_icon">
                         <i class="fas fa-id-card"></i>					
@@ -803,7 +808,7 @@
 			</div>
 		</div>
 		<!-- CARD -2 -->
-		<div class="pricing_card">
+		<div class="pricing_card" data-aos="fade-left">
 			<div class="pricing_card--header">
 				<div class="pricing_card--header_icon">
                         <i class="fas fa-user-plus"></i>					
@@ -828,7 +833,7 @@
 
 	<h3 class="business_card--heading">One business card, endless possibilities</h3>
 	<div class="business_card--container row d-flex justify-contnet-center">
-                <div class="business_card">
+                <div class="business_card" data-aos="zoom-in" data-aos-delay="100">
                 <div class="business_card--icon">
                         <i class="fas fa-phone fa-flip-horizontal"></i>
                 </div>                  
@@ -836,31 +841,31 @@
                         <h5>Click to Call</h5>
                 </div>
             </div>
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="150">
                 <div class="business_card--icon">              
-                        <i class="fab fa-whatsapp fa-flip-horizontal"></i>
+                        <i class="fab fa-whatsapp fa-flip-horizontal" ></i>
                 </div>                    
                 <div class="business_card--text">
                         <h5>Click To WhatsApp</h5>
                 </div>
             </div>
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="200">
                 <div class="business_card--icon">              
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-envelope" ></i>
                 </div>                    
                 <div class="business_card--text">
                         <h5>Click to Email</h5>
                 </div>
             </div>
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="250">
                 <div class="business_card--icon">              
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-map-marker-alt" ></i>
                 </div>                    
                 <div class="business_card--text">
                         <h5>Click to Navigate</h5>
                 </div>
             </div>       
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="300">
                 <div class="business_card--icon">              
                         <i class="fab fa-facebook-f"></i>
                 </div>                    
@@ -868,7 +873,7 @@
                         <h5>Social Media Links</h5>
                 </div>
             </div>
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="350">
                 <div class="business_card--icon">              
                         <i class="fas fa-cart-plus"></i>
                 </div>                    
@@ -876,7 +881,7 @@
                         <h5>Product Catalogue</h5>
                 </div>
             </div>
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="400">
                 <div class="business_card--icon">              
                         <i class="fas fa-file-image"></i>
                 </div>                    
@@ -884,7 +889,7 @@
                         <h5>Bussiness Gallery</h5>
                 </div>
             </div>
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="450">
                 <div class="business_card--icon">              
                        <i class="fas fa-user-tie"></i>
                 </div>                    
@@ -892,7 +897,7 @@
                         <h5>Bussiness Clients</h5>
                 </div>
             </div>
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="500">
                 <div class="business_card--icon">              
                       <i class="fas fa-money-bill-alt"></i>
                 </div>                    
@@ -900,7 +905,7 @@
                         <h5>Payments</h5>
                 </div>
             </div>
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="550">
                 <div class="business_card--icon">              
                         <i class="fab fa-youtube"></i>
                 </div>                    
@@ -908,7 +913,7 @@
                         <h5>Youtube Video</h5>
                 </div>
             </div>
-             <div class="business_card">
+             <div class="business_card" data-aos="zoom-in" data-aos-delay="600">
                 <div class="business_card--icon">              
                         <i class="fas fa-comment-alt"></i>
                 </div>                    
@@ -916,7 +921,7 @@
                         <h5>Enquiry Form</h5>
                 </div>
             </div>
-             <div class="business_card">
+             <div class="business_card" data-aos="zoom-in" data-aos-delay="650">
                 <div class="business_card--icon">              
                         <i class="fas fa-star" style="font-size: 25px"></i>
                         <i class="fas fa-star" style="font-size: 25px"></i>
@@ -927,7 +932,7 @@
                         <h5>Feedback</h5>
                 </div>
             </div>
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="700">
                 <div class="business_card--icon">              
                         <i class="fas fa-share-alt"></i>
                 </div>                    
@@ -935,7 +940,7 @@
                         <h5>Unlimited Shares</h5>
                 </div>
             </div>
-             <div class="business_card">
+             <div class="business_card" data-aos="zoom-in" data-aos-delay="750">
                 <div class="business_card--icon">              
                         <i class="fas fa-user-circle"></i>
                 </div>                    
@@ -943,7 +948,7 @@
                         <h5>Customer Pannel</h5>
                 </div>
             </div>  
-            <div class="business_card">
+            <div class="business_card" data-aos="zoom-in" data-aos-delay="800">
                 <div class="business_card--icon">              
                         <i class="fas fa-edit"></i>
                 </div>                    
@@ -999,4 +1004,10 @@
 	}
 	toggleNav();
 </script>
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   
+   <script type="text/javascript">
+      AOS.init();      
+      window.addEventListener("hashchange", function() { scrollBy(0, -120) })
+   </script>
 </html>
