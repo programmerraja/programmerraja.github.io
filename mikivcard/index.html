@@ -8,7 +8,11 @@
             <meta name="description" content="">
             <meta name="author" content="">
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">   
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+			<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />   
+     		
      		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 
 	<title>Miki Vcard</title>
@@ -21,14 +25,14 @@
 	*/
 	:root	
 	{
-		--primary-color: #42CACA;
-		--secondary-color:#8080801f;
+		--primary-color: #020032;
+		--secondary-color:#FBD71C;
 	}
 	body
 	{
 		margin:0;
 		padding: 0;
-		font-family:"Sans-serif";
+		font-family:'Poppins', sans-serif;
 		line-height: 1.4;
 	}
 	h1
@@ -43,14 +47,20 @@
 	    padding: 11px;
 	    outline: none;
 	    text-align: center;
-	    background-color: var(--primary-color);
-	    color: white;
+	    background-color: var(--secondary-color);
+	    color: black;
 	    font-weight: bold;
 	    text-transform: uppercase;
 	}
 	.bold_text
 	{
 		font-weight: bold;
+	}
+	.text_white{
+		color: white !important;
+	}
+	.m-auto{
+		margin: auto;
 	}
 	.bg_white
 	{
@@ -76,12 +86,10 @@
     	border: 1px solid;
     	transform: rotate(-60deg);
 	}
-	.line,
-	.whiteline
+	.line
 	{
-		width: 130px;
-	    border: 1px solid var(--primary-color);
-	    margin: auto;
+		width: 100%;
+	    background-color:white;
 	}
 	.whiteline
 	{
@@ -104,11 +112,10 @@
 		color:var(--primary-color);		    
 	    display: flex;
 	    justify-content: space-between;
-	    background-image: url(./hero.jpg);
+	    background-image: url(./hero.png);
 	    background-repeat: no-repeat;
 	    background-size: 100% 100vh;
 		height: 100vh;
-		padding-top:10px; 
 	}
 	.lines
 	{
@@ -132,7 +139,6 @@
 	.nav_brand 
 	{
 		display: inline;
-		margin-top: -14px;
 	}
 	.nav_brand img
 	{
@@ -141,16 +147,15 @@
 	.nav_list
 	{
 		display: flex;
-		justify-content: space-between;
 		list-style: none;	
+		align-items:center;
 		padding: 0;
 		margin:0;
 	    
 	}
 	.nav_item
 	{
-		margin:0 20px;
-		 padding: 10px;
+		margin:0 10px;
 	}
 	.login_but
 	{
@@ -162,6 +167,58 @@
 	    color: white;
 	    text-align: center;
 	}
+	.subNav{
+		height: 30vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100vw;
+
+	}
+	.subNav1{
+		background-color: var(--primary-color);
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		border-bottom: 1px solid white;
+		width: 100vw;
+	}
+	a{
+		color:white;
+	}
+	.subNav1_contact ol li i{
+		background-color: var(--secondary-color);
+		border-radius: 40%;
+	}
+	.subNav1_contact,
+	.subNav1_login
+	{
+		display: flex;
+
+	}
+
+
+	.subNav2{
+		height: 20vh;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: var(--primary-color);
+		width: 100vw;
+	}
+	.subNav2 a{
+		margin: 1rem;
+	
+	}
+	.subNav_button{
+		margin: 1rem;
+	}
+	.subNav_button input{
+		background-color: var(--primary-color);
+		color: var(--secondary-color);
+		border:1px solid var(--secondary-color);
+	}
+
 
 	/*
 
@@ -173,11 +230,18 @@
 	{
 		position: absolute;
 		top: 35%;
-		padding-left: 50px;
+		padding-left: 60px;
 	}
-	.hero_text h1,
+	.hero_text h1{
+		font-size: 2.5rem;
+		color: white;
+		margin: 10px;
+		font-weight: bold;
+
+	}
 	.hero_text p
 	{
+		margin: 0px 10px;
 		font-size: 25px;
 		color: white;
 	}
@@ -189,11 +253,12 @@
 
 	.hero_button
 	{
-		margin-top: 25px;
+		margin-top: 3rem;
 	}
 	.hero_button input
 	{
 		font-size: 18px
+		color:black !important;
 	}
 	
 	/*
@@ -554,7 +619,9 @@
 			    display: flex;
 			    justify-content: flex-start;	
 			    background-size: 100% 389px;
-				height: 389px;	
+				height: 389px;
+				width: 100vw;
+				overflow: hidden;		
 			}
 			.nav_brand img
 			{
@@ -622,6 +689,7 @@
 			.hero_button input
 			{
 				font-size: 14px
+				color:black !important;
 			}
 			/* 
 
@@ -666,10 +734,52 @@
 <body>
 	<!-- NAVIGATION -->
 	<nav>
-		<a class="nav_brand">
-			<img src="./logo.png" alt="MIKIVCARD" >
-		</a>
-		
+	<div class="subNav">
+		<div class="subNav1">
+		<div class="subNav1_contact">
+			<p class="text_white">Follow Us:</p>
+			<ol class="nav_list">
+					<li class="nav_item">
+						<i class="fab fa-facebook"></i>
+						
+					</li>
+					<li class="nav_item">
+						<i class="fab fa-instagram"></i>
+						
+					</li>
+					<li class="nav_item">
+						<i class="fab fa-linkedln"></i>
+						
+					</li>
+					<li class="nav_item">
+						<i class="fab fa-twitter"></i>
+						
+					</li>
+					<li class="nav_item">
+						<i class="fab fa-youtube"></i>
+					</li>
+					<li class="nav_item">
+						<i class="fab fa-whatsapp"></i>
+					</li>
+				</ol>
+			<p class="text_white">Call Us:</p>
+			<a href="tel+6380315964" class="m-auto">+916380315964</a>
+		</div>
+		<div class="subNav1_login">
+			<p><a href="" class="m-auto">Customer login/ franchise login</a></p>
+		</div>
+
+		</div>
+		<div class="line"></div>
+		<div class="subNav2">
+			<a class="nav_brand">
+				<img src="./logo.png" alt="MIKIVCARD" >
+			</a>
+			<div class="subNav_button">
+				<input type="button" name="Create Your Vcard" value="Create Your Vcard" class="bold_text">
+			</div>
+		</div>
+	</div>
 		<div class="nav_opt">	
 			<div class="lines">
 				<div class="smallline"></div>
@@ -681,309 +791,20 @@
 				<div class="crossline2"></div> -->
 			</div>
 
-			<ol class="nav_list">
-				<li class="nav_item">HOME</li>
-				<li class="nav_item">SAMPLE VCARDS</li>
-				<li class="nav_item">PRICING</li>
-				<li class="nav_item login_but">LOG IN</li>
-			</ol>
+			
 		</div>
 		<div class="hero_section" data-aos="fade-down" data-delay="100">
 		<div class="hero_text">
-			<h1>EASY TO CREATE YOUR <span class="color_text"> DIGITAL BUSINESS </span> CARD TODAY..!</h1>
+			<h1>Easy To Create Your <br> Digitial Business Card Today</h1>
 			<p>Digital vCard is one of the innovative ways to share your personal and business details with your prospect by just using your Mobile Phone</p>
 		</div>
 		<div class="hero_button">
-			<input type="button" name="samplevcard" value="SAMPLE VCARD" class="bold_text">
-			<input type="button" name="enqueryhere" value="ENQUERY HERE" class="bg_white  color_text">
+			<input type="button" name="Create Your Vcard" value="Create Your Vcard" class="bold_text">
+			
 	</div>
 	</nav>
 	
-	<!-- ABOUT US SECTION -->
-
-	<div class="aboutus">
 	
-		<h1>About us</h1>
-			<div class="line"></div>
-
-	</div>
-	<div class="aboutus_heading">
-		<h3 class="bold_text">UPDATE YOUR VISTING CARD DIGITALLY WITH MIKIVCARD</h3>
-	</div>
-
-	<div class="aboutus_container"  >
-		<div class="aboutus_text">
-			<p>
-				Easily to create your digital visting card via Miki Vcard.this is a mini website.
-				that us used an E-commerece website for small Entrepreneurs.it is straightforward.
-				Elegant	and Affordable .
-				The digital visting card can be updated easily,
-				so your'e not going to have to reprint your Business card again.
-			</p>
-			<input type="button" name="create_vcard" value="Create V-Card">
-		</div>
-		<div class="aboutus_img" data-aos="zoom-in">
-			<img src="./hero.jpg"  height="200px" width="100%">
-		</div>
-	</div>
-
-	<!-- Service  section -->
-	<div class="service_whole_container">
-		<div class="service">
-			<h1>Services</h1>
-			<div class="line"></div>
-		</div>
-		
-		<div class="service_container">
-			<!-- CARD -1 -->
-			<div class="service_card" data-aos="flip-up">
-				<div class="service_card--header">
-					<div class="service_card--header_img">
-						<img src="">
-						
-					</div>			
-					<div class="service_card--header_text">
-						<h4>Digital Vcard</h4>
-						<div class="whiteline"></div>
-					</div>		
-				</div>
-				<div class="service_card--body">
-					<p>Easily to create your Digital vCard today.</p>
-				</div>
-			</div>
-			<!-- CARD -2 -->
-			<div class="service_card" data-aos="flip-down">
-				<div class="service_card--header">
-					<div class="service_card--header_img">
-						<img src="">
-						
-					</div>			
-					<div class="service_card--header_text">
-						<h4>Customized Digital Vcard</h4>
-						<div class="whiteline"></div>					
-					</div>		
-				</div>
-				<div class="service_card--body">
-					<p>We design the Digital vCard for your Bussiness according to your wishes.</p>
-				</div>
-			</div>
-			<!-- CARD -3 -->
-			<div class="service_card" data-aos="flip-up">
-				<div class="service_card--header">
-					<div class="service_card--header_img">
-						<img src="">
-					</div>			
-					<div class="service_card--header_text">
-						<h4>Franchisee Seller</h4>
-						<div class="whiteline"></div>					
-					</div>		
-				</div>
-				<div class="service_card--body">
-					<p>Reselling opportunity for Digital Vcard.</p>
-				</div>
-			</div>
-		</div>
-		<div class="service_text">
-			<p>Contact our site for Resale purpose</p>
-			<input type="button" name="contactus" value="Contact us">
-		</div>
-	</div>
-	<!-- PRICING SECTION -->
-	<div class="pricing">
-		<h1>PRICING</h1>
-		<div class="line"></div>
-
-	</div>
-	<div class="pricing_container">
-		<!-- CARD -1 -->
-		<div class="pricing_card" data-aos="fade-right">
-			<div class="pricing_card--header">
-				<div class="pricing_card--header_icon">
-                        <i class="fas fa-id-card"></i>					
-				</div>			
-				<div class="pricing_card--header_text">					
-				</div>
-			</div>
-			<div class="pricing_card--body">
-			</div>
-		</div>
-		<!-- CARD -2 -->
-		<div class="pricing_card" data-aos="fade-left">
-			<div class="pricing_card--header">
-				<div class="pricing_card--header_icon">
-                        <i class="fas fa-user-plus"></i>					
-				</div>			
-				<div class="pricing_card--header_text">
-				</div>
-			</div>
-			<div class="pricing_card--body">
-			</div>
-		</div>
-	</div>
-	<!-- NEWS LETTER SUBSCRIBTION SECTION  -->
-	<div class="subs_container">
-		<div class="subs_text">		
-			<h2>SUBSCRIBE TO NEWSLETTER</h2>
-		</div>
-		<div class="subs_input">
-			<input type="text" name="email" placeholder="Type your email address">
-			<input type="button" name="subscribe" value="SUBSCRIBE">
-		</div>
-	</div>
-
-	<h3 class="business_card--heading">One business card, endless possibilities</h3>
-	<div class="business_card--container row d-flex justify-contnet-center">
-                <div class="business_card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="business_card--icon">
-                        <i class="fas fa-phone fa-flip-horizontal"></i>
-                </div>                  
-                <div class="business_card--text">
-                        <h5>Click to Call</h5>
-                </div>
-            </div>
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="150">
-                <div class="business_card--icon">              
-                        <i class="fab fa-whatsapp fa-flip-horizontal" ></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Click To WhatsApp</h5>
-                </div>
-            </div>
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="business_card--icon">              
-                        <i class="fas fa-envelope" ></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Click to Email</h5>
-                </div>
-            </div>
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="250">
-                <div class="business_card--icon">              
-                        <i class="fas fa-map-marker-alt" ></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Click to Navigate</h5>
-                </div>
-            </div>       
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="300">
-                <div class="business_card--icon">              
-                        <i class="fab fa-facebook-f"></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Social Media Links</h5>
-                </div>
-            </div>
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="350">
-                <div class="business_card--icon">              
-                        <i class="fas fa-cart-plus"></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Product Catalogue</h5>
-                </div>
-            </div>
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="400">
-                <div class="business_card--icon">              
-                        <i class="fas fa-file-image"></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Bussiness Gallery</h5>
-                </div>
-            </div>
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="450">
-                <div class="business_card--icon">              
-                       <i class="fas fa-user-tie"></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Bussiness Clients</h5>
-                </div>
-            </div>
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="500">
-                <div class="business_card--icon">              
-                      <i class="fas fa-money-bill-alt"></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Payments</h5>
-                </div>
-            </div>
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="550">
-                <div class="business_card--icon">              
-                        <i class="fab fa-youtube"></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Youtube Video</h5>
-                </div>
-            </div>
-             <div class="business_card" data-aos="zoom-in" data-aos-delay="600">
-                <div class="business_card--icon">              
-                        <i class="fas fa-comment-alt"></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Enquiry Form</h5>
-                </div>
-            </div>
-             <div class="business_card" data-aos="zoom-in" data-aos-delay="650">
-                <div class="business_card--icon">              
-                        <i class="fas fa-star" style="font-size: 25px"></i>
-                        <i class="fas fa-star" style="font-size: 25px"></i>
-                        <i class="fas fa-star" style="font-size: 25px"></i>
-
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Feedback</h5>
-                </div>
-            </div>
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="700">
-                <div class="business_card--icon">              
-                        <i class="fas fa-share-alt"></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Unlimited Shares</h5>
-                </div>
-            </div>
-             <div class="business_card" data-aos="zoom-in" data-aos-delay="750">
-                <div class="business_card--icon">              
-                        <i class="fas fa-user-circle"></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Customer Pannel</h5>
-                </div>
-            </div>  
-            <div class="business_card" data-aos="zoom-in" data-aos-delay="800">
-                <div class="business_card--icon">              
-                        <i class="fas fa-edit"></i>
-                </div>                    
-                <div class="business_card--text">
-                        <h5>Edit Anytime</h5>
-                </div>
-            </div>                   
-            
-           
-        </div>
-
-	<!-- CONTACT SECTION  -->
-	<div class="contact_container">
-		<div class="contact_icon">
-			<img src="./logo.png">
-		</div>
-			<form class="contact_form">
-				<h3>We loved your feedback</h3>
-				<label for="fullname">Full Name</label>
-				<input type="text" name="fullname" required="true">
-				<label for="emailid">Email Id</label>
-				<input type="text" name="emailid" required="true">
-				<label>Message</label>
-				<textarea rows="8" cols="35" name="message"></textarea>
-
-				
-				<input type="button" name="send" value="Send">
-			</form>
-	</div>
-	<!-- Footer section -->
-
-	<div class="footer_container">
-		<p>Copyright &#9400 2020 Miki Digital Marketing</p>
-	</div>
-
 </body>
 <script type="text/javascript">
 	function toggleNav() {
