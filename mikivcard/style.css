@@ -105,6 +105,7 @@ header{
 
 .top-header-left .social li {
 	display: inline-block;
+	margin-left: 1.5px;
 }
 .social i{
 	color: var(--secondary-color);
@@ -127,6 +128,7 @@ header{
 	margin-right: 10px;
 	background: transparent;
 	height: 100%;
+	font-weight: bold;
 	border: 1px solid #ffcf58;
 	color: #ffcf58;
 }
@@ -266,7 +268,7 @@ header{
 	*/
 
 .how_it_help {
-	background-image: url(https://card.linkconnect.in/assets/img/black-bg5.jpg);
+	background-image: url(./assets/bg_how.png);
 	color: #fff;
 	padding-bottom: 70px;
 	padding-top: 70px;
@@ -488,7 +490,7 @@ header{
 .pricing-table {
 	overflow: hidden;
 	margin-bottom: 30px;
-	height: 550px;
+	min-height: 550px;
 	max-width: 445px;
 	position: relative;
 	-webkit-box-shadow: 0 14px 28px rgb(0 0 0 / 7%), 0 10px 10px rgb(0 0 0 / 5%);
@@ -498,6 +500,32 @@ header{
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	padding: 0;
+	color: white;
+    font-weight: bold;
+}
+.pricing-head{
+	padding: 1rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-bottom: 1px solid white;
+}
+.pricing-table p {
+	color: var(--secondary-color);
+	font-size: 30px;
+}
+.pricing-table h2 {
+	text-align: center;
+	font-size: 25px;
+	color: white;	
+}
+.pricing-list{
+	list-style: none;
+}
+.pricing-item{
+	padding: 0.7rem;
+	font-size: 18px;
 }
 
 
@@ -508,7 +536,7 @@ header{
 
 .cta-wrapper {
 	background-color: #0e101b;
-	background-image: url(./assets/hero.png);
+	background-image: url(./assets/bg_service.png);
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -572,16 +600,18 @@ header{
 	text-align: center;
 	height: 250px;
 	margin-bottom: 30px;
-	padding: 25px;
-	background-color: #ffffff;
-	-webkit-box-shadow: 0 14px 28px rgb(0 0 0 / 7%), 0 10px 10px rgb(0 0 0 / 5%);
-	box-shadow: 0 14px 28px rgb(0 0 0 / 7%), 0 10px 10px rgb(0 0 0 / 5%);
+	padding: 1.4rem;
+	background-color: #e0e0e0;
 	border-radius: 5px;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	overflow: hidden;
 	position: relative;
 	z-index: 1;
+}
+.single-features-box a{
+	color: var(--secondary-color);
+	font-weight: bold;
 }
 
 /*
