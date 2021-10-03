@@ -17,7 +17,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	/*font-family: 'Poppins', sans-serif;*/
+	font-family: 'Poppins', sans-serif;
 	line-height: 1.4;
 }
 
@@ -306,7 +306,7 @@ header{
 }
 
 .how_it_help .subtitle p {
-	font-size: 12px;
+	font-size: 14px;
 	padding-top: 9px;
 	padding-bottom: 15px;
 }
@@ -601,7 +601,7 @@ header{
 
 .single-features-box {
 	text-align: center;
-	height: 250px;
+	height: 320px;
 	margin-bottom: 30px;
 	padding: 1.4rem;
 	background-color: #e0e0e0;
@@ -614,6 +614,9 @@ header{
 }
 .single-features-box a{
 	color: var(--secondary-color);
+	font-weight: bold;
+}
+.single-features-heading h3{
 	font-weight: bold;
 }
 
@@ -711,7 +714,9 @@ header{
 	.hero_button input {
 		font-size: 18px color:black !important;
 	}
-
+	.sample-container {
+		margin-bottom: 20px;
+	}
   .section-title {
     margin-bottom: 40px;
   }
