@@ -317,8 +317,7 @@ header{
 	*/
 
 .ptb-100 {
-	padding-top: 100px;
-	padding-bottom: 100px;
+	padding: 100px 1rem; 
 }
 
 .about-content span {
@@ -354,6 +353,9 @@ header{
 .about-image {
 	text-align: center;
 }
+ .about-image img{
+  	height: 350px;
+  }	
 /*
 
 	HERO SECTION 5
@@ -522,6 +524,7 @@ header{
 }
 .pricing-list{
 	list-style: none;
+	padding: 1rem;
 }
 .pricing-item{
 	padding: 0.7rem;
@@ -663,6 +666,9 @@ header{
   p {
     font-size: 13px;
   }
+  h2{
+  	font-size: 20px !important;
+  }
   .btn {
     padding: 14px 25px;
     font-size: 13px;
@@ -737,7 +743,7 @@ header{
   }
   
   .features-wrapper {
-    padding-bottom: 0;
+    padding: 0;
   }
   .single-features-box {
     padding: 20px;
@@ -756,6 +762,15 @@ header{
   }
   .about-image {
     margin-top: 40px;
+  }
+   .about-image img{
+  	height: 250px;
+  }
+  .whoneeds{
+  	width: 90%;
+  }
+  .whoneeds-text2{
+  	width: 100%;
   }
   .services-wrapper {
     padding-bottom: 35px;
@@ -778,7 +793,12 @@ header{
   }
   .pricing-table {
     padding: 0;
+    width: 100%;
   }
+  .pricing-item{
+	padding: 0.7rem;
+	font-size: 14px;
+	}
  
   .cta-wrapper {
     padding-top: 55px;
@@ -798,7 +818,9 @@ header{
     text-align: center;
     margin-top: 15px;
   }
- 
+ .footer-links a{
+ 	font-size: 10px;
+  }
   .copyright-wrapper {
     padding-top: 25px;
     padding-bottom: 25px;
@@ -841,6 +863,7 @@ header{
   .about-image {
     margin-top: 40px;
   }
+
   .services-wrapper {
     padding-bottom: 50px;
   }
