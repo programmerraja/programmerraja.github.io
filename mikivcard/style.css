@@ -1,0 +1,775 @@
+/* 
+
+		COMMON STYLES	
+
+	*/
+
+:root {
+	--primary-color: #020032;
+	--secondary-color: #FBD71C;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Poppins', sans-serif;
+	line-height: 1.4;
+}
+
+h1 {
+	color: var(--primary-color);
+	text-transform: uppercase;
+}
+
+.my-btn{
+	border-radius: 30px;
+	border: 0;
+	padding: 11px;
+	outline: none;
+	text-align: center;
+	background-color: var(--secondary-color);
+	color: black;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+a{
+	text-decoration: none;
+}
+
+
+.logo img{
+	height: 70px;
+	width: 150px;
+}
+
+/* 
+
+		NAVIGATION STYLES	
+	
+	*/
+
+.header-wrapper {
+	background-color: var(--primary-color);
+}
+header{
+	background-color: var(--primary-color);
+}
+.top-header {
+	border-bottom: 1px solid #2c303f;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.top-header-left {
+	color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0;
+	line-height: initial;
+}
+
+.top-header-left p span {
+	color: #ffcf58;
+}
+
+.top-header-left p a {
+	display: inline-block;
+	color: #ffffff;
+}
+
+.top-header-right {
+	text-align: right;
+}
+
+.top-header-right .login-signup-btn {
+	display: inline-block;
+	position: relative;
+	padding-right: 15px;
+}
+
+.top-header-right .login-signup-btn p a,
+.top-header-right .login-signup-btn p span{
+
+	color: var(--secondary-color);
+}
+
+.top-header-left .social {
+	display: inline-block;
+	padding-left: 15px;
+	margin-bottom: 0;
+	list-style-type: none;
+}
+
+.top-header-left .social li {
+	display: inline-block;
+}
+.social i{
+	color: var(--secondary-color);
+}
+
+.navbar-wrapper {
+
+}
+
+.opella-mobile-nav {
+	display: flex;
+	flex-wrap:wrap;
+	padding: 0.2rem 6rem;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.opella-mobile-nav .nav-create-button {
+	margin-right: 10px;
+	background: transparent;
+	height: 100%;
+	border: 1px solid #ffcf58;
+	color: #ffcf58;
+}
+
+
+/*
+
+		HERO STYLES
+
+	*/
+
+.hero_section {
+	justify-content: space-between;
+	padding-left: 60px;
+	background-image: url(./hero.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;	
+	padding: 6rem;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero_text h1 {
+	font-size: 2rem;
+	color: white;
+	margin: 10px 0px;
+	font-weight: bold;
+}
+
+.hero_text p {
+	margin: 0px;
+	font-size: 20px;
+	color: white;
+	width: 50%;
+}
+
+.hero_button {
+	margin-top: 3rem;
+}
+
+.hero_button input {
+	font-size: 18px color:black !important;
+}
+
+
+/*
+		HERO SECTION 2
+
+	*/
+
+.samples-wrapper {
+	background-color: #FCFCFC;
+	padding-top: 60px;
+}
+
+.samples-wrapper .sub-title {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.samples-wrapper h2 {
+	font-weight: bold;
+}
+
+.samples-wrapper .row {
+	justify-content: center;
+}
+
+.sample-container {
+	text-align: center;
+	max-width: 260px;
+	margin-bottom: 60px;
+}
+.sample-container img
+{
+	height: 468px;
+	width: 230px;
+}
+.sample-label {
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	min-height: 80px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+.samples-wrapper img {
+	margin-bottom: 10px;
+}
+.btn {
+	border: none;
+	padding: 15px 30px;
+	line-height: initial;
+	border-radius: 30px;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	position: relative;
+	z-index: 1;
+	font-family: "Montserrat", sans-serif;
+	font-size: 15px;
+	font-weight: 700;
+}
+
+
+/*
+		HERO SECTION 3
+	*/
+
+.how_it_help {
+	background-image: url(https://card.linkconnect.in/assets/img/black-bg5.jpg);
+	color: #fff;
+	padding-bottom: 70px;
+	padding-top: 70px;
+}
+
+.how_it_help .sub-title {
+	font-size: 16px;
+	margin-bottom: 10px;
+}
+
+.how_it_help h2 {
+	font-weight: bold;
+}
+
+.how_it_help .item {
+	text-align: center;
+}
+
+.how_it_help .image {
+	position: relative;
+	max-width: 170px;
+	margin: 0 auto;
+}
+.how_it_help .image img{
+	width: 170px;
+	border-radius: 50%;
+}
+
+.how_it_help .title p {
+	font-size: 18px;
+	font-weight: bold;
+	padding-top: 15px;
+	margin: 0;
+}
+
+.how_it_help .subtitle p {
+	font-size: 12px;
+	padding-top: 9px;
+	padding-bottom: 15px;
+}
+
+
+/*
+			HERO SECTION 4
+	*/
+
+.ptb-100 {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+.about-content span {
+	display: inline-block;
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.about-content h2 {
+	margin-bottom: 15px;
+	font-size: 38px;
+	font-weight: 700;
+}
+
+.about-image {
+	text-align: center;
+}
+/*
+
+	HERO SECTION 5
+	(WHOS NEED)
+*/
+.whoneeds_container{
+	display: flex;
+	flex-wrap: wrap;
+}
+.whoneeds{
+	text-align: center;
+    margin-bottom: 30px;
+    min-height: 150px;
+    width: 50%;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.whoneeds-text1 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.whoneeds-text1 p{
+	margin: 0 1rem;
+}
+.whoneeds-text1 img{
+	height: 50px;
+	width: 50px;
+}
+.whoneeds-text2{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	width: 70%;
+}
+/*
+		HERO SECTION 6
+	*/
+
+.services-wrapper.bg-image {
+	background-color: #20222E;
+}
+
+.services-wrapper {
+	position: relative;
+	z-index: 1;
+	padding-bottom: 70px;
+}
+
+.section-title {
+	text-align: center;
+	max-width: 700px;
+	margin-bottom: 60px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.services-wrapper.bg-image .section-title h2 {
+	color: #ffffff;
+}
+
+.section-title span {
+	display: inline-block;
+	font-size: 19px;
+	margin-bottom: 5px;
+}
+
+.service-box {
+	margin-bottom: 30px;
+	min-height: 230px;
+	text-align: center;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	padding: 25px;
+	border: 2px solid #35384a;
+}
+
+.service-box .icon {
+	color: #ffcf58;
+	margin-bottom: 10px;
+}
+
+.service-box h3 {
+	margin-bottom: 10px;
+	color: #ffffff;
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.service-box p {
+	margin-bottom: 0;
+	color: #d7d7d7;
+}
+
+
+/*
+		PRICING AREA
+	*/
+
+.pricing-wrapper {
+	padding-bottom: 70px;
+	padding-top: 70px;
+}
+.pricing-table {
+	overflow: hidden;
+	margin-bottom: 30px;
+	height: 550px;
+	max-width: 445px;
+	position: relative;
+	-webkit-box-shadow: 0 14px 28px rgb(0 0 0 / 7%), 0 10px 10px rgb(0 0 0 / 5%);
+	box-shadow: 0 14px 28px rgb(0 0 0 / 7%), 0 10px 10px rgb(0 0 0 / 5%);
+	z-index: 1;
+	background-color: var(--primary-color);
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	padding: 0;
+}
+
+
+/*
+        <!-- CALL US AREA -->
+			
+	*/
+
+.cta-wrapper {
+	background-color: #0e101b;
+	background-image: url(./assets/hero.png);
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.cta-content h2 {
+	color: #ffffff;
+	margin-bottom: 10px;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.cta-content h3 {
+	color: #ffffff;
+	margin-bottom: 10px;
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.cta-btn {
+	text-align: right;
+}
+
+
+/*
+		Other SERVICE AREA
+	*/
+
+.features-wrapper.bg-image {
+	background-color: #FCFCFC;
+}
+
+.single-features-box {
+	text-align: center;
+	height: 250px;
+	margin-bottom: 30px;
+	padding: 25px;
+	background-color: #ffffff;
+	-webkit-box-shadow: 0 14px 28px rgb(0 0 0 / 7%), 0 10px 10px rgb(0 0 0 / 5%);
+	box-shadow: 0 14px 28px rgb(0 0 0 / 7%), 0 10px 10px rgb(0 0 0 / 5%);
+	border-radius: 5px;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+	overflow: hidden;
+	position: relative;
+	z-index: 1;
+}
+
+/*
+		FOOTER
+	*/
+
+.footer-wrapper {
+	background-color: #20222E;
+	background-image: url(../img/black-bg5.jpg);
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.copyright-wrapper {
+	border-top: 1px solid #292b38;
+	text-align: center;
+	margin-top: 60px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.copyright-wrapper p {
+	margin-bottom: 0;
+	color: #d7d7d7;
+}
+
+.footer-links {
+	color: #ffffff;
+	display: flex;
+	justify-content: center;
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+.footer-links a {
+	color: #ffffff;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+/*media query for tab  and mobile*/
+
+@media only screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  p {
+    font-size: 13px;
+  }
+  .btn {
+    padding: 14px 25px;
+    font-size: 13px;
+  }
+  .ptb-100 {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+  .logo img {
+    height: 40px;
+    width: 100px;
+    margin: 0 auto;
+   }
+   .opella-mobile-nav{
+   		padding:0.2rem 2rem; 
+   }
+   .opella-mobile-nav .nav-create-button {
+		font-size: 12px;
+		padding: 0.4rem;
+	}
+	.hero_section {
+		padding: 2rem;
+		min-height: 78vh;
+	}
+	.hero_text{
+		width: 90vw;
+	}
+	.hero_text h1 {
+		font-size: 1.3rem;
+	}
+	.hero_text p {
+		font-size: 15px;
+		width: 100%;
+	}
+
+	.hero_button {
+		margin-top: 3rem;
+	}
+
+	.hero_button input {
+		font-size: 18px color:black !important;
+	}
+
+  .section-title {
+    margin-bottom: 40px;
+  }
+  .section-title span {
+    font-size: 15px;
+  }
+  .section-title h2 {
+    font-size: 25px;
+    line-height: 1.3;
+  }
+  .top-header-left {
+    text-align: center;
+  }
+  .top-header-right {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .top-header-left .social li {
+    margin-right: 3px;
+  }
+  .top-header-left .social li:last-child {
+    margin-right: 0;
+  }
+  .top-header-left .social li a {
+    width: 30px;
+    height: 30px;
+    line-height: 31px;
+    font-size: 12px;
+  }
+  
+  .features-wrapper {
+    padding-bottom: 0;
+  }
+  .single-features-box {
+    padding: 20px;
+  }
+ 
+  .about-content {
+    text-align: center;
+  }
+  .about-content span {
+    font-size: 15px;
+  }
+  .about-content h2 {
+    line-height: 1.3;
+    margin-bottom: 12px;
+    font-size: 25px;
+  }
+  .about-image {
+    margin-top: 40px;
+  }
+  .services-wrapper {
+    padding-bottom: 35px;
+  }
+  .services-wrapper.bg-image {
+    background-image: unset;
+    background-color: #262735;
+  }
+  .service-box {
+    padding: 20px;
+  }
+  .service-box .icon i::before {
+    font-size: 30px;
+  }
+  .service-box h3 {
+    font-size: 19px;
+  }
+  .pricing-wrapper {
+    padding-bottom: 35px;
+  }
+  .pricing-table {
+    padding: 0;
+  }
+ 
+  .cta-wrapper {
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+  .cta-content {
+    text-align: center;
+  }
+  .cta-content h3 {
+    font-size: 19px;
+    line-height: 1.3;
+  }
+  .cta-content a {
+    font-size: 25px;
+  }
+  .cta-btn {
+    text-align: center;
+    margin-top: 15px;
+  }
+ 
+  .copyright-wrapper {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    font-size: 15px;
+  }
+  p {
+    font-size: 15px;
+  }
+  .section-title span {
+    font-size: 17px;
+  }
+  .section-title h2 {
+    font-size: 32px;
+  }
+  .ptb-100 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .header-wrapper .top-header {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .header-wrapper .top-header .container {
+    max-width: 100%;
+  }
+  .features-wrapper {
+    padding-bottom: 0;
+  }
+  .about-content span {
+    font-size: 17px;
+  }
+  .about-content h2 {
+    font-size: 32px;
+  }
+  .about-image {
+    margin-top: 40px;
+  }
+  .services-wrapper {
+    padding-bottom: 50px;
+  }
+  .service-box h3 {
+    font-size: 22px;
+  }
+  .pricing-wrapper {
+    padding-bottom: 50px;
+  }
+  .pricing-table {
+    padding: 0;
+  }
+  .cta-wrapper {
+    text-align: center;
+  }
+  .cta-content h3 {
+    font-size: 22px;
+  }
+  .cta-content a {
+    font-size: 32px;
+  }
+  .cta-btn {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .footer-wrapper {
+    padding-top: 80px;
+  }
+  .copyright-wrapper {
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  p {
+    font-size: 14px;
+  }
+  .section-title {
+    max-width: 565px;
+  }
+  .section-title span {
+    font-size: 17px;
+  }
+  .section-title h2 {
+    font-size: 35px;
+  }
+  .about-content span {
+    font-size: 17px;
+  }
+  .about-content h2 {
+    font-size: 35px;
+  }
+  .service-box h3 {
+    font-size: 22px;
+  }
+  .pricing-table {
+    padding: 0;
+  }
+}
+

@@ -1,832 +1,521 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-            <!-- Required meta tags -->
-            <meta http-equiv="content-type" content="text/html; charset=utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="description" content="">
-            <meta name="author" content="">
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">   
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-			<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />   
-     		
-     		<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+   <head>
+      <!-- Required meta tags -->
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+      <link rel="stylesheet" href="./style.css">
+      <title>Miki Vcard</title>
+   </head>
+   <body>
+      <!-- NAVIGATION -->
+      <header >
+         <div class="header-wrapper">
+            <div class="top-header">
+               <div class="container">
+                  <div class="row align-items-center">
+                     <div class="col-lg-7 col-md-7">
+                        <div class="top-header-left">
+                           <div class="d-flex align-items-center">
+                              <p class="m-0">Follow Us:</p>
+                               <ul class="social">
+                                 <li><a href="#" target="_blank">
+                                    <i class="fab fa-facebook-f"></i></a></li>
+                                 <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                 <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                 <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                              </ul>
+                           </div>
+                           <div class="d-flex align-items-center">
+                              <p class="m-0"><span>Call Now At:</span> <a target="_blank" href="tel:+916380315964">+916380315964</a></p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-5 col-md-5">
+                        <div class="top-header-right">
+                           <div class="login-signup-btn">
+                              <p>
+                                 <a target="_blank" href="#">Login</a> <span>/</span> <a target="_blank" href="#">Franchisee Login</a></p>
+                           </div>
+                          
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- Start Navbar Area -->
+            <div class="navbar-wrapper">
+               <div class="opella-mobile-nav">
+                  <div class="logo">
+                     <a href="index.html">
+                           <img src="./assets/logo.png" alt="Miki Vcard logo">
+                     </a>
+                  </div>
+                  <div>
+                     <a target="_blank" href="#" class="btn my-btn nav-create-button">Create your card</a>
+                  </div>
+               </div>
+            </div>
+            <!-- End Navbar Area -->
+         </div>
+         <div class="hero_section header-wrapper" data-aos="fade-down" data-delay="100">
+            <div class="hero_text">
+               <h1>Easy To Create Your <br> Digitial Business Card Today</h1>
+               <p>Digital vCard is one of the innovative ways to share your personal and business details with your prospect by just using your Mobile Phone</p>
+            </div>
+            <div class="hero_button">
+               <input type="button" class="my-btn btn" name="Create Your Vcard" value="Create Your Vcard" class="bold_text">
+            </div>
+         </div>
+      </header>
 
-	<title>Miki Vcard</title>
-</head>
-<style type="text/css">
-	/* 
+      <!-- SAMPLE CARDS -->
+      <section class="samples-wrapper">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 center f_t" style="margin-bottom: 30px;">
+                  <div class="sub-title"><i class="flaticon-care-about-environment"></i>  <p>SAMPLE CARDS</p></div>
+                  <h2>Sample vCard Templates with Live Preview</h2>
+               </div>
+               <div class="sample-container col-xs-12 col-sm-4 col-md-4">
+                  <div class="sample-label"><p>Template-1<br>Professional Theme </div>
+                  <a target="_blank" href="#">
+                        <img alt="Digital business card template" src="./assets/template1.png">
+                     
+                  </a>
+                  <a target="_blank" href="#" class="btn my-btn">Preview Demo</a>
+               </div>
+               <div class="sample-container col-xs-12 col-sm-4 col-md-4">
+                  <div class="sample-label"><p>Template-2 <br><span class="muted-text">Color Option Available</span></p></div>
+                  <a target="_blank" href="#">
+                     
+                        <img alt="Digital business card template" src="./assets/template2.png">
+                     
+                  </a>
+                  <a target="_blank" href="#" class="btn my-btn">Preview Demo</a>
+               </div>
+               <div class="sample-container col-xs-12 col-sm-4 col-md-4">
+                  <div class="sample-label"><p>Template-3 <br><span class="muted-text">Color Option Available</span></p> </div>
+                  <a target="_blank" href="#">
+                     
+                        <img alt="Digital business card template" src="./assets/template3.png">
+                     
+                  </a>
+                  <a target="_blank" href="#" class="btn my-btn">Preview Demo</a>
+               </div>
+               <div class="sample-container col-xs-12 col-sm-4 col-md-4">
+                  <div class="sample-label"><p>Template-4 <br><span class="muted-text">Color Option Available</span></p></div>
+                  <a target="_blank" href="#">
+                     
+                        <img alt="Digital business card template" src="./assets/template4.png">
+                     
+                  </a>
+                  <a target="_blank" href="#" class="btn my-btn">Preview Demo</a>
+               </div>
+               <div class="sample-container col-xs-12 col-sm-4 col-md-4">
+                  <div class="sample-label"><p>Template-5 <br><span class="muted-text">Color Option Available</span></p></div>
+                  <a target="_blank" href="#">
+                     
+                        <img alt="Digital business card template" src="./assets/template5.png">
+                     
+                  </a>
+                  <a target="_blank" href="#" class="btn my-btn">Preview Demo</a>
+               </div>
+               <div class="sample-container col-xs-12 col-sm-4 col-md-4">
+                  <div class="sample-label"><p>Template-6 <br><span class="muted-text">Color Option Available</span></p></div>
+                  <a target="_blank" href="#">
+                     
+                        <img alt="Digital business card template" src="./assets/template6.png">
+                     
+                  </a>
+                  <a target="_blank" href="#" class="btn my-btn">Preview Demo</a>
+               </div>
+               <div class="sample-container col-xs-12 col-sm-4 col-md-4">
+                  <div class="sample-label"><p>Template-7 <br><span class="muted-text">Color Option Available</span></p></div>
+                  <a target="_blank" href="#">
+                     
+                        <img alt="Digital business card template" src="./assets/template7.png">
+                     
+                  </a>
+                  <a target="_blank" href="#" class="btn my-btn">Preview Demo</a>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- HERO SECTION 3 -->
+      <section class="how_it_help">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12 center f_t" style="margin-bottom: 30px;">
+                  <div class="sub-title">
+                     <i class="flaticon-care-about-environment"></i><p>How it Works?</p></div>
+                  <h2>How Miki Vcard Helps Your Business</h2>
+               </div>
+               <div class="col-xs-12 col-sm-4 col-md-4 item" style="height: 292px;">
+                  <div class="image">
+                        <img alt="Create your Own" src="./assets/Ellipse.png">
+                  </div>
+                  <div class="title"><p>Create your Card</p></div>
+                  <div class="subtitle">
+                     <p class="muted-text">Create your digital visiting card<br>via Miki Vcard. which takes just 2 min </p>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-4 col-md-4 item" style="height: 292px;">
+                  <div class="image">
+                        <img alt="Save to your Device" src="./assets/Ellipse.png">
+                  </div>
+                  <div class="title"><p>Download Greeting Images</p></div>
+                  <div class="subtitle">
+                     <p>Just select an image with favourite frame</p></div>
+               </div>
+               <div class="col-xs-12 col-sm-4 col-md-4 item" style="height: 292px;">
+                  <div class="image">
+                        <img alt="Share with friends and colleagues" src="./assets/Ellipse.png">
+                  </div>
+                  <div class="title"><p>Share with friends and colleagues</p></div>
+                  <div class="subtitle"><p>through a variety of channels</p></div>
+               </div>
+            </div>
+         </div>
+      </section>
 
-		COMMON STYLES	
+      <!-- BUSINESS CARD -->
+      <section class="about-wrapper ptb-100">
+         <div class="container">
+            <div class="row align-items-center">
+               <div class="col-lg-6 col-md-12">
+                  <div class="about-content">
+                     <span class="sub-title"><i class="flaticon-care-about-environment"></i> About Miki Vcard</span>
+                     <h2>Freedom from Boring Printed Business Cards</h2>
+                     <p class="text-muted">Design your digital visiting card in 2 minutes - it's easy, elegant and affordable. Miki Vcard is always in your pocket, never tears and never runs out. Your DIGI-VCARD can be easily updated with our user-friendly dashboard, so you won't need to re-print a business card again.</p>
+                  </div>
+               </div>
+               <div class="col-lg-6 col-md-12">
+                  <div class="about-image">
+                        <img alt="About us image" src="./assets/Rectangle.png" style="max-width: 100%;height: 250px;">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+   <!-- WHOS NEED  -->
+      <div class="whoneeds_container">
+         <div class="whoneeds">
+            <div class="whoneeds-text1">
+               <img src="./assests/hero.jpg">
+               <p>SMALL BUSINESS OWNERS</p>
+            </div>
+            <div class="whoneeds-text2">
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+               tempor incididunt ut </p>
+            </div>
+         </div>
+         <div class="whoneeds">
+            <div class="whoneeds-text1">
+               <img src="./assests/hero.jpg">
+               <p>SMALL BUSINESS OWNERS</p>
+            </div>
+            <div class="whoneeds-text2">
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+               tempor incididunt ut </p>
+            </div>
+         </div>
+         <div class="whoneeds">
+            <div class="whoneeds-text1">
+               <img src="./assests/hero.jpg">
+               <p>SMALL BUSINESS OWNERS</p>
+            </div>
+            <div class="whoneeds-text2">
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+               tempor incididunt ut </p>
+            </div>
+         </div>
+         <div class="whoneeds">
+            <div class="whoneeds-text1">
+               <img src="./assests/hero.jpg">
+               <p>SMALL BUSINESS OWNERS</p>
+            </div>
+            <div class="whoneeds-text2">
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+               tempor incididunt ut </p>
+            </div>
+         </div>
+      </div>
 
-	*/
-	:root	
-	{
-		--primary-color: #020032;
-		--secondary-color:#FBD71C;
-	}
-	body
-	{
-		margin:0;
-		padding: 0;
-		font-family:'Poppins', sans-serif;
-		line-height: 1.4;
-	}
-	h1
-	{
-		color: var(--primary-color);
-		text-transform: uppercase;
-	}
-	input[type="button"]
-	{
-		border-radius: 30px;
-	    border: 0;
-	    padding: 11px;
-	    outline: none;
-	    text-align: center;
-	    background-color: var(--secondary-color);
-	    color: black;
-	    font-weight: bold;
-	    text-transform: uppercase;
-	}
-	.bold_text
-	{
-		font-weight: bold;
-	}
-	.text_white{
-		color: white !important;
-	}
-	.m-auto{
-		margin: auto;
-	}
-	.bg_white
-	{
-		background-color: white !important;
-	}
-	.smallline
-	{
-		width: 20px;
-	    border: 1px solid;
-	    margin-top: 3px;
-	}
-	.crossline1
-	{
-	    width: 20px;
-	    margin-top: 2px;
-    	border: 1px solid;
-    	transform: rotate(60deg);
-	}
-	.crossline2
-	{
-		width: 20px;
-	    margin-top: -2px;
-    	border: 1px solid;
-    	transform: rotate(-60deg);
-	}
-	.line
-	{
-		width: 100%;
-	    background-color:white;
-	}
-	.whiteline
-	{
-		width: 100px;
-		margin-top: 10px;
-		border: 1px solid white;
-	}
-	.color_text
-	{
-		color: var(--primary-color) !important;
-	}
-	/* 
+      <!-- Hero Section 5 -->
+      <section class="services-wrapper bg-image ptb-100">
+         <div class="container">
+            <div class="section-title">
+               <span>
+               <span class="icon">
+               <i class="flaticon-technical-support"></i>
+               </span>
+               <span>Features</span>
+               </span>
+               <h2>One business card, endless possibilities</h2>
+            </div>
+            <div class="row">
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-phone fa-flip-horizontal"></i>
+                     </div>
+                     <h3>Click to Call</h3>
+                     <p>Your customers will reach you by just tapping on mobile number on vCard.</p>
+                     <!-- <a href="#" class="read-more-btn">Read More <i class="flaticon-arrow-pointing-to-right"></i></a> -->
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fab fa-whatsapp fa-flip-horizontal"></i>
+                     </div>
+                     <h3>Click To WhatsApp</h3>
+                     <p>Your customers can whatsapp you without even saving your number!</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-envelope"></i>
+                     </div>
+                     <h3>Click to Email</h3>
+                     <p>One Click and your customer will be able to send you an email directly.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                     </div>
+                     <h3>Click to Navigate</h3>
+                     <p>Using digital visiting Card, people can navigate to your store with Google Maps.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-mobile"></i>
+                     </div>
+                     <h3>Add to Contacts</h3>
+                     <p>People can save all your contact details in their phone address book.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fab fa-facebook-f"></i>
+                     </div>
+                     <h3>Website &amp; Social Links</h3>
+                     <p>With digital visiting card, Customers can visit websites and social sites.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-share-alt"></i>
+                     </div>
+                     <h3>Share Unlimited</h3>
+                     <p>You can share your digital visiting card unlimited times to anyone using social media.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-edit"></i>
+                     </div>
+                     <h3>Easy To Update</h3>
+                     <p>You can update your details as and when you want to change unlimited times.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-file-image"></i>
+                     </div>
+                     <h3>Photo Gallery</h3>
+                     <p>Showcase your business realted images and products to your customers (15 to 20 photo ).</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-video"></i>
+                     </div>
+                     <h3>Youtube Video Gallery</h3>
+                     <p>Impress your customer by showing them your business related youtube videos.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-rupee-sign"></i>
+                     </div>
+                     <h3>Payment Section</h3>
+                     <p>Display payment details to your customers, Like: Paytm, Phonepe, Google Pay, Bank Account (Including QR code)</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-comment-alt"></i>
+                     </div>
+                     <h3>Enquiry Form</h3>
+                     <p>Our Card can help to capture leads with enquiry form. You will get Email notification for each enquiry.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-star"></i>
+                     </div>
+                     <h3>Reviews &amp; Ratings</h3>
+                     <p>Anyone can give feedback about your organization and rate out of 5 stars and others can see on the cards.</p>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="service-box">
+                     <div class="icon">
+                        <i class="fas fa-users"></i>
+                     </div>
+                     <h3>Visitors count</h3>
+                     <p>Card shows the unique visitor count who viewed your card, Isn't it cool!!</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Start Pricing Area -->
+      <section class="pricing-wrapper">
+         <div class="container">
+            <div class="section-title">
+               <span>
+               <span class="icon">
+               <i class="flaticon-resume"></i>
+               </span>
+               <span>Miki Vcard Pricing</span>
+               </span>
+               <h2>Our Digital Business Card Pricing Plan</h2>
+            </div>
+            <div class="row justify-content-center">
+               <div class="col-lg-5 col-md-6 col-sm-6">
+                  <div class="pricing-table">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
 
-		NAVIGATION STYLES	
-	
-	*/
-	nav
-	{
-
-		color:var(--primary-color);		    
-	    display: flex;
-	    justify-content: space-between;
-	    background-image: url(./hero.png);
-	    background-repeat: no-repeat;
-	    background-size: 100% 100vh;
-		height: 100vh;
-	}
-	.lines
-	{
-		display: none;
-	}
-	.crosslines
-	{
-		display: none;
-		position: absolute;
-		top: 0;
-		right: 10px;
-		font-size: 30px;
-	}
-	.crosslines:after
-	{
-		content: "x";
-		color: var(--primary-color);
-		font-weight: 300;
-		font-family: Arial;
-	}
-	.nav_brand 
-	{
-		display: inline;
-	}
-	.nav_brand img
-	{
-		height: 65px;
-	}
-	.nav_list
-	{
-		display: flex;
-		list-style: none;	
-		align-items:center;
-		padding: 0;
-		margin:0;
-	    
-	}
-	.nav_item
-	{
-		margin:0 10px;
-	}
-	.login_but
-	{
-		border: 1px solid #10fcff;
-	    border-radius: 20px;
-	    width: 58px;
-	   	font-size: 14px;
-	    font-weight: bold;
-	    color: white;
-	    text-align: center;
-	}
-	.subNav{
-		height: 30vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		width: 100vw;
-
-	}
-	.subNav1{
-		background-color: var(--primary-color);
-		display: flex;
-		justify-content: space-around;
-		align-items: center;
-		border-bottom: 1px solid white;
-		width: 100vw;
-	}
-	a{
-		color:white;
-	}
-	.subNav1_contact ol li i{
-		background-color: var(--secondary-color);
-		border-radius: 40%;
-	}
-	.subNav1_contact,
-	.subNav1_login
-	{
-		display: flex;
-
-	}
-
-
-	.subNav2{
-		height: 20vh;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		background-color: var(--primary-color);
-		width: 100vw;
-	}
-	.subNav2 a{
-		margin: 1rem;
-	
-	}
-	.subNav_button{
-		margin: 1rem;
-	}
-	.subNav_button input{
-		background-color: var(--primary-color);
-		color: var(--secondary-color);
-		border:1px solid var(--secondary-color);
-	}
-
-
-	/*
-
-		HERO STYLES
-
-	*/
-
-	.hero_section
-	{
-		position: absolute;
-		top: 35%;
-		padding-left: 60px;
-	}
-	.hero_text h1{
-		font-size: 2.5rem;
-		color: white;
-		margin: 10px;
-		font-weight: bold;
-
-	}
-	.hero_text p
-	{
-		margin: 0px 10px;
-		font-size: 25px;
-		color: white;
-	}
-	.hero_text p
-	{
-		font-size: 20px;
-		width: 70%;
-	}
-
-	.hero_button
-	{
-		margin-top: 3rem;
-	}
-	.hero_button input
-	{
-		font-size: 18px
-		color:black !important;
-	}
-	
-	/*
-
-		ABOUT US STYLES
-`	
-	*/
-	.aboutus
-	{
-		margin-top: 15px;
-	}
-	.aboutus h1
-	{
-		text-align: center;
-	    margin: auto;
-	    padding-bottom: 12px;
-	}
-	.aboutus_heading
-	{
-		text-align: center;
-	}
-	.aboutus_heading h3
-	{
-		padding:0 20px;
-		margin-bottom:0; 
-	}
-	.aboutus_container
-	{
-		display: flex; 
-		justify-content: space-between;
-    	flex-wrap: wrap;
-    	padding:20px;
-	}
-	.aboutus_text
-	{
-		flex: 1;
-	}
-	.aboutus_text p
-	{
-		margin-top: 0;
-		line-height: 30px;
-		word-break: break-word
-	}
-	.aboutus_text input[type="button"]
-	{
-	    margin: auto;
-    	display: block;
-	}
-	.aboutus_img
-	{
-		flex: 1;
-		margin-top: 10px;
-		
-	}
-	.aboutus_img img{
-		border-radius: 10px;
-	}
-
-	/*
-
-		SERVICE STYLES
-	
-	*/
-
-	.service_whole_container
-	{
-		background-color: var(--secondary-color);
-		padding:  20px 0;
-	}
-	.service h1
-	{
-		text-align: center;
-	    margin: auto;
-	    padding-bottom: 12px;
-	}
-	.service_container
-	{
-		display: flex;
-	    flex-wrap: wrap;
-	    justify-content: space-around;
-	    margin-bottom: 20px;
-	}
-	.service_card
-	{
-		width: 236px;
-		height: 160px;
-		padding: 9px;
-	    border: 1px solid var(--primary-color);
-	    margin: 12px 0;
-	    border-radius: 50px;
-	    background-color: var(--primary-color);	 
-	    text-align: center;
-	}
-	.service_card--header_text
-	{
-		text-align: center;
-		color: white;
-	    margin: 0 auto;
-	    width: auto;
-	}
-	.service_card--header_text h4
-	{
-		margin: 0;
-		font-size: 16px;
-	}
-	.service_card--body p
-	{
-		width: 190px;
-	    margin: 18px auto;
-	    font-size: 14px;
-	}	
-	.service_text 
-	{
-		display: flex;
-	    align-items: center;
-	    flex-wrap: wrap;
-        margin: 20px  auto;
-	    width: 70%;
-	}
-	.service_text p
-	{
-		display: inline;
-		font-size: 17px;
-		font-weight: bold;
-		margin-left: auto;
-	}
-	.service_text input
-	{
-		font-size: 15px;
-		font-weight: bold;
-		height: 40px;
-		margin-left: 20px;
-		width: 130px;
-	}
-	/*
-
-		PRICOING STYLES
-
-	*/
-
-	.pricing h1
-	{
-		text-align: center;
-	    margin: 10px auto;
-	    width: 136px;
-	    padding-bottom:4px;
-	}
-	.pricing_container
-	{
-		display: flex;
-		justify-content: space-around;
-		flex-wrap: wrap;
-		margin:20px auto;
-	}
-	.pricing_card
-	{
-		height: 350px;
-		width:250px;
-		margin: 12px 0;
-		border: 1px solid;
-	}
-	.pricing_card--header
-	{
-
-	}
-	.pricing_card--header_icon
-	{
-		text-align: center;
-		font-size: 40px;
-		color: var(--primary-color);	
-	}
-	.pricing_card--header_text
-	{
-
-	}
-	.pricing_card--body
-	{
-
-	}
-	/*
-
-		SUBSCRIPTION STYLES
-
-	*/
-
-	.subs_container
-	{
-	    display: flex;
-	    flex-direction: column;
-	    justify-content: center;
-	    align-items: center;
-	    height: 177px;
-	    background: var(--primary-color);
-	}
-	.subs_text h2
-	{
-		margin:0;
-		margin-bottom:10px; 
-		font-size: 17px;
-	}
-	.subs_input  input[type="text"]
-	{
-		height: 30px;
-		border-radius: 6px;
-		outline: none;
-		border: 1px solid black;
-
-	}
-	.subs_input  input[type="button"]
-	{
-		background-color:#128fab;
-		color: black;
-
-	}
-	/*
-
-		CONTACR STYLES
-
-	*/
-	.contact_container
-	{
-		display: flex;
-		flex-wrap: wrap;
-    	justify-content:space-between;
-    	padding: 20px;
-    	background-color: var(--primary-color);
-	}
-	.contact_icon img
-	{
-		width: 250px;
-	}
-	.contact_form 
-	{
-		display: flex;
-		flex-direction: column;
-		border: 1px solid;
-		max-width: 350px;
-		min-width: 200px;
-		border-radius: 20px;
-		background-color:white;
-		margin: 20px;
-		padding: 20px;
-	}
-	.contact_form  h3
-	{
-		margin:10px auto;
-	}
-	.contact_form input[type='text']
-	{
-		height: 30px;
-	    outline: none;
-	    border-radius: 6px;
-	    border: 1px solid black;
-	}
-	.contact_form input[type='button']
-	{
-		width: 86px;
-	    align-self: center;
-	    margin: 20px 0px;
-	}
-	.contact_form textarea
-	{
-		outline: none;
-	}
-	/*
-
-		BUSSINESS CARD STYLES
-
-	*/
-	.business_card--heading
-	{
-		text-align: center;
-	}
-	.business_card--container
-	{
-		display:flex;
-		justify-content:space-around;
-		flex-wrap: wrap;
-		padding: 15px;
-	}
-	.business_card
-	{
-		height: 175px;
-		width: 195px;
-		border:1px solid;
-		margin: 20px;
-	}
-	.business_card:hover
-	{
-		box-shadow: 5px 7px 7px 0 var(--primary-color);
-	}
-	.business_card--icon
-	{
-		text-align: center;
-		margin-top:30px;
-		font-size: 40px;
-		color: var(--primary-color);
-	}
-	.business_card--text
-	{
-		text-align: center;
-		font-size: 20px;
-	}
-	/*
-
-		FOOTER STYLES
-
-	*/
-	.footer_container
-	{
-		height: 40px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin: auto;
-		background-color: black;
-		color: white;
-	}
-	
-
-
-	/*media query for tab  and mobile*/
-	@media screen and (max-width:767px )
-	{
-			/* 
-
-				COMMON STYLES	
-
-			*/
-			h1
-			{
-				font-size: 1.3rem;
-			}
-			.lines
-			{
-				display: block;
-			    position: absolute;
-				top: 13px;
-				right: 10px;
-			}
-			.crosslines_show
-			{
-				display: block;
-				z-index: 10;
-			}
-			.lines_hide
-			{
-				display: none;
-			}
-			
-			/* 
-
-				NAVIGATION STYLES	
-
-			*/
-			nav
-			{
-			    display: flex;
-			    justify-content: flex-start;	
-			    background-size: 100% 389px;
-				height: 389px;
-				width: 100vw;
-				overflow: hidden;		
-			}
-			.nav_brand img
-			{
-				height: 45px;
-			}
-			
-			.nav_opt
-			{
-				z-index: 10;
-			}
-			.nav_list
-			{
-				display: block;
-				list-style: none;
-				margin:0;
-				width: 100vw;
-			    height: 389px;
-			    margin-left: -111px;
-			    margin-top: -75px;
-				padding-top: 30px;
-			    background: black;
-			    text-align: center;
-			    transform: translateY(-362px);
-		   		transition: transform 0.2s;
-			}
-			.nav_list_margin
-			{
-		 		margin-top: -40px;
-			}
-			.nav_list_show
-			{
-				transform: translateY(0);	
-			}	
-			.nav_item
-			{
-				margin:30px auto;
-			}
-			.login_but
-			{
-				width: 98px;
-			}
-			/* 
-
-				HERO STYLES	
-
-			*/
-			.hero_section
-			{
-				top: 10%;	
-				padding-left: 15px;		
-			}
-			.hero_text p
-			{
-				width: 90%;
-			}
-			.hero_text h1,
-			.hero_text p
-			{
-				font-size: 1.2em;			
-			}
-			.hero_text p
-			{
-				font-size: 14px;
-			}
-			.hero_button input
-			{
-				font-size: 14px
-				color:black !important;
-			}
-			/* 
-
-				ABOUT STYLES	
-
-			*/
-			.aboutus_img
-			{
-				flex:0 1 auto;
-				
-			}
-			/* 
-
-				SERVICE STYLES	
-
-			*/
-			.service_text input
-			{
-				margin:5px auto;
-			}
-			.service_text p
-			{
-				margin: auto;
-			}
-			/* 
-
-				CONTACT FORM STYLES	
-
-			*/
-			.contact_icon 
-			{
-				margin: auto;
-			}
-			.contact_form 
-			{
-				margin: auto;
-			}
-}
-	
-</style>
-
-<body>
-	<!-- NAVIGATION -->
-	<nav>
-	<div class="subNav">
-		<div class="subNav1">
-		<div class="subNav1_contact">
-			<p class="text_white">Follow Us:</p>
-			<ol class="nav_list">
-					<li class="nav_item">
-						<i class="fab fa-facebook"></i>
-						
-					</li>
-					<li class="nav_item">
-						<i class="fab fa-instagram"></i>
-						
-					</li>
-					<li class="nav_item">
-						<i class="fab fa-linkedln"></i>
-						
-					</li>
-					<li class="nav_item">
-						<i class="fab fa-twitter"></i>
-						
-					</li>
-					<li class="nav_item">
-						<i class="fab fa-youtube"></i>
-					</li>
-					<li class="nav_item">
-						<i class="fab fa-whatsapp"></i>
-					</li>
-				</ol>
-			<p class="text_white">Call Us:</p>
-			<a href="tel+6380315964" class="m-auto">+916380315964</a>
-		</div>
-		<div class="subNav1_login">
-			<p><a href="" class="m-auto">Customer login/ franchise login</a></p>
-		</div>
-
-		</div>
-		<div class="line"></div>
-		<div class="subNav2">
-			<a class="nav_brand">
-				<img src="./logo.png" alt="MIKIVCARD" >
-			</a>
-			<div class="subNav_button">
-				<input type="button" name="Create Your Vcard" value="Create Your Vcard" class="bold_text">
-			</div>
-		</div>
-	</div>
-		<div class="nav_opt">	
-			<div class="lines">
-				<div class="smallline"></div>
-				<div class="smallline"></div>
-				<div class="smallline"></div>
-			</div>
-			<div class="crosslines">
-				<!-- <div class="crossline1"></div>
-				<div class="crossline2"></div> -->
-			</div>
-
-			
-		</div>
-		<div class="hero_section" data-aos="fade-down" data-delay="100">
-		<div class="hero_text">
-			<h1>Easy To Create Your <br> Digitial Business Card Today</h1>
-			<p>Digital vCard is one of the innovative ways to share your personal and business details with your prospect by just using your Mobile Phone</p>
-		</div>
-		<div class="hero_button">
-			<input type="button" name="Create Your Vcard" value="Create Your Vcard" class="bold_text">
-			
-	</div>
-	</nav>
-	
-	
-</body>
-<script type="text/javascript">
-	function toggleNav() {
-		let togglebutton=document.querySelector(".lines");
-		let closebutton=document.querySelector(".crosslines");
-		var nav_list=document.querySelector(".nav_list");
-		togglebutton.addEventListener("click",toggle);
-		closebutton.addEventListener("click",toggle);
-
-		function toggle()
-		{
-			nav_list.classList.toggle("nav_list_show");		
-			nav_list.classList.toggle("nav_list_margin");
-			closebutton.classList.toggle("crosslines_show");
-			togglebutton.classList.toggle("lines_hide");
-		}
-		// body...
-	}
-	toggleNav();
-</script>
- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-   
+      <!-- CALL US AREA -->
+      <section class="cta-wrapper">
+         <div class="container">
+            <div class="row align-items-center">
+               <div class="col-lg-8 col-md-12">
+                  <div class="cta-content">
+                     <div>
+                        <h2>White Label Franchise Available</h2>
+                     </div>
+                     <h3>Call Us Now For Connect LinkConnect</h3>
+                     <a target="_blank" href="tel:+916380315964">+916380315964</a>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-12">
+                  <div class="cta-btn">
+                     <a target="_blank" href="https://wa.me/916380315964?text=Hi, I want to know more about your products and services." class="btn my-btn">Reach Out to us on WhatsApp</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- OTHER Services -->
+      <section class="features-wrapper bg-image">
+         <div class="container">
+            <div class="section-title">
+               <span>
+               <span class="icon">
+               <i class="flaticon-wifi"></i>
+               </span>
+               <span><p>Our Services</p></span>
+               </span>
+               <h2>We Offers Web Designing & Digital Visiting Card At Affordable Price</h2>
+            </div>
+            <div class="row">
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <div class="single-features-box">
+                     <!-- <div class="icon">
+                        <i class="far fa-file-code"></i>
+                     </div>
+                     <h3></h3>
+                     <p></b>
+                     <div class="back-icon">
+                        <i class="far fa-file-code"></i>
+                     </div>
+                     <a href="#" class="details-btn"><i class="flaticon-arrow-pointing-to-right"></i></a>
+                     <div class="image-box">
+                        <picture style="max-width: 100%;">
+                           <img alt="Shape image" src="assets/img/shape-2.png">
+                        
+                        <picture style="max-width: 100%;">
+                           <img alt="Shape image" src="assets/img/shape-2.png">
+                        
+                     </div> -->
+                  </div>
+               </div>
+               <div class="col-lg-6 col-md-12 col-sm-12">
+                  <div class="single-features-box">
+                    <!--  <div class="icon">
+                        <i class="far fa-file-pdf"></i>
+                     </div>
+                     <h3></h3>
+                     <p></b>
+                     <div class="back-icon">
+                        <i class="far fa-file-pdf"></i>
+                     </div>
+                     <a target="_blank" href="https://event.linkconnect.in/" class="details-btn"><i class="flaticon-arrow-pointing-to-right"></i></a>
+                     <div class="image-box"> -->
+                      <!--   <picture style="max-width: 100%;">
+                           <img alt="Shape image" src="assets/img/shape-2.png">
+                        
+                        <picture style="max-width: 100%;">
+                           <img alt="Shape image" src="assets/img/shape-2.png">
+                         -->
+                     </div>
+                  </div>
+               </div>
+               
+            </div>
+         </div>
+      </section>
+      <footer class="footer-wrapper">
+         <div class="copyright-wrapper">
+            <div class="container">
+               <a href="index.html" class="footer-logo logo">
+                  
+                     <img src="./assets/logo.png" alt="Miki Vcard logo">
+                  
+               </a>
+               <p><i class="far fa-copyright"></i> Copyright 2020 - All Rights Reserved.</p>
+               <p><i class="fas fa-map-marker-alt"></i> Miki Vcard,</p>
+               <div class="footer-links">
+                  <a target="_blank" href="./terms-and-condition.html">Terms &amp; Condition</a>
+                   <a target="_blank" href="./refund-poilicy.html">Refund/Cancellation Policy</a>
+                   <a target="_blank" href="./privacy-poilicy.html">Privacy Policy</a>
+               </div>
+            </div>
+         </div>
+      </footer>
+   </body>
+   <script type="text/javascript"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
    <script type="text/javascript">
       AOS.init();      
       window.addEventListener("hashchange", function() { scrollBy(0, -120) })
