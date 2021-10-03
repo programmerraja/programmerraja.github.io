@@ -748,7 +748,7 @@ header{
   }
   
   .features-wrapper {
-    padding: 0;
+    padding: 1rem 0;
   }
   .single-features-box {
     padding: 20px;
