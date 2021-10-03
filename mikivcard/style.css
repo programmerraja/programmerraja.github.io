@@ -7,12 +7,17 @@
 :root {
 	--primary-color: #020032;
 	--secondary-color: #FBD71C;
+	--font-color:#EDF8FF;
+	--subtitle-color:#5C5B79;
+	--title-color:#020032;
+	--body-color:#8A899D;
+
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Poppins', sans-serif;
+	/*font-family: 'Poppins', sans-serif;*/
 	line-height: 1.4;
 }
 
@@ -177,6 +182,18 @@ header{
 	background-color: #FCFCFC;
 	padding-top: 60px;
 }
+.muted-text{
+	font-weight: bold;
+	font-size: 13px;
+}
+.samples-wrapper span{
+	font-weight: bold;
+	color: var(--subtitle-color);
+}
+.samples-wrapper h2,
+.samples-wrapper .text-decoration-line: {
+	color: var(--title-color);
+}
 .mini-image-wrapper
 {
 	background: var(--secondary-color);
@@ -256,6 +273,8 @@ header{
 }
 
 .how_it_help .sub-title {
+	display: flex;
+	align-items: center;
 	font-size: 16px;
 	margin-bottom: 10px;
 }
@@ -267,7 +286,6 @@ header{
 .how_it_help .item {
 	text-align: center;
 }
-
 .how_it_help .image {
 	position: relative;
 	max-width: 170px;
@@ -317,6 +335,16 @@ header{
 	font-size: 16px;
 	align-items: center;
 	margin-bottom: 10px;
+}
+.about-wrapper span,
+.whoneeds_wrapper h6{
+	font-weight: bold;
+	color: var(--subtitle-color);
+}
+.about-wrapper h2,
+.whoneeds_wrapper h2{
+	font-weight: bold;
+	color: var(--title-color);
 }
 .text-space{
 	line-height: 37px;
@@ -447,6 +475,16 @@ header{
 	padding-bottom: 70px;
 	padding-top: 70px;
 }
+.pricing-wrapper .sub-title {
+	display: flex;
+	font-size: 16px;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.pricing-wrapper h2 {
+	font-weight: bold;
+}
+
 .pricing-table {
 	overflow: hidden;
 	margin-bottom: 30px;
@@ -477,7 +515,21 @@ header{
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
-
+.cta-wrapper  p{
+	color: white;
+	font-weight: bold;
+}
+.cta-wrapper .sub-title {
+	display: flex;
+	font-size: 16px;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.cta-wrapper .contact{
+	color: var(--secondary-color);
+	font-weight: bold;
+	font-size: 18px;
+}
 .cta-content h2 {
 	color: #ffffff;
 	margin-bottom: 10px;
@@ -500,9 +552,20 @@ header{
 /*
 		Other SERVICE AREA
 	*/
-
+.features-wrapper{
+	padding: 2rem;
+}
 .features-wrapper.bg-image {
 	background-color: #FCFCFC;
+}
+.features-wrapper .sub-title {
+	display: flex;
+	font-size: 16px;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.features-wrapper h2 {
+	font-weight: bold;
 }
 
 .single-features-box {
