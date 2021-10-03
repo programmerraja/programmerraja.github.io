@@ -62,19 +62,16 @@ header{
 
 .top-header-left {
 	color: #ffffff;
+	font-weight: bold;
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 0;
 	line-height: initial;
 }
 
-.top-header-left p span {
-	color: #ffcf58;
-}
-
-.top-header-left p a {
-	display: inline-block;
-	color: #ffffff;
+.top-header-left p  a {
+	color: var(--secondary-color) !important;
+	font-weight: bold;
 }
 
 .top-header-right {
@@ -84,13 +81,14 @@ header{
 .top-header-right .login-signup-btn {
 	display: inline-block;
 	position: relative;
+	font-weight: bold;
 	padding-right: 15px;
 }
 
 .top-header-right .login-signup-btn p a,
 .top-header-right .login-signup-btn p span{
 
-	color: var(--secondary-color);
+	color: white;
 }
 
 .top-header-left .social {
@@ -179,9 +177,25 @@ header{
 	background-color: #FCFCFC;
 	padding-top: 60px;
 }
+.mini-image-wrapper
+{
+	background: var(--secondary-color);
+    width: 55px;
+    height: 55px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mini-image{
+	height: 45px;
+	width: 45px;
+}
 
 .samples-wrapper .sub-title {
+	display: flex;
 	font-size: 16px;
+	align-items: center;
 	margin-bottom: 10px;
 }
 
@@ -298,7 +312,15 @@ header{
 	font-size: 38px;
 	font-weight: 700;
 }
-
+.about-wrapper .sub-title {
+	display: flex;
+	font-size: 16px;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.text-space{
+	line-height: 37px;
+}
 .about-image {
 	text-align: center;
 }
@@ -343,6 +365,19 @@ header{
 	align-items: center;
 	margin: auto;
 	width: 70%;
+}
+.mini-image-wrapper2{
+	background: var(--secondary-color);
+    width: 65px;
+    height: 65px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mini-image2{
+	height: 55px;
+	width: 55px;
 }
 /*
 		HERO SECTION 6
