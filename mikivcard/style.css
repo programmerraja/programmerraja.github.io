@@ -43,8 +43,7 @@ a{
 
 
 .logo img{
-	height: 70px;
-	width: 150px;
+	height: 80px;
 }
 
 /* 
@@ -61,8 +60,8 @@ header{
 }
 .top-header {
 	border-bottom: 1px solid #2c303f;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .top-header-left {
@@ -91,10 +90,14 @@ header{
 }
 
 .top-header-right .login-signup-btn p a,
+.top-header-left  p a,
 .top-header-right .login-signup-btn p span{
 
-	color: white;
+	color: var(--font-color);
 }
+.top-header-right .login-signup-btn  a:hover{
+	color: var(--secondary-color);
+},
 
 .top-header-left .social {
 	display: inline-block;
@@ -105,10 +108,18 @@ header{
 
 .top-header-left .social li {
 	display: inline-block;
-	margin-left: 1.5px;
+	display: inline-block;
+	font-size: 10px;
+    margin-left: 1.5px;
+    background: var(--secondary-color);
+    border-radius: 9px;
+    padding: 0.3rem;
 }
 .social i{
-	color: var(--secondary-color);
+	color: #000;
+}
+.mobile-no:hover{
+	color: #EDF8FF !important;
 }
 
 .navbar-wrapper {
@@ -184,6 +195,12 @@ header{
 	background-color: #FCFCFC;
 	padding-top: 60px;
 }
+.samples-wrapper .my-btn {
+	font-size: 14px;
+	font-weight: 600;
+	padding: 13px;
+
+}
 .muted-text{
 	font-weight: bold;
 	font-size: 13px;
@@ -207,8 +224,8 @@ header{
     align-items: center;
 }
 .mini-image{
-	height: 45px;
-	width: 45px;
+	height: 40px;
+	width: 40px;
 }
 
 .samples-wrapper .sub-title {
@@ -245,9 +262,7 @@ header{
 	justify-content: center;
 	align-items: flex-end;
 }
-.samples-wrapper img {
-	margin-bottom: 10px;
-}
+
 .btn {
 	border: none;
 	padding: 15px 30px;
@@ -270,8 +285,8 @@ header{
 .how_it_help {
 	background-image: url(./assets/bg_how.png);
 	color: #fff;
-	padding-bottom: 70px;
-	padding-top: 70px;
+	padding-bottom: 50px;
+	padding-top: 50px;
 }
 
 .how_it_help .sub-title {
@@ -677,16 +692,25 @@ header{
     font-size: 13px;
   }
   .ptb-100 {
-    padding-top: 65px;
-    padding-bottom: 65px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .top-header-left{
+  	display: flex;
+  	flex-wrap: wrap;
+  	justify-content: center;
+  }
+  .logo{
+    margin: 0 auto;
+
   }
   .logo img {
-    height: 40px;
-    width: 100px;
-    margin: 0 auto;
+    height: 80px;
    }
+  
    .opella-mobile-nav{
-   		padding:0.2rem 2rem; 
+   		padding:0rem; 
+   		justify-content: center;
    }
    .opella-mobile-nav .nav-create-button {
 		font-size: 12px;
@@ -734,9 +758,7 @@ header{
     text-align: center;
     margin-top: 10px;
   }
-  .top-header-left .social li {
-    margin-right: 3px;
-  }
+ 
   .top-header-left .social li:last-child {
     margin-right: 0;
   }
@@ -744,8 +766,16 @@ header{
     width: 30px;
     height: 30px;
     line-height: 31px;
-    font-size: 12px;
+    font-size: 10px;
   }
+  .top-header-left .social li {
+	height: 22px;
+    width: 22px;
+    text-align: center;
+    padding: 0;
+    padding-bottom: 0.1rem;
+    font-size: 8px;
+}
   
   .features-wrapper {
     padding: 1rem 0;
@@ -904,7 +934,7 @@ header{
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   p {
-    font-size: 14px;
+    font-size: 15px;
   }
   .section-title {
     max-width: 565px;
