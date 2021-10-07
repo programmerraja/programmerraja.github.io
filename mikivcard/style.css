@@ -97,7 +97,6 @@ header{
 }
 .top-header-left {
 	color: #ffffff;
-	font-weight: bold;
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 0;
@@ -122,7 +121,6 @@ header{
 .top-header-right .login-signup-btn {
 	display: inline-block;
 	position: relative;
-	font-weight: bold;
 	padding-right: 15px;
 }
 
@@ -192,7 +190,7 @@ header{
 .hero_section {
 	justify-content: space-between;
 	padding-left: 60px;
-	background-image: url(./hero.png);
+	background-image: url(./assets/hero.png);
 	background-repeat: no-repeat;
 	background-size: 100% 100%;	
 	height: 75vh;
@@ -412,7 +410,7 @@ header{
 */
 .whoneeds_container{
 	display: flex;
-	padding: 80px 0; 
+	padding: 40px 0px 10px 0px;
 	flex-wrap: wrap;
 }
 .whoneeds{
@@ -470,7 +468,14 @@ header{
 	z-index: 1;
 	padding: 80px 0;
 }
-	
+.single-features-box a {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
 
 .services-wrapper .sub-title p,
 .services-wrapper .service-head {
@@ -599,7 +604,7 @@ header{
 .cta-wrapper .contact{
 	color: var(--secondary-color);
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 30px;
 }
 .cta-content h2 {
 	color: #ffffff;
@@ -641,7 +646,7 @@ header{
 
 .single-features-box {
 	text-align: center;
-	height: 320px;
+	min-height: 300px;
 	margin-bottom: 30px;
 	padding: 1.4rem;
 	background-color: #e0e0e0;
@@ -652,10 +657,7 @@ header{
 	position: relative;
 	z-index: 1;
 }
-.single-features-box a{
-	color: var(--secondary-color);
-	font-weight: bold;
-}
+
 .single-features-heading h3{
 	font-weight: bold;
 }
@@ -720,15 +722,27 @@ header{
     padding-top: 50px;
     padding-bottom: 50px;
   }
+  .mini-image-wrapper
+  {
+    width: 35px;
+    height: 35px;
+  }
+  .mini-image{
+	height: 18px !important;
+  }
+
   .header-wrapper {
 	background-color: var(--primary-color);
-	min-height: 38vh;
+	min-height: 35vh;
 	padding: 0.5rem;
 	}
   .top-header-left{
   	display: flex;
   	flex-wrap: wrap;
   	justify-content: center;
+  }
+  .top-header-right .login-signup-btn{
+ 	margin: auto;
   }
   .logo{
     margin: 0 auto;
@@ -860,6 +874,9 @@ header{
   .pricing-table {
     padding: 0;
     width: 100%;
+  }
+  .pricing-table p {
+	font-size: 35px;
   }
   .pricing-item{
 	padding: 0.7rem;
