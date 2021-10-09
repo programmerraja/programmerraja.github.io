@@ -871,6 +871,9 @@ header{
   h3{
   	font-size: 18px !important;
   }
+  .mt{
+  	margin-top: 0.8rem;
+  }
   .btn {
     padding: 14px 25px;
     font-size: 13px;
@@ -888,7 +891,7 @@ header{
 	height: 18px !important;
   }
 	.navbar-wrapper {
-		padding: 24px 0;
+		padding: 18px 0;
 	}
   .header-wrapper {
 	background-color: var(--primary-color);
