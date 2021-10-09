@@ -898,6 +898,10 @@ header{
 	min-height: 35vh;
 	padding: 0.5rem;
 	}
+	.top-header p,
+	.top-header-left p a{
+		font-size: 12px;
+	}
   .top-header-left{
   	display: flex;
   	flex-wrap: wrap;
