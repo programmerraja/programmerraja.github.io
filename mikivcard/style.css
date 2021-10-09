@@ -93,7 +93,10 @@ header{
 	padding-bottom: 10px;
 }
 .top-header p {
-	font-size: 13px;
+	font-size: 15px;
+    font-family: 'poppins';
+    letter-spacing: 0.4px;
+    font-weight: 400;
 }
 .top-header-left {
 	color: #ffffff;
@@ -201,17 +204,25 @@ header{
 }
 
 .hero_text h1 {
-	font-size: 2.4rem;
-	color: white;
-	margin: 10px 0px;
-	font-weight: bold;
+	font-size: 42px;
+    letter-spacing: 1.6px;
+    color: var(--font-color);
+    margin-bottom: 10px;
+    margin-top: -40px;
+    line-height: 58px;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
 .hero_text p {
-	margin: 0px;
-	font-size: 14px;
-	color: white;
-	width: 50%;
+	 margin-top: -5px;
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--font-color);
+    width: 56%;
+    letter-spacing: 0.4px;
+    opacity: 60%;
+    line-height: 24px;
 }
 
 .hero_button {
@@ -236,11 +247,16 @@ header{
 }
 .muted-text{
 	font-weight: bold;
-	font-size: 13px;
+	font-size: 12px;
 }
-.samples-wrapper span{
+.samples-wrapper p{
 	font-weight: bold;
-	color: var(--subtitle-color);
+	color: var(--subtitle-color);	
+	font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    word-spacing: 3px;
+    text-transform: uppercase;
 }
 .samples-wrapper h2,
 .samples-wrapper .text-decoration-line: {
@@ -321,9 +337,18 @@ header{
 
 .how_it_help .sub-title {
 	display: flex;
-	align-items: center;
-	font-size: 16px;
-	margin-bottom: 10px;
+    align-items: center;
+}
+.how_it_help .sub-title p
+{
+	color: var(--font-color);
+    opacity: 70%;
+	 font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.8px;
+    word-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .how_it_help h2 {
@@ -380,9 +405,13 @@ header{
 }
 .about-wrapper .sub-title {
 	display: flex;
-	font-size: 16px;
-	align-items: center;
-	margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    word-spacing: 3px;
+    text-transform: uppercase;
+    align-items: center;
+    margin-bottom: 10px;
 }
 .about-wrapper span,
 .whoneeds_wrapper h6{
@@ -482,6 +511,16 @@ header{
 	color: #ffffff;
 	font-weight: bold;
 }
+.services-wrapper .sub-title p
+{
+	color: var(--font-color);
+    opacity: 70%;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    word-spacing: 3px;
+    text-transform: uppercase;
+}
 
 .section-title span {
 	display: inline-block;
@@ -525,9 +564,14 @@ header{
 }
 .pricing-wrapper .sub-title {
 	display: flex;
-	font-size: 16px;
-	align-items: center;
-	margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    word-spacing: 3px;
+    text-transform: uppercase;
+    align-items: center;
+    margin-bottom: 10px;
+    color: var(--subtitle-color);
 }
 .pricing-wrapper h2 {
 	font-weight: bold;
@@ -592,14 +636,20 @@ header{
 	padding: 80px 0;
 }
 .cta-wrapper  p{
-	color: white;
+	color: var(--font-color);
+    opacity: 70%;
 	font-weight: bold;
 }
 .cta-wrapper .sub-title {
 	display: flex;
-	font-size: 16px;
-	align-items: center;
-	margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: 0.8px;
+    word-spacing: 3px;
+    text-transform: uppercase;
+    align-items: center;
+    margin-bottom: 10px;
 }
 .cta-wrapper .contact{
 	color: var(--secondary-color);
@@ -629,16 +679,29 @@ header{
 		Other SERVICE AREA
 	*/
 .features-wrapper{
-	padding: 80px 0;
+	padding: 30px 0;
 }
 .features-wrapper.bg-image {
 	background-color: #FCFCFC;
 }
+
 .features-wrapper .sub-title {
 	display: flex;
 	font-size: 16px;
 	align-items: center;
 	margin-bottom: 10px;
+}
+.features-wrapper .sub-title p
+{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color);
+    opacity: 70%;
+    margin-bottom: 10px;
+    letter-spacing: 0.8px;
+    word-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
 .features-wrapper h2 {
 	font-weight: bold;
@@ -646,7 +709,7 @@ header{
 
 .single-features-box {
 	text-align: center;
-	min-height: 300px;
+	min-height: 320px;
 	margin-bottom: 30px;
 	padding: 1.4rem;
 	background-color: #e0e0e0;
@@ -768,7 +831,9 @@ header{
 		width: 90vw;
 	}
 	.hero_text h1 {
-		font-size: 1.3rem;
+		font-size: 1.5rem;
+		letter-spacing: 1px;
+		line-height:37px;
 	}
 	.hero_text p {
 		font-size: 15px;
@@ -840,6 +905,10 @@ header{
     margin-bottom: 12px;
     font-size: 25px;
   }
+  .about-wrapper .sub-title{
+  	word-spacing: 0;
+
+  }
   .about-image {
     margin-top: 40px;
   }
@@ -858,6 +927,9 @@ header{
   .services-wrapper.bg-image {
     background-image: unset;
     background-color: #262735;
+  }
+  .services-wrapper .sub-title p{
+  	font-size: 15px;
   }
   .service-box {
     padding: 20px;
