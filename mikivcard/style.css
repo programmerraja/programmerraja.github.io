@@ -891,11 +891,11 @@ header{
 	height: 18px !important;
   }
 	.navbar-wrapper {
-		padding: 18px 0;
+		padding: 12px 0;
 	}
   .header-wrapper {
 	background-color: var(--primary-color);
-	min-height: 35vh;
+	min-height: 20vh;
 	padding: 0.5rem;
 	}
 	.top-header p,
@@ -928,7 +928,7 @@ header{
 	}
 	.hero_section {
 		padding: 2rem;
-		height: 65vh;
+		height: 75vh;
 	}
 	.hero_text{
 		width: 90vw;	
@@ -965,7 +965,7 @@ header{
     line-height: 1.3;
   }
   .top-header{
-  	padding: 8px;
+  	padding: 2px;
   }
   .top-header-left {
     text-align: center;
