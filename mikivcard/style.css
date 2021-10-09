@@ -278,8 +278,11 @@ header{
 
 .hero_button {
 	margin-top: 3rem;
+	
 }
-
+.hero_button a{
+	padding: 12px 20px;
+}
 /*
 		HERO SECTION 2
 
@@ -287,13 +290,13 @@ header{
 
 .samples-wrapper {
 	background-color: #FCFCFC;
-	padding: 50px 0;
+	padding: 20px 0;
 }
 .samples-wrapper .my-btn {
 	font-size: 14px;
 	font-weight: 600;
 	margin-top: 10px;
-	padding: 13px;
+	padding: 12px 18px;
 	margin-top: 20px !important;
 
 }
@@ -304,7 +307,7 @@ header{
 .samples-wrapper p{
 	font-weight: bold;
 	font-family: "poppins";
-	color: var(--subtitle-color);	
+	color: var(--primary-color);	
 	font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.8px;
@@ -312,7 +315,9 @@ header{
     text-transform: uppercase;
 }
 .samples-wrapper span{
+	color: var(--subtitle-color);	
 	text-transform: capitalize;
+
 	font-size: 13px;
 }
 .samples-wrapper h2,
@@ -342,6 +347,8 @@ header{
 
 .samples-wrapper h2 {
 	font-weight: bold;
+	line-height: 28px;
+	letter-spacing: 0.4px;
 }
 
 .samples-wrapper .row {
@@ -389,7 +396,7 @@ header{
 .how_it_help {
 	background-image: url(./assets/bg_how.png);
 	color: #fff;
-	padding: 50px 0;
+	padding: 20px 0;
 }
 
 .how_it_help .sub-title {
@@ -410,6 +417,8 @@ header{
 
 .how_it_help h2 {
 	font-weight: bold;
+	line-height: 28px;
+	letter-spacing: 0.4px;
 }
 
 .how_it_help .item {
@@ -427,7 +436,8 @@ header{
 
 .how_it_help .title p {
 	font-size: 18px;
-	font-weight: bold;
+	font-weight: 500;
+	letter-spacing: 0.5px;
 	padding-top: 15px;
 	margin: 0;
 }
@@ -444,10 +454,10 @@ header{
 	*/
 
 .ptb-100 {
-	padding: 100px 1rem; 
+	padding: 20px 20rem; 
 }
 .about-wrapper {
-	padding: 50px 0 50px 0;
+	padding: 20px 0 20px 0;
 
 }
 .about-content span {
@@ -458,6 +468,8 @@ header{
 
 .about-content h2 {
 	margin-bottom: 15px;
+	line-height: 28px;
+	letter-spacing: 0.4px;
 	font-size: 38px;
 	font-weight: 700;
 }
@@ -465,8 +477,8 @@ header{
 	display: flex;
     align-items: center;
 }
-.about-wrapper .sub-title p
-{
+.about-wrapper .sub-title > p
+{		
 	color: var(--subtitle-color);
     font-size: 18px;
     font-weight: 700;
@@ -503,11 +515,12 @@ header{
 */
 .whoneeds_container{
 	display: flex;
+	justify-content: center;
 	padding: 40px 0px 10px 0px;
 	flex-wrap: wrap;
 }
 .whoneeds_wrapper{
-	padding: 0 0 50px 0;
+	padding: 0 0 20px 0;
 
 }
 .whoneeds{
@@ -550,7 +563,7 @@ header{
     align-items: center;
 }
 .mini-image2{
-	height: 20px;
+	height: 25px;
 }
 /*
 		HERO SECTION 6
@@ -563,7 +576,7 @@ header{
 .services-wrapper {
 	position: relative;
 	z-index: 1;
-	padding: 50px 0;
+	padding: 20px 0 0 0;
 }
 .single-features-box a {
     color: var(--primary-color);
@@ -577,6 +590,8 @@ header{
 .services-wrapper .service-head
 {
 	font-family: 'Poppins';
+	line-height: 28px;
+	letter-spacing: 0.4px;
 	font-weight: bold;
 	color: var(--font-color);
 }
@@ -614,7 +629,7 @@ header{
 
 .service-box .icon {
 	color: #ffcf58;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 .service-box .mini-image3{
 	height: 45px;
@@ -641,7 +656,7 @@ header{
 	*/
 
 .pricing-wrapper {
-	padding: 50px 0;
+	padding: 20px 0;
 }
 .pricing-wrapper .sub-title {
 	display: flex;
@@ -661,7 +676,6 @@ header{
 
 .pricing-table {
 	overflow: hidden;
-	margin-bottom: 30px;
 	min-height: 550px;
 	max-width: 445px;
 	margin-top:1rem; 
@@ -690,6 +704,7 @@ header{
     font-size: 45px;
     font-weight: bold;
     padding-left: 20px;
+    margin: 0;
 
 }
 .pricing-table h2 {
@@ -721,7 +736,7 @@ header{
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	padding: 80px 0;
+	padding: 20px 0;
 }
 .cta-wrapper  p{
 	color: var(--font-color);
@@ -750,6 +765,8 @@ header{
     font-size: 40px;
     font-weight: 700;
     margin-bottom: 20px;
+    letter-spacing: 1px;
+	line-height:36px;
     font-family: 'poppins';
 }
 
@@ -769,7 +786,7 @@ header{
 		Other SERVICE AREA
 	*/
 .features-wrapper{
-	padding: 50px 0;
+	padding: 20px 0 ;
 }
 .features-wrapper.bg-image {
 	background-color: #FCFCFC;
@@ -796,11 +813,13 @@ header{
 .features-wrapper h2 {
 	font-weight: bold;
 	font-family: "poppins";
+	letter-spacing: 1px;
+		line-height:36px;
 }
 
 .single-features-box {
 	text-align: center;
-	min-height: 320px;
+	min-height: 332px;
 	margin-bottom: 30px;
 	padding: 1.4rem;
 	background-color: #e0e0e0;
@@ -845,7 +864,7 @@ header{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 14px;
+	font-size: 10px;
 	margin: 10px;
 }
 
@@ -857,7 +876,15 @@ header{
 
 
 /*media query for tab  and mobile*/
-
+@media only screen and (max-width: 567px) {
+	.mt{
+  	margin-top: 0.8rem;
+  }
+  .top-header-right .login-signup-btn {
+  	position: relative;
+  	left: -10px;
+  }
+}
 @media only screen and (max-width: 767px) {
   body {
     font-size: 14px;
@@ -871,16 +898,15 @@ header{
   h3{
   	font-size: 18px !important;
   }
-  .mt{
-  	margin-top: 0.8rem;
-  }
+  
   .btn {
     padding: 14px 25px;
-    font-size: 13px;
+    font-size: 15px;
+    letter-spacing: 0.4px;
   }
   .ptb-100 {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .mini-image-wrapper
   {
@@ -907,12 +933,9 @@ header{
   	flex-wrap: wrap;
   	justify-content: center;
   }
-  .top-header-right .login-signup-btn{
- 	margin: auto;
-  }
+  
   .logo{
-    margin: 0 auto;
-
+  	padding: 0px 25px 0 0;
   }
   .logo img {
     height: 50px;
@@ -924,22 +947,26 @@ header{
    }
    .opella-mobile-nav .nav-create-button {
 		font-size: 12px;
-		padding: 0.4rem;
+		margin: 0;
+		padding: 8px 12px;
 	}
 	.hero_section {
-		padding: 2rem;
+		padding: 25px;
 		height: 75vh;
 	}
 	.hero_text{
 		width: 90vw;	
 	}
 	.hero_text h1 {
-		font-size: 1.5rem;
+		font-size: 22px;
 		letter-spacing: 1px;
-		line-height:37px;
+		line-height:36px;
 	}
 	.hero_text p {
-		font-size: 15px;
+		font-size: 14px;
+		font-weight: 300;
+		letter-spacing: 0.3px;
+		line-height: 36px;
 		width: 100%;
 	}
 
@@ -950,6 +977,7 @@ header{
 	.hero_button a {
 		font-size: 16px;
 		 color:black !important;
+		
 	}
 	.sample-container {
 		margin-bottom: 20px;
@@ -965,7 +993,7 @@ header{
     line-height: 1.3;
   }
   .top-header{
-  	padding: 2px;
+  	padding: 5px;
   }
   .top-header-left {
     text-align: center;
@@ -994,10 +1022,10 @@ header{
 }
   
   .features-wrapper {
-    padding: 0.6rem 0;
+    padding: 20px 0;
   }
   .single-features-box {
-    padding: 20px;
+    padding: 20px 0 0 0;
   }
  
   .about-content {
@@ -1007,16 +1035,16 @@ header{
     font-size: 15px;
   }
   .about-content h2 {
-    line-height: 1.2;
+   	line-height: 28px;
+	letter-spacing: 0.4px;
     margin-bottom: 12px;
-    font-size: 18px !important	;
   }
   .about-wrapper .sub-title{
   	word-spacing: 0;
   	font-size: 15px;	
   }
   .about-image {
-    margin-top: 40px;
+    margin-top: 20px;
   }
    .about-image img{
   	height: 250px;
@@ -1063,7 +1091,7 @@ header{
     font-size: 19px;
   }
   .pricing-wrapper {
-    padding-bottom: 35px;
+    padding-bottom: 20px;
   }
   .pricing-table {
     padding: 0;
@@ -1078,8 +1106,8 @@ header{
 	}
  
   .cta-wrapper {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom:20px;
   }
   .cta-content {
     text-align: center;
@@ -1118,8 +1146,8 @@ header{
     font-size: 32px;
   }
   .ptb-100 {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .header-wrapper .top-header {
     padding-left: 20px;
@@ -1141,15 +1169,10 @@ header{
     margin-top: 40px;
   }
 
-  .services-wrapper {
-    padding-bottom: 50px;
-  }
   .service-box h3 {
     font-size: 22px;
   }
-  .pricing-wrapper {
-    padding-bottom: 50px;
-  }
+  
   .pricing-table {
     padding: 0;
   }
