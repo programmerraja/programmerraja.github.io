@@ -960,7 +960,8 @@ header{
   
    .opella-mobile-nav{
    		padding:0rem; 
-   		justify-content: center;
+   		justify-content: space-between;
+        padding-left: 7px;
    }
    .opella-mobile-nav .nav-create-button {
 		font-size: 12px;
