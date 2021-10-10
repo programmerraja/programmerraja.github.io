@@ -47,9 +47,6 @@ a{
 	text-decoration: none;
 }
 
-.container {
-  padding: 2em;
-}
 
 .my-btn:after {
     background:white;
@@ -413,7 +410,7 @@ header{
 .how_it_help {
 	background-image: url(./assets/bg_how.png);
 	color: #fff;
-	padding: 20px 0;
+	padding: 30px 0 20px 0;
 }
 
 .how_it_help .sub-title {
@@ -446,15 +443,14 @@ header{
 	margin: 0 auto;
 }
 .how_it_help .image img{
-	width: 170px;
-	border-radius: 50%;
+	height: 120px;
 }
 
 .how_it_help .title p {
 	font-size: 18px;
 	font-weight: 500;
 	letter-spacing: 0.5px;
-	padding-top: 15px;
+	padding-top: 5px;
 	margin: 0;
 }
 
