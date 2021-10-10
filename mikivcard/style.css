@@ -71,7 +71,7 @@ a{
 }
 
 .logo img{
-	height: 80px;
+	height: 75px;
 }
 
 /* 
@@ -108,23 +108,25 @@ header{
 
 .top-header-left p  a {
 	color: var(--secondary-color) !important;
-	font-weight: bold;
-	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.6px;
+	font-size: 16px;
+
 }
 
 .top-header-right{
 	display: flex;
-	justify-content: flex-end;
+	justify-content: center;
 }
 .top-header-right p {
 	text-align: right;
 	margin-bottom: 0;
 }
-
+.justify-content-e{
+	justify-content: flex-end;
+}
 .top-header-right .login-signup-btn {
 	display: inline-block;
-	position: relative;
-	padding-right: 15px;
 }
 
 .top-header-right .login-signup-btn p a,
@@ -185,18 +187,17 @@ header{
     line-height: initial;
     border-radius: 30px;
     z-index: 1;
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 14px 30px;
 	text-align: center;
-	 overflow: hidden;
+	overflow: hidden;
 	background-color: var(--secondary-color);
-	color: black;
-	font-weight: bold;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	margin-right: 10px;
 	background: transparent;
 	height: 100%;
-	font-weight: bold;
 	border: 1px solid #ffcf58;
 	color: #ffcf58;
 
@@ -282,6 +283,8 @@ header{
 }
 .hero_button a{
 	padding: 12px 20px;
+	font-size: 18px;
+	letter-spacing: 0.8px;
 }
 /*
 		HERO SECTION 2
@@ -295,14 +298,24 @@ header{
 .samples-wrapper .my-btn {
 	font-size: 14px;
 	font-weight: 600;
+	letter-spacing: 0.6px;
 	margin-top: 10px;
-	padding: 12px 18px;
+	padding: 12px 20px;
 	margin-top: 20px !important;
 
 }
 .muted-text{
 	font-weight: bold;
 	font-size: 12px;
+}
+.samples-wrapper .sub-title p{
+		font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    word-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: var(--subtitle-color);
 }
 .samples-wrapper p{
 	font-weight: bold;
@@ -317,7 +330,6 @@ header{
 .samples-wrapper span{
 	color: var(--subtitle-color);	
 	text-transform: capitalize;
-
 	font-size: 13px;
 }
 .samples-wrapper h2,
@@ -504,6 +516,7 @@ header{
 }
  .about-image img{
   	width: 390px;
+  	margin-top: 30px;
     max-height: 319px;
     object-fit: cover;
     border-radius: 20px;
@@ -581,7 +594,7 @@ header{
 .single-features-box a {
     color: var(--primary-color);
     background-color: var(--secondary-color);
-    padding: 6px 20px;
+    padding: 10px 20px;
     border-radius: 30px;
     font-weight: 500;
     text-transform: capitalize;
@@ -662,7 +675,7 @@ header{
 	display: flex;
     font-size: 18px;
     font-weight: 700;
-    letter-spacing: 0.7px;
+    letter-spacing: 0.8px;
     word-spacing: 3px;
     text-transform: uppercase;
     align-items: center;
@@ -777,8 +790,8 @@ header{
 	font-weight: 700;
 }
 
-.cta-btn {
-	text-align: right;
+.cta-btn a{
+	font-size: 18px;
 }
 
 
@@ -820,7 +833,6 @@ header{
 .single-features-box {
 	text-align: center;
 	min-height: 332px;
-	margin-bottom: 30px;
 	padding: 1.4rem;
 	background-color: #e0e0e0;
 	border-radius: 5px;
@@ -857,6 +869,8 @@ header{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 11px;
+
 }
 
 .footer-links {
@@ -864,7 +878,7 @@ header{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 10px;
+	font-size: 11px;
 	margin: 10px;
 }
 
@@ -880,10 +894,13 @@ header{
 	.mt{
   	margin-top: 0.8rem;
   }
-  .top-header-right .login-signup-btn {
+  .justify-content-e{
+	justify-content: center;
+	}
+ /* .top-header-right .login-signup-btn {
   	position: relative;
   	left: -10px;
-  }
+  }*/
 }
 @media only screen and (max-width: 767px) {
   body {
