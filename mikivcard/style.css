@@ -88,7 +88,7 @@ header{
 	background-color: var(--primary-color);
 }
 .social-icons{
-	height: 15px;
+	height: 20px;
 }
 .top-header {
 	border-bottom: 1px solid #2c303f;
@@ -156,9 +156,7 @@ header{
 	display: inline-block;
     font-size: 12px;
     margin-left: 1.5px;
-    background: var(--secondary-color);
     border-radius: 30px;
-    padding: 4px 8px;
     transition: all .2s ease-in-out;
 
 }
@@ -323,7 +321,6 @@ header{
     letter-spacing: 0.8px;
     word-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 10px;
     color: var(--subtitle-color);
 }
 .samples-wrapper p{
@@ -363,7 +360,6 @@ header{
 	display: flex;
 	font-size: 16px;
 	align-items: center;
-	margin-bottom: 10px;
 }
 
 .samples-wrapper h2 {
@@ -430,7 +426,6 @@ header{
     opacity: 70%;
 	 font-size: 18px;
     font-weight: 700;
-    margin-bottom: 10px;
     letter-spacing: 0.8px;
     word-spacing: 3px;
     text-transform: uppercase;
@@ -688,7 +683,6 @@ header{
     word-spacing: 3px;
     text-transform: uppercase;
     align-items: center;
-    margin-bottom: 10px;
     color: var(--subtitle-color);
 }
 .pricing-wrapper h2 {
@@ -769,12 +763,10 @@ header{
 	display: flex;
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 10px;
     letter-spacing: 0.8px;
     word-spacing: 3px;
     text-transform: uppercase;
     align-items: center;
-    margin-bottom: 10px;
 }
 .cta-wrapper .contact{
 	color: var(--secondary-color);
@@ -818,7 +810,6 @@ header{
 	display: flex;
 	font-size: 16px;
 	align-items: center;
-	margin-bottom: 10px;
 }
 .features-wrapper .sub-title p
 {
@@ -842,6 +833,8 @@ header{
 .single-features-box {
 	text-align: center;
 	min-height: 290px;
+	max-width:460px;
+	margin: 10px; 
 	padding: 1.4rem;
 	background-color: #e0e0e0;
 	border-radius: 5px;
@@ -901,7 +894,7 @@ header{
 /*media query for tab  and mobile*/
 @media only screen and (max-width: 567px) {
 	.mt{
-  	margin-top: 10px;
+  	margin-top: 5px;
   }
   .justify-content-e{
 	justify-content: center;
@@ -1048,7 +1041,7 @@ header{
   }
   .top-header-right {
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
   }
  
   .top-header-left .social li:last-child {
@@ -1061,7 +1054,6 @@ header{
     font-size: 10px;
   }
   .top-header-left .social li {
-	height: 22px;
     width: 22px;
     text-align: center;
     padding: 0;
