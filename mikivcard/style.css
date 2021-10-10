@@ -92,6 +92,9 @@ header{
 	padding-top: 15px;
 	padding-bottom: 15px;
 }
+.top-header .containe{
+	padding: 0 5rem !important;
+}
 .top-header p {
 	font-size: 15px;
     font-family: 'poppins';
@@ -1012,6 +1015,9 @@ header{
   }
   .top-header{
   	padding: 0px 0 12px 0;
+  }
+  .top-header .containe{
+  	padding: 0;
   }
   .top-header-left {
     text-align: center;
