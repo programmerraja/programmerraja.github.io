@@ -900,6 +900,14 @@ header{
   .justify-content-e{
 	justify-content: center;
 	}
+
+.cta-wrapper .contact {
+	font-size: 20px;
+}
+	.cta-btn a{
+	font-size: 16px;
+	padding: 10px 15px;
+	}
  /* .top-header-right .login-signup-btn {
   	position: relative;
   	left: -10px;
@@ -1017,7 +1025,7 @@ header{
   	padding: 0px 0 12px 0;
   }
   .top-header .containe{
-  	padding: 0;
+  	padding: 0 !important;
   }
   .top-header-left {
     text-align: center;
@@ -1049,7 +1057,9 @@ header{
     padding: 20px 0;
   }
   .single-features-box {
-    padding: 20px 0 0 0;
+    padding: 10px ;
+    padding-top:20px; 
+    margin:10px 0;  
   }
  
   .about-content {
