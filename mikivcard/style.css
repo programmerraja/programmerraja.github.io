@@ -953,6 +953,9 @@ header{
 	.navbar-wrapper {
 		padding: 12px 0;
 	}
+	.hero_section {
+		flex-wrap: wrap;
+	}
   .header-wrapper {
 	background-color: var(--primary-color);
 	min-height: 20vh;
@@ -987,13 +990,14 @@ header{
 		padding: 10px 20px;
 	}
 	.hero_section {
-		padding: 25px;
+		padding: 6rem;
 		min-height: 75vh;
 		flex-wrap: wrap;
 
 	}
 	.hero_image img{
 	height: 250px;
+	margin-top: 35px;	
 	}
 	.hero_text{
 		width: 90vw;	
