@@ -272,10 +272,10 @@ header{
     font-size: 15px;
     font-weight: 300;
     color: var(--font-color);
-    width: 56%;
+    width: 70%;
     letter-spacing: 0.4px;
     opacity: 60%;
-    line-height: 24px;
+    line-height: 25px;
 }
 
 .hero_button {
@@ -297,7 +297,7 @@ header{
 
 .samples-wrapper {
 	background-color: #FCFCFC;
-	padding: 20px 0 10px 0;
+	padding: 50px 0 10px 0;
 }
 .samples-wrapper .my-btn {
 	font-size: 14px;
@@ -410,7 +410,7 @@ header{
 .how_it_help {
 	background-image: url(./assets/bg_how.png);
 	color: #fff;
-	padding: 30px 0 20px 0;
+	padding: 50px 0 50px 0;
 }
 
 .how_it_help .sub-title {
@@ -469,7 +469,7 @@ header{
 	padding: 20px 20rem; 
 }
 .about-wrapper {
-	padding: 20px 0 10px 0;
+	padding: 50px 0 50px 0;
 
 }
 .about-content span {
@@ -589,7 +589,7 @@ header{
 .services-wrapper {
 	position: relative;
 	z-index: 1;
-	padding: 20px 0 0 0;
+	padding: 50px 0 40px 0;
 }
 .single-features-box a {
     color: var(--primary-color);
@@ -669,7 +669,7 @@ header{
 	*/
 
 .pricing-wrapper {
-	padding: 20px 0 30px 0;
+	padding: 50px 0 50px 0;
 }
 .pricing-wrapper .sub-title {
 	display: flex;
@@ -748,7 +748,7 @@ header{
 	background-position: center center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	padding: 20px 0;
+	padding: 50px 0;
 }
 .cta-wrapper  p{
 	color: var(--font-color);
@@ -796,7 +796,7 @@ header{
 		Other SERVICE AREA
 	*/
 .features-wrapper{
-	padding: 20px 0 0 0 ;
+	padding: 50px 0 20px 0 ;
 }
 .features-wrapper.bg-image {
 	background-color: #FCFCFC;
@@ -889,6 +889,10 @@ header{
 
 /*media query for tab  and mobile*/
 @media only screen and (max-width: 567px) {
+	.hero_section {
+		background-image: url(./assets/Hero-mobile.png);
+	
+	}
 	.mt{
   	margin-top: 5px;
   }
@@ -975,7 +979,7 @@ header{
    .opella-mobile-nav .nav-create-button {
 		font-size: 12px;
 		margin: 0;
-		margin-right: 5px;
+		margin-right: 8px;
 		padding: 10px 20px;
 	}
 	.hero_section {
@@ -1000,12 +1004,12 @@ header{
 		font-size: 14px;
 		font-weight: 300;
 		letter-spacing: 0.3px;
-		line-height: 36px;
+		line-height: 26px;
 		width: 100%;
 	}
 
 	.hero_button {
-		margin-top: 1rem;
+		margin-top: 1.8rem;
 	}
 
 	.hero_button a {
@@ -1168,6 +1172,36 @@ header{
     padding-top: 25px;
     padding-bottom: 25px;
   }
+}
+
+/* customized by Ithrish */
+
+.about-wrapper {
+    padding: 50px 20px;
+}
+
+.how_it_help {
+	padding: 50px 5px;
+}
+
+.samples-wrapper {
+	padding: 50px 5px;
+}
+
+.services-wrapper.bg-image {
+	padding: 50px 8px 30px 8px;
+}
+
+.pricing-wrapper {
+		padding: 50px 8px;
+}
+
+.cta-wrapper {
+	padding: 50px 8px;
+}
+
+.features-wrapper.bg-image{
+	padding: 50px 8px 20px 8px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
