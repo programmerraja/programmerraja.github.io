@@ -1,0 +1,195 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Bill Genreator</title>
+   
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+ <style type="text/css">
+     .formContainer{
+        background: #002bff;
+        display: flex;
+        align-items: center;
+        min-height: 300px;
+        margin: auto;
+        border-radius: 10px;
+        max-width: 450px;
+        flex-direction: column;
+     }
+     .formWrapper{
+        margin: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+     }
+     input{
+        outline: none;
+        margin: 10px;
+        height: 25px;
+        width: 167px;
+     }
+     .printButton{
+            background: #ffe000;
+    width: 74px;
+    border: 0;
+    border-radius: 4px;
+    /* color: white; */
+    padding: 7px;
+     }
+
+ </style>
+</head>
+<body>
+        <div class="formContainer">
+           <div class="formWrapper"> 
+                <label >Amount Of Rupee:</label>
+                <input type="text" placeholder="Rupee..." class="inputBox amount">
+            </div>
+            <div class="formWrapper"> 
+                <label >Donated By:</label>
+                <input type="text" placeholder="name..." class="inputBox name">
+            </div>
+            <div class="formWrapper">
+                <label >Bill NO:</label>
+                <input type="text" placeholder="ID..." class="inputBox billNo">
+            </div>
+            <div class="formWrapper">
+                <label >Date Of Donation:</label>
+                <input type="date"  class="inputBox donationDate">
+            </div>
+            <div class="formWrapper">
+                 <label >Month:</label>
+                <input type="text" placeholder="month..." class="inputBox month">
+            </div>
+        <div style="display: flex;">
+            <input type="button" name="Print" value="Print" class="printButton" onclick="showPreview(true)">
+             <input type="button" name="Preview" value="Prview" class="printButton" onclick="showPreview()">
+        </div>
+        </div>
+        <div class="preview"></div>
+       
+</body>
+    
+    <script type="text/javascript">
+        var doc = new jsPDF("p","pt","a3");            
+        var elementHandler = {
+          '#ignorePDF': function (element, renderer) {
+            return true;
+          }
+        };
+
+        var source = window.document.getElementsByTagName("body")[0];
+
+
+       function showPreview(isPrint){
+            let amount=document.querySelector(".amount").value;
+            let name=document.querySelector(".name").value;
+            let billNo=document.querySelector(".billNo").value;
+            let donationDate=document.querySelector(".donationDate").value;
+            let month=document.querySelector(".month").value;
+
+            let billHTML=`
+            <!DOCTYPE html>
+            <html>
+            <head>
+               <style type="text/css">
+
+                 .billWrapper{
+
+                    background: yellow;
+                    width: 386px;
+                    margin: 20px auto;
+                    padding: 1rem;
+                 }
+                 .billHeading {
+                    text-align: center;
+                 }
+                 .billSubHeading p{
+                    color: red; 
+                    margin: 1rem;
+                 }
+                 .billAddresss{
+                    text-align: right;
+                 }
+                 .billContent{
+                    font-weight: bold;
+                    margin:1rem;
+                    margin-right:auto;
+                 }
+                 .line{
+                    border: 1px solid gray;
+                    width: 100%;
+                 }
+             </style>
+            </head>
+            <body>
+             <div class="billWrapper">
+                <div class="billHeading">
+                    <h2>FEEDING SOULS TRUST</h2>
+                </div>
+
+                <div class="billAddresss">
+                    <p>Kallidaikurichi</p>
+                    <p>Tirunelveli-627416</p>
+                </div>
+           
+                <div class="billSubHeading">
+                    <h4 style="text-align: center;">Donation Receipt</h4>
+                    <p>Amount Of Rupee:${amount}</p>
+                </div>
+            
+                <div style="display: flex;
+        align-items: center;">
+                <div class="billContent">
+                    <p>Donated By:${name}</p>
+                    <p></p>
+                </div>
+                <div class="billContent">
+                    <p>Bill No:${billNo}</p>
+                    <p></p>
+                </div>
+            </div>
+
+            <div style="display: flex;
+    align-items: center;">
+                <div class="billContent">
+                    <p>Date:${donationDate}</p>
+                    <p></p>
+                </div>
+                <div class="billContent">
+                    <p>Month:${month}</p>
+                    <p></p>
+                </div>  
+            </div>
+                <div class="line"></div>
+                <div class="billFooter">
+                    <p> Thank you for your generosity. We appericate your support!</p>
+                    <p>This is computer generated document.No signature is required.</p>
+                </div>
+        </div> 
+</body>
+</html>
+        `
+
+        document.querySelector(".preview").innerHTML=billHTML;
+        if(isPrint){
+            // doc.addHTML(
+            //     billHTML,
+            //     15,
+            //     15,
+            //     {
+            //       'width': 180,'elementHandlers': elementHandler
+            //     });
+            // doc.save(`${name}-bill.pdf`);
+
+            // doc.output("dataurlnewwindow");
+            var printWindow = window.open('', '', 'height=400,width=800');
+            printWindow.document.write('<html><head><title>DIV Contents</title>');
+            printWindow.document.write('</head><body >');
+            printWindow.document.write(billHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+       }
+    </script>
+</html>
