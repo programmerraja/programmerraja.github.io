@@ -9,7 +9,7 @@ body
 	margin:0;
     background-color: var(--bgcolor);	
 	padding:0;
-	font-family: 'Ubuntu', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
 :root {
   --color-primary: white;
@@ -318,14 +318,13 @@ body
 }
 .name
 {	
-	font-family: 'Lobster', cursive;
+	font-family: 'Ubuntu', cursive;
 }
 .myname__container p ,
 .myname__container h1
 {
 	color: var(--fontcolor);
 	margin: 0; 
-
 }
 .myname
 {
@@ -338,7 +337,7 @@ body
 }
 .text__container
 {
-	font-size: 1.4rem;
+	font-size: 16px;
 	font-weight:bold;
 }
 .profile__img
