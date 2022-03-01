@@ -337,7 +337,7 @@ body
 }
 .text__container
 {
-	font-size: 16px;
+	font-size: 14px;
 	font-weight:bold;
 }
 .profile__img
@@ -604,6 +604,11 @@ body
 					width: 25px;
 				    height: 25px;
 				}
+        .text__container
+        {
+          font-size: 10px;
+          font-weight:bold;
+        }
 				.skills__container
 				{
 					width: 100%;
