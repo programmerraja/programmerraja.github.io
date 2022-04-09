@@ -345,15 +345,48 @@ body
 	height: 100vh;
     width: 100%;
 }
-.skills__container
+.company_wrapper{
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+	margin: 15px;
+	background-color: var(--bgcolor);
+  padding: 0.5rem;
+	border-radius: 10px;
+	box-shadow: rgba(255, 255, 255, 0.05) -1vmin -1vmin 1vmin, rgba(0, 0, 0, 0.3) 1vmin 1vmin 1vmin;
+
+}
+.company_logo{
+  margin: 0.5rem;
+}
+.company_description{
+  margin: 0.5rem;
+  color: white;
+}
+.company_description h3{
+  margin: 0.2rem;
+}
+.company_logo img{
+  height: 100px;
+  width: 100px;
+  border-radius:10px ;
+}
+.skills__container,
+.expereince__container
 {
 	width: 80%;
 	margin: auto;
 	display: flex;
 	overflow: hidden;
 	flex-wrap: wrap;
-    background-color: var(--bgcolor);	
+  background-color: var(--bgcolor);	
 	justify-content: space-around;
+}
+.expereince__container{
+  align-items: center;
+  /* flex-direction: column; */
 }
 .skill 
 {
@@ -439,7 +472,7 @@ body
 .projects__card
 {
 	width: 350px;
-    height: 450px;
+  height: 450px;
 	margin: 15px;
 	background-color: var(--bgcolor);
 	border-radius: 10px;
@@ -608,6 +641,12 @@ body
         {
           font-size: 10px;
           font-weight:bold;
+        }
+        .expereince__container{
+          width: 100%;
+        }
+        .company_wrapper{
+          height: 140px;
         }
 				.skills__container
 				{

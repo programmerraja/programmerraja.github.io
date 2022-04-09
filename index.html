@@ -55,9 +55,7 @@
 		</div>
 		<div class="myname__container">
 
-			<!-- <div class="myself__img">
-				<img src="./images/myself.jpg" >
-			</div> -->
+		
 
 			<div class="myname">
 				<h1>Hi <img class="emoji" alt="wave" src="./images/emoji.png"> I'm <span class="name ">K.Boopathi</span></h1>
@@ -67,6 +65,27 @@
 				<p >Programmer with curious to learn different technology and develop cool product from that </p>
 			</div>
 			
+		</div>
+	</div>
+	<h3 class="skills__heading" id="skills">Expereince:</h3>
+	<div class="expereince__container">
+		<div class="company_wrapper">
+			<div class="company_logo">
+				<img src="./images/klenty.jpeg">
+			</div>
+			<div class="company_description">
+				<h3>Full Stack Developer</h3>
+				<small>March 2022 - Present (Internship)	</small>
+			</div>
+		</div>
+		<div class="company_wrapper">
+			<div class="company_logo">
+				<img src="./images/chefathome.jpeg">
+			</div>
+			<div class="company_description">
+				<h3>Full Stack Developer</h3>
+				<small>May 2021 - Sep 2021 · 5 Month (Internship)	</small>
+			</div>
 		</div>
 	</div>
 	<h3 class="skills__heading" id="skills">Skills</h3>
@@ -495,17 +514,17 @@ gsap.from(".skill",{
 	stagger:0.3,
 	ease: Elastic.easeOut.config(1,80)
 })
-// gsap.from(".skill_database",{
-// 	scrollTrigger:{
-// 	trigger:".skill",
-// 	toggleActions:"play none none none"
-// 	},
-// 	x:1400,
-// 	rotation:180,
-// 	duration:1,
-// 	stagger:0.6,
-// 	ease: Elastic.easeOut.config(1,80)
-// })
+gsap.from(".company_wrapper",{
+	scrollTrigger:{
+	trigger:".company_logo",
+	toggleActions:"play none none none"
+	},
+	x:-1800,
+	rotation:80,
+	duration:1,
+	stagger:0.3,
+	ease: Elastic.easeOut.config(1,80)
+})
 
 gsap.from(".myself__img",{x:0,duration:2,rotation:360,ease: Elastic.easeOut.config(1,0.30),})
 
