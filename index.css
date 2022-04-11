@@ -350,7 +350,7 @@ body
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 200px;
+  height: 180px;
 	margin: 15px;
 	background-color: var(--bgcolor);
   padding: 0.5rem;
@@ -646,7 +646,13 @@ body
           width: 100%;
         }
         .company_wrapper{
-          height: 140px;
+          height: 85px;
+          padding: 1rem;
+          justify-content: flex-start;
+        }
+        .company_logo img {
+          height: 70px;
+          width: 70px;
         }
 				.skills__container
 				{
