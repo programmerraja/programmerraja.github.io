@@ -101,9 +101,25 @@ body
     width: 100%;
   }
 }
-
-
-
+.banner_wrapper
+{
+    position: absolute;
+    background: #000000bd;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+.banner_wrapper2
+{
+    height: 10%;
+    width: 5%;
+    position: absolute;
+    z-index: 2;
+    border-radius: 30%;
+    top: 10%;
+    background: #06080bec;
+    left: 21%;
+}
 .main-navigation-toggle {
   position: fixed;
   height: 1px;
@@ -117,7 +133,7 @@ body
   top: calc(var(--space) * 1.5);
   right: calc(var(--space) * 2);
   cursor: pointer;
-  z-index: 2;
+  z-index: 4;
 }
 
 .icon--menu-toggle {
@@ -154,7 +170,7 @@ body
   height: 100%;
   transform: translateX(-100%);
   transition: transform var(--nav-duration);
-  z-index: 1;
+  z-index: 3;
 }
 .main-navigation:after {
   content: "";
@@ -298,6 +314,7 @@ body
 {
 	position: absolute;
 	font-size: 2.4rem;
+  z-index: 2;
 }
 .myname__container h1
 {
@@ -541,7 +558,7 @@ body
 }
 .footer__list
 {
-
+  z-index: 2;
 	background: rgba( 4, 249, 89, 0.45 );
 	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 	backdrop-filter: blur( 10.5px );
