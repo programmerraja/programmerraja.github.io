@@ -649,10 +649,10 @@ body
 				{	
 					font-size: 1rem;
 				}
-        .profile__img
+        .profile__img,
+        .banner_wrapper
         {
-            height: 30vh;
-            width: 100%;
+            height: 50vh;
         }
 				.emoji
 				{
