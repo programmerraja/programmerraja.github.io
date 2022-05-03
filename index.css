@@ -649,6 +649,11 @@ body
 				{	
 					font-size: 1rem;
 				}
+        .profile__img
+        {
+            height: 30vh;
+            width: 100%;
+        }
 				.emoji
 				{
 					width: 25px;
