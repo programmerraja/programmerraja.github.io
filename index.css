@@ -109,17 +109,7 @@ body
     width: 100%;
     z-index: 1;
 }
-.banner_wrapper2
-{
-    height: 10%;
-    width: 5%;
-    position: absolute;
-    z-index: 2;
-    border-radius: 30%;
-    top: 10%;
-    background: #06080bec;
-    left: 21%;
-}
+
 .main-navigation-toggle {
   position: fixed;
   height: 1px;
@@ -652,7 +642,7 @@ body
         .profile__img,
         .banner_wrapper
         {
-            height: 70vh;
+            height: 100vh;
         }
 				.emoji
 				{
