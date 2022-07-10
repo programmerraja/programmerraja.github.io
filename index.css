@@ -682,8 +682,9 @@ body
 					}
 				.copyright
 				{
-					font-size: .9rem;
+					font-size: 0.7rem;
           margin-bottom: 37px;
+          padding: 10px 0;
 				}
 
 				.footer__list
