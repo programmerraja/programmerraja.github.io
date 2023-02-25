@@ -255,18 +255,21 @@
 					}
 					minute.innerHTML = `${++minCounter} :`
 					sendNotification(`Study ${minCounter}  minute`)
+					store("study",`${minCounter}:${secCounter}:${centiCounter}`)
 				}, 60000)
 				sec = setInterval(() => {
 					if (secCounter === 60) {
 						secCounter = 0
 					}
 					second.innerHTML = `&nbsp;${++secCounter} :`
+					store("study",`${minCounter}:${secCounter}:${centiCounter}`)
 				}, 1000)
 				centiSec = setInterval(() => {
 					if (centiCounter === 100) {
 						centiCounter = 0
 					}
 					centiSecond.innerHTML = `&nbsp;${++centiCounter}`
+					store("study",`${minCounter}:${secCounter}:${centiCounter}`)
 				}, 10)
 				isPlay = true
 				// isReset = true
@@ -373,6 +376,7 @@
 					}
 					minute.innerHTML = `${++minCounter} :`
 					sendNotification(`Study ${minCounter}  minute`)
+					store("waste",`${minCounter}:${secCounter}:${centiCounter}`)
 
 				}, 60000)
 				sec = setInterval(() => {
@@ -380,12 +384,15 @@
 						secCounter = 0
 					}
 					second.innerHTML = `&nbsp;${++secCounter} :`
+					store("waste",`${minCounter}:${secCounter}:${centiCounter}`)
 				}, 1000)
 				centiSec = setInterval(() => {
 					if (centiCounter === 100) {
 						centiCounter = 0
 					}
 					centiSecond.innerHTML = `&nbsp;${++centiCounter}`
+					store("waste",`${minCounter}:${secCounter}:${centiCounter}`)
+
 				}, 10)
 				isPlay = true
 				// isReset = true
