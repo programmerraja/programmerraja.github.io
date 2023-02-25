@@ -254,6 +254,7 @@
 						minCounter = 0
 					}
 					minute.innerHTML = `${++minCounter} :`
+					sendNotification(`Study ${minCounter}  minute`)
 				}, 60000)
 				sec = setInterval(() => {
 					if (secCounter === 60) {
@@ -371,6 +372,8 @@
 						minCounter = 0
 					}
 					minute.innerHTML = `${++minCounter} :`
+					sendNotification(`Study ${minCounter}  minute`)
+
 				}, 60000)
 				sec = setInterval(() => {
 					if (secCounter === 60) {
@@ -447,6 +450,7 @@
 	}
 	timer1()
 	timer2()
+	getNotification()
 	function store(key,value){
 		window.localStorage.setItem(key,String(value));
 	}
@@ -457,6 +461,16 @@
 	}
 	function clear(key){
 		window.localStorage.removeItem(key)
+	}
+	function getNotification(){
+		Notification.requestPermission().then(function (result) {
+    			console.log("Notification permission:", result);
+  		});
+	}
+	function sendNotification(body){
+		new Notification("Timer is up!", {
+			body: body
+    	});
 	}
 </script>
 
