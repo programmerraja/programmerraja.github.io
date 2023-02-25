@@ -1,0 +1,429 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+  color: white;
+  text-align: center;
+}
+
+body {
+	font-family: sans-serif;
+	font-size: 16px;
+	width: 100%;
+	height: 100vh;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.outer-circle {
+	width: 230px;
+	height: 230px;
+	border-radius: 50%;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.animation-bg {
+	background: linear-gradient(-45deg, #ee7752, orange, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 7s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.inner-circle {
+	width: 210px;
+	height: 210px;
+	border-radius: 50%;
+	background-color: black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.text {
+	color: #fff;
+	font-size: 23px;
+}
+
+.min {
+	font-size: 43px;
+}
+
+.sec {
+	font-size: 34px;
+}
+
+.msec {
+	font-size: 23px;
+}
+
+.btn-wrapper {
+	width: 250px;
+	margin-top: 30px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: #fff;
+	color: #000;
+}
+
+.laps {
+	list-style: none;
+	color: #fff;
+	/* width: 250px;
+	height: 250px; */
+	overflow: auto;
+	position: relative;
+	margin-top: 30px;
+}
+
+.laps::-webkit-scrollbar {
+	display: none;
+}
+
+.lap-item {
+	display: inline-block;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	border: 1px solid #444;
+	border-radius: 50px;
+	margin-bottom: 15px;
+}
+
+.number {
+	color: #ccc;
+}
+
+.time-stamp {
+	display: inline-block;
+	margin-left: 25px;
+}
+
+.lap-clear-btn {
+	display: block;
+	position: fixed;
+	z-index: 1000;
+	bottom: 35px;
+	left: 50%;
+	transform: translate(-50%);
+	width: 130px;
+	padding: 10px 0;
+	border-radius: 50px;
+	background-color: rgba(255,255,255,0.9);
+	border: 1px solid #fff;
+	cursor: pointer;
+}
+
+.hidden {
+	visibility: hidden;
+}
+    .WholeContainer{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="WholeContainer">
+
+      <div class="container">
+        <h2 style="margin: 1rem;">Study</h2>
+        <div class="watch">
+          <div class="outer-circle">
+            <div class="inner-circle">
+              <span class='text min'>0 :</span>
+              <span class='text sec'>&nbsp;0 :</span>
+              <span class='text msec'>&nbsp;0</span>
+            </div>
+          </div>
+          <div class="btn-wrapper">
+            <button class='btn reset hidden'>Reset</button>
+            <button class='btn play'>Play</button>
+            <button class='btn lap hidden'>Lap</button>
+          </div>
+        </div>
+        <ul class="laps">
+          <!-- li lap -->
+          <button class="lap-clear-btn hidden">Clear All</button>
+        </ul>
+      </div>
+      <div class="container">
+        <h2 style="margin: 1rem;">Waste</h2>
+        <div class="watch">
+          <div class="outer-circle">
+            <div class="inner-circle">
+              <span class='text min'>0 :</span>
+              <span class='text sec'>&nbsp;0 :</span>
+              <span class='text msec'>&nbsp;0</span>
+            </div>
+          </div>
+          <div class="btn-wrapper">
+            <button class='btn reset hidden'>Reset</button>
+            <button class='btn play'>Play</button>
+            <button class='btn lap hidden'>Lap</button>
+          </div>
+        </div>
+        <ul class="laps">
+          <!-- li lap -->
+          <button class="lap-clear-btn hidden">Clear All</button>
+        </ul>
+      </div>
+  </div>
+  </body>
+  <script>
+    const $ = document
+    function timer1(){
+      const playBtn = $.querySelectorAll(".play")[0]
+      const lapBtn = $.querySelectorAll(".lap")[0]
+      const resetBtn = $.querySelectorAll(".reset")[0]
+      const minute = $.querySelectorAll(".min")[0]
+      const second = $.querySelectorAll(".sec")[0]
+      const centiSecond = $.querySelectorAll(".msec")[0]
+      const laps = $.querySelectorAll(".laps")[0]
+      const clearAllBtn = $.querySelectorAll(".lap-clear-btn")[0]
+      const bg = $.querySelectorAll(".outer-circle")[0]
+
+let isPlay = false
+let minCounter = 0
+let min;
+let secCounter = 0
+let sec;
+let centiCounter = 0
+let centiSec;
+let lapId = 0
+// let isReset = false
+
+const toggleBtn = () => {
+	lapBtn.classList.remove("hidden")
+	resetBtn.classList.remove("hidden")
+}
+
+const play = () => {
+	if (!isPlay) {
+		playBtn.innerHTML = "Pause"
+		bg.classList.add("animation-bg")
+		min = setInterval(() => {
+			if (minCounter === 60) {
+				minCounter = 0
+			}
+			minute.innerHTML = `${++minCounter} :`
+		},60000)
+		sec = setInterval(() => {
+			if (secCounter === 60) {
+				secCounter = 0
+			}
+			second.innerHTML = `&nbsp;${++secCounter} :`
+		},1000)
+		centiSec = setInterval(() => {
+			if (centiCounter === 100) {
+				centiCounter = 0
+			}
+			centiSecond.innerHTML = `&nbsp;${++centiCounter}`
+		},10)
+		isPlay = true
+		// isReset = true
+	} else {
+		playBtn.innerHTML = "Play"
+		bg.classList.remove("animation-bg")
+		clearInterval(min)
+		clearInterval(sec)
+		clearInterval(centiSec)
+		isPlay = false
+		// isReset = false
+	}
+	toggleBtn()
+}
+
+const reset = () => {
+	// isReset = true
+	isPlay = true
+	play()
+	minCounter = 0
+	secCounter = 0
+	centiCounter = 0
+	lapBtn.classList.add("hidden")
+	resetBtn.classList.add("hidden")
+	minute.innerHTML = `0 : `
+	second.innerHTML = `&nbsp;0 :`
+	centiSecond.innerHTML = `&nbsp;0`
+}
+
+const lap = () => {
+	const li = $.createElement("li")
+	const number = $.createElement("span")
+	const timeStamp = $.createElement("span")
+	
+	li.setAttribute("class", "lap-item")
+	number.setAttribute("class", "number")
+	timeStamp.setAttribute("class", "time-stamp")
+	
+	number.innerHTML = `#${++lapId}`
+	timeStamp.innerHTML = `${minCounter} : ${secCounter} : ${centiCounter}`
+	
+	li.append(number, timeStamp)
+	laps.append(li)
+	
+	clearAllBtn.classList.remove("hidden")
+}
+
+const clearAll = () => {
+	laps.innerHTML = ""
+	laps.append(clearAllBtn)
+	lapId = 0
+	clearAllBtn.classList.add("hidden")
+}
+
+playBtn.addEventListener("click", play)
+resetBtn.addEventListener("click", reset)
+lapBtn.addEventListener("click", lap)
+clearAllBtn.addEventListener("click", clearAll)
+
+    }
+    function timer2(){
+      const playBtn = $.querySelectorAll(".play")[1]
+      const lapBtn = $.querySelectorAll(".lap")[1]
+      const resetBtn = $.querySelectorAll(".reset")[1]
+      const minute = $.querySelectorAll(".min")[1]
+      const second = $.querySelectorAll(".sec")[1]
+      const centiSecond = $.querySelectorAll(".msec")[1]
+      const laps = $.querySelectorAll(".laps")[1]
+      const clearAllBtn = $.querySelectorAll(".lap-clear-btn")[1]
+      const bg = $.querySelectorAll(".outer-circle")[1]
+
+
+let isPlay = false
+let minCounter = 0
+let min;
+let secCounter = 0
+let sec;
+let centiCounter = 0
+let centiSec;
+let lapId = 0
+// let isReset = false
+
+const toggleBtn = () => {
+	lapBtn.classList.remove("hidden")
+	resetBtn.classList.remove("hidden")
+}
+
+const play = () => {
+	if (!isPlay) {
+		playBtn.innerHTML = "Pause"
+		bg.classList.add("animation-bg")
+		min = setInterval(() => {
+			if (minCounter === 60) {
+				minCounter = 0
+			}
+			minute.innerHTML = `${++minCounter} :`
+		},60000)
+		sec = setInterval(() => {
+			if (secCounter === 60) {
+				secCounter = 0
+			}
+			second.innerHTML = `&nbsp;${++secCounter} :`
+		},1000)
+		centiSec = setInterval(() => {
+			if (centiCounter === 100) {
+				centiCounter = 0
+			}
+			centiSecond.innerHTML = `&nbsp;${++centiCounter}`
+		},10)
+		isPlay = true
+		// isReset = true
+	} else {
+		playBtn.innerHTML = "Play"
+		bg.classList.remove("animation-bg")
+		clearInterval(min)
+		clearInterval(sec)
+		clearInterval(centiSec)
+		isPlay = false
+		// isReset = false
+	}
+	toggleBtn()
+}
+
+const reset = () => {
+	// isReset = true
+	isPlay = true
+	play()
+	minCounter = 0
+	secCounter = 0
+	centiCounter = 0
+	lapBtn.classList.add("hidden")
+	resetBtn.classList.add("hidden")
+	minute.innerHTML = `0 : `
+	second.innerHTML = `&nbsp;0 :`
+	centiSecond.innerHTML = `&nbsp;0`
+}
+
+const lap = () => {
+	const li = $.createElement("li")
+	const number = $.createElement("span")
+	const timeStamp = $.createElement("span")
+	
+	li.setAttribute("class", "lap-item")
+	number.setAttribute("class", "number")
+	timeStamp.setAttribute("class", "time-stamp")
+	
+	number.innerHTML = `#${++lapId}`
+	timeStamp.innerHTML = `${minCounter} : ${secCounter} : ${centiCounter}`
+	
+	li.append(number, timeStamp)
+	laps.append(li)
+	
+	clearAllBtn.classList.remove("hidden")
+}
+
+const clearAll = () => {
+	laps.innerHTML = ""
+	laps.append(clearAllBtn)
+	lapId = 0
+	clearAllBtn.classList.add("hidden")
+}
+
+playBtn.addEventListener("click", play)
+resetBtn.addEventListener("click", reset)
+lapBtn.addEventListener("click", lap)
+clearAllBtn.addEventListener("click", clearAll)
+
+    }
+    timer1()
+    timer2()
+
+  </script>
+</html>
