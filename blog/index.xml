@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Blog</title>
+    <link>https://programmerraja.github.io/blog/</link>
+    <description>Recent content on My Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Dec 2023 09:44:50 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hello world</title>
+      <link>https://programmerraja.github.io/blog/post/helloworld/</link>
+      <pubDate>Sun, 03 Dec 2023 09:44:50 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/helloworld/</guid>
+      
+      <description>Hi, I&amp;rsquo;m K.Boopathi! 👋 About Me I&amp;rsquo;m a passionate programmer with an insatiable curiosity for exploring diverse technologies and leveraging them to create cutting-edge products. My journey in the realm of tech is driven by a fervent desire to learn and innovate.
+What I Do My blog is a reflection of my love for web development, offering insightful content, tutorials, and invaluable resources. I&amp;rsquo;m dedicated to sharing my knowledge and experiences, empowering aspiring developers to embark on their own coding adventures.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
