@@ -2,13 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://programmerraja.github.io/blog/post/helloworld/</loc>
+    <loc>https://programmerraja.github.io/blog/post/2023/helloworld/</loc>
+    <lastmod>2023-12-03T09:44:50+05:30</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/blog/resources/2023/mongo/</loc>
+    <lastmod>2023-12-03T09:44:50+05:30</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/</loc>
     <lastmod>2023-12-03T09:44:50+05:30</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/blog/</loc>
     <lastmod>2023-12-03T09:44:50+05:30</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/blog/notes/</loc>
+    <lastmod>2023-12-03T09:44:50+05:30</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/blog/post/</loc>
+    <lastmod>2023-12-03T09:44:50+05:30</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/blog/resources/</loc>
     <lastmod>2023-12-03T09:44:50+05:30</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/blog/categories/</loc>

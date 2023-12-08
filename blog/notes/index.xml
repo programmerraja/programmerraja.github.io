@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on My Blog</title>
+    <link>https://programmerraja.github.io/blog/notes/</link>
+    <description>Recent content in Notes on My Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 03 Dec 2023 09:44:50 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MongoDB Performance Tuning Book Notes</title>
+      <link>https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/</link>
+      <pubDate>Sun, 03 Dec 2023 09:44:50 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/</guid>
+      
+      <description>if the write concern is set to “majority”, then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.
+Oplog →The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
