@@ -1,0 +1,14 @@
+.topnav {
+  position: absolute;
+  top: 0;
+  color: white;
+  height: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  opacity: 0.9;
+  width: 100vw;
+  z-index: 2;
+}

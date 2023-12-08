@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1000px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid gray;
+  margin: 20px;
+  cursor: text;
+  z-index: 100;
+}
+.menu {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: row;
+  width: 100%;
+  height: 24px;
+  background-color: #424040;
+  padding: 0 8px;
+  cursor: default;
+}
+.buttons-flex {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+}
+.menu .button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.red {
+  background-color: #f5544d;
+}
+.yellow {
+  background-color: #fabd2f;
+}
+.green {
+  background-color: #47d043;
+}
+div.title {
+  flex: 1;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: rgb(238, 238, 238);
+}
+.menu h1 {
+  font-size: 13px;
+  color: #9c9c9c;
+}
