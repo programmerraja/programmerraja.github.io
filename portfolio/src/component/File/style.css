@@ -1,0 +1,146 @@
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #050505 #000000;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  display: block;
+}
+
+*::-webkit-scrollbar-track {
+  background:#e1e1e3;
+  border-radius: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #e1e1e3;
+  border-radius: 6px;
+}
+
+.fileContainerWrapper {
+  display: flex;
+  height: 100%;
+  color: white;
+}
+.fileSideContainer {
+  background-color: #333333;
+  height: 100%;
+  width: max-content;
+}
+.fileSideContainer ol {
+  list-style: none;
+  padding: 0 0.8rem;
+}
+.fileSideContainer li {
+  margin: 0.8rem;
+  cursor: pointer;
+}
+.fileContent {
+  width: 100%;
+  height: 100%;
+  background-color: #575656;
+  display: flex;
+  overflow-y: scroll;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ABOUT SECTION */
+.aboutMeContent {
+  display: flex;
+  align-items: center;
+  padding-top: 10%;
+  flex-direction: column;
+  height: 100%;
+  width: 70%;
+}
+
+.aboutMeContent > img {
+  border-radius: 10px;
+}
+
+/* EXPEREINCE */
+.expereinceContent {
+  display: flex;
+  padding-top: 10%;
+  height: 100%;
+  text-align: center;
+}
+.companyWrapper {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 233px;
+  margin: 15px;
+  flex-direction: column;
+  background-color: var(--bgcolor);
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.companyLogo {
+  margin: 0.2rem;
+  /* box-shadow: rgba(255, 255, 255, 0.05) -1vmin -1vmin 1vmin,
+    rgba(0, 0, 0, 0.3) 1vmin 1vmin 1vmin; */
+}
+.companyLogo img {
+  height: 80px;
+  border-radius: 10px;
+}
+.companyDescription {
+  margin: 0.2rem;
+  color: white;
+}
+
+.company_description h3 {
+  margin: 0.2rem;
+}
+
+.company_logo img {
+  height: 100px;
+  width: 100px;
+  border-radius: 10px;
+}
+
+/* SKIL */
+.skills__container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--bgcolor);
+  justify-content: space-around;
+}
+
+.skill {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: var(--bgcolor);
+  margin: 5px;
+  box-shadow: rgba(255, 255, 255, 0.05) -1vmin -1vmin 1vmin,
+    rgba(0, 0, 0, 0.3) 1vmin 1vmin 1vmin;
+}
+
+.skills__heading,
+.projects__heading {
+  color: var(--fontcolor);
+  text-decoration: underline;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.skill:hover {
+  transform: translateY(-10px) !important;
+}
+
+.skill_image {
+  height: 90%;
+  width: 90%;
+}
