@@ -9,13 +9,24 @@
     <lastBuildDate>Mon, 01 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes</title>
-      <link>https://programmerraja.github.io/blog/notes/2023/kubernetes/</link>
+      <link>https://programmerraja.github.io/blog/notes/2024/kubernetes/</link>
       <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2023/kubernetes/</guid>
+      <guid>https://programmerraja.github.io/blog/notes/2024/kubernetes/</guid>
       
       <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster A Kubernetes cluster contains six main components:
 API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on. Controller manager: Runs controller processes and reconciles the cluster’s actual state with its desired specifications.</description>
+      
+    </item>
+    
+    <item>
+      <title>Learning from blog</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/learning-from-blog/</link>
+      <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/learning-from-blog/</guid>
+      
+      <description>How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60% They heavly using microservice to avoid the latency between the service they go with protocol buffers Protocol buffer (Protobuf) is a data serialization format and a set of tools to exchange data. Protobuf keeps data and the metadata separate. And serializes data into binary format. Use Protobuf when: Payload is big Communication between non-JavaScript environments needed Frequent changes to the payload schema expected Scaling Slack’s Job Queue They using redis queue for all async operation they have face few issue with that such as Operational Memory Constraints in Redis, Complex Redis Connection Structure ,Worker Scalability Dependency on Redis etc Instead fully replace with kafa they go step by step.</description>
       
     </item>
     
@@ -43,6 +54,17 @@ receive the write. We can also set the write concern to wait until all
 secondaries or a specific number of secondaries receive the write
 operation.
 Oplog →The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/notes/2024/k6-load-testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/k6-load-testing/</guid>
+      
+      <description></description>
       
     </item>
     

@@ -1,12 +1,13 @@
-<!DOCTYPE html><html lang="en-us"><head><meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">My Blog | My Blog</title>
-<meta property="og:title" content="My Blog | My Blog" />
-<meta name="twitter:title" content="My Blog | My Blog" />
-<meta itemprop="name" content="My Blog | My Blog" />
-<meta name="application-name" content="My Blog | My Blog" />
+<title itemprop="name">Learning from blog | My Blog</title>
+<meta property="og:title" content="Learning from blog | My Blog" />
+<meta name="twitter:title" content="Learning from blog | My Blog" />
+<meta itemprop="name" content="Learning from blog | My Blog" />
+<meta name="application-name" content="Learning from blog | My Blog" />
 <meta property="og:site_name" content="" />
 
 <meta name="description" content="">
@@ -32,9 +33,7 @@
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/">
-    <link href="/blog/index.xml" rel="alternate" type="application/rss+xml" title="My Blog">
-    <link href="/blog/index.xml" rel="feed" type="application/rss+xml" title="My Blog">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/learning-from-blog/">
     <link href="/blog/style.min.a331e196842d6df0db458dbc74b8cb9d3f93dc2a4203f1ef625a27c46f956787.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.cef708dbb43e89c2c3d5d13ad8e529de1b26ba57d3fda7293efd1cfe88a8c6fb.css" rel="stylesheet">
 
@@ -59,7 +58,7 @@
 
     
     </head>
-<body data-theme="auto" class="notransition">
+<body data-theme = "" class="notransition">
 
 <script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
@@ -100,7 +99,7 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="/blog/notes/">
+                    <a class="menu-link active" href="/blog/notes/">
                         Notes
                     </a>
                     
@@ -126,99 +125,91 @@ stroke-linejoin="round" class="feather feather-home">
         </div>
     </nav>
 </div>
-<div class="wrapper">
-        
 
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Learning from blog</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-01-01T08:19:32&#43;05:30" itemprop="datePublished"> Jan 1, 2024 </time>
+                </div>
+                
+            </header>
+                
+                
+                <details class="toc" ZgotmplZ>
+                    <summary><b>Table of Contents</b></summary>
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#how-linkedin-adopted-protocol-buffers-to-reduce-latency-by-60httpsnewslettersystemdesignonepprotocol-buffers-vs-json"><strong><a href="https://newsletter.systemdesign.one/p/protocol-buffers-vs-json">How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60%</a></strong></a></li>
+    <li><a href="#scaling-slacks-job-queuehttpsslackengineeringscaling-slacks-job-queue"><strong><a href="https://slack.engineering/scaling-slacks-job-queue/">Scaling Slack’s Job Queue</a></strong></a></li>
+    <li><a href="#hashnodes-overall-architecturehttpsengineeringhashnodecomhashnodes-overall-architecture"><strong><a href="https://engineering.hashnode.com/hashnodes-overall-architecture">Hashnode&rsquo;s Overall Architecture</a></strong></a></li>
+    <li><a href="#scaling-cron-monitoringhttpssentryengineeringblogscaling-cron-monitoring"><strong><a href="https://sentry.engineering/blog/scaling-cron-monitoring">Scaling Cron Monitoring</a></strong></a></li>
+  </ol>
+</nav>
+                </details>
+                <div class="page-content">
+                <h2 id="how-linkedin-adopted-protocol-buffers-to-reduce-latency-by-60httpsnewslettersystemdesignonepprotocol-buffers-vs-json"><strong><a href="https://newsletter.systemdesign.one/p/protocol-buffers-vs-json">How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60%</a></strong></h2>
+<ul>
+<li>They heavly using microservice to avoid the latency between the service they go with protocol buffers</li>
+<li>Protocol buffer (<strong>Protobuf</strong>) is a data serialization format and a set of tools to exchange data. Protobuf keeps data and the metadata separate. And serializes data into binary format.</li>
+<li>Use Protobuf when:
+<ul>
+<li>Payload is big</li>
+<li>Communication between non-JavaScript environments needed</li>
+<li>Frequent changes to the payload schema expected</li>
+</ul>
+</li>
+</ul>
+<h2 id="scaling-slacks-job-queuehttpsslackengineeringscaling-slacks-job-queue"><strong><a href="https://slack.engineering/scaling-slacks-job-queue/">Scaling Slack’s Job Queue</a></strong></h2>
+<ul>
+<li>They using <a href="https://redis.com/glossary/redis-queue/">redis queue</a> for all async operation they have face few issue with that such as <strong>Operational Memory Constraints in Redis, Complex Redis Connection Structure ,Worker Scalability Dependency on Redis etc</strong></li>
+<li>Instead fully replace with kafa they go step by step.First they push message to kafa and from kafa they have written JQRelay which is a stateless service written in Go that relays jobs from a Kafka topic to its corresponding Redis cluster.</li>
+<li>When a JQRelay instance starts up, it attempts to acquire a <a href="https://www.consul.io/">Consul</a> lock on an key/value entry corresponding to the Kafka topic. If it gets the lock, it starts relaying jobs from all partitions of this topic.</li>
+</ul>
+<h2 id="hashnodes-overall-architecturehttpsengineeringhashnodecomhashnodes-overall-architecture"><strong><a href="https://engineering.hashnode.com/hashnodes-overall-architecture">Hashnode&rsquo;s Overall Architecture</a></strong></h2>
+<ul>
+<li>They caching mechanism
+<ul>
+<li>page cache using next js</li>
+<li>API cache using <code>GraphQL Edge Caching with Stellate</code> and <code>Serverless Function Caching with Vercel</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="scaling-cron-monitoringhttpssentryengineeringblogscaling-cron-monitoring"><strong><a href="https://sentry.engineering/blog/scaling-cron-monitoring">Scaling Cron Monitoring</a></strong></h2>
+<ul>
+<li>
+<p>They have Relay which listen for check in and other event from cron and push to kafa</p>
+</li>
+<li>
+<p>Sentry Django application will consume from and do the heavy lifting of storing and processing those check-ins</p>
+</li>
+<li>
+<p>To inform the user about missed check in they written a job which run for a minute and checks on table whether it has check in if it not inform the user but it have 2 problem</p>
+<ul>
+<li>Assume due to overload in kafa consumer get consumed later but the job runs before and assume it has not checked in</li>
+<li>During deploys of the celery beat scheduler, there is a short period where tasks may be skipped.</li>
+</ul>
+</li>
+<li>
+<p>Their solution involved leveraging the timestamp of each check-in message to determine when all check-ins up to a minute boundary had been processed. They tracked the last time a minute boundary was crossed based on these timestamps. Once they reached a new minute boundary, they knew all check-ins before that moment had been consumed.</p>
+<p>For instance, imagine a sequence of check-in messages with timestamps:</p>
+<ul>
+<li>Message 1: Timestamp 12:03:20</li>
+<li>Message 2: Timestamp 12:03:45</li>
+<li>Message 3: Timestamp 12:04:02</li>
+</ul>
+<p>When Message 3 arrives, it crosses the minute boundary of 12:04. This signals that all check-ins before 12:04 have been processed. This event becomes the trigger to generate tasks for detecting missing check-ins, eliminating the need for periodic celery beat tasks. This way, they avoid skipping tasks during deployment and accurately detect missed check-ins even during Kafka backlog scenarios.</p>
+</li>
+</ul>
 
-<div class="author">
-    
-    
-    <img class="author-avatar" src="/blog/myself_hu946df3b17cadc932f1b80e7103cbd3a3_109793_100x100_fill_q75_h2_box_smart1.webp" alt="K.Boopathi" width="512"
-        height="512" />
-    
-    <h2 class="author-name">K.Boopathi</h2>
-    <p class="author-bio">Exploring diverse tech realms, I&#39;m a curious programmer crafting blogs on web dev and sharing learning resources! 🚀 Dive into my world of code exploration and innovation!</p>
+            </div>
+        </article></main>
 </div>
-
-        <main aria-label="Content">
-            <h3 class="posts-item-note" aria-label="Recent Posts"></h3>
-            
-            
-            
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/learning-from-blog/">Learning from blog</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-01T08:19:32&#43;0530">
-        1 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/kubernetes/">Kubernetes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-01T08:19:32&#43;0530">
-        1 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2023/rabbitmq/">RabbitMQ Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-12-08T18:26:15&#43;0530">
-        8 Dec 2023
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2023/mongodb-performance-tuning/">MongoDB Performance Tuning Book Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-12-03T09:44:50&#43;0530">
-        3 Dec 2023
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/k6-load-testing/"></a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="0001-01-01T00:00:00Z">
-        1 Jan 0001
-        
-    </time>
-</article>
-
-            
-            
-        </main>
-    </div><footer class="footer">
+<footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
 
@@ -285,5 +276,4 @@ stroke-linejoin="round" class="feather feather-home">
     
 
 </body>
-
 </html>

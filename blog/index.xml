@@ -9,13 +9,24 @@
     <lastBuildDate>Mon, 01 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes</title>
-      <link>https://programmerraja.github.io/blog/notes/2023/kubernetes/</link>
+      <link>https://programmerraja.github.io/blog/notes/2024/kubernetes/</link>
       <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2023/kubernetes/</guid>
+      <guid>https://programmerraja.github.io/blog/notes/2024/kubernetes/</guid>
       
       <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster A Kubernetes cluster contains six main components:
 API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on. Controller manager: Runs controller processes and reconciles the cluster’s actual state with its desired specifications.</description>
+      
+    </item>
+    
+    <item>
+      <title>Learning from blog</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/learning-from-blog/</link>
+      <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/learning-from-blog/</guid>
+      
+      <description>How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60% They heavly using microservice to avoid the latency between the service they go with protocol buffers Protocol buffer (Protobuf) is a data serialization format and a set of tools to exchange data. Protobuf keeps data and the metadata separate. And serializes data into binary format. Use Protobuf when: Payload is big Communication between non-JavaScript environments needed Frequent changes to the payload schema expected Scaling Slack’s Job Queue They using redis queue for all async operation they have face few issue with that such as Operational Memory Constraints in Redis, Complex Redis Connection Structure ,Worker Scalability Dependency on Redis etc Instead fully replace with kafa they go step by step.</description>
       
     </item>
     
@@ -28,50 +39,6 @@ API server: Exposes a REST interface to all Kubernetes resources. Serves as the 
       
       <description>Channel a channel is a separate communication channel within a single connection. Channels allow multiple concurrent exchanges to be executed in parallel, providing a way to separate different parts of your application.
 Each channel has its own set of resources, such as queues, exchanges, and bindings, which are independent of the resources used by other channels in the same connection. This allows you to manage concurrency and improve performance by isolating different parts of your application into separate channels.</description>
-      
-    </item>
-    
-    <item>
-      <title>Microservices</title>
-      <link>https://programmerraja.github.io/blog/resources/2023/microservices/</link>
-      <pubDate>Fri, 08 Dec 2023 18:20:29 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/resources/2023/microservices/</guid>
-      
-      <description>Communication https://youtu.be/6XTGcgt5clQ (Given overview of the wasys we can communicate sync/async) https://medium.com/javarevisited/microservices-communication-using-grpc-protocol-dc3a2f8b648d (GPRC) https://medium.com/cloud-native-daily/rethink-the-way-you-share-the-data-between-micro-services-with-change-data-capture-a666a4473388 [ about using data replication method ] https://medium.com/fiverr-engineering/how-to-share-data-between-microservices-on-high-scale-ab2bc663898d https://medium.com/@denhox/sharing-data-between-microservices-fe7fb9471208 https://medium.com/tinder/how-we-built-the-tinder-api-gateway-831c6ca5ceca tinder API gateway https://netflixtechblog.com/zero-configuration-service-mesh-with-on-demand-cluster-discovery-ac6483b52a51 [Zero Configuration Service Mesh with On-Demand Cluster Discovery https://youtu.be/4KQoYVX9lNM Authentication https://www.youtube.com/watch?v=SLc3cTlypwM This video about how to use JWT and how to secure
-https://www.youtube.com/watch?v=ZjPF8yZ83Wo
-https://medium.com/tech-tajawal/microservice-authentication-and-authorization-solutions-e0e5e74b248a
-https://youtu.be/R6tUNpRpdnY notes How Netflix solve the auth problem using open policy agents
-Open policy agent is open src</description>
-      
-    </item>
-    
-    <item>
-      <title>Nodejs</title>
-      <link>https://programmerraja.github.io/blog/resources/2023/nodejs/</link>
-      <pubDate>Fri, 08 Dec 2023 18:20:29 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/resources/2023/nodejs/</guid>
-      
-      <description>Memory leaks https://dev.to/codux/experiments-with-the-javascript-garbage-collector-2ae3 (JavaScript provides a class called FinalizationRegistry that allows you to programmatically detect when an object is garbage-collected.)
-https://hacks.mozilla.org/2017/06/a-crash-course-in-memory-management/ (Crash course on memory management)
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management (A great article explainhow js manage memory)
-https://www.useanvil.com/blog/engineering/isolating-memory-leak-in-node/
-https://www.nearform.com/blog/tracking-memory-allocation-node-js/
-https://deepu.tech/memory-management-in-programming/
-https://felixgerschau.com/javascript-heap-out-of-memory-error/
-https://felixgerschau.com/javascript-heap-out-of-memory-error/
-https://www.cloudbees.com/blog/understanding-garbage-collection-in-node-js
-https://developer.chrome.com/docs/devtools/ →check out how to use chrome memory profilrer
-https://youtu.be/RJRbZdtKmxU
-https://youtu.be/CRoR_0K586I
-https://youtu.be/YDU_3WdfkxA
-https://youtu.be/LaxbdIyBkL0
-https://youtu.be/Hr2vrhrNaRo
-https://blog.appsignal.com/2020/05/06/avoiding-memory-leaks-in-nodejs-best-practices-for-performance.html
-https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/
-An interesting kind of JavaScript memory leak
-https://webkit.org/blog/12967/understanding-gc-in-jsc-from-scratch/ (Understanding Garbage Collection in JavaScriptCore From Scratch)</description>
       
     </item>
     
@@ -113,6 +80,17 @@ receive the write. We can also set the write concern to wait until all
 secondaries or a specific number of secondaries receive the write
 operation.
 Oplog →The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/notes/2024/k6-load-testing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/k6-load-testing/</guid>
+      
+      <description></description>
       
     </item>
     
