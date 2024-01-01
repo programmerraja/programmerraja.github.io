@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My Blog</title>
+    <title>Posts on programmerraja blog</title>
     <link>https://programmerraja.github.io/blog/post/</link>
-    <description>Recent content in Posts on My Blog</description>
+    <description>Recent content in Posts on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 03 Dec 2023 09:44:50 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />

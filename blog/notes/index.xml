@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Notes on My Blog</title>
+    <title>Notes on programmerraja blog</title>
     <link>https://programmerraja.github.io/blog/notes/</link>
-    <description>Recent content in Notes on My Blog</description>
+    <description>Recent content in Notes on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 2024 11:39:28 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/go/</link>
+      <pubDate>Mon, 01 Jan 2024 11:39:28 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/go/</guid>
+      
+      <description>Introduction From c++ by google c++ author will convert to exe
+go get githublink→ to download pkg and put under folder pkg
+it has main function to run go run filename.go
+package main //-&amp;gt; our package name imort &amp;#34;fmt&amp;#34; import (&amp;#34;fmt&amp;#34;,&amp;#34;math&amp;#34;) //-&amp;gt; to import multiple pkg func main(){ fmt.Println(&amp;#34;hello&amp;#34;) } Data types string, bool, int, byte , float32 ,float64, arrays
+using var keyword and const → to not reassign
+var name string = “d” (if directly assing vaule we don’t need to mention the data type)</description>
+      
+    </item>
+    
     <item>
       <title>Kubernetes</title>
       <link>https://programmerraja.github.io/blog/notes/2024/kubernetes/</link>
@@ -37,8 +53,9 @@ API server: Exposes a REST interface to all Kubernetes resources. Serves as the 
       
       <guid>https://programmerraja.github.io/blog/notes/2023/rabbitmq/</guid>
       
-      <description>Channel a channel is a separate communication channel within a single connection. Channels allow multiple concurrent exchanges to be executed in parallel, providing a way to separate different parts of your application.
-Each channel has its own set of resources, such as queues, exchanges, and bindings, which are independent of the resources used by other channels in the same connection. This allows you to manage concurrency and improve performance by isolating different parts of your application into separate channels.</description>
+      <description>What is RabbitMQ? RabbitMQ is a popular open-source message broker that implements the AMQP (Advanced Message Queuing Protocol) standard.
+Channel A channel is a separate communication channel within a single connection. Channels allow multiple concurrent exchanges to be executed in parallel, providing a way to separate different parts of your application.
+Each channel has its own set of resources, such as queues, exchanges, and bindings, which are independent of the resources used by other channels in the same connection.</description>
       
     </item>
     
@@ -49,11 +66,7 @@ Each channel has its own set of resources, such as queues, exchanges, and bindin
       
       <guid>https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/</guid>
       
-      <description>if the write concern is set to “majority”, then the database will not complete the write operation until a majority of secondaries
-receive the write. We can also set the write concern to wait until all
-secondaries or a specific number of secondaries receive the write
-operation.
-Oplog →The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these</description>
+      <description>MongoDB Architecture and Concepts if the write concern is set to “majority”, then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation. Oplog The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.</description>
       
     </item>
     

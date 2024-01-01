@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">RabbitMQ Notes | My Blog</title>
-<meta property="og:title" content="RabbitMQ Notes | My Blog" />
-<meta name="twitter:title" content="RabbitMQ Notes | My Blog" />
-<meta itemprop="name" content="RabbitMQ Notes | My Blog" />
-<meta name="application-name" content="RabbitMQ Notes | My Blog" />
+<title itemprop="name">RabbitMQ Notes | programmerraja blog</title>
+<meta property="og:title" content="RabbitMQ Notes | programmerraja blog" />
+<meta name="twitter:title" content="RabbitMQ Notes | programmerraja blog" />
+<meta itemprop="name" content="RabbitMQ Notes | programmerraja blog" />
+<meta name="application-name" content="RabbitMQ Notes | programmerraja blog" />
 <meta property="og:site_name" content="" />
 
 <meta name="description" content="">
@@ -144,83 +144,31 @@ stroke-linejoin="round" class="feather feather-home">
                     <summary><b>Table of Contents</b></summary>
                     <nav id="TableOfContents">
   <ol>
+    <li><a href="#what--is-rabbitmq">What  is RabbitMQ?</a></li>
     <li><a href="#channel">Channel</a></li>
     <li><a href="#channel-vs-connection">Channel vs connection</a></li>
-    <li><a href="#rabbitmq">Rabbitmq</a></li>
     <li><a href="#exchanges">Exchanges</a></li>
-    <li><a href="#application">Application</a></li>
     <li><a href="#durablity">Durablity</a></li>
-    <li><a href="#prefetch">prefetch</a></li>
-    <li><a href="#amqp-connection-manager-vs-amqplib">amqp-connection-manager vs amqplib</a></li>
-    <li><a href="#what-arer-the-best-practice-regarding-channel-and-connection">what arer the best practice regarding channel and connection</a></li>
-    <li><a href="#how-to-handle-failures-in-queue">How to Handle failures in QUEUE</a></li>
-    <li><a href="#best-practice">Best practice</a></li>
+    <li><a href="#prefetch">Prefetch</a></li>
+    <li><a href="#amqp-connection-manager-vs-amqplib">Amqp-connection-manager vs Amqplib</a></li>
+    <li><a href="#what-are-the-best-practice-regarding-channel-and-connection">What are the best practice regarding channel and connection</a></li>
+    <li><a href="#how-to-handle-failures">How to Handle failures</a></li>
     <li><a href="#resources">Resources</a></li>
   </ol>
 </nav>
                 </details>
                 <div class="page-content">
-                <ul>
-<li>
+                <h2 id="what--is-rabbitmq">What  is RabbitMQ?</h2>
+<p>RabbitMQ is a popular open-source message broker that implements the AMQP (Advanced Message Queuing Protocol) standard.</p>
 <h2 id="channel">Channel</h2>
-<p>a channel is a separate communication channel within a single connection. Channels allow multiple concurrent exchanges to be executed in parallel, providing a way to separate different parts of your application.</p>
+<p>A channel is a separate communication channel within a single connection. Channels allow multiple concurrent exchanges to be executed in parallel, providing a way to separate different parts of your application.</p>
 <p>Each channel has its own set of resources, such as queues, exchanges, and bindings, which are independent of the resources used by other channels in the same connection. This allows you to manage concurrency and improve performance by isolating different parts of your application into separate channels.</p>
 <p>For example, you might create one channel for sending messages and another channel for receiving messages, or create separate channels for different types of messages or different parts of your application. By using multiple channels, you can take advantage of the scalability and performance benefits of AMQP while also making it easier to manage your application.</p>
-</li>
-<li>
 <h2 id="channel-vs-connection">Channel vs connection</h2>
 <p>In RabbitMQ, a connection represents a network connection to the RabbitMQ broker. When a client connects to RabbitMQ, it establishes a TCP connection to the broker. This connection remains open until the client explicitly closes it or the broker closes it due to a network error or a timeout. A connection is created using the AMQP protocol, and it is responsible for authentication, connection handling, and connection-level flow control.</p>
 <p>On the other hand, a channel is a virtual connection inside a connection that allows multiple logical connections to be multiplexed over a single physical connection. When a client establishes a connection to RabbitMQ, it can create one or more channels inside that connection. Each channel is a separate AMQP session that can be used to publish or consume messages, declare queues and exchanges, and bind queues to exchanges.</p>
 <p>The main difference between a connection and a channel is that a connection represents a physical connection to the broker, whereas a channel represents a logical connection within that physical connection. Channels allow multiple AMQP operations to be multiplexed over a single network connection, which can help reduce the overhead of establishing multiple network connections.</p>
 <p>In summary, a connection in RabbitMQ represents a physical network connection to the broker, while a channel represents a logical connection within that physical connection, allowing multiple AMQP operations to be multiplexed over a single network connection.</p>
-</li>
-<li>
-<h2 id="rabbitmq">Rabbitmq</h2>
-<p>RabbitMQ is a popular open-source message broker that implements the AMQP (Advanced Message Queuing Protocol) standard.</p>
-</li>
-</ul>
-<details>
-    <summary>Code</summary>
-    <div>
-    - ## Code
-<pre><code>    ```jsx
-    const amqp = require(&quot;amqplib&quot;);
-    
-    async function connectToRabbitMQ() {
-      const connection = await amqp.connect(&quot;amqp://localhost&quot;);
-      const channel = await connection.createChannel();
-      console.log(&quot;Connected to RabbitMQ&quot;);
-      // Do more things with the connection and channel objects here...
-      const message = &quot;Hello, RabbitMQ!&quot;;
-      const exchangeName = &quot;myExchange&quot;;
-      const queueName = &quot;myQueue&quot;;
-      const routingKey = &quot;myKey&quot;;
-      channel.assertQueue(queueName)
-      await channel.sendToQueue(queueName, Buffer.from(message));
-    
-      console.log(`Sent message &quot;${message}&quot; to exchange &quot;${exchangeName}&quot;`);
-    
-      channel.assertQueue(queueName);
-      channel.consume(
-        queueName,
-        (message) =&gt; {
-          const content = message.content.toString();
-          console.log(`Received message &quot;${content}&quot; from queue &quot;${queueName}&quot;`);
-        },
-        { noAck: true }
-      );
-    }
-    i=0
-    while (i&lt;100){
-        connectToRabbitMQ();
-        i++;
-    }
-    ```
-&lt;/div&gt;
-</code></pre>
-</details>
-<ul>
-<li>
 <h2 id="exchanges">Exchanges</h2>
 <p>In RabbitMQ, an exchange is a message routing agent that receives messages from producers and routes them to queues based on message properties such as the routing key. When a producer sends a message to an exchange, it is up to the exchange to route the message to one or more queues.</p>
 <p>There are four types of exchanges in RabbitMQ:</p>
@@ -239,179 +187,74 @@ stroke-linejoin="round" class="feather feather-home">
 </li>
 <li>
 <p><code>x-delayed-message</code> → is a custom exchange type in RabbitMQ that allows you to delay messages before they are delivered to a queue. This exchange type is not included in RabbitMQ by default and must be installed as a plugin.</p>
-<p>When you create an <code>x-delayed-message</code> exchange, you can set a delay time for messages using the <code>x-delay</code> header. The exchange will hold the message for the specified delay time and then deliver it to the appropriate queue. This is useful in scenarios where you want to delay the delivery of a message until a certain time or after a certain event has occurred.</p>
+<p>When you create an <strong><code>x-delayed-message</code></strong> exchange, you can set a delay time for messages using the <strong><code>x-delay</code></strong> header. The exchange will hold the message for the specified delay time and then deliver it to the appropriate queue. This is useful in scenarios where you want to delay the delivery of a message until a certain time or after a certain event has occurred.</p>
 </li>
 </ol>
-</li>
-</ul>
-<details>
-    <summary>Code</summary>
-    <div>
-        - Code
-<pre><code>        ```jsx
-        const amqp = require('amqplib');
-        
-        async function setup() {
-          // Connect to RabbitMQ
-          const connection = await amqp.connect('amqp://localhost');
-          const channel = await connection.createChannel();
-        
-          // Install the delayed message exchange plugin (if necessary)
-          await channel.assertExchange('amq.delayed', 'x-delayed-message', {
-            durable: true,
-            arguments: {
-              'x-delayed-type': 'direct'
-            }
-          });
-        
-          // Create the queue and bind it to the delayed message exchange
-          const queueName = 'my-queue';
-          const routingKey = 'my-routing-key';
-        
-          await channel.assertQueue(queueName, { durable: true });
-        
-          await channel.bindQueue(queueName, 'amq.delayed', routingKey);
-        
-          // Consumer function to handle incoming messages
-          const consumerFunction = (msg) =&gt; {
-            console.log(`Received message: ${msg.content.toString()}`);
-            channel.ack(msg);
-          };
-        
-          // Consume messages from the queue
-          channel.consume(queueName, consumerFunction);
-        
-          // Producer function to send messages with a delay
-          const producerFunction = async (message, delayMs) =&gt; {
-            const headers = { 'x-delay': delayMs };
-            const buffer = Buffer.from(message);
-        
-            await channel.publish('amq.delayed', routingKey, buffer, { headers });
-        
-            console.log(`Sent message &quot;${message}&quot; with delay of ${delayMs}ms`);
-          };
-        
-          // Send some messages with a delay
-          await producerFunction('Hello World!', 5000);
-          await producerFunction('Delayed message!', 10000);
-        }
-        
-        setup();
-        ```
-      &lt;/div&gt;
-</code></pre>
-</details>
-<ul>
-<li>
-<h2 id="application">Application</h2>
-<ul>
-<li>
+<p>Example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">amqp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;amqplib&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">setup</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Connect to RabbitMQ
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">connection</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">amqp</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;amqp://localhost&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">channel</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">createChannel</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Install the delayed message exchange plugin (if necessary)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">await</span> <span class="nx">channel</span><span class="p">.</span><span class="nx">assertExchange</span><span class="p">(</span><span class="s1">&#39;amq.delayed&#39;</span><span class="p">,</span> <span class="s1">&#39;x-delayed-message&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">durable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">arguments</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s1">&#39;x-delayed-type&#39;</span><span class="o">:</span> <span class="s1">&#39;direct&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Create the queue and bind it to the delayed message exchange
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">queueName</span> <span class="o">=</span> <span class="s1">&#39;my-queue&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">routingKey</span> <span class="o">=</span> <span class="s1">&#39;my-routing-key&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">await</span> <span class="nx">channel</span><span class="p">.</span><span class="nx">assertQueue</span><span class="p">(</span><span class="nx">queueName</span><span class="p">,</span> <span class="p">{</span> <span class="nx">durable</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">await</span> <span class="nx">channel</span><span class="p">.</span><span class="nx">bindQueue</span><span class="p">(</span><span class="nx">queueName</span><span class="p">,</span> <span class="s1">&#39;amq.delayed&#39;</span><span class="p">,</span> <span class="nx">routingKey</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Consumer function to handle incoming messages
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">consumerFunction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Received message: </span><span class="si">${</span><span class="nx">msg</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">channel</span><span class="p">.</span><span class="nx">ack</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Consume messages from the queue
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">channel</span><span class="p">.</span><span class="nx">consume</span><span class="p">(</span><span class="nx">queueName</span><span class="p">,</span> <span class="nx">consumerFunction</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Producer function to send messages with a delay
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">producerFunction</span> <span class="o">=</span> <span class="kr">async</span> <span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">delayMs</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;x-delay&#39;</span><span class="o">:</span> <span class="nx">delayMs</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">await</span> <span class="nx">channel</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;amq.delayed&#39;</span><span class="p">,</span> <span class="nx">routingKey</span><span class="p">,</span> <span class="nx">buffer</span><span class="p">,</span> <span class="p">{</span> <span class="nx">headers</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Sent message &#34;</span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">&#34; with delay of </span><span class="si">${</span><span class="nx">delayMs</span><span class="si">}</span><span class="sb">ms`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Send some messages with a delay
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">await</span> <span class="nx">producerFunction</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">await</span> <span class="nx">producerFunction</span><span class="p">(</span><span class="s1">&#39;Delayed message!&#39;</span><span class="p">,</span> <span class="mi">10000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">setup</span><span class="p">();</span>
+</span></span></code></pre></div><p><strong>Application of Exchange</strong></p>
 <p>Let&rsquo;s say you have a distributed system that consists of multiple microservices. Each microservice has its own queue, and they communicate with each other through messaging.</p>
-</li>
-<li>
 <p>When a microservice wants to send a message to another microservice, it can publish the message to an exchange instead of directly sending it to the other microservice&rsquo;s queue. The exchange is responsible for routing the message to the appropriate queue based on the message&rsquo;s routing key.</p>
-</li>
-<li>
 <p>For example, let&rsquo;s say you have a microservice that handles user authentication, and another microservice that handles user orders. When a user logs in, the authentication microservice can publish a message to the exchange with a routing key of &ldquo;user.login&rdquo;. The exchange can then route this message to the order microservice&rsquo;s queue, which is bound to the exchange with a matching routing key.</p>
-</li>
-<li>
 <p>If you didn&rsquo;t use an exchange, the authentication microservice would have to know the exact name of the order microservice&rsquo;s queue and send the message directly to that queue. This would tightly couple the microservices and make it harder to make changes to the system in the future.</p>
-</li>
-<li>
 <p>By using an exchange, you can create a loosely coupled system where microservices don&rsquo;t need to know about each other&rsquo;s queues. This makes it easier to add new microservices or change the routing rules of messages without affecting other parts of the system.</p>
-</li>
-</ul>
-</li>
-</ul>
-<details>
-    <summary>Code</summary>
-    <div>
-<pre><code>            ```jsx
-            const amqp = require('amqplib');
-            
-            async function createExchanges() {
-              const connection = await amqp.connect('amqp://localhost');
-              const channel = await connection.createChannel();
-            
-              const directExchangeName = 'direct-exchange';
-              const directExchangeType = 'direct';
-            
-              const topicExchangeName = 'topic-exchange';
-              const topicExchangeType = 'topic';
-            
-              const headersExchangeName = 'headers-exchange';
-              const headersExchangeType = 'headers';
-            
-              const fanoutExchangeName = 'fanout-exchange';
-              const fanoutExchangeType = 'fanout';
-            
-              await channel.assertExchange(directExchangeName, directExchangeType, { durable: true });
-              await channel.assertExchange(topicExchangeName, topicExchangeType, { durable: true });
-              await channel.assertExchange(headersExchangeName, headersExchangeType, { durable: true });
-              await channel.assertExchange(fanoutExchangeName, fanoutExchangeType, { durable: true });
-            
-              console.log('Exchanges created!');
-            
-              const queueName = 'my-queue';
-            
-              await channel.assertQueue(queueName, { durable: true });
-            
-              // Direct exchange
-              await channel.bindQueue(queueName, directExchangeName, 'direct-routing-key');
-            
-              // Topic exchange
-              await channel.bindQueue(queueName, topicExchangeName, 'topic.*');
-            
-              // Headers exchange
-              await channel.bindQueue(queueName, headersExchangeName, '', { 'x-match': 'all', 'key1': 'value1', 'key2': 'value2' });
-            
-              // Fanout exchange
-              await channel.bindQueue(queueName, fanoutExchangeName, '');
-            
-              console.log('Queue and exchanges bound!');
-            
-              // Producer
-              setInterval(() =&gt; {
-                const message = 'Hello RabbitMQ!';
-                channel.publish(directExchangeName, 'direct-routing-key', Buffer.from(message));
-                channel.publish(topicExchangeName, 'topic.key', Buffer.from(message));
-                channel.publish(headersExchangeName, '', Buffer.from(message), { headers: { key1: 'value1', key2: 'value2' } });
-                channel.publish(fanoutExchangeName, '', Buffer.from(message));
-              }, 1000);
-            
-              // Consumer
-              channel.consume(queueName, (message) =&gt; {
-                if (message) {
-                    console.log(message)
-                //   console.log(`Received message: ${message.content.toString()}`);
-                  channel.ack(message);
-                }
-              });
-            }
-            
-            createExchanges().catch(console.error);
-            ```
-    &lt;/div&gt;
-</code></pre>
-</details>
-<ul>
-<li>
 <h2 id="durablity">Durablity</h2>
 <p>RabbitMQ provides durability by persisting messages and metadata to disk. This ensures that messages are not lost in case of a server failure.if it durable to true it will presist if we set false it will not until it reach threshold</p>
-</li>
-<li>
-<h2 id="prefetch">prefetch</h2>
+<h2 id="prefetch">Prefetch</h2>
 <p>RabbitMQ uses prefetch to control the amount of messages a consumer can consume at once. Prefetch specifies the number of unacknowledged messages that can be in-flight before the broker stops delivering more messages to the consumer. This avoids overloading a consumer with too many messages at once.</p>
-</li>
-<li>
-<h2 id="amqp-connection-manager-vs-amqplib">amqp-connection-manager vs amqplib</h2>
+<h2 id="amqp-connection-manager-vs-amqplib">Amqp-connection-manager vs Amqplib</h2>
 <p>amqp-connection-manager and amqplib are both Node.js libraries for working with RabbitMQ, but they have different purposes and use cases.</p>
 <p>amqplib is a low-level RabbitMQ client library that provides a thin wrapper around the RabbitMQ API. It allows you to send and receive messages, create and manage exchanges and queues, and interact with other RabbitMQ features. amqplib provides a direct and flexible interface to RabbitMQ, and is a good choice if you need complete control over your RabbitMQ interactions.</p>
 <p>amqp-connection-manager, on the other hand, is a higher-level library that provides connection management and channel pooling. It uses amqplib under the hood, but adds features like connection retry, connection throttling, and automatic channel recovery. amqp-connection-manager is a good choice if you want to simplify your RabbitMQ code and reduce the chance of connection errors, or if you need to handle multiple connections and channels.</p>
 <p>In general, if you need fine-grained control over your RabbitMQ interactions, or if you have a small number of connections and channels, amqplib is a good choice. If you have a large number of connections and channels, or if you want to simplify your RabbitMQ code and reduce the chance of connection errors, amqp-connection-manager is a better choice.</p>
-</li>
-<li>
-<h2 id="what-arer-the-best-practice-regarding-channel-and-connection">what arer the best practice regarding channel and connection</h2>
+<h2 id="what-are-the-best-practice-regarding-channel-and-connection">What are the best practice regarding channel and connection</h2>
 <ol>
 <li>Use a single connection per application instance: It&rsquo;s a good practice to use a single connection for an entire application instance. Creating multiple connections can lead to resource wastage, and can make it difficult to manage and monitor connections.</li>
 <li>Use a connection pool: Creating and closing connections can be expensive, so it&rsquo;s recommended to use a connection pool. Connection pools can be used to manage the number of connections and can help improve performance.</li>
@@ -422,21 +265,15 @@ stroke-linejoin="round" class="feather feather-home">
 <li>Use a connection heartbeat: RabbitMQ provides a connection heartbeat mechanism that can be used to detect network failures. It&rsquo;s a good practice to use connection heartbeat to ensure that the application can recover from network failures.</li>
 <li>Use connection and channel events: RabbitMQ provides connection and channel events that can be used to monitor and manage connections and channels. Using these events can help improve the reliability and performance of the application.</li>
 </ol>
-</li>
-<li>
-<h2 id="how-to-handle-failures-in-queue">How to Handle failures in QUEUE</h2>
-<ul>
-<li>
-<p>If we want to retry if the consumer get failed when processing the data</p>
+<h2 id="how-to-handle-failures">How to Handle failures</h2>
+<p>If we want to retry if the consumer get failed when processing the data we can have 2 way
+1. nack
+2. reject</p>
+<p><strong>Difference between them</strong></p>
+<p>The main difference between nack (negative acknowledgement) and reject in RabbitMQ is how they handle message rejection and requeuing:</p>
 <ol>
-<li>Channel.nack</li>
-<li>Channe.reject</li>
-</ol>
-</li>
 <li>
-<p>The main difference between <code>nack</code> (negative acknowledgement) and <code>reject</code> in RabbitMQ is how they handle message rejection and requeuing:</p>
-<ol>
-<li><code>nack</code> (channel.nack):
+<p><code>nack</code> (channel.nack):</p>
 <ul>
 <li><code>nack</code> is used to negatively acknowledge a message and reject it.</li>
 <li>It allows you to control whether the message should be requeued or discarded.</li>
@@ -447,7 +284,8 @@ stroke-linejoin="round" class="feather feather-home">
 <li>With <code>channel.nack</code>, you have more control over requeuing behavior and can choose whether to discard the message or requeue it for retry.</li>
 </ul>
 </li>
-<li><code>reject</code> (channel.reject):
+<li>
+<p><code>reject</code> (channel.reject):</p>
 <ul>
 <li><code>reject</code> is used to reject a message without acknowledging it.</li>
 <li>When a message is rejected using <code>reject</code>, it can optionally be requeued based on the <code>requeue</code> parameter.</li>
@@ -458,74 +296,15 @@ stroke-linejoin="round" class="feather feather-home">
 </ul>
 </li>
 </ol>
-</li>
-<li>
-<p>In summary, <code>nack</code> provides more flexibility by allowing you to explicitly control requeuing behavior (requeue or discard), whereas <code>reject</code> gives you the option to requeue the message based on the <code>requeue</code> parameter. Both methods can be used to handle message rejection and retry scenarios in RabbitMQ, depending on your specific requirements.</p>
-</li>
-</ul>
-</li>
-</ul>
-<details>
-    <summary>Code</summary>
-    <div>
-<pre><code>        ```jsx
-        const amqp = require('amqplib');
-        
-        async function setupConsumer() {
-          try {
-            const connection = await amqp.connect('amqp://localhost'); // Replace with your RabbitMQ connection URL
-            const channel = await connection.createChannel();
-        
-            const queueName = 'myQueue'; // Replace with your queue name
-        
-            // Set up the queue with retry parameters
-            await channel.assertQueue(queueName, {
-              durable: true,
-              deadLetterExchange: 'dlxExchange', // Replace with your DLX exchange name
-              deadLetterRoutingKey: queueName,
-              messageTtl: 5000, // Delay in milliseconds before retrying
-              maxAttempts: 3, // Maximum number of retry attempts
-            });
-        
-            // Consume messages from the queue
-            channel.consume(queueName, (message) =&gt; {
-              try {
-                // Process the message
-                console.log('Received message:', message.content.toString());
-        
-                // Simulate failure to process message
-                throw new Error('Failed to process message');
-        
-                // If processing is successful, acknowledge the message
-                channel.ack(message);
-              } catch (error) {
-                console.error('Error:', error);
-        
-                // If processing failed, reject the message to trigger retry
-                channel.nack(message, false, false); // The first `false` argument means the message will not be requeued
-              }
-            });
-        
-            console.log('Consumer set up');
-        
-          } catch (error) {
-            console.error('Error:', error);
-          }
-        }
-        
-        setupConsumer();
-        ```
-       &lt;/div&gt;
-</code></pre>
-</details>
-<ul>
-<li>
-<h2 id="best-practice">Best practice</h2>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=ez9kQEhHsnc&amp;t=68s">https://www.youtube.com/watch?v=ez9kQEhHsnc&amp;t=68s</a> (what we learned form running 1k queue cloudamp)
+<p>In summary, nack provides more flexibility by allowing you to explicitly control requeuing behavior (requeue or discard), whereas reject gives you the option to requeue the message based on the requeue parameter. Both methods can be used to handle message rejection and retry scenarios in RabbitMQ, depending on your specific requirements.</p>
+<h2 id="resources">Resources</h2>
+<ol>
+<li><a href="https://www.cloudamqp.com/blog/part1-rabbitmq-best-practice.html">https://www.cloudamqp.com/blog/part1-rabbitmq-best-practice.html</a></li>
+<li><a href="https://www.cloudamqp.com/blog/part2-rabbitmq-best-practice-for-high-performance.html">https://www.cloudamqp.com/blog/part2-rabbitmq-best-practice-for-high-performance.html</a></li>
+<li><a href=""> What we learned form running 1k queue Cloudamp</a>
 <ol>
 <li>Keep connection and channle as low as possible</li>
-<li>seprate connection for pub and consume</li>
+<li>seprate connection for pub and consume4</li>
 <li>dont have too large queue 10k msg</li>
 <li>Enable lazy queue (loaded on ram when needed)</li>
 <li>rabbitmq sharding</li>
@@ -533,19 +312,10 @@ stroke-linejoin="round" class="feather feather-home">
 <li>adjust prefetch (cloudampq default 1k )</li>
 </ol>
 </li>
-</ul>
-</li>
-<li>
-<h2 id="resources">Resources</h2>
-<ol>
-<li><a href="https://www.rabbitmq.com/streams.html">https://www.rabbitmq.com/streams.html</a></li>
+<li><a href="%5Bhttps://medium.com/@upadhyayyuvi/building-a-reliable-message-queue-system-with-rabbitmq-and-node-js-step-by-step-guide-275e026d2090%5D(https://medium.com/@upadhyayyuvi/building-a-reliable-message-queue-system-with-rabbitmq-and-node-js-step-by-step-guide-275e026d2090)">Explain basic and how to handle error case</a></li>
+<li><a href="https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html">https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html</a></li>
 <li><a href="https://youtu.be/HzPOQsMWrGQ">https://youtu.be/HzPOQsMWrGQ</a></li>
-<li><a href="https://github.com/rabbitmq/internals">https://github.com/rabbitmq/internals</a> (This project aims to explain how RabbitMQ works internally.)</li>
-<li><a href="https://youtu.be/fNbdgWe5Tbs">https://youtu.be/fNbdgWe5Tbs</a></li>
-<li></li>
 </ol>
-</li>
-</ul>
 
             </div>
         </article></main>
