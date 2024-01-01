@@ -6,7 +6,51 @@
     <description>Recent content in Resources on My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Dec 2023 09:44:50 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/resources/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Dec 2023 18:20:29 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/resources/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microservices</title>
+      <link>https://programmerraja.github.io/blog/resources/2023/microservices/</link>
+      <pubDate>Fri, 08 Dec 2023 18:20:29 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/resources/2023/microservices/</guid>
+      
+      <description>Communication https://youtu.be/6XTGcgt5clQ (Given overview of the wasys we can communicate sync/async) https://medium.com/javarevisited/microservices-communication-using-grpc-protocol-dc3a2f8b648d (GPRC) https://medium.com/cloud-native-daily/rethink-the-way-you-share-the-data-between-micro-services-with-change-data-capture-a666a4473388 [ about using data replication method ] https://medium.com/fiverr-engineering/how-to-share-data-between-microservices-on-high-scale-ab2bc663898d https://medium.com/@denhox/sharing-data-between-microservices-fe7fb9471208 https://medium.com/tinder/how-we-built-the-tinder-api-gateway-831c6ca5ceca tinder API gateway https://netflixtechblog.com/zero-configuration-service-mesh-with-on-demand-cluster-discovery-ac6483b52a51 [Zero Configuration Service Mesh with On-Demand Cluster Discovery https://youtu.be/4KQoYVX9lNM Authentication https://www.youtube.com/watch?v=SLc3cTlypwM This video about how to use JWT and how to secure
+https://www.youtube.com/watch?v=ZjPF8yZ83Wo
+https://medium.com/tech-tajawal/microservice-authentication-and-authorization-solutions-e0e5e74b248a
+https://youtu.be/R6tUNpRpdnY notes How Netflix solve the auth problem using open policy agents
+Open policy agent is open src</description>
+      
+    </item>
+    
+    <item>
+      <title>Nodejs</title>
+      <link>https://programmerraja.github.io/blog/resources/2023/nodejs/</link>
+      <pubDate>Fri, 08 Dec 2023 18:20:29 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/resources/2023/nodejs/</guid>
+      
+      <description>Memory leaks https://dev.to/codux/experiments-with-the-javascript-garbage-collector-2ae3 (JavaScript provides a class called FinalizationRegistry that allows you to programmatically detect when an object is garbage-collected.)
+https://hacks.mozilla.org/2017/06/a-crash-course-in-memory-management/ (Crash course on memory management)
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management (A great article explainhow js manage memory)
+https://www.useanvil.com/blog/engineering/isolating-memory-leak-in-node/
+https://www.nearform.com/blog/tracking-memory-allocation-node-js/
+https://deepu.tech/memory-management-in-programming/
+https://felixgerschau.com/javascript-heap-out-of-memory-error/
+https://felixgerschau.com/javascript-heap-out-of-memory-error/
+https://www.cloudbees.com/blog/understanding-garbage-collection-in-node-js
+https://developer.chrome.com/docs/devtools/ →check out how to use chrome memory profilrer
+https://youtu.be/RJRbZdtKmxU
+https://youtu.be/CRoR_0K586I
+https://youtu.be/YDU_3WdfkxA
+https://youtu.be/LaxbdIyBkL0
+https://youtu.be/Hr2vrhrNaRo
+https://blog.appsignal.com/2020/05/06/avoiding-memory-leaks-in-nodejs-best-practices-for-performance.html
+https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/
+An interesting kind of JavaScript memory leak
+https://webkit.org/blog/12967/understanding-gc-in-jsc-from-scratch/ (Understanding Garbage Collection in JavaScriptCore From Scratch)</description>
+      
+    </item>
+    
     <item>
       <title>Mongodb</title>
       <link>https://programmerraja.github.io/blog/resources/2023/mongo/</link>

@@ -6,7 +6,31 @@
     <description>Recent content in Notes on My Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Dec 2023 09:44:50 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes</title>
+      <link>https://programmerraja.github.io/blog/notes/2023/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2023/kubernetes/</guid>
+      
+      <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster A Kubernetes cluster contains six main components:
+API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on. Controller manager: Runs controller processes and reconciles the cluster’s actual state with its desired specifications.</description>
+      
+    </item>
+    
+    <item>
+      <title>RabbitMQ Notes</title>
+      <link>https://programmerraja.github.io/blog/notes/2023/rabbitmq/</link>
+      <pubDate>Fri, 08 Dec 2023 18:26:15 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2023/rabbitmq/</guid>
+      
+      <description>Channel a channel is a separate communication channel within a single connection. Channels allow multiple concurrent exchanges to be executed in parallel, providing a way to separate different parts of your application.
+Each channel has its own set of resources, such as queues, exchanges, and bindings, which are independent of the resources used by other channels in the same connection. This allows you to manage concurrency and improve performance by isolating different parts of your application into separate channels.</description>
+      
+    </item>
+    
     <item>
       <title>MongoDB Performance Tuning Book Notes</title>
       <link>https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/</link>
@@ -14,8 +38,11 @@
       
       <guid>https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/</guid>
       
-      <description>if the write concern is set to “majority”, then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.
-Oplog →The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.</description>
+      <description>if the write concern is set to “majority”, then the database will not complete the write operation until a majority of secondaries
+receive the write. We can also set the write concern to wait until all
+secondaries or a specific number of secondaries receive the write
+operation.
+Oplog →The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these</description>
       
     </item>
     
