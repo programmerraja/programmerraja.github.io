@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Notes | programmerraja blog</title>
-<meta property="og:title" content="Notes | programmerraja blog" />
-<meta name="twitter:title" content="Notes | programmerraja blog" />
-<meta itemprop="name" content="Notes | programmerraja blog" />
-<meta name="application-name" content="Notes | programmerraja blog" />
+<title itemprop="name">Database internal book Notes | programmerraja blog</title>
+<meta property="og:title" content="Database internal book Notes | programmerraja blog" />
+<meta name="twitter:title" content="Database internal book Notes | programmerraja blog" />
+<meta itemprop="name" content="Database internal book Notes | programmerraja blog" />
+<meta name="application-name" content="Database internal book Notes | programmerraja blog" />
 <meta property="og:site_name" content="" />
 
 <meta name="description" content="">
@@ -33,9 +33,7 @@
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/">
-    <link href="/blog/notes/index.xml" rel="alternate" type="application/rss+xml" title="programmerraja blog">
-    <link href="/blog/notes/index.xml" rel="feed" type="application/rss+xml" title="programmerraja blog">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/database-internal/">
     <link href="/blog/style.min.c59e806842f648d519b3dc8840e627b8d9c4a498eb5e4c858e60db86a71c5f6f.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.4e1b30df3607fab6faaa068536572415b0ea6c4b3a10dfd609e0d070bdd7546d.css" rel="stylesheet">
 
@@ -120,131 +118,99 @@ stroke-linejoin="round" class="feather feather-home">
         </div>
     </nav>
 </div>
-<div class="wrapper list-page">
-    <header class="header">
-        <h1 class="header-title center">Notes</h1>
-        <p class="center">🌟Explore a galaxy of learning Notes🌟</p>
-    </header>
+
+<div class="wrapper post">
     <main class="page-content" aria-label="Content">
-         
-        <h2 class="post-year">2024</h2>
+        <article>
+            <header class="header">
+                <h1 class="header-title">Database internal book Notes</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-01-12T08:19:32&#43;05:30" itemprop="datePublished"> Jan 12, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-        
-         <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/docker/">Docker Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-15T08:19:32&#43;0530">
-        15 Jan 2024
-        
-    </time>
-</article>
-  <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/networking/">Networking Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-12T08:19:32&#43;0530">
-        12 Jan 2024
-        
-    </time>
-</article>
-  <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/database-internal/">Database internal book Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-12T08:19:32&#43;0530">
-        12 Jan 2024
-        
-    </time>
-</article>
-  <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/nginx/">Nginx Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-10T08:19:32&#43;0530">
-        10 Jan 2024
-        
-    </time>
-</article>
-  <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/go/">Go</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-01T11:39:28&#43;0530">
-        1 Jan 2024
-        
-    </time>
-</article>
-  <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/learning-from-blog/">Learning from blog</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-01T08:19:32&#43;0530">
-        1 Jan 2024
-        
-    </time>
-</article>
-  <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/kubernetes/">Kubernetes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-01T08:19:32&#43;0530">
-        1 Jan 2024
-        
-    </time>
-</article>
-    
-        <h2 class="post-year">2023</h2>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#storage-engines" aria-label="Storage Engines">Storage Engines</a></li>
+                <li>
+                    <a href="#row-oriented-data-layout" aria-label="Row-Oriented Data Layout">Row-Oriented Data Layout</a></li>
+                <li>
+                    <a href="#column-oriented-data-layout" aria-label="Column-Oriented Data Layout">Column-Oriented Data Layout</a></li>
+                <li>
+                    <a href="#indexing" aria-label="Indexing">Indexing</a></li>
+                <li>
+                    <a href="#hard-disk-drives" aria-label="Hard Disk Drives">Hard Disk Drives</a></li>
+                <li>
+                    <a href="#solid-state-drives" aria-label="Solid State Drives">Solid State Drives</a></li>
+                <li>
+                    <a href="#b-tree-vs-b-tree" aria-label="B-Tree vs B&#43; Tree">B-Tree vs B+ Tree</a></li>
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="storage-engines">Storage Engines</h2>
+<p>The storage engine (or database engine) is a software component of a database man‐
+agement system responsible for storing, retrieving, and managing data in memory
+and on disk, designed to capture a persistent, long-term memory of each node.</p>
+<p>Storage engines such as BerkeleyDB, LevelDB and its descendant RocksDB, LMDB
+and its descendant libmdbx, Sophia, HaloDB,</p>
+<h2 id="row-oriented-data-layout">Row-Oriented Data Layout</h2>
+<p>Row-oriented database management systems store data in records or rows. Their layout is quite close to the tabular data representation, where every row has the same set of fields.</p>
+<p>row-oriented stores are most useful in scenarios when we have to access data by row, storing entire rows together</p>
+<p>Because data on a persistent medium such as a disk is typically accessed block-wise a single block will contain data for all columns. This is great for cases when we’d like to access an entire user record, but makes queries accessing individual fields of multiple user records</p>
+<h2 id="column-oriented-data-layout">Column-Oriented Data Layout</h2>
+<p>Column-oriented database management systems partition data vertically.Here, values for the same column are stored contiguously on disk</p>
+<p>Column-oriented stores are a good fit for analytical workloads that compute aggregates, such as finding trends, computing average values, etc. Processing complex aggregates can be used in cases when logical records have multiple field</p>
+<p>Assume the table have id ,data and price which will be stored as below so if you want to calculate the total price it will be single disk read IO.</p>
+<p><code>Symbol: 1:DOW; 2:DOW; 3:S&amp;P; 4:S&amp;P</code>
+<code>Date:1:08 Aug 2018; 2:09 Aug 2018; 3:08 Aug 2018; 4:09 Aug 2018</code>
+<code>Price: 1:24,314.65; 2:24,136.16; 3:2,414.45; 4:2,232.32</code></p>
+<h2 id="indexing">Indexing</h2>
+<p>An index is a structure that organizes data records on disk in a way that facilitates
+efficient retrieval operations.</p>
+<p>There are 2 index type</p>
+<ul>
+<li><strong>Primary index :</strong> index created by the database itself using primary key</li>
+<li><strong>Secondary indexes</strong> : Created by the user based on need</li>
+</ul>
+<p><strong>Secondary indexes</strong></p>
+<p>Mostly <strong>Secondary indexes</strong> will hold the primary key index reference and primary index will hold the address for the data in memory the advantage of using this method is if update/delete is easy because updating primary index location is fine but it need 2 lookup when we searching.</p>
+<p>The way the index stored is classified in 2 types</p>
+<ul>
+<li><strong>clustered index</strong> : Where the physical order of the rows in the table corresponds to the order of the index&rsquo;s keys. let assume you have username filed as primary index then the data stored in data file be sorted based on username.</li>
+<li><strong>non clustered index</strong>: does not maintain the order of primary index</li>
+</ul>
+<h2 id="hard-disk-drives">Hard Disk Drives</h2>
+<p>On spinning disks, seeks increase costs of random reads because they require disk rotation and mechanical head movements to position the read/write head to the desired location. However, once the expensive part is done, reading or writing contiguous bytes (i.e., sequential operations) is relatively cheap.</p>
+<p>The smallest transfer unit of a spinning drive is a <strong>sector</strong>, so when some operation is
+performed, at least an entire sector can be read or written. Sector sizes typically range
+from <strong>512 bytes to 4 Kb</strong></p>
+<h2 id="solid-state-drives">Solid State Drives</h2>
+<p>SSD is built of memory cells, connected into strings (typically 32 to 64 cells per string), strings are combined into arrays,arrays are combined into <strong>pages</strong>, and pages are combined into blocks .<strong>Blocks</strong> typically contain 64 to 512 pages.</p>
+<p>The smallest unit that can be written or read is a page.</p>
+<h2 id="b-tree-vs-b-tree">B-Tree vs B+ Tree</h2>
+<p>B-Trees allow storing values on any level: in root, internal, and leaf nodes.</p>
+<p>B+ Trees store values only in leaf nodes all operations (inserting,updating, removing, and retrieving data records) affect only leaf nodes and propagate to higher levels only during splits and merges.</p>
+<h2 id="resources">Resources</h2>
+<ol>
+<li><a href="https://dbdb.io/">Discover and learn about <strong>960</strong> database management systems</a></li>
+<li><a href="https://db-engines.com/en/">Knowledge Base of Relational and NoSQL Database Management Systems</a></li>
+</ol>
 
-        
-         <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2023/rabbitmq/">RabbitMQ Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-12-08T18:26:15&#43;0530">
-        8 Dec 2023
-        
-    </time>
-</article>
-  <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2023/mongodb-performance-tuning/">MongoDB Performance Tuning Book Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2023-12-03T09:44:50&#43;0530">
-        3 Dec 2023
-        
-    </time>
-</article>
-    
-    </main>
-</div><footer class="footer">
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
 

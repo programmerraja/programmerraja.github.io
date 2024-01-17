@@ -29,12 +29,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.1">
+<meta name="generator" content="Hugo 0.121.2">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/kubernetes/">
-    <link href="/blog/style.min.a331e196842d6df0db458dbc74b8cb9d3f93dc2a4203f1ef625a27c46f956787.css" rel="stylesheet">
+    <link href="/blog/style.min.c59e806842f648d519b3dc8840e627b8d9c4a498eb5e4c858e60db86a71c5f6f.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.4e1b30df3607fab6faaa068536572415b0ea6c4b3a10dfd609e0d070bdd7546d.css" rel="stylesheet">
 
     
@@ -92,13 +92,6 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="/blog/resources/">
-                        Resources
-                    </a>
-                    
-                </li>
-                
-                <li>
                     <a class="menu-link active" href="/blog/notes/">
                         Notes
                     </a>
@@ -137,39 +130,102 @@ stroke-linejoin="round" class="feather feather-home">
                     <time datetime="2024-01-01T08:19:32&#43;05:30" itemprop="datePublished"> Jan 1, 2024 </time>
                 </div>
                 
-            </header>
-                
-                
-                <details class="toc" ZgotmplZ>
-                    <summary><b>Table of Contents</b></summary>
-                    <nav id="TableOfContents">
-  <ol>
-    <li>
-      <ol>
-        <li><a href="#kubernetes-is-two-things">Kubernetes is two things</a></li>
-        <li><a href="#kubernetes-cluster">Kubernetes cluster</a></li>
-        <li><a href="#nodes">Nodes</a></li>
-        <li><a href="#kubernetes-dns">Kubernetes DNS</a></li>
-        <li><a href="#pods-its-just-a-sandbox-for-hosting-containers">Pods (it’s just a sandbox for hosting containers.)</a></li>
-        <li><a href="#replicaset">ReplicaSet</a></li>
-        <li><a href="#deployments">Deployments</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#service-monitor">Service Monitor</a></li>
-        <li><a href="#kubernetes-storage">Kubernetes storage</a></li>
-        <li><a href="#config-maps">Config Maps</a></li>
-        <li><a href="#secretes">Secretes</a></li>
-        <li><a href="#statefulsets">StatefulSets</a></li>
-        <li><a href="#without-statefulsets">Without StatefulSets</a></li>
-        <li><a href="#with-statefulsets">With StatefulSets</a></li>
-        <li><a href="#kubectl">Kubectl</a></li>
-        <li><a href="#resources">Resources</a></li>
-        <li><a href="#products">Products</a></li>
-      </ol>
-    </li>
-  </ol>
-</nav>
-                </details>
-                <div class="page-content">
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul><ul>
+                <li>
+                    <a href="#kubernetes-is-two-things" aria-label="Kubernetes is two things">Kubernetes is two things</a></li>
+                <li>
+                    <a href="#kubernetes-cluster" aria-label="Kubernetes cluster">Kubernetes cluster</a></li>
+                <li>
+                    <a href="#nodes" aria-label="Nodes">Nodes</a></li>
+                <li>
+                    <a href="#pods-its-just-a-sandbox-for-hosting-containers" aria-label="Pods (it’s just a sandbox for hosting containers.)">Pods (it’s just a sandbox for hosting containers.)</a><ul>
+                        
+                <li>
+                    <a href="#pod-lifecycle" aria-label="Pod lifecycle">Pod lifecycle</a></li>
+                <li>
+                    <a href="#how-do-we-deploy-pods" aria-label="How do we deploy Pods">How do we deploy Pods</a></li>
+                <li>
+                    <a href="#pods-and-cgroups" aria-label="Pods and cgroups">Pods and cgroups</a></li>
+                <li>
+                    <a href="#pod-manifest-files" aria-label="Pod manifest files">Pod manifest files</a></li>
+                <li>
+                    <a href="#pod-auto-scalling" aria-label="Pod Auto Scalling">Pod Auto Scalling</a></li></ul>
+                </li>
+                <li>
+                    <a href="#replicaset" aria-label="ReplicaSet">ReplicaSet</a></li>
+                <li>
+                    <a href="#deployments" aria-label="Deployments">Deployments</a><ul>
+                        
+                <li>
+                    <a href="#difference-between-pod-and-deployments" aria-label="Difference between pod and Deployments">Difference between pod and Deployments</a></li>
+                <li>
+                    <a href="#reconciliation-loops" aria-label="Reconciliation loops">Reconciliation loops</a></li>
+                <li>
+                    <a href="#rolling-updates-with-deployments" aria-label="Rolling updates with Deployments">Rolling updates with Deployments</a></li></ul>
+                </li>
+                <li>
+                    <a href="#yaml-file-explained" aria-label="Yaml file explained">Yaml file explained</a><ul>
+                        
+                <li>
+                    <a href="#api-version" aria-label="API Version">API Version</a></li>
+                <li>
+                    <a href="#kind" aria-label="Kind">Kind</a></li>
+                <li>
+                    <a href="#metadata" aria-label="Metadata">Metadata</a></li>
+                <li>
+                    <a href="#spec" aria-label="Spec">Spec</a></li></ul>
+                </li>
+                <li>
+                    <a href="#what-happend-when-we-apply-yml-file" aria-label="What happend when we apply yml file">What happend when we apply yml file</a></li>
+                <li>
+                    <a href="#probe" aria-label="Probe">Probe</a></li>
+                <li>
+                    <a href="#services" aria-label="Services">Services</a></li>
+                <li>
+                    <a href="#types" aria-label="Types">Types</a></li>
+                <li>
+                    <a href="#ingress" aria-label="Ingress">Ingress</a></li>
+                <li>
+                    <a href="#endpoint-objects" aria-label="Endpoint Objects">Endpoint Objects</a></li>
+                <li>
+                    <a href="#kubernetes-dns" aria-label="Kubernetes DNS">Kubernetes DNS</a></li>
+                <li>
+                    <a href="#kubernetes-storage" aria-label="Kubernetes storage">Kubernetes storage</a></li>
+                <li>
+                    <a href="#config-maps" aria-label="Config Maps">Config Maps</a></li>
+                <li>
+                    <a href="#secretes" aria-label="Secretes">Secretes</a></li>
+                <li>
+                    <a href="#statefulsets" aria-label="StatefulSets">StatefulSets</a></li>
+                <li>
+                    <a href="#kubectl" aria-label="Kubectl">Kubectl</a></li>
+                <li>
+                    <a href="#best-practices" aria-label="best practices">best practices</a><ul>
+                        
+                <li>
+                    <a href="#preventing-broken-connections-during-pod-shutdown" aria-label="Preventing broken connections during pod shutdown">Preventing broken connections during pod shutdown</a></li></ul>
+                </li>
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a></li></ul>
+                    
+                <li>
+                    <a href="#internal-resources" aria-label="Internal Resources">Internal Resources</a><ul>
+                        
+                <li>
+                    <a href="#products" aria-label="Products">Products</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
                 <h3 id="kubernetes-is-two-things">Kubernetes is two things</h3>
 <ul>
 <li>A cluster for running applications</li>
@@ -180,10 +236,10 @@ stroke-linejoin="round" class="feather feather-home">
 <ol>
 <li><code>API server:</code> Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane.</li>
 <li><code>Scheduler</code>: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on.</li>
-<li><code>Controller manager</code>: Runs controller processes and reconciles the cluster’s actual state with its desired specifications. Manages controllers such as node controllers, endpoints controllers and replication controllers.</li>
+<li><code>Controller manager</code>: Runs controller processes and reconciles the cluster’s actual state with its desired specifications. Manages controllers such as node controllers, endpoints controllers,replica,statefulset,cron and replication controllers.</li>
 <li><code>Kubelet</code>: Ensures that containers are running in a Pod by interacting with the Docker engine , the default program for creating and managing containers. Takes a set of provided PodSpecs and ensures that their corresponding containers are fully operational.</li>
 <li><code>Kube-proxy</code>: Manages network connectivity and maintains network rules across nodes. Implements the Kubernetes Service concept across every node in a given cluster.</li>
-<li><code>Etcd:</code> Stores all cluster data like how many pod and there replica count . Consistent and highly available Kubernetes backing store.</li>
+<li><code>Etcd:</code> Stores all cluster data like how many pod and there replica count . Consistent and highly available Kubernetes backing store. all yaml file and current pod status are stored here</li>
 </ol>
 <p><strong>Ways to create kubernetes cluster</strong></p>
 <ul>
@@ -220,18 +276,18 @@ stroke-linejoin="round" class="feather feather-home">
 <p><strong>Kube-proxy</strong> →This runs on every node in the cluster and is responsible for local cluster networking. For example, it makes sure each node gets its own unique IP address, and implements local IPTABLES or IPVS rules to handle routing and load-balancing of traffic on the Pod network.</p>
 </li>
 </ul>
-<h3 id="kubernetes-dns">Kubernetes DNS</h3>
-<p>Every Pod on the cluster, meaning all containers and Pods know how to find it. Every new service is automatically registered with the cluster’s DNS so that all components in the cluster can find every Service by name. Some other components that are registered with the cluster DNS are StatefulSets and the individual Pods that a StatefulSet manages.Cluster DNS is based on CoreDNS (<a href="https://coredns.io/">https://coredns.io/</a>).</p>
+<p><strong>Resources mangement</strong></p>
+<p>When the node is running out of the resources for the pod. it will kill the pod that does not have resources mentioned in deployment file.</p>
 <h3 id="pods-its-just-a-sandbox-for-hosting-containers">Pods (it’s just a sandbox for hosting containers.)</h3>
-<p>In the VMware world, the atomic unit of scheduling is the virtual machine (VM). In the Docker world, it’s the container. Well… in the Kubernetes world, it’s the Pod. The simplest model is to run a single container per Pod. However, there are advanced use-cases that run multiple containers inside a single Pod. <code>An infrastructure-centric use-case for multi-container Pods is a service mesh.</code></p>
-<p><strong>Pod lifecycle</strong></p>
+<p>The simplest model is to run a single container per Pod. However, there are advanced use-cases that run multiple containers inside a single Pod. <code>An infrastructure-centric use-case for multi-container Pods is a service mesh.</code></p>
+<h4 id="pod-lifecycle">Pod lifecycle</h4>
 <p>Pods are mortal. They’re created, they live, and they die. If they die unexpectedly, you don’t bring them back to life. Instead, Kubernetes starts a new one in its place</p>
-<p><strong>How do we deploy Pods</strong></p>
-<p>To deploy a Pod to a Kubernetes cluster you define it in a manifest file and POST that manifest file to the API Server. The control plane verifies the configuration of the YAML file, writes it to the cluster store as a record of intent, and the scheduler deploys it to a healthy node with enough available resources. This process is identical for single-container Pods and multi-container Pods.</p>
+<h4 id="how-do-we-deploy-pods">How do we deploy Pods</h4>
+<p>To deploy a Pod to a Kubernetes cluster you define it in a manifest file and POST that manifest file to the API Server. The control panel verifies the configuration of the YAML file, writes it to the cluster store as a record of intent, and the scheduler deploys it to a healthy node with enough available resources. This process is identical for single-container Pods and multi-container Pods.</p>
 <p>We can also run the Pod directly mention the docker image <code>kubctl run podName --image=nignix:alpline</code></p>
-<p><strong>Pods and cgroups</strong></p>
+<h4 id="pods-and-cgroups">Pods and cgroups</h4>
 <p>At a high level, Control Groups (cgroups) are a Linux kernel technology that prevents individual containers from consuming all of the available CPU, RAM and IOPS on a node. You could say that cgroups actively police resource usage.Individual containers have their own cgroup limits.</p>
-<p><strong>Pod manifest files</strong></p>
+<h4 id="pod-manifest-files">Pod manifest files</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
@@ -246,17 +302,59 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
 </span></span></span></code></pre></div><ul>
-<li>The .apiVersion field tells you two things – the API group and the API version.</li>
-<li>.kind field tells Kubernetes the type of object is being deployed.</li>
-<li>.metadata section is where you attach a name and labels These help you identify the object in the cluster, as well as create loose couplings between different objects. You can also define the Namespace that an object should be deployed to. Keeping things brief, <code>Namespaces are a way to logically divide a cluster into multiple virtual clusters for management purposes.</code> In the real world, it’s highly recommended to use namespaces, however, you should not think of them as strong security boundaries.</li>
-<li>The .spec section is where you define the containers that will run in the Pod.</li>
-<li><code>kubectl apply -f pod.yml</code> →command to POST the manifest to the API server.</li>
-<li><code>kubectl get pods</code> →command to check the status.</li>
-<li><code>kubectl get pods hello-pod -o yaml</code> → To get more details about pod</li>
-<li><code>kubectl describe pods hello-pod</code> →This provides a nicely formatted multi-line overview of an object. It even includes some important object lifecycle events.</li>
-<li><code>kubectlexec -it hello-pod --sh</code> →command will log-in to the first container</li>
+<li>
+<p>The .apiVersion field tells you two things – the API group and the API version.</p>
+</li>
+<li>
+<p>.kind field tells Kubernetes the type of object is being deployed.</p>
+</li>
+<li>
+<p>.metadata section is where you attach a name and labels These help you identify the object in the cluster, as well as create loose couplings between different objects. You can also define the Namespace that an object should be deployed to. Keeping things brief, <code>Namespaces are a way to logically divide a cluster into multiple virtual clusters for management purposes.</code> In the real world, it’s highly recommended to use namespaces, however, you should not think of them as strong security boundaries.</p>
+</li>
+<li>
+<p>The .spec section is where you define the containers that will run in the Pod.</p>
+</li>
+<li>
+<p><code>kubectl apply -f pod.yml</code> →command to POST the manifest to the API server.</p>
+</li>
+<li>
+<p><code>kubectl get pods</code> →command to check the status.</p>
+</li>
+<li>
+<p><code>kubectl get pods hello-pod -o yaml</code> → To get more details about pod</p>
+</li>
+<li>
+<p><code>kubectl describe pods hello-pod</code> →This provides a nicely formatted multi-line overview of an object. It even includes some important object lifecycle events.</p>
+</li>
+<li>
+<p><code>kubectlexec -it hello-pod --sh</code> →command will log-in to the first container</p>
+</li>
 </ul>
-<h3 id="replicaset">ReplicaSet</h3>
+<h4 id="pod-auto-scalling">Pod Auto Scalling</h4>
+<p>Types</p>
+<ul>
+<li>Cluster  (add more nodes when then cluster is full)</li>
+<li>Horizontal pod autoscale (scale up pod up and down based on metrics)</li>
+<li>Vertical pod autoscale (increase the resoures limit tool avalible for vertical pod autoscaler)</li>
+</ul>
+<p><strong>Horizontal Pod Autoscaling (HPA):</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">autoscaling/v2beta2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">HorizontalPodAutoscaler</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-app-hpa</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">scaleTargetRef</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-app-deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">minReplicas</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">maxReplicas</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">metrics</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">Resource</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">resource</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">cpu</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetAverageUtilization</span><span class="p">:</span><span class="w"> </span><span class="m">50</span><span class="w">
+</span></span></span></code></pre></div><h3 id="replicaset">ReplicaSet</h3>
 <p>To deploy multiple instance. A ReplicaSet is defined with fields, including a selector that specifies how to identify Pods it can acquire, a number of replicas indicating how many Pods it should be maintaining, and a pod template specifying the data of new Pods it should create to meet the number of replicas criteria. A ReplicaSet then fulfills its purpose by creating and deleting Pods as needed to reach the desired number. When a ReplicaSet needs to create new Pods, it uses its Pod template.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">apiVersion</span><span class="o">:</span> <span class="nx">apps</span><span class="o">/</span><span class="nx">v1</span>
 </span></span><span class="line"><span class="cl"><span class="nx">kind</span><span class="o">:</span> <span class="nx">ReplicaSet</span>
@@ -288,13 +386,13 @@ stroke-linejoin="round" class="feather feather-home">
 <p>Deploy Pods indirectly via a higher-level controller. Examples of higher-level controllers include; Deployments, DaemonSets, and StatefulSets.</p>
 <p>For example, a Deployment is a higher-level Kubernetes object that wraps around a particular Pod and adds features such as scaling, zero-downtime updates, and versioned rollbacks.</p>
 <p>Behind the scenes, Deployments, DaemonSets and StatefulSets implement a controller and a watch loop that is constantly observing the cluster making sure that current state matches desired state.</p>
-<p><strong>Difference between pod and Deployments</strong></p>
+<h4 id="difference-between-pod-and-deployments">Difference between pod and Deployments</h4>
 <p>Pods don’t self-heal, they don’t scale, and they don’t allow for easy updates or rollbacks. Deployments do all of these. As a result, you’ll almost always deploy Pods via a Deployment controller.</p>
 <p><code>Desired state</code> is what you want. Current state is what you have. If the two match, everybody’s happy.</p>
 <p><code>The declarative model</code> is a way of telling Kubernetes what your desired state is, without having to get into the detail of how to implement it. You leave the how up to Kubernetes.</p>
-<p><strong>Reconciliation loops</strong></p>
+<h4 id="reconciliation-loops">Reconciliation loops</h4>
 <p>Fundamental to desired state is the concept of background reconciliation loops (a.k.a. control loops). For example, ReplicaSets implement a background reconciliation loop that is constantly checking whether the right number of Pod replicas are present on the cluster. If there aren’t enough, it adds more. If there are too many, it terminates some. To be crystal clear, Kubernetes is constantly making sure that current state matches desired state.</p>
-<p><strong>Rolling updates with Deployments</strong></p>
+<h4 id="rolling-updates-with-deployments">Rolling updates with Deployments</h4>
 <p>Now, assume you’ve experienced a bug, and you need to deploy an updated image that implements a fix. To do this, you update the same Deployment YAML file with the new image version and re-POST it to the API server. This registers a new desired state on the cluster, requesting the same number of Pods, but all running the new version of the image. To make this happen, Kubernetes creates a new ReplicaSet for the Pods with the new image.You now have two ReplicaSets – the original one for the Pods with the old version of the image, and a new one for the Pods with the updated version. Each time Kubernetes increases the number of Pods in the new ReplicaSet (with the new version of the image) it decreases the number of Pods in the old ReplicaSet (with the old versionof the image). Net result, you get a smooth rolling update with zero downtime.</p>
 <p><strong>Deployments manifest files</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w"> </span><span class="c">#Older versions of k8s use apps/v1beta1</span><span class="w">
@@ -322,60 +420,208 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nigelpoulton/k8sbook:latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="nt">request</span><span class="p">:</span><span class="w"> </span><span class="l">(A minimum value)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="nt">cpu </span><span class="p">:</span><span class="w"> </span><span class="l">1m</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l">1024Mi (in MB)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">				</span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="l">(A maxx value can be used)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l">3m</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">					</span><span class="nt">memory</span><span class="p">:</span><span class="w"> 
 </span></span></span></code></pre></div><ul>
-<li><code>The .spec</code> section is where most of the action happens. Anything directly below .spec relates to the Pod. Anything nested below</li>
-<li><code>.spec.template</code> relates to the Pod template that the Deployment will manage. In this example, the Pod template defines a single container.</li>
-<li><code>.spec.replicas</code> tells Kubernetes how may Pod replicas to deploy</li>
-<li><code>.spec.selector</code> is a list of labels that Pods must have in order for the Deployment to manage them.</li>
-<li><code>.spec.strategy</code> tells Kubernetes how to perform updatesto the Pods managed by the Deployment.Update using the RollingUpdate strategy
+<li>
+<p><code>The .spec</code> section is where most of the action happens. Anything directly below .spec relates to the Pod. Anything nested below</p>
+</li>
+<li>
+<p><code>.spec.template</code> relates to the Pod template that the Deployment will manage. In this example, the Pod template defines a single container.</p>
+</li>
+<li>
+<p><code>.spec.replicas</code> tells Kubernetes how may Pod replicas to deploy</p>
+</li>
+<li>
+<p><code>.spec.selector</code> is a list of labels that Pods must have in order for the Deployment to manage them.</p>
+</li>
+<li>
+<p><code>.spec.strategy</code> tells Kubernetes how to perform updatesto the Pods managed by the Deployment.Update using the RollingUpdate strategy</p>
 <ul>
 <li>Never have more than one Pod below desired state ( maxUnavailable: 1 )</li>
 <li>Never have more than one Pod above desired state ( maxSurge: 1 )</li>
 </ul>
 </li>
-<li><code>.spec.minReadySeconds</code> This is set to 10 , telling Kubernetes to wait for 10 seconds between each Pod being updated.(on new deployment)</li>
-<li><code>kubectl apply -f deploy.yml</code> → will send the yml to API server to deploy</li>
-<li><code>kubectl get deploy hello-deploy</code></li>
-</ul>
-<h3 id="services">Services</h3>
-<p>When newly pods created are scaled it will have new IP so if we have other pod communicating with it. it is unrealible.This is where Services come in to play. Services provide reliable networking for a set of Pods.</p>
-<p>They operate at the TCP and UDP layer, Services do not possess application intelligence and cannot provide application-layer host and path routing. For that, you need an Ingress, which understands HTTP and provides host and path-based routing.</p>
-<p>Services use labels and a label selector to know which set of Pods to load-balance traffic to. The Service has a label selector that is a list of all the labels a Pod must possess in order for it to receive traffic from the Service.</p>
-<p><strong>Endpoint Objects</strong></p>
-<p>Kubernetes is constantly evaluating the Service’s label selector against the current list of healthy Pods on the cluster. Any new Pods that match the selector get added to the <code>Endpoints object</code>, and any Pods that disappear get removed. This means the Endpoints object is always up to date. Then, when a Service is sending traffic to Pods, it queries its Endpoints object for the latest list of healthy matching Pods. Every Service gets its own Endpoints object with the same name as the Service.This object holds a list of all the Pods the Service matches and is dynamically updated as matching Pods come and go.</p>
-<p>Types</p>
-<ul>
 <li>
-<p>ClusterIP [default]</p>
+<p><code>.spec.minReadySeconds</code> This is set to 10 , telling Kubernetes to wait for 10 seconds between each Pod being updated.(on new deployment)</p>
+</li>
+<li>
+<p><code>resources</code> to allocate the min and max resources need for the Pod before make sure that node have enough resources to allocate it by <code>kubctl describe node</code></p>
+</li>
+<li>
+<p>if we not specifiy the resources it take full node resources as it needed.</p>
+</li>
+<li>
+<p><code>kubectl apply -f deploy.yml</code> → will send the yml to API server to deploy</p>
+</li>
+<li>
+<p><code>kubectl get deploy hello-deploy</code></p>
+</li>
+</ul>
+<h3 id="yaml-file-explained">Yaml file explained</h3>
+<h4 id="api-version">API Version</h4>
+<p>specifies the version of the Kubernetes API that should be used for the resource described in that file.The format of the <code>apiVersion</code> field is typically <code>&lt;group&gt;/&lt;version&gt;</code></p>
+<p><strong>Type of groups</strong></p>
+<ol>
+<li><strong>Core API Group (<code>v1</code>):</strong> Resources like <code>Pod</code>, <code>Service</code>, <code>Namespace</code>, <code>PersistentVolume</code>, <code>PersistentVolumeClaim</code>, etc. use  <code>apiVersion: v1</code></li>
+<li><strong>Apps API Group (<code>apps/v1</code>, <code>apps/v1beta1</code>, <code>apps/v1beta2</code>):</strong> for managing higher-level abstractions of applications and workloads, including <code>Deployment</code>, <code>StatefulSet</code>, <code>ReplicaSet</code>, and <code>DaemonSet</code>.</li>
+<li><strong>Batch API Group (<code>batch/v1</code>, <code>batch/v1beta1</code>):</strong> related to batch processing, such as <code>Job</code> and <code>CronJob</code>.</li>
+<li><strong>Networking API Group (<code>networking.k8s.io/v1</code>, <code>networking.k8s.io/v1beta1</code>):</strong> related to networking, including <code>NetworkPolicy</code>.</li>
+</ol>
+<h4 id="kind">Kind</h4>
+<p>The type of resource being defined.</p>
+<ol>
+<li><strong>Pod:</strong>
+<ul>
+<li>Represents a single instance of a running process in a cluster.</li>
+</ul>
+</li>
+<li><strong>Service:</strong>
+<ul>
+<li>Defines a set of Pods and a policy to access them as a network service.</li>
+</ul>
+</li>
+<li><strong>ReplicationController:</strong>
+<ul>
+<li>Ensures a specified number of replicas for a set of Pods. Deprecated in favor of Deployments and ReplicaSets.</li>
+</ul>
+</li>
+<li><strong>Deployment:</strong>
+<ul>
+<li>Declaratively manages a desired state for Pods and ReplicaSets.</li>
+</ul>
+</li>
+<li><strong>StatefulSet:</strong>
+<ul>
+<li>Manages the deployment and scaling of a set of Pods with unique identities.</li>
+</ul>
+</li>
+<li><strong>DaemonSet:</strong>
+<ul>
+<li>Ensures that a specified Pod runs on each node in the cluster.</li>
+</ul>
+</li>
+<li><strong>ReplicaSet:</strong>
+<ul>
+<li>Ensures a specified number of replicas for a set of Pods. Often used by Deployments.</li>
+</ul>
+</li>
+<li><strong>Job:</strong>
+<ul>
+<li>Creates one or more Pods and ensures they run to completion.</li>
+</ul>
+</li>
+<li><strong>CronJob:</strong>
+<ul>
+<li>Creates Jobs on a schedule specified by a cron expression.</li>
+</ul>
+</li>
+<li><strong>Namespace:</strong>
+<ul>
+<li>Provides a way to divide cluster resources into multiple virtual clusters.</li>
+</ul>
+</li>
+<li><strong>ConfigMap:</strong>
+<ul>
+<li>Holds configuration data as key-value pairs for Pods to consume.</li>
+</ul>
+</li>
+<li><strong>Secret:</strong>
+<ul>
+<li>Stores sensitive information, such as passwords or API keys, as key-value pairs.</li>
+</ul>
+</li>
+<li><strong>Ingress:</strong>
+<ul>
+<li>Manages external access to services in a cluster, typically HTTP.</li>
+</ul>
+</li>
+<li><strong>NetworkPolicy:</strong>
+<ul>
+<li>Specifies how groups of Pods are allowed to communicate with each other and other network endpoints.</li>
+</ul>
+</li>
+<li><strong>ServiceAccount:</strong>
+<ul>
+<li>Provides an identity for processes that run in a Pod.</li>
+</ul>
+</li>
+<li><strong>PersistentVolume:</strong>
+<ul>
+<li>Represents a piece of networked storage in the cluster that can be mounted into a Pod.</li>
+</ul>
+</li>
+<li><strong>PersistentVolumeClaim:</strong>
+<ul>
+<li>Requests a specific amount of storage from a PersistentVolume.</li>
+</ul>
+</li>
+<li><strong>Role and RoleBinding:</strong>
+<ul>
+<li>Define access controls within a namespace.</li>
+</ul>
+</li>
+<li><strong>ClusterRole and ClusterRoleBinding:</strong>
+<ul>
+<li>Define access controls across the entire cluster.</li>
+</ul>
+</li>
+<li><strong>HorizontalPodAutoscaler:</strong>
+<ul>
+<li>Automatically adjusts the number of Pods in a deployment or replica set.</li>
+</ul>
+</li>
+</ol>
+<h4 id="metadata">Metadata</h4>
+<p>used to provide data about the resource itself</p>
+<ol>
+<li><strong><code>name</code></strong> Specifies a name for the resource. The name must be unique within its namespace for most resource types.</li>
+<li><strong><code>namespace</code></strong> the namespace in which the resource should be created.</li>
+<li><strong><code>labels</code></strong> map of key-value pairs that can be used to organize and categorize resources</li>
+</ol>
+<h4 id="spec">Spec</h4>
+<p>is used to define the desired state of the resource. The <code>spec</code> section contains the configuration parameters and settings that specify how the resource should behave. The structure of the <code>spec</code> field varies depending on the type of resource being defined, as each resource type has its own set of properties and specifications.</p>
+<h3 id="what-happend-when-we-apply-yml-file">What happend when we apply yml file</h3>
+<p>when we run <code>kubctl apply -f name.yml</code></p>
+<ul>
+<li>The <code>kubectl</code> command communicates with the Kubernetes API server.The API server performs several tasks, including authentication, authorization, validation, and admission control. Once the YAML file has passed validation and admission control, the API server persists the resource information in <strong>etcd</strong>.</li>
+<li>Controllers in Kubernetes operate on a watch loop. They continuously watch for changes in the desired state of resources by querying etcd for updates.When a new resource is stored in etcd, controllers that are responsible for that resource type are notified.</li>
+<li>Based on the reconciled desired state, controllers initiate actions to bring the cluster to the desired state. In the case of a Deployment, this may involve creating new Pods to meet the specified replica count.</li>
+<li>Controller store the Pod object to etcd then the Scheduler is responsible for assigning Pods to available nodes in the cluster.It selects an appropriate node based on factors such as available resources, node affinity/anti-affinity rules, and other constraints specified in the Pod&rsquo;s configuration</li>
+<li>Next <strong>Kubelet</strong> get notified for actually creating and managing the containers within Pods</li>
+<li>Once <strong>Kubelet</strong> run the pod sucessfully it update the status on <strong>etcd</strong>.</li>
+</ul>
+<h3 id="probe">Probe</h3>
+<ol>
+<li><strong>Liveness Probe</strong> indicates if the container is operating. If so, no action is taken. If not, the kubelet kills and restarts the container.</li>
+<li><strong>Readiness Probe</strong> indicates whether the application running in the container is ready to accept requests. If so, Services matching the pod are allowed to send traffic to it. If not, the endpoints controller removes the pod from all matching Kubernetes Services.<code>Note:</code><strong>If you don&rsquo;t set the readiness probe, the kubelet assumes that the app is ready to receive traffic as soon as the container starts. If the container takes 2 minutes to start, all the requests to it will fail for those 2 minutes.</strong></li>
+<li><strong>Startup Probe</strong> indicates whether the application running in the container has started. If so, other probes start functioning. If not, the kubelet kills and restarts the container.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w"> </span><span class="nt">readinessProbe</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">httpGet</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/ready</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span></code></pre></div><h3 id="services">Services</h3>
+<p>When newly pods created are scaled it will have new IP so if we have other pod communicating with it. it is unrealible.This is where Services come in to play. Services provide reliable networking for a set of Pods.</p>
+<p>They operate at the TCP and UDP layer, Services do not possess application intelligence and cannot provide application-layer host and path routing.for that we use ingress</p>
+<p>Services use labels and a label selector to know which set of Pods to load-balance traffic to.</p>
+<p>kube-proxy is responsible for all assign the IP , forwarding packet, load balancing etc.</p>
+<h3 id="types">Types</h3>
+<p><strong>ClusterIP</strong> (default)</p>
 <ul>
 <li>has a stable IP address and port that is only accessible from inside the cluster</li>
-<li>Creating a new Service called “magic-sandbox” will trigger the following. Kubernetes will register the name“magic-sandbox”, along with the ClusterIP and port, with the <code>cluster’s DNS service</code>. The name, ClusterIP, and port are guaranteed to be long-lived and stable, and all Pods in the cluster send service discovery requests to the internal DNS and will therefore be able to resolve “magic-sandbox” to the ClusterIP. IPTABLES or IPVS rules are distributed across the cluster that ensure traffic sent to the ClusterIP gets routed to Pods on the backend</li>
-</ul>
-</li>
-<li>
-<p>Headless service → To directly communicate with master not with replica</p>
-</li>
-<li>
-<p>NodePort service →This builds on top of ClusterIP and enables access from outside of the cluster.[static ip]</p>
-<ul>
-<li>
-<p>Port range can be only between 30000 to 32767</p>
-</li>
-<li>
-<p>Image</p>
-<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/e64b9889-d141-4df9-87a5-acae52ef24ab/57e57957-a7ea-4ca7-843b-96cc3bcb5836/Untitled.png" alt="Untitled"></p>
-</li>
-</ul>
-</li>
-<li>
-<p>Loadbalancer</p>
-</li>
+<li>It will get registered in kube DNS and when every Pod IP change kube will take care of it so we can just use the service name to communicate</li>
 </ul>
 <p><strong>Service YAML</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hello-svc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hello-svc</span><span class="w"> </span><span class="c">#Name registered with cluster DNS</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w"> </span><span class="c">#the port the service need to be listen</span><span class="w">
@@ -405,21 +651,75 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nt">containers</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">		</span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">hello-ctr</span><span class="w">
 </span></span></span></code></pre></div><ul>
-<li>the Service has a label selector ( <code>.spec.selector</code> ) with a single value app=hello-world . This is the label that the Service is looking for when it queries the cluster for matching Pods.</li>
-<li>The Deployment specifies a Pod template with the same app=hello-world label ( <code>.spec.template.metadata.labels</code> )</li>
-<li>the Service will select all 10 Pod replicas and provide them with a stable networking endpoint and load-balance traffic to them.</li>
-<li><code>kubectl get services</code> → Will list all service with IP get the IP from here</li>
-</ul>
-<p><strong>How to use service</strong></p>
+<li>
+<p>the Service has a label selector ( <code>.spec.selector</code> ) with a single value app=hello-world  This is the label that the Service is looking for when it queries the cluster for matching Pods.</p>
+</li>
+<li>
+<p>The Deployment specifies a Pod template with the same app=hello-world label ( <code>.spec.template.metadata.labels</code> )</p>
+</li>
+<li>
+<p>the Service will select all 10 Pod replicas and provide them with a stable networking endpoint and load-balance traffic to them.</p>
+</li>
+<li>
+<p><code>kubectl get services</code> → Will list all service with IP get the IP from here</p>
+</li>
+<li>
 <p>To connect with service user the service name or ip by <code>kubectl get services</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">Redis</span><span class="p">(</span><span class="nx">host</span><span class="o">=</span><span class="s2">&#34;servicename&#34;</span><span class="p">,</span><span class="nx">port</span><span class="o">=</span><span class="s2">&#34;8080&#34;</span><span class="p">)</span>
-</span></span></code></pre></div><p><strong>Service discovery</strong></p>
-<p>There are two major components to service discovery:</p>
-<ul>
-<li>Service registration</li>
-<li>Service discovery</li>
+</li>
+<li>
+<p><code>Redis(host=&quot;servicename&quot;,port=&quot;8080&quot;)</code> in code level to acess the Pod</p>
+</li>
 </ul>
-<p><strong>Ingress</strong></p>
+<p><strong>Headless service:</strong></p>
+<ul>
+<li>Sometimes you don&rsquo;t need load-balancing and a single Service IP. In this case, you can create what are termed <em>headless Services</em>, by explicitly specifying <code>&quot;None&quot;</code> for the  cluster IP address</li>
+</ul>
+<p><strong>NodePort service:</strong></p>
+<ul>
+<li>This builds on top of ClusterIP and enables access from outside of the cluster (static ip). Port range can be only between 30000 to 32767</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">my-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app.kubernetes.io/name</span><span class="p">:</span><span class="w"> </span><span class="l">MyApp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># By default and for convenience, the `targetPort` is set to</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># the same value as the `port` field.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Optional field</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># By default and for convenience, the Kubernetes control plane</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># will allocate a port from a range (default: 30000-32767)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">nodePort</span><span class="p">:</span><span class="w"> </span><span class="m">30007</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Loadbalancer Service</strong></p>
+<ul>
+<li>On cloud providers which support external load balancers, setting the <code>type</code> field to <code>LoadBalancer</code> provisions a load balancer for your Service. example <strong>ingress</strong></li>
+</ul>
+<h3 id="ingress">Ingress</h3>
+<p>An Ingress is an API object that provides HTTP and HTTPS routing to services based on rules defined by the user.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">networking.k8s.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">example-ingress</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l">myapp.example.com</span><span class="w"> </span><span class="c">#like ngnix it will accept only the request came form the domain</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">pathType</span><span class="p">:</span><span class="w"> </span><span class="l">Prefix</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">backend</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">service</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">myapp-service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span></code></pre></div><p><strong>Ingress Controller</strong> is a component responsible for implementing the rules defined in the Ingress resource. It watches for changes to Ingress resources and configures the underlying load balancer or reverse proxy to handle incoming requests accordingly. Popular Ingress Controllers include NGINX Ingress Controller, Traefik, and HAProxy Ingress</p>
+<h3 id="endpoint-objects">Endpoint Objects</h3>
+<p>Kubernetes is constantly evaluating the Service’s label selector against the current list of healthy Pods on the cluster. Any new Pods that match the selector get added to the <code>Endpoints object</code>, and any Pods that disappear get removed. This means the Endpoints object is always up to date. Then, when a Service is sending traffic to Pods, it queries its Endpoints object for the latest list of healthy matching Pods. Every Service gets its own Endpoints object with the same name as the Service.This object holds a list of all the Pods the Service matches and is dynamically updated as matching Pods come and go.</p>
 <p>CMD</p>
 <ul>
 <li><code>kubectl get pod -o wide</code> → will display the IP</li>
@@ -427,9 +727,10 @@ stroke-linejoin="round" class="feather feather-home">
 <li><code>kubectl get svc hello-svc</code> →Introspecting Services display the IP</li>
 <li><code>kubectl get ep hello-svc</code> →the Endpoint controller’s</li>
 </ul>
-<h3 id="service-monitor">Service Monitor</h3>
+<h3 id="kubernetes-dns">Kubernetes DNS</h3>
+<p>Every Pod on the cluster, meaning all containers and Pods know how to find it. Every new service is automatically registered with the cluster’s DNS so that all components in the cluster can find every Service by name. Some other components that are registered with the cluster DNS are StatefulSets and the individual Pods that a StatefulSet manages.Cluster DNS is based on CoreDNS (<a href="https://coredns.io/">https://coredns.io/</a>).</p>
 <h3 id="kubernetes-storage">Kubernetes storage</h3>
-<p>When we restart the pod the data stored in pod will go to solve this we using Kubernetes storage</p>
+<p>When we restart the pod the data stored in pod will go. To solve this we using Kubernetes storage</p>
 <p><strong>Storage for single pod</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
@@ -505,9 +806,9 @@ stroke-linejoin="round" class="feather feather-home">
 </ul>
 </li>
 <li>
-<p>Deploy the PV by kubctl -f apply filename.yml</p>
+<p>Deploy the PV by<code> kubctl -f apply filename.yml</code></p>
 <ul>
-<li><strong>kubctl get pv</strong> &gt; to get all PV</li>
+<li><strong>kubctl get pv</strong> : to get all PV</li>
 <li>PV are not bound to namespace it can be accesed by any namspace</li>
 </ul>
 </li>
@@ -570,7 +871,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">multimap</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">data</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">DB_URL</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">DB_URL</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w"> </span><span class="c"># this can be acessed as var</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">.env </span><span class="p">:</span><span class="w"> </span><span class="l">|</span><span class="w"> </span><span class="c"># these content stored in file name called .env on pod </span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="l">env = plex-test</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="l">endpoint = 0.0.0.0:31001</span><span class="w">
@@ -579,7 +880,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w">			</span><span class="l">log-size = 512M</span><span class="w">
 </span></span></span></code></pre></div><ul>
 <li><code>kubectl apply -f multimap.yml</code></li>
-<li>Use Pipe (|) to create a file</li>
+<li>Use Pipe (|) to create a as .env file</li>
 </ul>
 <p><strong>Injecting ConfigMap data into Pods and containers</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
@@ -641,31 +942,106 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/etc/secret-volume&#34;</span><span class="w">
 </span></span></span></code></pre></div><h3 id="statefulsets">StatefulSets</h3>
 <p>StatefulSets in Kubernetes are a resource type used to manage stateful applications, particularly those that require unique identities, stable network identifiers, and stable persistent storage. They are used for applications like databases where each instance needs a specific identity and state.</p>
-<h3 id="without-statefulsets">Without StatefulSets</h3>
-<p>Without StatefulSets, deploying MongoDB in Kubernetes might lead to challenges:</p>
-<ul>
-<li><strong>Pod Identity:</strong> Pods get random names, and their identities might change upon restarts or rescheduling. MongoDB instances require consistent and predictable identities for proper replication setup and cluster coordination.</li>
-<li><strong>Storage:</strong> MongoDB needs persistent storage for its data files. Without StatefulSets, ensuring each pod has its own persistent volume becomes complex. If a pod is rescheduled or fails, data integrity can be compromised.</li>
-</ul>
-<h3 id="with-statefulsets">With StatefulSets</h3>
 <p>Using StatefulSets for MongoDB:</p>
 <ul>
 <li><strong>Pod Identity:</strong> StatefulSets assign stable, predictable identities (like <strong><code>mongo-0</code></strong>, <strong><code>mongo-1</code></strong>, etc.) to each MongoDB instance. This ensures consistency and stability crucial for proper replication and cluster coordination.</li>
 <li><strong>Storage:</strong> StatefulSets facilitate the use of persistent volumes, ensuring that each MongoDB instance has its dedicated and persistent storage. Even if a pod fails or needs to be rescheduled, the data remains intact and can be reattached to a new pod with the same identity.</li>
 </ul>
 <p><strong>StatefulSet Pod naming</strong></p>
-<p>All Pods managed by a StatefulSet get predictable and persistent names. These names are vital, and are at the core of how Pods are started, self-healed, scaled, deleted, attached to volumes, and more. The format of StatefulSet Pod names is <StatefulSetName>-<Integer> . The integer is a zero-based index ordinal, which is just a fancy way of saying “number starting from 0”</p>
+<p>All Pods managed by a StatefulSet get predictable and persistent names. These names are vital, and are at the core of how Pods are started, self-healed, scaled, deleted, attached to volumes, and more. The format of StatefulSet Pod names is <code>StatefulSetName-Integer</code> . The integer is a zero-based index ordinal, which is just a fancy way of saying “number starting from 0”</p>
 <p><strong>Ordered creation and deletion</strong></p>
 <p>StatefulSets create one Pod at a time, and always wait for previous Pods to be running and ready before creating the next. This is different from Deployments that use a ReplicaSet controller to start all Pods at the same time,causing potential race conditions.</p>
 <p><strong>Deleting StatefulSets</strong></p>
 <p>Firstly, deleting a StatefulSet does not terminate Pods in order. With this in mind, you may want to scale a StatefulSet to 0 replicas before deleting it. You can also use terminationGracePeriodSeconds to further control the way Pods are terminated. It’s common to set this to at least 10 seconds to give applications running in Pods a chance to flush local buffers and safely commit any writes that are still in-flight.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">clusterIP</span><span class="p">:</span><span class="w"> </span><span class="l">None</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">StatefulSet</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">serviceName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;nginx&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">registry.k8s.io/nginx-slim:0.8</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">www</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/usr/share/nginx/html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">volumeClaimTemplates</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">www</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">accessModes</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;ReadWriteOnce&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">requests</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l">1Gi</span><span class="w">
+</span></span></span></code></pre></div><p>More Example <a href="https://kubernetes.io/docs/tutorials/stateful-application/">refer here</a></p>
 <h3 id="kubectl">Kubectl</h3>
 <p>Kubectl is the main Kubernetes command-line tool and is what you will use for your day-to-day Kubernetes management activities.</p>
-<p>kubectl configuration file is called config and lives in $HOME/.kube . It contains definitions for:</p>
-<p>• Clusters • Users (credentials) • Contexts</p>
+<p>kubectl configuration file is called config and lives in $HOME/.kube . It contains definitions for:
+• Clusters
+• Users (credentials)
+• Contexts</p>
 <p><strong>Clusters</strong> is a list of clusters that kubectl knows about and is ideal if you plan on using a single workstation to manage multiple clusters. Each cluster definition has a name, certificate info, and API server endpoint.</p>
 <p><strong>Users</strong> let you define different users that might have different levels of permissions on each cluster. For example, you might have a dev user and an ops user, each with different permissions. Each user definition has a friendly name, a username, and a set of credentials.</p>
 <p><strong>Contexts</strong> bring together clusters and users under a friendly name. For example, you might have a context called deploy-prod that combines the deploy user credentials with the prod cluster definition. If you use kubectl with this context you will be POSTing commands to the API server of the prod cluster as the deploy user.</p>
+<h3 id="best-practices">best practices</h3>
+<h4 id="preventing-broken-connections-during-pod-shutdown"><strong>Preventing broken connections during pod shutdown</strong></h4>
+<p>When a request for a pod deletion is received by the API server, it first modifies the state in <code>etcd</code> and then notifies its watchers of the deletion. Among those watchers are the Kubelet and the Endpoints controller.the pod being removed from the iptables rules when the Endpoints controller recevie notification pod is deleted.</p>
+<p>During any client trying to connect to it receives a Connection refused error. to solve this do following</p>
+<ol>
+<li><strong>Graceful Termination in Application Code</strong>
+<ul>
+<li>Modify the application code to handle termination signals gracefully. When a container in a pod receives a <code>SIGTERM</code> signal, it&rsquo;s an indication that the pod is about to be terminated. During the shutdown process, your application should stop accepting new requests and finish processing existing ones</li>
+</ul>
+</li>
+<li><strong>Pre-Stop Hook</strong>
+<ul>
+<li>Kubernetes supports a pre-stop hook, which is a user-defined script that is executed before a container is terminated.</li>
+</ul>
+</li>
+<li><strong>Pod Termination Grace Period</strong>
+<ul>
+<li>specify a termination grace period (<code>terminationGracePeriodSeconds: 30</code>) for a pod, which is the amount of time the system waits for your application to shut down gracefully. During this period, the pod remains in the &ldquo;Terminating&rdquo; state, allowing your application to complete any remaining work</li>
+</ul>
+</li>
+<li><strong>Readiness Probes:</strong>
+<ul>
+<li>can be used to prevent new requests from being directed to a pod</li>
+</ul>
+</li>
+<li><strong>Service Load Balancing:</strong></li>
+</ol>
+<p>Need to study</p>
+<ul>
+<li>job</li>
+<li>cronjob</li>
+<li>operator</li>
+</ul>
 <h3 id="resources">Resources</h3>
 <ol>
 <li><a href="https://youtu.be/s_o8dwzRlu4">Give a idea about and overview of the architecture of that</a></li>
@@ -679,7 +1055,16 @@ stroke-linejoin="round" class="feather feather-home">
 <li><a href="https://dev.to/therubberduckiee/explaining-kubernetes-to-my-uber-driver-4f60">https://dev.to/therubberduckiee/explaining-kubernetes-to-my-uber-driver-4f60</a></li>
 <li><strong><a href="https://aws.plainenglish.io/kubectl-get-kubernetes-o-architecture-6d4bd97dcaaf">kubernetes -o architecture</a></strong></li>
 <li><a href="https://towardsdev.com/understanding-control-pane-and-nodes-in-k8s-architecture-5572018f7624">https://towardsdev.com/understanding-control-pane-and-nodes-in-k8s-architecture-5572018f7624</a></li>
+<li><a href="https://blog.mbrt.dev/posts/container-network/">Demystifying container networking</a></li>
+<li><a href="https://freecontent.manning.com/handling-client-requests-properly-with-kubernetes/" title="Handling Client Requests Properly with Kubernetes">Handling Client Requests Properly with Kubernetes</a></li>
+<li><a href="https://learnk8s.io/production-best-practices">production-best-practices</a></li>
 </ol>
+<h2 id="internal-resources">Internal Resources</h2>
+<ul>
+<li><a href="https://github.com/shubheksha/kubernetes-internals">Collection of resources for inner workings of Kubernetes</a></li>
+<li></li>
+<li></li>
+</ul>
 <h3 id="products">Products</h3>
 <ol>
 <li><a href="https://cast.ai/">To cut down the cost of kubernetes</a></li>

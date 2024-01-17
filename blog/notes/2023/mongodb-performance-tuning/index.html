@@ -29,12 +29,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.1">
+<meta name="generator" content="Hugo 0.121.2">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/">
-    <link href="/blog/style.min.a331e196842d6df0db458dbc74b8cb9d3f93dc2a4203f1ef625a27c46f956787.css" rel="stylesheet">
+    <link href="/blog/style.min.c59e806842f648d519b3dc8840e627b8d9c4a498eb5e4c858e60db86a71c5f6f.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.4e1b30df3607fab6faaa068536572415b0ea6c4b3a10dfd609e0d070bdd7546d.css" rel="stylesheet">
 
     
@@ -92,13 +92,6 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="/blog/resources/">
-                        Resources
-                    </a>
-                    
-                </li>
-                
-                <li>
                     <a class="menu-link active" href="/blog/notes/">
                         Notes
                     </a>
@@ -137,69 +130,94 @@ stroke-linejoin="round" class="feather feather-home">
                     <time datetime="2023-12-03T09:44:50&#43;05:30" itemprop="datePublished"> Dec 3, 2023 </time>
                 </div>
                 
-            </header>
-                
-                
-                <details class="toc" ZgotmplZ>
-                    <summary><b>Table of Contents</b></summary>
-                    <nav id="TableOfContents">
-  <ol>
-    <li><a href="#mongodb-architecture-and-concepts">MongoDB Architecture and Concepts</a></li>
-    <li><a href="#tools-of-the-trade">Tools of the Trade</a>
-      <ol>
-        <li><a href="#profiling">Profiling</a></li>
-        <li><a href="#server-status">Server Status</a></li>
-        <li><a href="#examining-current-operations">Examining Current Operations</a></li>
-      </ol>
-    </li>
-    <li><a href="#indexing">Indexing</a>
-      <ol>
-        <li><a href="#index-merges">Index Merges</a></li>
-        <li><a href="#type-of-index">Type of index</a></li>
-        <li><a href="#finding-unused-indexes">Finding Unused Indexes</a></li>
-      </ol>
-    </li>
-    <li><a href="#query-tuning">Query Tuning</a>
-      <ol>
-        <li><a href="#optimizing-network-round-trips">Optimizing Network Round Trips</a></li>
-        <li><a href="#overriding-the-optimizer-with-hints">Overriding the Optimizer with Hints</a></li>
-        <li><a href="#optimizing-sort-operations">Optimizing Sort Operations</a>
-          <ol>
-            <li><a href="#blocking-sort">Blocking sort</a></li>
-          </ol>
-        </li>
-      </ol>
-    </li>
-    <li><a href="#tuning-aggregationpipelines">Tuning AggregationPipelines</a>
-      <ol>
-        <li><a href="#optimizing-aggregation-ordering">Optimizing Aggregation Ordering</a></li>
-        <li><a href="#automatic-pipeline-optimizations">Automatic Pipeline Optimizations</a></li>
-        <li><a href="#indexed-aggregation-sorts">Indexed Aggregation Sorts</a></li>
-        <li><a href="#optimizing-views">Optimizing Views</a></li>
-      </ol>
-    </li>
-    <li><a href="#inserts-updates-and-deletes">Inserts, Updates, and Deletes</a></li>
-    <li><a href="#server-monitoring">Server Monitoring</a></li>
-    <li><a href="#memory-tuning">Memory Tuning</a>
-      <ol>
-        <li><a href="#mongodb-memory-architecture">MongoDB memory architecture</a></li>
-        <li><a href="#the-database-cache-hit-ratio">The Database Cache &ldquo;Hit&rdquo; Ratio</a></li>
-        <li><a href="#evictions-putting-data-to-disk-from-cache">Evictions (putting data to disk from cache)</a></li>
-        <li><a href="#checkpoints">Checkpoints</a></li>
-      </ol>
-    </li>
-    <li><a href="#disk-io">Disk IO</a>
-      <ol>
-        <li><a href="#latency-and-throughput">Latency and Throughput</a></li>
-        <li><a href="#mongodb-io">MongoDB IO</a></li>
-      </ol>
-    </li>
-    <li><a href="#replica-sets">Replica Sets</a></li>
-    <li><a href="#sharding">Sharding</a></li>
-  </ol>
-</nav>
-                </details>
-                <div class="page-content">
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#mongodb-architecture-and-concepts" aria-label="MongoDB Architecture and Concepts">MongoDB Architecture and Concepts</a></li>
+                <li>
+                    <a href="#tools-of-the-trade" aria-label="Tools of the Trade">Tools of the Trade</a><ul>
+                        
+                <li>
+                    <a href="#profiling" aria-label="Profiling">Profiling</a></li>
+                <li>
+                    <a href="#server-status" aria-label="Server Status">Server Status</a></li>
+                <li>
+                    <a href="#examining-current-operations" aria-label="Examining Current Operations">Examining Current Operations</a></li></ul>
+                </li>
+                <li>
+                    <a href="#indexing" aria-label="Indexing">Indexing</a><ul>
+                        
+                <li>
+                    <a href="#index-merges" aria-label="Index Merges">Index Merges</a></li>
+                <li>
+                    <a href="#type-of-index" aria-label="Type of index">Type of index</a></li>
+                <li>
+                    <a href="#finding-unused-indexes" aria-label="Finding Unused Indexes">Finding Unused Indexes</a></li></ul>
+                </li>
+                <li>
+                    <a href="#query-tuning" aria-label="Query Tuning">Query Tuning</a><ul>
+                        
+                <li>
+                    <a href="#optimizing-network-round-trips" aria-label="Optimizing Network Round Trips">Optimizing Network Round Trips</a></li>
+                <li>
+                    <a href="#overriding-the-optimizer-with-hints" aria-label="Overriding the Optimizer with Hints">Overriding the Optimizer with Hints</a></li>
+                <li>
+                    <a href="#optimizing-sort-operations" aria-label="Optimizing Sort Operations">Optimizing Sort Operations</a><ul>
+                        
+                <li>
+                    <a href="#blocking-sort" aria-label="Blocking sort">Blocking sort</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#tuning-aggregationpipelines" aria-label="Tuning AggregationPipelines">Tuning AggregationPipelines</a><ul>
+                        
+                <li>
+                    <a href="#optimizing-aggregation-ordering" aria-label="Optimizing Aggregation Ordering">Optimizing Aggregation Ordering</a></li>
+                <li>
+                    <a href="#automatic-pipeline-optimizations" aria-label="Automatic Pipeline Optimizations">Automatic Pipeline Optimizations</a></li>
+                <li>
+                    <a href="#indexed-aggregation-sorts" aria-label="Indexed Aggregation Sorts">Indexed Aggregation Sorts</a></li>
+                <li>
+                    <a href="#optimizing-views" aria-label="Optimizing Views">Optimizing Views</a></li></ul>
+                </li>
+                <li>
+                    <a href="#inserts-updates-and-deletes" aria-label="Inserts, Updates, and Deletes">Inserts, Updates, and Deletes</a></li>
+                <li>
+                    <a href="#server-monitoring" aria-label="Server Monitoring">Server Monitoring</a></li>
+                <li>
+                    <a href="#memory-tuning" aria-label="Memory Tuning">Memory Tuning</a><ul>
+                        
+                <li>
+                    <a href="#mongodb-memory-architecture" aria-label="MongoDB memory architecture">MongoDB memory architecture</a></li>
+                <li>
+                    <a href="#the-database-cache-hit-ratio" aria-label="The Database Cache &ldquo;Hit&rdquo; Ratio">The Database Cache &ldquo;Hit&rdquo; Ratio</a></li>
+                <li>
+                    <a href="#evictions-putting-data-to-disk-from-cache" aria-label="Evictions (putting data to disk from cache)">Evictions (putting data to disk from cache)</a></li>
+                <li>
+                    <a href="#checkpoints" aria-label="Checkpoints">Checkpoints</a></li></ul>
+                </li>
+                <li>
+                    <a href="#disk-io" aria-label="Disk IO">Disk IO</a><ul>
+                        
+                <li>
+                    <a href="#latency-and-throughput" aria-label="Latency and Throughput">Latency and Throughput</a></li>
+                <li>
+                    <a href="#mongodb-io" aria-label="MongoDB IO">MongoDB IO</a></li></ul>
+                </li>
+                <li>
+                    <a href="#replica-sets" aria-label="Replica Sets">Replica Sets</a></li>
+                <li>
+                    <a href="#sharding" aria-label="Sharding">Sharding</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
                 <h2 id="mongodb-architecture-and-concepts">MongoDB Architecture and Concepts</h2>
 <ul>
 <li>if the <strong>write concern is set to “majority”,</strong> then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.</li>
@@ -248,21 +266,17 @@ operations that are currently running on the database</p>
 <li>Index is not suitable if we going to read all docs but mongo use index u can specify to use col scan hint({$natural:1}),</li>
 <li>To fully optimize an $or query, index all the attributes in the $or array.</li>
 <li>An $exists:true lookup can be optimized by a sparse index on the attribute concerned. However, such an index cannot optimize an $exists:false query.</li>
-<li>If you want to do case-insensitive searches, then there is a trick you can use. First, create an index with a case-insensitive collation sequence. This is done by specifying a collation sequence with a strength</li>
+<li>If you want to do case-insensitive searches, then there is a trick you can use. First, create an index with a case-insensitive collation sequence. This is done by specifying a collation sequence with a strength <code>db.customers.createIndex({ LastName: 1 },{ collation: { locale: 'en', strength: 2 } });</code></li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">db</span><span class="p">.</span><span class="nx">customers</span><span class="p">.</span><span class="nx">createIndex</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">LastName</span><span class="o">:</span> <span class="mi">1</span> <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">collation</span><span class="o">:</span> <span class="p">{</span> <span class="nx">locale</span><span class="o">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="nx">strength</span><span class="o">:</span> <span class="mi">2</span> <span class="p">}</span> <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">);</span>
-</span></span></code></pre></div><h3 id="index-merges">Index Merges</h3>
+<h3 id="index-merges">Index Merges</h3>
 <ul>
 <li>if we have 2 index one for a and b if search of a and b mongodb will merges the index value on search</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">1  IXSCAN a_1
-</span></span><span class="line"><span class="cl">2  IXSCAN b_1
-</span></span><span class="line"><span class="cl">3  AND_SORTED
-</span></span><span class="line"><span class="cl">4  FETCH
-</span></span></code></pre></div><ul>
+<li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">  1  IXSCAN a_1
+</span></span><span class="line"><span class="cl">  2  IXSCAN b_1
+</span></span><span class="line"><span class="cl">  3  AND_SORTED
+</span></span><span class="line"><span class="cl">  4  FETCH
+</span></span></code></pre></div></li>
 <li>The <strong>AND_SORTED</strong> step indicates that an index intersection has been performed.
 Index intersections for $and conditions are unusual</li>
 </ul>

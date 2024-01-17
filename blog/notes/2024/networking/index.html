@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Networking Notes | programmerraja blog</title>
+<meta property="og:title" content="Networking Notes | programmerraja blog" />
+<meta name="twitter:title" content="Networking Notes | programmerraja blog" />
+<meta itemprop="name" content="Networking Notes | programmerraja blog" />
+<meta name="application-name" content="Networking Notes | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+
+
+  <meta itemprop="image" content="https://programmerraja.github.io/blog" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.2">
+
+    
+
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/networking/">
+    <link href="/blog/style.min.c59e806842f648d519b3dc8840e627b8d9c4a498eb5e4c858e60db86a71c5f6f.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.4e1b30df3607fab6faaa068536572415b0ea6c4b3a10dfd609e0d070bdd7546d.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="https://programmerraja.github.io/">
+                        Portfolio
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Networking Notes</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-01-12T08:19:32&#43;05:30" itemprop="datePublished"> Jan 12, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#osi-model" aria-label="OSI Model">OSI Model</a></li>
+                <li>
+                    <a href="#application-layer" aria-label="Application Layer">Application Layer</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#httphttps" aria-label="HTTP/HTTPS">HTTP/HTTPS</a></li>
+                <li>
+                    <a href="#http-message-format" aria-label="HTTP Message format">HTTP Message format</a></li>
+                <li>
+                    <a href="#methods-of-http" aria-label="Methods of HTTP">Methods of HTTP</a></li>
+                <li>
+                    <a href="#http-status-code-range" aria-label="HTTP Status code range">HTTP Status code range</a></li>
+                <li>
+                    <a href="#http-cache" aria-label="HTTP Cache">HTTP Cache</a></li>
+                <li>
+                    <a href="#http2" aria-label="HTTP2">HTTP2</a></li>
+                <li>
+                    <a href="#security-header-in-http" aria-label="Security Header in HTTP">Security Header in HTTP</a></li>
+                <li>
+                    <a href="#https" aria-label="HTTPS">HTTPS</a></li>
+                <li>
+                    <a href="#smtp" aria-label="SMTP">SMTP</a></li>
+                <li>
+                    <a href="#pop--imap" aria-label="POP / IMAP">POP / IMAP</a></li>
+                <li>
+                    <a href="#dns" aria-label="DNS">DNS</a></li>
+                <li>
+                    <a href="#dhcp" aria-label="DHCP">DHCP</a></li>
+                <li>
+                    <a href="#ssh" aria-label="SSH">SSH</a></li>
+                <li>
+                    <a href="#tools" aria-label="Tools">Tools</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#transport-layer" aria-label="Transport Layer">Transport Layer</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#tcp" aria-label="TCP">TCP</a></li>
+                <li>
+                    <a href="#how-tcp-works" aria-label="How TCP Works">How TCP Works</a></li>
+                <li>
+                    <a href="#tcp--format-segment" aria-label="TCP  Format (Segment)">TCP  Format (Segment)</a></li>
+                <li>
+                    <a href="#how-tcp-do-reliable-data-transfer-service" aria-label="How TCP do reliable data transfer service">How TCP do reliable data transfer service</a></li>
+                <li>
+                    <a href="#udp" aria-label="UDP">UDP</a></li>
+                <li>
+                    <a href="#tools-1" aria-label="Tools">Tools</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#networking-layer" aria-label="Networking Layer">Networking Layer</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#ip-address" aria-label="IP Address">IP Address</a></li>
+                <li>
+                    <a href="#subnet-mask" aria-label="Subnet Mask">Subnet Mask</a></li>
+                <li>
+                    <a href="#cidr-notation" aria-label="CIDR Notation">CIDR Notation</a></li>
+                <li>
+                    <a href="#data-format-packet" aria-label="Data Format (Packet)">Data Format (Packet)</a></li>
+                <li>
+                    <a href="#ipv6" aria-label="IPV6">IPV6</a></li>
+                <li>
+                    <a href="#icmp" aria-label="ICMP">ICMP</a></li>
+                <li>
+                    <a href="#routing-protocol" aria-label="Routing Protocol">Routing Protocol</a></li>
+                <li>
+                    <a href="#router" aria-label="Router">Router</a></li>
+                <li>
+                    <a href="#nat" aria-label="NAT">NAT</a></li>
+                <li>
+                    <a href="#tools-2" aria-label="Tools">Tools</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#data-link-layer" aria-label="Data Link Layer">Data Link Layer</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#ethernet" aria-label="Ethernet">Ethernet</a></li>
+                <li>
+                    <a href="#media-access-control-mac" aria-label="Media Access Control (MAC)">Media Access Control (MAC)</a></li>
+                <li>
+                    <a href="#arp-address-resolution-protocol" aria-label="ARP (Address Resolution Protocol)">ARP (Address Resolution Protocol)</a></li>
+                <li>
+                    <a href="#tools-3" aria-label="Tools">Tools</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#physical-layer" aria-label="Physical Layer">Physical Layer</a></li>
+                <li>
+                    <a href="#rfc" aria-label="RFC">RFC</a></li>
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="osi-model">OSI Model</h2>
+<p>The Open Systems Interconnection (OSI) model describes seven layers that computer systems use to communicate over a network.</p>
+<ol>
+<li><strong>Application Layer</strong> (Htttp,DHCP,FMTP,Telnet,NFS)</li>
+<li><strong>Presentation Layer</strong> (Encryption,Data format,Data compression,ASCII to Bin)</li>
+<li><strong>Session Layer</strong> (TCP/IP socket authentication RTCP protocol)</li>
+<li><strong>Transport Layer</strong> (Process level addressing TCP/UDP, Multiplexing,demultiplexing,segmentation,connection establishment)</li>
+<li><strong>Network Layer</strong> (logical addressing IP , Routing, packet encapsulation)</li>
+<li><strong>Data Link Layer</strong> (LAN,MAC,Data framing,Error detection)</li>
+<li><strong>Physical Layer</strong> (Converting Bin to singals to transfer the data)</li>
+</ol>
+<h2 id="application-layer">Application Layer</h2>
+<h4 id="httphttps">HTTP/HTTPS</h4>
+<p>Is the protocol used to communicate with server. it underling using TCP protocol</p>
+<h4 id="http-message-format">HTTP Message format</h4>
+<table>
+<thead>
+<tr>
+<th><strong>Start Line or Status Line</strong></th>
+<th>GET /example HTTP/1.1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Headers</strong></td>
+<td>General Headers (e.g., Cache-Control)</td>
+</tr>
+<tr>
+<td></td>
+<td>Request Headers (e.g., User-Agent)</td>
+</tr>
+<tr>
+<td></td>
+<td>Response Headers (e.g., Content-Type)</td>
+</tr>
+<tr>
+<td></td>
+<td>Entity Headers (e.g., Content-Length)</td>
+</tr>
+<tr>
+<td><strong>(Empty line)</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Message Body</strong></td>
+<td>Request Body (for Request) / Response Body (for Response)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="methods-of-http">Methods of HTTP</h4>
+<ol>
+<li>
+<p><strong>GET</strong> : Used to request data from a specified resource.</p>
+</li>
+<li>
+<p><strong>PUT</strong>: Used to submit data to be processed to a specified resource.</p>
+</li>
+<li>
+<p><strong>POST</strong>: Used to update a resource or create a new resource if it doesn&rsquo;t exist.</p>
+</li>
+<li>
+<p><strong>DELETE</strong>: Used to request the removal of a resource.</p>
+</li>
+<li>
+<p><strong>OPTION</strong>: The OPTIONS method is used to inquire about the communication options available for a target resource. It is often employed to check the allowed methods or capabilities of a server. <code>Note</code>: Whenever in browser requesting different origin(test.com) from the current webpage origin(google.com) browser first do option request to check does the origin (test.com) allowing this origin(google.com) to acess</p>
+</li>
+<li>
+<p><strong>TRACE</strong> :The TRACE method is designed for diagnostic purposes. When a server receives a TRACE request, it echoes the received request back to the client. This can be useful for debugging and understanding how intermediaries (such as proxies or servers) modify the request.</p>
+</li>
+<li>
+<p><strong>HEAD</strong>: Similar to GET but only requests the headers of the response, not the actual data.</p>
+</li>
+<li>
+<p><strong>PATCH</strong>:Used to apply partial modifications to a resource</p>
+</li>
+</ol>
+<h4 id="http-status-code-range">HTTP Status code range</h4>
+<table>
+<thead>
+<tr>
+<th>Status Code Range</th>
+<th>Category</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx</td>
+<td>Informational</td>
+<td>Request received, continuing process</td>
+</tr>
+<tr>
+<td>2xx</td>
+<td>Successful</td>
+<td>The request was successfully received and processed</td>
+</tr>
+<tr>
+<td>3xx</td>
+<td>Redirection</td>
+<td>Further action needs to be taken to complete the request</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>Client Error</td>
+<td>The request contains bad syntax or cannot be fulfilled by the server</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>Server Error</td>
+<td>The server failed to fulfill a valid request</td>
+</tr>
+</tbody>
+</table>
+<h4 id="http-cache">HTTP Cache</h4>
+<p>HTTP caching helps reduce latency, minimize network usage, and improve the overall user experience by avoiding unnecessary resource re-fetching.</p>
+<p><strong>How Browser do caching</strong></p>
+<ul>
+<li>Broweser do caching only if the response contain the <code>Cache-Control</code> header with value <code>max-age=seconds</code> specifies that the resource is valid for that much seconds</li>
+<li><code>ETag</code> is a unique identifier assigned by the server to a specific version of a resource. When a client requests the resource again, it can include the ETag in the request headers. If the resource hasn&rsquo;t changed, the server may respond with a 304 Not Modified status</li>
+</ul>
+<h4 id="http2">HTTP2</h4>
+<p>Is the improvement of the http and have some key features like below</p>
+<ol>
+<li>
+<p><strong>Multiplexing:</strong>  HTTP/2 allows multiple requests and responses to be sent and received concurrently on a single connection, improving efficiency and reducing latency.</p>
+</li>
+<li>
+<p><strong>Header Compression:</strong> HTTP/2 uses a more efficient header compression algorithm called HPACK.</p>
+</li>
+<li>
+<p><strong>Binary Protocol:</strong> While HTTP/1.1 uses plain text for communication, HTTP/2 employs a binary protocol. This binary format is more compact and efficient</p>
+</li>
+<li>
+<p><strong>Server Push:</strong> HTTP/2 supports server push, which allows the server to send additional resources (like images, stylesheets, or scripts) to the client before the client requests them.</p>
+</li>
+<li>
+<p><strong>Stream Prioritization:</strong> Allows the client to indicate the priority of each resource.</p>
+</li>
+<li>
+<p><strong>Connection Multiplexing:</strong> HTTP/2 uses a single, multiplexed connection per origin.</p>
+</li>
+</ol>
+<h4 id="security-header-in-http">Security Header in HTTP</h4>
+<ol>
+<li><strong>Content-Security-Policy (CSP):</strong>
+<ul>
+<li>Defines a policy to control resource loading, mitigating risks such as cross-site scripting (XSS) attacks.</li>
+<li><code>Content-Security-Policy: default-src 'self';</code> specifies that content such as scripts, stylesheets, and images should be loaded only from the same origin.</li>
+<li>Example : let assume some how hacker inject the script tag to our website but if we have the CSP it will not be loaded by browser becasue we mentioned load only from self origin</li>
+</ul>
+</li>
+<li><strong>Access-Control-Allow-Origin:</strong>
+<ul>
+<li>Specifies which origins are permitted to access the resource</li>
+<li><code>Access-Control-Allow-Origin: https://www.example.com</code>  this will inform the browser that only example.com can be allow to access using fetch or any API interface methods</li>
+<li>Similar to this there some other header presents like <code>Access-Control-Allow-Methods</code> , <code>Access-Control-Allow-Headers</code>, <code>Access-Control-Allow-Credentials</code> etc..</li>
+</ul>
+</li>
+<li><strong>Strict-Transport-Security (HSTS):</strong>
+<ul>
+<li>Forces secure connections (HTTPS) by instructing browsers to interact with the website only over secure connections.</li>
+</ul>
+</li>
+<li><strong>X-Content-Type-Options:</strong>
+<ul>
+<li>Prevents browsers from interpreting files as a different MIME type, reducing the risk of certain attacks.</li>
+</ul>
+</li>
+<li><strong>X-Frame-Options:</strong>
+<ul>
+<li>Controls whether a browser should be allowed to render a page in a frame, mitigating clickjacking attacks.</li>
+<li><code>X-Frame-Options: DENY</code> This tell the browser that this website is not allowed to inject in iframe</li>
+<li><code>SAMEORIGIN</code> This tell the browser allow iframe in the same origin</li>
+</ul>
+</li>
+<li><strong>X-XSS-Protection:</strong>
+<ul>
+<li>Enables or disables the browser&rsquo;s built-in Cross-Site Scripting (XSS) protection.</li>
+</ul>
+</li>
+<li><strong>SameSite</strong>
+<ul>
+<li><code>'strict'</code> make sure the cookie will be send only the respective origin that set the cookie</li>
+</ul>
+</li>
+</ol>
+<h4 id="https">HTTPS</h4>
+<p>is a secure version of HTTP.</p>
+<p><strong>How the HTTPS connection flow</strong></p>
+<ul>
+<li>
+<p>The browser establishes a TCP (Transmission Control Protocol) connection with the web server&rsquo;s IP address on port 443, which is the default port for HTTPS.</p>
+</li>
+<li>
+<p>The browser initiates the SSL/TLS (Secure Sockets Layer/Transport Layer Security) handshake process by sending a <code>ClientHello</code> message to the server.</p>
+</li>
+<li>
+<p>The web server responds with its SSL/TLS certificate, which includes the server&rsquo;s public key, the server&rsquo;s identity, and the digital signature of a trusted Certificate Authority (CA).</p>
+</li>
+<li>
+<p>The browser verifies the authenticity of the server&rsquo;s certificate. It checks if the certificate is signed by a trusted CA, is not expired, and matches the domain in the URL.</p>
+</li>
+<li>
+<p>The browser generates a symmetric session key, encrypts it with the server&rsquo;s public key, and sends it back to the server. This session key will be used for encrypting and decrypting data during the session.</p>
+</li>
+<li>
+<p>The server sends a <code>Finished</code> message to signal that the initial handshake is complete.</p>
+</li>
+<li>
+<p>The browser sends its own <code>Finished</code> message, confirming the completion of the handshake.</p>
+</li>
+</ul>
+<p><strong>What is Server Certificate</strong></p>
+<p>The server sends its digital certificate to the client. The certificate contains:</p>
+<ul>
+<li><strong>Public Key:</strong> Used for encrypting the session key.</li>
+<li><strong>Server&rsquo;s Identity (Common Name):</strong> The domain name for which the certificate was issued.</li>
+<li><strong>Issuer:</strong> The CA that issued the certificate.</li>
+<li><strong>Digital Signature:</strong> A signature by the CA, confirming the authenticity of the certificate.</li>
+</ul>
+<p><strong>Who is CA</strong></p>
+<p>A Certificate Authority is a trusted entity that issues digital certificates.The process involves the following steps:</p>
+<ol>
+<li>
+<p><strong>Certificate Request:</strong> A website owner generates a Certificate Signing Request (CSR) containing their public key and other identification information. The CSR is a file containing essential information about the website and its public key.</p>
+<ol>
+<li><code>openssl genpkey -algorithm RSA -out private-key.pem</code> will  generate a public-private key pair</li>
+<li><code>openssl req -new -key private-key.pem -out mysite.csr</code> With the private key create a CSR</li>
+<li>Note : LetsEncrypt scripts use OpenSSL to generate certificates and sign them with the LetsEncrypt service.</li>
+</ol>
+</li>
+<li>
+<p><strong>CSR Submission:</strong> The website owner submits the CSR to a CA.</p>
+</li>
+<li>
+<p><strong>Verification:</strong> The CA verifies the identity of the entity requesting the certificate. it check does we really owing the domain. they give the file that we need to serve on our domain they check does the file is serving on our domain.</p>
+</li>
+<li>
+<p><strong>Certificate Issuance:</strong> Upon successful verification, the CA issues a digital certificate, signing it with the CA&rsquo;s private key.</p>
+</li>
+<li>
+<p><strong>Distribution to the Website:</strong>  The CA sends the issued certificate to the website owner.</p>
+</li>
+</ol>
+<p><strong>What is SSL/TLS?</strong></p>
+<p>SSL/TLS relies on public-key cryptography for secure key exchange and data encryption.it has two key public and private key public to encrypt and private to decrypt the data.</p>
+<p><code>Note</code>: TLS is considered the more secure and modern protocol.</p>
+<h4 id="smtp">SMTP</h4>
+<p>Simple Mail Transfer Protocol used in the Internet to transfer electronic mail (email).</p>
+<pre tabindex="0"><code>	              +----------+                +----------+
+      +------+    |          |                |          |
+      | User |&lt;--&gt;|          |      SMTP      |          |
+      +------+    |  Client- |Commands/Replies| Server-  |
+      +------+    |   SMTP   |&lt;--------------&gt;|    SMTP  |    +------+
+      | File |&lt;--&gt;|          |    and Mail    |          |&lt;--&gt;| File |
+      |System|    |          |                |          |    |System|
+      +------+    +----------+                +----------+    +------+
+                   SMTP client                SMTP server
+</code></pre><p>When an SMTP client has a message to transmit, it establishes a two-way transmission channel to an SMTP server.  The responsibility of an SMTP client is to transfer mail messages to one or more SMTP servers, or report its failure to do so.</p>
+<p>An SMTP client determines the address of an appropriate host running an SMTP server by resolving a destination domain name to either an intermediate Mail eXchanger host or a final target host.</p>
+<p><strong>The SMTP Procedures: An Overview</strong></p>
+<p>An SMTP session is initiated when a client opens a connection to a server and the server responds with an opening message.</p>
+<p>Once the server has sent the greeting (welcoming) message and the client has received it, the client normally sends the EHLO command to the server, indicating the client&rsquo;s identity.</p>
+<p>There are 3 steps to <strong>SMTP mail transactions</strong>.</p>
+<ol>
+<li>The transaction starts with a MAIL command that gives the sender identification. <code> MAIL FROM:&lt;reverse-path&gt; [SP &lt;mail-parameters&gt; ] &lt;CRLF&gt;</code> . This command tells the SMTP-receiver that a new mail transaction is starting and to reset all its state tables and buffers</li>
+<li>The second step in the procedure is the RCPT command. <code>  RCPT TO:&lt;forward-path&gt; [ SP &lt;rcpt-parameters&gt; ] &lt;CRLF&gt;</code>  The first or only argument to this command includes a forward-path identifying one recipient.  If accepted, the SMTP server returns a &ldquo;250 OK&rdquo; reply and stores the forward-path.</li>
+<li>The third step in the procedure is the DATA command <code>DATA &lt;CRLF&gt;</code>  If SMTP accepted, the SMTP server returns a &ldquo;250 OK&rdquo; reply</li>
+</ol>
+<p><strong>How Mail Routed to the destination</strong></p>
+<p>SMTP will do DNS query to lookup for the Mail eXchanger (MX) records for the sender domain. MX records hold the IP for the mail servers that are designated to handle incoming emails for the domain.The MX records include priority values, indicating the order in which mail servers should be used. Lower values represent higher priority.</p>
+<h4 id="pop--imap">POP / IMAP</h4>
+<p>POP (Post Office Protocol) and IMAP (Internet Message Access Protocol) are two different protocols used for retrieving emails from a mail server to a local email client.</p>
+<p><strong>POP(Post Offic Protocol):</strong> Establish connection with SMTP server and send greeting once it accepted.client server exchange the mail.it downloads emails from the server to the local device.emails are removed from the server after being downloaded.</p>
+<p><strong><a href="https://datatracker.ietf.org/doc/html/rfc3501">IMAP (Internet Message Access Protocol):</a></strong> allows a client to access and manipulate electronic mail messages on a server.  IMAP4rev1 permits manipulation of mailboxes (remote message folders) in a way that is functionally equivalent to local folders. IMAP4rev1 also provides the capability for an offline client to resynchronize with the server.</p>
+<h4 id="dns">DNS</h4>
+<p>Domain name system used to translate the domain to IP. It uses UDP protocol on port 57.
+First browser check does the domain corresponding IP in local cache if so use if not do the DNS Query.</p>
+<p><strong>How DNS Query get resolved</strong></p>
+<ul>
+<li>The resolver queries recursive DNS servers, which are typically provided by the Internet Service Provider (ISP) or a third-party service like Google&rsquo;s. These servers either have the IP address for the requested domain in their cache or initiate further queries to find it.</li>
+<li>If the recursive DNS servers don&rsquo;t have the information, they query root DNS servers.</li>
+<li>There are <strong>13</strong> sets of root DNS servers worldwide (labeled A to M), and they provide information about Top-Level Domains (TLDs) like <strong>.com, .org, .net, etc.</strong></li>
+<li>The <strong>Root DNS servers</strong> direct the query to the authoritative DNS servers for the specific Top-Level Domain (TLD) of the requested domain.</li>
+<li>The <strong>TLD DNS servers</strong> provide information about the authoritative DNS servers for the second-level domain (e.g., &ldquo;example.com&rdquo;).</li>
+<li>The <strong>authoritative DNS servers</strong> or <strong>Name Server</strong> (mostly our domain provider) respond to the query with the IP address associated with the requested domain.</li>
+</ul>
+<p><strong>Records in DNS</strong></p>
+<ol>
+<li><strong>A (Address) Record:</strong> Associates a domain name with an IPv4 address.</li>
+<li><strong>AAAA (IPv6 Address) Record:</strong> domain name with an IPv6 address</li>
+<li><strong>CNAME (Canonical Name) Record:</strong> alias for a domain name, pointing it to another domain&rsquo;s canonical (official) name  this can be used if you want a example.com domain to google.com we can add the CName record for it.</li>
+<li><strong>MX (Mail Exchange) Record:</strong> mail servers responsible for receiving emails on behalf of the domain.</li>
+<li><strong>TXT (Text) Record:</strong> text information associated with a domain. Often used for DNS-based verification or providing additional information.</li>
+<li><strong>NS (Name Server) Record:</strong> Specifies authoritative DNS servers for the domain</li>
+<li><strong>Sender policy framework (SPF) record:</strong> that lists all the servers authorized to send emails from a particular domain. when the recevier recevie mail from this domain it will check for the SPK record in sender domain address if the IP is in that list it will allow else block it or mark as spam.</li>
+</ol>
+<p><code>Note:</code> The DNS first Query for the A Record if it exist it use the IP else it look for the CName for the domain which will have a another domain which have A Record that will hold the IP of the server</p>
+<h4 id="dhcp">DHCP</h4>
+<p>Dynamic Host Configuration Protocol is used to dynamically assign IP addresses and other network configuration information to devices on a network.</p>
+<p><strong>How Client Communicate with DHCP</strong></p>
+<ul>
+<li>
+<p>The client broadcasts a <strong>DHCPDISCOVER</strong> message on its local physical subnet.</p>
+</li>
+<li>
+<p>Each server may respond with a <strong>DHCPOFFER</strong> message that includes an available network address</p>
+</li>
+<li>
+<p>The client receives one or more <strong>DHCPOFFER</strong> messages from one or more servers.  The client may choose to wait for multiple responses. The client chooses one server from which to request configuration parameters, based on the configuration parameters offered in the DHCPOFFER messages.</p>
+</li>
+<li>
+<p>The client broadcasts a <strong>DHCPREQUEST</strong> message that MUST include the &lsquo;server identifier&rsquo; option to indicate which server it has selected</p>
+</li>
+<li>
+<p>The server selected in the <strong>DHCPREQUEST</strong> message commits the binding for the client to persistent storage and responds with a DHCPACK message containing the configuration parameters are default gateway IP, subnetmask,DNS server address,least time (time for IP valid)</p>
+</li>
+</ul>
+<h4 id="ssh">SSH</h4>
+<p>Provides secure access to a remote device or server over a network, allowing for encrypted communication and command execution.</p>
+<h4 id="tools">Tools</h4>
+<p><strong>Nslookup</strong></p>
+<p>tool for querying the Domain Name System to obtain the mapping between domain name and IP address,</p>
+<ul>
+<li>nslookup mydomain.com -&gt; Will print the IP and other DNS details</li>
+<li>nslookup -type=AAAA mydomain.com -&gt; will print only AAA record</li>
+</ul>
+<p><strong>Domain Information Groper command (DIG)</strong>
+for Making DNS queries <code>dig example.com</code> , <code>dig NS com </code> will print name server of the domain</p>
+<h2 id="transport-layer">Transport Layer</h2>
+<p>It is responsible for ensuring end-to-end communication and data transfer between applications. In this layer the data is divided into small small segements and also it control the flow of the data transfer ,detecting packet losses (via sequence numbers) and errors (via per-segment checksums), as well as correction via retransmission</p>
+<p>The two most commonly used transport layer protocols are:</p>
+<ol>
+<li>TCP</li>
+<li>UDP</li>
+</ol>
+<h4 id="tcp">TCP</h4>
+<p>Transmission Control Protocol is a connection-oriented protocol that provides reliable and ordered delivery of data between two devices. It establishes a connection before data transfer, breaks data into segments, manages acknowledgment and retransmission of data, and ensures that data is delivered without errors and in the correct order.</p>
+<p><strong>sockets</strong> doors through which data passes from the network to the process and through which data passes from the process to the network.</p>
+<p>TCP use Port no and IP to bind the data to socket when multiple process running on the machine it uses the Port no and IP to bind with socket</p>
+<p>TCP protocol runs only in the end systems and not in the intermediate network elements (routers and link-layer switches), the intermediate network elements do not maintain TCP connection state.</p>
+<h4 id="how-tcp-works">How TCP Works</h4>
+<ul>
+<li>
+<p>It first perfom 3 way hadshake. The client sends a TCP segment with the **SYN **(synchronize) flag set to the server, indicating an initiation of a connection.</p>
+</li>
+<li>
+<p>The server responds with a TCP segment containing <strong>SYN-ACK</strong>, acknowledging the request and indicating its readiness to establish a connection.</p>
+</li>
+<li>
+<p>The client sends a final TCP segment with an ACK (acknowledge) flag set, confirming the server&rsquo;s acknowledgment. The connection is now established.</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">TCP Peer A                                              TCP Peer B
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1.  CLOSED                                               LISTEN
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2.  SYN-SENT    --&gt; &lt;SEQ=100&gt;&lt;CTL=SYN&gt;               --&gt; SYN-RECEIVED
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">3.  ESTABLISHED &lt;-- &lt;SEQ=300&gt;&lt;ACK=101&gt;&lt;CTL=SYN,ACK&gt;  &lt;-- SYN-RECEIVED
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">4.  ESTABLISHED --&gt; &lt;SEQ=101&gt;&lt;ACK=301&gt;&lt;CTL=ACK&gt;       --&gt; ESTABLISHED
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">5.  ESTABLISHED --&gt; &lt;SEQ=101&gt;&lt;ACK=301&gt;&lt;CTL=ACK&gt;&lt;DATA&gt; --&gt; ESTABLISHED
+</span></span></code></pre></div><ul>
+<li>
+<p>TCP Peer A begins by sending a <strong>SYN</strong> segment indicating that it will use sequence numbers starting with sequence number 100.</p>
+</li>
+<li>
+<p>TCP Peer B sends a SYN and acknowledges the SYN it received from TCP Peer A.</p>
+</li>
+<li>
+<p>TCP Peer A responds with an empty segment containing an ACK for TCP Peer B&rsquo;s SYN</p>
+</li>
+<li>
+<p>Now the connection is established and Peer A will start sending the data to B with SYNC number</p>
+</li>
+<li>
+<p>TCP Peer A sends some data. Note that the sequence number of the segment in line 5 is the same as in line 4 because the ACK does not occupy sequence number space</p>
+</li>
+</ul>
+<pre tabindex="0"><code>1) A --&gt; B  SYN my sequence number is X
+2) A &lt;-- B  ACK your sequence number is X
+3) A &lt;-- B  SYN my sequence number is Y
+4) A --&gt; B  ACK your sequence number is Y
+</code></pre><ul>
+<li><strong>Sequence number</strong> : The current sequence number</li>
+<li><strong>Acknowledgment number</strong> is the sequence number of the next byte of data that the host is waiting for</li>
+</ul>
+<p><strong>why 3 way handshake needed</strong></p>
+<ul>
+<li>Prevention of Duplicate Connection Initiations</li>
+<li>Security Against Spoofing</li>
+<li>Flow Control and Buffer Allocation</li>
+</ul>
+<h4 id="tcp--format-segment">TCP  Format (Segment)</h4>
+<pre tabindex="0"><code>0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Source Port          |       Destination Port        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                        Sequence Number                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    Acknowledgment Number                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|  Data |       |C|E|U|A|P|R|S|F|                               |
+| Offset| Rsrvd |W|C|R|C|S|S|Y|I|            Window             |
+|       |       |R|E|G|K|H|T|N|N|                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|           Checksum            |         Urgent Pointer        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                           [Options]                           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               :
+:                             Data                              :
+:                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</code></pre><h4 id="how-tcp-do-reliable-data-transfer-service">How TCP do reliable data transfer service</h4>
+<p>TCP sender uses timout to resend the segement if the recevier does not <strong>ACK</strong> the segement that send within the specific time period.</p>
+<p><strong>Flow Control</strong></p>
+<p>When the TCP connection receives bytes that are correct and in sequence, it places the data in the receive buffer. The associated application process will read data from this buffer.</p>
+<p>The <strong>receive window</strong> is used to give the sender an idea of how much free buffer space is available at the receiver.</p>
+<p><strong>TCP Congestion Control</strong></p>
+<p>When sender send more at rate but recevier is not able to process the data at same speed the recevier buffer will be full and there is packet loss. To avoid that the recevier send the buffer size to sender i have only this much free space so send the data accordingly</p>
+<p><strong>SACK</strong>
+Selective Acknowledgment, is an extension to the Transmission Control Protocol (TCP) designed to improve the performance of data transmission in networks with packet loss.</p>
+<p>SACK introduces an option in the TCP header that allows the receiver to selectively acknowledge specific segments of data that have been received successfully. This enables the receiver to inform the sender about the non-contiguous blocks of data that have been successfully received.</p>
+<p>SACK is an optional extension in TCP and is negotiated during the connection establishment phase. If both the sender and receiver support SACK, they can use it; otherwise, they fall back to regular TCP behavior.</p>
+<h4 id="udp">UDP</h4>
+<p>User Datagram  Protocol provides  a procedure  for application  programs  to send
+messages  to other programs  with a minimum  of protocol mechanism.</p>
+<p>The protocol  is transaction oriented, and delivery and duplicate protection are not guaranteed.</p>
+<p>UDP bind the socket with destination IP and Port</p>
+<p>No handshaking is required on UDP mostly it used for live streaming data</p>
+<p><strong>Format</strong></p>
+<pre tabindex="0"><code>  
+  0      7 8     15 16    23 24    31
+ +--------+--------+--------+--------+
+ |     Source      |   Destination   |
+ |      Port       |      Port       |
+ +--------+--------+--------+--------+
+ |                 |                 |
+ |     Length      |    Checksum     |
+ +--------+--------+--------+--------+
+ |
+ |          data octets ...
+ +---------------- ...---------------+
+</code></pre><h4 id="tools-1">Tools</h4>
+<p><strong>Netcat</strong></p>
+<p>used to create TCP or UDP connections.</p>
+<ul>
+<li><strong>nc -v hostname or IP address port</strong></li>
+<li><strong>nc -l port :</strong> -&gt;in listen mode to receive incoming connections.</li>
+<li><strong>nc -l port &gt; output_file:</strong> (listen on the port and store the data to file)</li>
+<li><strong>nc ip port &lt; input_file:</strong> send the file content to the host on port</li>
+</ul>
+<p><strong>Tcpdump</strong></p>
+<p>Captures and analyzes network traffic. this will capture all network on the host we can use that and load to the wireshark to analyze it</p>
+<ul>
+<li><strong>tcpdump  host ip</strong> -&gt; capture only from this host by defaulr all</li>
+</ul>
+<p><strong>Nmap</strong></p>
+<p>Scans and discovers devices on a network, providing information about open ports and services. <code>nmap [hostname or IP address]</code></p>
+<h2 id="networking-layer">Networking Layer</h2>
+<p>It is responsible for logical addressing, routing, and forwarding of data between different networks. It enables end-to-end communication by determining the best path for data packets to traverse through interconnected networks.</p>
+<h4 id="ip-address">IP Address</h4>
+<p>An IP (Internet Protocol) address is a numerical label assigned to each device. IP addresses come in two versions, IPv4 (32-bit) and IPv6 (128-bit),</p>
+<p>IP addresses are categorized into classes based on their leading bits</p>
+<ol>
+<li><strong>Class A:</strong>  Subnet Mask: 255.0.0.0 (or /8 in CIDR notation). Range: 1 to 126</li>
+<li><strong>Class B:</strong> Subnet Mask: 255.255.0.0 (or /16 in CIDR notation) 128 to 191</li>
+<li><strong>Class C:</strong> Subnet Mask: 255.255.255.0 (or /24 in CIDR notation) 192 to 223</li>
+<li><strong>Class D (Multicast):</strong> for multicast groups. 224 to 239</li>
+<li><strong>Class E (Reserved):</strong> for experimental purposes. 240 to 255</li>
+<li>127 -&gt; loop back Ip (localhost)</li>
+</ol>
+<h4 id="subnet-mask">Subnet Mask</h4>
+<p>A subnet mask is a 32-bit number that divides an IP address into network and host portions. It is used to specify which part of the IP address represents the network and which part identifies the specific device within that network.</p>
+<p>It was introduced instead of class to make it easier to find network and host.</p>
+<pre tabindex="0"><code>
+192.168.1.1  for this IP the subnetmask is 255.255.255.0
+
+192.168.1.1   -&gt; 11000000.10101000.00000001.00000001(bin)
+255.255.255.0 -&gt; 11111111.11111111.11111111.00000000
+</code></pre><p>it means that the first 24 bits of the IP address are dedicated to the network, and the last 8 bits are for host addresses. so we can start from 00000000 to  11111111 (255)</p>
+<p>So for the IP the network portion is 192.168.1 and host is 1  and we can add 1 to 255 computer (host) in this network</p>
+<p><strong><code>Note</code></strong> <strong>192.168.1</strong> starting IP is act as router in the network. last IP <strong>192.168.255</strong> is used for broadcasting when we send data to that IP it will be sent all host belong to the network</p>
+<h4 id="cidr-notation">CIDR Notation</h4>
+<p>CIDR notation represents IP addresses using a format that combines the base IP address and the number of bits used for the network portion. It follows the pattern: <code>IP_address/prefix_length</code>. For example, &ldquo;192.168.1.0/24&rdquo; means that the first 24 bits of the address are the network portion and balance 8 bit is host</p>
+<h4 id="data-format-packet">Data Format (Packet)</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span><span class="line"><span class="cl">|Ver= 4 |IHL= 5 |Type of Service|        Total Length = 21      |
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span><span class="line"><span class="cl">|      Identification = 111     |Flg=0|   Fragment Offset = 0   |
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span><span class="line"><span class="cl">|   Time = 123  |  Protocol = 1 |        header checksum        |
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span><span class="line"><span class="cl">|                         source address                        |
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span><span class="line"><span class="cl">|                      destination address                      |
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span><span class="line"><span class="cl">|     data      |                                                
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+
+</span></span></code></pre></div><ul>
+<li>Time: This field indicates the maximum time the datagram is allowed to remain in the internet system.The router that route the packet will decrease the Time if it became zero router will drop this helps to avoid packets get loops in router it will drop once it get 0.</li>
+</ul>
+<h4 id="ipv6">IPV6</h4>
+<h4 id="icmp">ICMP</h4>
+<h4 id="routing-protocol">Routing Protocol</h4>
+<p>Routing protocols determine how your data gets to its destination it mainly classify in two types</p>
+<ol>
+<li>Interior Gateway Protocols (IGP)</li>
+<li>Exterior Gateway Protocols (EGP)</li>
+</ol>
+<p><strong>Interior Gateway Protocols (IGP)</strong>
+These are used within an autonomous system (AS), which is a collection of routers under the same administrative control like our <strong>ISP</strong>. Examples include Routing Information Protocol (RIP) and Open Shortest Path First (OSPF).</p>
+<p><strong>Exterior Gateway Protocols (EGP)</strong>
+These are used to exchange routing information between different autonomous systems. example: Border Gateway Protocol (BGP)</p>
+<h4 id="router">Router</h4>
+<p>Router are all over the internet helps to transmit the data from one network to another network.It has routing table which hold the IP of the known router that router and the destination.when ever router route the packet it add his IP and MAC address to the packet</p>
+<p>Host communicate with router using MAC address and use <strong>ARP</strong>  protocol to find the MAC address of the router.</p>
+<h4 id="nat">NAT</h4>
+<p>Network Address Translation allows multiple devices within a local network to share a single public IP address for communication with external networks,</p>
+<h4 id="tools-2">Tools</h4>
+<p><strong>Traceroute</strong>
+determines the route to a destination by sending <strong>Internet Control Message Protocol</strong> (ICMP) echo packets to the destination. In these packets, TRACERT uses varying IP Time-To-Live (TTL) values. Because each router along the path is required to decrement the packet&rsquo;s TTL by at least 1 before forwarding the packet, the TTL is effectively a hop counter. When the TTL on a packet reaches zero (0), the router sends an ICMP &ldquo;Time Exceeded&rdquo; message back to the source computer.</p>
+<p>TRACERT sends the first echo packet with a TTL of 1 and increments the TTL by 1 on each subsequent transmission, until the destination responds or until the maximum TTL is reached.</p>
+<ul>
+<li>tracert domain -&gt; will print how the packet is get transfered (the router will display * (asterisk) if no response is received.)</li>
+</ul>
+<p><strong>My traceroute</strong>
+that combines the functionality of traceroute and ping. <code>mtr [destination]</code> will print all router with time it taken</p>
+<p><strong>Netstat</strong>
+Displays network connections, routing tables, interface statistics, masquerade connections, and more.</p>
+<ul>
+<li><strong>netstat -a</strong> -&gt; Shows all active network connections.</li>
+<li><strong>netstat -l</strong> -&gt; list all open ports</li>
+<li><strong>netstat -r</strong> -&gt; print routing table</li>
+<li><strong>netstat -p</strong> -&gt; process ID (PID) and program name associated with each network socket.</li>
+<li><strong>netstat -s</strong> -&gt; summary of various network-related statistics, such as total packets transmitted and received.</li>
+</ul>
+<h2 id="data-link-layer">Data Link Layer</h2>
+<p>This layer is responsible for the framing, addressing, and error detection of data packets.The data link layer is concerned with local delivery of frames between devices on the same LAN</p>
+<h4 id="ethernet">Ethernet</h4>
+<p>Defines the rules for how devices on a local area network (LAN) communicate with each other. It is the most common technology for wired LANs and is part of the IEEE 802.3 standard.</p>
+<p>Key features and aspects of Ethernet:</p>
+<ol>
+<li><strong>Frame Format:</strong>
+<ul>
+<li>Ethernet uses a frame format for data transmission. A frame consists of various fields, including destination and source MAC addresses, a type field indicating the type of payload, the payload itself, and a Frame Check Sequence (FCS) for error detection.</li>
+</ul>
+</li>
+<li><strong>MAC Address:</strong>
+<ul>
+<li>Ethernet uses Media Access Control (MAC) addresses to uniquely identify devices on a network. These addresses are assigned to network interface cards (NICs) and are crucial for addressing and forwarding Ethernet frames.</li>
+</ul>
+</li>
+<li><strong>Carrier Sense Multiple Access with Collision Detection (CSMA/CD):</strong>
+<ul>
+<li>Ethernet uses a network access method called CSMA/CD. Devices on an Ethernet network listen for the presence of a carrier (other devices transmitting) before attempting to transmit. If a collision is detected, devices use a backoff algorithm before retransmitting.</li>
+</ul>
+</li>
+<li><strong>Hub, Switch, and Bridge:</strong>
+<ul>
+<li>Ethernet networks can be extended using devices such as hubs, switches, and bridges.
+<ul>
+<li><strong>Hub:</strong> A basic networking device that broadcasts data to all devices in the network.</li>
+<li><strong>Switch:</strong> A more intelligent device that uses MAC addresses to selectively forward frames only to the device for which the frame is intended.</li>
+<li><strong>Bridge:</strong> Connects multiple network segments and uses MAC addresses for filtering traffic.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Speed and Duplex:</strong>
+<ul>
+<li>Ethernet supports different data rates, including 10 Mbps (Ethernet), 100 Mbps (Fast Ethernet), 1 Gbps (Gigabit Ethernet), 10 Gbps, 40 Gbps, and 100 Gbps. The duplex mode can be half-duplex (communication in one direction at a time) or full-duplex (simultaneous two-way communication).</li>
+</ul>
+</li>
+<li><strong>Twisted Pair Cabling:</strong>
+<ul>
+<li>Ethernet commonly uses twisted pair cables for data transmission. Categories of twisted pair cables, such as Cat5e, Cat6, and Cat6a, support different data rates and distances.</li>
+</ul>
+</li>
+<li><strong>Fiber Optic Cabling:</strong>
+<ul>
+<li>In addition to copper cables, Ethernet can operate over fiber optic cables, providing higher bandwidth and longer-distance capabilities.</li>
+</ul>
+</li>
+<li><strong>Ethernet Frame Types:</strong>
+<ul>
+<li>Ethernet supports various frame types, including Ethernet II, IEEE 802.2, and IEEE 802.3. The most commonly used frame type today is Ethernet II.</li>
+</ul>
+</li>
+<li><strong>Ethernet over TCP/IP:</strong>
+<ul>
+<li>Ethernet is often used as the underlying technology for TCP/IP networks. It is the foundation for local networking and Internet connectivity.</li>
+</ul>
+</li>
+</ol>
+<h4 id="media-access-control-mac">Media Access Control (MAC)</h4>
+<p>MAC is a unique identifier assigned to network interfaces for communication on the physical network. It is a hardware address burned into the network interface card (NIC).</p>
+<p>We cannot change MAC address mostly but can be using software.MAC are used to communicate with LAN</p>
+<p>MAC is 48 bit. 24 bit  for vendor number and 24 bit will unique for the NIC.</p>
+<h4 id="arp-address-resolution-protocol">ARP (Address Resolution Protocol)</h4>
+<p>ARP resolves an IP address to a MAC address.Each host and router has an ARP table in its memory, which contains mappings of IP addresses to MAC addresses in there LAN.</p>
+<p>If the host does not have the mapping it will send <strong>ARP packet</strong> to all host in his LAN and host will return there MAC.ARP operates when a host wants to send a datagram to another host on the same subnet.</p>
+<h4 id="tools-3">Tools</h4>
+<p><strong>ARP</strong></p>
+<p>Displays the current ARP table, which maps IP addresses to MAC addresses.</p>
+<ul>
+<li><strong>arp -a</strong></li>
+<li><strong>arp -s IP address MAC address</strong> -&gt;Adds a static entry to the ARP table</li>
+</ul>
+<h2 id="physical-layer">Physical Layer</h2>
+<p>Responsible for the physical transmission of raw bits over a physical medium. It deals with the actual hardware connections, transmission media, and electrical or optical signaling.</p>
+<h2 id="rfc">RFC</h2>
+<p>RFC stands for &ldquo;Request for Comments.&rdquo; It is a series of documents and notes about the specifications, protocols, procedures, and conventions related to the operation and development of the internet. The RFC series is maintained by the Internet Engineering Task Force (IETF), a large open international community of network designers, operators, vendors, and researchers concerned with the evolution and smooth operation of the Internet architecture.</p>
+<p>The RFC documents cover a wide range of topics, including protocols, procedures, programs, and meeting notes. Some of the most well-known and widely used internet standards, protocols, and technologies have been documented in RFCs.</p>
+<p>Above Notes are mostly refered from RFC doc</p>
+<p>pending</p>
+<ol>
+<li>webrtc</li>
+<li>new protocol combine of tcp and udp (qwic)</li>
+</ol>
+<h2 id="resources">Resources</h2>
+<ol>
+<li><a href="https://datatracker.ietf.org/doc/html/rfc5321">RFC Spec for SMTP</a></li>
+<li><a href="%5Bhttps://vishalrana9915.medium.com/understanding-websockets-in-depth-6eb07ab298b3%5D(https://vishalrana9915.medium.com/understanding-websockets-in-depth-6eb07ab298b3)">Understanding websocket indepth</a></li>
+<li><a href="%5Bhttps://iximiuz.com/en/posts/computer-networking-101/%5D(https://iximiuz.com/en/posts/computer-networking-101/)">Computer Networking Introduction: Ethernet and IP (Heavily Illustrated)</a></li>
+<li><a href="%5Bhttps://jvns.ca/categories/dns/%5D(https://jvns.ca/categories/dns/)">DNS</a></li>
+<li><a href="https://medium.com/@felipemantillagomez/http-journey-from-request-to-response-7b122b8e74e9">Journey from request to response</a></li>
+<li><a href="%5Bhttps://how-did-i-get-here.net/%5D(https://how-did-i-get-here.net/)">Visulaize how we reach the website using traceroute</a></li>
+<li>Computer networking A top down approach (best book)</li>
+</ol>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

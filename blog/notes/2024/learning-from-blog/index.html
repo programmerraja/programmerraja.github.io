@@ -29,12 +29,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.1">
+<meta name="generator" content="Hugo 0.121.2">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/learning-from-blog/">
-    <link href="/blog/style.min.a331e196842d6df0db458dbc74b8cb9d3f93dc2a4203f1ef625a27c46f956787.css" rel="stylesheet">
+    <link href="/blog/style.min.c59e806842f648d519b3dc8840e627b8d9c4a498eb5e4c858e60db86a71c5f6f.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.4e1b30df3607fab6faaa068536572415b0ea6c4b3a10dfd609e0d070bdd7546d.css" rel="stylesheet">
 
     
@@ -92,13 +92,6 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="/blog/resources/">
-                        Resources
-                    </a>
-                    
-                </li>
-                
-                <li>
                     <a class="menu-link active" href="/blog/notes/">
                         Notes
                     </a>
@@ -137,21 +130,26 @@ stroke-linejoin="round" class="feather feather-home">
                     <time datetime="2024-01-01T08:19:32&#43;05:30" itemprop="datePublished"> Jan 1, 2024 </time>
                 </div>
                 
-            </header>
-                
-                
-                <details class="toc" ZgotmplZ>
-                    <summary><b>Table of Contents</b></summary>
-                    <nav id="TableOfContents">
-  <ol>
-    <li><a href="#how-linkedin-adopted-protocol-buffers-to-reduce-latency-by-60httpsnewslettersystemdesignonepprotocol-buffers-vs-json"><strong><a href="https://newsletter.systemdesign.one/p/protocol-buffers-vs-json">How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60%</a></strong></a></li>
-    <li><a href="#scaling-slacks-job-queuehttpsslackengineeringscaling-slacks-job-queue"><strong><a href="https://slack.engineering/scaling-slacks-job-queue/">Scaling Slack’s Job Queue</a></strong></a></li>
-    <li><a href="#hashnodes-overall-architecturehttpsengineeringhashnodecomhashnodes-overall-architecture"><strong><a href="https://engineering.hashnode.com/hashnodes-overall-architecture">Hashnode&rsquo;s Overall Architecture</a></strong></a></li>
-    <li><a href="#scaling-cron-monitoringhttpssentryengineeringblogscaling-cron-monitoring"><strong><a href="https://sentry.engineering/blog/scaling-cron-monitoring">Scaling Cron Monitoring</a></strong></a></li>
-  </ol>
-</nav>
-                </details>
-                <div class="page-content">
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#how-linkedin-adopted-protocol-buffers-to-reduce-latency-by-60httpsnewslettersystemdesignonepprotocol-buffers-vs-json" aria-label="How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60%">How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60%</a></li>
+                <li>
+                    <a href="#scaling-slacks-job-queuehttpsslackengineeringscaling-slacks-job-queue" aria-label="Scaling Slack’s Job Queue">Scaling Slack’s Job Queue</a></li>
+                <li>
+                    <a href="#hashnodes-overall-architecturehttpsengineeringhashnodecomhashnodes-overall-architecture" aria-label="Hashnode&rsquo;s Overall Architecture">Hashnode&rsquo;s Overall Architecture</a></li>
+                <li>
+                    <a href="#scaling-cron-monitoringhttpssentryengineeringblogscaling-cron-monitoring" aria-label="Scaling Cron Monitoring">Scaling Cron Monitoring</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
                 <h2 id="how-linkedin-adopted-protocol-buffers-to-reduce-latency-by-60httpsnewslettersystemdesignonepprotocol-buffers-vs-json"><strong><a href="https://newsletter.systemdesign.one/p/protocol-buffers-vs-json">How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60%</a></strong></h2>
 <ul>
 <li>They heavly using microservice to avoid the latency between the service they go with protocol buffers</li>

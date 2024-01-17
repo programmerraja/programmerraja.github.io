@@ -29,12 +29,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.1">
+<meta name="generator" content="Hugo 0.121.2">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2023/rabbitmq/">
-    <link href="/blog/style.min.a331e196842d6df0db458dbc74b8cb9d3f93dc2a4203f1ef625a27c46f956787.css" rel="stylesheet">
+    <link href="/blog/style.min.c59e806842f648d519b3dc8840e627b8d9c4a498eb5e4c858e60db86a71c5f6f.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.4e1b30df3607fab6faaa068536572415b0ea6c4b3a10dfd609e0d070bdd7546d.css" rel="stylesheet">
 
     
@@ -92,13 +92,6 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="/blog/resources/">
-                        Resources
-                    </a>
-                    
-                </li>
-                
-                <li>
                     <a class="menu-link active" href="/blog/notes/">
                         Notes
                     </a>
@@ -137,27 +130,38 @@ stroke-linejoin="round" class="feather feather-home">
                     <time datetime="2023-12-08T18:26:15&#43;05:30" itemprop="datePublished"> Dec 8, 2023 </time>
                 </div>
                 
-            </header>
-                
-                
-                <details class="toc" ZgotmplZ>
-                    <summary><b>Table of Contents</b></summary>
-                    <nav id="TableOfContents">
-  <ol>
-    <li><a href="#what--is-rabbitmq">What  is RabbitMQ?</a></li>
-    <li><a href="#channel">Channel</a></li>
-    <li><a href="#channel-vs-connection">Channel vs connection</a></li>
-    <li><a href="#exchanges">Exchanges</a></li>
-    <li><a href="#durablity">Durablity</a></li>
-    <li><a href="#prefetch">Prefetch</a></li>
-    <li><a href="#amqp-connection-manager-vs-amqplib">Amqp-connection-manager vs Amqplib</a></li>
-    <li><a href="#what-are-the-best-practice-regarding-channel-and-connection">What are the best practice regarding channel and connection</a></li>
-    <li><a href="#how-to-handle-failures">How to Handle failures</a></li>
-    <li><a href="#resources">Resources</a></li>
-  </ol>
-</nav>
-                </details>
-                <div class="page-content">
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#what--is-rabbitmq" aria-label="What  is RabbitMQ?">What  is RabbitMQ?</a></li>
+                <li>
+                    <a href="#channel" aria-label="Channel">Channel</a></li>
+                <li>
+                    <a href="#channel-vs-connection" aria-label="Channel vs connection">Channel vs connection</a></li>
+                <li>
+                    <a href="#exchanges" aria-label="Exchanges">Exchanges</a></li>
+                <li>
+                    <a href="#durablity" aria-label="Durablity">Durablity</a></li>
+                <li>
+                    <a href="#prefetch" aria-label="Prefetch">Prefetch</a></li>
+                <li>
+                    <a href="#amqp-connection-manager-vs-amqplib" aria-label="Amqp-connection-manager vs Amqplib">Amqp-connection-manager vs Amqplib</a></li>
+                <li>
+                    <a href="#what-are-the-best-practice-regarding-channel-and-connection" aria-label="What are the best practice regarding channel and connection">What are the best practice regarding channel and connection</a></li>
+                <li>
+                    <a href="#how-to-handle-failures" aria-label="How to Handle failures">How to Handle failures</a></li>
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
                 <h2 id="what--is-rabbitmq">What  is RabbitMQ?</h2>
 <p>RabbitMQ is a popular open-source message broker that implements the AMQP (Advanced Message Queuing Protocol) standard.</p>
 <h2 id="channel">Channel</h2>

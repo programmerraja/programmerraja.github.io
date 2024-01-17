@@ -6,7 +6,55 @@
     <description>Recent content in Notes on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jan 2024 11:39:28 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 15 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Notes</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/docker/</link>
+      <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
+      
+      <description>Docker Engine When you install Docker, you get two major components:
+Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd (to manage container lifecycle operations — start | stop | pause | rm.</description>
+      
+    </item>
+    
+    <item>
+      <title>Database internal book Notes</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/database-internal/</link>
+      <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/database-internal/</guid>
+      
+      <description>Storage Engines The storage engine (or database engine) is a software component of a database man‐ agement system responsible for storing, retrieving, and managing data in memory and on disk, designed to capture a persistent, long-term memory of each node.
+Storage engines such as BerkeleyDB, LevelDB and its descendant RocksDB, LMDB and its descendant libmdbx, Sophia, HaloDB,
+Row-Oriented Data Layout Row-oriented database management systems store data in records or rows. Their layout is quite close to the tabular data representation, where every row has the same set of fields.</description>
+      
+    </item>
+    
+    <item>
+      <title>Networking Notes</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/networking/</link>
+      <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/networking/</guid>
+      
+      <description>OSI Model The Open Systems Interconnection (OSI) model describes seven layers that computer systems use to communicate over a network.
+Application Layer (Htttp,DHCP,FMTP,Telnet,NFS) Presentation Layer (Encryption,Data format,Data compression,ASCII to Bin) Session Layer (TCP/IP socket authentication RTCP protocol) Transport Layer (Process level addressing TCP/UDP, Multiplexing,demultiplexing,segmentation,connection establishment) Network Layer (logical addressing IP , Routing, packet encapsulation) Data Link Layer (LAN,MAC,Data framing,Error detection) Physical Layer (Converting Bin to singals to transfer the data) Application Layer HTTP/HTTPS Is the protocol used to communicate with server.</description>
+      
+    </item>
+    
+    <item>
+      <title>Nginx Notes</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/nginx/</link>
+      <pubDate>Wed, 10 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/nginx/</guid>
+      
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>Go</title>
       <link>https://programmerraja.github.io/blog/notes/2024/go/</link>
