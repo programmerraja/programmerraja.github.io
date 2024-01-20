@@ -34,7 +34,7 @@
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/networking/">
-    <link href="/blog/style.min.c59e806842f648d519b3dc8840e627b8d9c4a498eb5e4c858e60db86a71c5f6f.css" rel="stylesheet">
+    <link href="/blog/style.min.4ac6cf0a45f597bb04ee3889f23da86b8f4067503e71f64bc0581c8ad628ba44.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.4e1b30df3607fab6faaa068536572415b0ea6c4b3a10dfd609e0d070bdd7546d.css" rel="stylesheet">
 
     
@@ -59,6 +59,7 @@
     
     </head>
 <body data-theme = "" class="notransition">
+        <main class="main">
 
 <script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
@@ -99,19 +100,25 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="https://programmerraja.github.io/">
-                        Portfolio
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
                     </a>
                     
                 </li>
                 
                 <li class="menu-separator">
-                    <span>|</span>
+                    
                 </li>
             </ul>
             <a id="mode" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
-<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                
                 <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
 <title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
             </a>
@@ -156,6 +163,10 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#http2" aria-label="HTTP2">HTTP2</a></li>
                 <li>
+                    <a href="#format" aria-label="Format">Format</a></li>
+                <li>
+                    <a href="#http3" aria-label="HTTP3">HTTP3</a></li>
+                <li>
                     <a href="#security-header-in-http" aria-label="Security Header in HTTP">Security Header in HTTP</a></li>
                 <li>
                     <a href="#https" aria-label="HTTPS">HTTPS</a></li>
@@ -169,6 +180,10 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#dhcp" aria-label="DHCP">DHCP</a></li>
                 <li>
                     <a href="#ssh" aria-label="SSH">SSH</a></li>
+                <li>
+                    <a href="#webrtc" aria-label="WebRTC">WebRTC</a></li>
+                <li>
+                    <a href="#voip" aria-label="VoIP">VoIP</a></li>
                 <li>
                     <a href="#tools" aria-label="Tools">Tools</a></li></ul>
                     </ul>
@@ -236,7 +251,19 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#rfc" aria-label="RFC">RFC</a></li>
                 <li>
-                    <a href="#resources" aria-label="Resources">Resources</a>
+                    <a href="#resources" aria-label="Resources">Resources</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#advanced" aria-label="Advanced">Advanced</a></li>
+                <li>
+                    <a href="#increase-http-performance-by-fitting-in-the-initial-tcp-slow-start-windowhttpssirupsencomnapkinproblem-15" aria-label="Increase HTTP Performance by Fitting In the Initial TCP Slow Start Window">Increase HTTP Performance by Fitting In the Initial TCP Slow Start Window</a></li>
+                <li>
+                    <a href="#tcp-tuning-for-httphttpsdatatrackerietforgdochtmldraft-stenberg-httpbis-tcp" aria-label="TCP Tuning for HTTP">TCP Tuning for HTTP</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#book" aria-label="Book">Book</a>
                 </li>
             </ul>
         </div>
@@ -289,8 +316,29 @@ stroke-linejoin="round" class="feather feather-home">
 <td><strong>Message Body</strong></td>
 <td>Request Body (for Request) / Response Body (for Response)</td>
 </tr>
+<tr>
+<td>message consists of a start-line followed by a CRLF(carriage-return and linefeed) and a sequence of octets in a format similar to the Internet Message Format</td>
+<td></td>
+</tr>
 </tbody>
 </table>
+<p>example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">GET / HTTP/1.1 CRLFHost: google.comCRLFCRLF
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">response would look like:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">HTTP/1.1 200 OK CRLFServer: googleCRLFContent-Length: 100CRLFtext/html; charset=UTF-8CRLFCRLF&lt;100 bytes of data&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">will be decoded as
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Http/1.1 200 ok
+</span></span><span class="line"><span class="cl">server:google
+</span></span><span class="line"><span class="cl">Content-Length: 100
+</span></span><span class="line"><span class="cl">charset=UTF-8
+</span></span><span class="line"><span class="cl">&lt;100 bytes of data&gt;
+</span></span></code></pre></div><p>because of this we cannot do multiplexed two request need to send in ordered and response need to be in ordered.</p>
+<p>If the client sends Request 1, Request 2, and then Request 3 over a single TCP connection, it will receive Response 1, Response 2, and then Response 3 in the same order.</p>
 <h4 id="methods-of-http">Methods of HTTP</h4>
 <ol>
 <li>
@@ -384,6 +432,136 @@ stroke-linejoin="round" class="feather feather-home">
 <p><strong>Connection Multiplexing:</strong> HTTP/2 uses a single, multiplexed connection per origin.</p>
 </li>
 </ol>
+<p> <strong>HTTP/2 frames</strong> that have type, length, flags, stream identifier (ID) and payload. The stream ID makes it clear which bytes on the wire apply to which message, allowing safe multiplexing and concurrency. Streams are bidirectional. Clients send frames and servers reply with frames using the same ID.
+ 
+Client requests always use odd-numbered stream IDs, so subsequent requests would use stream IDs 3, 5, and so on. Responses can be served in any order, and frames from different streams can be interleaved.</p>
+<p>A server that is unable to establish a new stream identifier can send a <strong>GOAWAY</strong> frame so that the client is forced to open a new connection for new streams</p>
+<h4 id="format">Format</h4>
+<pre tabindex="0"><code>+-----------------------------------------------+
+|                 Frame Header                  |
++-----------------------------------------------+
+|                 Frame Payload                 |
++-----------------------------------------------+
+</code></pre><p><strong>Frame Header:</strong> Represents the common structure at the beginning of each frame. It includes fields such as:</p>
+<ul>
+<li>
+<p>Length: The length of the frame payload.</p>
+</li>
+<li>
+<p>Type: The type of the frame (e.g., HEADERS, DATA, SETTINGS, etc.).</p>
+<ol>
+<li><strong>HEADERS Frame (Type 0x1):</strong>
+<ul>
+<li>Carries header fields for a particular stream.</li>
+<li>Can be used for request or response headers.</li>
+</ul>
+</li>
+<li><strong>PRIORITY Frame (Type 0x2):</strong>
+<ul>
+<li>Indicates the sender&rsquo;s priority weighting for a stream.</li>
+<li>Helps in managing the order of processing streams.</li>
+</ul>
+</li>
+<li><strong>RST_STREAM Frame (Type 0x3):</strong>
+<ul>
+<li>Indicates that a stream is being terminated or reset.</li>
+<li>Includes an error code indicating the reason for termination.</li>
+<li>this will send when we navigate to another page browser will send to free up resources in server that no need anymore</li>
+</ul>
+</li>
+<li><strong>SETTINGS Frame (Type 0x4):</strong>
+<ul>
+<li>Used to communicate configuration settings for both the client and server.</li>
+<li>Parameters include initial window size, maximum frame size, etc.</li>
+</ul>
+</li>
+<li><strong>PUSH_PROMISE Frame (Type 0x5):</strong>
+<ul>
+<li>Sent by the server to initiate a server push.</li>
+<li>Specifies a promised request and the associated stream identifier.</li>
+</ul>
+</li>
+<li><strong>PING Frame (Type 0x6):</strong>
+<ul>
+<li>Used to measure a round-trip time between endpoints.</li>
+<li>Primarily used as a keep-alive mechanism.</li>
+</ul>
+</li>
+<li><strong>GOAWAY Frame (Type 0x7):</strong>
+<ul>
+<li>Sent by a server to indicate that further communication should not occur on a given connection.</li>
+<li>Includes information about the last stream ID processed.</li>
+</ul>
+</li>
+<li><strong>WINDOW_UPDATE Frame (Type 0x8):</strong>
+<ul>
+<li>Used to adjust the size of the flow-control window.</li>
+<li>Can be sent by both the client and the server.</li>
+</ul>
+</li>
+<li><strong>CONTINUATION Frame (Type 0x9):</strong>
+<ul>
+<li>Used to continue a sequence of header block fragments.</li>
+<li>Allows header information to be spread across multiple frames.</li>
+</ul>
+</li>
+<li><strong>DATA Frame (Type 0x0):</strong>
+<ul>
+<li>Used to carry the payload of an HTTP message, such as the content of a request or response body.</li>
+<li>It can be associated with a specific stream.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Flags: Flags providing additional information about the frame.</p>
+<ol>
+<li><strong>END_STREAM (0x1):</strong>
+<ul>
+<li>Indicates that the frame represents the end of a stream.</li>
+<li>Applies to HEADERS, DATA, and CONTINUATION frames.</li>
+</ul>
+</li>
+<li><strong>END_HEADERS (0x4):</strong>
+<ul>
+<li>Indicates that this frame contains the final chunk of a header set.</li>
+<li>Applies to HEADERS, CONTINUATION, and PUSH_PROMISE frames.</li>
+</ul>
+</li>
+<li><strong>PADDED (0x8):</strong>
+<ul>
+<li>Indicates that the frame is followed by padding.</li>
+<li>The length of the padding is determined by the value of the Pad Length field in the frame.</li>
+</ul>
+</li>
+<li><strong>PRIORITY (0x20):</strong>
+<ul>
+<li>Indicates that the frame includes stream priority information.</li>
+<li>Applies to HEADERS, PUSH_PROMISE, and CONTINUATION frames.</li>
+</ul>
+</li>
+<li><strong>ACK (0x1):</strong>
+<ul>
+<li>Indicates that the SETTINGS frame acknowledges the receipt and application of the peer&rsquo;s settings.</li>
+<li>Applies to SETTINGS frames.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>
+<p>Stream Identifier: Identifies the stream to which the frame belongs.</p>
+</li>
+</ul>
+<p><strong>Frame Payload:</strong> Represents the specific content of the frame, which varies based on the frame type. For example:</p>
+<ul>
+<li>For a HEADERS frame, the payload includes header information.</li>
+<li>For a DATA frame, the payload includes the actual data being sent.</li>
+</ul>
+<p><strong>Rapid resets leading to denial of service</strong></p>
+<p>The challenge occurs when a client rapidly cancels many requests in an HTTP/2 environment, and the server or intermediary (like a proxy) struggles to promptly handle these cancellations. This can result in a buildup of tasks, causing resource consumption issues, especially in scenarios where there&rsquo;s a delay in cleaning up in-process jobs.
+refere <a href="https://blog.apnic.net/2024/01/11/http-2-rapid-reset-deconstructing-the-record-breaking-attack/">here</a></p>
+<h4 id="http3">HTTP3</h4>
+<p>It uses QUIC in transport layer</p>
 <h4 id="security-header-in-http">Security Header in HTTP</h4>
 <ol>
 <li><strong>Content-Security-Policy (CSP):</strong>
@@ -562,6 +740,83 @@ First browser check does the domain corresponding IP in local cache if so use if
 </ul>
 <h4 id="ssh">SSH</h4>
 <p>Provides secure access to a remote device or server over a network, allowing for encrypted communication and command execution.</p>
+<h4 id="webrtc">WebRTC</h4>
+<h4 id="voip">VoIP</h4>
+<p>allows voice communication and multimedia sessions over the Internet.</p>
+<p>VoIP devices register with a VoIP server using a protocol like SIP (Session Initiation Protocol). SIP is responsible for establishing, modifying, and terminating real-time sessions.</p>
+<p>To connect with traditional phone networks, VoIP calls often go through an Internet Telephony Service Provider (ITSP). The ITSP serves as a gateway between the IP-based and traditional telephone networks.</p>
+<p><strong>protocols commonly used in VoIP</strong></p>
+<ol>
+<li><strong>SIP (Session Initiation Protocol):</strong>
+<ul>
+<li>SIP is a signaling protocol used for initiating, modifying, and terminating communication sessions. It&rsquo;s widely used for setting up and tearing down VoIP calls.</li>
+</ul>
+</li>
+<li><strong>RTP (Real-Time Transport Protocol):</strong>
+<ul>
+<li>RTP is used for transmitting audio and video data in real-time over the internet. It works in conjunction with RTCP (Real-Time Control Protocol) for quality monitoring.</li>
+</ul>
+</li>
+<li><strong>SDP (Session Description Protocol):</strong>
+<ul>
+<li>SDP is used to describe multimedia sessions for the purpose of session announcement, invitation, and other forms of initiation.</li>
+</ul>
+</li>
+<li><strong>RTCP (Real-Time Control Protocol):</strong>
+<ul>
+<li>RTCP works alongside RTP to provide control information during a VoIP session, including statistics on packet loss, jitter, and round-trip delay.</li>
+</ul>
+</li>
+<li><strong>UDP (User Datagram Protocol):</strong>
+<ul>
+<li>UDP is a transport protocol commonly used for carrying voice packets in VoIP due to its low-latency characteristics. It&rsquo;s also used for SIP signaling.</li>
+</ul>
+</li>
+<li><strong>TCP (Transmission Control Protocol):</strong>
+<ul>
+<li>While less common for voice transmission due to its connection-oriented nature, TCP is used in certain scenarios for SIP signaling and situations where retransmission of lost packets is preferred over real-time delivery.</li>
+</ul>
+</li>
+<li><strong>TLS (Transport Layer Security):</strong>
+<ul>
+<li>TLS is used to secure the signaling (SIP) and media streams in VoIP, ensuring the confidentiality and integrity of communications.</li>
+</ul>
+</li>
+<li><strong>STUN (Session Traversal Utilities for NAT):</strong>
+<ul>
+<li>STUN is used to discover the presence of network address translators (NATs) and to obtain the public IP address and port of a VoIP client.</li>
+</ul>
+</li>
+<li><strong>TURN (Traversal Using Relays around NAT):</strong>
+<ul>
+<li>TURN is used to relay media when direct peer-to-peer communication is not possible due to NAT or firewall traversal issues.</li>
+</ul>
+</li>
+<li><strong>ICE (Interactive Connectivity Establishment):</strong>
+<ul>
+<li>ICE is a framework that leverages STUN and TURN to facilitate the establishment of peer-to-peer connections in the presence of NAT and firewalls.</li>
+</ul>
+</li>
+<li><strong>MGCP (Media Gateway Control Protocol):</strong>
+<ul>
+<li>MGCP is a protocol used for controlling media gateways in VoIP networks, often used in conjunction with the more modern SIP and H.323.</li>
+</ul>
+</li>
+</ol>
+<p><strong>SIP Proxy Server</strong></p>
+<p>A SIP proxy receives and processes SIP requests from a redirect server or software.</p>
+<p><strong>Session Initiation Protocol (SIP)</strong></p>
+<p>SIP is an application-layer control protocol that can establish,modify, and terminate multimedia sessions (conferences) such as calls.</p>
+<p>Responses are coded based on their message. Different preceding numbers in a three-digit sequence have different meanings.</p>
+<p>For example, <strong>1xx</strong> response codes mean the device received and is processing the message. Codes starting with <strong>2xx</strong> mean completion, <strong>3xx</strong> is used for redirections, <strong>4xx</strong> is for authentication errors, etc.</p>
+<p>The most common code is <strong>200</strong>, meaning the action was completed successfully without further details.</p>
+<p>A SIP registrar is similar to an address book. It associates the various users with the access points on the IP network where one can reach them.</p>
+<p>Most SIP addresses connect to a unique phone number</p>
+<p> underlying media streams for audio and video calls typically use separate protocols, like RTP (Real-time Transport Protocol), which ensures timely delivery of media data.</p>
+<p>SIP URI
+It has a similar form to an email address, typically containing a username and a host name.  In this case, it is sip:bob@biloxi.com, where biloxi.com is the domain of Bob&rsquo;s SIP service provider.</p>
+<p><strong>Codecs</strong></p>
+<p>A codec, which stands for <strong>coder-decoder</strong>, converts an audio signal into compressed digital form for transmission and then back into an uncompressed audio signal for replay.</p>
 <h4 id="tools">Tools</h4>
 <p><strong>Nslookup</strong></p>
 <p>tool for querying the Domain Name System to obtain the mapping between domain name and IP address,</p>
@@ -569,8 +824,8 @@ First browser check does the domain corresponding IP in local cache if so use if
 <li>nslookup mydomain.com -&gt; Will print the IP and other DNS details</li>
 <li>nslookup -type=AAAA mydomain.com -&gt; will print only AAA record</li>
 </ul>
-<p><strong>Domain Information Groper command (DIG)</strong>
-for Making DNS queries <code>dig example.com</code> , <code>dig NS com </code> will print name server of the domain</p>
+<p><strong>Domain Information Groper command (DIG)</strong></p>
+<p>for Making DNS queries <code>dig example.com</code> , <code>dig NS com </code> will print name server of the domain</p>
 <h2 id="transport-layer">Transport Layer</h2>
 <p>It is responsible for ensuring end-to-end communication and data transfer between applications. In this layer the data is divided into small small segements and also it control the flow of the data transfer ,detecting packet losses (via sequence numbers) and errors (via per-segment checksums), as well as correction via retransmission</p>
 <p>The two most commonly used transport layer protocols are:</p>
@@ -646,9 +901,9 @@ for Making DNS queries <code>dig example.com</code> , <code>dig NS com </code> w
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                    Acknowledgment Number                      |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|  Data |       |C|E|U|A|P|R|S|F|                               |
-| Offset| Rsrvd |W|C|R|C|S|S|Y|I|            Window             |
-|       |       |R|E|G|K|H|T|N|N|                               |
+|  Data |       |            |                                  |
+| Offset| Rsrvd |control bits|             Window               |
+|       |       |            |                                  |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |           Checksum            |         Urgent Pointer        |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -658,11 +913,45 @@ for Making DNS queries <code>dig example.com</code> , <code>dig NS com </code> w
 :                             Data                              :
 :                                                               |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-</code></pre><h4 id="how-tcp-do-reliable-data-transfer-service">How TCP do reliable data transfer service</h4>
+</code></pre><p><strong>Control bits</strong></p>
+<p>The currently assigned control bits are CWR, ECE, URG, ACK, PSH, RST, SYN, and FIN.</p>
+<ul>
+<li>CWR: Congestion Window Reduced</li>
+<li>ECE: ECN-Echo</li>
+<li>URG: Urgent pointer field is significant</li>
+<li>ACK: Acknowledgment field is significant</li>
+<li>RST: Reset the connection</li>
+<li>SYN: Synchronize sequence numbers</li>
+<li>FIN: No more data from sender.</li>
+</ul>
+<p><strong>Urgent Pointer</strong></p>
+<p>is used to provide a way for the sender to inform the receiver that certain data in the segment is urgent and should be prioritized</p>
+<p><strong>Options</strong></p>
+<ul>
+<li><strong>Maximum Segment Size (MSS)</strong>  is used to indicate the maximum size of a TCP segment that the sender can receive.</li>
+<li><strong>Window Scale:</strong> allows the sender to advertise a larger window size than what can be represented in the standard 16-bit window field in the TCP header.</li>
+<li><strong>Timestamps:</strong> used to measure the round-trip time and calculate the RTT (Round-Trip Time) between the sender and receiver.</li>
+<li><strong>Selective Acknowledgment (SACK):</strong> allows a receiver to acknowledge out-of-order segments and gaps in the received data, providing more efficient error recovery and congestion control.</li>
+<li><strong>No-Operation (NOP):</strong> is used as a placeholder for padding and does not carry any useful information.</li>
+<li><strong>Window Size:</strong> is used to extend the window size field, providing a larger window for flow control.</li>
+</ul>
+<h4 id="how-tcp-do-reliable-data-transfer-service">How TCP do reliable data transfer service</h4>
 <p>TCP sender uses timout to resend the segement if the recevier does not <strong>ACK</strong> the segement that send within the specific time period.</p>
 <p><strong>Flow Control</strong></p>
 <p>When the TCP connection receives bytes that are correct and in sequence, it places the data in the receive buffer. The associated application process will read data from this buffer.</p>
 <p>The <strong>receive window</strong> is used to give the sender an idea of how much free buffer space is available at the receiver.</p>
+<p><strong>TCP slow start</strong></p>
+<p> Servers only send a few packets (typically 10) in the initial round-trip while TCP is warming up (referred to as TCP slow start). After sending the first set of packets, it needs to wait for the client to acknowledge it received all those packets. server make sure at air it won&rsquo;t go above 10 that does not recevie ACK.
+ 
+ The larger the initial window, the more we can transfer in the first roundtrip, the faster your site is on the initial page load. For a large roundtrip time .</p>
+<p>The only way to estimate the available capacity between the client and the server is to measure it by exchanging data, and this is precisely what slow-start is designed to do. To start, the server initializes a new congestion window (cwnd) variable per TCP connection and sets its initial value to a conservative, system-specified value (initcwnd on Linux).</p>
+<p>Congestion window size (cwnd)</p>
+<ul>
+<li>Sender-side limit on the amount of data the sender can have in flight before receiving an acknowledgment (ACK) from the client.</li>
+</ul>
+<p>The maximum amount of data in flight for a new TCP connection is the minimum of the rwnd and cwnd values; hence a modern server can send up to ten network segments to the client, at which point it must stop and wait for an acknowledgment.</p>
+<p>Then, for every received ACK, the slow-start algorithm indicates that the server can increment its cwnd window size by one segment — for every ACKed packet, two new packets can be sent. This phase of the TCP connection is commonly known as the &ldquo;exponential growth&rdquo; algorithm.</p>
+<p><a href="https://cloud.google.com/blog/products/networking/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster">Google</a> introduced a new Algo for this which is called <strong>BBR</strong> (<strong>B</strong>ottleneck <strong>B</strong>andwidth and <strong>R</strong>ound-trip propagation time) which make YouTube network throughput by 4 percent on average globally</p>
 <p><strong>TCP Congestion Control</strong></p>
 <p>When sender send more at rate but recevier is not able to process the data at same speed the recevier buffer will be full and there is packet loss. To avoid that the recevier send the buffer size to sender i have only this much free space so send the data accordingly</p>
 <p><strong>SACK</strong>
@@ -749,6 +1038,34 @@ messages  to other programs  with a minimum  of protocol mechanism.</p>
 <li>Time: This field indicates the maximum time the datagram is allowed to remain in the internet system.The router that route the packet will decrease the Time if it became zero router will drop this helps to avoid packets get loops in router it will drop once it get 0.</li>
 </ul>
 <h4 id="ipv6">IPV6</h4>
+<p>IPv6 increases the IP address size from 32 bits to 128 bits</p>
+<p><strong>IPv6 Header Format</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span><span class="line"><span class="cl">|Version| Traffic Class |           Flow Label                  |
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span><span class="line"><span class="cl">|         Payload Length        |  Next Header  |   Hop Limit   |
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span><span class="line"><span class="cl">|                                                               |
+</span></span><span class="line"><span class="cl">+                                                               +
+</span></span><span class="line"><span class="cl">|                                                               |
+</span></span><span class="line"><span class="cl">+                         Source Address                        +
+</span></span><span class="line"><span class="cl">|                                                               |
+</span></span><span class="line"><span class="cl">+                                                               +
+</span></span><span class="line"><span class="cl">|                                                               |
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span><span class="line"><span class="cl">|                                                               |
+</span></span><span class="line"><span class="cl">+                                                               +
+</span></span><span class="line"><span class="cl">|                                                               |
+</span></span><span class="line"><span class="cl">+                      Destination Address                      +
+</span></span><span class="line"><span class="cl">|                                                               |
+</span></span><span class="line"><span class="cl">+                                                               +
+</span></span><span class="line"><span class="cl">|                                                               |
+</span></span><span class="line"><span class="cl">+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</span></span></code></pre></div><ul>
+<li>Version : 4-bit Internet Protocol version number = 6.</li>
+<li>Hop Limit : like TTL in IPV4 (Decremented by 1 by each node that forwards the packet.)</li>
+<li>Traffic Class :</li>
+</ul>
 <h4 id="icmp">ICMP</h4>
 <h4 id="routing-protocol">Routing Protocol</h4>
 <p>Routing protocols determine how your data gets to its destination it mainly classify in two types</p>
@@ -876,6 +1193,26 @@ Displays network connections, routing tables, interface statistics, masquerade c
 <li><a href="%5Bhttps://how-did-i-get-here.net/%5D(https://how-did-i-get-here.net/)">Visulaize how we reach the website using traceroute</a></li>
 <li>Computer networking A top down approach (best book)</li>
 </ol>
+<h4 id="advanced">Advanced</h4>
+<h4 id="increase-http-performance-by-fitting-in-the-initial-tcp-slow-start-windowhttpssirupsencomnapkinproblem-15"><a href="https://sirupsen.com/napkin/problem-15">Increase HTTP Performance by Fitting In the Initial TCP Slow Start Window</a></h4>
+<ul>
+<li>How TCP slow start affect page load</li>
+<li>Try make the page size small as possible that can fit in 10 TCP segment roughly 12kb</li>
+<li>Increase the  initial congestion window for the server by default for linux it has 10 . it will send 10 TCP segment parallely and it will wait for ACK for each one if it recevied it send next segment.</li>
+</ul>
+<h4 id="tcp-tuning-for-httphttpsdatatrackerietforgdochtmldraft-stenberg-httpbis-tcp"><a href="https://datatracker.ietf.org/doc/html/draft-stenberg-httpbis-tcp">TCP Tuning for HTTP</a></h4>
+<ul>
+<li>List of methods to tunning TCP for HTTP</li>
+</ul>
+<h2 id="book">Book</h2>
+<ol>
+<li><a href="https://hpbn.co/">High Performance Browser Networking</a>
+<ul>
+<li>Provides a hands-on overview of what every web developer needs to know about the various types of networks</li>
+</ul>
+</li>
+<li></li>
+</ol>
 
             </div>
         </article></main>
@@ -946,5 +1283,6 @@ Displays network connections, routing tables, interface statistics, masquerade c
 
     
 
-</body>
+</main>
+    </body>
 </html>

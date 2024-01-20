@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>database on programmerraja blog</title>
+    <link>https://programmerraja.github.io/blog/tags/database/</link>
+    <description>Recent content in database on programmerraja blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Database internal book Notes</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/database-internal/</link>
+      <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/database-internal/</guid>
+      
+      <description>Storage Engines The storage engine (or database engine) is a software component of a database man‐ agement system responsible for storing, retrieving, and managing data in memory and on disk, designed to capture a persistent, long-term memory of each node.
+Storage engines such as BerkeleyDB, LevelDB and its descendant RocksDB, LMDB and its descendant libmdbx, Sophia, HaloDB,
+Row-Oriented Data Layout Row-oriented database management systems store data in records or rows. Their layout is quite close to the tabular data representation, where every row has the same set of fields.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

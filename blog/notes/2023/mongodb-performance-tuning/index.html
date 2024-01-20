@@ -34,7 +34,7 @@
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/">
-    <link href="/blog/style.min.c59e806842f648d519b3dc8840e627b8d9c4a498eb5e4c858e60db86a71c5f6f.css" rel="stylesheet">
+    <link href="/blog/style.min.4ac6cf0a45f597bb04ee3889f23da86b8f4067503e71f64bc0581c8ad628ba44.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.4e1b30df3607fab6faaa068536572415b0ea6c4b3a10dfd609e0d070bdd7546d.css" rel="stylesheet">
 
     
@@ -59,6 +59,7 @@
     
     </head>
 <body data-theme = "" class="notransition">
+        <main class="main">
 
 <script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
@@ -99,19 +100,25 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="https://programmerraja.github.io/">
-                        Portfolio
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
                     </a>
                     
                 </li>
                 
                 <li class="menu-separator">
-                    <span>|</span>
+                    
                 </li>
             </ul>
             <a id="mode" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
-<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                
                 <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
 <title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
             </a>
@@ -140,17 +147,20 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#mongodb-architecture-and-concepts" aria-label="MongoDB Architecture and Concepts">MongoDB Architecture and Concepts</a></li>
                 <li>
-                    <a href="#tools-of-the-trade" aria-label="Tools of the Trade">Tools of the Trade</a><ul>
-                        
+                    <a href="#tools-of-the-trade" aria-label="Tools of the Trade">Tools of the Trade</a></li>
                 <li>
-                    <a href="#profiling" aria-label="Profiling">Profiling</a></li>
+                    <a href="#profiling" aria-label="Profiling">Profiling</a><ul>
+                        <ul>
+                        
                 <li>
                     <a href="#server-status" aria-label="Server Status">Server Status</a></li>
                 <li>
                     <a href="#examining-current-operations" aria-label="Examining Current Operations">Examining Current Operations</a></li></ul>
+                    </ul>
                 </li>
                 <li>
                     <a href="#indexing" aria-label="Indexing">Indexing</a><ul>
+                        <ul>
                         
                 <li>
                     <a href="#index-merges" aria-label="Index Merges">Index Merges</a></li>
@@ -158,32 +168,31 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#type-of-index" aria-label="Type of index">Type of index</a></li>
                 <li>
                     <a href="#finding-unused-indexes" aria-label="Finding Unused Indexes">Finding Unused Indexes</a></li></ul>
+                    </ul>
                 </li>
                 <li>
                     <a href="#query-tuning" aria-label="Query Tuning">Query Tuning</a><ul>
+                        <ul>
                         
                 <li>
                     <a href="#optimizing-network-round-trips" aria-label="Optimizing Network Round Trips">Optimizing Network Round Trips</a></li>
                 <li>
                     <a href="#overriding-the-optimizer-with-hints" aria-label="Overriding the Optimizer with Hints">Overriding the Optimizer with Hints</a></li>
                 <li>
-                    <a href="#optimizing-sort-operations" aria-label="Optimizing Sort Operations">Optimizing Sort Operations</a><ul>
-                        
-                <li>
-                    <a href="#blocking-sort" aria-label="Blocking sort">Blocking sort</a></li></ul>
-                </li></ul>
+                    <a href="#optimizing-sort-operations" aria-label="Optimizing Sort Operations">Optimizing Sort Operations</a></li></ul>
+                    </ul>
                 </li>
                 <li>
                     <a href="#tuning-aggregationpipelines" aria-label="Tuning AggregationPipelines">Tuning AggregationPipelines</a><ul>
+                        <ul>
                         
                 <li>
                     <a href="#optimizing-aggregation-ordering" aria-label="Optimizing Aggregation Ordering">Optimizing Aggregation Ordering</a></li>
                 <li>
                     <a href="#automatic-pipeline-optimizations" aria-label="Automatic Pipeline Optimizations">Automatic Pipeline Optimizations</a></li>
                 <li>
-                    <a href="#indexed-aggregation-sorts" aria-label="Indexed Aggregation Sorts">Indexed Aggregation Sorts</a></li>
-                <li>
-                    <a href="#optimizing-views" aria-label="Optimizing Views">Optimizing Views</a></li></ul>
+                    <a href="#indexed-aggregation-sorts" aria-label="Indexed Aggregation Sorts">Indexed Aggregation Sorts</a></li></ul>
+                    </ul>
                 </li>
                 <li>
                     <a href="#inserts-updates-and-deletes" aria-label="Inserts, Updates, and Deletes">Inserts, Updates, and Deletes</a></li>
@@ -191,6 +200,7 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#server-monitoring" aria-label="Server Monitoring">Server Monitoring</a></li>
                 <li>
                     <a href="#memory-tuning" aria-label="Memory Tuning">Memory Tuning</a><ul>
+                        <ul>
                         
                 <li>
                     <a href="#mongodb-memory-architecture" aria-label="MongoDB memory architecture">MongoDB memory architecture</a></li>
@@ -200,14 +210,17 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#evictions-putting-data-to-disk-from-cache" aria-label="Evictions (putting data to disk from cache)">Evictions (putting data to disk from cache)</a></li>
                 <li>
                     <a href="#checkpoints" aria-label="Checkpoints">Checkpoints</a></li></ul>
+                    </ul>
                 </li>
                 <li>
                     <a href="#disk-io" aria-label="Disk IO">Disk IO</a><ul>
+                        <ul>
                         
                 <li>
                     <a href="#latency-and-throughput" aria-label="Latency and Throughput">Latency and Throughput</a></li>
                 <li>
                     <a href="#mongodb-io" aria-label="MongoDB IO">MongoDB IO</a></li></ul>
+                    </ul>
                 </li>
                 <li>
                     <a href="#replica-sets" aria-label="Replica Sets">Replica Sets</a></li>
@@ -219,68 +232,45 @@ stroke-linejoin="round" class="feather feather-home">
     </details>
 </div><div class="page-content">
                 <h2 id="mongodb-architecture-and-concepts">MongoDB Architecture and Concepts</h2>
-<ul>
-<li>if the <strong>write concern is set to “majority”,</strong> then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.</li>
-<li><strong>Oplog</strong> The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.</li>
-</ul>
+<p>if the <strong>write concern is set to “majority”,</strong> then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.</p>
+<p><strong>Oplog</strong> The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.</p>
 <h2 id="tools-of-the-trade">Tools of the Trade</h2>
 <p>In order to obtain the execution statistics, explain(&ldquo;executionStats&rdquo;) will fully execute the MongoDB statement concerned. This means that it may take much longer to complete than a simple explain() and place significant load on the MongoDB server.</p>
 <p><strong>ExcutionStats</strong> Takes more time compare to explain().</p>
-<h3 id="profiling">Profiling</h3>
-<ul>
-<li>
+<h2 id="profiling">Profiling</h2>
 <p>Profiling information in MongoDB is stored within the <code>system.profile</code> collection. This collection follows a circular structure, meaning it has a fixed size. When this size is surpassed, older entries are automatically removed to accommodate new ones. The default size for <code>system.profile</code> is set to 1MB, but it might be advisable to consider increasing it based on your needs. To achieve this, one can halt profiling, drop the existing collection, and recreate it with an expanded size.</p>
-</li>
-<li>
 <p>Adjusting the profiling level is facilitated through the <code>db.setProfilingLevel(level, {slowms: slowMsThreshold, sampleRate: samplingRate})</code> command. The <code>level</code> parameter can be set to:</p>
-<ul>
-<li>0 to disable profiling.</li>
-<li>1 to collect only queries surpassing a specified time threshold (<code>slowms</code>).</li>
-<li>2 to collect all queries indiscriminately.</li>
-</ul>
-</li>
-<li>
-<p>The <code>samplingRate</code> parameter, which determines the random sampling level, is a crucial aspect. For instance, if set to 0.5, approximately half of all statements will undergo profiling, providing a representative sample.
-This feature is instrumental in managing the trade-off between profiling accuracy and performance overhead. Adjusting these parameters enables a fine-tuned control over the profiling process, catering to specific optimization and analysis requirements.</p>
-</li>
-</ul>
-<h3 id="server-status">Server Status</h3>
-<ul>
-<li>
+<pre><code>- 0 to disable profiling.
+- 1 to collect only queries surpassing a specified time threshold (`slowms`).
+- 2 to collect all queries indiscriminately.
+</code></pre>
+<p>The <code>samplingRate</code> parameter, which determines the random sampling level, is a crucial aspect. For instance, if set to 0.5, approximately half of all statements will undergo profiling, providing a representative sample.</p>
+<p>This feature is instrumental in managing the trade-off between profiling accuracy and performance overhead. Adjusting these parameters enables a fine-tuned control over the profiling process, catering to specific optimization and analysis requirements.</p>
+<h4 id="server-status">Server Status</h4>
 <p>The db.serverStatus() command is a quick and powerful way to get a lot of high-level information about your MongoDB server <a href="https://www.mongodb.com/docs/manual/reference/command/serverStatus/#std-label-server-status-output">DOC</a> will return all server detail example how read and updated happens and so many thing how many connections are active</p>
-</li>
-<li>
 <p>However, there are two problems with using db.serverStatus() in this way. Firstly,
 these counters don’t tell us much about what’s happening on the server right now,
 making it difficult to identify which of the metrics may be impacting the performance of
 our application</p>
-</li>
-</ul>
-<h3 id="examining-current-operations">Examining Current Operations</h3>
+<h4 id="examining-current-operations">Examining Current Operations</h4>
 <p>Another useful tool when tuning performance in MongoDB is the <code>db.currentOp()</code>
 command. This command works as you might imagine – it returns information about
 operations that are currently running on the database</p>
 <h2 id="indexing">Indexing</h2>
-<ul>
-<li>Index scans are not always a good thing. If the range is extensive, then the index scan might be worse than not using an index at all.</li>
-<li>Index is not suitable if we going to read all docs but mongo use index u can specify to use col scan hint({$natural:1}),</li>
-<li>To fully optimize an $or query, index all the attributes in the $or array.</li>
-<li>An $exists:true lookup can be optimized by a sparse index on the attribute concerned. However, such an index cannot optimize an $exists:false query.</li>
-<li>If you want to do case-insensitive searches, then there is a trick you can use. First, create an index with a case-insensitive collation sequence. This is done by specifying a collation sequence with a strength <code>db.customers.createIndex({ LastName: 1 },{ collation: { locale: 'en', strength: 2 } });</code></li>
-</ul>
-<h3 id="index-merges">Index Merges</h3>
-<ul>
-<li>if we have 2 index one for a and b if search of a and b mongodb will merges the index value on search</li>
-<li>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">  1  IXSCAN a_1
-</span></span><span class="line"><span class="cl">  2  IXSCAN b_1
-</span></span><span class="line"><span class="cl">  3  AND_SORTED
-</span></span><span class="line"><span class="cl">  4  FETCH
-</span></span></code></pre></div></li>
-<li>The <strong>AND_SORTED</strong> step indicates that an index intersection has been performed.
-Index intersections for $and conditions are unusual</li>
-</ul>
-<h3 id="type-of-index">Type of index</h3>
+<p>Index scans are not always a good thing. If the range is extensive, then the index scan might be worse than not using an index at all.</p>
+<p>Index is not suitable if we going to read all docs but mongo use index u can specify to use col scan hint({$natural:1}),</p>
+<p>To fully optimize an $or query, index all the attributes in the $or array.</p>
+<p>An $exists:true lookup can be optimized by a sparse index on the attribute concerned. However, such an index cannot optimize an $exists:false query.</p>
+<p>If you want to do case-insensitive searches, then there is a trick you can use. First, create an index with a case-insensitive collation sequence. This is done by specifying a collation sequence with a strength <code>db.customers.createIndex({ LastName: 1 },{ collation: { locale: 'en', strength: 2 } });</code></p>
+<h4 id="index-merges">Index Merges</h4>
+<p>if we have 2 index one for a and b if search of a and b mongodb will merges the index value on search</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">1  IXSCAN a_1
+</span></span><span class="line"><span class="cl">2  IXSCAN b_1
+</span></span><span class="line"><span class="cl">3  AND_SORTED
+</span></span><span class="line"><span class="cl">4  FETCH
+</span></span></code></pre></div><p>The <strong>AND_SORTED</strong> step indicates that an index intersection has been performed.
+Index intersections for $and conditions are unusual</p>
+<h4 id="type-of-index">Type of index</h4>
 <ol>
 <li>
 <p><strong>Compound</strong>: A compound index is simply an index comprising more than one attribute. The most significant advantage of a compound index is that it is usually more selective than a single key index. The combination of multiple attributes will point to a smaller number of documents than indexes composed of singular attributes. A compound index that contains all of the attributes contained within the find() or $match clauses will be particularly effective  <code>createIndex({key1:1,key2:1})</code></p>
@@ -300,10 +290,8 @@ Index intersections for $and conditions are unusual</li>
 By using suffix stemming, we could find a common root in these words of “<strong>find</strong>,” and then the suffixes stemming from this term would be “<strong>er</strong>,” “<strong>ing</strong>,” and “<strong>able</strong>.” <code>createIndex({description: &quot;text&quot;})</code></p>
 </li>
 </ol>
-<h3 id="finding-unused-indexes">Finding Unused Indexes</h3>
-<ul>
-<li>You can take a look at index utilization by using the <code>$indexStats</code> aggregation command:</li>
-</ul>
+<h4 id="finding-unused-indexes">Finding Unused Indexes</h4>
+<p>we can take a look at index utilization by using the <code>$indexStats</code> aggregation command:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl"><span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;test&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl"><span class="s2">&#34;key&#34;</span><span class="o">:</span> <span class="p">{</span>
@@ -320,28 +308,24 @@ By using suffix stemming, we could find a common root in these words of “<stro
 <li><strong>Since</strong> : This is the time from which MongoDB gathered stats, and is typically the last start time.</li>
 </ul>
 <h2 id="query-tuning">Query Tuning</h2>
-<h3 id="optimizing-network-round-trips">Optimizing Network Round Trips</h3>
+<h4 id="optimizing-network-round-trips">Optimizing Network Round Trips</h4>
 <ol>
-<li><strong>Projections</strong></li>
-<li><strong>Batch Processing</strong>
-<ol>
-<li>When retrieving data using a cursor, you can specify the number of rows fetched
-in each operation using the batchSize clause. For instance, in the following we have a
-cursor where the variable batchSize controls the number of documents retrieved from
-the MongoDB database in each network request:</li>
-</ol>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">db</span><span class="p">.</span><span class="nx">millions</span><span class="p">.</span><span class="nx">find</span><span class="p">({},{</span><span class="nx">n</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">_id</span><span class="o">:</span><span class="mi">0</span><span class="p">}).</span><span class="nx">batchSize</span><span class="p">(</span><span class="nx">batchsize</span><span class="p">);</span>
-</span></span></code></pre></div><ol start="3">
+<li>Projections</li>
+<li>Batch Processing</li>
 <li>Bulk Inserts</li>
 </ol>
-<h3 id="overriding-the-optimizer-with-hints">Overriding the Optimizer with Hints</h3>
+<p><strong>Batch Processing</strong></p>
+<p>When retrieving data using a cursor, you can specify the number of rows fetched
+in each operation using the batchSize clause. For instance, in the following we have a
+cursor where the variable batchSize controls the number of documents retrieved from
+the MongoDB database in each network request:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">db</span><span class="p">.</span><span class="nx">millions</span><span class="p">.</span><span class="nx">find</span><span class="p">({},{</span><span class="nx">n</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span><span class="nx">_id</span><span class="o">:</span><span class="mi">0</span><span class="p">}).</span><span class="nx">batchSize</span><span class="p">(</span><span class="nx">batchsize</span><span class="p">);</span>
+</span></span></code></pre></div><h4 id="overriding-the-optimizer-with-hints">Overriding the Optimizer with Hints</h4>
 <p>We can change force this query to use a collection scan by adding a hint. If we
 append .<code>hint({$natural:1})</code>, we instruct MongoDB to perform a collection scan to
 resolve the query:</p>
-<h3 id="optimizing-sort-operations">Optimizing Sort Operations</h3>
-<h4 id="blocking-sort">Blocking sort</h4>
+<h4 id="optimizing-sort-operations">Optimizing Sort Operations</h4>
+<p><strong>Blocking sort</strong></p>
 <p>The sorting that doing without using any index is called blocking sort because the it need fetch all doc to memory and need to do sorting and return the doc to the user</p>
 <p>if you are going to to do a blocking sort on a large amount of data, you may need to
 allocate more memory for the sort. You can do this by adjusting the internal parameter
@@ -355,22 +339,17 @@ allocate more memory for the sort. You can do this by adjusting the internal par
 range scans which might be less effective than a collection scan.</p>
 <hr>
 <h2 id="tuning-aggregationpipelines">Tuning AggregationPipelines</h2>
-<ul>
-<li>The method <code>mongoTuning.aggregationExecutionStats()</code> will provide a top-level summary of the time taken byeach step.</li>
-</ul>
+<p>The method <code>mongoTuning.aggregationExecutionStats()</code> will provide a top-level summary of the time taken byeach step.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">exp</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">customers</span><span class="p">.</span><span class="nx">explain</span><span class="p">(</span><span class="s1">&#39;executionStats&#39;</span><span class="p">).</span><span class="nx">aggregate</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="nx">mongoTuning</span><span class="p">.</span><span class="nx">aggregationExecutionStats</span><span class="p">(</span><span class="nx">exp</span><span class="p">)</span>
-</span></span></code></pre></div><h3 id="optimizing-aggregation-ordering">Optimizing Aggregation Ordering</h3>
-<ul>
-<li>MongoDB will automatically resequence the order of operations in a pipeline to optimize performance.</li>
-<li>one such case where automatic reordering is not possible is aggregations using <code>$lookup</code>. The $lookup stage allows you to join two collections</li>
-</ul>
-<h3 id="automatic-pipeline-optimizations">Automatic Pipeline Optimizations</h3>
+</span></span></code></pre></div><h4 id="optimizing-aggregation-ordering">Optimizing Aggregation Ordering</h4>
+<p>MongoDB will automatically resequence the order of operations in a pipeline to optimize performance. one such case where automatic reordering is not possible is aggregations using <code>$lookup</code>. The $lookup stage allows you to join two collections</p>
+<h4 id="automatic-pipeline-optimizations">Automatic Pipeline Optimizations</h4>
 <ul>
 <li>$sort and $limit stages will be merged, allowing the $sort to only maintain the limited number of documents instead of its entire input.</li>
 <li>If your aggregation only requires a subset of document attributes,MongoDB may add a projection to remove all unused fields.when we use group mongodb will add projection before the group stage</li>
 </ul>
-<h3 id="indexed-aggregation-sorts">Indexed Aggregation Sorts</h3>
+<h4 id="indexed-aggregation-sorts">Indexed Aggregation Sorts</h4>
 <ul>
 <li><code>$sort</code> can be utilized the index only if it in early enough the pipeline to be rolled into the initial data access operation.</li>
 </ul>
@@ -384,16 +363,10 @@ range scans which might be less effective than a collection scan.</p>
 <li>The above query will use the index but if we swap the order it won&rsquo;t use index because When MongoDB executes <code>$addFields</code>, it applies the specified expression to each document in the aggregation pipeline, introducing a modification to the document structure. This modification, in turn, may invalidate certain optimization opportunities associated with the index.</li>
 <li>When we first add the fields to the doc and if we do sorting we cannot use index because the when we index lookup and sort it we again need lookup on disk to get the document which will not have the newly added field.</li>
 </ul>
-<h3 id="optimizing-views">Optimizing Views</h3>
-<ul>
-<li>Views cannot use index when we querying on the veiws for that purpose use Materialized views</li>
-</ul>
 <h2 id="inserts-updates-and-deletes">Inserts, Updates, and Deletes</h2>
-<ul>
-<li>Indexes always add to the overhead of insert and delete statements and may add to the overhead of update statements. Avoid over-indexing, especially on columns which are frequently updated.</li>
-<li><strong>Write Concern</strong> (waiting for replicas to write/update happen):  Adjusting writeConcern can improve performance, but it may come at the expense of data integrity or safety. Don&rsquo;t adjust <code>writeConcern</code> to improve performance unless you are fully aware of these trade-offs.</li>
-<li>MongoDB 4.2, we have the ability to embed aggregation framework pipelines within an update statement. These pipelines allow us to set a value that is derived from, or dependent on, other values in the document. For instance, we could populate the viewCount attribute with this single query</li>
-</ul>
+<p>Indexes always add to the overhead of insert and delete statements and may add to the overhead of update statements. Avoid over-indexing, especially on columns which are frequently updated.</p>
+<p><strong>Write Concern</strong> (waiting for replicas to write/update happen):  Adjusting writeConcern can improve performance, but it may come at the expense of data integrity or safety. Don&rsquo;t adjust <code>writeConcern</code> to improve performance unless you are fully aware of these trade-offs.</p>
+<p>MongoDB 4.2, we have the ability to embed aggregation framework pipelines within an update statement. These pipelines allow us to set a value that is derived from, or dependent on, other values in the document. For instance, we could populate the viewCount attribute with this single query</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">db</span><span class="p">.</span><span class="nx">collection</span><span class="p">.</span><span class="nx">update</span><span class="p">({},[{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">viewCount</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$size</span><span class="o">:</span> <span class="s1">&#39;$views&#39;</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}])</span>
 </span></span></code></pre></div><h2 id="server-monitoring">Server Monitoring</h2>
 <ul>
@@ -410,23 +383,18 @@ range scans which might be less effective than a collection scan.</p>
 </li>
 <li><strong>Memory</strong>
 <ul>
-<li>vmstat -s -&gt; print active, inactive ,swap memory etc..</li>
-<li>iostat -&gt; for I/O</li>
+<li>vmstat -s : print active, inactive ,swap memory etc..</li>
+<li>iostat : for I/O</li>
 </ul>
 </li>
 </ul>
 <h2 id="memory-tuning">Memory Tuning</h2>
-<h3 id="mongodb-memory-architecture">MongoDB memory architecture</h3>
-<ul>
-<li>It uses WiredTiger storage engine</li>
-<li>Each connection uses up to 1 megabyte of RAM.</li>
-<li>By default, WiredTiger uses Snappy block compression for all collections and prefix compression for all indexes</li>
-<li>By default, you can have up to 100 open connections in the pool</li>
-<li>The WiredTiger storage engine maintains lists of empty records in data files as it deletes documents. This space can be reused by WiredTiger, but will not be returned to the operating system unless under very specific circumstances.</li>
-<li>The amount of empty space available for reuse by WiredTiger is reflected in the output of <a href="https://www.mongodb.com/docs/manual/reference/method/db.collection.stats/#mongodb-method-db.collection.stats">db.collection.stats()</a> under the heading <code>wiredTiger.block-manager.file bytes available for reuse</code>.</li>
-<li>To allow the WiredTiger storage engine to release this empty space to the operating system, you can de-fragment your data file. This can be achieved using the <a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">compact</a> command. For more information on its behavior and other considerations, see <a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">compact</a><a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">.</a>``</li>
-<li>The <code>db.serverStatus()</code> command provides details of how much memory MongoDB is using. The following script prints out a top-level summary of memory utilization.</li>
-</ul>
+<h4 id="mongodb-memory-architecture">MongoDB memory architecture</h4>
+<p>It uses WiredTiger storage engine.Each connection uses up to 1 megabyte of RAM.By default, WiredTiger uses Snappy block compression for all collections and prefix compression for all indexes and  we can have up to 100 open connections in the pool</p>
+<p>The WiredTiger storage engine maintains lists of empty records in data files as it deletes documents. This space can be reused by WiredTiger, but will not be returned to the operating system unless under very specific circumstances.</p>
+<p>The amount of empty space available for reuse by WiredTiger is reflected in the output of <a href="https://www.mongodb.com/docs/manual/reference/method/db.collection.stats/#mongodb-method-db.collection.stats">db.collection.stats()</a> under the heading <code>wiredTiger.block-manager.file bytes available for reuse</code>.</p>
+<p>To allow the WiredTiger storage engine to release this empty space to the operating system, you can de-fragment your data file. This can be achieved using the <a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">compact</a> command. For more information on its behavior and other considerations, see <a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">compact</a><a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">.</a>``
+The <code>db.serverStatus()</code> command provides details of how much memory MongoDB is using. The following script prints out a top-level summary of memory utilization.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">serverStats</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Mongod virtual memory &#39;</span><span class="p">,</span> <span class="nx">serverStats</span><span class="p">.</span><span class="nx">mem</span><span class="p">.</span><span class="nx">virtual</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Mongod resident memory&#39;</span><span class="p">,</span> <span class="nx">serverStats</span><span class="p">.</span><span class="nx">mem</span><span class="p">.</span><span class="nx">resident</span><span class="p">);</span>
@@ -441,37 +409,22 @@ range scans which might be less effective than a collection scan.</p>
 <li>resident -&gt; Memory that used so far including cache</li>
 <li>the Wired Tiger cache will be set to either 50% of total memory minus 1GB or to 256MB</li>
 </ul>
-<h3 id="the-database-cache-hit-ratio">The Database Cache &ldquo;Hit&rdquo; Ratio</h3>
-<ul>
-<li>
+<h4 id="the-database-cache-hit-ratio">The Database Cache &ldquo;Hit&rdquo; Ratio</h4>
 <p>The database cache hit ratio is a somewhat notorious metric with a long history.Simplistically, the cache hit ratio describes how often you find a block of data you want in memory:</p>
-</li>
-<li>
 <p><code>CacheHitRatio = Number of IO requests that were satisfied in the cache / Total IO requests</code></p>
-</li>
-<li>
 <p>The cache hit ratio represents the proportion of block requests that are satisfied by the database cache without requiring a disk read. Each “hit” – when the block is found in memory – is a good thing, since it avoids a time-consuming disk IO.</p>
-</li>
-<li>
 <p>Script to calculate</p>
-</li>
-</ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">cache</span><span class="o">=</span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">wiredTiger</span><span class="p">.</span><span class="nx">cache</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">missRatio</span><span class="o">=</span><span class="nx">cache</span><span class="p">[</span><span class="s1">&#39;pages read into cache&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="o">/</span><span class="nx">cache</span><span class="p">[</span><span class="s1">&#39;pages requested from the cache&#39;</span><span class="p">];</span>
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">hitRatio</span><span class="o">=</span><span class="mi">100</span><span class="o">-</span><span class="nx">missRatio</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="nx">hitRatio</span><span class="p">);</span>
-</span></span></code></pre></div><ul>
-<li>It will return the cache hit since server started</li>
-<li>To calculate for specfic peroid of the time use mongo tunning <code>mongoTuning.monitorServerDerived(5000,/cacheHitRate/)</code></li>
-</ul>
-<h3 id="evictions-putting-data-to-disk-from-cache">Evictions (putting data to disk from cache)</h3>
-<ul>
-<li>MongoDB doesn’t wait until the cache is completely full before performing evictions.By default, MongoDB will try and keep 20% of the cache free for new data and will startto restrict new pages from coming into cache when the free percentage hits 5%</li>
-<li>MongoDB tries to keep the percentage of modified – “<strong>dirty</strong>” – blocks under 5%. If the percentage of modified blocks hits 20%, then operations will be blocked until the target value is achieved.</li>
-<li>When the number of clean blocks or dirty blocks hits the higher threshold values, then sessions that try to bring new blocks into the cache will be required to perform an eviction before the read operation can complete</li>
-<li>To get total blocking evictions so far `db.serverStatus().wiredTiger[&ldquo;thread-yield&rdquo;][&ldquo;page acquire eviction blocked&rdquo;]</li>
-<li>To get ratio</li>
-</ul>
+</span></span></code></pre></div><p>It will return the cache hit since server started.To calculate for specfic peroid of the time use mongo tunning <code>mongoTuning.monitorServerDerived(5000,/cacheHitRate/)</code></p>
+<h4 id="evictions-putting-data-to-disk-from-cache">Evictions (putting data to disk from cache)</h4>
+<p>MongoDB doesn’t wait until the cache is completely full before performing evictions.By default, MongoDB will try and keep 20% of the cache free for new data and will startto restrict new pages from coming into cache when the free percentage hits 5%</p>
+<p>MongoDB tries to keep the percentage of modified – “<strong>dirty</strong>” – blocks under 5%. If the percentage of modified blocks hits 20%, then operations will be blocked until the target value is achieved.</p>
+<p>When the number of clean blocks or dirty blocks hits the higher threshold values, then sessions that try to bring new blocks into the cache will be required to perform an eviction before the read operation can complete</p>
+<p>To get total blocking evictions so far `db.serverStatus().wiredTiger[&ldquo;thread-yield&rdquo;][&ldquo;page acquire eviction blocked&rdquo;]</p>
+<p>To get ratio</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">wt</span><span class="o">=</span><span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">().</span><span class="nx">wiredTiger</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">blockingEvictRate</span><span class="o">=</span><span class="nx">wt</span><span class="p">[</span><span class="s1">&#39;thread-yield&#39;</span><span class="p">][</span><span class="s1">&#39;page acquire eviction blocked&#39;</span><span class="p">]</span> <span class="o">*</span><span class="mi">100</span> <span class="o">/</span> <span class="nx">wt</span><span class="p">[</span><span class="s1">&#39;cache&#39;</span><span class="p">][</span><span class="s1">&#39;eviction server evicting pages&#39;</span><span class="p">];</span>
 </span></span></code></pre></div><ul>
@@ -481,30 +434,29 @@ range scans which might be less effective than a collection scan.</p>
 <li><strong>application threads page write from cache to disk count</strong>: The number of writes from the cache to disk</li>
 <li><strong>application threads page write from cache to disk time (usecs)</strong>: The time spent writing from cache to disk</li>
 </ul>
-<h3 id="checkpoints">Checkpoints</h3>
-<ul>
-<li>When ever data updated the data won&rsquo;t get updated in disk it will updated in cache first then only it will be updated bulk to disk to avoid <strong>I/O</strong></li>
-<li>Mongodb periodically ensures that the data files are synchronized with the changes in the cache. These checkpoints involve writing out the modified “<strong>dirty</strong>” blocks to disk. By default, checkpoints occur every 60 sec.</li>
-<li>The <strong>eviction_dirty_trigger</strong> and <strong>eviction_dirty_target settings</strong> –  control how many modified blocks are allowed in the cache before eviction processing kicks in. These can be adjusted to reduce the number of modified blocks in the cache, reducing the amount of data that must be written to disk during a checkpoint.</li>
-</ul>
+<h4 id="checkpoints">Checkpoints</h4>
+<p>When ever data updated the data won&rsquo;t get updated in disk it will updated in cache first then only it will be updated bulk to disk to avoid <strong>I/O</strong></p>
+<p>Mongodb periodically ensures that the data files are synchronized with the changes in the cache. These checkpoints involve writing out the modified “<strong>dirty</strong>” blocks to disk. By default, checkpoints occur every 60 sec.</p>
+<p>The <strong>eviction_dirty_trigger</strong> and <strong>eviction_dirty_target settings</strong> –  control how many modified blocks are allowed in the cache before eviction processing kicks in. These can be adjusted to reduce the number of modified blocks in the cache, reducing the amount of data that must be written to disk during a checkpoint.</p>
 <h2 id="disk-io">Disk IO</h2>
-<h3 id="latency-and-throughput">Latency and Throughput</h3>
-<ul>
-<li><strong>Latency</strong> describes the time it takes to retrieve a single item of information from the disk</li>
-<li><strong>throughput</strong> describes the number of IOs that can be performed by the disk devices in a given unit of time. Throughput is generally expressed in terms of IO operations per second, often abbreviated as IOPS.</li>
-<li><strong>TIP</strong> The throughput of an IO system is primarily determined by the number of physical disk devices it contains. To increase IO throughput, increase the number of physical disks in disk volumes.</li>
-</ul>
-<h3 id="mongodb-io">MongoDB IO</h3>
-<ul>
-<li>MongoDB performs three major types of IO operations:
-<ul>
-<li><code>Temporary file IO</code> involves reads and writes to the “_tmp” directory within the dbPath directory. These IOs occur when a disk sort or disk-­based aggregation operation occurs</li>
-<li><code>Datafile IO</code> occurs when WiredTiger reads from and writes to collection and index files in the db Path directory</li>
-<li><code>Journal file IO </code> occurs as the WiredTiger storage engine writes to the“write-ahead” journal file.
+<h4 id="latency-and-throughput">Latency and Throughput</h4>
+<p><strong>Latency</strong> describes the time it takes to retrieve a single item of information from the disk</p>
+<p><strong>Throughput</strong> describes the number of IOs that can be performed by the disk devices in a given unit of time. Throughput is generally expressed in terms of IO operations per second, often abbreviated as IOPS.</p>
+<p><code>TIP:</code> The throughput of an IO system is primarily determined by the number of physical disk devices it contains. To increase IO throughput, increase the number of physical disks in disk volumes.</p>
+<h4 id="mongodb-io">MongoDB IO</h4>
+<p>MongoDB performs three major types of IO operations:</p>
+<ol>
+<li>
+<p><code>Temporary file IO</code> involves reads and writes to the “_tmp” directory within the dbPath directory. These IOs occur when a disk sort or disk-­based aggregation operation occurs</p>
+</li>
+<li>
+<p><code>Datafile IO</code> occurs when WiredTiger reads from and writes to collection and index files in the db Path directory</p>
+</li>
+<li>
+<p><code>Journal file IO </code> occurs as the WiredTiger storage engine writes to the“write-ahead” journal file.</p>
 <ul>
 <li>db.serverStatus().wiredTiger.log
 <ul>
-<li>Within this section, the following statistics are the most useful:</li>
 <li><strong>log bytes written</strong>: The amount of data written to the journal.</li>
 <li><strong>log sync operations</strong>: The number of log “sync” operations. A sync occurs when journal information held in memory is flushed to disk.</li>
 <li><strong>log sync time duration</strong> (μsecs): The number of microseconds spent in sync operations.</li>
@@ -512,18 +464,10 @@ range scans which might be less effective than a collection scan.</p>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
+</ol>
 <h2 id="replica-sets">Replica Sets</h2>
-<ul>
-<li>
 <p>A replica set following best practice consists of a primary node together with two or more secondary nodes. It is recommended to use three or more nodes, with an odd number of total nodes. The primary node accepts all write requests which are propagated synchronously or asynchronously to the secondary nodes. In the event of a failure of a primary, an election occurs to which a secondary node is elected to serve as the new primary and database operations can continue</p>
-</li>
-<li>
 <p><strong>Read Preference</strong> → By default, all reads are directed to the primary node. However, we can set a read preference which directs the MongoDB drivers to direct read requests to secondary nodes.</p>
-</li>
-<li>
 <table>
 <thead>
 <tr>
@@ -554,14 +498,8 @@ range scans which might be less effective than a collection scan.</p>
 </tr>
 </tbody>
 </table>
-</li>
-<li>
 <p><strong>maxStalenessSeconds</strong> : can be added to a read preference to control the tolerable lag in data. When picking a secondary node, the MongoDB driver will only consider those nodes who have data within <code>maxStalenessSeconds</code> seconds of the primary. The minimum value is 90 seconds. For instance, this URL specified a preference for secondary nodes, but only if their data timestamps are within 5 minutes (300 seconds) of the primary:</p>
-</li>
-<li>
 <p><strong>Replica Set Tag Sets</strong>: Tag sets can be used to direct read requests to specific nodes. You can use tag sets to nominate nodes for special purposes such as analytics or to distribute read workload more evenly across all nodes in the cluster.</p>
-</li>
-</ul>
 <h2 id="sharding">Sharding</h2>
 <ul>
 <li>Need to study :)</li>
@@ -636,5 +574,6 @@ range scans which might be less effective than a collection scan.</p>
 
     
 
-</body>
+</main>
+    </body>
 </html>

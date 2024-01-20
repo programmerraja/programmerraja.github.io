@@ -34,7 +34,7 @@
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/learning-from-blog/">
-    <link href="/blog/style.min.c59e806842f648d519b3dc8840e627b8d9c4a498eb5e4c858e60db86a71c5f6f.css" rel="stylesheet">
+    <link href="/blog/style.min.4ac6cf0a45f597bb04ee3889f23da86b8f4067503e71f64bc0581c8ad628ba44.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.4e1b30df3607fab6faaa068536572415b0ea6c4b3a10dfd609e0d070bdd7546d.css" rel="stylesheet">
 
     
@@ -59,6 +59,7 @@
     
     </head>
 <body data-theme = "" class="notransition">
+        <main class="main">
 
 <script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
@@ -99,19 +100,25 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="https://programmerraja.github.io/">
-                        Portfolio
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
                     </a>
                     
                 </li>
                 
                 <li class="menu-separator">
-                    <span>|</span>
+                    
                 </li>
             </ul>
             <a id="mode" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
-<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                
                 <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
 <title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
             </a>
@@ -144,7 +151,9 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#hashnodes-overall-architecturehttpsengineeringhashnodecomhashnodes-overall-architecture" aria-label="Hashnode&rsquo;s Overall Architecture">Hashnode&rsquo;s Overall Architecture</a></li>
                 <li>
-                    <a href="#scaling-cron-monitoringhttpssentryengineeringblogscaling-cron-monitoring" aria-label="Scaling Cron Monitoring">Scaling Cron Monitoring</a>
+                    <a href="#scaling-cron-monitoringhttpssentryengineeringblogscaling-cron-monitoring" aria-label="Scaling Cron Monitoring">Scaling Cron Monitoring</a></li>
+                <li>
+                    <a href="#-an-overview-of-cloudflares-logging-pipelinehttpsblogcloudflarecoman-overview-of-cloudflares-logging-pipeline" aria-label=" An overview of Cloudflare&rsquo;s logging pipeline"> An overview of Cloudflare&rsquo;s logging pipeline</a>
                 </li>
             </ul>
         </div>
@@ -201,6 +210,25 @@ stroke-linejoin="round" class="feather feather-home">
 <li>Message 3: Timestamp 12:04:02</li>
 </ul>
 <p>When Message 3 arrives, it crosses the minute boundary of 12:04. This signals that all check-ins before 12:04 have been processed. This event becomes the trigger to generate tasks for detecting missing check-ins, eliminating the need for periodic celery beat tasks. This way, they avoid skipping tasks during deployment and accurately detect missed check-ins even during Kafka backlog scenarios.</p>
+</li>
+</ul>
+<h2 id="-an-overview-of-cloudflares-logging-pipelinehttpsblogcloudflarecoman-overview-of-cloudflares-logging-pipeline"><a href="https://blog.cloudflare.com/an-overview-of-cloudflares-logging-pipeline"> An overview of Cloudflare&rsquo;s logging pipeline</a></h2>
+<ul>
+<li>
+<p>They used BSD syslog protocol to send the log from system</p>
+</li>
+<li>
+<p> <a href="https://github.com/syslog-ng/syslog-ng">Syslog-ng </a> is a daemon that implements the aforementioned BSD syslog protocol. In our case, it reads logs from journald, and applies another layer of rate limiting. It then applies rewriting rules to add common fields, such as the name of the machine that emitted the log, the name of the data center the machine is in</p>
+</li>
+<li>
+<p>Logs are pushed to Kafka</p>
+</li>
+<li>
+<p>Logs stored in ELK stack, and a Clickhouse cluster</p>
+<ul>
+<li>ElasticSearch with 90 cluster</li>
+<li>Clickhouse with 10 Nodes of cluster</li>
+</ul>
 </li>
 </ul>
 
@@ -273,5 +301,6 @@ stroke-linejoin="round" class="feather feather-home">
 
     
 
-</body>
+</main>
+    </body>
 </html>

@@ -5,6 +5,84 @@
     <link>https://programmerraja.github.io/blog/tags/</link>
     <description>Recent content in Tags on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://programmerraja.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>book</title>
+      <link>https://programmerraja.github.io/blog/tags/book/</link>
+      <pubDate>Thu, 18 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/tags/book/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>android</title>
+      <link>https://programmerraja.github.io/blog/tags/android/</link>
+      <pubDate>Wed, 17 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/tags/android/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>devops</title>
+      <link>https://programmerraja.github.io/blog/tags/devops/</link>
+      <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/tags/devops/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>docker</title>
+      <link>https://programmerraja.github.io/blog/tags/docker/</link>
+      <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/tags/docker/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>database</title>
+      <link>https://programmerraja.github.io/blog/tags/database/</link>
+      <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/tags/database/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://programmerraja.github.io/blog/tags/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/tags/kubernetes/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>excalidraw</title>
+      <link>https://programmerraja.github.io/blog/tags/excalidraw/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/tags/excalidraw/</guid>
+      
+      <description></description>
+      
+    </item>
+    
   </channel>
 </rss>
