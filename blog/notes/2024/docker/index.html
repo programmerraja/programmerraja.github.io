@@ -161,9 +161,25 @@ stroke-linejoin="round" class="feather feather-home">
                     </ul>
                 </li>
                 <li>
-                    <a href="#images" aria-label="Images">Images</a></li>
+                    <a href="#images" aria-label="Images">Images</a><ul>
+                        <ul>
+                        
                 <li>
-                    <a href="#containers" aria-label="Containers">Containers</a></li>
+                    <a href="#args" aria-label="Args">Args</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#containers" aria-label="Containers">Containers</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#memory--cpu-constraints" aria-label="Memory &amp; CPU Constraints">Memory &amp; CPU Constraints</a></li>
+                <li>
+                    <a href="#enviroment-var" aria-label="Enviroment Var">Enviroment Var</a></li>
+                <li>
+                    <a href="#logs" aria-label="Logs">Logs</a></li></ul>
+                    </ul>
+                </li>
                 <li>
                     <a href="#networking" aria-label="Networking">Networking</a><ul>
                         
@@ -188,6 +204,14 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 <li>
                     <a href="#multistage-build" aria-label="Multistage Build">Multistage Build</a></li>
+                <li>
+                    <a href="#security" aria-label="Security">Security</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#scanning-for-vulernablity" aria-label="Scanning for vulernablity">Scanning for vulernablity</a></li></ul>
+                    </ul>
+                </li>
                 <li>
                     <a href="#docker-compose" aria-label="Docker Compose">Docker Compose</a></li>
                 <li>
@@ -266,6 +290,7 @@ In a default Linux installation, the client talks to the daemon via a local IPC/
 <p><strong>manifest list:</strong> User may have different architectures, such as Windows, ARM, and s390x. so when we pulling the image with tag we need to download the our architectures suitable image for that we use manifest list</p>
 <p>manifest list contain entries for each architecture the image supports with same tag.</p>
 <p>When we pull an image, your Docker client makes the relevant calls to the Docker Registry API running on Docker Hub. If a manifest list exists for the image, it will be parsed to see if an entry exists for Linux on ARM. If an ARM entry exists, the manifest for that image is retrieved and parsed for the crypto ID’s of the layers that make up the image. Each layer is then pulled from Docker Hub’s</p>
+<h4 id="args">Args</h4>
 <h2 id="containers">Containers</h2>
 <p>A container is the runtime instance of an image. <code>docker container run image --name</code></p>
 <p><strong>Stopping containers gracefully:</strong> Docker container stop sends a <strong>SIGTERM</strong> signal to the PID 1 process inside of the container. As we just said, this gives the process a chance to clean things up and gracefully shut itself down.If it doesn’t exit within 10 seconds, it will receive a <strong>SIGKILL.</strong></p>
@@ -299,6 +324,30 @@ In a default Linux installation, the client talks to the daemon via a local IPC/
 </span></span></span></code></pre></div><ul>
 <li>docker build -t app-image .</li>
 <li>docker run -p 3000:3000 -d app-image</li>
+</ul>
+<h4 id="memory--cpu-constraints">Memory &amp; CPU Constraints</h4>
+<ul>
+<li>By default it take the host cpu and memory as much it need</li>
+<li><code>docker run —-memory 60m my-image:tag</code> 60Mb limit</li>
+<li>Docker have OOM killer (out of memory killer) which is enabled by default what it do was when ever the container is getting out of memory it wil the process that consume more memory to disable the OOM <code>docker run -m 128m --oom-kill-disable my-image:tag</code></li>
+<li><strong>Swap:</strong> Swap is an extension of physical memory (RAM) that allows the operating system to use a portion of the disk as if it were additional RAM. <code>docker run --memory=512m --memory-swap=1g my_container</code></li>
+<li>swap space is typically enabled by default. This means that the operating system may use swap space to store less frequently accessed data when the physical memory (RAM) is fully utilized.</li>
+<li>If we set memory and swap same it won&rsquo;t use swap</li>
+<li><code>Note:</code> Swap may downgrad the performance of the host</li>
+<li><code>docker run --cpus .5 my-image:tag</code> can use only 50% of the CPU</li>
+<li><code>docker run —-cpuset-cpus 1,2 my-image:tag</code> allocate the 2nd and 3rd CPU</li>
+</ul>
+<h4 id="enviroment-var">Enviroment Var</h4>
+<ul>
+<li><code>docker run -e VARIABLE_NAME=variable_value my_container</code></li>
+<li><code>docker inspect --format='{{range .Config.Env}}{{println .}}{{end}}' container_id</code> to inspect the environment variables of a running container.</li>
+</ul>
+<h4 id="logs">Logs</h4>
+<ul>
+<li><code>docker logs [container_name_or_id]</code></li>
+<li><code>docker events —-since ‘5m’</code></li>
+<li><code>docker logs -f my-container</code> follow logs</li>
+<li><code>docker run -D </code> Run in debugging mode</li>
 </ul>
 <h2 id="networking">Networking</h2>
 <p>Docker networking comprises three major components:</p>
@@ -425,6 +474,15 @@ In a default Linux installation, the client talks to the daemon via a local IPC/
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Container startup command for the web server (nginx in this case)</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">CMD [&#34;nginx&#34;, &#34;-g&#34;, &#34;daemon off;&#34;]</span><span class="w">
 </span></span></span></code></pre></div><p><code>docker image history image name </code>→ to print all layers and how it was builded</p>
+<h2 id="security">Security</h2>
+<h4 id="scanning-for-vulernablity">Scanning for vulernablity</h4>
+<ul>
+<li><strong>Trivy:</strong> Lightweight and easy to use.</li>
+<li><strong>Clair:</strong> Part of the CoreOS project, designed for container scanning.</li>
+<li><strong>Dagda:</strong> Extensive vulnerability scanner for Docker containers.</li>
+<li><strong>Anchore:</strong> Provides detailed analysis and policy enforcement.</li>
+<li><code>docker scan &lt;image_name&gt;:&lt;tag&gt;</code> part of Docker Hub and is designed to analyze Docker images for security vulnerabilities.</li>
+</ul>
 <h2 id="docker-compose">Docker Compose</h2>
 <p>It was a Python tool (v1) that sat on top of Docker, and allowed you to define entire multi-container apps in a single YAML file. now v3 written in GO</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl">version:3<span class="err">

@@ -15,8 +15,7 @@
       <guid>https://programmerraja.github.io/blog/notes/2024/software-architecture-and-decision-making/</guid>
       
       <description>Book Core concepts It explains principles and concepts I believe a senior architect must understand deeply and discusses how to employ those principles to manage uncertainty
-Books for leadership The Hard Things About Hard Things by Ben Horowitz, Trillion Dollar Coach by Eric Schmidt et al., Team of Teams: New Rules of Engagement for a Complex World by Stanley McChrystal, Good Strategy, Bad Strategy by Richard Rumel
-Three layers of architecture of The Open Group Architecture Framework (TOGAF)</description>
+Books for leadership The Hard Things About Hard Things by Ben Horowitz, Trillion Dollar Coach by Eric Schmidt et al., Team of Teams: New Rules of Engagement for a Complex World by Stanley McChrystal Good Strategy, Bad Strategy by Richard Rumel Three layers of architecture of The Open Group Architecture Framework (TOGAF)</description>
       
     </item>
     
@@ -203,6 +202,18 @@ Oplog The primary node stores information about document changes in a collection
       
       <description>Linux Filesystem Getting Help Every command, application, or utility has a dedicated help file in Linux by typing --help in front of all linux cmd or we can refer Manual Pages with man man cmd
 CMD whereis: locate bin file whereis filename which: Return current PATH var for the bin whihc node find: search for file name ,date of creation or modification, etc find path -type f -name filename Files and Directories CMD get from chatgpt Text Manipulation cat head tail nl sed more less Networks ifconfig (Changing Your IP Address.</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/notes/2024/system-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/system-design/</guid>
+      
+      <description>problems in a distributed system
+maintaining the system state (liveness of nodes) communication between nodes solutions centralized state management service (Apache Zookeeper) peer-to-peer state management service (gossip protocol) Gossip Protocol every node periodically sends out a message to a subset of other random nodes. The entire system will receive the particular message eventually with a high probability. In layman’s terms, the gossip protocol is a technique for nodes to build a global map through limited local interactions</description>
       
     </item>
     

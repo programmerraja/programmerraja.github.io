@@ -225,11 +225,18 @@ stroke-linejoin="round" class="feather feather-home">
                         <ul>
                         
                 <li>
-                    <a href="#handling-unexpected-load" aria-label="Handling Unexpected Load">Handling Unexpected Load</a>
+                    <a href="#handling-unexpected-load" aria-label="Handling Unexpected Load">Handling Unexpected Load</a></li>
+                <li>
+                    <a href="#handling-human-changes" aria-label="Handling Human Changes">Handling Human Changes</a></li>
+                <li>
+                    <a href="#handle-unknown-errors" aria-label="Handle Unknown Errors">Handle Unknown Errors</a></li></ul>
+                    </ul>
                 </li>
-            </ul>
-            </ul>
-            </li>
+                <li>
+                    <a href="#building-and-evolving-the-systems" aria-label="Building and Evolving the Systems">Building and Evolving the Systems</a></li>
+                <li>
+                    <a href="#my-learnings" aria-label="My Learnings">My Learnings</a>
+                </li>
             </ul>
         </div>
     </details>
@@ -237,11 +244,19 @@ stroke-linejoin="round" class="feather feather-home">
                 <h2 id="book-core-concepts">Book Core concepts</h2>
 <p>It explains principles and concepts I believe a senior architect must understand deeply and discusses how to employ those principles to manage uncertainty</p>
 <h2 id="books-for-leadership">Books for leadership</h2>
-<p>The Hard Things About Hard Things by Ben Horowitz, Trillion Dollar Coach by Eric Schmidt et al., Team of Teams: New Rules of Engagement for a Complex World by Stanley McChrystal, Good Strategy, Bad Strategy by Richard Rumel</p>
+<ul>
+<li>The Hard Things About Hard Things by Ben Horowitz,</li>
+<li>Trillion Dollar Coach by Eric Schmidt et al.,</li>
+<li>Team of Teams:</li>
+<li>New Rules of Engagement for a Complex World by Stanley McChrystal</li>
+<li>Good Strategy, Bad Strategy by Richard Rumel</li>
+</ul>
 <p>Three layers of architecture of The Open Group Architecture Framework (TOGAF)</p>
-<p>two prominent approaches to system architecture:
-• Waterfall -&gt;identify the system’s requirements in full detail beforehand and start building
-• Agile -&gt; Iterative way (collaborating with users to refine requirements and construct a system that can genuinely benefit the user)</p>
+<p><strong>Two prominent approaches to system architecture:</strong></p>
+<ol>
+<li><strong>Waterfall</strong> -&gt;identify the system’s requirements in full detail beforehand and start building</li>
+<li><strong>Agile</strong> -&gt; Iterative way (collaborating with users to refine requirements and construct a system that can genuinely benefit the user)</li>
+</ol>
 <h2 id="understanding-systems-design-and-architecture">Understanding Systems, Design, and Architecture</h2>
 <p>When writing a cloud app, we have two choices: We can choose a single cloud, taking advantage of its unique strengths for our application, or we can make the application portable across several cloud providers</p>
 <h4 id="how-to-design-a-system">How to Design a System</h4>
@@ -647,7 +662,44 @@ Macro Architectural Building Blocks</p>
 <h4 id="handling-unexpected-load">Handling Unexpected Load</h4>
 <ul>
 <li>understand the load and set up a system that can keep up with the load most of the time. This is called <strong>capacity planning</strong></li>
-<li>Autoscaling</li>
+<li><strong>Autoscaling</strong></li>
+<li><strong>Admission Control:</strong> set of policies, procedures, and checks that regulate the admission or acceptance of incoming entities or requests into a system example: Assume server is already overloaded instead of accepting new connection we through error.</li>
+<li><strong>Noncritical Functionality:</strong> Turn off the Noncritical Functionality</li>
+<li>Disaster recovery (have a plan for what to when X go down)</li>
+</ul>
+<h4 id="handling-human-changes">Handling Human Changes</h4>
+<ul>
+<li>Blue and green Deployment  (Having two system one with new updated one and one with old one if new one fails redirect traffic to old one)</li>
+<li>Canary deployments (small percentage of users to the new system and gradually increase the load to that system)</li>
+</ul>
+<h4 id="handle-unknown-errors">Handle Unknown Errors</h4>
+<ul>
+<li>Observability (Application Performance Monitoring (APM) tool, Open telementry)</li>
+</ul>
+<h2 id="building-and-evolving-the-systems">Building and Evolving the Systems</h2>
+<ul>
+<li>Get the Basics Right</li>
+<li>Understand the Design Process</li>
+<li>Conway law: organizations design systems that mirror their own communication structure rather than fighting it</li>
+<li>Make Decisions and Absorb Risks</li>
+<li>Create checklists of questions that are useful for different situations and use them.</li>
+<li>Communicating the Design</li>
+<li>Growth hacking funnel (find where we stuck does in user side or in development are we not pusing not much feature etc..)</li>
+<li></li>
+</ul>
+<p>Refer</p>
+<ul>
+<li><a href="https://blog.thinkst.com/2022/08/always-be-hacking.html">https://blog.thinkst.com/2022/08/always-be-hacking.html</a>.</li>
+</ul>
+<p>Book</p>
+<ul>
+<li>The Coaching Habit: Say Less, Ask More &amp; Change the Way You Lead Forever</li>
+<li>Hacking Growth: How Today’s Fastest-Growing Companies Drive Breakout Success</li>
+<li>Design-Driven Growth: Strategy &amp; Case Studies for Product Shapers</li>
+</ul>
+<h2 id="my-learnings">My Learnings</h2>
+<ul>
+<li></li>
 </ul>
 
             </div>
