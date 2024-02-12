@@ -29,12 +29,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.2">
+<meta name="generator" content="Hugo 0.122.0">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/kubernetes/">
-    <link href="/blog/style.min.168966c9000ec3ef9ef163b7c484cf7309d0a6ae299aaa4be544ad28ef576d6f.css" rel="stylesheet">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -170,6 +170,8 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#deployments" aria-label="Deployments">Deployments</a><ul>
                         
                 <li>
+                    <a href="#depolyment-strategies" aria-label="Depolyment strategies">Depolyment strategies</a></li>
+                <li>
                     <a href="#difference-between-pod-and-deployments" aria-label="Difference between pod and Deployments">Difference between pod and Deployments</a></li>
                 <li>
                     <a href="#reconciliation-loops" aria-label="Reconciliation loops">Reconciliation loops</a></li>
@@ -209,9 +211,17 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#secretes" aria-label="Secretes">Secretes</a></li>
                 <li>
-                    <a href="#statefulsets" aria-label="StatefulSets">StatefulSets</a></li>
+                    <a href="#statefulsets" aria-label="StatefulSets">StatefulSets</a><ul>
+                        
                 <li>
-                    <a href="#kubectl" aria-label="Kubectl">Kubectl</a></li>
+                    <a href="#autoscale" aria-label="AutoScale">AutoScale</a></li></ul>
+                </li>
+                <li>
+                    <a href="#kubectl" aria-label="Kubectl">Kubectl</a><ul>
+                        
+                <li>
+                    <a href="#namespaces" aria-label="Namespaces">Namespaces</a></li></ul>
+                </li>
                 <li>
                     <a href="#best-practices" aria-label="best practices">best practices</a><ul>
                         
@@ -343,6 +353,7 @@ stroke-linejoin="round" class="feather feather-home">
 <li>Cluster  (add more nodes when then cluster is full)</li>
 <li>Horizontal pod autoscale (scale up pod up and down based on metrics)</li>
 <li>Vertical pod autoscale (increase the resoures limit tool avalible for vertical pod autoscaler)</li>
+<li>keda (event driven autoscalling)</li>
 </ul>
 <p><strong>Horizontal Pod Autoscaling (HPA):</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">autoscaling/v2beta2</span><span class="w">
@@ -393,6 +404,48 @@ stroke-linejoin="round" class="feather feather-home">
 <p>Deploy Pods indirectly via a higher-level controller. Examples of higher-level controllers include; Deployments, DaemonSets, and StatefulSets.</p>
 <p>For example, a Deployment is a higher-level Kubernetes object that wraps around a particular Pod and adds features such as scaling, zero-downtime updates, and versioned rollbacks.</p>
 <p>Behind the scenes, Deployments, DaemonSets and StatefulSets implement a controller and a watch loop that is constantly observing the cluster making sure that current state matches desired state.</p>
+<h4 id="depolyment-strategies">Depolyment strategies</h4>
+<p>to manage the rollout and updates of applications within a cluster. These strategies help in achieving continuous delivery, minimizing downtime, and ensuring reliability.</p>
+<p><strong>Rolling Update Deployment (default)</strong></p>
+<ul>
+<li>This strategy gradually replaces old pods with new ones, ensuring that there is always a specified number of replicas available.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">example-deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">strategy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">RollingUpdate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rollingUpdate</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">maxUnavailable</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">maxSurge</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">example</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">example-container</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">example:new-version</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>maxUnavailable -&gt; maximum number or percentage of pods that can be unavailable during the update</li>
+<li>maxSurge -&gt; maximum number or percentage of pods that can be created above the desired replica count during the update</li>
+</ul>
+<p><strong>Recreate Deployment:</strong></p>
+<ul>
+<li>In this strategy, the existing pods are terminated all at once, and new pods with the updated version are created.</li>
+<li>have down time (used on dev )</li>
+</ul>
+<p><strong>Blue-Green Deployment:</strong></p>
+<ul>
+<li>there are two separate environments (blue and green), and the traffic is switched between them after a successful update.</li>
+</ul>
+<p><strong>Canary Deployment:</strong></p>
+<ul>
+<li>deployment introduces the new version of the application to a subset of users or traffic.</li>
+</ul>
 <h4 id="difference-between-pod-and-deployments">Difference between pod and Deployments</h4>
 <p>Pods don’t self-heal, they don’t scale, and they don’t allow for easy updates or rollbacks. Deployments do all of these. As a result, you’ll almost always deploy Pods via a Deployment controller.</p>
 <p><code>Desired state</code> is what you want. Current state is what you have. If the two match, everybody’s happy.</p>
@@ -1007,6 +1060,7 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">requests</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l">1Gi</span><span class="w">
 </span></span></span></code></pre></div><p>More Example <a href="https://kubernetes.io/docs/tutorials/stateful-application/">refer here</a></p>
+<h4 id="autoscale">AutoScale</h4>
 <h3 id="kubectl">Kubectl</h3>
 <p>Kubectl is the main Kubernetes command-line tool and is what you will use for your day-to-day Kubernetes management activities.</p>
 <p>kubectl configuration file is called config and lives in $HOME/.kube . It contains definitions for:
@@ -1016,6 +1070,39 @@ stroke-linejoin="round" class="feather feather-home">
 <p><strong>Clusters</strong> is a list of clusters that kubectl knows about and is ideal if you plan on using a single workstation to manage multiple clusters. Each cluster definition has a name, certificate info, and API server endpoint.</p>
 <p><strong>Users</strong> let you define different users that might have different levels of permissions on each cluster. For example, you might have a dev user and an ops user, each with different permissions. Each user definition has a friendly name, a username, and a set of credentials.</p>
 <p><strong>Contexts</strong> bring together clusters and users under a friendly name. For example, you might have a context called deploy-prod that combines the deploy user credentials with the prod cluster definition. If you use kubectl with this context you will be POSTing commands to the API server of the prod cluster as the deploy user.</p>
+<p><code>kubctl version</code> -&gt; to get version</p>
+<p>kube config file</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">clusters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">cluster</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">certificate-authority-data</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l">https:/localhost:443</span><span class="w"> </span><span class="c">## master node</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">contexts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">context</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	 </span><span class="nt">cluster</span><span class="p">:</span><span class="w"> </span><span class="l">test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	 </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l">clusterUser_test_aks_rg_test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">current-context</span><span class="p">:</span><span class="w"> </span><span class="l">test</span><span class="w"> </span><span class="c">## Curren </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">preferences</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">users</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">clusterUser_test_aks_rg_test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">user</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">client-certificate-data</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">client-key-data</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">token</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li><code>kubectl config current-context</code>- tell which context we are accessing currently now</li>
+<li><code>kubectl config get-context</code>  -&gt; to get all context</li>
+<li><code>kubectl config use-context context-name</code> -&gt; to switch the context to different cluster</li>
+</ul>
+<h4 id="namespaces">Namespaces</h4>
+<p>Used to isolate the resources by default it have <code>default</code> namespace</p>
+<p><code>kubctl get namespace</code>
+<code>kubctl -n nampace_name cmd</code></p>
+<p><code>kubectl logs podname</code></p>
+<p><code>kubctl exec it podname</code></p>
 <h3 id="best-practices">best practices</h3>
 <h4 id="preventing-broken-connections-during-pod-shutdown"><strong>Preventing broken connections during pod shutdown</strong></h4>
 <p>When a request for a pod deletion is received by the API server, it first modifies the state in <code>etcd</code> and then notifies its watchers of the deletion. Among those watchers are the Kubelet and the Endpoints controller.the pod being removed from the iptables rules when the Endpoints controller recevie notification pod is deleted.</p>

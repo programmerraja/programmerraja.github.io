@@ -29,12 +29,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.2">
+<meta name="generator" content="Hugo 0.122.0">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/microservices/">
-    <link href="/blog/style.min.168966c9000ec3ef9ef163b7c484cf7309d0a6ae299aaa4be544ad28ef576d6f.css" rel="stylesheet">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -137,24 +137,57 @@ stroke-linejoin="round" class="feather feather-home">
                     <time datetime="2024-01-12T08:19:32&#43;05:30" itemprop="datePublished"> Jan 12, 2024 </time>
                 </div>
                 
-            </header><div class="page-content">
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#istio---mangae-all--the-envoy" aria-label="ISTIO- &gt; mangae all  the envoy">ISTIO- &gt; mangae all  the envoy</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
                 <p>Questions to be asked</p>
 <ol>
 <li>How will new service be deployed and upgraded</li>
 <li>how will it be consumed by the rest of the system</li>
 </ol>
-<p>Service Mesh
-envoy,istio</p>
+<p>Service registery -&gt; Eureka</p>
+<ul>
+<li>Where single service when new service it inform to service regis and who want to lookup it ask for service regis</li>
+<li>single point of failure</li>
+<li>we need to  write code on each service</li>
+</ul>
+<p>Service Mesh -&gt; TO solve the above problem</p>
+<ul>
+<li>use side car and control tower (mange the sidecar )</li>
+<li>no need to write a single code</li>
+</ul>
+<p>example -&gt; envoy(sidecar),istio(control tower)</p>
+<p>Envoy -&gt; are used ton communication between service it have features like circuit breaker,load balancing,retires,&hellip;etc</p>
+<ul>
+<li>it run as sidecar in container</li>
+</ul>
+<h2 id="istio---mangae-all--the-envoy">ISTIO- &gt; mangae all  the envoy</h2>
+<p>Find
+Domain story telling</p>
 <p>API gateway</p>
 <ol>
 <li>AWS API</li>
 <li>TAG (Tinder API Gateway)</li>
 <li>Krakend</li>
 </ol>
-<p>to learn</p>
-<ol>
-<li>how to get more follower tiwtter / linkdein</li>
-</ol>
+<p>james lewis head -&gt;microservice</p>
+<p>Antipatterns</p>
+<p>ways to find bounded context</p>
+<p>Domain story telling</p>
+<ul>
+<li>A pictorial represnetation of the domain story</li>
+</ul>
 
             </div>
         </article></main>

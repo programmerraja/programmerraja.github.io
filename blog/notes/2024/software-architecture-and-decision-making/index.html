@@ -29,12 +29,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.2">
+<meta name="generator" content="Hugo 0.122.0">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/software-architecture-and-decision-making/">
-    <link href="/blog/style.min.168966c9000ec3ef9ef163b7c484cf7309d0a6ae299aaa4be544ad28ef576d6f.css" rel="stylesheet">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -171,7 +171,11 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#memory-optimization-techniques" aria-label="Memory Optimization Techniques">Memory Optimization Techniques</a></li>
                 <li>
-                    <a href="#latency-optimization-techniques" aria-label="Latency Optimization Techniques">Latency Optimization Techniques</a></li></ul>
+                    <a href="#latency-optimization-techniques" aria-label="Latency Optimization Techniques">Latency Optimization Techniques</a></li>
+                <li>
+                    <a href="#cpu-utilization-is-wrong" aria-label="CPU Utilization is Wrong">CPU Utilization is Wrong</a></li>
+                <li>
+                    <a href="#the-use-method" aria-label="The USE Method">The USE Method</a></li></ul>
                     </ul>
                 </li>
                 <li>
@@ -274,43 +278,27 @@ stroke-linejoin="round" class="feather feather-home">
 </ol>
 <p>Seven principles</p>
 <ol>
-<li>
-<p>Drive everything from the user’s journey.</p>
-</li>
-<li>
-<p>Use an iterative thin slice strategy</p>
+<li>Drive everything from the user’s journey.</li>
+<li>Use an iterative thin slice strategy
 <ul>
 <li>Unless you have a specific reason, always start with simple architectural choices. Measure the system, find the bottlenecks, and improve the system later.</li>
 </ul>
 </li>
-<li>
-<p>On each iteration, add the most value for the least effort to support more users</p>
-</li>
-<li>
-<p>Make decisions and absorb the risks</p>
-</li>
-<li>
-<p>Design deeply things that are hard to change but implement them slowly</p>
-</li>
-<li>
-<p>Eliminate the unknowns and learn from the evidence by working on hard problems early and in parallel</p>
-</li>
-<li>
-<p>Understand the trade-offs between cohesion and flexibility in the software architecture</p>
-</li>
+<li>On each iteration, add the most value for the least effort to support more users</li>
+<li>Make decisions and absorb the risks</li>
+<li>Design deeply things that are hard to change but implement them slowly</li>
+<li>Eliminate the unknowns and learn from the evidence by working on hard problems early and in parallel</li>
+<li>Understand the trade-offs between cohesion and flexibility in the software architecture</li>
 </ol>
 <h2 id="mental-models-for-understanding-and-explaining-system-performance">Mental Models for Understanding and Explaining System Performance</h2>
 <p>Eight mental models that help us think about and understand performance</p>
 <ol>
-<li>
-<p>Cost of Switching to the Kernel Mode from the User Mode</p>
+<li>Cost of Switching to the Kernel Mode from the User Mode
 <ul>
 <li>Every time anapplication enters kernel mode, a context switch occurs, which adds nonessential costs to the system, such as time to save the stack and to rest the cache. To improve performance, we need to reduce the number of system calls.</li>
 </ul>
 </li>
-<li>
-<p>Operations Hierarchy</p>
-</li>
+<li>Operations Hierarchy</li>
 </ol>
 <table>
 <thead>
@@ -414,54 +402,40 @@ stroke-linejoin="round" class="feather feather-home">
 </tbody>
 </table>
 <ol start="3">
-<li>
-<p>Context Switching Overhead</p>
+<li>Context Switching Overhead
 <ul>
 <li>Switching processes adds an overhead cost of about 5–7 microseconds</li>
 </ul>
 </li>
-<li>
-<p>Amdahl’s Law</p>
+<li>Amdahl’s Law
 <ul>
 <li>is used to predict speed up of a task execution time when it’s scaled to run on multiple processors. It simply states that the maximum speed up will be limited by the serial fraction of the task execution as it will create resource contention.</li>
 <li><code>one woman nine months to make one baby, “nine women can’t make a baby in one month</code></li>
 <li>Assume if have 3 thread that doing a single task  it take 2 sec but the most of the time will spend on maintining the 3 thread and resources sharing</li>
-<li>Parellel process are efficient when they are independt</li>
+<li>Parellel process are efficient when they are independ</li>
 </ul>
 </li>
-<li>
-<p>Universal Scalability Law</p>
+<li>Universal Scalability Law
 <ul>
 <li>says that actual speedup is even worse than Amdahl’s law due to shared variables. USL defines a new parameter coherency, which is the overhead added by communication between multiple processes, threads, or nodes.</li>
 </ul>
 </li>
-<li>
-<p>Latency and Utilization Trade-offs</p>
+<li>Latency and Utilization Trade-offs
 <ul>
 <li>Only a single thread can use the most resources at a given time, which forces threads to wait and take turns</li>
 </ul>
 </li>
-<li>
-<p>Designing for Throughput with the Maximal Useful  Utilization (MUU) Model</p>
-</li>
-<li>
-<p>Adding Latency Limits</p>
-</li>
+<li>Designing for Throughput with the Maximal Useful  Utilization (MUU) Model</li>
+<li>Adding Latency Limits</li>
 </ol>
 <h4 id="optimization-techniques">Optimization Techniques</h4>
 <p>To optimize, we need to decide where the bottlenecks are. Bottlenecks usually come in one of three forms:</p>
 <ul>
-<li>
-<p>One of the resources (e.g., CPU, I/O, or memory) is the
-bottleneck.</p>
-</li>
-<li>
-<p>Thread models are causing critical resources to be idle.</p>
-</li>
-<li>
-<p>Resources are wasted on nonessential tasks (e.g., context
-switches, GC).</p>
-</li>
+<li>One of the resources (e.g., CPU, I/O, or memory) is the
+bottleneck.</li>
+<li>Thread models are causing critical resources to be idle.</li>
+<li>Resources are wasted on nonessential tasks (e.g., context
+switches, GC).</li>
 </ul>
 <h5 id="cpu-optimization-techniques">CPU Optimization Techniques</h5>
 <ul>
@@ -486,12 +460,27 @@ switches, GC).</p>
 <li>Do Work in Parallel</li>
 <li>Reduce I/O</li>
 </ul>
-<p>Refer</p>
+<h4 id="cpu-utilization-is-wrong">CPU Utilization is Wrong</h4>
+<ul>
+<li>CPU utilization is a metric that measures the percentage of time the CPU spends executing non-idle tasks. It doesn&rsquo;t necessarily mean the CPU is busy with computation; it&rsquo;s more about the time the CPU is not running the idle thread.</li>
+<li>The idle thread is a special task that runs when the CPU has no other tasks to perform. The operating system kernel tracks CPU utilization during context switches.</li>
+<li>So  high %CPU to mean that the processing unit is the bottleneck, which is wrong because CPU is capable of doing the process it may wait for I/O or something .</li>
+<li><code>Source: https://opensource.com/article/18/4/cpu-utilization-wrong</code></li>
+</ul>
+<h4 id="the-use-method">The USE Method</h4>
+<p>The Utilization Saturation and Errors (USE) Method is a methodology for analyzing the performance of any system</p>
+<p><code>For every resource, check utilization, saturation, and errors.</code></p>
+<ul>
+<li><strong>resource</strong>: all physical server functional components (CPUs, disks, busses, &hellip;)</li>
+<li><strong>utilization</strong>: the average time that the resource was busy servicing work</li>
+<li><strong>saturation</strong>: the degree to which the resource has extra work which it can&rsquo;t service, often queued</li>
+<li><strong>errors</strong>: the count of error events
+Refer</li>
+</ul>
 <ol>
 <li><a href="https://fs.blog/mental-models/">https://fs.blog/mental-models/</a></li>
 <li><a href="http://highscalability.com/blog/2012/5/16/big-list-of-20-common-bottlenecks.html">http://highscalability.com/blog/2012/5/16/big-list-of-20-common-bottlenecks.html</a></li>
 <li><a href="https://opensource.com/article/18/4/cpu-utilization-wrong">https://opensource.com/article/18/4/cpu-utilization-wrong</a></li>
-<li><a href="http://www.cs.cornell.edu/projects/ladis2009/talks/dean-keynote-ladis2009.pdf">http://www.cs.cornell.edu/projects/ladis2009/talks/dean-keynote-ladis2009.pdf</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Queueing_theory">https://en.wikipedia.org/wiki/Queueing_theory</a></li>
 <li><a href="https://www.brendangregg.com/usemethod.html">https://www.brendangregg.com/usemethod.html</a> [bottleneck]</li>
 <li><a href="https://medium.freecodecamp.org/what-makes-apache-kafka-so-fast-a8d4f94ab145">https://medium.freecodecamp.org/what-makes-apache-kafka-so-fast-a8d4f94ab145</a></li>
@@ -514,8 +503,8 @@ switches, GC).</p>
 </ul>
 <p><code>Note:</code> having UX expertise on the team is a must</p>
 <h2 id="macro-architecture">Macro Architecture</h2>
-<p>Spliting for serivce is macro Architecture
-Macro Architectural Building Blocks</p>
+<p>Spliting for serivce is macro Architecture.</p>
+<p>Macro Architectural Building Blocks are</p>
 <ul>
 <li>Data Management  (DB,)</li>
 <li>Routers and Messaging (API Gateway,loadbalancer,message broker)</li>
@@ -685,7 +674,6 @@ Macro Architectural Building Blocks</p>
 <li>Create checklists of questions that are useful for different situations and use them.</li>
 <li>Communicating the Design</li>
 <li>Growth hacking funnel (find where we stuck does in user side or in development are we not pusing not much feature etc..)</li>
-<li></li>
 </ul>
 <p>Refer</p>
 <ul>

@@ -29,12 +29,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.121.2">
+<meta name="generator" content="Hugo 0.122.0">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/networking/">
-    <link href="/blog/style.min.168966c9000ec3ef9ef163b7c484cf7309d0a6ae299aaa4be544ad28ef576d6f.css" rel="stylesheet">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -181,7 +181,13 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#ssh" aria-label="SSH">SSH</a></li>
                 <li>
-                    <a href="#webrtc" aria-label="WebRTC">WebRTC</a></li>
+                    <a href="#webrtc" aria-label="WebRTC">WebRTC</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#turn-traversal-using-relay-around-nat" aria-label="TURN (traversal using relay around NAT)">TURN (traversal using relay around NAT)</a><ul>
+                        <ul>
+                        
                 <li>
                     <a href="#voip" aria-label="VoIP">VoIP</a></li>
                 <li>
@@ -741,6 +747,14 @@ First browser check does the domain corresponding IP in local cache if so use if
 <h4 id="ssh">SSH</h4>
 <p>Provides secure access to a remote device or server over a network, allowing for encrypted communication and command execution.</p>
 <h4 id="webrtc">WebRTC</h4>
+<p>Peer to peer exchange video and audio</p>
+<p>STUN (session traversal util for NAT)</p>
+<ul>
+<li>A Server tell me my public ip address/port through NAT</li>
+<li>The client want to know his public ip and port (the ip of router)</li>
+<li>The clent will do STUN request to the STUN server where it send the response of the public ip and port</li>
+</ul>
+<h2 id="turn-traversal-using-relay-around-nat">TURN (traversal using relay around NAT)</h2>
 <h4 id="voip">VoIP</h4>
 <p>allows voice communication and multimedia sessions over the Internet.</p>
 <p>VoIP devices register with a VoIP server using a protocol like SIP (Session Initiation Protocol). SIP is responsible for establishing, modifying, and terminating real-time sessions.</p>
@@ -1082,6 +1096,14 @@ These are used to exchange routing information between different autonomous syst
 <p>Host communicate with router using MAC address and use <strong>ARP</strong>  protocol to find the MAC address of the router.</p>
 <h4 id="nat">NAT</h4>
 <p>Network Address Translation allows multiple devices within a local network to share a single public IP address for communication with external networks,</p>
+<p>ISP uses NAT where some group of users comes under the same Router where it replace his IP when the request going out of internal.</p>
+<p>Types</p>
+<ol>
+<li>One to one (packet to external IP:port on the router always maps to internal ip:port )</li>
+<li>Address restricted NAT</li>
+<li>Port restricted</li>
+<li>Symmentric</li>
+</ol>
 <h4 id="tools-2">Tools</h4>
 <p><strong>Traceroute</strong>
 determines the route to a destination by sending <strong>Internet Control Message Protocol</strong> (ICMP) echo packets to the destination. In these packets, TRACERT uses varying IP Time-To-Live (TTL) values. Because each router along the path is required to decrement the packet&rsquo;s TTL by at least 1 before forwarding the packet, the TTL is effectively a hop counter. When the TTL on a packet reaches zero (0), the router sends an ICMP &ldquo;Time Exceeded&rdquo; message back to the source computer.</p>
@@ -1178,11 +1200,6 @@ Displays network connections, routing tables, interface statistics, masquerade c
 <p>RFC stands for &ldquo;Request for Comments.&rdquo; It is a series of documents and notes about the specifications, protocols, procedures, and conventions related to the operation and development of the internet. The RFC series is maintained by the Internet Engineering Task Force (IETF), a large open international community of network designers, operators, vendors, and researchers concerned with the evolution and smooth operation of the Internet architecture.</p>
 <p>The RFC documents cover a wide range of topics, including protocols, procedures, programs, and meeting notes. Some of the most well-known and widely used internet standards, protocols, and technologies have been documented in RFCs.</p>
 <p>Above Notes are mostly refered from RFC doc</p>
-<p>pending</p>
-<ol>
-<li>webrtc</li>
-<li>new protocol combine of tcp and udp (qwic)</li>
-</ol>
 <h2 id="resources">Resources</h2>
 <ol>
 <li><a href="https://datatracker.ietf.org/doc/html/rfc5321">RFC Spec for SMTP</a></li>
