@@ -6,20 +6,6 @@
     <description>Recent content in Resources on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Dec 2023 09:44:50 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/resources/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Mongodb</title>
-      <link>https://programmerraja.github.io/blog/resources/2023/mongo/</link>
-      <pubDate>Sun, 03 Dec 2023 09:44:50 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/resources/2023/mongo/</guid>
-      
-      <description>MongoDB &amp;amp; Database MongoDB Architecture (internal)
-MongoDB internal architecture MongoDB internal architecture MongoDB Storage Engine MongoDB Patterns
-https://www.mongodb.com/blog/post/building-with-patterns-a-summary https://youtu.be/yuPjoC3jmPA https://mongoing.com/moutianlei .https://www.mongodb.com/blog/post/building-with-patterns-a-summary https://medium.com/@nirjalpaudel54312/mongodb-design-patterns-708100c07bcb Indexes
-https://www.mongodb.com/docs/manual/indexes/ https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/ https://www.alexbevi.com/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/ https://medium.com/swlh/mongodb-indexes-deep-dive-understanding-indexes-9bcec6ed7aa6 https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/ https://medium.com/@hnasr/index-seek-vs-index-scan-in-database-systems-641c2ac811fc ESR Rules for creating an index **MongoDB index principle ( a great article explain about indexes) Index fill factor https://dzone.com/articles/effective-mongodb-indexing-part-1 MongoDB Index Building on ReplicaSet and Shard Cluster https://betterprogramming.pub/the-mystery-of-mongodb-indexing-af61766647dc (tell about ESR rule and how to split combo index to increase performance) https://betterprogramming.</description>
-      
-    </item>
-    
+    <lastBuildDate>Sun, 11 Feb 2024 04:28:02 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/resources/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

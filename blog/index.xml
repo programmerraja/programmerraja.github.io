@@ -6,7 +6,35 @@
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Feb 2024 07:17:12 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to wireshark the mongodb</title>
+      <link>https://programmerraja.github.io/blog/post/2024/how-to-wireshark-the-mongodb/</link>
+      <pubDate>Mon, 12 Feb 2024 08:28:27 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/how-to-wireshark-the-mongodb/</guid>
+      
+      <description>Run a nodejs program as node --tls-keylog=/tmp/tlskey index.js where the tls key will be stored on that path and add this tlskey path to wire shark to decrypt the msg by doing following
+Go to Preferences-&amp;gt;Protocols-&amp;gt;TLS and edit the path as shown in the screenshot below. ![[Pasted image 20240212083026.png]]
+Mongodb uses Mongodb wire protocol at application level to know more check here</description>
+      
+    </item>
+    
+    <item>
+      <title>Design pattern</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/design-pattern/</link>
+      <pubDate>Mon, 12 Feb 2024 07:09:05 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/design-pattern/</guid>
+      
+      <description>to rember the design pattern narrate it as real life story
+resources https://youtu.be/taj_inLi-pY?si=2qu_7nqx6YRwX0Co
+Crational Design pattern Once upon a time in the colorful land of Toyland, there were magical creatures known as Creators. Each Creator had a unique way of bringing toys to life, showcasing various creational design patterns.
+Abstract Factory Pattern: The Artisan Workshop
+In the heart of Toyland, there was an Artisan Workshop where the master toymaker, the Abstract Artisan, crafted a variety of toys.</description>
+      
+    </item>
+    
     <item>
       <title>Software Architecture and Decision-Making</title>
       <link>https://programmerraja.github.io/blog/notes/2024/software-architecture-and-decision-making/</link>

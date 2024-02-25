@@ -6,7 +6,22 @@
     <description>Recent content in Notes on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 22 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Feb 2024 07:17:12 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Design pattern</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/design-pattern/</link>
+      <pubDate>Mon, 12 Feb 2024 07:09:05 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/design-pattern/</guid>
+      
+      <description>to rember the design pattern narrate it as real life story
+resources https://youtu.be/taj_inLi-pY?si=2qu_7nqx6YRwX0Co
+Crational Design pattern Once upon a time in the colorful land of Toyland, there were magical creatures known as Creators. Each Creator had a unique way of bringing toys to life, showcasing various creational design patterns.
+Abstract Factory Pattern: The Artisan Workshop
+In the heart of Toyland, there was an Artisan Workshop where the master toymaker, the Abstract Artisan, crafted a variety of toys.</description>
+      
+    </item>
+    
     <item>
       <title>Software Architecture and Decision-Making</title>
       <link>https://programmerraja.github.io/blog/notes/2024/software-architecture-and-decision-making/</link>

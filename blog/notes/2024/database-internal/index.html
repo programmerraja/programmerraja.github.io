@@ -18,18 +18,20 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-
-
-  <meta itemprop="image" content="https://programmerraja.github.io/blog" />
-  <meta property="og:image" content="https://programmerraja.github.io/blog" />
-  <meta name="twitter:image" content="https://programmerraja.github.io/blog" />
-  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/database-internal/" title="" />
 
 
 
+  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
 
 
-<meta name="generator" content="Hugo 0.122.0">
+
+
+
+<meta name="generator" content="Hugo 0.123.2">
 
     
 
@@ -159,6 +161,16 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#b-tree-vs-b-tree" aria-label="B-Tree vs B&#43; Tree">B-Tree vs B+ Tree</a></li>
                 <li>
+                    <a href="#lsm-tree" aria-label="LSM tree">LSM tree</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#write" aria-label="Write">Write</a></li>
+                <li>
+                    <a href="#bloom-filters" aria-label="Bloom Filters">Bloom Filters</a></li></ul>
+                    </ul>
+                </li>
+                <li>
                     <a href="#resources" aria-label="Resources">Resources</a>
                 </li>
             </ul>
@@ -208,6 +220,18 @@ from <strong>512 bytes to 4 Kb</strong></p>
 <h2 id="b-tree-vs-b-tree">B-Tree vs B+ Tree</h2>
 <p>B-Trees allow storing values on any level: in root, internal, and leaf nodes.</p>
 <p>B+ Trees store values only in leaf nodes all operations (inserting,updating, removing, and retrieving data records) affect only leaf nodes and propagate to higher levels only during splits and merges.</p>
+<h2 id="lsm-tree">LSM tree</h2>
+<p>![[Pasted image 20240218142044.png]]</p>
+<h4 id="write">Write</h4>
+<ol>
+<li>First it writes in WAL log and appended to an in-memory component known as the memtable.when  Mem-table became full, an Immutable MemTable was created, and a new Mem-table became empty.</li>
+<li>When Immutable Memtable is full, a FLUSH happens, dumping the “balanced tree in RAM” into a disk, called SSTable. which contains sorted values plus an index.</li>
+<li>SSTables are immutable, meaning once written, they are not modified. Any updates or deletes are handled by writing new SSTables with the modified data.Compaction is the process of merging and removing obsolete SSTables to reduce storage space and improve read performance.</li>
+</ol>
+<h4 id="bloom-filters">Bloom Filters</h4>
+<ul>
+<li>LSM trees often use Bloom filters to quickly check whether a key is present in the SSTables. Bloom filters are space-efficient data structures that provide a probabilistic answer to membership queries.</li>
+</ul>
 <h2 id="resources">Resources</h2>
 <ol>
 <li><a href="https://dbdb.io/">Discover and learn about <strong>960</strong> database management systems</a></li>

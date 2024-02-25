@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>docker on programmerraja blog</title>
+    <title>Docker on programmerraja blog</title>
     <link>https://programmerraja.github.io/blog/tags/docker/</link>
-    <description>Recent content in docker on programmerraja blog</description>
+    <description>Recent content in Docker on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/docker/index.xml" rel="self" type="application/rss+xml" />
