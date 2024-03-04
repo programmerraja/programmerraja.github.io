@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.123.2">
+<meta name="generator" content="Hugo 0.123.7">
 
     
 
@@ -171,7 +171,11 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#security-header-in-http" aria-label="Security Header in HTTP">Security Header in HTTP</a></li>
                 <li>
-                    <a href="#https" aria-label="HTTPS">HTTPS</a></li>
+                    <a href="#https" aria-label="HTTPS">HTTPS</a></li></ul>
+                    
+                <li>
+                    <a href="#ssl-flow" aria-label="SSL flow">SSL flow</a><ul>
+                        
                 <li>
                     <a href="#smtp" aria-label="SMTP">SMTP</a></li>
                 <li>
@@ -184,7 +188,7 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#ssh" aria-label="SSH">SSH</a></li>
                 <li>
                     <a href="#webrtc" aria-label="WebRTC">WebRTC</a></li></ul>
-                    </ul>
+                </li></ul>
                 </li>
                 <li>
                     <a href="#turn-traversal-using-relay-around-nat" aria-label="TURN (traversal using relay around NAT)">TURN (traversal using relay around NAT)</a><ul>
@@ -639,6 +643,20 @@ refere <a href="https://blog.apnic.net/2024/01/11/http-2-rapid-reset-deconstruct
 <li>
 <p>The browser sends its own <code>Finished</code> message, confirming the completion of the handshake.</p>
 </li>
+</ul>
+<h3 id="ssl-flow">SSL flow</h3>
+<ul>
+<li>The client sends a ClientHello message to which the server must respond with a ServerHello message, or else a fatal error will occur and the connection will fail.  The ClientHello and ServerHello are used to establish security enhancement capabilities between client and server.</li>
+<li>The ClientHello and ServerHello establish the following attributes: <code>Protocol Version, Session ID, Cipher Suite, and Compression Method.  Additionally, two random values are generated and exchanged: ClientHello.random and ServerHello.random.</code></li>
+<li>Following the hello messages, the server will send its certificate in a Certificate message if it is to be authenticated.</li>
+<li>Client vaildate the certificate and use the server public key to encyrpt the content such as session key and initiate the session
+Note : session key (which is symmentric key used to decrypt and encrypt the msg after TLS handshake done. symmentric is used because it is faster then asymmentric)</li>
+<li>After server recevie the session key and it ack .</li>
+<li></li>
+</ul>
+<p>Resource</p>
+<ul>
+<li><a href="https://www.linuxbabe.com/security/ssltls-handshake-process-explained-with-wireshark-screenshot">https://www.linuxbabe.com/security/ssltls-handshake-process-explained-with-wireshark-screenshot</a></li>
 </ul>
 <p><strong>What is Server Certificate</strong></p>
 <p>The server sends its digital certificate to the client. The certificate contains:</p>

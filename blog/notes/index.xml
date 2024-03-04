@@ -6,7 +6,7 @@
     <description>Recent content in Notes on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Feb 2024 07:17:12 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Mar 2024 07:34:21 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Design pattern</title>
       <link>https://programmerraja.github.io/blog/notes/2024/design-pattern/</link>
@@ -71,18 +71,6 @@ Symptoms of complexity Change amplification: The first symptom of complexity is 
     </item>
     
     <item>
-      <title>Docker Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/docker/</link>
-      <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
-      
-      <description>Docker Engine When you install Docker, you get two major components:
-Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd (to manage container lifecycle operations — start | stop | pause | rm.</description>
-      
-    </item>
-    
-    <item>
       <title>Database internal book Notes</title>
       <link>https://programmerraja.github.io/blog/notes/2024/database-internal/</link>
       <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
@@ -128,7 +116,7 @@ Application Layer (Htttp,DHCP,FMTP,Telnet,NFS) Presentation Layer (Encryption,Da
       
       <guid>https://programmerraja.github.io/blog/notes/2024/nginx/</guid>
       
-      <description></description>
+      <description>Each request handled by each process</description>
       
     </item>
     
@@ -193,6 +181,19 @@ Each channel has its own set of resources, such as queues, exchanges, and bindin
       
       <description>MongoDB Architecture and Concepts if the write concern is set to “majority”, then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.
 Oplog The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/notes/2024/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
+      
+      <description>+++ title = &amp;lsquo;Docker Notes&amp;rsquo; date = 2024-01-15T08:19:32.3232+05:30 tags = [&amp;lsquo;docker&amp;rsquo;,&amp;lsquo;devops&amp;rsquo;] draft = false +++
+Docker Engine When you install Docker, you get two major components:
+Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.</description>
       
     </item>
     

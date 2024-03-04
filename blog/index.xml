@@ -6,7 +6,7 @@
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 20 Feb 2024 07:17:12 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Mar 2024 10:06:51 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to wireshark the mongodb</title>
       <link>https://programmerraja.github.io/blog/post/2024/how-to-wireshark-the-mongodb/</link>
@@ -84,18 +84,6 @@ Symptoms of complexity Change amplification: The first symptom of complexity is 
     </item>
     
     <item>
-      <title>Docker Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/docker/</link>
-      <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
-      
-      <description>Docker Engine When you install Docker, you get two major components:
-Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd (to manage container lifecycle operations — start | stop | pause | rm.</description>
-      
-    </item>
-    
-    <item>
       <title>Database internal book Notes</title>
       <link>https://programmerraja.github.io/blog/notes/2024/database-internal/</link>
       <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
@@ -141,7 +129,7 @@ Application Layer (Htttp,DHCP,FMTP,Telnet,NFS) Presentation Layer (Encryption,Da
       
       <guid>https://programmerraja.github.io/blog/notes/2024/nginx/</guid>
       
-      <description></description>
+      <description>Each request handled by each process</description>
       
     </item>
     
@@ -258,6 +246,38 @@ Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version
       <description>==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 %%
 Drawing {&amp;#34;type&amp;#34;:&amp;#34;excalidraw&amp;#34;,&amp;#34;version&amp;#34;:2,&amp;#34;source&amp;#34;:&amp;#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&amp;#34;,&amp;#34;elements&amp;#34;:[],&amp;#34;appState&amp;#34;:{&amp;#34;gridSize&amp;#34;:null,&amp;#34;viewBackgroundColor&amp;#34;:&amp;#34;#ffffff&amp;#34;}} %%</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/notes/2024/docker/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
+      
+      <description>+++ title = &amp;lsquo;Docker Notes&amp;rsquo; date = 2024-01-15T08:19:32.3232+05:30 tags = [&amp;lsquo;docker&amp;rsquo;,&amp;lsquo;devops&amp;rsquo;] draft = false +++
+Docker Engine When you install Docker, you get two major components:
+Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/wireshark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/wireshark/</guid>
+      
+      <description>Give OSII
+Any idea about OSII layer
+![[Pasted image 20240303172632.png]]
+RFC
+ip.dst == 104.22.71.140 or ip.src == 104.22.71.140 and ssl TLS between http and TCP
+ip.dst == 104.22.71.140 or ip.src == 104.22.71.140 or ip.src == 172.67.42.249 or ip.dst == 172.67.42.249
+ip.src == 172.67.42.249 or ip.dst == 172.67.42.249
+TLS 1.2 Handshake It takes 4 steps to complete the handshake before sending the first encrypted request from a browser:
+Client Hello Server Hello Client key exchange and generate the master secret Finished https://cabulous.</description>
       
     </item>
     
