@@ -1,12 +1,13 @@
-<!DOCTYPE html><html lang="en-us"><head><meta charset="utf-8">
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">programmerraja blog | programmerraja blog</title>
-<meta property="og:title" content="programmerraja blog | programmerraja blog" />
-<meta name="twitter:title" content="programmerraja blog | programmerraja blog" />
-<meta itemprop="name" content="programmerraja blog | programmerraja blog" />
-<meta name="application-name" content="programmerraja blog | programmerraja blog" />
+<title itemprop="name">Databases | programmerraja blog</title>
+<meta property="og:title" content="Databases | programmerraja blog" />
+<meta name="twitter:title" content="Databases | programmerraja blog" />
+<meta itemprop="name" content="Databases | programmerraja blog" />
+<meta name="application-name" content="Databases | programmerraja blog" />
 <meta property="og:site_name" content="" />
 
 <meta name="description" content="">
@@ -17,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/databases/" title="" />
 
 
 
@@ -34,9 +35,7 @@
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/">
-    <link href="/blog/index.xml" rel="alternate" type="application/rss+xml" title="programmerraja blog">
-    <link href="/blog/index.xml" rel="feed" type="application/rss+xml" title="programmerraja blog">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/databases/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -61,7 +60,8 @@
 
     
     </head>
-<body data-theme="auto" class="notransition">
+<body data-theme = "" class="notransition">
+        <main class="main">
 
 <script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
@@ -95,7 +95,7 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="/blog/notes/">
+                    <a class="menu-link active" href="/blog/notes/">
                         Notes
                     </a>
                     
@@ -127,248 +127,77 @@ stroke-linejoin="round" class="feather feather-home">
         </div>
     </nav>
 </div>
-<div class="wrapper">
-          
-<div class="author">
-     
-    <img
-        class="author-avatar"
-        src="/blog/myself_hu946df3b17cadc932f1b80e7103cbd3a3_109793_100x100_fill_q75_h2_box_smart1.webp"
-        alt="K.Boopathi"
-        width="512"
-        height="512"
-    />
-    
-    <h2 class="author-name">K.Boopathi</h2>
-    <p class="author-bio">Exploring diverse tech realms, I&#39;m a curious programmer crafting blogs on web dev and sharing learning resources! 🚀 Dive into my world of code exploration and innovation!</p>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Databases</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-03-03T07:34:21&#43;05:30" itemprop="datePublished"> Mar 3, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#zippydb" aria-label="ZippyDB">ZippyDB</a><ul>
+                        
+                <li>
+                    <a href="#cassandra" aria-label="Cassandra">Cassandra</a></li></ul>
+                </li>
+                <li>
+                    <a href="#foundationdb" aria-label="FoundationDB">FoundationDB</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#vitess" aria-label="Vitess">Vitess</a></li>
+                <li>
+                    <a href="#citus" aria-label="Citus">Citus</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#tools" aria-label="Tools">Tools</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#ingestrhttpsgithubcombruin-dataingestr" aria-label="Ingestr">Ingestr</a></li>
+                <li>
+                    <a href="#debeziumhttpsdebeziumio" aria-label="Debezium">Debezium</a>
+                </li>
+            </ul>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="zippydb">ZippyDB</h2>
+<p>ZippyDB is the largest strongly consistent, geographically distributed key-value store at Facebook.ZippyDB uses <a href="https://www.facebook.com/notes/facebook-engineering/under-the-hood-building-and-open-sourcing-rocksdb/10151822347683920/">RocksDB</a> as the underlying storage engine</p>
+<h3 id="cassandra"><strong>Cassandra</strong></h3>
+<p><a href="https://cassandra.apache.org/_/index.html">Cassandra</a> is a wide-column NoSQL database management system. It was originally developed at Facebook to power the Facebook inbox search feature</p>
+<h2 id="foundationdb">FoundationDB</h2>
+<p><a href="https://github.com/apple/foundationdb">FoundationDB</a> is an open-source, distributed, transactional key-value store. It’s designed to handle large volumes of data and works well for both read/write workloads and write-heavy workloads. It’s also <a href="https://www.swequiz.com/learn/acid-properties">ACID-compliant</a>.</p>
+<h4 id="vitess">Vitess</h4>
+<p><a href="https://vitess.io/">Vitess</a> Scalable. Reliable. MySQL-compatible. Cloud-native. Database.used by hubspot,flipkart,</p>
+<h4 id="citus">Citus</h4>
+<p><a href="https://www.citusdata.com/">Citus</a> gives you the Postgres you love, plus the superpower of distributed tables. 100% open source. Now with schema-based and row-based sharding—plus Postgres 16 support!</p>
+<h2 id="tools">Tools</h2>
+<h4 id="ingestrhttpsgithubcombruin-dataingestr"><a href="https://github.com/bruin-data/ingestr">Ingestr</a></h4>
+<p>ingestr is a CLI tool to copy data between any databases with a single command seamlessly.</p>
+<h4 id="debeziumhttpsdebeziumio"><a href="https://debezium.io/">Debezium</a></h4>
+<p>Debezium is an open source distributed platform for change data capture. Start it up, point it at your databases, and your apps can start responding to all of the inserts, updates, and deletes that other apps commit to your databases.</p>
+
+            </div>
+        </article></main>
 </div>
-
-
-        <main aria-label="Content">
-            <h3 class="posts-item-note" aria-label="Recent Posts"></h3>
-            
-            
-            
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/databases/">Databases</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-03-03T07:34:21&#43;0530">
-        3 Mar 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/design-pattern/">Design pattern</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-02-12T07:09:05&#43;0530">
-        12 Feb 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/software-architecture-and-decision-making/">Software Architecture and Decision-Making</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-22T08:19:32&#43;0530">
-        22 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/react/">React</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-20T18:57:02&#43;0530">
-        20 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/a-philosophy-of-software-design-book-notes/">A Philosophy of Software Design Book Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-18T08:19:32&#43;0530">
-        18 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/linux-notes/">Linux Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-17T08:19:32&#43;0530">
-        17 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/android-internal/">Android internal Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-17T08:19:32&#43;0530">
-        17 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/docker/">Docker Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-15T08:19:32&#43;0530">
-        15 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/networking/">Networking Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-12T08:19:32&#43;0530">
-        12 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/microservices/">MicroServices</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-12T08:19:32&#43;0530">
-        12 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/database-internal/">Database internal book Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-12T08:19:32&#43;0530">
-        12 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/nginx/">Nginx Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-10T08:19:32&#43;0530">
-        10 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/go/">Go</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-01T11:39:28&#43;0530">
-        1 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/learning-from-blog/">Learning from blog</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-01T08:19:32&#43;0530">
-        1 Jan 2024
-        
-    </time>
-</article>
-
-            
-            <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/kubernetes/">Kubernetes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-01T08:19:32&#43;0530">
-        1 Jan 2024
-        
-    </time>
-</article>
-
-            
-            
-            <p>
-                
-                <a href="https://programmerraja.github.io/blog/notes/"></a>
-                
-            </p>
-            
-        </main>
-    </div><footer class="footer">
+<footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
 
@@ -434,6 +263,6 @@ stroke-linejoin="round" class="feather feather-home">
 
     
 
-</body>
-
+</main>
+    </body>
 </html>

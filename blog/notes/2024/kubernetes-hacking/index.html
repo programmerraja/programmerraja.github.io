@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><meta charset="utf-8">
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,14 +18,14 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/" title="" />
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/kubernetes-hacking/" title="" />
 
 
 
-  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
-  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
-  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
-  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
 
 
 
@@ -35,7 +35,7 @@
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/">
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/kubernetes-hacking/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
 
 
 
-<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
 
 <meta name="msapplication-config" content="/blog/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -58,16 +58,15 @@
     
     <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
 
-    
     </head>
 <body data-theme = "" class="notransition">
         <main class="main">
 
-<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+<script src="/blog/js/theme.js"></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="https://programmerraja.github.io/blog/" class="logo">
+        <a href="http://localhost:1313/blog/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -95,7 +94,7 @@ stroke-linejoin="round" class="feather feather-home">
                 </li>
                 
                 <li>
-                    <a class="menu-link " href="/blog/notes/">
+                    <a class="menu-link active" href="/blog/notes/">
                         Notes
                     </a>
                     
@@ -140,19 +139,99 @@ stroke-linejoin="round" class="feather feather-home">
             <span class="details">Table of Contents</span>
         </summary>
 
-        <div class="inner"><ul>
+        <div class="inner"><ul><ul>
                 <li>
-                    <a href="#drawing" aria-label="Drawing">Drawing</a>
+                    <a href="#tools" aria-label="Tools">Tools</a></li>
+                <li>
+                    <a href="#notes" aria-label="Notes">Notes</a></li></ul>
+                    
+                <li>
+                    <a href="#pod-security-admission" aria-label="Pod Security Admission">Pod Security Admission</a>
                 </li>
             </ul>
         </div>
     </details>
 </div><div class="page-content">
-                <p>==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==</p>
-<p>%%</p>
-<h1 id="drawing">Drawing</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;excalidraw&#34;</span><span class="p">,</span><span class="nt">&#34;version&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&#34;source&#34;</span><span class="p">:</span><span class="s2">&#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&#34;</span><span class="p">,</span><span class="nt">&#34;elements&#34;</span><span class="p">:[],</span><span class="nt">&#34;appState&#34;</span><span class="p">:{</span><span class="nt">&#34;gridSize&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;viewBackgroundColor&#34;</span><span class="p">:</span><span class="s2">&#34;#ffffff&#34;</span><span class="p">}}</span>
-</span></span></code></pre></div><p>%%</p>
+                <h2 id="tools">Tools</h2>
+<p>Checks whether Kubernetes is deployed according to security best practices as defined in the CIS Kubernetes Benchmark
+<a href="https://github.com/aquasecurity/kube-bench">https://github.com/aquasecurity/kube-bench</a></p>
+<p>Popeye is a utility that scans live Kubernetes clusters and reports potential issues with deployed resources and configurations
+<a href="https://popeyecli.io/">https://popeyecli.io/</a></p>
+<p>Hunt for security weaknesses in Kubernetes clusters python script wil look for opened ports and list all and what are the info that can be accessed</p>
+<p>run inside POD it will access the token and do</p>
+<p><a href="https://github.com/aquasecurity/kube-hunter">https://github.com/aquasecurity/kube-hunter</a></p>
+<h2 id="notes">Notes</h2>
+<p>Run a container as noon root
+use distroless images (only have language runtime )
+isolate the network</p>
+<p>Admission controller</p>
+<ol>
+<li><a href="https://www.openpolicyagent.org/">Open policy agent </a></li>
+</ol>
+<p>Activities monitoring</p>
+<p>Getting alerts when container exec , new service created etc that are weired.
+tools <a href="https://falco.org/">Falco</a></p>
+<p>Image scanning</p>
+<ol>
+<li><a href="https://github.com/quay/clair">Clair</a></li>
+<li><a href="https://github.com/aquasecurity/trivy">trivy</a> It is easy compare to clair</li>
+<li>copacetic (used to patch the bug reported by trivy)</li>
+<li></li>
+<li>sysdig</li>
+</ol>
+<p>Every pod can access the token that will can call kube API
+<code>cat /var/run/secrets/kubernetes.io/serviceaccount/token</code>
+we can use this token to acess the kube API  <code>https://kubernetes/api/v1/namespaces/default</code></p>
+<p>Playground</p>
+<p>Kubernetes Goat is a &ldquo;Vulnerable by Design&rdquo; cluster environment to learn and practice Kubernetes security using an interactive hands-on playground <a href="https://github.com/madhuakula/kubernetes-goat">https://github.com/madhuakula/kubernetes-goat</a></p>
+<p>The ServiceAccount and Pod configurations in this application&rsquo;s Namespace is using the default <code>automountServiceAccountToken</code> setting of <code>true</code> so set as false
+don&rsquo;t run a pod as root user</p>
+<pre tabindex="0"><code>apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: beta
+automountServiceAccountToken: false
+</code></pre><p>communication between pods are unencrypted
+By default secrets are not encrypted any one can view so encrypt and store it use vault</p>
+<p>secure the etcd</p>
+<p><a href="https://kubernetes.io/docs/tasks/configure-pod-container/security-context/">Configure a Security Context for a Pod or Container</a></p>
+<p>Pods can communicate with any other pod even in different namespace so add network policy</p>
+<p>AKS security best practice</p>
+<ol>
+<li>Block ip to access api server</li>
+<li>Microsoft defender for AKS</li>
+<li>Rotate kubelete certificate</li>
+</ol>
+<p>Set following security context in pod ymal file</p>
+<pre tabindex="0"><code>securityContext
+	allowPrivilegeEscalation:false
+	readOnlyRootFileSystem:true
+	runAsUser:1000 #(userId )
+</code></pre><p><code>privileged: true</code>  in a Kubernetes securityContext YAML file effectively grants the container access to the node&rsquo;s resources. When a container runs with <code>privileged: true</code>, it essentially gains access to all system resources on the node where it&rsquo;s scheduled.</p>
+<h1 id="pod-security-admission">Pod Security Admission</h1>
+<p>The Kubernetes <a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/">Pod Security Standards</a> define different isolation levels for Pods. These standards let you define how you want to restrict the behavior of pods in a clear, consistent fashion.</p>
+<p>some best practice to follow
+<a href="https://github.com/snyk-labs/kubernetes-goof/blob/main/workshop/03-mitigations.md">https://github.com/snyk-labs/kubernetes-goof/blob/main/workshop/03-mitigations.md</a></p>
+<p>Resources</p>
+<ol>
+<li><a href="https://kubernetes.io/docs/concepts/security/pod-security-admission/">https://kubernetes.io/docs/concepts/security/pod-security-admission/</a></li>
+<li><a href="https://gcollazo.com/the-security-footgun-in-etcd/">https://gcollazo.com/the-security-footgun-in-etcd/</a></li>
+</ol>
+<ul>
+<li><a href="https://github.com/kubernetes/sig-security">K8s SIG-Security</a></li>
+<li><a href="https://github.com/cncf/tag-security">CNCF TAG-Security</a></li>
+<li><a href="https://github.com/kubernetes/community/tree/master/sig-network">K8s SIG-Nework</a></li>
+<li><a href="https://openssf.org/">OpenSSF</a></li>
+</ul>
+<p><a href="https://github.com/ahmetb/kubernetes-network-policy-recipes">https://github.com/ahmetb/kubernetes-network-policy-recipes</a>
+<a href="https://networkpolicy.io/">https://networkpolicy.io/</a></p>
+<p><a href="https://attack.mitre.org/">https://attack.mitre.org/</a> [MITRE ATT&amp;CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&amp;CK knowledge base is used as a foundation for the development of specific threat models and methodologies in the private sector, in government, and in the cybersecurity product and service community.]</p>
+<p>docker images are just tar file and json meta data</p>
+<p><code>docker save nginx:latest -o ngnix.tar</code> -&gt; will save image as tar file
+<code>tar -xvf ngnix.tar --one-top-level</code> -&gt; exctract the tar file which have tar and json for each layer
+<code>docker export containername -o mycontainer.tar</code></p>
+<p><code>docker run -ti --previliged -net=host -pid=host --ipc=host --volume/:/host busybox chroot /host</code>  -&gt;give the container unrestricted access to the host&rsquo;s resources.</p>
+<p>if you create file inside container we can see inside proc file of the docker process id ls <code>/proc/procoid/root</code></p>
 
             </div>
         </article></main>
@@ -219,7 +298,7 @@ stroke-linejoin="round" class="feather feather-home">
 
 
     
-    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
 
     
 

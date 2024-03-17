@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.123.8">
 
     
 
@@ -176,6 +176,8 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#ssl-flow" aria-label="SSL flow">SSL flow</a><ul>
                         
+                <li>
+                    <a href="#sever-private-key-vs-ssl-session-key" aria-label="Sever private key vs SSL session Key">Sever private key vs SSL session Key</a></li>
                 <li>
                     <a href="#smtp" aria-label="SMTP">SMTP</a></li>
                 <li>
@@ -658,6 +660,15 @@ Note : session key (which is symmentric key used to decrypt and encrypt the msg 
 <ul>
 <li><a href="https://www.linuxbabe.com/security/ssltls-handshake-process-explained-with-wireshark-screenshot">https://www.linuxbabe.com/security/ssltls-handshake-process-explained-with-wireshark-screenshot</a></li>
 </ul>
+<h4 id="sever-private-key-vs-ssl-session-key">Sever private key vs SSL session Key</h4>
+<p><strong>Server Private Key:</strong>
+- <strong>Purpose:</strong> The server&rsquo;s private key is a crucial component in the SSL/TLS handshake process. It is used for asymmetric encryption and decryption during the initial phase of establishing a secure connection.
+- <strong>Usage:</strong> The server&rsquo;s private key is used by the server to decrypt the symmetric session key sent by the client during the handshake. It is kept confidential and is used for securing the key exchange process.
+- <strong>Lifetime:</strong> The server&rsquo;s private key has a long lifespan and is associated with the SSL/TLS certificate, often valid for a year or more.
+<strong>SSL/TLS Session Keys:</strong>
+- <strong>Purpose:</strong> Session keys are symmetric encryption keys that are generated uniquely for each SSL/TLS session. They are used for encrypting and decrypting the actual data being transmitted between the client and the server.
+- <strong>Usage:</strong> Once the initial handshake is complete and the symmetric session key is agreed upon during the key exchange phase, the subsequent data transfer uses symmetric encryption. This is more efficient than asymmetric encryption and provides confidentiality for the transmitted data.
+- <strong>Lifetime:</strong> Session keys are short-lived and are typically used for the duration of a single session. Perfect Forward Secrecy (PFS) mechanisms ensure that even if the server&rsquo;s private key is compromised in the future, previously captured encrypted sessions cannot be decrypted.</p>
 <p><strong>What is Server Certificate</strong></p>
 <p>The server sends its digital certificate to the client. The certificate contains:</p>
 <ul>

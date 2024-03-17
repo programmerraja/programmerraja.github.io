@@ -14,8 +14,9 @@
       
       <guid>https://programmerraja.github.io/blog/notes/2024/kubernetes/</guid>
       
-      <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster A Kubernetes cluster contains six main components:
-API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on. Controller manager: Runs controller processes and reconciles the cluster’s actual state with its desired specifications.</description>
+      <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster ![[Pasted image 20240312073714.png]]
+A Kubernetes cluster contains six main components:
+API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on.</description>
       
     </item>
     

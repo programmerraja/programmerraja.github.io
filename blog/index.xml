@@ -6,7 +6,20 @@
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Mar 2024 10:06:51 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Mar 2024 06:43:12 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Databases</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/databases/</link>
+      <pubDate>Sun, 03 Mar 2024 07:34:21 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/databases/</guid>
+      
+      <description>ZippyDB ZippyDB is the largest strongly consistent, geographically distributed key-value store at Facebook.ZippyDB uses RocksDB as the underlying storage engine
+Cassandra Cassandra is a wide-column NoSQL database management system. It was originally developed at Facebook to power the Facebook inbox search feature
+FoundationDB FoundationDB is an open-source, distributed, transactional key-value store. It’s designed to handle large volumes of data and works well for both read/write workloads and write-heavy workloads. It’s also ACID-compliant.</description>
+      
+    </item>
+    
     <item>
       <title>How to wireshark the mongodb</title>
       <link>https://programmerraja.github.io/blog/post/2024/how-to-wireshark-the-mongodb/</link>
@@ -48,6 +61,17 @@ Books for leadership The Hard Things About Hard Things by Ben Horowitz, Trillion
     </item>
     
     <item>
+      <title>React</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/react/</link>
+      <pubDate>Sat, 20 Jan 2024 18:57:02 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/react/</guid>
+      
+      <description>Notes Context function App() { return ( &amp;lt;div className=&amp;#34;App&amp;#34;&amp;gt; &amp;lt;AdaptivityProvider&amp;gt; &amp;lt;Child1 /&amp;gt; &amp;lt;Child2 /&amp;gt; &amp;lt;/AdaptivityProvider&amp;gt; &amp;lt;/div&amp;gt; ); } let child1 = 0; let child2 = 0; function Child1() { //TO Consume const { width } = useSize(); child1 += 1; return &amp;lt;p&amp;gt;{child1}&amp;lt;/p&amp;gt;; } function Child2() { const { isMobile } = useMobile(); child2 += 1; return &amp;lt;p&amp;gt;{child2}&amp;lt;/p&amp;gt;; } //create context const SizeContext = createContext({}); const MobileContext = createContext({}); //create provider export const Provider = (props) =&amp;gt; { const [width, setWidth] = useState(window.</description>
+      
+    </item>
+    
+    <item>
       <title>A Philosophy of Software Design Book Notes</title>
       <link>https://programmerraja.github.io/blog/notes/2024/a-philosophy-of-software-design-book-notes/</link>
       <pubDate>Thu, 18 Jan 2024 08:19:32 +0530</pubDate>
@@ -80,6 +104,18 @@ Symptoms of complexity Change amplification: The first symptom of complexity is 
       <guid>https://programmerraja.github.io/blog/notes/2024/linux-notes/</guid>
       
       <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Docker Notes</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/docker/</link>
+      <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
+      
+      <description>Docker Engine When you install Docker, you get two major components:
+Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd (to manage container lifecycle operations — start | stop | pause | rm.</description>
       
     </item>
     
@@ -156,8 +192,9 @@ var name string = “d” (if directly assing vaule we don’t need to mention t
       
       <guid>https://programmerraja.github.io/blog/notes/2024/kubernetes/</guid>
       
-      <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster A Kubernetes cluster contains six main components:
-API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on. Controller manager: Runs controller processes and reconciles the cluster’s actual state with its desired specifications.</description>
+      <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster ![[Pasted image 20240312073714.png]]
+A Kubernetes cluster contains six main components:
+API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on.</description>
       
     </item>
     
@@ -246,38 +283,6 @@ Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version
       <description>==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 %%
 Drawing {&amp;#34;type&amp;#34;:&amp;#34;excalidraw&amp;#34;,&amp;#34;version&amp;#34;:2,&amp;#34;source&amp;#34;:&amp;#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&amp;#34;,&amp;#34;elements&amp;#34;:[],&amp;#34;appState&amp;#34;:{&amp;#34;gridSize&amp;#34;:null,&amp;#34;viewBackgroundColor&amp;#34;:&amp;#34;#ffffff&amp;#34;}} %%</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://programmerraja.github.io/blog/notes/2024/docker/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
-      
-      <description>+++ title = &amp;lsquo;Docker Notes&amp;rsquo; date = 2024-01-15T08:19:32.3232+05:30 tags = [&amp;lsquo;docker&amp;rsquo;,&amp;lsquo;devops&amp;rsquo;] draft = false +++
-Docker Engine When you install Docker, you get two major components:
-Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://programmerraja.github.io/blog/wireshark/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/wireshark/</guid>
-      
-      <description>Give OSII
-Any idea about OSII layer
-![[Pasted image 20240303172632.png]]
-RFC
-ip.dst == 104.22.71.140 or ip.src == 104.22.71.140 and ssl TLS between http and TCP
-ip.dst == 104.22.71.140 or ip.src == 104.22.71.140 or ip.src == 172.67.42.249 or ip.dst == 172.67.42.249
-ip.src == 172.67.42.249 or ip.dst == 172.67.42.249
-TLS 1.2 Handshake It takes 4 steps to complete the handshake before sending the first encrypted request from a browser:
-Client Hello Server Hello Client key exchange and generate the master secret Finished https://cabulous.</description>
       
     </item>
     

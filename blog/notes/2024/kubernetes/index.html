@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.123.7">
+<meta name="generator" content="Hugo 0.123.8">
 
     
 
@@ -237,8 +237,13 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#internal-resources" aria-label="Internal Resources">Internal Resources</a><ul>
                         
                 <li>
-                    <a href="#products" aria-label="Products">Products</a>
+                    <a href="#products" aria-label="Products">Products</a><ul>
+                        
+                <li>
+                    <a href="#tools" aria-label="Tools">Tools</a>
                 </li>
+            </ul>
+            </li>
             </ul>
             </li>
             </ul>
@@ -251,6 +256,7 @@ stroke-linejoin="round" class="feather feather-home">
 <li>An orchestrator of cloud-native microservices apps</li>
 </ul>
 <h3 id="kubernetes-cluster">Kubernetes cluster</h3>
+<p>![[Pasted image 20240312073714.png]]</p>
 <p>A Kubernetes cluster contains six main components:</p>
 <ol>
 <li><code>API server:</code> Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane.</li>
@@ -374,6 +380,17 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">resource</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">cpu</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetAverageUtilization</span><span class="p">:</span><span class="w"> </span><span class="m">50</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># this will scale the pod based on no of request</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metrics</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">Pods  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">pods</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metric</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http_requests  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">target</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">AverageValue  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">averageValue</span><span class="p">:</span><span class="w"> </span><span class="m">1000</span><span class="w">
 </span></span></span></code></pre></div><h3 id="replicaset">ReplicaSet</h3>
 <p>To deploy multiple instance. A ReplicaSet is defined with fields, including a selector that specifies how to identify Pods it can acquire, a number of replicas indicating how many Pods it should be maintaining, and a pod template specifying the data of new Pods it should create to meet the number of replicas criteria. A ReplicaSet then fulfills its purpose by creating and deleting Pods as needed to reach the desired number. When a ReplicaSet needs to create new Pods, it uses its Pod template.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">apiVersion</span><span class="o">:</span> <span class="nx">apps</span><span class="o">/</span><span class="nx">v1</span>
@@ -660,7 +677,7 @@ stroke-linejoin="round" class="feather feather-home">
 </ul>
 <h3 id="probe">Probe</h3>
 <ol>
-<li><strong>Liveness Probe</strong> indicates if the container is operating. If so, no action is taken. If not, the kubelet kills and restarts the container.</li>
+<li><strong>Liveness Probe</strong> indicates if the container is operating. If so, no action is taken. If not, the kubelet kills and restarts the container. Liveness probes are used to tell kubernetes to restart a container. If the liveness probe fails, the application will restart. This can be used to catch issues such as a deadlock and make your application more available.</li>
 <li><strong>Readiness Probe</strong> indicates whether the application running in the container is ready to accept requests. If so, Services matching the pod are allowed to send traffic to it. If not, the endpoints controller removes the pod from all matching Kubernetes Services.<code>Note:</code><strong>If you don&rsquo;t set the readiness probe, the kubelet assumes that the app is ready to receive traffic as soon as the container starts. If the container takes 2 minutes to start, all the requests to it will fail for those 2 minutes.</strong></li>
 <li><strong>Startup Probe</strong> indicates whether the application running in the container has started. If so, other probes start functioning. If not, the kubelet kills and restarts the container.</li>
 </ol>
@@ -668,6 +685,17 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">httpGet</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/ready</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">httpHeaders</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">X-Custom-Header  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">		</span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;CustomValue&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#we can give as exec like below</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">exec</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="nt">command</span><span class="p">:</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span>- <span class="l">sh  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span>- -<span class="l">c  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span>- <span class="s2">&#34;nc -z localhost 5432 || exit 1&#34;</span><span class="w">
 </span></span></span></code></pre></div><h3 id="services">Services</h3>
 <p>When newly pods created are scaled it will have new IP so if we have other pod communicating with it. it is unrealible.This is where Services come in to play. Services provide reliable networking for a set of Pods.</p>
 <p>They operate at the TCP and UDP layer, Services do not possess application intelligence and cannot provide application-layer host and path routing.for that we use ingress</p>
@@ -1154,6 +1182,7 @@ stroke-linejoin="round" class="feather feather-home">
 <li><a href="https://blog.mbrt.dev/posts/container-network/">Demystifying container networking</a></li>
 <li><a href="https://freecontent.manning.com/handling-client-requests-properly-with-kubernetes/" title="Handling Client Requests Properly with Kubernetes">Handling Client Requests Properly with Kubernetes</a></li>
 <li><a href="https://learnk8s.io/production-best-practices">production-best-practices</a></li>
+<li><a href="https://overcast.blog/11-kubernetes-deployment-configs-you-should-know-in-2024-1126740926f0">https://overcast.blog/11-kubernetes-deployment-configs-you-should-know-in-2024-1126740926f0</a></li>
 </ol>
 <h2 id="internal-resources">Internal Resources</h2>
 <ul>
@@ -1165,6 +1194,11 @@ stroke-linejoin="round" class="feather feather-home">
 <ol>
 <li><a href="https://cast.ai/">To cut down the cost of kubernetes</a></li>
 <li><strong><a href="https://www.civo.com/">The first cloud native service provider powered only by Kubernetes</a></strong></li>
+</ol>
+<h4 id="tools">Tools</h4>
+<ol>
+<li><a href="https://k9scli.io/">https://k9scli.io/</a> [Kubectl alternative]</li>
+<li><a href="https://monokle.io/">https://monokle.io/</a> [Monokle&rsquo;s integrated open-source tools and cloud platform make it easy to define, manage, and enforce Kubernetes YAML configuration policies in minutes]</li>
 </ol>
 
             </div>
