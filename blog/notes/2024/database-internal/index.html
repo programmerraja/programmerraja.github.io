@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.123.8">
+<meta name="generator" content="Hugo 0.124.1">
 
     
 
@@ -171,7 +171,9 @@ stroke-linejoin="round" class="feather feather-home">
                     </ul>
                 </li>
                 <li>
-                    <a href="#resources" aria-label="Resources">Resources</a>
+                    <a href="#resources" aria-label="Resources">Resources</a></li>
+                <li>
+                    <a href="#resources-1" aria-label="Resources">Resources</a>
                 </li>
             </ul>
         </div>
@@ -252,6 +254,10 @@ from <strong>512 bytes to 4 Kb</strong></p>
 <p>The workflow involves storing data in flat files on HDFS, adding new data by appending files, and precomputing queries using MapReduce. The results are indexed for quick access by applications using databases like ElephantDB and Voldemort, which specialize in exporting key/value data from Hadoop for fast querying. These databases support batch writes and random reads, avoiding the complexities associated with random writes, leading to simplicity and robustness.</p>
 <p>Global secondar index
 Used in distributed shared database where the indexing is in global so when ever request go to the DB proxy that is infront of sharded DB it will do the query on GSI to get the doc shard database ref such that we don&rsquo;t want to query on all shard.**</p>
+<h2 id="resources-1">Resources</h2>
+<ol>
+<li><a href="https://medium.com/@hnasr/following-a-database-read-to-the-metal-a187541333c2">https://medium.com/@hnasr/following-a-database-read-to-the-metal-a187541333c2</a></li>
+</ol>
 
             </div>
         </article></main>

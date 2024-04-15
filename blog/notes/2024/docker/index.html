@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.123.8">
+<meta name="generator" content="Hugo 0.124.1">
 
     
 
@@ -193,7 +193,13 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#host-network" aria-label="Host Network">Host Network</a></li>
                 <li>
-                    <a href="#macvlan" aria-label="MACVLAN">MACVLAN</a></li></ul>
+                    <a href="#macvlan" aria-label="MACVLAN">MACVLAN</a></li>
+                <li>
+                    <a href="#communication-between-two-container-in-same-region" aria-label="Communication between two container in same region">Communication between two container in same region</a></li>
+                <li>
+                    <a href="#communication-between-two-container-in-different-region" aria-label="Communication between two container in different region">Communication between two container in different region</a></li>
+                <li>
+                    <a href="#how-docker-networking-working-from-scratch" aria-label="How docker networking working from scratch">How docker networking working from scratch</a></li></ul>
                 </li></ul>
                 </li>
                 <li>
@@ -225,11 +231,15 @@ stroke-linejoin="round" class="feather feather-home">
                     </ul>
                 </li>
                 <li>
+                    <a href="#debugging" aria-label="Debugging">Debugging</a></li>
+                <li>
                     <a href="#resources" aria-label="Resources">Resources</a></li>
                 <li>
                     <a href="#tools" aria-label="Tools">Tools</a></li>
                 <li>
-                    <a href="#internal" aria-label="internal">internal</a>
+                    <a href="#internal" aria-label="internal">internal</a></li>
+                <li>
+                    <a href="#internal-1" aria-label="Internal">Internal</a>
                 </li>
             </ul>
         </div>
@@ -402,7 +412,7 @@ In a default Linux installation, the client talks to the daemon via a local IPC/
 </tr>
 </tbody>
 </table>
-<p>By default docker have bridge network(in windows it called NAT) which assign a unique ip address for each container from the range of 172.17.0.0/16</p>
+<p>By default docker have bridge network(in windows it called NAT) which assign a unique ip address for each container from the range of <code>172.17.0.0/16</code></p>
 <p>The default “bridge” network, on all Linux-based Docker hosts, maps to an underlying Linux bridge in the kernel called <strong>“docker0”</strong>  <code>docker network inspect bridge | grep bridge.name </code></p>
 <p>to check the docker network inspect (<code>docker network inspect bridge</code>) the container.</p>
 <p>How to make two docker to communicate among them</p>
@@ -418,6 +428,47 @@ In a default Linux installation, the client talks to the daemon via a local IPC/
 <p>It directly bind the container to host and exposed to access publicly <code>docker run --network host name</code> we can access this by host IP.</p>
 <h4 id="macvlan">MACVLAN</h4>
 <p>Connect the container interface through to the hosts interface.it requires the host NIC to be in promiscuous mode (isn’t allowed on most public cloud platforms)</p>
+<h4 id="communication-between-two-container-in-same-region">Communication between two container in same region</h4>
+<p>When you send a packet to <code>172.23.2.1</code> on your local network, your operating system (Linux, for our purposes) looks up the MAC address for that IP address in a table it maintains (called the ARP table). Then it puts that MAC address on the packet and sends it off.</p>
+<p>So! What if I had a packet for the container <code>10.4.4.4</code> but I actually wanted it to go to the computer <code>172.23.1.1</code> where another container is running?. You just add an entry to another table. It’s all tables.</p>
+<p>Here’s command you could run to do this manually:</p>
+<pre tabindex="0"><code>sudo ip route add 10.4.4.0/24 via 172.23.1.1 dev eth0
+</code></pre><p><code>ip route add</code> adds an entry to the <strong>route table</strong> on your computer. This route table entry says “Linux, whenever you see a packet for <code>10.4.4.*</code>, just send it to the MAC address for <code>172.23.2.1</code>,</p>
+<h4 id="communication-between-two-container-in-different-region">Communication between two container in different region</h4>
+<p>route table trick will only work if the computers are connected directly. If the two computers are far apart (in different local networks) we’ll need to do something more complicated.</p>
+<p>We want to send a packet to the container IP 10.4.4.4, and it is on the computer 172.9.9.9. But because the computer is far away, we <strong>have</strong> to address the packet to the IP address 172.9.9.9. Woe is us! All is lost! Where are we going to put the IP address 10.4.4.4?</p>
+<p><strong>Encapsulation</strong></p>
+<p>All is not lost. We can do a thing called “encapsulation”. This is where you take a network packet and put it inside ANOTHER network packet.</p>
+<p>So instead of sending</p>
+<pre tabindex="0"><code>IP: 10.4.4.4
+TCP stuff
+HTTP stuff
+</code></pre><p>we will send</p>
+<pre tabindex="0"><code>IP: 172.9.9.9
+(extra wrapper stuff)
+IP: 10.4.4.4
+TCP stuff
+HTTP stuff
+</code></pre><p>There are at least 2 different ways of doing encapsulation: there’s “ip-in-ip” and “vxlan” encapsulation.</p>
+<p><strong>vxlan</strong> encapsulation takes your whole packet (including the MAC address) and wraps it inside a UDP packet. That looks like this:</p>
+<pre tabindex="0"><code>MAC address: 11:11:11:11:11:11
+IP: 172.9.9.9
+UDP port 8472 (the &#34;vxlan port&#34;)
+MAC address: ab:cd:ef:12:34:56
+IP: 10.4.4.4
+TCP port 80
+HTTP stuff
+</code></pre><p><strong>ip-in-ip</strong> encapsulation just slaps on an extra IP header on top of your old IP header. This means you don’t get to keep the MAC address you wanted to send it to but I’m not sure why you would care about that anyway.</p>
+<pre tabindex="0"><code>MAC:  11:11:11:11:11:11
+IP: 172.9.9.9
+IP: 10.4.4.4
+TCP stuff
+HTTP stuff
+</code></pre><h4 id="how-docker-networking-working-from-scratch">How docker networking working from scratch</h4>
+<ul>
+<li>In linux we can create a multiple namespace and ethernet with ip table</li>
+<li>refer <a href="https://github.dev/kristenjacobs/container-networking">https://github.dev/kristenjacobs/container-networking</a></li>
+</ul>
 <h2 id="volumes">Volumes</h2>
 <p>If you want your container’s data to stick around (persist), you need to put it on a volume. Volumes are decoupled from containers, meaning you create and manage them separately, and they’re not tied to the lifecycle of any container. Net result, you can delete a container with a volume, and the volume will not be deleted.</p>
 <p><code>docker volume create myvol</code></p>
@@ -555,6 +606,7 @@ In a default Linux installation, the client talks to the daemon via a local IPC/
 <li>In above example COPY will always change if we make a code change which cause the doker to not use cache for the upcoming layer so move that to last as possible</li>
 <li>Remove the pkg that no need</li>
 </ul>
+<h2 id="debugging">Debugging</h2>
 <h2 id="resources">Resources</h2>
 <ol>
 <li><a href="https://medium.com/datamindedbe/how-we-reduced-our-docker-build-times-by-40-afea7b7f5fe7">https://medium.com/datamindedbe/how-we-reduced-our-docker-build-times-by-40-afea7b7f5fe7</a></li>
@@ -575,6 +627,14 @@ In a default Linux installation, the client talks to the daemon via a local IPC/
 <li>Watch: Building Containers From Scratch by Vinesh Agrawal - <a href="https://t.co/G8eLXeoMZG">https://youtube.com/watch?v=GFUpXhft8zA…</a></li>
 <li>Code: Linux namespace Golang experiments by Songrong Jiang - <a href="https://t.co/j6jdIC9iYX">https://github.com/songrgg/namespace-demo…</a></li>
 <li>Read: Building a Container in Go - <a href="https://t.co/8Mo122PK0n">https://infoq.com/articles/build-a-container-golang/…</a></li>
+<li><a href="https://www.youtube.com/watch?v=wyqoi52k5jM">Containers from Scratch - Eric Chiang, CoreOS</a></li>
+<li><a href="https://www.youtube.com/watch?v=b3XDl0YsVsg">Deep Dive in Docker Overlay Networks</a></li>
+<li><a href="https://blog.mbrt.dev/posts/container-network/">https://blog.mbrt.dev/posts/container-network/</a></li>
+<li><a href="https://litchipi.site/serie/containers_in_rust">Writing a container in rust </a></li>
+</ul>
+<h2 id="internal-1">Internal</h2>
+<ul>
+<li><input disabled="" type="checkbox"> b</li>
 </ul>
 
             </div>

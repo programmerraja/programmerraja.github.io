@@ -6,7 +6,20 @@
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Mar 2024 06:43:12 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Apr 2024 09:29:16 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Elastic search</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/elastic-search/</link>
+      <pubDate>Sat, 30 Mar 2024 20:20:04 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/elastic-search/</guid>
+      
+      <description>Indexing it is like collection name in databse
+Index-level shard allocation filtering Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices. This feature gives you fine-grained control over shard placement based on node attributes and conditions, helping you optimize data distribution, resource utilization, and cluster stability.
+Here&amp;rsquo;s an explanation of index-level shard allocation filtering:</description>
+      
+    </item>
+    
     <item>
       <title>Databases</title>
       <link>https://programmerraja.github.io/blog/notes/2024/databases/</link>
@@ -15,8 +28,8 @@
       <guid>https://programmerraja.github.io/blog/notes/2024/databases/</guid>
       
       <description>ZippyDB ZippyDB is the largest strongly consistent, geographically distributed key-value store at Facebook.ZippyDB uses RocksDB as the underlying storage engine
-Cassandra Cassandra is a wide-column NoSQL database management system. It was originally developed at Facebook to power the Facebook inbox search feature
-FoundationDB FoundationDB is an open-source, distributed, transactional key-value store. It’s designed to handle large volumes of data and works well for both read/write workloads and write-heavy workloads. It’s also ACID-compliant.</description>
+Cassandra Cassandra is a wide-column NoSQL database management system. It was originally developed at Facebook to power the Facebook inbox search feature build in java
+FoundationDB FoundationDB is an open-source, distributed, transactional key-value store. It’s designed to handle large volumes of data and works well for both read/write workloads and write-heavy workloads.</description>
       
     </item>
     
@@ -97,17 +110,6 @@ Symptoms of complexity Change amplification: The first symptom of complexity is 
     </item>
     
     <item>
-      <title>Linux Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/linux-notes/</link>
-      <pubDate>Wed, 17 Jan 2024 08:19:32 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/linux-notes/</guid>
-      
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Docker Notes</title>
       <link>https://programmerraja.github.io/blog/notes/2024/docker/</link>
       <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
@@ -142,7 +144,7 @@ Row-Oriented Data Layout Row-oriented database management systems store data in 
       <description>Questions to be asked
 How will new service be deployed and upgraded how will it be consumed by the rest of the system Service registery -&amp;gt; Eureka
 Where single service when new service it inform to service regis and who want to lookup it ask for service regis single point of failure we need to write code on each service Service Mesh -&amp;gt; TO solve the above problem
-use side car and control tower (mange the sidecar ) no need to write a single code example -&amp;gt; envoy(sidecar),istio(control tower)</description>
+use side car and control tower (mange the sidecar ) no need to write a single code Service mesh typically consists of two components</description>
       
     </item>
     
@@ -283,6 +285,28 @@ Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version
       <description>==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 %%
 Drawing {&amp;#34;type&amp;#34;:&amp;#34;excalidraw&amp;#34;,&amp;#34;version&amp;#34;:2,&amp;#34;source&amp;#34;:&amp;#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&amp;#34;,&amp;#34;elements&amp;#34;:[],&amp;#34;appState&amp;#34;:{&amp;#34;gridSize&amp;#34;:null,&amp;#34;viewBackgroundColor&amp;#34;:&amp;#34;#ffffff&amp;#34;}} %%</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/l/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/l/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/lun/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/lun/</guid>
+      
+      <description></description>
       
     </item>
     

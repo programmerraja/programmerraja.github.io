@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.123.8">
+<meta name="generator" content="Hugo 0.124.1">
 
     
 
@@ -179,7 +179,11 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#reconciliation-loops" aria-label="Reconciliation loops">Reconciliation loops</a></li>
                 <li>
                     <a href="#rolling-updates-with-deployments" aria-label="Rolling updates with Deployments">Rolling updates with Deployments</a></li></ul>
-                </li>
+                </li></ul>
+                    
+                <li>
+                    <a href="#affinity-and-anti-affinity" aria-label="Affinity and Anti-Affinity">Affinity and Anti-Affinity</a><ul>
+                        
                 <li>
                     <a href="#yaml-file-explained" aria-label="Yaml file explained">Yaml file explained</a><ul>
                         
@@ -205,7 +209,17 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#endpoint-objects" aria-label="Endpoint Objects">Endpoint Objects</a></li>
                 <li>
-                    <a href="#kubernetes-dns" aria-label="Kubernetes DNS">Kubernetes DNS</a></li>
+                    <a href="#kubernetes-dns" aria-label="Kubernetes DNS">Kubernetes DNS</a></li></ul>
+                </li>
+                <li>
+                    <a href="#network-policies" aria-label="Network policies">Network policies</a></li>
+                <li>
+                    <a href="#networking" aria-label="Networking">Networking</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#iptable" aria-label="IPTable">IPTable</a></li></ul>
+                    
                 <li>
                     <a href="#kubernetes-storage" aria-label="Kubernetes storage">Kubernetes storage</a></li>
                 <li>
@@ -213,11 +227,15 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#secretes" aria-label="Secretes">Secretes</a></li>
                 <li>
-                    <a href="#statefulsets" aria-label="StatefulSets">StatefulSets</a><ul>
+                    <a href="#statefulsets" aria-label="StatefulSets">StatefulSets</a></li></ul>
+                </li>
+                <li>
+                    <a href="#kubernetes-rbac" aria-label="Kubernetes RBAC">Kubernetes RBAC</a><ul>
+                        <ul>
                         
                 <li>
                     <a href="#autoscale" aria-label="AutoScale">AutoScale</a></li></ul>
-                </li>
+                    
                 <li>
                     <a href="#kubectl" aria-label="Kubectl">Kubectl</a><ul>
                         
@@ -229,10 +247,14 @@ stroke-linejoin="round" class="feather feather-home">
                         
                 <li>
                     <a href="#preventing-broken-connections-during-pod-shutdown" aria-label="Preventing broken connections during pod shutdown">Preventing broken connections during pod shutdown</a></li></ul>
+                </li></ul>
                 </li>
                 <li>
+                    <a href="#debugging" aria-label="Debugging">Debugging</a><ul>
+                        
+                <li>
                     <a href="#resources" aria-label="Resources">Resources</a></li></ul>
-                    
+                </li>
                 <li>
                     <a href="#internal-resources" aria-label="Internal Resources">Internal Resources</a><ul>
                         
@@ -542,6 +564,11 @@ stroke-linejoin="round" class="feather feather-home">
 <p><code>kubectl get deploy hello-deploy</code></p>
 </li>
 </ul>
+<h2 id="affinity-and-anti-affinity">Affinity and Anti-Affinity</h2>
+<p>Affinity and Anti-Affinity are concepts used to control how pods are scheduled onto nodes in a cluster. They help define rules for pod placement based on characteristics of the nodes or other pods in the cluster.</p>
+<p><strong>Affinity</strong>: Affinity rules specify conditions that pods prefer for their placement. Pods with affinity rules tend to be scheduled onto nodes that meet those conditions</p>
+<p><strong>Anti-Affinity</strong>: Anti-affinity rules, on the other hand, specify conditions that pods should avoid for their placement. Pods with anti-affinity rules tend to be scheduled away from nodes or pods that meet those conditions</p>
+<p>It is use full when we need high avaliblity of the server in different node</p>
 <h3 id="yaml-file-explained">Yaml file explained</h3>
 <h4 id="api-version">API Version</h4>
 <p>specifies the version of the Kubernetes API that should be used for the resource described in that file.The format of the <code>apiVersion</code> field is typically <code>&lt;group&gt;/&lt;version&gt;</code></p>
@@ -819,6 +846,89 @@ stroke-linejoin="round" class="feather feather-home">
 </ul>
 <h3 id="kubernetes-dns">Kubernetes DNS</h3>
 <p>Every Pod on the cluster, meaning all containers and Pods know how to find it. Every new service is automatically registered with the cluster’s DNS so that all components in the cluster can find every Service by name. Some other components that are registered with the cluster DNS are StatefulSets and the individual Pods that a StatefulSet manages.Cluster DNS is based on CoreDNS (<a href="https://coredns.io/">https://coredns.io/</a>).</p>
+<h2 id="network-policies">Network policies</h2>
+<p>By default all pod can communicate with other even in different namespace just by knowing the IP. If we want restrict that use network policies</p>
+<h2 id="networking">Networking</h2>
+<p>When we create a Kubernetes Service, it gets assigned a Cluster IP (also known as a virtual IP). This Cluster IP is managed by iptables on each node in the cluster.</p>
+<p>Here&rsquo;s how iptables is typically used in Kubernetes for routing traffic to different pods:</p>
+<ol>
+<li><strong>Service Cluster IP Routing</strong>:
+<ul>
+<li>When you create a Service in Kubernetes, it gets assigned a Cluster IP, which is an internal IP address.</li>
+<li>iptables rules are automatically configured on each node in the cluster to forward traffic destined to the Service&rsquo;s Cluster IP to one of the Service&rsquo;s endpoints (Pods).</li>
+<li>These iptables rules typically reside in the <code>nat</code> table and are managed by kube-proxy, which runs on each node in the cluster.</li>
+<li>kube-proxy watches the Kubernetes API server for changes to Services and Endpoints, and it updates iptables rules accordingly to ensure that traffic is properly routed to the appropriate Pods.</li>
+</ul>
+</li>
+<li><strong>Service External Traffic Routing</strong>:
+<ul>
+<li>In addition to routing internal traffic within the cluster, iptables can also be used to route external traffic to Services.</li>
+<li>When you expose a Service externally (e.g., using a NodePort, LoadBalancer, or Ingress), iptables rules are configured to forward external traffic to the appropriate Service Cluster IP.</li>
+</ul>
+</li>
+<li><strong>Pod-to-Pod Communication</strong>:
+<ul>
+<li>iptables rules are also used for enabling communication between different Pods in the cluster.</li>
+<li>Kubernetes assigns a unique IP address to each Pod, and iptables rules are configured to allow communication between Pods within the same namespace or across namespaces if Network Policies allow.</li>
+</ul>
+</li>
+<li><strong>Network Policies</strong>:
+<ul>
+<li>Network Policies in Kubernetes allow you to define rules for controlling traffic to and from Pods.</li>
+<li>iptables rules are used to enforce these Network Policies, allowing or blocking traffic based on the defined rules.</li>
+</ul>
+</li>
+</ol>
+<h4 id="iptable">IPTable</h4>
+<p><code>iptables -t nat -L -n</code> -&gt;displays the current NAT (Network Address Translation) table rules the output contain</p>
+<ol>
+<li><strong>Chain (Chain name)</strong>:
+<ul>
+<li>Each line starts with the chain name, which indicates the specific chain within the NAT table where the rule is applied. Common chains include <code>PREROUTING</code>, <code>POSTROUTING</code>, and <code>OUTPUT</code>.</li>
+<li><code>PREROUTING</code> -&gt; apply the rule before routing,<code>POSTROUTING</code> -&gt; after routing and <code>OUTPUT</code> is for when the packets send to externam</li>
+</ul>
+</li>
+<li><strong>num</strong>:
+<ul>
+<li>The <code>num</code> column displays the sequential number of the rule within the chain. This number is used for referencing and managing rules.</li>
+</ul>
+</li>
+<li><strong>target</strong>:
+<ul>
+<li>The <code>target</code> column indicates the target action to be taken when a packet matches the rule. Common targets include <code>DNAT</code>, <code>SNAT</code>, <code>MASQUERADE</code>, <code>REDIRECT</code>, etc.</li>
+<li><code>DNAT (Destination Network Address Translation)</code> is used to rewrite the destination IP address and/or port of packets as they pass through the firewall.</li>
+<li><code>SNAT</code> is used to rewrite the source IP address and/or port of packets as they pass through the firewall</li>
+<li><code>MASQUERADE</code> is a special case of SNAT and is commonly used when the outbound interface&rsquo;s IP address is dynamically assigned (e.g., using DHCP).</li>
+<li><code>REDIRECT</code> is used to redirect packets to the local machine itself, typically to a different port on the same machine.</li>
+</ul>
+</li>
+<li><strong>prot</strong>:
+<ul>
+<li>The <code>prot</code> column specifies the protocol (e.g., tcp, udp) for which the rule is defined.</li>
+</ul>
+</li>
+<li><strong>source</strong>:
+<ul>
+<li>The <code>source</code> column specifies the source IP address or IP range from which packets are matched against the rule.</li>
+</ul>
+</li>
+<li><strong>destination</strong>:
+<ul>
+<li>The <code>destination</code> column specifies the destination IP address or IP range to which packets are matched against the rule.</li>
+</ul>
+</li>
+<li><strong>options</strong>:
+<ul>
+<li>The <code>options</code> column provides additional options or flags associated with the rule. This may include port numbers, interface names, etc.</li>
+</ul>
+</li>
+<li><strong>Original and Translated IP addresses/ports</strong>:
+<ul>
+<li>For DNAT and SNAT rules, you may see columns indicating the original and translated IP addresses or ports. These columns show the transformation that occurs on the packet&rsquo;s source or destination IP address or port.</li>
+</ul>
+</li>
+</ol>
+<p>Note: use <code>ip</code> command</p>
 <h3 id="kubernetes-storage">Kubernetes storage</h3>
 <p>When we restart the pod the data stored in pod will go. To solve this we using Kubernetes storage</p>
 <p><strong>Storage for single pod</strong></p>
@@ -1090,6 +1200,8 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">requests</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l">1Gi</span><span class="w">
 </span></span></span></code></pre></div><p>More Example <a href="https://kubernetes.io/docs/tutorials/stateful-application/">refer here</a></p>
+<h2 id="kubernetes-rbac">Kubernetes RBAC</h2>
+<p>Kubernetes Role-Based Access Control (RBAC) allows you to define fine-grained access policies for users and services within a Kubernetes cluster.</p>
 <h4 id="autoscale">AutoScale</h4>
 <h3 id="kubectl">Kubectl</h3>
 <p>Kubectl is the main Kubernetes command-line tool and is what you will use for your day-to-day Kubernetes management activities.</p>
@@ -1160,6 +1272,29 @@ stroke-linejoin="round" class="feather feather-home">
 </li>
 <li><strong>Service Load Balancing:</strong></li>
 </ol>
+<h2 id="debugging">Debugging</h2>
+<ul>
+<li><code>kubctl debug -it -n pg podname --cop-to newpodname --container containername --image imagename -- /bin/sh</code> -&gt; wil copy the pod and shell in to</li>
+<li>Ephemeral container <code>kubctl debug -it -n pg podname</code></li>
+</ul>
+<p>Linux namspace</p>
+<ul>
+<li>PID (process), NET,MNT(file system),Cgroup,etc all virtual file system</li>
+</ul>
+<p>To see the namspace in kind</p>
+<ul>
+<li>docker ps (get the kind control node)</li>
+<li>docker exec -it kind-control-plane /bin/bash</li>
+<li>ls -l /proc/1/ns/* -&gt; print all namespace present in the process</li>
+</ul>
+<p>nsenter cmd allow to excute cmd in namespace
+<code>nsenter -net=/proc/$(pgrep -o postgres)/ns/net ss --tcp -l</code> -&gt; print all tcp connection in that namespace  is same <code>kubctl exec -it -n pg pg-postrgress -ss --tcp -l</code></p>
+<p><code>ephemeral containers</code>: a special type of container that runs temporarily in an existing <a href="https://kubernetes.io/docs/concepts/workloads/pods/">Pod</a> to accomplish user-initiated actions such as troubleshooting. You use ephemeral containers to inspect services rather than to build applications.</p>
+<p>Tool</p>
+<ol>
+<li><a href="https://squash.solo.io/">https://squash.solo.io/</a></li>
+<li><a href="https://www.telepresence.io/">https://www.telepresence.io/</a></li>
+</ol>
 <p>Need to study</p>
 <ul>
 <li>job</li>
@@ -1187,7 +1322,7 @@ stroke-linejoin="round" class="feather feather-home">
 <h2 id="internal-resources">Internal Resources</h2>
 <ul>
 <li><a href="https://github.com/shubheksha/kubernetes-internals">Collection of resources for inner workings of Kubernetes</a></li>
-<li></li>
+<li><a href="https://ronaknathani.com/blog/2020/08/how-a-kubernetes-pod-gets-an-ip-address/">https://ronaknathani.com/blog/2020/08/how-a-kubernetes-pod-gets-an-ip-address/</a></li>
 <li></li>
 </ul>
 <h3 id="products">Products</h3>
@@ -1200,6 +1335,8 @@ stroke-linejoin="round" class="feather feather-home">
 <li><a href="https://k9scli.io/">https://k9scli.io/</a> [Kubectl alternative]</li>
 <li><a href="https://monokle.io/">https://monokle.io/</a> [Monokle&rsquo;s integrated open-source tools and cloud platform make it easy to define, manage, and enforce Kubernetes YAML configuration policies in minutes]</li>
 </ol>
+<p><code>kubectl get deployments --selector=app.kubernetes.io/instance=kubesense,app.kubernetes.io/name=api -n kubesense</code></p>
+<p>to get the deployment file that match the selector</p>
 
             </div>
         </article></main>

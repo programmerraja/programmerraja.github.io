@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.123.8">
+<meta name="generator" content="Hugo 0.124.1">
 
     
 
@@ -264,6 +264,14 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#physical-layer" aria-label="Physical Layer">Physical Layer</a></li>
                 <li>
                     <a href="#rfc" aria-label="RFC">RFC</a></li>
+                <li>
+                    <a href="#networking-security" aria-label="Networking security">Networking security</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#integrity" aria-label="Integrity">Integrity</a></li></ul>
+                    </ul>
+                </li>
                 <li>
                     <a href="#resources" aria-label="Resources">Resources</a><ul>
                         <ul>
@@ -1231,6 +1239,16 @@ Displays network connections, routing tables, interface statistics, masquerade c
 <p>RFC stands for &ldquo;Request for Comments.&rdquo; It is a series of documents and notes about the specifications, protocols, procedures, and conventions related to the operation and development of the internet. The RFC series is maintained by the Internet Engineering Task Force (IETF), a large open international community of network designers, operators, vendors, and researchers concerned with the evolution and smooth operation of the Internet architecture.</p>
 <p>The RFC documents cover a wide range of topics, including protocols, procedures, programs, and meeting notes. Some of the most well-known and widely used internet standards, protocols, and technologies have been documented in RFCs.</p>
 <p>Above Notes are mostly refered from RFC doc</p>
+<h2 id="networking-security">Networking security</h2>
+<h4 id="integrity">Integrity</h4>
+<p>Hashing Algo -&gt; give same value if we do hashing</p>
+<ol>
+<li>MD5</li>
+<li>SHA-1</li>
+</ol>
+<p>HMAC -&gt; hashing with private key (where private key is used to verify the data is not changed)</p>
+<p>DHCP starvation ,DHCP spoofing
+IP spoofingk</p>
 <h2 id="resources">Resources</h2>
 <ol>
 <li><a href="https://datatracker.ietf.org/doc/html/rfc5321">RFC Spec for SMTP</a></li>
@@ -1259,8 +1277,37 @@ Displays network connections, routing tables, interface statistics, masquerade c
 <li>Provides a hands-on overview of what every web developer needs to know about the various types of networks</li>
 </ul>
 </li>
-<li></li>
 </ol>
+<p>GRPC</p>
+<ul>
+<li>use HTTP/2 and Protocol buffer</li>
+<li>modes
+<ul>
+<li>unary</li>
+<li>server streaming</li>
+<li>client  streaming</li>
+<li>bidirectional</li>
+</ul>
+</li>
+</ul>
+<p>Protocol buffer</p>
+<ul>
+<li>Protocol Buffers (protobuf) is a method developed by Google for serializing structured data</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-proto" data-lang="proto"><span class="line"><span class="cl"><span class="n">syntax</span> <span class="o">=</span> <span class="s">&#34;proto3&#34;</span> <span class="c1">//telling the prototcol buffer version
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="kd">message</span> <span class="nc">Employee</span> <span class="p">{</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span> <span class="kt">int32</span> <span class="n">id</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="c1">// Field 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="kt">string</span> <span class="n">name</span> <span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span> <span class="kt">float</span> <span class="n">salary</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="p">}</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="kd">message</span> <span class="nc">Employess</span> <span class="p">{</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>	<span class="k">repeated</span> <span class="n">Employee</span> <span class="n">employees</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">//Array of employee
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span><span class="err">
+</span></span></span></code></pre></div><ul>
+<li>Once you define your message types in a <code>.proto</code> file, you use the Protocol Buffers compiler (<code>protoc</code>) to generate source code in the language of your choice (e.g., C++, Java, Python). This generated code includes classes or structs for working with your defined message types in your chosen programming language.</li>
+</ul>
 
             </div>
         </article></main>

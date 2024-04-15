@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.123.8">
+<meta name="generator" content="Hugo 0.124.1">
 
     
 
@@ -145,7 +145,12 @@ stroke-linejoin="round" class="feather feather-home">
             <span class="details">Table of Contents</span>
         </summary>
 
-        <div class="inner"><ul>
+        <div class="inner"><ul><ul>
+                <li>
+                    <a href="#data-plane" aria-label="Data Plane">Data Plane</a></li>
+                <li>
+                    <a href="#control-plane" aria-label="Control Plane">Control Plane</a></li></ul>
+                    
                 <li>
                     <a href="#istio---mangae-all--the-envoy" aria-label="ISTIO- &gt; mangae all  the envoy">ISTIO- &gt; mangae all  the envoy</a>
                 </li>
@@ -169,12 +174,29 @@ stroke-linejoin="round" class="feather feather-home">
 <li>use side car and control tower (mange the sidecar )</li>
 <li>no need to write a single code</li>
 </ul>
+<p>Service mesh typically consists of two components</p>
+<ul>
+<li>Data Plane</li>
+<li>Control Plane</li>
+</ul>
+<h3 id="data-plane"><strong>Data Plane</strong></h3>
+<p>The data plane consists of lightweight proxies that are deployed alongside every instance for all of your microservices (i.e. the <a href="https://link.mail.beehiiv.com/ss/c/Ioed2HDTdYAXh1G-wub8Z3krL9lvWCVrc470Urpa-8YY6XxTNk0XwMExcAy8BoUo10IIq_HWxvSMZJnxVz71QFZCL3YMiIE7T9cXcwPNe7kr67TCyeSwFbwZY8hLWIt58P3w8DtPe5L4wgvqxYWjqDUm8i8ZrSCG0t9rWH62MAWAT-OrYHMaek1gG4WKNqLjVd1LZIYxd7sVKes-ziMiYP_dya9NA8BPsmiYJ61pGqdYM0TEjSVEDDWZ6Ur20LuYDfIMVnNdHtuJho8qV62q2g/446/OZ639r3dT0SOCEiZ4U-qBQ/h9/lgZgQP2VyiCrl2EX-BP83niKssZsun4FPP7CItzNk7w">sidecar pattern</a>). This service mesh proxy will handle all outbound/inbound communications for the instance.</p>
+<p>So, with Istio (a popular service mesh), you could install the <a href="https://link.mail.beehiiv.com/ss/c/GNU-s309YMfVomuE3zs8pzuyRe_bSWNSNSWbQIaMTCRhgsUtFHn_oOniNih4OkBxqLT6NyuLrCL66ZGoBEJcEXzJNStR7C3Fn1inBBs2Rff-qL9bLn0dump4uVDNZPTipSiMgbmJVBdw9Wwu4doOM_s4u3UV4Sei-1vg7bpf_2NNCAr2IdMpQCumyv3laONXsBmi1EcEyBB8nUtP95w6tNkq97LifIyCLeHOseR9_Ugqgw1xTzeLfl6GIkXYh6SI/446/OZ639r3dT0SOCEiZ4U-qBQ/h10/k0BaFw1hdYGNTL9Y53c1-05U-qImInasrRcwCKXwufY">Envoy Proxy</a> on all the instances of all your microservices.</p>
+<h3 id="control-plane"><strong>Control Plane</strong></h3>
+<p>The control plane manages and configures all the data plane proxies. So you can configure things like retries, rate limiting policies, health checks, etc. in the control plane.</p>
+<p>The control plane will also handle service discovery (keeping track of all the IP addresses for all the instances), deployments, and more.</p>
+<p><a href="https://quoraengineering.quora.com/Building-a-Service-Mesh-in-a-Hybrid-Environment">https://quoraengineering.quora.com/Building-a-Service-Mesh-in-a-Hybrid-Environment</a></p>
 <p>example -&gt; envoy(sidecar),istio(control tower)</p>
 <p>Envoy -&gt; are used ton communication between service it have features like circuit breaker,load balancing,retires,&hellip;etc</p>
 <ul>
 <li>it run as sidecar in container</li>
 </ul>
 <h2 id="istio---mangae-all--the-envoy">ISTIO- &gt; mangae all  the envoy</h2>
+<p><a href="https://cilium.io/">https://cilium.io/</a>  (best handle in kernel level)</p>
+<ol>
+<li>uses eBPF</li>
+<li>They not using iptables and kubproxy in kubernetes</li>
+</ol>
 <p>Find
 Domain story telling</p>
 <p>API gateway</p>
@@ -190,6 +212,7 @@ Domain story telling</p>
 <ul>
 <li>A pictorial represnetation of the domain story</li>
 </ul>
+<p>Event drive architecture</p>
 
             </div>
         </article></main>
