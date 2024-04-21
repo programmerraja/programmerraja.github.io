@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1">
+<meta name="generator" content="Hugo 0.125.2">
 
     
 
@@ -165,6 +165,8 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#cockroach-db" aria-label="Cockroach DB">Cockroach DB</a></li>
                 <li>
+                    <a href="#faunahttpsfaunacom" aria-label="fauna">fauna</a></li>
+                <li>
                     <a href="#tools" aria-label="Tools">Tools</a><ul>
                         <ul>
                         
@@ -175,8 +177,31 @@ stroke-linejoin="round" class="feather feather-home">
                     </ul>
                 </li>
                 <li>
-                    <a href="#risingwavehttpsrisingwavecom" aria-label="Risingwave">Risingwave</a>
+                    <a href="#risingwavehttpsrisingwavecom" aria-label="Risingwave">Risingwave</a></li>
+                <li>
+                    <a href="#junodbshttpsgithubcompaypaljunodb" aria-label="JunoDB’s">JunoDB’s</a></li>
+                <li>
+                    <a href="#redis" aria-label="Redis">Redis</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a></li>
+                <li>
+                    <a href="#tools-1" aria-label="Tools">Tools</a></li></ul>
+                    </ul>
                 </li>
+                <li>
+                    <a href="#database-partitioning" aria-label="Database Partitioning">Database Partitioning</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#vertical-partitioning" aria-label="Vertical Partitioning">Vertical Partitioning</a></li>
+                <li>
+                    <a href="#horizontal-partitioning" aria-label="Horizontal Partitioning">Horizontal Partitioning</a>
+                </li>
+            </ul>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
@@ -186,6 +211,9 @@ stroke-linejoin="round" class="feather feather-home">
 <h3 id="cassandra"><strong>Cassandra</strong></h3>
 <p><a href="https://cassandra.apache.org/_/index.html">Cassandra</a> is a wide-column NoSQL database management system. It was originally developed at Facebook to power the Facebook inbox search feature
 build in java</p>
+<ul>
+<li><a href="https://blog.stackademic.com/architecture-of-cassandra-6d9d248a7463">https://blog.stackademic.com/architecture-of-cassandra-6d9d248a7463</a></li>
+</ul>
 <h2 id="foundationdb">FoundationDB</h2>
 <p><a href="https://github.com/apple/foundationdb">FoundationDB</a> is an open-source, distributed, transactional key-value store. It’s designed to handle large volumes of data and works well for both read/write workloads and write-heavy workloads. It’s also <a href="https://www.swequiz.com/learn/acid-properties">ACID-compliant</a>.</p>
 <h4 id="vitess">Vitess</h4>
@@ -194,6 +222,8 @@ build in java</p>
 <p><a href="https://www.citusdata.com/">Citus</a> gives you the Postgres you love, plus the superpower of distributed tables. 100% open source. Now with schema-based and row-based sharding—plus Postgres 16 support!</p>
 <h2 id="cockroach-db">Cockroach DB</h2>
 <p>SQL distributed database</p>
+<h2 id="faunahttpsfaunacom"><a href="https://fauna.com/">fauna</a></h2>
+<p>Fauna is a distributed document-relational database that combines the flexibility of documents with the power of a relational, ACID compliant database that scales across regions, clouds or the globe.</p>
 <h2 id="tools">Tools</h2>
 <h4 id="ingestrhttpsgithubcombruin-dataingestr"><a href="https://github.com/bruin-data/ingestr">Ingestr</a></h4>
 <p>ingestr is a CLI tool to copy data between any databases with a single command seamlessly.</p>
@@ -201,6 +231,37 @@ build in java</p>
 <p>Debezium is an open source distributed platform for change data capture. Start it up, point it at your databases, and your apps can start responding to all of the inserts, updates, and deletes that other apps commit to your databases.</p>
 <h2 id="risingwavehttpsrisingwavecom"><a href="https://risingwave.com/">Risingwave</a></h2>
 <p>Scalable Postgres for stream processing, analytics, and management. KsqlDB and Apache Flink alternative. 🚀 10x more productive. 🚀 10x more cost-efficient.</p>
+<h2 id="junodbshttpsgithubcompaypaljunodb"><a href="https://github.com/paypal/junodb">JunoDB’s</a></h2>
+<ul>
+<li>JunoDB is a distributed key-value store. highly concurrent architecture implemented in Go to efficiently handle hundreds of thousands of connections.</li>
+<li>JunoDB uses a proxy-based architecture.</li>
+<li>JunoDB uses RocksDB as the storage engine.</li>
+<li>use quorum protocol[[Distributed System#quorum-based protocol]]  for read and write among region</li>
+</ul>
+<h2 id="redis">Redis</h2>
+<h4 id="resources">Resources</h4>
+<ul>
+<li><a href="https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/">https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/</a></li>
+<li><a href="https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/understanding-partitioning-and-sharding-in-postgres-and-citus/ba-p/3891629">https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/understanding-partitioning-and-sharding-in-postgres-and-citus/ba-p/3891629</a></li>
+</ul>
+<h4 id="tools-1">Tools</h4>
+<ul>
+<li><a href="https://github.com/Shopify/ghostferry">The swiss army knife of live data migrations by shopify</a> [[System Design Case study#[Shopfiy](https //shopify.engineering/horizontally-scaling-the-rails-backend-of-shop-app-with-vitess)]]</li>
+<li><a href="https://github.com/github/gh-ost">GitHub&rsquo;s Online Schema-migration Tool for MySQL </a></li>
+<li><a href="https://www.citusdata.com/">Postgres Sharding</a></li>
+<li><a href="https://debezium.io/">Change Data Capture Tool </a></li>
+</ul>
+<p><strong>Sharding</strong> -involves distributing Partitioning data across multiple independent databases or shards. replica are also called sharding because the shard the same data in both server</p>
+<h2 id="database-partitioning">Database Partitioning</h2>
+<h4 id="vertical-partitioning"><strong>Vertical Partitioning</strong></h4>
+<ul>
+<li>In vertical partitioning, data within a table is divided vertically based on columns in to multiple database.</li>
+<li>In here we splitting the table in to two based on requirement let say you have user table which has name,email,etc if we split basic user info in single table and other info as another table</li>
+</ul>
+<h4 id="horizontal-partitioning"><strong>Horizontal Partitioning</strong></h4>
+<ul>
+<li>In this we split the data in two database based on shard key let say from user name start with A to F will be in one database and other&rsquo;s in new database</li>
+</ul>
 
             </div>
         </article></main>

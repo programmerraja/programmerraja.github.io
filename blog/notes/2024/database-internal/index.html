@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.124.1">
+<meta name="generator" content="Hugo 0.125.2">
 
     
 
@@ -171,6 +171,10 @@ stroke-linejoin="round" class="feather feather-home">
                     </ul>
                 </li>
                 <li>
+                    <a href="#oltp-online-transaction-processing-databases" aria-label="OLTP (Online Transaction Processing) Databases">OLTP (Online Transaction Processing) Databases</a></li>
+                <li>
+                    <a href="#olap-online-analytical-processing-databases" aria-label="OLAP (Online Analytical Processing) Databases">OLAP (Online Analytical Processing) Databases</a></li>
+                <li>
                     <a href="#resources" aria-label="Resources">Resources</a></li>
                 <li>
                     <a href="#resources-1" aria-label="Resources">Resources</a>
@@ -233,6 +237,21 @@ from <strong>512 bytes to 4 Kb</strong></p>
 <h4 id="bloom-filters">Bloom Filters</h4>
 <ul>
 <li>LSM trees often use Bloom filters to quickly check whether a key is present in the SSTables. Bloom filters are space-efficient data structures that provide a probabilistic answer to membership queries.</li>
+</ul>
+<h2 id="oltp-online-transaction-processing-databases">OLTP (Online Transaction Processing) Databases</h2>
+<ul>
+<li>OLTP databases are designed for handling transactional workloads, which involve a high volume of short, simple transactions.</li>
+<li>These transactions typically involve frequent insert, update, and delete operations on individual records or small sets of records.</li>
+<li>OLTP databases prioritize fast response times, concurrency, and data integrity, making them suitable for applications such as e-commerce, banking, and order processing systems.</li>
+<li>Examples of OLTP databases include MySQL, PostgreSQL, Oracle Database, and Microsoft SQL Server.</li>
+</ul>
+<h2 id="olap-online-analytical-processing-databases">OLAP (Online Analytical Processing) Databases</h2>
+<ul>
+<li>OLAP databases are optimized for performing complex queries and analysis on large volumes of historical data.</li>
+<li>These databases are designed to support decision-making processes by providing capabilities for data aggregation, slicing, dicing, and drilling down into data to uncover insights and trends.</li>
+<li>OLAP databases typically store data in a denormalized format, optimizing them for analytical queries rather than transactional operations.</li>
+<li>OLAP databases are commonly used in business intelligence (BI), data warehousing, and reporting applications.</li>
+<li>Examples of OLAP databases include Amazon Redshift, Google BigQuery, Snowflake, Apache Hive, and Apache Spark.</li>
 </ul>
 <h2 id="resources">Resources</h2>
 <ol>
