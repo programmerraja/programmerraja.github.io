@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><meta charset="utf-8">
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,24 +18,24 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/go/" title="" />
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/go/" title="" />
 
 
 
-  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
-  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
-  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
-  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
 
 
 
 
 
-<meta name="generator" content="Hugo 0.125.2">
+<meta name="generator" content="Hugo 0.125.4">
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/go/">
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/go/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
 
 
 
-<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
 
 <meta name="msapplication-config" content="/blog/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -58,16 +58,15 @@
     
     <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
 
-    
     </head>
 <body data-theme = "" class="notransition">
         <main class="main">
 
-<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+<script src="/blog/js/theme.js"></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="https://programmerraja.github.io/blog/" class="logo">
+        <a href="http://localhost:1313/blog/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -153,9 +152,19 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#function" aria-label="Function">Function</a></li>
                 <li>
+                    <a href="#pointers" aria-label="Pointers">Pointers</a></li>
+                <li>
                     <a href="#conditions" aria-label="Conditions">Conditions</a></li>
                 <li>
                     <a href="#loops" aria-label="Loops">Loops</a></li>
+                <li>
+                    <a href="#runes" aria-label="Runes">Runes</a></li>
+                <li>
+                    <a href="#short-variable-declaration" aria-label="short variable declaration">short variable declaration</a></li>
+                <li>
+                    <a href="#conversions" aria-label="Conversions">Conversions</a></li>
+                <li>
+                    <a href="#packages" aria-label="Packages">Packages</a></li>
                 <li>
                     <a href="#others" aria-label="others">others</a>
                 </li>
@@ -240,12 +249,48 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></code></pre></div></li>
 </ul>
 <h2 id="function">Function</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">name</span> <span class="p">(</span><span class="nx">params</span> <span class="nx">type</span><span class="p">)</span> <span class="nx">returnType</span> <span class="p">{</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">function</span> <span class="nf">name</span> <span class="p">(</span><span class="nx">params</span> <span class="kd">type</span><span class="p">)</span> <span class="nx">returnType</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">cmd</span><span class="p">..</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1">//type is not mandatory
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="nx">name</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">name</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="nx">multiple</span> <span class="k">return</span> <span class="nx">vaule</span>
+</span></span><span class="line"><span class="cl"><span class="nx">function</span> <span class="nf">name</span> <span class="p">(</span><span class="nx">params</span> <span class="kd">type</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="kt">bool</span><span class="p">..)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">4</span><span class="p">,</span><span class="kc">true</span><span class="p">,..</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">number</span> <span class="p">,</span><span class="kt">bool</span> <span class="o">:=</span> <span class="nf">name</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">we</span> <span class="nx">can</span> <span class="nx">also</span> <span class="nx">give</span> <span class="nx">name</span> <span class="k">for</span> <span class="nx">the</span> <span class="k">return</span> <span class="kd">type</span> <span class="nx">of</span> <span class="nx">function</span> <span class="nx">like</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">function</span> <span class="nf">name</span> <span class="p">()</span> <span class="p">(</span><span class="nx">number</span> <span class="kt">int</span> <span class="p">,</span> <span class="p">..)</span> <span class="o">-</span><span class="p">&gt;</span> <span class="nx">it</span> <span class="nx">is</span> <span class="nx">purely</span> <span class="k">for</span> <span class="nx">doc</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="nx">Error</span> <span class="nx">Handling</span>
+</span></span></code></pre></div><ul>
+<li>Arguments are passed as copy use pointer for call by reference</li>
+</ul>
+<h2 id="pointers">Pointers</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Declare a variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">num</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Declare a pointer variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">ptr</span> <span class="o">*</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Assign the address of num to ptr
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ptr</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">num</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Access the value through the pointer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Value of num:&#34;</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Value of num through pointer:&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">ptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Modify the value through the pointer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="nx">ptr</span> <span class="p">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;New value of num:&#34;</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="conditions">Conditions</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">x</span><span class="p">&lt;</span><span class="nt">y</span> <span class="err">||</span> <span class="na">cond2</span>  <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="err">//</span><span class="na">code</span>
@@ -287,7 +332,31 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl"><span class="err">//</span><span class="na">range</span> <span class="na">with</span> <span class="na">map</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="na">for</span> <span class="na">k</span><span class="err">,</span><span class="na">v</span> <span class="err">:=</span> <span class="na">range</span> <span class="na">map</span> <span class="p">{</span> <span class="p">}</span>
-</span></span></code></pre></div><h2 id="others">others</h2>
+</span></span></code></pre></div><h2 id="runes">Runes</h2>
+<p>Go’s runes are used to represent single characters. &lsquo;A&rsquo; -&gt;65
+Runes are kept as numeric codes</p>
+<p>If you declare a variable without assigning it a value, that variable will
+contain the zero value</p>
+<h2 id="short-variable-declaration">short variable declaration</h2>
+<p>instead of explicitly declaring the type of the variable and later assigning to it with
+= , you do both at once using := .</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Go" data-lang="Go"><span class="line"><span class="cl"><span class="nx">quantity</span> <span class="o">:=</span> <span class="mi">4</span>
+</span></span></code></pre></div><p>If the name of a variable, function, or type begins with a capital letter, it is considered exported and can be accessed from packages outside the current one.</p>
+<h2 id="conversions">Conversions</h2>
+<p>Only same type can be do math operation float and int cannot to convert</p>
+<ul>
+<li>int(3.0)</li>
+<li>float64(9)</li>
+</ul>
+<h2 id="packages">Packages</h2>
+<p>Go tools look for package code in a special directory (folder) on your computer called the workspace. By default, the workspace is a directory named go in the current user’s home directory.</p>
+<p>The workspace directory contains three subdirectories</p>
+<ul>
+<li>bin, which holds compiled binary executable programs.</li>
+<li>pkg, which holds compiled binary package files.</li>
+<li>src, which holds Go source code.</li>
+</ul>
+<h2 id="others">others</h2>
 <p>Split your application into <strong>components</strong> written as regular Go interfaces. Don&rsquo;t fuss with any networking or serialization code. Focus on your business logic. (<a href="https://serviceweaver.dev/">https://serviceweaver.dev/</a>)</p>
 <ol>
 <li>Go routine -&gt; make threads simple</li>
@@ -359,7 +428,7 @@ stroke-linejoin="round" class="feather feather-home">
 
 
     
-    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
 
     
 

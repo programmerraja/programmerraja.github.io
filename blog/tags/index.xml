@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on programmerraja blog</title>
-    <link>https://programmerraja.github.io/blog/tags/</link>
+    <link>http://localhost:1313/blog/tags/</link>
     <description>Recent content in Tags on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="http://localhost:1313/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Book</title>
-      <link>https://programmerraja.github.io/blog/tags/book/</link>
+      <link>http://localhost:1313/blog/tags/book/</link>
       <pubDate>Thu, 18 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/tags/book/</guid>
+      <guid>http://localhost:1313/blog/tags/book/</guid>
       
       <description></description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Android</title>
-      <link>https://programmerraja.github.io/blog/tags/android/</link>
+      <link>http://localhost:1313/blog/tags/android/</link>
       <pubDate>Wed, 17 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/tags/android/</guid>
+      <guid>http://localhost:1313/blog/tags/android/</guid>
       
       <description></description>
       
@@ -31,10 +31,10 @@
     
     <item>
       <title>Devops</title>
-      <link>https://programmerraja.github.io/blog/tags/devops/</link>
+      <link>http://localhost:1313/blog/tags/devops/</link>
       <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/tags/devops/</guid>
+      <guid>http://localhost:1313/blog/tags/devops/</guid>
       
       <description></description>
       
@@ -42,10 +42,10 @@
     
     <item>
       <title>Docker</title>
-      <link>https://programmerraja.github.io/blog/tags/docker/</link>
+      <link>http://localhost:1313/blog/tags/docker/</link>
       <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/tags/docker/</guid>
+      <guid>http://localhost:1313/blog/tags/docker/</guid>
       
       <description></description>
       
@@ -53,10 +53,10 @@
     
     <item>
       <title>Database</title>
-      <link>https://programmerraja.github.io/blog/tags/database/</link>
+      <link>http://localhost:1313/blog/tags/database/</link>
       <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/tags/database/</guid>
+      <guid>http://localhost:1313/blog/tags/database/</guid>
       
       <description></description>
       
@@ -64,10 +64,10 @@
     
     <item>
       <title>Kubernetes</title>
-      <link>https://programmerraja.github.io/blog/tags/kubernetes/</link>
+      <link>http://localhost:1313/blog/tags/kubernetes/</link>
       <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/tags/kubernetes/</guid>
+      <guid>http://localhost:1313/blog/tags/kubernetes/</guid>
       
       <description></description>
       
@@ -75,10 +75,10 @@
     
     <item>
       <title>Excalidraw</title>
-      <link>https://programmerraja.github.io/blog/tags/excalidraw/</link>
+      <link>http://localhost:1313/blog/tags/excalidraw/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/tags/excalidraw/</guid>
+      <guid>http://localhost:1313/blog/tags/excalidraw/</guid>
       
       <description></description>
       

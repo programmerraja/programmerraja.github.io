@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><meta charset="utf-8">
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,24 +18,24 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/kubernetes/" title="" />
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/kubernetes/" title="" />
 
 
 
-  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
-  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
-  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
-  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
 
 
 
 
 
-<meta name="generator" content="Hugo 0.125.2">
+<meta name="generator" content="Hugo 0.125.4">
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/kubernetes/">
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/kubernetes/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
 
 
 
-<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
 
 <meta name="msapplication-config" content="/blog/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -58,16 +58,15 @@
     
     <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
 
-    
     </head>
 <body data-theme = "" class="notransition">
         <main class="main">
 
-<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+<script src="/blog/js/theme.js"></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="https://programmerraja.github.io/blog/" class="logo">
+        <a href="http://localhost:1313/blog/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -195,7 +194,11 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#metadata" aria-label="Metadata">Metadata</a></li>
                 <li>
                     <a href="#spec" aria-label="Spec">Spec</a></li></ul>
+                </li></ul>
                 </li>
+                <li>
+                    <a href="#example" aria-label="Example">Example</a><ul>
+                        
                 <li>
                     <a href="#what-happend-when-we-apply-yml-file" aria-label="What happend when we apply yml file">What happend when we apply yml file</a></li>
                 <li>
@@ -301,15 +304,9 @@ stroke-linejoin="round" class="feather feather-home">
 <h3 id="nodes">Nodes</h3>
 <p>Nodes are the workers of a Kubernetes cluster. At a high-level they do three things:</p>
 <ol>
-<li>
-<p>Watch the API Server for new work assignments</p>
-</li>
-<li>
-<p>Execute new work assignments</p>
-</li>
-<li>
-<p>Report back to the control plane (via the API server)</p>
-</li>
+<li>Watch the API Server for new work assignments</li>
+<li>Execute new work assignments</li>
+<li>Report back to the control plane (via the API server)</li>
 </ol>
 <p>Nodes contain</p>
 <ul>
@@ -692,6 +689,40 @@ stroke-linejoin="round" class="feather feather-home">
 </ol>
 <h4 id="spec">Spec</h4>
 <p>is used to define the desired state of the resource. The <code>spec</code> section contains the configuration parameters and settings that specify how the resource should behave. The structure of the <code>spec</code> field varies depending on the type of resource being defined, as each resource type has its own set of properties and specifications.</p>
+<h2 id="example">Example</h2>
+<pre tabindex="0"><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-certbot
+  namespace: nginx-ingress
+  labels:
+    app: certbot
+    environment: test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: certbot
+  template:
+    metadata:
+      labels:
+        app: certbot
+        environment: test
+    spec:
+      securityContext:
+            fsGroup: 1000
+            runAsUser: 1000
+      containers:
+        - name: certbot
+          image: test-certbot:latest
+          command: [&#34;node&#34;]
+          args: [&#34;server.js&#34;]
+</code></pre><ul>
+<li>Kuberentes apply from bottom first it will create a 2 pod with label certbot</li>
+<li>Then replica will be created to monitor the pod status does is have 2 active pod by using selector</li>
+<li>Then depolyment will be created</li>
+</ul>
+<p>![[art-2024-04-28 14.38.57.excalidraw]]</p>
 <h3 id="what-happend-when-we-apply-yml-file">What happend when we apply yml file</h3>
 <p>when we run <code>kubctl apply -f name.yml</code></p>
 <ul>
@@ -1406,7 +1437,7 @@ stroke-linejoin="round" class="feather feather-home">
 
 
     
-    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
 
     
 
