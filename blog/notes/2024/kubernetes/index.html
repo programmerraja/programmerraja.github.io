@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<html lang="en-us"><head><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,24 +18,24 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/kubernetes/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/kubernetes/" title="" />
 
 
 
-  <meta itemprop="image" content="http://localhost:1313/blog/" />
-  <meta property="og:image" content="http://localhost:1313/blog/" />
-  <meta name="twitter:image" content="http://localhost:1313/blog/" />
-  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
 
 
 
 
 
-<meta name="generator" content="Hugo 0.125.4">
+<meta name="generator" content="Hugo 0.125.5">
 
     
 
-    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/kubernetes/">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/kubernetes/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
 
 
 
-<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
 
 <meta name="msapplication-config" content="/blog/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -58,15 +58,16 @@
     
     <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
 
+    
     </head>
 <body data-theme = "" class="notransition">
         <main class="main">
 
-<script src="/blog/js/theme.js"></script>
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="http://localhost:1313/blog/" class="logo">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -759,6 +760,8 @@ spec:
 <p>They operate at the TCP and UDP layer, Services do not possess application intelligence and cannot provide application-layer host and path routing.for that we use ingress</p>
 <p>Services use labels and a label selector to know which set of Pods to load-balance traffic to.</p>
 <p>kube-proxy is responsible for all assign the IP , forwarding packet, load balancing etc.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">proxy_pass http://SERVICE-NAME.YOUR-NAMESPACE.svc.cluster.local:8080;</span><span class="w">
+</span></span></span></code></pre></div><p>can be accessed</p>
 <h3 id="types">Types</h3>
 <p><strong>ClusterIP</strong> (default)</p>
 <ul>
@@ -866,6 +869,14 @@ spec:
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
 </span></span></span></code></pre></div><p><strong>Ingress Controller</strong> is a component responsible for implementing the rules defined in the Ingress resource. It watches for changes to Ingress resources and configures the underlying load balancer or reverse proxy to handle incoming requests accordingly. Popular Ingress Controllers include NGINX Ingress Controller, Traefik, and HAProxy Ingress</p>
+<pre tabindex="0"><code></code></pre><ul>
+<li>
+<p><strong>Ingress as Deployment</strong>: Refers to deploying the Ingress controller as a set of pods using a Deployment resource.</p>
+</li>
+<li>
+<p><strong>Ingress as kind Ingress</strong>: Refers to using the Ingress resource itself to define routing rules for incoming traffic.</p>
+</li>
+</ul>
 <h3 id="endpoint-objects">Endpoint Objects</h3>
 <p>Kubernetes is constantly evaluating the Service’s label selector against the current list of healthy Pods on the cluster. Any new Pods that match the selector get added to the <code>Endpoints object</code>, and any Pods that disappear get removed. This means the Endpoints object is always up to date. Then, when a Service is sending traffic to Pods, it queries its Endpoints object for the latest list of healthy matching Pods. Every Service gets its own Endpoints object with the same name as the Service.This object holds a list of all the Pods the Service matches and is dynamically updated as matching Pods come and go.</p>
 <p>CMD</p>
@@ -1437,7 +1448,7 @@ spec:
 
 
     
-    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
 
     
 

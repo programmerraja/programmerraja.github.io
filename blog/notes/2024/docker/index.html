@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<html lang="en-us"><head><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,24 +18,24 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/docker/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/docker/" title="" />
 
 
 
-  <meta itemprop="image" content="http://localhost:1313/blog/" />
-  <meta property="og:image" content="http://localhost:1313/blog/" />
-  <meta name="twitter:image" content="http://localhost:1313/blog/" />
-  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
 
 
 
 
 
-<meta name="generator" content="Hugo 0.125.4">
+<meta name="generator" content="Hugo 0.125.5">
 
     
 
-    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/docker/">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/docker/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
 
 
 
-<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
 
 <meta name="msapplication-config" content="/blog/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -58,15 +58,16 @@
     
     <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
 
+    
     </head>
 <body data-theme = "" class="notransition">
         <main class="main">
 
-<script src="/blog/js/theme.js"></script>
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="http://localhost:1313/blog/" class="logo">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -238,8 +239,13 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#internal" aria-label="internal">internal</a></li>
                 <li>
-                    <a href="#internal-1" aria-label="Internal">Internal</a>
+                    <a href="#internal-1" aria-label="Internal">Internal</a><ul>
+                        
+                <li>
+                    <a href="#whats-an-oci-image" aria-label="What’s An OCI Image?">What’s An OCI Image?</a>
                 </li>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
@@ -632,9 +638,13 @@ HTTP stuff
 <li><a href="https://litchipi.site/serie/containers_in_rust">Writing a container in rust </a></li>
 </ul>
 <h2 id="internal-1">Internal</h2>
-<ul>
-<li><input disabled="" type="checkbox"> b</li>
-</ul>
+<h3 id="whats-an-oci-image">What’s An OCI Image?</h3>
+<p> OCI is <a href="https://github.com/opencontainers/image-spec/blob/main/spec.md">the standardized container format used by Docker</a> — are pretty simple. An OCI image is just a stack of tarballs. A OCI can run multiple different runtime</p>
+<p>A useful way to look at a Dockerfile is as a series of shell commands, each generating a tarball; we call these “layers”. To rehydrate a container from its image, we just start the the first layer and unpack one on top of the next.</p>
+<p>docker images are just tar file and json meta data</p>
+<p><code>docker save nginx:latest -o ngnix.tar</code> -&gt; will save image as tar file
+<code>tar -xvf ngnix.tar --one-top-level</code> -&gt; exctract the tar file which have tar and json for each layer <code>docker export containername -o mycontainer.tar</code></p>
+<p>if you create file inside container we can see inside proc file of the docker process id ls <code>/proc/procoid/root</code></p>
 
             </div>
         </article></main>
@@ -701,7 +711,7 @@ HTTP stuff
 
 
     
-    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
 
     
 
