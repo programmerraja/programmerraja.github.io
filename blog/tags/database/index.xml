@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Database on programmerraja blog</title>
-    <link>https://programmerraja.github.io/blog/tags/database/</link>
+    <link>http://localhost:1313/blog/tags/database/</link>
     <description>Recent content in Database on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="http://localhost:1313/blog/tags/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Database internal book Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/database-internal/</link>
+      <link>http://localhost:1313/blog/notes/2024/database-internal/</link>
       <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/database-internal/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/database-internal/</guid>
       
       <description>Storage Engines The storage engine (or database engine) is a software component of a database man‐ agement system responsible for storing, retrieving, and managing data in memory and on disk, designed to capture a persistent, long-term memory of each node.
 Storage engines such as BerkeleyDB, LevelDB and its descendant RocksDB, LMDB and its descendant libmdbx, Sophia, HaloDB,

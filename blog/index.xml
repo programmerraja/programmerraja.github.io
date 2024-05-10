@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>programmerraja blog</title>
-    <link>https://programmerraja.github.io/blog/</link>
+    <link>http://localhost:1313/blog/</link>
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 May 2024 12:16:34 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 May 2024 12:16:34 +0530</lastBuildDate><atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/python/</link>
+      <link>http://localhost:1313/blog/notes/2024/python/</link>
       <pubDate>Thu, 09 May 2024 12:16:34 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/python/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/python/</guid>
       
       <description>Data types - Numeric Types - int - float - complex - Sequence Types - str #&amp;#34;&amp;#34; - list #[] - tuple #() - Mapping Type - dict #{} - Set Types - set #{} - frozenset - Boolean Type - bool #True/False - Binary Types - bytes #[] - bytearray - memoryview Mutable and Imutable Mutable data types are those whose contents can be changed after creation, while immutable data types cannot be changed once they are created.</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>A Journey into Unseen Threats on our VM</title>
-      <link>https://programmerraja.github.io/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/</link>
+      <link>http://localhost:1313/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/</link>
       <pubDate>Sat, 04 May 2024 19:51:57 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/</guid>
+      <guid>http://localhost:1313/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/</guid>
       
       <description>As the sun set on a typical Saturday evening, I found myself engrossed in a blog titled &amp;ldquo;Visualizing Malicious IP Addresses.&amp;rdquo; The author shared clever ways to detect unauthorized attempts to access virtual machines via SSH, using commands like:
 $ journalctl --since &amp;#34;-1d&amp;#34; -u sshd | grep &amp;#34;Failed password&amp;#34; | wc -l $ journalctl --since &amp;#34;-1d&amp;#34; -u sshd | grep &amp;#34;Failed publickey&amp;#34; | wc -l Curious, I decided to try these commands on our own VM.</description>
@@ -32,10 +32,10 @@ $ journalctl --since &amp;#34;-1d&amp;#34; -u sshd | grep &amp;#34;Failed passwo
     
     <item>
       <title>Elastic search</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/elastic-search/</link>
+      <link>http://localhost:1313/blog/notes/2024/elastic-search/</link>
       <pubDate>Sat, 30 Mar 2024 20:20:04 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/elastic-search/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/elastic-search/</guid>
       
       <description>Indexing it is like collection name in databse
 Index-level shard allocation filtering Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices. This feature gives you fine-grained control over shard placement based on node attributes and conditions, helping you optimize data distribution, resource utilization, and cluster stability.
@@ -45,10 +45,10 @@ Here&amp;rsquo;s an explanation of index-level shard allocation filtering:</desc
     
     <item>
       <title>Databases</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/databases/</link>
+      <link>http://localhost:1313/blog/notes/2024/databases/</link>
       <pubDate>Sun, 03 Mar 2024 07:34:21 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/databases/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/databases/</guid>
       
       <description>ZippyDB ZippyDB is the largest strongly consistent, geographically distributed key-value store at Facebook.ZippyDB uses RocksDB as the underlying storage engine
 Cassandra Cassandra is a wide-column NoSQL database management system. It was originally developed at Facebook to power the Facebook inbox search feature build in java
@@ -58,10 +58,10 @@ https://blog.stackademic.com/architecture-of-cassandra-6d9d248a7463 FoundationDB
     
     <item>
       <title>Design pattern</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/design-pattern/</link>
+      <link>http://localhost:1313/blog/notes/2024/design-pattern/</link>
       <pubDate>Mon, 12 Feb 2024 07:09:05 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/design-pattern/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/design-pattern/</guid>
       
       <description>to rember the design pattern narrate it as real life story
 resources https://youtu.be/taj_inLi-pY?si=2qu_7nqx6YRwX0Co
@@ -73,10 +73,10 @@ In the heart of Toyland, there was an Artisan Workshop where the master toymaker
     
     <item>
       <title>Software Architecture and Decision-Making</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/software-architecture-and-decision-making/</link>
+      <link>http://localhost:1313/blog/notes/2024/software-architecture-and-decision-making/</link>
       <pubDate>Mon, 22 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/software-architecture-and-decision-making/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/software-architecture-and-decision-making/</guid>
       
       <description>Book Core concepts It explains principles and concepts I believe a senior architect must understand deeply and discusses how to employ those principles to manage uncertainty
 Books for leadership The Hard Things About Hard Things by Ben Horowitz, Trillion Dollar Coach by Eric Schmidt et al., Team of Teams: New Rules of Engagement for a Complex World by Stanley McChrystal Good Strategy, Bad Strategy by Richard Rumel Three layers of architecture of The Open Group Architecture Framework (TOGAF)</description>
@@ -85,10 +85,10 @@ Books for leadership The Hard Things About Hard Things by Ben Horowitz, Trillion
     
     <item>
       <title>React</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/react/</link>
+      <link>http://localhost:1313/blog/notes/2024/react/</link>
       <pubDate>Sat, 20 Jan 2024 18:57:02 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/react/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/react/</guid>
       
       <description>Notes Context function App() { return ( &amp;lt;div className=&amp;#34;App&amp;#34;&amp;gt; &amp;lt;AdaptivityProvider&amp;gt; &amp;lt;Child1 /&amp;gt; &amp;lt;Child2 /&amp;gt; &amp;lt;/AdaptivityProvider&amp;gt; &amp;lt;/div&amp;gt; ); } let child1 = 0; let child2 = 0; function Child1() { //TO Consume const { width } = useSize(); child1 += 1; return &amp;lt;p&amp;gt;{child1}&amp;lt;/p&amp;gt;; } function Child2() { const { isMobile } = useMobile(); child2 += 1; return &amp;lt;p&amp;gt;{child2}&amp;lt;/p&amp;gt;; } //create context const SizeContext = createContext({}); const MobileContext = createContext({}); //create provider export const Provider = (props) =&amp;gt; { const [width, setWidth] = useState(window.</description>
       
@@ -96,10 +96,10 @@ Books for leadership The Hard Things About Hard Things by Ben Horowitz, Trillion
     
     <item>
       <title>A Philosophy of Software Design Book Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/a-philosophy-of-software-design-book-notes/</link>
+      <link>http://localhost:1313/blog/notes/2024/a-philosophy-of-software-design-book-notes/</link>
       <pubDate>Thu, 18 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/a-philosophy-of-software-design-book-notes/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/a-philosophy-of-software-design-book-notes/</guid>
       
       <description>The Nature of Complexity Complexity is anything related to the structure of a software systemthat makes it hard to understand and modify the system.
 Symptoms of complexity Change amplification: The first symptom of complexity is that a seemingly simple change requires code modifications in many different places. Cognitive load: how much a developer needs to know in order to complete a task Unknown unknowns: it is not obvious which pieces of code must be modified to complete a task, or whatinformation a developer must have to carry out the task successfully Strategic vs.</description>
@@ -108,10 +108,10 @@ Symptoms of complexity Change amplification: The first symptom of complexity is 
     
     <item>
       <title>Android internal Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/android-internal/</link>
+      <link>http://localhost:1313/blog/notes/2024/android-internal/</link>
       <pubDate>Wed, 17 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/android-internal/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/android-internal/</guid>
       
       <description>File system Android devices typically have a partitioned storage system, where the storage is divided into different partitions, each serving a specific purpose.
 /system: This directory contains the Android operating system and system applications. It is read-only to ensure the integrity of the system. Modifying files in this directory could potentially harm the device.
@@ -121,10 +121,10 @@ Symptoms of complexity Change amplification: The first symptom of complexity is 
     
     <item>
       <title>Docker Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/docker/</link>
+      <link>http://localhost:1313/blog/notes/2024/docker/</link>
       <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/docker/</guid>
       
       <description>Docker Engine When you install Docker, you get two major components:
 Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd (to manage container lifecycle operations — start | stop | pause | rm.</description>
@@ -133,10 +133,10 @@ Docker client →is a command-line tool used to interact with the Docker Engine,
     
     <item>
       <title>Database internal book Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/database-internal/</link>
+      <link>http://localhost:1313/blog/notes/2024/database-internal/</link>
       <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/database-internal/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/database-internal/</guid>
       
       <description>Storage Engines The storage engine (or database engine) is a software component of a database man‐ agement system responsible for storing, retrieving, and managing data in memory and on disk, designed to capture a persistent, long-term memory of each node.
 Storage engines such as BerkeleyDB, LevelDB and its descendant RocksDB, LMDB and its descendant libmdbx, Sophia, HaloDB,
@@ -146,10 +146,10 @@ Row-Oriented Data Layout Row-oriented database management systems store data in 
     
     <item>
       <title>MicroServices</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/microservices/</link>
+      <link>http://localhost:1313/blog/notes/2024/microservices/</link>
       <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/microservices/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/microservices/</guid>
       
       <description>Questions to be asked
 How will new service be deployed and upgraded how will it be consumed by the rest of the system Service registery -&amp;gt; Eureka
@@ -160,10 +160,10 @@ use side car and control tower (mange the sidecar ) no need to write a single co
     
     <item>
       <title>Networking Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/networking/</link>
+      <link>http://localhost:1313/blog/notes/2024/networking/</link>
       <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/networking/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/networking/</guid>
       
       <description>OSI Model The Open Systems Interconnection (OSI) model describes seven layers that computer systems use to communicate over a network.
 Application Layer (Htttp,DHCP,FMTP,Telnet,NFS) Presentation Layer (Encryption,Data format,Data compression,ASCII to Bin) Session Layer (TCP/IP socket authentication RTCP protocol) Transport Layer (Process level addressing TCP/UDP, Multiplexing,demultiplexing,segmentation,connection establishment) Network Layer (logical addressing IP , Routing, packet encapsulation) Data Link Layer (LAN,MAC,Data framing,Error detection) Physical Layer (Converting Bin to singals to transfer the data) Application Layer HTTP/HTTPS Is the protocol used to communicate with server.</description>
@@ -172,10 +172,10 @@ Application Layer (Htttp,DHCP,FMTP,Telnet,NFS) Presentation Layer (Encryption,Da
     
     <item>
       <title>Nginx Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/nginx/</link>
+      <link>http://localhost:1313/blog/notes/2024/nginx/</link>
       <pubDate>Wed, 10 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/nginx/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/nginx/</guid>
       
       <description>How Does NGINX Work? NGINX uses a predictable process model that is tuned to the available hardware resources:
 The master process performs the privileged operations such as reading configuration and binding to ports, and then creates a small number of child processes (the next three types). The cache loader process runs at startup to load the disk‑based cache into memory, and then exits. It is scheduled conservatively, so its resource demands are low.</description>
@@ -184,10 +184,10 @@ The master process performs the privileged operations such as reading configura
     
     <item>
       <title>Go</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/go/</link>
+      <link>http://localhost:1313/blog/notes/2024/go/</link>
       <pubDate>Mon, 01 Jan 2024 11:39:28 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/go/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/go/</guid>
       
       <description>Introduction From c++ by google c++ author will convert to exe
 go get githublink→ to download pkg and put under folder pkg
@@ -200,10 +200,10 @@ var name string = “d” (if directly assing vaule we don’t need to mention t
     
     <item>
       <title>Kubernetes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/kubernetes/</link>
+      <link>http://localhost:1313/blog/notes/2024/kubernetes/</link>
       <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/kubernetes/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/kubernetes/</guid>
       
       <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster ![[Pasted image 20240312073714.png]]
 A Kubernetes cluster contains six main components:
@@ -213,10 +213,10 @@ API server: Exposes a REST interface to all Kubernetes resources. Serves as the 
     
     <item>
       <title>Learning from blog</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/learning-from-blog/</link>
+      <link>http://localhost:1313/blog/notes/2024/learning-from-blog/</link>
       <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2024/learning-from-blog/</guid>
+      <guid>http://localhost:1313/blog/notes/2024/learning-from-blog/</guid>
       
       <description>How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60% They heavly using microservice to avoid the latency between the service they go with protocol buffers Protocol buffer (Protobuf) is a data serialization format and a set of tools to exchange data. Protobuf keeps data and the metadata separate. And serializes data into binary format. Use Protobuf when: Payload is big Communication between non-JavaScript environments needed Frequent changes to the payload schema expected Scaling Slack’s Job Queue They using redis queue for all async operation they have face few issue with that such as Operational Memory Constraints in Redis, Complex Redis Connection Structure ,Worker Scalability Dependency on Redis etc Instead fully replace with kafa they go step by step.</description>
       
@@ -224,10 +224,10 @@ API server: Exposes a REST interface to all Kubernetes resources. Serves as the 
     
     <item>
       <title>RabbitMQ Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2023/rabbitmq/</link>
+      <link>http://localhost:1313/blog/notes/2023/rabbitmq/</link>
       <pubDate>Fri, 08 Dec 2023 18:26:15 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2023/rabbitmq/</guid>
+      <guid>http://localhost:1313/blog/notes/2023/rabbitmq/</guid>
       
       <description>What is RabbitMQ? RabbitMQ is a popular open-source message broker that implements the AMQP (Advanced Message Queuing Protocol) standard.
 Channel A channel is a separate communication channel within a single connection. Channels allow multiple concurrent exchanges to be executed in parallel, providing a way to separate different parts of your application.
@@ -237,10 +237,10 @@ Each channel has its own set of resources, such as queues, exchanges, and bindin
     
     <item>
       <title>Hello world</title>
-      <link>https://programmerraja.github.io/blog/post/2023/helloworld/</link>
+      <link>http://localhost:1313/blog/post/2023/helloworld/</link>
       <pubDate>Sun, 03 Dec 2023 09:44:50 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/post/2023/helloworld/</guid>
+      <guid>http://localhost:1313/blog/post/2023/helloworld/</guid>
       
       <description>Hi, I&amp;rsquo;m K.Boopathi! 👋 About Me I&amp;rsquo;m a passionate programmer with an insatiable curiosity for exploring diverse technologies and leveraging them to create cutting-edge products. My journey in the realm of tech is driven by a fervent desire to learn and innovate.
 What I Do My blog is a reflection of my love for web development, offering insightful content, tutorials, and invaluable resources. I&amp;rsquo;m dedicated to sharing my knowledge and experiences, empowering aspiring developers to embark on their own coding adventures.</description>
@@ -249,10 +249,10 @@ What I Do My blog is a reflection of my love for web development, offering insig
     
     <item>
       <title>MongoDB Performance Tuning Book Notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/</link>
+      <link>http://localhost:1313/blog/notes/2023/mongodb-performance-tuning/</link>
       <pubDate>Sun, 03 Dec 2023 09:44:50 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/</guid>
+      <guid>http://localhost:1313/blog/notes/2023/mongodb-performance-tuning/</guid>
       
       <description>MongoDB Architecture and Concepts if the write concern is set to “majority”, then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.
 Oplog The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.</description>
@@ -261,10 +261,10 @@ Oplog The primary node stores information about document changes in a collection
     
     <item>
       <title></title>
-      <link>https://programmerraja.github.io/blog/excalidraw/art-2024-01-19-19.56.09/</link>
+      <link>http://localhost:1313/blog/excalidraw/art-2024-01-19-19.56.09/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/excalidraw/art-2024-01-19-19.56.09/</guid>
+      <guid>http://localhost:1313/blog/excalidraw/art-2024-01-19-19.56.09/</guid>
       
       <description>==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 Text Elements %%
@@ -274,10 +274,10 @@ Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version
     
     <item>
       <title></title>
-      <link>https://programmerraja.github.io/blog/excalidraw/art-2024-01-25-14.32.40/</link>
+      <link>http://localhost:1313/blog/excalidraw/art-2024-01-25-14.32.40/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/excalidraw/art-2024-01-25-14.32.40/</guid>
+      <guid>http://localhost:1313/blog/excalidraw/art-2024-01-25-14.32.40/</guid>
       
       <description>==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 Text Elements ENVOY ^OJ0WhMt5
@@ -288,10 +288,10 @@ Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version
     
     <item>
       <title></title>
-      <link>https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/</link>
+      <link>http://localhost:1313/blog/excalidraw/art-2024-02-11-07.27.35/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/</guid>
+      <guid>http://localhost:1313/blog/excalidraw/art-2024-02-11-07.27.35/</guid>
       
       <description>==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 %%
@@ -301,10 +301,10 @@ Drawing {&amp;#34;type&amp;#34;:&amp;#34;excalidraw&amp;#34;,&amp;#34;version&am
     
     <item>
       <title></title>
-      <link>https://programmerraja.github.io/blog/excalidraw/art-2024-04-28-14.38.57/</link>
+      <link>http://localhost:1313/blog/excalidraw/art-2024-04-28-14.38.57/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/excalidraw/art-2024-04-28-14.38.57/</guid>
+      <guid>http://localhost:1313/blog/excalidraw/art-2024-04-28-14.38.57/</guid>
       
       <description>==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 Text Elements %%
@@ -314,10 +314,10 @@ Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version
     
     <item>
       <title></title>
-      <link>https://programmerraja.github.io/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</link>
+      <link>http://localhost:1313/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</guid>
+      <guid>http://localhost:1313/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</guid>
       
       <description>o+++ title = &amp;lsquo;How to capture mongodb protocol in wireshark&amp;rsquo; date = 2024-02-12T08:28:27.2727+05:30 draft = false tags =[] +++
 export SSLKEYLOGFILE=/tmp/tlskey.log Run a nodejs program as node --tls-keylog=/tmp/tlskey index.js where the tls key will be stored on that path and add this tlskey path to wire shark to decrypt the msg by doing following
@@ -327,10 +327,10 @@ Go to Preferences-&amp;gt;Protocols-&amp;gt;TLS and edit the path as shown in th
     
     <item>
       <title>Search</title>
-      <link>https://programmerraja.github.io/blog/search/</link>
+      <link>http://localhost:1313/blog/search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/search/</guid>
+      <guid>http://localhost:1313/blog/search/</guid>
       
       <description></description>
       
