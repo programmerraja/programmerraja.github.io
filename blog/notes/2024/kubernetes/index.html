@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.125.5">
+<meta name="generator" content="Hugo 0.125.7">
 
     
 
@@ -254,8 +254,14 @@ stroke-linejoin="round" class="feather feather-home">
                 </li></ul>
                 </li>
                 <li>
-                    <a href="#debugging" aria-label="Debugging">Debugging</a><ul>
+                    <a href="#debugging" aria-label="Debugging">Debugging</a></li>
+                <li>
+                    <a href="#advanced" aria-label="Advanced">Advanced</a><ul>
+                        <ul>
                         
+                <li>
+                    <a href="#dynamic-admission-control-for-customized-governance" aria-label="Dynamic Admission Control for Customized Governance">Dynamic Admission Control for Customized Governance</a></li></ul>
+                    
                 <li>
                     <a href="#resources" aria-label="Resources">Resources</a></li></ul>
                 </li>
@@ -852,6 +858,14 @@ spec:
 </ul>
 <h3 id="ingress">Ingress</h3>
 <p>An Ingress is an API object that provides HTTP and HTTPS routing to services based on rules defined by the user.</p>
+<ul>
+<li>
+<p><strong>Ingress as Deployment</strong>: Refers to deploying the Ingress controller as a set of pods using a Deployment resource.</p>
+</li>
+<li>
+<p><strong>Ingress as kind Ingress</strong>: Refers to using the Ingress resource itself to define routing rules for incoming traffic.</p>
+</li>
+</ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">networking.k8s.io/v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Ingress</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
@@ -869,15 +883,47 @@ spec:
 </span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">port</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="nt">number</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
 </span></span></span></code></pre></div><p><strong>Ingress Controller</strong> is a component responsible for implementing the rules defined in the Ingress resource. It watches for changes to Ingress resources and configures the underlying load balancer or reverse proxy to handle incoming requests accordingly. Popular Ingress Controllers include NGINX Ingress Controller, Traefik, and HAProxy Ingress</p>
-<pre tabindex="0"><code></code></pre><ul>
-<li>
-<p><strong>Ingress as Deployment</strong>: Refers to deploying the Ingress controller as a set of pods using a Deployment resource.</p>
-</li>
-<li>
-<p><strong>Ingress as kind Ingress</strong>: Refers to using the Ingress resource itself to define routing rules for incoming traffic.</p>
-</li>
-</ul>
-<h3 id="endpoint-objects">Endpoint Objects</h3>
+<pre tabindex="0"><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ingress-controller
+  namespace: ingress-nginx
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-ingress
+  template:
+    metadata:
+      labels:
+        app: nginx-ingress
+    spec:
+      containers:
+        - name: nginx-ingress
+          image: &#39;nginx/nginx-ingress:latest&#39;
+          ports:
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443
+</code></pre><p><strong>Service</strong> -&gt; To expose the ingress controller</p>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ingress
+  namespace: ingress-nginx
+spec:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+    - name: https
+      port: 443
+      targetPort: https
+  selector:
+    app: nginx-ingress
+</code></pre><h3 id="endpoint-objects">Endpoint Objects</h3>
 <p>Kubernetes is constantly evaluating the Service’s label selector against the current list of healthy Pods on the cluster. Any new Pods that match the selector get added to the <code>Endpoints object</code>, and any Pods that disappear get removed. This means the Endpoints object is always up to date. Then, when a Service is sending traffic to Pods, it queries its Endpoints object for the latest list of healthy matching Pods. Every Service gets its own Endpoints object with the same name as the Service.This object holds a list of all the Pods the Service matches and is dynamically updated as matching Pods come and go.</p>
 <p>CMD</p>
 <ul>
@@ -1337,7 +1383,36 @@ spec:
 <li><a href="https://squash.solo.io/">https://squash.solo.io/</a></li>
 <li><a href="https://www.telepresence.io/">https://www.telepresence.io/</a></li>
 </ol>
-<p>Need to study</p>
+<h2 id="advanced">Advanced</h2>
+<h4 id="dynamic-admission-control-for-customized-governance">Dynamic Admission Control for Customized Governance</h4>
+<p>Dynamic Admission Control refers to a Kubernetes feature that allows administrators to intercept, inspect, and modify requests to the Kubernetes API server before the object creation, modification, or deletion is finalized.</p>
+<p>First create a Webhook Server: First, you’ll need a webhook server that can validate or mutate Kubernetes objects.</p>
+<p>Register the Webhook with Kubernetes: Create <code>ValidatingWebhookConfiguration</code> that points to your webhook server:</p>
+<pre tabindex="0"><code>apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: pod-validator-webhook
+webhooks:
+  - name: validator.example.com
+    rules:
+      - operations:
+          - CREATE
+        apiGroups:
+          - &#39;&#39;
+        apiVersions:
+          - v1
+        resources:
+          - pods
+    clientConfig:
+      service:
+        name: webhook-service
+        namespace: default
+        path: /validate-pods
+      caBundle: &lt;CA_BUNDLE&gt;
+    admissionReviewVersions:
+      - v1
+    sideEffects: None
+</code></pre><p>Need to study</p>
 <ul>
 <li>job</li>
 <li>cronjob</li>

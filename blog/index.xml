@@ -6,7 +6,18 @@
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 May 2024 19:51:57 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 May 2024 12:16:34 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/python/</link>
+      <pubDate>Thu, 09 May 2024 12:16:34 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/python/</guid>
+      
+      <description>Data types - Numeric Types - int - float - complex - Sequence Types - str #&amp;#34;&amp;#34; - list #[] - tuple #() - Mapping Type - dict #{} - Set Types - set #{} - frozenset - Boolean Type - bool #True/False - Binary Types - bytes #[] - bytearray - memoryview Mutable and Imutable Mutable data types are those whose contents can be changed after creation, while immutable data types cannot be changed once they are created.</description>
+      
+    </item>
+    
     <item>
       <title>A Journey into Unseen Threats on our VM</title>
       <link>https://programmerraja.github.io/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/</link>
@@ -42,19 +53,6 @@ Here&amp;rsquo;s an explanation of index-level shard allocation filtering:</desc
       <description>ZippyDB ZippyDB is the largest strongly consistent, geographically distributed key-value store at Facebook.ZippyDB uses RocksDB as the underlying storage engine
 Cassandra Cassandra is a wide-column NoSQL database management system. It was originally developed at Facebook to power the Facebook inbox search feature build in java
 https://blog.stackademic.com/architecture-of-cassandra-6d9d248a7463 FoundationDB FoundationDB is an open-source, distributed, transactional key-value store. It’s designed to handle large volumes of data and works well for both read/write workloads and write-heavy workloads.</description>
-      
-    </item>
-    
-    <item>
-      <title>How to wireshark the mongodb</title>
-      <link>https://programmerraja.github.io/blog/post/2024/how-to-wireshark-the-mongodb/</link>
-      <pubDate>Mon, 12 Feb 2024 08:28:27 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/post/2024/how-to-wireshark-the-mongodb/</guid>
-      
-      <description>export SSLKEYLOGFILE=/tmp/tlskey.log Run a nodejs program as node --tls-keylog=/tmp/tlskey index.js where the tls key will be stored on that path and add this tlskey path to wire shark to decrypt the msg by doing following
-Go to Preferences-&amp;gt;Protocols-&amp;gt;TLS and edit the path as shown in the screenshot below. ![[Pasted image 20240212083026.png]]
-Mongodb uses Mongodb wire protocol at application level to know more check here</description>
       
     </item>
     
@@ -311,6 +309,19 @@ Drawing {&amp;#34;type&amp;#34;:&amp;#34;excalidraw&amp;#34;,&amp;#34;version&am
       <description>==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
 Text Elements %%
 Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version&amp;#34;: 2, &amp;#34;source&amp;#34;: &amp;#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&amp;#34;, &amp;#34;elements&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;--fsbaFWo5esGFBb-o9oq&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;rectangle&amp;#34;, &amp;#34;x&amp;#34;: -396.5597229003906, &amp;#34;y&amp;#34;: 887.6278691291809, &amp;#34;width&amp;#34;: 463.373291015625, &amp;#34;height&amp;#34;: 641.9308776855469, &amp;#34;angle&amp;#34;: 0, &amp;#34;strokeColor&amp;#34;: &amp;#34;#1e1e1e&amp;#34;, &amp;#34;backgroundColor&amp;#34;: &amp;#34;transparent&amp;#34;, &amp;#34;fillStyle&amp;#34;: &amp;#34;solid&amp;#34;, &amp;#34;strokeWidth&amp;#34;: 2, &amp;#34;strokeStyle&amp;#34;: &amp;#34;solid&amp;#34;, &amp;#34;roughness&amp;#34;: 1, &amp;#34;opacity&amp;#34;: 100, &amp;#34;groupIds&amp;#34;: [], &amp;#34;frameId&amp;#34;: null, &amp;#34;roundness&amp;#34;: { &amp;#34;type&amp;#34;: 3 }, &amp;#34;seed&amp;#34;: 753301210, &amp;#34;version&amp;#34;: 56, &amp;#34;versionNonce&amp;#34;: 1831219846, &amp;#34;isDeleted&amp;#34;: false, &amp;#34;boundElements&amp;#34;: null, &amp;#34;updated&amp;#34;: 1714295347939, &amp;#34;link&amp;#34;: null, &amp;#34;locked&amp;#34;: false } ], &amp;#34;appState&amp;#34;: { &amp;#34;theme&amp;#34;: &amp;#34;light&amp;#34;, &amp;#34;viewBackgroundColor&amp;#34;: &amp;#34;#ffffff&amp;#34;, &amp;#34;currentItemStrokeColor&amp;#34;: &amp;#34;#1e1e1e&amp;#34;, &amp;#34;currentItemBackgroundColor&amp;#34;: &amp;#34;transparent&amp;#34;, &amp;#34;currentItemFillStyle&amp;#34;: &amp;#34;solid&amp;#34;, &amp;#34;currentItemStrokeWidth&amp;#34;: 2, &amp;#34;currentItemStrokeStyle&amp;#34;: &amp;#34;solid&amp;#34;, &amp;#34;currentItemRoughness&amp;#34;: 1, &amp;#34;currentItemOpacity&amp;#34;: 100, &amp;#34;currentItemFontFamily&amp;#34;: 1, &amp;#34;currentItemFontSize&amp;#34;: 20, &amp;#34;currentItemTextAlign&amp;#34;: &amp;#34;left&amp;#34;, &amp;#34;currentItemStartArrowhead&amp;#34;: null, &amp;#34;currentItemEndArrowhead&amp;#34;: &amp;#34;arrow&amp;#34;, &amp;#34;scrollX&amp;#34;: 837.</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</guid>
+      
+      <description>o+++ title = &amp;lsquo;How to capture mongodb protocol in wireshark&amp;rsquo; date = 2024-02-12T08:28:27.2727+05:30 draft = false tags =[] +++
+export SSLKEYLOGFILE=/tmp/tlskey.log Run a nodejs program as node --tls-keylog=/tmp/tlskey index.js where the tls key will be stored on that path and add this tlskey path to wire shark to decrypt the msg by doing following
+Go to Preferences-&amp;gt;Protocols-&amp;gt;TLS and edit the path as shown in the screenshot below. ![[Pasted image 20240212083026.png]]</description>
       
     </item>
     

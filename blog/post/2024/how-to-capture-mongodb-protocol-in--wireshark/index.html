@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/" title="" />
 
 
 
@@ -35,7 +35,7 @@
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -134,25 +134,18 @@ stroke-linejoin="round" class="feather feather-home">
             <header class="header">
                 <h1 class="header-title"></h1>
                 
-            </header><div class="toc">
-    <details >
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
-
-        <div class="inner"><ul>
-                <li>
-                    <a href="#drawing" aria-label="Drawing">Drawing</a>
-                </li>
-            </ul>
-        </div>
-    </details>
-</div><div class="page-content">
-                <p>==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==</p>
-<p>%%</p>
-<h1 id="drawing">Drawing</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;excalidraw&#34;</span><span class="p">,</span><span class="nt">&#34;version&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&#34;source&#34;</span><span class="p">:</span><span class="s2">&#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&#34;</span><span class="p">,</span><span class="nt">&#34;elements&#34;</span><span class="p">:[],</span><span class="nt">&#34;appState&#34;</span><span class="p">:{</span><span class="nt">&#34;gridSize&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;viewBackgroundColor&#34;</span><span class="p">:</span><span class="s2">&#34;#ffffff&#34;</span><span class="p">}}</span>
-</span></span></code></pre></div><p>%%</p>
+            </header><div class="page-content">
+                <p>o+++
+title = &lsquo;How to capture mongodb protocol in  wireshark&rsquo;
+date = 2024-02-12T08:28:27.2727+05:30
+draft = false
+tags =[]
++++</p>
+<p><code>export SSLKEYLOGFILE=/tmp/tlskey.log</code>
+Run a nodejs program as <code>node --tls-keylog=/tmp/tlskey index.js</code> where the tls key will be stored on that path and add this tlskey path to wire shark to decrypt the msg by doing following</p>
+<p>Go to Preferences-&gt;Protocols-&gt;TLS and edit the path as shown in the screenshot below.
+![[Pasted image 20240212083026.png]]</p>
+<p>Mongodb uses <code>Mongodb wire protocol</code> at application level to know more check <a href="https://www.mongodb.com/docs/manual/reference/mongodb-wire-protocol/#:~:text=The%20MongoDB%20Wire%20Protocol%20is,a%20regular%20TCP%2FIP%20socket.">here</a></p>
 
             </div>
         </article></main>
