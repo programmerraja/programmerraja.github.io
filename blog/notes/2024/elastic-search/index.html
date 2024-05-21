@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Elastic search | programmerraja blog</title>
+<meta property="og:title" content="Elastic search | programmerraja blog" />
+<meta name="twitter:title" content="Elastic search | programmerraja blog" />
+<meta itemprop="name" content="Elastic search | programmerraja blog" />
+<meta name="application-name" content="Elastic search | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/elastic-search/" title="" />
+
+
+
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/elastic-search/">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Elastic search</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-03-30T20:20:04&#43;05:30" itemprop="datePublished"> Mar 30, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#indexing" aria-label="Indexing">Indexing</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#index-level-shard-allocation-filtering" aria-label="Index-level shard allocation filtering">Index-level shard allocation filtering</a></li>
+                <li>
+                    <a href="#index-level-shard-allocation-filtering-1" aria-label="Index-Level Shard Allocation Filtering:">Index-Level Shard Allocation Filtering:</a></li>
+                <li>
+                    <a href="#array-of-objects-are-stored-as-seprate" aria-label="Array of objects are stored as seprate">Array of objects are stored as seprate</a></li>
+                <li>
+                    <a href="#index-patterns" aria-label="Index patterns">Index patterns</a></li>
+                <li>
+                    <a href="#index-life-cycle-mangement" aria-label="Index life cycle mangement">Index life cycle mangement</a></li>
+                <li>
+                    <a href="#index-templates" aria-label="Index templates">Index templates</a></li>
+                <li>
+                    <a href="#reindexing" aria-label="Reindexing">Reindexing</a></li>
+                <li>
+                    <a href="#concurrent-updates-on-documents" aria-label="Concurrent updates on documents">Concurrent updates on documents</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#shard" aria-label="Shard">Shard</a></li>
+                <li>
+                    <a href="#segments" aria-label="Segments">Segments</a><ul>
+                        
+                <li>
+                    <a href="#nodes" aria-label="Nodes">Nodes</a></li></ul>
+                </li>
+                <li>
+                    <a href="#cluster" aria-label="Cluster:">Cluster:</a></li>
+                <li>
+                    <a href="#mapping" aria-label="Mapping">Mapping</a></li>
+                <li>
+                    <a href="#analyzer" aria-label="Analyzer">Analyzer</a></li>
+                <li>
+                    <a href="#query" aria-label="Query">Query</a></li>
+                <li>
+                    <a href="#types-of-aggregations" aria-label="Types of aggregations">Types of aggregations</a></li>
+                <li>
+                    <a href="#tool" aria-label="Tool">Tool</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="indexing">Indexing</h2>
+<p>it is like collection name in databse</p>
+<h4 id="index-level-shard-allocation-filtering"><strong>Index-level shard allocation filtering</strong></h4>
+<p>Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices. This feature gives you fine-grained control over shard placement based on node attributes and conditions, helping you optimize data distribution, resource utilization, and cluster stability.</p>
+<p>Here&rsquo;s an explanation of index-level shard allocation filtering:</p>
+<p><strong>Scenario:</strong> Consider a multi-node Elasticsearch cluster where each node has different hardware specifications or specific roles, such as hot, warm, or cold data nodes. You want to ensure that certain indices are allocated only to nodes that meet specific criteria.</p>
+<h4 id="index-level-shard-allocation-filtering-1"><strong>Index-Level Shard Allocation Filtering:</strong></h4>
+<p><strong>Node Attributes:</strong> Elasticsearch allows you to assign custom attributes to nodes in your cluster. These attributes can describe node characteristics such as hardware capabilities, roles, geographic location, or any other relevant information.</p>
+<p><strong>Index Settings:</strong> You can define shard allocation rules at the index level using index settings. Specifically, you can use the <code>index.routing.allocation.include</code> and <code>index.routing.allocation.exclude</code> settings to specify conditions that nodes must meet or avoid in order to be eligible for storing the shards of a particular index.</p>
+<ul>
+<li><code>index.routing.allocation.include</code>: This setting specifies conditions that nodes must meet to be eligible for shard allocation. For example, you can include nodes with specific attributes, roles, or other criteria.</li>
+<li><code>index.routing.allocation.exclude</code>: This setting specifies conditions that nodes must avoid to be eligible for shard allocation. It allows you to exclude nodes based on attributes, roles, or other criteria.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>Let&rsquo;s say you have an Elasticsearch cluster with nodes tagged with attributes like &ldquo;datacenter&rdquo; and &ldquo;node_type,&rdquo; and you want to ensure that a particular index, &ldquo;logs,&rdquo; is only allocated to nodes in the &ldquo;us-west&rdquo; datacenter with the &ldquo;hot&rdquo; node type.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">PUT</span> <span class="err">/logs/_settings</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;settings&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;index.routing.allocation.include.datacenter&#34;</span><span class="p">:</span> <span class="s2">&#34;us-west&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;index.routing.allocation.include.node_type&#34;</span><span class="p">:</span> <span class="s2">&#34;hot&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>In this example:</p>
+<ul>
+<li>The <code>index.routing.allocation.include.datacenter</code> setting ensures that shards of the &ldquo;logs&rdquo; index will be allocated only to nodes in the &ldquo;us-west&rdquo; datacenter.</li>
+<li>The <code>index.routing.allocation.include.node_type</code> setting further restricts allocation to nodes with the &ldquo;hot&rdquo; node type.</li>
+</ul>
+<p>By applying these index-level shard allocation filtering settings, you can control where your data is stored based on your cluster&rsquo;s node attributes and criteria. This helps you optimize resource utilization, balance workloads, and ensure that data is placed on nodes that meet specific requirements for your use case.</p>
+<h4 id="array-of-objects-are-stored-as-seprate"><strong>Array of objects are stored as seprate</strong></h4>
+<p>In Lucene, arrays of objects are stored by flattening them into a sequence of individual terms. Lucene doesn&rsquo;t natively support complex nested structures like arrays of objects or nested arrays as you would find in some other document-oriented databases. Instead, Lucene is designed to work with flat fields, and it treats arrays of objects as a collection of separate terms.</p>
+<pre tabindex="0"><code>{
+      &#34;title&#34;: &#34;The Great Book&#34;,
+      &#34;authors&#34;: [
+        {&#34;name&#34;: &#34;Author 1&#34;, &#34;country&#34;: &#34;USA&#34;},
+        {&#34;name&#34;: &#34;Author 2&#34;, &#34;country&#34;: &#34;UK&#34;}
+      ]
+}
+</code></pre><p>The &ldquo;authors&rdquo; field would be indexed as multiple terms, with each term representing one author object. For example:</p>
+<ul>
+<li>[authors.name]: [&ldquo;Author 1&rdquo;, &ldquo;Author 2&rdquo;]</li>
+<li>authors.country: [&ldquo;USA&rdquo;, &ldquo;UK&rdquo;]</li>
+</ul>
+<h4 id="index-patterns"><strong>Index patterns</strong></h4>
+<p>Index patterns are a fundamental concept when working with Kibana, as they allow you to search, analyze, and visualize data stored in Elasticsearch.</p>
+<p>An index pattern specifies a wildcard pattern that matches one or more Elasticsearch indices. Indices are where your data is stored in Elasticsearch. By defining an index pattern, you determine the scope of data that Kibana will work with.</p>
+<h4 id="index-life-cycle-mangement"><strong>Index life cycle mangement</strong></h4>
+<p><code>GET /my-index-000001/_ilm/explain</code> → to get llm</p>
+<p><code>POST /my-index-000001/_ilm/retry</code> → to retry the index</p>
+<p>**<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html">Aliases</a> →**An alias is a secondary name for a group of data streams or indices. Most Elasticsearch APIs accept an alias in place of a data stream or index name. it used when the index is rollover it write the old data in this index name and new data will come to the old name.</p>
+<h4 id="index-templates"><strong>Index templates</strong></h4>
+<p>that defines settings, mappings, and other index-related configurations for newly created indices that match a specified pattern or criteria. Index templates are useful when you want to ensure consistent settings and mappings for indices created dynamically or periodically, such as daily or monthly time-based indices.</p>
+<p>How to Create templates</p>
+<pre tabindex="0"><code>PUT /_template/my_template
+    {
+     // Match indices starting with &#34;log-&#34; then apply this template
+      &#34;index_patterns&#34;: [&#34;log-*&#34;], 
+    
+      &#34;settings&#34;: {
+        &#34;number_of_shards&#34;: 1,
+        &#34;number_of_replicas&#34;: 1
+      },
+      &#34;mappings&#34;: {
+        &#34;properties&#34;: {
+          &#34;timestamp&#34;: {
+            &#34;type&#34;: &#34;date&#34;
+          },
+          &#34;message&#34;: {
+            &#34;type&#34;: &#34;text&#34;
+          },
+          // Other field mappings
+        }
+      }
+    }
+</code></pre><h4 id="reindexing">Reindexing</h4>
+<p><a href="https://blog.stackademic.com/optimizing-elasticsearch-reindex-without-downtime-0f70cb4949d6">https://blog.stackademic.com/optimizing-elasticsearch-reindex-without-downtime-0f70cb4949d6</a></p>
+<h4 id="concurrent-updates-on-documents"><strong>Concurrent updates on documents</strong></h4>
+<p>Elasticsearch uses a versioning mechanism to handle concurrent updates to the same document. When a document is updated, its version is incremented. If two parallel queries attempt to update the same document simultaneously, the following general sequence of events occurs:</p>
+<ol>
+<li><strong>Read and Retrieve the Document:</strong>
+<ul>
+<li>Both queries read the document with its current version.</li>
+</ul>
+</li>
+<li><strong>Update Operation:</strong>
+<ul>
+<li>Both queries attempt to update the document simultaneously.</li>
+<li>Elasticsearch uses the version number to determine the order of updates.</li>
+<li>Only one of the updates is accepted based on the version number.</li>
+</ul>
+</li>
+<li><strong>Version Conflict:</strong>
+<ul>
+<li>If the second update arrives with an outdated version number, Elasticsearch detects a version conflict.</li>
+<li>The update with the outdated version is rejected, and the client needs to retry the update with the correct version.</li>
+</ul>
+</li>
+</ol>
+<h2 id="shard">Shard</h2>
+<p>&ldquo;shard&rdquo; is the basic unit of data storage and distribution. It&rsquo;s essentially a smaller, manageable piece of an index it contain lucene index.</p>
+<p><strong>what is Lucence ?</strong></p>
+<p><strong>Lucene.</strong></p>
+<p>Lucene is the base of ElasticSearch, but you don’t interract directly with him, as you drive your car, but you don’t ask direct to your engine to start. But what if your car break, don’t you think is a good idea to know how your engine works?</p>
+<blockquote>
+<p>Lucene Indexing</p>
+</blockquote>
+<p>You have a big a mount of files, and you need to find a specificy file, wich contais a certain word, how to be quickly to do this? how to be scalable? Here’s where indexing comes in: to search large amounts of text quickly, you must first index that text and convert it into a format that will let you search it rapidly. This conversion process is called indexing, and its output is called an index.</p>
+<blockquote>
+<p>Lucene Index.</p>
+</blockquote>
+<p>The index is composed of one or more segments, and each segment is composed of several indexes, confusing, right? When it is created, it is separated into smaller segments, or you can see it as sub-indices, where each index is not completely independent.</p>
+<blockquote>
+<p>Lucene Segments.</p>
+</blockquote>
+<p>Segments are immutable .Each segment contains one or more Lucene Documents</p>
+<p>At some point, on your journey through ES, you have been in the situation of having to delete a document. And apparently that was no problem, but what is going on behind the scenes?</p>
+<p>When you delete a document, it is only “marked” as deleted and a new version of the document is added to the segment. Its real execution is only carried out from time to time when a “joining” of larger segments occurs.</p>
+<p>In the meantime, documents continue to take up disk space.</p>
+<blockquote>
+<p>Lucene Merge.</p>
+</blockquote>
+<p>Over time the index will accumulate many segments. Periodically, segments are merged into a single new segment and removing the old segments.</p>
+<p>But wait, whats it the benefits Merge my segments?</p>
+<p>Basically, because two important things, discard old documents and as result reduce our index space on disk, and the second one is the old segments are remove, and a new bigger segment are create, incresing your search speed.</p>
+<p>From elastic search &lt; 7.0 we have default 5 shard will be created now 1</p>
+<p>The core structure of a Lucene index is the <code>inverted index.</code> It&rsquo;s like a dictionary where terms (words or tokens) are mapped to the documents that contain them. In your example, the terms come from the &ldquo;title&rdquo; and &ldquo;content&rdquo; fields. &ldquo;Document 1 Title&rdquo;  &ldquo;This is the content of Document 1.will be indexed as</p>
+<pre tabindex="0"><code>&#34;This&#34; -&gt; [doc2]
+&#34;Title&#34; -&gt; [doc1]
+&#34;is&#34; -&gt; [doc2]
+&#34;the&#34; -&gt; [doc2]
+&#34;content&#34; -&gt; [doc2]
+&#34;of&#34; -&gt; [doc2]
+&#34;Document&#34; -&gt; [doc1,doc2]
+&#34;1&#34; -&gt; [doc1,doc2]
+</code></pre><p>There are 2 shard <code>primary</code> and <code>replica</code> shards both are fixed at index creation. replica of primary shard won’t store on the same node where primary exists
+To find no of shards</p>
+<pre tabindex="0"><code>GET /your_index_name/_settings
+GET _/_cat/_shard/?v 
+</code></pre><h2 id="segments">Segments</h2>
+<p>Elastic search buffers the documents for some time, and then creates one inverted index for all those documents. <em><strong>This “inverted index” is called Segment and this “sometimes” is called Refresh Time.</strong></em> This refreshing time is usually 1 second. Since every document takes the minimum of refresh time to get indexed, that’s why Elastic Search is called <em><strong>near-real-time analytics</strong>.</em> The above optimization might save us some cost, but again, will it be scalable?</p>
+<h3 id="nodes"><strong>Nodes</strong></h3>
+<p>Node is a single instance of the Elasticsearch server. Nodes are responsible for various tasks such as data storage,      indexing, searching, and responding to client requests. There are two main types of nodes in Elasticsearch:</p>
+<ul>
+<li>
+<p><strong>Data Node:</strong> A data node stores data and performs tasks related to data indexing and searching. It holds a portion of the index data and is responsible for the distributed storage and retrieval of documents.</p>
+</li>
+<li>
+<p><strong>Master Node:</strong> A master node is responsible for cluster coordination and management tasks. It maintains the cluster state, controls index creation and deletion, and manages the allocation of shards (the smallest unit of data storage in Elasticsearch) across data nodes.</p>
+</li>
+<li>
+<p><strong>coordination Node →</strong> distribute the query for the data node (The API sends a search or a get query to any of these nodes. The node it sends the query to becomes the “coordinator” node.)</p>
+</li>
+<li>
+<p><strong>Ingest Node →</strong> The Ingest Node Pipeline is a sequence of predefined or custom processors that operate on the incoming documents. These processors allow you to manipulate, enrich, or modify the data before it is indexed. Common tasks performed by processors include: After the data has been processed by the Ingest Node Pipeline, the transformed documents are indexed in Elasticsearch. The indexing process includes storing the documents in a suitable format and creating inverted indexes for efficient searching.</p>
+<ul>
+<li><strong>Grok Processor:</strong> Parsing unstructured log data into structured fields.</li>
+<li><strong>Date Processor:</strong> Parsing and formatting date fields.</li>
+<li><strong>Remove Processor:</strong> Removing unwanted fields from documents.</li>
+<li><strong>Set Processor:</strong> Setting values for specific fields.</li>
+<li><strong>GeoIP Processor:</strong> Adding geo-location information based on IP addresses.</li>
+</ul>
+</li>
+</ul>
+<p>To define node type we need to give in elasticsearc.yml file when startingnode</p>
+<h2 id="cluster"><strong>Cluster:</strong></h2>
+<p>In Elasticsearch, one or more nodes can form a cluster. A cluster is a group of interconnected Elasticsearch nodes that work together to store and manage data. It provides redundancy, fault tolerance, and the ability to distribute workloads across multiple nodes. create nodes with same cluster name in elasticsearch.yml on each node elastic search will take care to communicate with them using discovery.seed_hosts</p>
+<pre tabindex="0"><code>  cluster.name: your-cluster-name
+    node.name: Node1
+    network.host: 0.0.0.0
+    discovery.seed_hosts: [&#34;Node1_IP:9300&#34;, &#34;Node2_IP:9300&#34;, &#34;Node3_IP:9300&#34;]
+    cluster.initial_master_nodes: [&#34;Node1&#34;, &#34;Node2&#34;, &#34;Node3&#34;]
+</code></pre><h2 id="mapping"><strong>Mapping</strong></h2>
+<p>It defines the structure of the database schema, including tables, columns, data types, constraints, and indexes. This ensures that your application&rsquo;s data aligns with the database&rsquo;s expectations.Proper mapping can optimize data retrieval and storage. For example, mapping may dictate the use of indexing or the choice of data types, which can impact query performance. <code>GET /my-index-000001/_mapping</code> → to see mapping of the index</p>
+<p>Explict → defining mapping on creating index with filed and types and <code>we can add &quot;index&quot;: false to avoid indexing the document which we will not used for search which saves the memory</code></p>
+<p><strong>Data types</strong></p>
+<ol>
+<li><strong>Text Data Types</strong>:
+<ul>
+<li><strong>Text:</strong> Use the <strong><code>text</code></strong> data type for <strong>full-text search fields</strong>. This data type tokenizes text into terms, making it suitable for free-text search queries. It&rsquo;s commonly used for fields like article content, product descriptions, and user comments.</li>
+<li><strong>Keyword:</strong> Use the <strong><code>keyword</code></strong> data type for exact matching or sorting fields. Keywords are not tokenized and are typically used for fields like tags, categories, or IDs. They are excellent for filtering and aggregating.</li>
+</ul>
+</li>
+<li><strong>Numeric Data Types</strong>:
+<ul>
+<li><strong>Integer:</strong> Use the <strong><code>integer</code></strong> data type for whole numbers. It&rsquo;s suitable for fields like age, price, and quantity when you need to perform mathematical operations or range queries.</li>
+<li><strong>Long:</strong> Use the <strong><code>long</code></strong> data type for large integer values. It&rsquo;s suitable for fields like timestamps, unique IDs, and counters.</li>
+<li><strong>Float/Double:</strong> Use the <strong><code>float</code></strong> or <strong><code>double</code></strong> data types for decimal numbers. Use <strong><code>float</code></strong> for less precision and storage, and <strong><code>double</code></strong> for higher precision. These are appropriate for fields like product prices, scores, and coordinates.</li>
+</ul>
+</li>
+<li><strong>Date Data Type</strong>:
+<ul>
+<li><strong>Date:</strong> Use the <strong><code>date</code></strong> data type for fields representing dates or timestamps. Elasticsearch can parse and store dates in a specific format, making it efficient for date range queries, date-based aggregations, and date math operations.</li>
+</ul>
+</li>
+<li><strong>Boolean Data Type</strong>:
+<ul>
+<li><strong>Boolean:</strong> Use the <strong><code>boolean</code></strong> data type for fields with true/false values, such as flags or checkboxes.</li>
+</ul>
+</li>
+<li><strong>Geo Data Types</strong>:
+<ul>
+<li><strong>Geo-point:</strong> Use the <strong><code>geo_point</code></strong> data type for storing latitude and longitude coordinates. It&rsquo;s essential for location-based searches, such as finding nearby stores or places.</li>
+</ul>
+</li>
+<li><strong>Binary Data Type</strong>:
+<ul>
+<li><strong>Binary:</strong> Use the <strong><code>binary</code></strong> data type for fields containing binary data, such as images, documents, or multimedia files. Elasticsearch can store and retrieve binary data, but it doesn&rsquo;t index the content for full-text searches.</li>
+</ul>
+</li>
+<li><strong>IP Data Type</strong>:
+<ul>
+<li><strong>IP:</strong> Use the <strong><code>ip</code></strong> data type for fields containing IP addresses. It allows efficient searching for IP ranges and aggregations based on IP addresses.</li>
+</ul>
+</li>
+<li><strong>Other Data Types</strong>:
+<ul>
+<li><strong>Nested:</strong> Use the <strong><code>nested</code></strong> data type to work with arrays of objects or complex data structures where individual elements need to be indexed and searched independently.</li>
+<li><strong>Object:</strong> Use the <strong><code>object</code></strong> data type for JSON-like objects that don&rsquo;t require structured searching within the object fields.</li>
+</ul>
+</li>
+</ol>
+<p>Choosing the right data type depends on your specific use case and how you intend to query and aggregate the data. Consider the following factors:</p>
+<ul>
+<li><strong>Search Requirements:</strong> Determine whether you need full-text search, exact matching, filtering, sorting, or aggregations for a particular field.</li>
+<li><strong>Data Volume:</strong> Consider the volume of data and the potential impact on storage and indexing performance, especially for large fields.</li>
+<li><strong>Analyzers:</strong> Choose appropriate analyzers and tokenization for text fields to ensure effective full-text searching.</li>
+<li><strong>Sorting and Aggregations:</strong> Use <strong><code>keyword</code></strong> fields for fields you need to sort or aggregate on.</li>
+<li><strong>Numeric Precision:</strong> Choose the appropriate numeric data type (e.g., <strong><code>float</code></strong> vs. <strong><code>double</code></strong>) based on precision requirements.</li>
+</ul>
+<p><strong>Dynamic option in mapping</strong></p>
+<p>if you set <code>false</code> then If there&rsquo;s a mismatch (e.g., a field is of the wrong data type or has a different analyzer), Elasticsearch will reject the document.</p>
+<p><strong>Dynamic option in mapping</strong></p>
+<p>if you set <code>runtime</code> then New fields are added to the mapping as <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/runtime.html">runtime fields</a>. These fields are not indexed, and are loaded from <code>_source</code> at query time.</p>
+<p>Because runtime fields aren’t indexed, adding a runtime field doesn’t increase the index size. You define runtime fields directly in the index mapping, saving storage costs and increasing ingestion speed. You can more quickly ingest data into the Elastic Stack and access it right away. When you define a runtime field, you can immediately use it in search requests, aggregations, filtering, and sorting.</p>
+<p>The &ldquo;freshness_score&rdquo; field is defined as a <strong><code>double</code></strong> data type and is a runtime field. It calculates the freshness score on-the-fly using a script that considers the timestamp of the review.</p>
+<pre tabindex="0"><code></code></pre><p><strong>Mapping parameters</strong></p>
+<ol>
+<li><strong><code>type</code></strong>:
+<ul>
+<li><strong>Description:</strong> Specifies the data type of the field. Common types include <strong><code>text</code></strong>, <strong><code>keyword</code></strong>, <strong><code>integer</code></strong>, <strong><code>date</code></strong>, and more.</li>
+<li><strong>Example:</strong> <strong><code>&quot;type&quot;: &quot;text&quot;</code></strong></li>
+</ul>
+</li>
+<li><strong><code>analyzer</code></strong>:
+<ul>
+<li><strong>Description:</strong> Specifies the text analysis process (analyzer) to use for tokenization and text processing. Applicable to text fields.</li>
+<li><strong>Example:</strong> <strong><code>&quot;analyzer&quot;: &quot;standard&quot;</code></strong></li>
+</ul>
+</li>
+<li><strong><code>index</code></strong>:
+<ul>
+<li><strong>Description:</strong> Controls whether and how a field is indexed. Options include <strong><code>&quot;true&quot;</code></strong> (default), <strong><code>&quot;false&quot;</code></strong> (not indexed), and <strong><code>&quot;false&quot;</code></strong> with <strong><code>&quot;doc_values&quot;</code></strong> (indexed for sorting and aggregations, but not full-text search).</li>
+<li><strong>Example:</strong> <strong><code>&quot;index&quot;: &quot;true&quot;</code></strong></li>
+</ul>
+</li>
+<li><strong><code>norms</code></strong>:
+<ul>
+<li>
+<p><strong>Description:</strong> Determines whether field length normalization is enabled. Norms are used for scoring and relevance calculations. if we set false for the filed that we not going to use for search to save space</p>
+</li>
+<li>
+<p><strong>Example:</strong> <strong><code>&quot;norms&quot;: false</code></strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Relevance calculations.
+Relevance calculation, often referred to as scoring or relevance scoring, is a fundamental concept in information retrieval and search engines, including Elasticsearch. It refers to the process of determining how well a document matches a user&rsquo;s query based on various factors and assigning a numerical score to each document. This score reflects the document&rsquo;s relevance to the query, allowing search engines to rank and return the most relevant documents to users.</p>
+<p>In Elasticsearch, relevance calculations are primarily driven by the following key components:</p>
+<ol>
+<li><strong>Term Frequency (TF):</strong> This measures how often a term appears in a document. Documents that contain the query terms multiple times are considered more relevant.</li>
+<li><strong>Inverse Document Frequency (IDF):</strong> IDF assesses the importance of a term within a corpus of documents. Terms that appear in many documents are considered less important, while terms that appear in a smaller number of documents are considered more important.</li>
+<li><strong>Field Length Normalization:</strong> Longer documents tend to have more terms than shorter ones. Field length normalization adjusts the relevance score to account for the document&rsquo;s length, ensuring that longer documents are not unfairly favored.</li>
+<li>. <strong>Coordination Factor:</strong> This factor accounts for how many of the query terms are present in a document. Documents that contain more query terms are typically more relevant.</li>
+<li><strong>Term Boosting:</strong> Elasticsearch allows you to assign different levels of importance (boosts) to individual query terms or fields, which can influence the relevance score.</li>
+<li>. <strong>BM25 Algorithm:</strong> Elasticsearch uses the BM25 ranking algorithm, which is a variation of TF-IDF with term frequency saturation and term weighting. BM25 is designed to be effective for full-text search and is the default scoring algorithm in Elasticsearch.</li>
+<li><strong>Scripting:</strong> Custom scripts can be used to calculate relevance scores based on complex criteria, such as business rules, personalization, or dynamic factors. This is particularly useful when standard scoring mechanisms are insufficient.</li>
+</ol>
+<p><strong>Metadata fields of the documents</strong></p>
+<p>Each document has metadata associated with it, such as the <code>_index</code> [The index to which the document belongs.] and <code>_id</code> metadata fields. The behavior of some of these metadata fields can be customized when a mapping is created.</p>
+<p><code>_Source</code> →The original JSON representing the body of the document. when passing on creating of doc</p>
+<p><code>_field_names</code> field used to index the names of every field in a document that contains any value other than <code>null</code>.</p>
+<p><code>_routing</code> →A document is routed to a particular shard in an index using the following formulas: The default <code>_routing</code> value is the document’s <code>[_id](&lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-id-field.html&gt;)</code></p>
+<p>When you index a document into an Elasticsearch index, the document is first routed to a primary shard. The calculation for routing a document is performed as follows:</p>
+<p>Elasticsearch calculates a hash of the routing value (in your example, the &ldquo;product_id&rdquo;). This hash value is typically a number.</p>
+<p>The hash value is then divided by the total number of primary shards (the shard count you configured when creating the index). The result of this division determines which primary shard the document should be routed to.</p>
+<p>we can user routing key on search to search on only specfic shard</p>
+<pre tabindex="0"><code>GET my-index-000001/_search
+        {
+          &#34;query&#34;: {
+            &#34;terms&#34;: {
+              &#34;_routing&#34;: [ &#34;key&#34; ] 
+            }
+          }
+        }
+</code></pre><p>For example, if you have an index with 5 primary shards and the hash value of your routing field is 123, Elasticsearch might route the document to the primary shard with an ID of 123 % 5 = 3.</p>
+<p><code>routing_factor = num_routing_shards / num_primary_shards shard_num = (hash(_routing) % num_routing_shards) / routing_factor</code></p>
+<p>M<strong>apping types</strong></p>
+<p>Certainly, let&rsquo;s walk through an example to help you understand mapping types in Elasticsearch before they were deprecated in version 7.0. In this example, we&rsquo;ll use an index for storing information about books, and we&rsquo;ll define multiple mapping types within that index.</p>
+<p>However, it&rsquo;s essential to note that, as of Elasticsearch 7.0, the above approach is no longer supported. In recent versions, you&rsquo;d define your data structures within a single mapping type within an index. Mapping types have been deprecated in favor of a simpler data model.</p>
+<p><code>Dynamic</code> →allows you to experiment with and explore data when you’re just getting started. Elasticsearch adds new fields automatically, just by indexing a document. it add mapping by the first document you inserted</p>
+<p><code>Type coresion</code> → on first document if we passed age as float then we pass string it will be converted to float but if we send that can’t be converted it will throw error</p>
+<h2 id="analyzer"><strong>Analyzer</strong></h2>
+<p>It is responsible for breaking down, or tokenizing, a text into individual terms or tokens, applying various transformations to these tokens, and preparing them for efficient storage and retrieval. Analyzers are essential for full-text search engines like Elasticsearch and Lucene, and they greatly influence the accuracy and relevance of search results.</p>
+<p>Here are the key components and functions of an analyzer:</p>
+<ol>
+<li><strong>Tokenization:</strong> The analyzer tokenizes the input text, which means it splits the text into individual words, phrases, or terms. For example, the sentence &ldquo;The quick brown fox&rdquo; might be tokenized into individual terms like &ldquo;The,&rdquo; &ldquo;quick,&rdquo; &ldquo;brown,&rdquo; and &ldquo;fox.&rdquo;</li>
+<li><strong>Lowercasing:</strong> In many analyzers, text is converted to lowercase to ensure case-insensitive searching. This means that &ldquo;Quick&rdquo; and &ldquo;quick&rdquo; would be treated as the same term.</li>
+<li><strong>Filtering:</strong> Analyzers often apply filters to remove or modify tokens. Common filters include:
+<ul>
+<li><strong>Stopword Removal:</strong> Removing common words (e.g., &ldquo;a,&rdquo; &ldquo;an,&rdquo; &ldquo;the&rdquo;) that do not carry significant meaning.</li>
+<li><strong>Stemming:</strong> Reducing words to their root or base form (e.g., &ldquo;running&rdquo; becomes &ldquo;run&rdquo;).</li>
+<li><strong>Synonym Expansion:</strong> Expanding tokens to include synonyms (e.g., &ldquo;car&rdquo; and &ldquo;automobile&rdquo;).</li>
+<li><strong>Character Filtering:</strong> Removing or replacing specific characters (e.g., punctuation marks).</li>
+</ul>
+</li>
+<li><strong>Token Type Assignments:</strong> Analyzers may assign token types or attributes to each token. This information can be used for advanced searching and filtering.</li>
+<li><strong>Normalization:</strong> Some analyzers perform normalization, ensuring that different forms of a word (e.g., singular and plural) are treated as equivalent.</li>
+<li><strong>Customization:</strong> Analyzers can be customized to suit specific requirements. In Elasticsearch, you can define your own custom analyzers, combining various tokenizers and filters.</li>
+</ol>
+<pre tabindex="0"><code>    POST /_analyze {text:&#34;hai&#34;,analyzer:standard}
+</code></pre><p><strong>ADMIN</strong></p>
+<p>To get full detail about elastic search <code>GET _cluster/state</code> will return</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;cluster_name&#34;</span> <span class="p">:</span> <span class="s2">&#34;elasticsearch&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;cluster_uuid&#34;</span> <span class="p">:</span> <span class="s2">&#34;HazzKHDGSA2hmmsKGVDCeA&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;version&#34;</span> <span class="p">:</span> <span class="mi">33584</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;state_uuid&#34;</span> <span class="p">:</span> <span class="s2">&#34;LEl8OGf2S9iVh73NovnQVQ&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;master_node&#34;</span> <span class="p">:</span> <span class="s2">&#34;TtayhcCMTmqa020lB-3k4A&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;blocks&#34;</span> <span class="p">:</span> <span class="p">{</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;nodes&#34;</span> <span class="p">:</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;cp1SAtq2SIKWjJwfm2pqGg&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;elasticsearch-data&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;ephemeral_id&#34;</span> <span class="p">:</span> <span class="s2">&#34;jhqJvC_PS2a0KvoZV6zSWg&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;transport_address&#34;</span> <span class="p">:</span> <span class="s2">&#34;10.244.2.25:9300&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;attributes&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;ml.machine_memory&#34;</span> <span class="p">:</span> <span class="s2">&#34;6442450944&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;ml.max_open_jobs&#34;</span> <span class="p">:</span> <span class="s2">&#34;512&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;xpack.installed&#34;</span> <span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;ml.max_jvm_size&#34;</span> <span class="p">:</span> <span class="s2">&#34;4294967296&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;transform.node&#34;</span> <span class="p">:</span> <span class="s2">&#34;true&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;roles&#34;</span> <span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;data&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;data_cold&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;data_content&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;data_frozen&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;data_hot&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;data_warm&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;ml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;remote_cluster_client&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;transform&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;hXF1BAkKT6eaFlcqqE5_6Q&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;elasticsearch-client&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;ephemeral_id&#34;</span> <span class="p">:</span> <span class="s2">&#34;tQpQ2OldR3G6k6IL1B5a7w&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;transport_address&#34;</span> <span class="p">:</span> <span class="s2">&#34;10.244.2.20:9300&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;attributes&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;ml.machine_memory&#34;</span> <span class="p">:</span> <span class="s2">&#34;4294967296&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;ml.max_open_jobs&#34;</span> <span class="p">:</span> <span class="s2">&#34;512&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;xpack.installed&#34;</span> <span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;ml.max_jvm_size&#34;</span> <span class="p">:</span> <span class="s2">&#34;3221225472&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;transform.node&#34;</span> <span class="p">:</span> <span class="s2">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;roles&#34;</span> <span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;ingest&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;ml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;remote_cluster_client&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&#34;TtayhcCMTmqa020lB-3k4A&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;name&#34;</span> <span class="p">:</span> <span class="s2">&#34;elasticsearch-master&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;ephemeral_id&#34;</span> <span class="p">:</span> <span class="s2">&#34;LDfJRzqtQ8m9VsdD07XGdA&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;transport_address&#34;</span> <span class="p">:</span> <span class="s2">&#34;10.244.2.23:9300&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;attributes&#34;</span> <span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;ml.machine_memory&#34;</span> <span class="p">:</span> <span class="s2">&#34;4294967296&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;ml.max_open_jobs&#34;</span> <span class="p">:</span> <span class="s2">&#34;512&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;xpack.installed&#34;</span> <span class="p">:</span> <span class="s2">&#34;true&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;ml.max_jvm_size&#34;</span> <span class="p">:</span> <span class="s2">&#34;3221225472&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="nt">&#34;transform.node&#34;</span> <span class="p">:</span> <span class="s2">&#34;false&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">},</span>
+</span></span><span class="line"><span class="cl">              <span class="nt">&#34;roles&#34;</span> <span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;master&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;ml&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;remote_cluster_client&#34;</span>
+</span></span><span class="line"><span class="cl">              <span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="err">metadata:{</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">}</span>
+</span></span></code></pre></div><ul>
+<li>nodes → all nodes with details</li>
+<li>metadata → contain all indices and template and all details</li>
+</ul>
+<p><strong>logstash</strong></p>
+<p>ilm_rollover_alias</p>
+<p>Certainly! Let&rsquo;s illustrate the concept of <code>ilm_rollover_alias</code> using an example scenario:</p>
+<pre tabindex="0"><code> elasticsearch {
+        hosts =&gt; &#34;&lt;https://localhost:9243&gt;&#34;
+        user =&gt; &#34;elastic&#34;
+        password =&gt; &#34;1234567&#34;
+        ilm_rollover_alias =&gt; &#39;klenty-consumers&#39;
+        ilm_pattern =&gt; &#34;{now/d}-00001&#34;
+        template =&gt; &#39;/etc/logstash/templates/index_template.json&#39;
+        ilm_policy =&gt; &#34;klenty-rollover-1-day&#34;
+        ilm_enabled =&gt; true
+    }
+    
+</code></pre><p><strong>Scenario</strong>: Imagine you have a system that generates log data, and you want to store this data in Elasticsearch. To efficiently manage the data and make it easier to query, you decide to use Elasticsearch&rsquo;s Index Lifecycle Management (ILM) feature and Logstash to send the data to Elasticsearch.
+<strong>Logstash Configuration</strong>:</p>
+<p>Here&rsquo;s your Logstash configuration with the <code>ilm_rollover_alias</code> setting:</p>
+<p><strong>Explanation with an Example</strong>:</p>
+<ol>
+<li><strong>Initialization</strong>:
+<ul>
+<li>You start Logstash, and it begins sending log data to Elasticsearch.</li>
+<li>Logstash creates an initial Elasticsearch index with a name based on the <code>ilm_pattern</code> and the current date. For example, if the current date is September 17, 2023, it might create an index named &ldquo;2023.09.17-00001.&rdquo;</li>
+<li>The alias &lsquo;klenty-consumers&rsquo; is associated with this initial index because of the <code>ilm_rollover_alias</code> setting.</li>
+</ul>
+</li>
+<li><strong>Data Ingestion</strong>:
+<ul>
+<li>Logstash continues to send log data to the active index, which is &ldquo;2023.09.17-00001&rdquo; in this example.</li>
+<li>Elasticsearch stores the data in this index.</li>
+</ul>
+</li>
+<li><strong>Rollover Trigger</strong>:
+<ul>
+<li>Your ILM policy, &ldquo;klenty-rollover-1-day,&rdquo; is configured to perform a rollover based on a time condition, such as daily.</li>
+<li>When the new day begins (e.g., on September 18, 2023), the ILM policy triggers a rollover operation.</li>
+</ul>
+</li>
+<li><strong>Rollover Operation</strong>:
+<ul>
+<li>The ILM policy orchestrates the rollover. It closes the current active index, which is &ldquo;2023.09.17-00001,&rdquo; and creates a new index for the new day, let&rsquo;s say &ldquo;2023.09.18-00001.&rdquo;</li>
+</ul>
+</li>
+<li><strong>Alias Update</strong>:
+<ul>
+<li>After the rollover operation, the alias &lsquo;klenty-consumers&rsquo; is automatically updated by Elasticsearch to point to the newly created index, which is now &ldquo;2023.09.18-00001.&rdquo;</li>
+</ul>
+</li>
+<li><strong>Continued Data Ingestion</strong>:
+<ul>
+<li>Logstash continues to send log data, and Elasticsearch stores it in the newly active index, &ldquo;2023.09.18-00001.&rdquo;</li>
+</ul>
+</li>
+<li><strong>Querying Data</strong>:
+<ul>
+<li>Applications can consistently query data using the &lsquo;klenty-consumers&rsquo; alias. They don&rsquo;t need to be aware of the specific index names because the alias always points to the active index.</li>
+</ul>
+</li>
+<li><strong>Lifecycle Management</strong>:
+<ul>
+<li>The process repeats daily as per the ILM policy, creating new indices for each day, automatically updating the alias, and ensuring that data is efficiently organized and managed.</li>
+</ul>
+</li>
+</ol>
+<p>In summary, <code>ilm_rollover_alias</code> allows you to create a consistent entry point (&lsquo;klenty-consumers&rsquo; alias) for your data, making it easy to query and manage, even as Elasticsearch automatically rolls over to new indices based on your defined criteria, such as time or size. This ensures efficient storage and retrieval of time-series data while abstracting the complexity of index management.</p>
+<ul>
+<li>
+<p>iim_rollover_alias → used when we want to send data with same index name to handle rollover</p>
+<p>Certainly, let&rsquo;s break down the concept of aliases in Elasticsearch and how they are used in conjunction with index rollovers with a practical example.</p>
+<p><strong>Alias in Elasticsearch</strong>: An alias is like a virtual pointer or nickname that you give to one or more indices. Instead of referring to a specific index directly, your applications, including Logstash, interact with the alias. This provides a level of abstraction that allows you to change which index the alias points to without needing to modify your application code.</p>
+<p><strong>Index Rollover with Aliases</strong>: When working with time-series data, like logs, you often want to create new indices at regular intervals (e.g., daily or monthly) to efficiently manage and store your data. Index rollover is a technique used to automate this process.</p>
+<p>Here&rsquo;s a step-by-step explanation with an example:</p>
+<p><strong>Step 1: Set Up Initial Index and Alias</strong>:</p>
+<ol>
+<li>You create an initial index, let&rsquo;s call it <code>logs-2023-09-26</code>, where the date is part of the index name.</li>
+<li>You also create an alias, say <code>logs-alias</code>, and initially, you point it to the initial index <code>logs-2023-09-26</code>. Logstash is configured to send data to <code>logs-alias</code>.</li>
+</ol>
+<p><strong>Step 2: Index Rollover Conditions</strong>:</p>
+<p>You define conditions in Elasticsearch, typically using an ILM policy, for when a rollover should occur. These conditions might include criteria like the index reaching a certain size, age, or number of documents.</p>
+<p><strong>Step 3: Elasticsearch Monitoring</strong>:</p>
+<p>Elasticsearch constantly monitors the index associated with the alias, which, in this case, is <code>logs-2023-09-26</code>. It checks whether the rollover conditions defined in the ILM policy are met.</p>
+<p><strong>Step 4: Rollover Triggered</strong>:</p>
+<p>Let&rsquo;s say your ILM policy specifies that a rollover should occur when an index reaches a size of 5GB. When the data ingested into <code>logs-2023-09-26</code> exceeds 5GB, Elasticsearch triggers the rollover automatically, without any direct action from Logstash.</p>
+<p><strong>Step 5: New Index Created</strong>:</p>
+<p>Elasticsearch creates a new index, such as <code>logs-2023-09-27</code>, based on the template and settings you&rsquo;ve defined. This new index is empty and ready to receive data.</p>
+<p><strong>Step 6: Alias Update</strong>:</p>
+<p>Elasticsearch updates the alias <code>logs-alias</code> to point to the new index, <code>logs-2023-09-27</code>. Now, any new data sent by Logstash is directed to the newly created index without Logstash needing to be aware of this change. Logstash continues to send data to <code>logs-alias</code>.</p>
+<p><strong>Step 7: Repeat</strong>:</p>
+<p>The process repeats as data continues to be ingested. When the rollover conditions are met again, another new index is created, and the alias is updated. This cycle continues, and Logstash sends data to the alias without interruption.</p>
+<p><strong>Example</strong>: Let&rsquo;s assume you have an ILM policy with a rollover condition of reaching 5GB in index size. When <code>logs-2023-09-26</code> reaches 5GB, Elasticsearch creates <code>logs-2023-09-27</code> and updates <code>logs-alias</code> to point to it. Logstash, which has been sending data to <code>logs-alias</code>, seamlessly starts sending data to the new index.</p>
+<p>This process ensures that your data is efficiently managed, and you can query it across multiple indices using the same alias (<code>logs-alias</code>), regardless of how many indices have been created through rollovers. It abstracts the complexity of index management from your applications, making it easier to scale and maintain your Elasticsearch setup.</p>
+</li>
+<li>
+<p>Alias vs index patterns</p>
+<p>You&rsquo;re correct that both aliases and index patterns can be used to facilitate querying in Elasticsearch. However, they serve slightly different purposes, and their use cases can overlap. Let&rsquo;s explore the differences between aliases and index patterns:</p>
+<p><strong>1. Aliases:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: Aliases are primarily used to abstract the physical index names and provide a consistent, user-friendly name for querying. They act as pointers to one or more indices.</li>
+<li><strong>Use Case</strong>: Aliases are useful when you want to ensure that your application or users always interact with a specific index or a group of indices, regardless of the underlying index names. They are often used for managing data lifecycle, providing a stable entry point for querying, and for tasks like index swapping during rollovers.</li>
+<li><strong>Dynamic</strong>: Aliases can be updated dynamically by Elasticsearch to point to different indices based on conditions, such as rollover events or data aging.</li>
+<li>Aliases only accessed through code</li>
+</ul>
+<p><strong>2. Index Patterns:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: Index patterns are used to define patterns for matching multiple indices based on their names. They are typically used for querying or applying actions across multiple indices that match a specific naming pattern.</li>
+<li><strong>Use Case</strong>: Index patterns are useful when you want to perform actions or queries across a set of indices that share a common naming convention. For example, you might use an index pattern like &ldquo;logstash-*&rdquo; to match all indices with names starting with &ldquo;logstash-&rdquo; regardless of the date or version in the index name.</li>
+<li><strong>Static</strong>: Index patterns are defined in advance and are not updated dynamically like aliases. They rely on consistent naming conventions.</li>
+<li>Acessed through discover page in kibana</li>
+</ul>
+<p><strong>Key Differences:</strong></p>
+<ol>
+<li><strong>Dynamic vs. Static</strong>: Aliases can be updated dynamically by Elasticsearch, making them suitable for scenarios where the active index changes due to rollovers or other events. Index patterns are defined statically and do not change automatically.</li>
+<li><strong>Stability vs. Flexibility</strong>: Aliases provide stability by always pointing to a specific index or the most recent index in a sequence. Index patterns offer flexibility for querying across multiple indices with similar names.</li>
+<li><strong>Use Cases</strong>: Aliases are commonly used for index lifecycle management, ensuring consistent querying, and providing a stable entry point. Index patterns are more suitable for querying and performing actions across sets of indices with similar names.</li>
+</ol>
+<p><strong>Use Both When Needed:</strong></p>
+<p>In practice, you can use both aliases and index patterns in combination to achieve different objectives. For instance, you can use an alias like &lsquo;klenty-consumers&rsquo; for stable querying and use an index pattern like &rsquo;logstash-*&rsquo; for broader operational tasks across multiple log indices.</p>
+<p>In summary, aliases and index patterns are complementary tools in Elasticsearch, and their effectiveness depends on the specific requirements of your use case. Aliases provide stability and dynamic management, while index patterns are helpful for querying and performing actions across groups of indices with similar names.</p>
+</li>
+</ul>
+<p>Need to check how</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"> <span class="nx">elasticsearch</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">hosts</span> <span class="p">=&gt;</span> <span class="s2">&#34;&lt;https://klenty-kibana-pipeline.es.us-east4.gcp.elastic-cloud.com:9243&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">user</span> <span class="p">=&gt;</span> <span class="s2">&#34;elastic&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">password</span> <span class="p">=&gt;</span> <span class="s2">&#34;zQb0V7ZssNF7oygnLfz5SetO&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">ilm_rollover_alias</span> <span class="p">=&gt;</span> <span class="s1">&#39;klenty-email-validation-logs&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">ilm_pattern</span> <span class="p">=&gt;</span> <span class="s2">&#34;{now/d}-00001&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">template</span> <span class="p">=&gt;</span> <span class="s1">&#39;/etc/logstash/templates/index_template.json&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">ilm_policy</span> <span class="p">=&gt;</span> <span class="s2">&#34;klenty-rollover-1-day&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">ilm_enabled</span> <span class="p">=&gt;</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span></code></pre></div><p>this make created as klenty-email-validation-logs-data-0001</p>
+<ul>
+<li>
+<p>Why</p>
+<p>The Logstash configuration you provided is used to create an Elasticsearch index with specific settings and configurations. Let&rsquo;s break down the configuration and explain how the index will be created on a daily basis with examples and in-depth details.</p>
+<ol>
+<li>
+<p><strong>Elasticsearch Output Configuration</strong>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">elasticsearch {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">hosts =&gt; &#34;&lt;https://localhost:9243&gt;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">user =&gt; &#34;elastic&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">password =&gt; &#34;123456789&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">ilm_rollover_alias =&gt; &#39;klenty-email-validation-logs&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">ilm_pattern =&gt; &#34;{now/d}-00001&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">template =&gt; &#39;/etc/logstash/templates/index_template.json&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">ilm_policy =&gt; &#34;klenty-rollover-1-day&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">ilm_enabled =&gt; true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span></code></pre></div><ul>
+<li><code>hosts</code>: This specifies the Elasticsearch cluster&rsquo;s address where Logstash will send data. In your case, it&rsquo;s &ldquo;<a href="https://localhost:9243/"></a><a href="https://localhost:9243">https://localhost:9243</a>,&rdquo; assuming Elasticsearch is running on localhost on port 9243.</li>
+<li><code>user</code> and <code>password</code>: These are the credentials used for authentication when sending data to Elasticsearch.</li>
+<li><code>ilm_rollover_alias</code>: This is the alias that will be associated with the index. It&rsquo;s set to &lsquo;klenty-email-validation-logs.&rsquo;</li>
+<li><code>ilm_pattern</code>: This pattern is used to generate the index name. <code>{now/d}</code> represents the current date in the format &lsquo;YYYY.MM.dd,&rsquo; and &lsquo;-00001&rsquo; is added to create a unique index name. This will result in an index name like &lsquo;klenty-email-validation-logs-2023.09.17-00001&rsquo; for today&rsquo;s date (assuming today is September 17, 2023).</li>
+<li><code>template</code>: Specifies the path to an index template. The template contains predefined settings and mappings for the index. You provided a JSON template located at &lsquo;/etc/logstash/templates/index_template.json.&rsquo;</li>
+<li><code>ilm_policy</code>: This is the name of the Index Lifecycle Management (ILM) policy associated with the index. In your case, it&rsquo;s &ldquo;klenty-rollover-1-day.&rdquo; ILM policies define how indices are managed, including when they should be rolled over and deleted.</li>
+<li><code>ilm_enabled</code>: This flag is set to true, indicating that ILM is enabled for this index.</li>
+<li>DOCS
+<ol>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html">https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Index Template</strong> (From &lsquo;/etc/logstash/templates/index_template.json&rsquo;):</p>
+<p>The index template provided in your configuration contains various settings for the index. Let&rsquo;s break down some key settings:</p>
+<ul>
+<li><code>lifecycle</code>: Specifies the ILM settings for the index, including the ILM policy name (&ldquo;klenty-rollover-1-day&rdquo;) and the rollover alias (&ldquo;klenty-email-validation-logs&rdquo;).</li>
+<li><code>routing</code>: Defines how documents are allocated across nodes in the Elasticsearch cluster. In your configuration, it includes <code>_tier_preference: &quot;data_content&quot;</code> for routing.</li>
+<li><code>mapping</code>: Sets the total fields limit to 10,000 for this index. This limit restricts the number of fields that can be indexed in a single document.</li>
+<li><code>refresh_interval</code>: Specifies that the index will be refreshed every 5 seconds. This controls how often changes become visible to search.</li>
+</ul>
+</li>
+<li>
+<p><strong>Index Creation on a Daily Basis</strong>:</p>
+<p>With this configuration, an index will be created in Elasticsearch daily. Here&rsquo;s how it works with an example:</p>
+<ul>
+<li>Today is September 17, 2023.</li>
+<li>Logstash processes and sends data to Elasticsearch.</li>
+<li>Elasticsearch uses the ILM pattern &ldquo;{now/d}-00001&rdquo; to create the index name: &ldquo;klenty-email-validation-logs-2023.09.17-00001.&rdquo;</li>
+<li>The index inherits settings and mappings from the provided template &lsquo;/etc/logstash/templates/index_template.json.&rsquo;</li>
+<li>The ILM policy &ldquo;klenty-rollover-1-day&rdquo; is associated with the index, which defines when the index should roll over (in this case, likely after one day) and how data retention is managed.</li>
+</ul>
+<p>The next day (September 18, 2023), a new index will be created with the name &ldquo;klenty-email-validation-logs-2023.09.18-00001,&rdquo; and this process repeats daily.</p>
+</li>
+</ol>
+<p>This setup ensures that your Elasticsearch indices are created with the specified settings, follow a daily naming pattern, and are managed according to the ILM policy you&rsquo;ve defined, allowing for efficient data retention and maintenance.</p>
+</li>
+</ul>
+<h2 id="query"><strong>Query</strong></h2>
+<ol>
+<li>
+<p>Elasticsearch sorts matching search results by <strong>relevance score</strong>,</p>
+</li>
+<li>
+<p>The relevance score is a positive floating point number, returned in the <code>_score</code> metadata field of the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html">search</a> API. The higher the <code>_score</code>, the more relevant the document. While each query type can calculate relevance scores differently, score calculation also depends on whether the query clause is run in a <strong>query</strong> or <strong>filter</strong> context.</p>
+</li>
+<li>
+<p><strong>Query context → a</strong>nswers the question “<em>How well does this document match this query clause?</em>” Besides deciding whether or not the document matches, the query clause also calculates a relevance score in the <code>_score</code> metadata field.</p>
+<ol>
+<li>Query context is in effect whenever a query clause is passed to a <code>query</code> parameter</li>
+</ol>
+</li>
+<li>
+<p>**Filter context →**answers the question “<em>Does this document match this query clause?</em>” The answer is a simple Yes or No — no scores are calculated</p>
+<ol>
+<li>Frequently used filters will be cached automatically by Elasticsearch, to speed up performance</li>
+<li>Filter context is in effect whenever a query clause is passed to a <code>filter</code> parameter</li>
+</ol>
+</li>
+<li>
+<p><strong>Relevance Score</strong></p>
+<p>The relevance score, also known as the &ldquo;_score&rdquo; in Elasticsearch, represents how well a document matches a given query. It&rsquo;s a numerical value assigned to each document returned by a search, indicating the degree of relevance to the search criteria. The higher the score, the more relevant the document is considered.</p>
+<p><strong>How Relevance Score is Calculated:</strong></p>
+<ul>
+<li>Elasticsearch uses a scoring algorithm, typically the TF-IDF (Term Frequency-Inverse Document Frequency) algorithm or its variations, to calculate the relevance score.</li>
+<li>The score takes into account factors such as the frequency of query terms in the document, the length of the document, and the overall frequency of terms in the entire index.</li>
+</ul>
+<p><strong>Example:</strong> Let&rsquo;s consider a simple example. Assume you have an index of articles and you perform a search for the query &ldquo;machine learning.&rdquo;</p>
+<ul>
+<li>Document 1: &ldquo;Introduction to Machine Learning&rdquo;
+<ul>
+<li>Contains the exact phrase &ldquo;machine learning&rdquo; multiple times.</li>
+<li>Medium-length document.</li>
+</ul>
+</li>
+<li>Document 2: &ldquo;The History of Artificial Intelligence&rdquo;
+<ul>
+<li>Mentions &ldquo;machine learning&rdquo; once.</li>
+<li>Long document.</li>
+</ul>
+</li>
+<li>Document 3: &ldquo;Cooking Recipes for Beginners&rdquo;
+<ul>
+<li>Doesn&rsquo;t contain the phrase &ldquo;machine learning.&rdquo;</li>
+<li>Short document.</li>
+</ul>
+</li>
+</ul>
+<p>In this scenario, Elasticsearch would calculate a relevance score for each document based on factors like term frequency and document length. Let&rsquo;s say the scores are as follows:</p>
+<ul>
+<li>Document 1: Relevance Score = 8.2</li>
+<li>Document 2: Relevance Score = 4.5</li>
+<li>Document 3: Relevance Score = 1.1</li>
+</ul>
+<p>When presenting the search results, Elasticsearch would order them by relevance score in descending order, so Document 1 would be listed first, followed by Document 2, and then Document 3.</p>
+<p>This scoring mechanism allows Elasticsearch to provide more relevant search results to users by considering not only the presence of query terms but also their frequency and importance in the documents.</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Example [basic cannot use complex]</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">GET</span> <span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;match&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;FIELD&#34;</span><span class="o">:</span> <span class="s2">&#34;TEXT&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Example with aggregation</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">GET</span> <span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;bool&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;must&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;match&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;title&#34;</span><span class="o">:</span> <span class="s2">&#34;smith&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;must_not&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;match_phrase&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;title&#34;</span><span class="o">:</span> <span class="s2">&#34;granny smith&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;filter&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;exists&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;field&#34;</span><span class="o">:</span> <span class="s2">&#34;title&#34;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;aggs&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;my_agg&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;terms&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;field&#34;</span><span class="o">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;size&#34;</span><span class="o">:</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;highlight&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;pre_tags&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;&lt;em&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;post_tags&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;&lt;/em&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;fields&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;body&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;number_of_fragments&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;fragment_size&#34;</span><span class="o">:</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;title&#34;</span><span class="o">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;size&#34;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;from&#34;</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;_source&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;title&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;id&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;sort&#34;</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;_id&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="s2">&#34;desc&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Query Result with explanation</p>
+<ul>
+<li>
+<p>Output</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;took&#34;</span> <span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;timed_out&#34;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;_shards&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;total&#34;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;successful&#34;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;skipped&#34;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;failed&#34;</span> <span class="o">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;hits&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;total&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;value&#34;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;relation&#34;</span> <span class="o">:</span> <span class="s2">&#34;eq&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;max_score&#34;</span> <span class="o">:</span> <span class="mf">29.626675</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;hits&#34;</span> <span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_index&#34;</span> <span class="o">:</span> <span class="s2">&#34;news&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_id&#34;</span> <span class="o">:</span> <span class="s2">&#34;RzrouIsBC1dvdsZHf2cP&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_score&#34;</span> <span class="o">:</span> <span class="mf">29.626675</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;_source&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;link&#34;</span> <span class="o">:</span> <span class="s2">&#34;&lt;https://www.huffpost.com/entry/guard-cat-hailed-as-hero_n_62e9a515e4b00f4cf2352a6f&gt;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;headline&#34;</span> <span class="o">:</span> <span class="s2">&#34;Bandit The &#39;Guard Cat&#39; Hailed As Hero After Thwarting Would-Be Robbery&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;short_description&#34;</span> <span class="o">:</span> <span class="s2">&#34;When at least two people tried to break into a Tupelo, Mississippi, home last week, the cat did everything she could to alert its owner.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;category&#34;</span> <span class="o">:</span> <span class="s2">&#34;WEIRD NEWS&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;authors&#34;</span> <span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;country&#34;</span> <span class="o">:</span> <span class="s2">&#34;US&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;timestamp&#34;</span> <span class="o">:</span> <span class="mi">1693070640</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.....</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>The <code>_shards</code> field tells how many shards were involved in this search operation, how many of them returned successfully, how many failed, and how many skipped.</p>
+</li>
+<li>
+<p>The <code>hits</code> field contains the documents returned from the search. Each document is given a score based on how relevant it is to our search. The hits field also contains a field <code>total</code> mentioning the total number of documents returned, and the max score of the documents.</p>
+</li>
+<li>
+<p>Finally, in the nested field, <code>hits</code> we get all the relevant documents, along with their <code>_id</code>, and their <code>score</code>. The documents are sorted by their scores.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Qurries</p>
+<ol>
+<li><strong>leaf queries →Leaf queries look for specific values in certain field/fields. These queries can be used independently. Some of these queries include match, term, range queries.</strong>
+<ol>
+<li>ex full text,term query,span query,joining queries,</li>
+</ol>
+</li>
+<li><strong>compound queries →Compound queries uses the combination of leaf/compound queries. Basically, they combine multiple queries together to achieve their target results.</strong>
+<ol>
+<li>ex → bool,boosting,function score,constant socre</li>
+</ol>
+</li>
+</ol>
+<p>Boolean query</p>
+<ul>
+<li>
+<p>Basic syntax</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">query</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">bool</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">			<span class="s2">&#34;must/should/filter&#34;</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">				<span class="s2">&#34;term&#34;</span><span class="o">:</span><span class="p">{</span><span class="nx">conditon</span><span class="p">}</span>	
+</span></span><span class="line"><span class="cl">				<span class="s2">&#34;range&#34;</span><span class="o">:</span><span class="p">{</span><span class="s2">&#34;age&#34;</span><span class="o">:</span><span class="p">{</span><span class="s2">&#34;gte&#34;</span><span class="o">:</span><span class="mi">10</span><span class="p">,</span><span class="s2">&#34;lte&#34;</span><span class="o">:</span><span class="mi">10</span><span class="p">}}</span>
+</span></span><span class="line"><span class="cl">			<span class="p">}</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>must → The clause (query) must appear in matching documents and will contribute to the score.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">POST</span> <span class="o">/</span><span class="nx">indexName</span><span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;bool&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;must&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;term&#34;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&#34;user.id&#34;</span> <span class="o">:</span> <span class="s2">&#34;kimchy&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">		<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>should →should appear in the matching document.where documents meeting these conditions get a boost in their <code>relevance scores</code>. but same as filter</p>
+</li>
+<li>
+<p>filter → ingore for the score calculation,clauses are considered for caching.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">POST</span> <span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;bool&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;must&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;term&#34;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&#34;user.id&#34;</span> <span class="o">:</span> <span class="s2">&#34;kimchy&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;filter&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;term&#34;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&#34;tags&#34;</span> <span class="o">:</span> <span class="s2">&#34;production&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>must_not →ingore the score calculation,clauses are considered for caching.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;must_not&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;range&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;age&#34;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&#34;gte&#34;</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&#34;lte&#34;</span> <span class="o">:</span> <span class="mi">20</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<p>Params</p>
+<ul>
+<li>
+<p><strong><code>minimum_should_match</code> →</strong> to specify the number or percentage of <code>should</code> clauses returned documents <em>must</em> match.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">POST</span> <span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;bool&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;must&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;term&#34;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&#34;user.id&#34;</span> <span class="o">:</span> <span class="s2">&#34;kimchy&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;filter&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;term&#34;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&#34;tags&#34;</span> <span class="o">:</span> <span class="s2">&#34;production&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;must_not&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;range&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="s2">&#34;age&#34;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&#34;gte&#34;</span> <span class="o">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&#34;lte&#34;</span> <span class="o">:</span> <span class="mi">20</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;should&#34;</span> <span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="s2">&#34;term&#34;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&#34;tags&#34;</span> <span class="o">:</span> <span class="s2">&#34;env1&#34;</span> <span class="p">}</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="s2">&#34;term&#34;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&#34;tags&#34;</span> <span class="o">:</span> <span class="s2">&#34;deployed&#34;</span> <span class="p">}</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;minimum_should_match&#34;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;boost&#34;</span> <span class="o">:</span> <span class="mf">1.0</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<p>Math query</p>
+<ul>
+<li>
+<p>sample →this would return documents matching either “confidence” <strong>OR</strong> “buildings” . The default behavior of the <strong>match</strong> query is of <strong>OR</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">POST</span> <span class="nx">fb</span><span class="o">-</span><span class="nx">post</span><span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;match&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;description&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;query&#34;</span><span class="o">:</span><span class="s2">&#34;confidence buildings&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">Or</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">POST</span> <span class="nx">fb</span><span class="o">-</span><span class="nx">post</span><span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;match&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;description&#34;</span><span class="o">:</span> <span class="s2">&#34;confidence buildings&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>And</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">POST</span> <span class="nx">fb</span><span class="o">-</span><span class="nx">post</span><span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;match&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;description&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;query&#34;</span><span class="o">:</span><span class="s2">&#34;confidence buildings&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;operator&#34;</span><span class="o">:</span><span class="s2">&#34;AND&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>multi-match</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">POST</span> <span class="nx">fb</span><span class="o">-</span><span class="nx">post</span><span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;multi_match&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;query&#34;</span><span class="o">:</span>    <span class="s2">&#34;Giffords family&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;fields&#34;</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;description&#34;</span> <span class="p">]</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<p>We can also give custom scoring against the specific fields. In the below query, a boost of 5 is given to all the documents which match the keywords against the field “name”</p>
+<ul>
+<li>
+<p><strong>multi-match</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">POST</span> <span class="nx">fb</span><span class="o">-</span><span class="nx">post</span><span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;multi_match&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;query&#34;</span><span class="o">:</span>    <span class="s2">&#34;Giffords family&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;fields&#34;</span><span class="o">:</span> <span class="p">[</span> <span class="s2">&#34;name^5&#34;</span><span class="p">,</span> <span class="s2">&#34;description&#34;</span> <span class="p">]</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>query_string</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">POST</span> <span class="nx">fb</span><span class="o">-</span><span class="nx">post</span><span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;query_string&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;query&#34;</span> <span class="o">:</span> <span class="s2">&#34;(step down) OR (official act)&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;fields&#34;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&#34;description&#34;</span><span class="p">,</span><span class="s2">&#34;name&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;query&#34;</span><span class="o">:</span><span class="s2">&#34;status:active&#34;</span> <span class="o">-&gt;</span> <span class="nx">staus</span> <span class="nx">is</span> <span class="nx">active</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;query&#34;</span><span class="o">:</span><span class="s2">&#34;book.\\*:(quick OR brown)&#34;</span> <span class="o">-&gt;</span> <span class="nx">book</span><span class="p">.</span><span class="nx">any</span> <span class="nx">work</span> <span class="nx">has</span> <span class="nx">qucik</span> <span class="nx">or</span> <span class="nx">brown</span>
+</span></span><span class="line"><span class="cl"><span class="nx">_exists_</span><span class="o">:</span><span class="nx">title</span> <span class="o">-&gt;</span> <span class="nx">has</span> <span class="nx">exists</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="nx">count</span><span class="o">:</span><span class="p">[</span><span class="mi">1</span> <span class="nx">TO</span> <span class="mi">5</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="mi">1</span> <span class="nx">to</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl"><span class="nx">date</span><span class="o">:</span><span class="p">{</span><span class="o">*</span> <span class="nx">TO</span> <span class="mi">2012</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span><span class="p">}</span> 
+</span></span></code></pre></div></li>
+<li>
+<p><strong>match_phrase →Match_phrase query is a particularly useful piece of query which looks for matching the phrase rather than individual words.</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">POST</span> <span class="nx">fb</span><span class="o">-</span><span class="nx">post</span><span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;match_phrase&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;description&#34;</span> <span class="o">:</span> <span class="s2">&#34;deeply concerned&#34;</span>
+</span></span><span class="line"><span class="cl">							<span class="s2">&#34;slop&#34;</span><span class="o">:</span> <span class="mi">2</span> <span class="p">[</span><span class="nx">optional</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">The</span> <span class="nx">slop</span> <span class="nx">value</span> <span class="nx">defaults</span> <span class="nx">to</span> <span class="mi">0</span> <span class="nx">and</span> <span class="nx">ranges</span> <span class="nx">to</span> <span class="nx">a</span> <span class="nx">maximum</span> <span class="k">of</span> <span class="mf">50.</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">In</span> <span class="nx">the</span> <span class="nx">above</span> <span class="nx">example</span><span class="p">,</span> <span class="nx">the</span> <span class="nx">slop</span> <span class="nx">value</span> <span class="mi">2</span> <span class="nx">indicates</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">how</span> <span class="nx">far</span> <span class="nx">the</span> <span class="nx">terms</span> <span class="nx">can</span> <span class="nx">be</span> <span class="nx">allowed</span> <span class="nx">to</span> <span class="nx">consider</span> <span class="nx">as</span> <span class="nx">a</span> <span class="nx">match</span><span class="p">.</span>
+</span></span></code></pre></div></li>
+</ul>
+<p><strong>Term query</strong></p>
+<p>Returns documents that contain an <strong>exact</strong> term in a provided field. Dont user for text field because analyzer will remove the puncation and other special character so if search with specail char it wont match but you can use match query that will work.</p>
+<ul>
+<li>
+<p>Query</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;term&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;full_text&#34;</span><span class="o">:</span> <span class="s2">&#34;Quick Brown Foxes!&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">			<span class="nx">case_insensitive</span><span class="o">:</span><span class="kc">true</span> <span class="o">/</span> <span class="nx">from</span> <span class="mf">7.0</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">eventhough</span> <span class="k">if</span> <span class="nx">you</span> <span class="nx">have</span> <span class="sb">`Quick Brown Foxes!`</span> <span class="k">in</span> <span class="nx">index</span> <span class="nx">it</span> <span class="nx">wont</span> <span class="nx">work</span> <span class="nx">beacause</span> <span class="nx">it</span>
+</span></span><span class="line"><span class="cl"><span class="nx">stored</span> <span class="nx">as</span> <span class="p">[</span><span class="nx">quick</span><span class="p">,</span> <span class="nx">brown</span><span class="p">,</span> <span class="nx">fox</span><span class="p">]</span> <span class="nx">during</span> <span class="nx">analysis</span><span class="p">.</span>
+</span></span></code></pre></div></li>
+</ul>
+<p><strong>Fuzzy query</strong></p>
+<p>Returns documents that contain terms similar to the search term,</p>
+<ul>
+<li>
+<p>query</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">GET</span> <span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;fuzzy&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;user.id&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;ki&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">				<span class="s2">&#34;fuzziness&#34;</span><span class="o">:</span> <span class="s2">&#34;AUTO&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;max_expansions&#34;</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;prefix_length&#34;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;transpositions&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rewrite&#34;</span><span class="o">:</span> <span class="s2">&#34;constant_score_blended&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<p><strong>IDs quey</strong></p>
+<ul>
+<li>
+<p>query</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">GET</span> <span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;ids&#34;</span> <span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;values&#34;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&#34;1&#34;</span><span class="p">,</span> <span class="s2">&#34;4&#34;</span><span class="p">,</span> <span class="s2">&#34;100&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<p><strong>Regexp query</strong></p>
+<ul>
+<li>
+<p>Query</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">GET</span> <span class="o">/</span><span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;regexp&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;user.id&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;k.*y&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;flags&#34;</span><span class="o">:</span> <span class="s2">&#34;ALL&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;case_insensitive&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;max_determinized_states&#34;</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;rewrite&#34;</span><span class="o">:</span> <span class="s2">&#34;constant_score_blended&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<p>Aggregation</p>
+<p>The structure of an aggregation query is as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">GET</span> <span class="nx">_search</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;size&#34;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s2">&#34;aggs&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;NAME&#34;</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;AGG_TYPE&#34;</span><span class="o">:</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="types-of-aggregations"><strong>Types of aggregations</strong></h2>
+<p>There are three main types of aggregations:</p>
+<ul>
+<li>Metric aggregations - Calculate metrics such as <code>sum</code>, <code>min</code>, <code>max</code>, and <code>avg</code> on numeric fields.</li>
+<li>Bucket aggregations - Sort query results into groups based on some criteria.</li>
+<li>Pipeline aggregations - Pipe the output of one aggregation as an input to another.</li>
+</ul>
+<p>Query resources</p>
+<ol>
+<li><a href="https://medium.com/elasticsearch/introduction-to-elasticsearch-queries-b5ea254bf455">https://medium.com/elasticsearch/introduction-to-elasticsearch-queries-b5ea254bf455</a></li>
+<li><a href="https://medium.com/elasticsearch/elasticsearch-queries-part-02-full-text-queries-e5ffe8fb3110">https://medium.com/elasticsearch/elasticsearch-queries-part-02-full-text-queries-e5ffe8fb3110</a></li>
+</ol>
+<p>Advanced</p>
+<ol>
+<li>
+<p>How many request can be handled by ELK</p>
+<ol>
+<li>The queue size (how many requests ES can accept before starting to reject</li>
+</ol>
+<p>them) defaults to 1000.</p>
+<p>b. This queue size is per thread in the threadpool.</p>
+<ol>
+<li>
+<p><strong>Calculating Request Impact on Threadpool:</strong></p>
+<ul>
+<li>The number of requests that can be handled simultaneously depends on the number of processors (cores) and shards hit by each search.</li>
+<li>For instance, if a search runs on 3 indices, each having 2 shards, there would be 6 requests in the threadpool per search.</li>
+<li>Example: Let&rsquo;s say you have two servers, each with 8 cores. That totals to 16 cores in total, resulting in 16 threads available for processing.</li>
+<li>Considering the earlier scenario of 6 requests per search, the cluster can handle 8 requests at once with the available threads.</li>
+</ul>
+</li>
+<li>
+<p><strong>Queueing and Rejection:</strong></p>
+<ul>
+<li>The cluster can still queue additional searches. It can queue roughly <strong><code>nodes * queue size / requests per search</code></strong> searches before starting to reject them.</li>
+<li>In this case: <strong><code>2 nodes * 1000 queue size / 6 requests per search = 333 searches</code></strong> can be queued before rejecting them.</li>
+</ul>
+<p>a single node for single cluster</p>
+<p>quorm system</p>
+<p>how to scale write → increase shard for index</p>
+<p>to scale the read → increase the replica</p>
+<p>when write come it will write to buffer then it will taken and written to segements (immutable) written for every 1s</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">put</span> <span class="nx">indexname</span> 
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">settings</span><span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nx">refresh_interval</span><span class="o">:</span><span class="s2">&#34;30s&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>and when write op come it put on trans log the trans log will we wipe out when the data written to segement and disk</p>
+<p>from 7.0 if we not doing any search they won’t create the segements if we do search they explictly create the segements.</p>
+<p>every update the old segement mark for deletion and it create new</p>
+<p>Storage compression</p>
+<ul>
+<li>LZ4 , Deflate</li>
+</ul>
+<p>BKD tress → to store the numbers</p>
+<p>half and scaled floats</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">POST /indexname/_doc/0/_expalin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>{<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="l">query</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">will explain why the first doc match for query</span><span class="w">
+</span></span></span></code></pre></div><p>look for</p>
+<ol>
+<li>rollup</li>
+<li>fuzziness</li>
+</ol>
+<p>Full text search</p>
+<ol>
+<li>Tokenizer → remove white space , lowercase the word, remove stop word (the,a,etc) because we not going search using this word</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">GET /analyzer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>{<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="l">analyzer:&#34;english&#34;,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="l">text:&#34;hai hello how are u&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span></code></pre></div><ol>
+<li>Steming the word</li>
+<li>Create inverted index the tokenzied word are stored in alphabetical order with ID (it uses linked list)
+<ol>
+<li>it contain how many time it occur and position</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><a href="https://engineering.zalando.com/posts/2023/11/migrating-from-elasticsearch-7-to-8-learnings.html">https://engineering.zalando.com/posts/2023/11/migrating-from-elasticsearch-7-to-8-learnings.html</a></p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/size-your-shards.html#size-your-shards">https://www.elastic.co/guide/en/elasticsearch/reference/current/size-your-shards.html#size-your-shards</a></p>
+<ol>
+<li><strong><a href="https://www.youtube.com/watch?v=b7tCjZSvOno">How Does Full-Text Search Work under the Hood by Philipp Krenn</a></strong>
+<ol>
+<li>Talks abount lucene (how sentence get stored using tokenizer)</li>
+<li>How revelence score calculated</li>
+</ol>
+</li>
+</ol>
+<p>Searching 52 indices with 1 shard each is exactly equivalent to searching one index with 52 shards. The search happens at shard level</p>
+<p><a href="https://www.elastic.co/blog/why-am-i-seeing-bulk-rejections-in-my-elasticsearch-cluster">https://www.elastic.co/blog/why-am-i-seeing-bulk-rejections-in-my-elasticsearch-cluster</a></p>
+<p><a href="https://www.elastic.co/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster">https://www.elastic.co/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster</a></p>
+<h2 id="tool">Tool</h2>
+<ol>
+<li>[<a href="https://github.com/elastic/rally">https://github.com/elastic/rally</a>](Macrobenchmarking framework for Elasticsearch</li>
+</ol>
+</li>
+</ol>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+
+    
+
+</main>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on programmerraja blog</title>
+    <link>http://localhost:1313/blog/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on programmerraja blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="http://localhost:1313/blog/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/blog/notes/2024/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>http://localhost:1313/blog/notes/2024/kubernetes/</guid>
+      
+      <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster ![[Pasted image 20240312073714.png]]
+A Kubernetes cluster contains six main components:
+API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

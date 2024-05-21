@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">RabbitMQ Notes | programmerraja blog</title>
+<meta property="og:title" content="RabbitMQ Notes | programmerraja blog" />
+<meta name="twitter:title" content="RabbitMQ Notes | programmerraja blog" />
+<meta itemprop="name" content="RabbitMQ Notes | programmerraja blog" />
+<meta name="application-name" content="RabbitMQ Notes | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2023/rabbitmq/" title="" />
+
+
+
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2023/rabbitmq/">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">RabbitMQ Notes</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-12-08T18:26:15&#43;05:30" itemprop="datePublished"> Dec 8, 2023 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#what--is-rabbitmq" aria-label="What  is RabbitMQ?">What  is RabbitMQ?</a></li>
+                <li>
+                    <a href="#channel" aria-label="Channel">Channel</a></li>
+                <li>
+                    <a href="#channel-vs-connection" aria-label="Channel vs connection">Channel vs connection</a></li>
+                <li>
+                    <a href="#exchanges" aria-label="Exchanges">Exchanges</a></li>
+                <li>
+                    <a href="#durablity" aria-label="Durablity">Durablity</a></li>
+                <li>
+                    <a href="#prefetch" aria-label="Prefetch">Prefetch</a></li>
+                <li>
+                    <a href="#amqp-connection-manager-vs-amqplib" aria-label="Amqp-connection-manager vs Amqplib">Amqp-connection-manager vs Amqplib</a></li>
+                <li>
+                    <a href="#what-are-the-best-practice-regarding-channel-and-connection" aria-label="What are the best practice regarding channel and connection">What are the best practice regarding channel and connection</a></li>
+                <li>
+                    <a href="#how-to-handle-failures" aria-label="How to Handle failures">How to Handle failures</a></li>
+                <li>
+                    <a href="#internal" aria-label="Internal">Internal</a></li>
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="what--is-rabbitmq">What  is RabbitMQ?</h2>
+<p>RabbitMQ is a popular open-source message broker that implements the AMQP (Advanced Message Queuing Protocol) standard.</p>
+<h2 id="channel">Channel</h2>
+<p>A channel is a separate communication channel within a single connection. Channels allow multiple concurrent exchanges to be executed in parallel, providing a way to separate different parts of your application.</p>
+<p>Each channel has its own set of resources, such as queues, exchanges, and bindings, which are independent of the resources used by other channels in the same connection. This allows you to manage concurrency and improve performance by isolating different parts of your application into separate channels.</p>
+<p>For example, you might create one channel for sending messages and another channel for receiving messages, or create separate channels for different types of messages or different parts of your application. By using multiple channels, you can take advantage of the scalability and performance benefits of AMQP while also making it easier to manage your application.</p>
+<h2 id="channel-vs-connection">Channel vs connection</h2>
+<p>In RabbitMQ, a connection represents a network connection to the RabbitMQ broker. When a client connects to RabbitMQ, it establishes a TCP connection to the broker. This connection remains open until the client explicitly closes it or the broker closes it due to a network error or a timeout. A connection is created using the AMQP protocol, and it is responsible for authentication, connection handling, and connection-level flow control.</p>
+<p>On the other hand, a channel is a virtual connection inside a connection that allows multiple logical connections to be multiplexed over a single physical connection. When a client establishes a connection to RabbitMQ, it can create one or more channels inside that connection. Each channel is a separate AMQP session that can be used to publish or consume messages, declare queues and exchanges, and bind queues to exchanges.</p>
+<p>The main difference between a connection and a channel is that a connection represents a physical connection to the broker, whereas a channel represents a logical connection within that physical connection. Channels allow multiple AMQP operations to be multiplexed over a single network connection, which can help reduce the overhead of establishing multiple network connections.</p>
+<p>In summary, a connection in RabbitMQ represents a physical network connection to the broker, while a channel represents a logical connection within that physical connection, allowing multiple AMQP operations to be multiplexed over a single network connection.</p>
+<h2 id="exchanges">Exchanges</h2>
+<p>In RabbitMQ, an exchange is a message routing agent that receives messages from producers and routes them to queues based on message properties such as the routing key. When a producer sends a message to an exchange, it is up to the exchange to route the message to one or more queues.</p>
+<p>There are four types of exchanges in RabbitMQ:</p>
+<ol>
+<li>
+<p><code>Direct exchange</code>: Messages are routed to queues based on the exact match between the routing key of the message and the routing key of the queue.</p>
+</li>
+<li>
+<p><code>Fanout exchange</code>: Messages are routed to all the queues bound to the exchange. It ignores the routing key and sends messages to all the queues that are bound to the exchange.</p>
+</li>
+<li>
+<p><code>Topic exchange</code>: Messages are routed to queues based on pattern matching between the routing key of the message and the routing key of the queue. It uses wildcards to match the routing key.</p>
+</li>
+<li>
+<p><code>Headers exchange</code>: Messages are routed to queues based on header values instead of routing keys. It is rarely used, and its functionality is similar to the topic exchange.</p>
+</li>
+<li>
+<p><code>x-delayed-message</code> → is a custom exchange type in RabbitMQ that allows you to delay messages before they are delivered to a queue. This exchange type is not included in RabbitMQ by default and must be installed as a plugin.</p>
+<p>When you create an <strong><code>x-delayed-message</code></strong> exchange, you can set a delay time for messages using the <strong><code>x-delay</code></strong> header. The exchange will hold the message for the specified delay time and then deliver it to the appropriate queue. This is useful in scenarios where you want to delay the delivery of a message until a certain time or after a certain event has occurred.</p>
+</li>
+</ol>
+<p>Example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">amqp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;amqplib&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">setup</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Connect to RabbitMQ
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">connection</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">amqp</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">&#39;amqp://localhost&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">channel</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">connection</span><span class="p">.</span><span class="nx">createChannel</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Install the delayed message exchange plugin (if necessary)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">await</span> <span class="nx">channel</span><span class="p">.</span><span class="nx">assertExchange</span><span class="p">(</span><span class="s1">&#39;amq.delayed&#39;</span><span class="p">,</span> <span class="s1">&#39;x-delayed-message&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">durable</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">arguments</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="s1">&#39;x-delayed-type&#39;</span><span class="o">:</span> <span class="s1">&#39;direct&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Create the queue and bind it to the delayed message exchange
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">queueName</span> <span class="o">=</span> <span class="s1">&#39;my-queue&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">routingKey</span> <span class="o">=</span> <span class="s1">&#39;my-routing-key&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">await</span> <span class="nx">channel</span><span class="p">.</span><span class="nx">assertQueue</span><span class="p">(</span><span class="nx">queueName</span><span class="p">,</span> <span class="p">{</span> <span class="nx">durable</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">await</span> <span class="nx">channel</span><span class="p">.</span><span class="nx">bindQueue</span><span class="p">(</span><span class="nx">queueName</span><span class="p">,</span> <span class="s1">&#39;amq.delayed&#39;</span><span class="p">,</span> <span class="nx">routingKey</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Consumer function to handle incoming messages
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">consumerFunction</span> <span class="o">=</span> <span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Received message: </span><span class="si">${</span><span class="nx">msg</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">channel</span><span class="p">.</span><span class="nx">ack</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Consume messages from the queue
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">channel</span><span class="p">.</span><span class="nx">consume</span><span class="p">(</span><span class="nx">queueName</span><span class="p">,</span> <span class="nx">consumerFunction</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Producer function to send messages with a delay
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">producerFunction</span> <span class="o">=</span> <span class="kr">async</span> <span class="p">(</span><span class="nx">message</span><span class="p">,</span> <span class="nx">delayMs</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;x-delay&#39;</span><span class="o">:</span> <span class="nx">delayMs</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">await</span> <span class="nx">channel</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;amq.delayed&#39;</span><span class="p">,</span> <span class="nx">routingKey</span><span class="p">,</span> <span class="nx">buffer</span><span class="p">,</span> <span class="p">{</span> <span class="nx">headers</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Sent message &#34;</span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">&#34; with delay of </span><span class="si">${</span><span class="nx">delayMs</span><span class="si">}</span><span class="sb">ms`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Send some messages with a delay
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">await</span> <span class="nx">producerFunction</span><span class="p">(</span><span class="s1">&#39;Hello World!&#39;</span><span class="p">,</span> <span class="mi">5000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">await</span> <span class="nx">producerFunction</span><span class="p">(</span><span class="s1">&#39;Delayed message!&#39;</span><span class="p">,</span> <span class="mi">10000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">setup</span><span class="p">();</span>
+</span></span></code></pre></div><p><strong>Application of Exchange</strong></p>
+<p>Let&rsquo;s say you have a distributed system that consists of multiple microservices. Each microservice has its own queue, and they communicate with each other through messaging.</p>
+<p>When a microservice wants to send a message to another microservice, it can publish the message to an exchange instead of directly sending it to the other microservice&rsquo;s queue. The exchange is responsible for routing the message to the appropriate queue based on the message&rsquo;s routing key.</p>
+<p>For example, let&rsquo;s say you have a microservice that handles user authentication, and another microservice that handles user orders. When a user logs in, the authentication microservice can publish a message to the exchange with a routing key of &ldquo;user.login&rdquo;. The exchange can then route this message to the order microservice&rsquo;s queue, which is bound to the exchange with a matching routing key.</p>
+<p>If you didn&rsquo;t use an exchange, the authentication microservice would have to know the exact name of the order microservice&rsquo;s queue and send the message directly to that queue. This would tightly couple the microservices and make it harder to make changes to the system in the future.</p>
+<p>By using an exchange, you can create a loosely coupled system where microservices don&rsquo;t need to know about each other&rsquo;s queues. This makes it easier to add new microservices or change the routing rules of messages without affecting other parts of the system.</p>
+<h2 id="durablity">Durablity</h2>
+<p>RabbitMQ provides durability by persisting messages and metadata to disk. This ensures that messages are not lost in case of a server failure.if it durable to true it will presist if we set false it will not until it reach threshold</p>
+<h2 id="prefetch">Prefetch</h2>
+<p>RabbitMQ uses prefetch to control the amount of messages a consumer can consume at once. Prefetch specifies the number of unacknowledged messages that can be in-flight before the broker stops delivering more messages to the consumer. This avoids overloading a consumer with too many messages at once.</p>
+<h2 id="amqp-connection-manager-vs-amqplib">Amqp-connection-manager vs Amqplib</h2>
+<p>amqp-connection-manager and amqplib are both Node.js libraries for working with RabbitMQ, but they have different purposes and use cases.</p>
+<p>amqplib is a low-level RabbitMQ client library that provides a thin wrapper around the RabbitMQ API. It allows you to send and receive messages, create and manage exchanges and queues, and interact with other RabbitMQ features. amqplib provides a direct and flexible interface to RabbitMQ, and is a good choice if you need complete control over your RabbitMQ interactions.</p>
+<p>amqp-connection-manager, on the other hand, is a higher-level library that provides connection management and channel pooling. It uses amqplib under the hood, but adds features like connection retry, connection throttling, and automatic channel recovery. amqp-connection-manager is a good choice if you want to simplify your RabbitMQ code and reduce the chance of connection errors, or if you need to handle multiple connections and channels.</p>
+<p>In general, if you need fine-grained control over your RabbitMQ interactions, or if you have a small number of connections and channels, amqplib is a good choice. If you have a large number of connections and channels, or if you want to simplify your RabbitMQ code and reduce the chance of connection errors, amqp-connection-manager is a better choice.</p>
+<h2 id="what-are-the-best-practice-regarding-channel-and-connection">What are the best practice regarding channel and connection</h2>
+<ol>
+<li>Use a single connection per application instance: It&rsquo;s a good practice to use a single connection for an entire application instance. Creating multiple connections can lead to resource wastage, and can make it difficult to manage and monitor connections.</li>
+<li>Use a connection pool: Creating and closing connections can be expensive, so it&rsquo;s recommended to use a connection pool. Connection pools can be used to manage the number of connections and can help improve performance.</li>
+<li>Use a separate channel for each thread: When creating a multithreaded application, use a separate channel for each thread instead of sharing a single channel. Sharing a single channel between threads can lead to contention issues and can cause the application to become unstable.</li>
+<li>Close channels when they&rsquo;re no longer needed: It&rsquo;s a good practice to close channels when they&rsquo;re no longer needed. This helps to reduce the number of open channels and frees up resources.</li>
+<li>Use a lightweight protocol: RabbitMQ provides AMQP, which is a lightweight protocol that is designed for message queuing. Using a lightweight protocol can help improve performance and reduce the overhead of managing connections and channels.</li>
+<li>Use transactional channels: When sending multiple messages, it&rsquo;s a good practice to use transactional channels. This ensures that all messages are either sent successfully or not sent at all.</li>
+<li>Use a connection heartbeat: RabbitMQ provides a connection heartbeat mechanism that can be used to detect network failures. It&rsquo;s a good practice to use connection heartbeat to ensure that the application can recover from network failures.</li>
+<li>Use connection and channel events: RabbitMQ provides connection and channel events that can be used to monitor and manage connections and channels. Using these events can help improve the reliability and performance of the application.</li>
+</ol>
+<h2 id="how-to-handle-failures">How to Handle failures</h2>
+<p>If we want to retry if the consumer get failed when processing the data we can have 2 way
+1. nack
+2. reject</p>
+<p><strong>Difference between them</strong></p>
+<p>The main difference between nack (negative acknowledgement) and reject in RabbitMQ is how they handle message rejection and requeuing:</p>
+<ol>
+<li>
+<p><code>nack</code> (channel.nack):</p>
+<ul>
+<li><code>nack</code> is used to negatively acknowledge a message and reject it.</li>
+<li>It allows you to control whether the message should be requeued or discarded.</li>
+<li>The method signature is <code>channel.nack(message, allUpTo, requeue)</code>.</li>
+<li>The <code>message</code> parameter represents the message being rejected.</li>
+<li>The <code>allUpTo</code> parameter is a boolean that indicates whether all unacknowledged messages prior to the given message should also be rejected.</li>
+<li>The <code>requeue</code> parameter is a boolean that determines whether the rejected message should be requeued or discarded.</li>
+<li>With <code>channel.nack</code>, you have more control over requeuing behavior and can choose whether to discard the message or requeue it for retry.</li>
+</ul>
+</li>
+<li>
+<p><code>reject</code> (channel.reject):</p>
+<ul>
+<li><code>reject</code> is used to reject a message without acknowledging it.</li>
+<li>When a message is rejected using <code>reject</code>, it can optionally be requeued based on the <code>requeue</code> parameter.</li>
+<li>The method signature is <code>channel.reject(message, requeue)</code>.</li>
+<li>The <code>message</code> parameter represents the message being rejected.</li>
+<li>The <code>requeue</code> parameter is a boolean that determines whether the rejected message should be requeued or discarded.</li>
+<li>By default, if <code>requeue</code> is set to <code>true</code>, the message will be requeued for future delivery. If set to <code>false</code>, the message will be discarded.</li>
+</ul>
+</li>
+</ol>
+<p>In summary, nack provides more flexibility by allowing you to explicitly control requeuing behavior (requeue or discard), whereas reject gives you the option to requeue the message based on the requeue parameter. Both methods can be used to handle message rejection and retry scenarios in RabbitMQ, depending on your specific requirements.</p>
+<p>Rabbitmq simulator tool to playaround with it</p>
+<h2 id="internal">Internal</h2>
+<p>Protocol : AMQP</p>
+<p>Blog</p>
+<ol>
+<li>how does elrang does  scheduling</li>
+</ol>
+<h2 id="resources">Resources</h2>
+<ol>
+<li><a href="https://www.cloudamqp.com/blog/part1-rabbitmq-best-practice.html">https://www.cloudamqp.com/blog/part1-rabbitmq-best-practice.html</a></li>
+<li><a href="https://www.cloudamqp.com/blog/part2-rabbitmq-best-practice-for-high-performance.html">https://www.cloudamqp.com/blog/part2-rabbitmq-best-practice-for-high-performance.html</a></li>
+<li><a href=""> What we learned form running 1k queue Cloudamp</a>
+<ol>
+<li>Keep connection and channle as low as possible</li>
+<li>seprate connection for pub and consume4</li>
+<li>dont have too large queue 10k msg</li>
+<li>Enable lazy queue (loaded on ram when needed)</li>
+<li>rabbitmq sharding</li>
+<li>limited use on priroity queue</li>
+<li>adjust prefetch (cloudampq default 1k )</li>
+</ol>
+</li>
+<li><a href="%5Bhttps://medium.com/@upadhyayyuvi/building-a-reliable-message-queue-system-with-rabbitmq-and-node-js-step-by-step-guide-275e026d2090%5D(https://medium.com/@upadhyayyuvi/building-a-reliable-message-queue-system-with-rabbitmq-and-node-js-step-by-step-guide-275e026d2090)">Explain basic and how to handle error case</a></li>
+<li><a href="https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html">https://www.cloudamqp.com/blog/when-to-use-rabbitmq-or-apache-kafka.html</a></li>
+<li><a href="https://youtu.be/HzPOQsMWrGQ">https://youtu.be/HzPOQsMWrGQ</a></li>
+</ol>
+<p><a href="https://github.com/sensu-plugins/sensu-plugins-rabbitmq">https://github.com/sensu-plugins/sensu-plugins-rabbitmq</a></p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+
+    
+
+</main>
+    </body>
+</html>

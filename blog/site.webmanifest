@@ -1,7 +1,7 @@
 {
-    "name": "My Blog",
-    "short_name": "My Blog",
-    "start_url": "https://programmerraja.github.io/blog/",
+    "name": "programmerraja blog",
+    "short_name": "programmerraja blog",
+    "start_url": "http://localhost:1313/blog/",
     "theme_color": "#434648",
     "background_color": "#ffffff",
     "display": "standalone",

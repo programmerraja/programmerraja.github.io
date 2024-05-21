@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Software Architecture and Decision-Making | programmerraja blog</title>
+<meta property="og:title" content="Software Architecture and Decision-Making | programmerraja blog" />
+<meta name="twitter:title" content="Software Architecture and Decision-Making | programmerraja blog" />
+<meta itemprop="name" content="Software Architecture and Decision-Making | programmerraja blog" />
+<meta name="application-name" content="Software Architecture and Decision-Making | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/software-architecture-and-decision-making/" title="" />
+
+
+
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/software-architecture-and-decision-making/">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Software Architecture and Decision-Making</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-01-22T08:19:32&#43;05:30" itemprop="datePublished"> Jan 22, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#book-core-concepts" aria-label="Book Core concepts">Book Core concepts</a></li>
+                <li>
+                    <a href="#books-for-leadership" aria-label="Books for leadership">Books for leadership</a></li>
+                <li>
+                    <a href="#understanding-systems-design-and-architecture" aria-label="Understanding Systems, Design, and Architecture">Understanding Systems, Design, and Architecture</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#how-to-design-a-system" aria-label="How to Design a System">How to Design a System</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#mental-models-for-understanding-and-explaining-system-performance" aria-label="Mental Models for Understanding and Explaining System Performance">Mental Models for Understanding and Explaining System Performance</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#optimization-techniques" aria-label="Optimization Techniques">Optimization Techniques</a><ul>
+                        
+                <li>
+                    <a href="#cpu-optimization-techniques" aria-label="CPU Optimization Techniques">CPU Optimization Techniques</a></li>
+                <li>
+                    <a href="#io-optimization-techniques" aria-label="I/O Optimization Techniques">I/O Optimization Techniques</a></li></ul>
+                </li>
+                <li>
+                    <a href="#memory-optimization-techniques" aria-label="Memory Optimization Techniques">Memory Optimization Techniques</a></li>
+                <li>
+                    <a href="#latency-optimization-techniques" aria-label="Latency Optimization Techniques">Latency Optimization Techniques</a></li>
+                <li>
+                    <a href="#cpu-utilization-is-wrong" aria-label="CPU Utilization is Wrong">CPU Utilization is Wrong</a></li>
+                <li>
+                    <a href="#the-use-method" aria-label="The USE Method">The USE Method</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#understanding-user-experience-ux" aria-label="Understanding User Experience (UX)">Understanding User Experience (UX)</a></li>
+                <li>
+                    <a href="#macro-architecture" aria-label="Macro Architecture">Macro Architecture</a></li>
+                <li>
+                    <a href="#macro-architecture-coordination" aria-label="Macro Architecture: Coordination">Macro Architecture: Coordination</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#drive-flow-from-the-client" aria-label="Drive flow from the client">Drive flow from the client</a></li>
+                <li>
+                    <a href="#another-service" aria-label="Another service">Another service</a></li>
+                <li>
+                    <a href="#implement-choreography" aria-label="Implement Choreography">Implement Choreography</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#macro-architecture-preserving-consistency-of-state" aria-label="Macro Architecture: Preserving Consistency of State">Macro Architecture: Preserving Consistency of State</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#two-phase-commit-protocol" aria-label="Two-phase commit protocol">Two-phase commit protocol</a></li>
+                <li>
+                    <a href="#approaches-to-going-beyond-transactions" aria-label="Approaches to going beyond transactions">Approaches to going beyond transactions</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#macro-architecture-handling-security" aria-label="Macro Architecture: Handling Security">Macro Architecture: Handling Security</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#interaction-security" aria-label="Interaction Security">Interaction Security</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#macro-architecture-handling-high-availability-and-scale" aria-label="Macro Architecture: Handling High Availability and Scale">Macro Architecture: Handling High Availability and Scale</a></li>
+                <li>
+                    <a href="#macro-architecture-microservices-considerations" aria-label="Macro Architecture: Microservices Considerations">Macro Architecture: Microservices Considerations</a></li>
+                <li>
+                    <a href="#server-architectures" aria-label="Server Architectures">Server Architectures</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#service-architecture" aria-label="Service Architecture">Service Architecture</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#building-stable-systems" aria-label="Building Stable Systems">Building Stable Systems</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#handling-unexpected-load" aria-label="Handling Unexpected Load">Handling Unexpected Load</a></li>
+                <li>
+                    <a href="#handling-human-changes" aria-label="Handling Human Changes">Handling Human Changes</a></li>
+                <li>
+                    <a href="#handle-unknown-errors" aria-label="Handle Unknown Errors">Handle Unknown Errors</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#building-and-evolving-the-systems" aria-label="Building and Evolving the Systems">Building and Evolving the Systems</a></li>
+                <li>
+                    <a href="#my-learnings" aria-label="My Learnings">My Learnings</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="book-core-concepts">Book Core concepts</h2>
+<p>It explains principles and concepts I believe a senior architect must understand deeply and discusses how to employ those principles to manage uncertainty</p>
+<h2 id="books-for-leadership">Books for leadership</h2>
+<ul>
+<li>The Hard Things About Hard Things by Ben Horowitz,</li>
+<li>Trillion Dollar Coach by Eric Schmidt et al.,</li>
+<li>Team of Teams:</li>
+<li>New Rules of Engagement for a Complex World by Stanley McChrystal</li>
+<li>Good Strategy, Bad Strategy by Richard Rumel</li>
+</ul>
+<p>Three layers of architecture of The Open Group Architecture Framework (TOGAF)</p>
+<p><strong>Two prominent approaches to system architecture:</strong></p>
+<ol>
+<li><strong>Waterfall</strong> -&gt;identify the system’s requirements in full detail beforehand and start building</li>
+<li><strong>Agile</strong> -&gt; Iterative way (collaborating with users to refine requirements and construct a system that can genuinely benefit the user)</li>
+</ol>
+<h2 id="understanding-systems-design-and-architecture">Understanding Systems, Design, and Architecture</h2>
+<p>When writing a cloud app, we have two choices: We can choose a single cloud, taking advantage of its unique strengths for our application, or we can make the application portable across several cloud providers</p>
+<h4 id="how-to-design-a-system">How to Design a System</h4>
+<p>Five questions and 7 Principles to understand the context of system we building</p>
+<ol>
+<li>When is the best time to market?
+<ul>
+<li>If the feature need to go urgent becasue of market urgent. we can design the way simple and fast. and we also ready to re-write it.</li>
+</ul>
+</li>
+<li>What is the skill level of the team?</li>
+<li>What is our system’s performance sensitivity?</li>
+<li>When can we rewrite the system?</li>
+<li>What are the hard problems?</li>
+</ol>
+<p>Seven principles</p>
+<ol>
+<li>Drive everything from the user’s journey.</li>
+<li>Use an iterative thin slice strategy
+<ul>
+<li>Unless you have a specific reason, always start with simple architectural choices. Measure the system, find the bottlenecks, and improve the system later.</li>
+</ul>
+</li>
+<li>On each iteration, add the most value for the least effort to support more users</li>
+<li>Make decisions and absorb the risks</li>
+<li>Design deeply things that are hard to change but implement them slowly</li>
+<li>Eliminate the unknowns and learn from the evidence by working on hard problems early and in parallel</li>
+<li>Understand the trade-offs between cohesion and flexibility in the software architecture</li>
+</ol>
+<h2 id="mental-models-for-understanding-and-explaining-system-performance">Mental Models for Understanding and Explaining System Performance</h2>
+<p>Eight mental models that help us think about and understand performance</p>
+<ol>
+<li>Cost of Switching to the Kernel Mode from the User Mode
+<ul>
+<li>Every time anapplication enters kernel mode, a context switch occurs, which adds nonessential costs to the system, such as time to save the stack and to rest the cache. To improve performance, we need to reduce the number of system calls.</li>
+</ul>
+</li>
+<li>Operations Hierarchy</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Time/Speed (Example)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>L1 Cache Reference</td>
+<td>0.5 ns</td>
+<td>Accessing data from Level 1 cache in the CPU.</td>
+</tr>
+<tr>
+<td>L2 Cache Reference</td>
+<td>7 ns</td>
+<td>Accessing data from Level 2 cache in the CPU.</td>
+</tr>
+<tr>
+<td>L3 Cache Reference</td>
+<td>20 ns</td>
+<td>Accessing data from Level 3 cache in the CPU.</td>
+</tr>
+<tr>
+<td>Main Memory (RAM) Access</td>
+<td>100 ns</td>
+<td>Retrieving data from the system&rsquo;s RAM.</td>
+</tr>
+<tr>
+<td>SSD Storage Access</td>
+<td>1,000,000 ns (1 ms)</td>
+<td>Accessing data from Solid State Drive (SSD).</td>
+</tr>
+<tr>
+<td>HDD Storage Access</td>
+<td>10,000,000 ns (10 ms)</td>
+<td>Accessing data from Hard Disk Drive (HDD).</td>
+</tr>
+<tr>
+<td>Network Packet Round Trip (US to India)</td>
+<td>150,000,000 ns (150 ms)</td>
+<td>Sending a packet from the US to India and receiving the acknowledgment.</td>
+</tr>
+<tr>
+<td>CPU Processing (Instruction)</td>
+<td>0.2 ns per instruction</td>
+<td>Executing a single CPU instruction.</td>
+</tr>
+<tr>
+<td>GPU Processing (Parallel)</td>
+<td>50 ns per parallel task</td>
+<td>Executing parallel tasks on a Graphics Processing Unit (GPU).</td>
+</tr>
+<tr>
+<td>PCIe Data Transfer (Device to CPU)</td>
+<td>2,000 ns (2 us)</td>
+<td>Transferring data between a peripheral device and the CPU via PCIe.</td>
+</tr>
+<tr>
+<td>Context Switch (Kernel)</td>
+<td>1,000 ns (1 us)</td>
+<td>Switching between different processes in the kernel.</td>
+</tr>
+<tr>
+<td>RAM-to-Cache Transfer</td>
+<td>20 ns</td>
+<td>Copying data from RAM to cache in the CPU.</td>
+</tr>
+<tr>
+<td>Database Query (Local)</td>
+<td>10,000,000 ns (10 ms)</td>
+<td>Executing a database query on a local server.</td>
+</tr>
+<tr>
+<td>Database Query (Remote)</td>
+<td>50,000,000 ns (50 ms)</td>
+<td>Executing a database query on a remote server.</td>
+</tr>
+<tr>
+<td>System Call (Linux)</td>
+<td>1,000 ns (1 us)</td>
+<td>Initiating a system call in a Linux environment.</td>
+</tr>
+<tr>
+<td>I/O Operation (Disk Write)</td>
+<td>10,000 ns (10 us)</td>
+<td>Writing data to a disk.</td>
+</tr>
+<tr>
+<td>I/O Operation (Network Send)</td>
+<td>1,000,000 ns (1 ms)</td>
+<td>Sending data over a network.</td>
+</tr>
+<tr>
+<td>I/O Operation (Network Receive)</td>
+<td>1,000,000 ns (1 ms)</td>
+<td>Receiving data over a network.</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>Context Switching Overhead
+<ul>
+<li>Switching processes adds an overhead cost of about 5–7 microseconds</li>
+</ul>
+</li>
+<li>Amdahl’s Law
+<ul>
+<li>is used to predict speed up of a task execution time when it’s scaled to run on multiple processors. It simply states that the maximum speed up will be limited by the serial fraction of the task execution as it will create resource contention.</li>
+<li><code>one woman nine months to make one baby, “nine women can’t make a baby in one month</code></li>
+<li>Assume if have 3 thread that doing a single task  it take 2 sec but the most of the time will spend on maintining the 3 thread and resources sharing</li>
+<li>Parellel process are efficient when they are independ</li>
+</ul>
+</li>
+<li>Universal Scalability Law
+<ul>
+<li>says that actual speedup is even worse than Amdahl’s law due to shared variables. USL defines a new parameter coherency, which is the overhead added by communication between multiple processes, threads, or nodes.</li>
+</ul>
+</li>
+<li>Latency and Utilization Trade-offs
+<ul>
+<li>Only a single thread can use the most resources at a given time, which forces threads to wait and take turns</li>
+</ul>
+</li>
+<li>Designing for Throughput with the Maximal Useful  Utilization (MUU) Model</li>
+<li>Adding Latency Limits</li>
+</ol>
+<h4 id="optimization-techniques">Optimization Techniques</h4>
+<p>To optimize, we need to decide where the bottlenecks are. Bottlenecks usually come in one of three forms:</p>
+<ul>
+<li>One of the resources (e.g., CPU, I/O, or memory) is the
+bottleneck.</li>
+<li>Thread models are causing critical resources to be idle.</li>
+<li>Resources are wasted on nonessential tasks (e.g., context
+switches, GC).</li>
+</ul>
+<h5 id="cpu-optimization-techniques">CPU Optimization Techniques</h5>
+<ul>
+<li>Optimize Individual Tasks</li>
+<li>Optimize Memory</li>
+<li>Maximize CPU Utilization</li>
+</ul>
+<h5 id="io-optimization-techniques">I/O Optimization Techniques</h5>
+<ul>
+<li>Avoid I/O (use a cache)</li>
+<li>Buffering</li>
+<li>Send Early, Receive Late, Don’t Ask but Tell</li>
+<li>Prefetching</li>
+<li>Append-Only Processing (Kafka)</li>
+</ul>
+<h4 id="memory-optimization-techniques">Memory Optimization Techniques</h4>
+<ul>
+<li>Too Many Cache Misses</li>
+</ul>
+<h4 id="latency-optimization-techniques">Latency Optimization Techniques</h4>
+<ul>
+<li>Do Work in Parallel</li>
+<li>Reduce I/O</li>
+</ul>
+<h4 id="cpu-utilization-is-wrong">CPU Utilization is Wrong</h4>
+<ul>
+<li>CPU utilization is a metric that measures the percentage of time the CPU spends executing non-idle tasks. It doesn&rsquo;t necessarily mean the CPU is busy with computation; it&rsquo;s more about the time the CPU is not running the idle thread.</li>
+<li>The idle thread is a special task that runs when the CPU has no other tasks to perform. The operating system kernel tracks CPU utilization during context switches.</li>
+<li>So  high %CPU to mean that the processing unit is the bottleneck, which is wrong because CPU is capable of doing the process it may wait for I/O or something .</li>
+<li><code>Source: https://opensource.com/article/18/4/cpu-utilization-wrong</code></li>
+</ul>
+<h4 id="the-use-method">The USE Method</h4>
+<p>The Utilization Saturation and Errors (USE) Method is a methodology for analyzing the performance of any system</p>
+<p><code>For every resource, check utilization, saturation, and errors.</code></p>
+<ul>
+<li><strong>resource</strong>: all physical server functional components (CPUs, disks, busses, &hellip;)</li>
+<li><strong>utilization</strong>: the average time that the resource was busy servicing work</li>
+<li><strong>saturation</strong>: the degree to which the resource has extra work which it can&rsquo;t service, often queued</li>
+<li><strong>errors</strong>: the count of error events
+Refer</li>
+</ul>
+<ol>
+<li><a href="https://fs.blog/mental-models/">https://fs.blog/mental-models/</a></li>
+<li><a href="http://highscalability.com/blog/2012/5/16/big-list-of-20-common-bottlenecks.html">http://highscalability.com/blog/2012/5/16/big-list-of-20-common-bottlenecks.html</a></li>
+<li><a href="https://opensource.com/article/18/4/cpu-utilization-wrong">https://opensource.com/article/18/4/cpu-utilization-wrong</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queueing_theory">https://en.wikipedia.org/wiki/Queueing_theory</a></li>
+<li><a href="https://www.brendangregg.com/usemethod.html">https://www.brendangregg.com/usemethod.html</a> [bottleneck]</li>
+<li><a href="https://medium.freecodecamp.org/what-makes-apache-kafka-so-fast-a8d4f94ab145">https://medium.freecodecamp.org/what-makes-apache-kafka-so-fast-a8d4f94ab145</a></li>
+<li>An Analysis of Web Servers Architectures Performances on Commodity Multicore <a href="https://hal.inria.fr/hal-00674475/document">https://hal.inria.fr/hal-00674475/document</a></li>
+<li><a href="https://ocw.mit.edu/courses/6-851-advanced-data-structures-spring-2012/video_galleries/lecture-videos/">https://ocw.mit.edu/courses/6-851-advanced-data-structures-spring-2012/video_galleries/lecture-videos/</a></li>
+</ol>
+<h2 id="understanding-user-experience-ux">Understanding User Experience (UX)</h2>
+<p>Few concepts or principles that help us to design a good UX.</p>
+<ul>
+<li>Understand the Users</li>
+<li>Do as Little as Possible</li>
+<li>Good Products Do Not Need a Manual: Its Use Is Self-Evident</li>
+<li>Think in Terms of Information Exchange
+<ul>
+<li>Users come to our system to get something done. The faster they can find what they need to do and do it, the happier they will be. If we can provide that UX without asking them anything, that’s even better.</li>
+</ul>
+</li>
+<li>Make Simple Things Simple</li>
+<li>Design UX Before Implementation</li>
+</ul>
+<p><code>Note:</code> having UX expertise on the team is a must</p>
+<h2 id="macro-architecture">Macro Architecture</h2>
+<p>Spliting for serivce is macro Architecture.</p>
+<p>Macro Architectural Building Blocks are</p>
+<ul>
+<li>Data Management  (DB,)</li>
+<li>Routers and Messaging (API Gateway,loadbalancer,message broker)</li>
+<li>Executors (Actual server)</li>
+<li>Security</li>
+<li>Communication (Distributed hash tables,Gossip architectures,Tree of responsibility patterns)</li>
+</ul>
+<h2 id="macro-architecture-coordination">Macro Architecture: Coordination</h2>
+<h4 id="drive-flow-from-the-client">Drive flow from the client</h4>
+<p>Call All API calls to service from client</p>
+<h4 id="another-service">Another service</h4>
+<p>Have seprate service which will cordinate with other and return the result.</p>
+<h4 id="implement-choreography">Implement Choreography</h4>
+<p>Event driven system, where each participant in the process listens to different events and carries out their individual part. Each action generates asynchronous events, which trigger participants downstream</p>
+<p>Refer</p>
+<ol>
+<li><a href="https://www.thoughtworks.com/insights/blog/scaling-microservices-event-stream">https://www.thoughtworks.com/insights/blog/scaling-microservices-event-stream</a></li>
+</ol>
+<h2 id="macro-architecture-preserving-consistency-of-state">Macro Architecture: Preserving Consistency of State</h2>
+<h4 id="two-phase-commit-protocol">Two-phase commit protocol</h4>
+<h4 id="approaches-to-going-beyond-transactions">Approaches to going beyond transactions</h4>
+<ol>
+<li>
+<p>Redefining the Problem to Require Lesser Guarantees</p>
+<ul>
+<li>Figure out a way to resolve complex situations.</li>
+<li>Provide a button for users to forcefully refresh the page if they can tell that it is outdated</li>
+</ul>
+</li>
+<li>
+<p>Using Compensations</p>
+<ul>
+<li>Starbucks <code>Does Not Use Two-Phase Commit</code></li>
+<li>The key idea is that if an action fails, you can compensate.</li>
+<li>Use compenstations if below 3 have statisfy
+<ol>
+<li>Each individual operation can be verified.</li>
+<li>The operation is idempotent. If we repeat the operation with the same data, no additional side effects occur.</li>
+<li>We can handle the failure or take compensative actions</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p>Refer</p>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Consistency_model#Client-centric_consistency_models">https://en.wikipedia.org/wiki/Consistency_model#Client-centric_consistency_models</a></li>
+<li><a href="http://www.allthingsdistributed.com/2007/12/eventually_consistent.html">http://www.allthingsdistributed.com/2007/12/eventually_consistent.html</a></li>
+<li><a href="https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html">https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html</a> [Must need to check and he suggest one book need to check]</li>
+<li>[Life Beyond Distributed Transactions: An Apostate’s Opinion] <a href="https://queue.acm.org/detail.cfm?id=3025012">https://queue.acm.org/detail.cfm?id=3025012</a></li>
+<li><a href="https://etcd.io/">https://etcd.io/</a>  []</li>
+</ol>
+<h2 id="macro-architecture-handling-security">Macro Architecture: Handling Security</h2>
+<h4 id="interaction-security">Interaction Security</h4>
+<p><strong>Authentication Techniques</strong></p>
+<ol>
+<li><a href="https://github.com/ory/keto">https://github.com/ory/keto</a>.</li>
+</ol>
+<h2 id="macro-architecture-handling-high-availability-and-scale">Macro Architecture: Handling High Availability and Scale</h2>
+<p>Before going to scale the system to N Do the POC of single system capacity how much they can handle and if possible can tweak that to improve performance.</p>
+<p>There are four tactics (techniques) to keep communication low, and they help us scale.</p>
+<ol>
+<li>Share Nothing</li>
+<li>Distribution</li>
+<li>Caching</li>
+<li>Async Processing</li>
+</ol>
+<p>Refer</p>
+<ol>
+<li>Scalability! But at What COST? (<a href="https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf">https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf</a>)</li>
+</ol>
+<h2 id="macro-architecture-microservices-considerations">Macro Architecture: Microservices Considerations</h2>
+<p>Microservices let us split the structure into many loosely connected parts that can be developed, released, improved, and managed independently.</p>
+<p>The decisions to make before going microservice</p>
+<ol>
+<li>
+<p>Handling Shared Database(s)</p>
+<ul>
+<li>Each microservice should have its own database, and two microservices must not share data via the same database. This rule removes a common cause that leads to tight coupling between services</li>
+<li>If we want to share then make sure only one Service do update to avoid data reduntency</li>
+<li>Use transaction if we want both service to update</li>
+</ul>
+</li>
+<li>
+<p>Securing Microservices</p>
+</li>
+<li>
+<p>Coordinating Microservices</p>
+</li>
+<li>
+<p>Avoiding Dependency Hell</p>
+<ul>
+<li>One service depolyment not to break other service if we have dependency use <strong>Backward Compatibility</strong> or <strong>Forward Compatibility</strong></li>
+<li><strong>Backward Compatibility:</strong> If we have updated the API to v2 which will accpet query params but make sure that API support without query params that&rsquo;s how before it work&rsquo;s.</li>
+<li><strong>Forward Compatibility:</strong> If V2 not working try V1 (it just temporary solution)</li>
+<li>Avoid dependency hell by <code>Be conservative in what you do, be liberal in what you accept from others</code></li>
+</ul>
+</li>
+</ol>
+<p>Refer</p>
+<ol>
+<li><a href="http://martinfowler.com/articles/microservices.html">http://martinfowler.com/articles/microservices.html</a></li>
+<li><a href="http://martinfowler.com/articles/microservice-trade-offs.html">http://martinfowler.com/articles/microservice-trade-offs.html</a></li>
+<li><a href="http://martinfowler.com/bliki/MicroservicePremium.html">http://martinfowler.com/bliki/MicroservicePremium.html</a></li>
+<li><a href="https://cramonblog.wordpress.com/2014/02/25/micro-services-its-not-only-the-size-that-matters-its-also-how-you-use-them-part-1/">https://cramonblog.wordpress.com/2014/02/25/micro-services-its-not-only-the-size-that-matters-its-also-how-you-use-them-part-1/</a></li>
+<li><a href="https://www.infoq.com/news/2015/06/taming-dependency-hell/">https://www.infoq.com/news/2015/06/taming-dependency-hell/</a></li>
+<li><a href="https://news.ycombinator.com/item?id=9705098">https://news.ycombinator.com/item?id=9705098</a></li>
+</ol>
+<h2 id="server-architectures">Server Architectures</h2>
+<p>some guidelines for writing efficient and simple services</p>
+<ul>
+<li>Do not reinvent the wheel</li>
+<li>Use pools to reuse complex objects (need to see how moongose have pool of connections what they doing)</li>
+<li>Make service operations idempotent whenever possible</li>
+</ul>
+<h4 id="service-architecture">Service Architecture</h4>
+<ul>
+<li>Thread-per-Request Architecture</li>
+<li>Event-Driven (Nonblocking) Architecture</li>
+<li>Staged Event-Driven Architecture (SEDA)</li>
+</ul>
+<p>classification of applications based on their resource usage</p>
+<ul>
+<li>CPU-bound applications (CPU &raquo; Memory and no I/O)</li>
+<li>Memory-bound applications (CPU + Bound Memory and no I/O)</li>
+<li>Balanced applications (CPU + Memory + I/O)</li>
+<li>I/O-bound applications (I/O &gt; CPU)</li>
+</ul>
+<p>Refer</p>
+<ol>
+<li><a href="https://stackoverflow.com/questions/3570610/what-is-seda-staged-event-driven-architecture">https://stackoverflow.com/questions/3570610/what-is-seda-staged-event-driven-architecture</a>.</li>
+<li><a href="https://berb.github.io/diploma-thesis/">https://berb.github.io/diploma-thesis/</a></li>
+<li><a href="https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html">https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html</a>.</li>
+<li><a href="https://mechanical-sympathy.blogspot.com/2011/07/memory-barriersfences.html">https://mechanical-sympathy.blogspot.com/2011/07/memory-barriersfences.html</a>.</li>
+<li><a href="https://martinfowler.com/bliki/CQRS.html">https://martinfowler.com/bliki/CQRS.html</a></li>
+</ol>
+<h2 id="building-stable-systems">Building Stable Systems</h2>
+<p><strong>scenarios that affect stability:</strong></p>
+<ul>
+<li>Unexpected workloads</li>
+<li>Resource and dependency failures, plus service-level agreement violations</li>
+<li>Software bugs in both ours and borrowed code</li>
+</ul>
+<h4 id="handling-unexpected-load">Handling Unexpected Load</h4>
+<ul>
+<li>understand the load and set up a system that can keep up with the load most of the time. This is called <strong>capacity planning</strong></li>
+<li><strong>Autoscaling</strong></li>
+<li><strong>Admission Control:</strong> set of policies, procedures, and checks that regulate the admission or acceptance of incoming entities or requests into a system example: Assume server is already overloaded instead of accepting new connection we through error.</li>
+<li><strong>Noncritical Functionality:</strong> Turn off the Noncritical Functionality</li>
+<li>Disaster recovery (have a plan for what to when X go down)</li>
+</ul>
+<h4 id="handling-human-changes">Handling Human Changes</h4>
+<ul>
+<li>Blue and green Deployment  (Having two system one with new updated one and one with old one if new one fails redirect traffic to old one)</li>
+<li>Canary deployments (small percentage of users to the new system and gradually increase the load to that system)</li>
+</ul>
+<h4 id="handle-unknown-errors">Handle Unknown Errors</h4>
+<ul>
+<li>Observability (Application Performance Monitoring (APM) tool, Open telementry)</li>
+</ul>
+<h2 id="building-and-evolving-the-systems">Building and Evolving the Systems</h2>
+<ul>
+<li>Get the Basics Right</li>
+<li>Understand the Design Process</li>
+<li>Conway law: organizations design systems that mirror their own communication structure rather than fighting it</li>
+<li>Make Decisions and Absorb Risks</li>
+<li>Create checklists of questions that are useful for different situations and use them.</li>
+<li>Communicating the Design</li>
+<li>Growth hacking funnel (find where we stuck does in user side or in development are we not pusing not much feature etc..)</li>
+</ul>
+<p>Refer</p>
+<ul>
+<li><a href="https://blog.thinkst.com/2022/08/always-be-hacking.html">https://blog.thinkst.com/2022/08/always-be-hacking.html</a>.</li>
+</ul>
+<p>Book</p>
+<ul>
+<li>The Coaching Habit: Say Less, Ask More &amp; Change the Way You Lead Forever</li>
+<li>Hacking Growth: How Today’s Fastest-Growing Companies Drive Breakout Success</li>
+<li>Design-Driven Growth: Strategy &amp; Case Studies for Product Shapers</li>
+</ul>
+<h2 id="my-learnings">My Learnings</h2>
+<ul>
+<li></li>
+</ul>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+
+    
+
+</main>
+    </body>
+</html>

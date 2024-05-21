@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on programmerraja blog</title>
+    <link>http://localhost:1313/blog/tags/devops/</link>
+    <description>Recent content in Devops on programmerraja blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="http://localhost:1313/blog/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker Notes</title>
+      <link>http://localhost:1313/blog/notes/2024/docker/</link>
+      <pubDate>Mon, 15 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>http://localhost:1313/blog/notes/2024/docker/</guid>
+      
+      <description>Docker Engine When you install Docker, you get two major components:
+Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd (to manage container lifecycle operations — start | stop | pause | rm.</description>
+      
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>http://localhost:1313/blog/notes/2024/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>http://localhost:1313/blog/notes/2024/kubernetes/</guid>
+      
+      <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster ![[Pasted image 20240312073714.png]]
+A Kubernetes cluster contains six main components:
+API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

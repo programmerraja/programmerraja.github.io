@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Mongodb | programmerraja blog</title>
+<meta property="og:title" content="Mongodb | programmerraja blog" />
+<meta name="twitter:title" content="Mongodb | programmerraja blog" />
+<meta itemprop="name" content="Mongodb | programmerraja blog" />
+<meta name="application-name" content="Mongodb | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+
+
+  <meta itemprop="image" content="https://programmerraja.github.io/blog" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.121.1">
+
+    
+
+    <link rel="canonical" href="https://programmerraja.github.io/blog/resources/2023/mongo/">
+    <link href="/blog/style.min.a331e196842d6df0db458dbc74b8cb9d3f93dc2a4203f1ef625a27c46f956787.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.4e1b30df3607fab6faaa068536572415b0ea6c4b3a10dfd609e0d070bdd7546d.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "" class="notransition">
+
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/resources/">
+                        Resources
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="https://programmerraja.github.io/">
+                        Portfolio
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Mongodb</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-12-03T09:44:50&#43;05:30" itemprop="datePublished"> Dec 3, 2023 </time>
+                </div>
+                
+            </header>
+                
+                
+                <details class="toc" ZgotmplZ>
+                    <summary><b>Table of Contents</b></summary>
+                    <nav id="TableOfContents"></nav>
+                </details>
+                <div class="page-content">
+                <h1 id="mongodb--database">MongoDB &amp; Database</h1>
+<ul>
+<li>
+<p><strong>MongoDB Architecture  (internal)</strong></p>
+<ol>
+<li><a href="https://www.notion.so/MongoDB-Database-44183e27e40d4cdca5795780fccc1125?pvs=21">MongoDB internal architecture</a></li>
+<li><a href="https://medium.com/@hnasr/mongodb-internal-architecture-9a32f1403d6f">MongoDB internal architecture</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/core/storage-engines/">MongoDB Storage Engine</a></li>
+</ol>
+</li>
+<li>
+<p><strong>MongoDB Patterns</strong></p>
+<ol>
+<li><a href="https://www.mongodb.com/blog/post/building-with-patterns-a-summary">https://www.mongodb.com/blog/post/building-with-patterns-a-summary</a></li>
+<li><a href="https://youtu.be/yuPjoC3jmPA">https://youtu.be/yuPjoC3jmPA</a></li>
+<li><a href="https://mongoing.com/moutianlei">https://mongoing.com/moutianlei</a></li>
+<li>.https://www.mongodb.com/blog/post/building-with-patterns-a-summary</li>
+<li><a href="https://medium.com/@nirjalpaudel54312/mongodb-design-patterns-708100c07bcb">https://medium.com/@nirjalpaudel54312/mongodb-design-patterns-708100c07bcb</a></li>
+</ol>
+</li>
+<li>
+<p><strong>Indexes</strong></p>
+<ol>
+<li><a href="https://www.mongodb.com/docs/manual/indexes/">https://www.mongodb.com/docs/manual/indexes/</a></li>
+<li><a href="https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/">https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/</a></li>
+<li><a href="https://www.alexbevi.com/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/">https://www.alexbevi.com/blog/2020/05/16/optimizing-mongodb-compound-indexes-the-equality-sort-range-esr-rule/</a></li>
+<li><a href="https://medium.com/swlh/mongodb-indexes-deep-dive-understanding-indexes-9bcec6ed7aa6">https://medium.com/swlh/mongodb-indexes-deep-dive-understanding-indexes-9bcec6ed7aa6</a></li>
+<li><a href="https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/">https://emptysqua.re/blog/optimizing-mongodb-compound-indexes/</a></li>
+<li><a href="https://medium.com/@hnasr/index-seek-vs-index-scan-in-database-systems-641c2ac811fc">https://medium.com/@hnasr/index-seek-vs-index-scan-in-database-systems-641c2ac811fc</a></li>
+<li><a href="https://app.box.com/notes/724995085064?s=0d8o3cnd22jpa64x4tp2prmg3zzcgwxz">ESR Rules for creating an index</a></li>
+<li>**<strong><a href="https://mongoing.com/archives/2789">MongoDB index principle</a> ( a great article explain about indexes)</strong></li>
+<li><a href="https://www.notion.so/MongoDB-Database-44183e27e40d4cdca5795780fccc1125?pvs=21">Index fill factor</a></li>
+<li><a href="https://dzone.com/articles/effective-mongodb-indexing-part-1">https://dzone.com/articles/effective-mongodb-indexing-part-1</a></li>
+<li><strong><strong><a href="https://www.percona.com/blog/mongodb-index-building-on-replicaset-and-shard-cluster/">MongoDB Index Building on ReplicaSet and Shard Cluster</a></strong></strong></li>
+<li><a href="https://betterprogramming.pub/the-mystery-of-mongodb-indexing-af61766647dc">https://betterprogramming.pub/the-mystery-of-mongodb-indexing-af61766647dc</a> (tell about ESR rule and how to split combo index to increase performance)</li>
+<li><a href="https://betterprogramming.pub/the-mystery-of-mongodb-indexing-af61766647dc">https://betterprogramming.pub/the-mystery-of-mongodb-indexing-af61766647dc</a> (esr and index intersection)</li>
+<li><a href="https://medium.com/getpowerplay/understanding-ttl-indexes-in-mongodb-comprehensively-1251e5bd77bf">https://medium.com/getpowerplay/understanding-ttl-indexes-in-mongodb-comprehensively-1251e5bd77bf</a> [ TTL index how it works replica won&rsquo;t run TTL until it becomes primary]</li>
+<li><a href="https://towardsdev.com/database-indexing-under-the-hood-5841ac77f7de">https://towardsdev.com/database-indexing-under-the-hood-5841ac77f7de</a></li>
+</ol>
+</li>
+<li>
+<p><strong>Blogs Series</strong></p>
+<ol>
+<li><a href="https://mongoing.com/anspress?ap_s=&amp;sort=newest">A collection of awesome MongoDB-related articles</a></li>
+<li><a href="http://learnmongodbthehardway.com/article/">http://learnmongodbthehardway.com/article/</a></li>
+<li><a href="https://www.kenwalger.com/blog/">https://www.kenwalger.com/blog/</a></li>
+<li><a href="https://mongoing.com/blog/file-storage">MongoDB&rsquo;s storage structure and its impact on space usage</a></li>
+<li><a href="https://mongoing.com/guoyuanwei">A series to learn about wired Tigger storage engine</a></li>
+</ol>
+</li>
+<li>
+<p><strong>Documentation</strong></p>
+<ol>
+<li><a href="https://www.mongodb.com/docs/compass/current/schema/">MongoDB compass doc</a></li>
+<li><a href="https://www.mongodb.com/docs/atlas/tutorial/profile-database/">MongoDB Atlas doc</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/administration/monitoring/">Monitoring for MongoDB</a></li>
+<li><a href="https://source.wiredtiger.com/develop/arch-index.html">Wiredtiger  doc</a></li>
+</ol>
+</li>
+<li>
+<p><strong>Database concepts</strong></p>
+<ol>
+<li><a href="https://www.notion.so/MongoDB-Database-44183e27e40d4cdca5795780fccc1125?pvs=21">B-tree visualization tool</a></li>
+<li><a href="https://medium.com/@hnasr/database-pages-a-deep-dive-38cdb2c79eb5">Database Pages — A deep dive</a></li>
+<li><a href="https://youtu.be/DbxddGtHl70">How databases store tables on disk</a></li>
+<li><a href="https://fizalihsan.github.io/technology/db-performance.html">Database Performance</a></li>
+<li><a href="https://youtu.be/e1wbQPbFZdk">What every programmer needs to know about DB storage</a></li>
+<li><a href="https://jvns.ca/blog/2014/09/27/how-does-sqlite-work-part-1-pages/">How SQLite work in-depth series</a></li>
+<li><a href="https://medium.com/databasss">Database Internals</a> ( A collection of articles explaining DB internal concepts)</li>
+<li><a href="https://medium.com/@hnasr/what-is-wal-write-ahead-log-a-deep-dive-a2bc4dc91170">https://medium.com/@hnasr/what-is-wal-write-ahead-log-a-deep-dive-a2bc4dc91170</a>  (expain what WAL and checkpoint)</li>
+<li><a href="https://medium.com/databasss/on-disk-io-part-1-flavours-of-io-8e1ace1de017">https://medium.com/databasss/on-disk-io-part-1-flavours-of-io-8e1ace1de017</a>  [ A series explain about IO indepth ]</li>
+</ol>
+</li>
+<li>
+<p><strong>Tools</strong></p>
+<ol>
+<li>mongodump →- the mongodump tool reads data from the MongoDB database and creates high-fidelity BSON files. It should be noted that if the amount of data is large, mongodump may take up a lot of resources, so, to alleviate this situation, this program should be run on the secondary server.</li>
+<li><a href="https://www.mongodb.com/docs/database-tools/mongotop/">https://www.mongodb.com/docs/database-tools/mongotop/</a>. → (provides a method to track the amount of time a MongoDB instance mongod)</li>
+<li><a href="https://github.com/mongolab/dex">https://github.com/mongolab/dex</a> (Dex is a MongoDB performance tuning tool that compares queries to the available indexes in the queried collection(s) and generates index suggestions based on simple heuristics. Currently you must provide a connection URI for your database.)</li>
+<li><a href="https://www.mongodb.com/docs/database-tools/mongostat/">https://www.mongodb.com/docs/database-tools/mongostat/</a></li>
+<li><a href="https://www.mongodb.com/docs/v2.2/reference/mongoperf/">https://www.mongodb.com/docs/v2.2/reference/mongoperf/</a>  (Mongoperf is a powerful tool for measuring the performance of a MongoDB deployment and identifying potential bottlenecks or performance issues.)</li>
+<li><a href="https://www.dbkoda.com/">https://www.dbkoda.com/</a> (A perfect mongodb IDE have lot of feature)</li>
+<li><a href="https://medium.com/dbkoda/dbkoda-tips-and-tricks-b00ec24fc189">https://medium.com/dbkoda/dbkoda-tips-and-tricks-b00ec24fc189</a></li>
+<li><a href="https://github.com/rueckstiess/mtools">https://github.com/rueckstiess/mtools</a> →A collection of scripts to set up MongoDB test environments and parse and visualize MongoDB log files.</li>
+</ol>
+</li>
+<li>
+<p><strong>MongoDB advanced concepts</strong></p>
+<ol>
+<li><a href="https://mongoing.com/archives/2155">MongoDB replica set</a></li>
+<li><a href="https://www.timescale.com/blog/how-to-store-time-series-data-mongodb-vs-timescaledb-postgresql-a73939734016/">How to store time-series data in MongoDB, and why that’s a bad idea</a></li>
+<li><a href="https://www.percona.com/blog/migration-of-a-mongodb-replica-set-to-a-sharded-cluster/">Migration of a MongoDB Replica Set to a Sharded Cluster</a></li>
+<li><a href="https://www.percona.com/blog/mongodb-converting-replica-set-to-standalone/">MongoDB – Converting Replica Set to Standalone</a></li>
+<li><a href="https://towardsdatascience.com/how-to-do-basic-full-text-searches-in-mongodb-48b17242676?gi=41f6006a8306">basic-full-text-searches-in-mongodb</a></li>
+</ol>
+</li>
+<li>
+<p><strong>Others</strong></p>
+<ol>
+<li><a href="https://stackoverflow.com/questions/8749971/can-i-query-mongodb-objectid-by-date">https://stackoverflow.com/questions/8749971/can-i-query-mongodb-objectid-by-date</a></li>
+<li><a href="https://medium.com/@hnasr/postgres-vs-mysql-5fa3c588a94e">https://medium.com/@hnasr/postgres-vs-mysql-5fa3c588a94e</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/reference/command/compact/">https://www.mongodb.com/docs/manual/reference/command/compact/</a> →Rewrites and defragments all data and indexes in a collection. (remove the empty space between the doc)</li>
+<li><a href="https://www.mongodb.com/docs/manual/core/inmemory/">https://www.mongodb.com/docs/manual/core/inmemory/</a> (We can configure mongdb to user in memory for eveything )</li>
+<li>Mongodb data lake store data in S3 (<a href="https://www.mongodb.com/developer/products/atlas/atlas-data-lake-setup/">https://www.mongodb.com/developer/products/atlas/atlas-data-lake-setup/</a>)</li>
+<li>Mongodb data lake (<a href="https://medium.com/mongodb-performance-tuning/optimizing-the-mongodb-datalake-pt-1-48b408db1179">https://medium.com/mongodb-performance-tuning/optimizing-the-mongodb-datalake-pt-1-48b408db1179</a>)</li>
+<li>wlidcard index (<a href="https://medium.com/guys-database-blog/mongodb-4-2-wildcard-indexes-b5c54544c749">https://medium.com/guys-database-blog/mongodb-4-2-wildcard-indexes-b5c54544c749</a>)</li>
+<li><a href="https://dzone.com/articles/mongodb-cluster">https://dzone.com/articles/mongodb-cluster</a> (<strong><strong>MongoDB Tutorials and Articles: The Complete Collection)</strong></strong></li>
+<li>Use moongose lean() to which will return json insetead of moongose which is faster <a href="https://mongoosejs.com/docs/tutorials/lean.html">https://mongoosejs.com/docs/tutorials/lean.html</a></li>
+<li><a href="https://engineering.monday.com/nice-to-meet-you-mondaydb-architecture/">https://engineering.monday.com/nice-to-meet-you-mondaydb-architecture/</a></li>
+</ol>
+</li>
+<li>
+<p><strong>Wired tiger</strong></p>
+<ol>
+<li><a href="https://www.percona.com/blog/wiredtiger-file-forensics-part-1-building-wt/">WiredTiger File Forensics Part 1: Building “wt”</a></li>
+<li><a href="https://www.percona.com/blog/wiredtiger-file-forensics-part-2-wt-dump/">WiredTiger File Forensics Part 2: wt dump</a></li>
+<li><a href="https://www.percona.com/blog/wiredtiger-file-forensics-part-3-viewing-all-the-mongodb-data/">WiredTiger File Forensics Part 3: Viewing all the MongoDB Data</a></li>
+<li><a href="https://scalegrid.io/blog/mongodb-storage-engines/">https://scalegrid.io/blog/mongodb-storage-engines/</a> → explain frgaments</li>
+</ol>
+</li>
+<li>
+<p><strong>Blogs</strong></p>
+<ol>
+<li><a href="https://thenewstack.io/how-discord-migrated-trillions-of-messages-to-scylladb/">https://thenewstack.io/how-discord-migrated-trillions-of-messages-to-scylladb/</a></li>
+<li><a href="https://www.instacart.com/company/how-its-made/from-postgres-to-amazon-dynamodb-%EF%BF%BC/">https://www.instacart.com/company/how-its-made/from-postgres-to-amazon-dynamodb-￼/</a></li>
+<li><a href="https://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram">https://instagram-engineering.tumblr.com/post/10853187575/sharding-ids-at-instagram</a></li>
+<li><a href="https://engineering.monday.com/nice-to-meet-you-mondaydb-architecture/">https://engineering.monday.com/nice-to-meet-you-mondaydb-architecture/</a> [How they implement their own database architecture [lambda architecture] and how they make queries fast</li>
+<li><a href="https://www.wikiwand.com/en/Lambda_architecture">https://www.wikiwand.com/en/Lambda_architecture</a></li>
+<li><a href="https://shopify.engineering/read-consistency-database-replicas">Monotonic Reads using proxy in between server and DB shopify</a>
+ <details>
+    <summary>how they implements the Monotonic Reads using proxy in between server and DB [My Notes]</summary> 
+    <br>
+    <pre>
+    - Monotonic Reads
+          Imagine you have a special notebook where you write down how many candies you have each day. 
+          You also have a friend, and both of you want to make sure your candy counts are always correct, 
+          even if you write them in your notebooks at different times.
+     Without Monotonic Reads:
+         1. Monday: You have 5 candies in your notebook.
+         2. Tuesday: Your friend has 8 candies in their notebook.
+         3. Wednesday: You look in your notebook again and see you have 6 candies now.
+         Uh-oh! Without monotonic reads, you might think your candy count went from 5 to 6, 
+         but it should be 8 because that's what your friend saw on Tuesday. 
+         It's like time went backward for your candies!
+     With Monotonic Reads:
+            1. Monday: You have 5 candies in your notebook.
+            2. Tuesday: Your friend has 8 candies in their notebook.
+            3. Wednesday: You look in your notebook again, and guess what? You see 8 candies too!
+     With monotonic reads, you and your friend always make sure that the number of candies only 
+     goes up or stays the same, never down. This way, 
+     you both agree on the order of changes, and there are no surprises.
+     </pre>
+ </details>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Profiling and monitoring</strong></p>
+<ol>
+<li><a href="https://www.mongodb.com/docs/manual/tutorial/manage-the-database-profiler/">https://www.mongodb.com/docs/manual/tutorial/manage-the-database-profiler/</a></li>
+<li><a href="https://gist.github.com/rantav/3433277">https://gist.github.com/rantav/3433277</a> [ tricks to find slow queries]</li>
+<li><a href="https://medium.com/mongodb-cowboys/troubleshooting-mongodb-100-cpu-load-and-slow-queries-da622c6e1339">https://medium.com/mongodb-cowboys/troubleshooting-mongodb-100-cpu-load-and-slow-queries-da622c6e1339</a> [how use current op]</li>
+<li><a href="https://medium.com/mongodb-cowboys/quick-scan-tool-mongodb-monalize-22888e41b1fa">https://medium.com/mongodb-cowboys/quick-scan-tool-mongodb-monalize-22888e41b1fa</a></li>
+<li><a href="https://university.mongodb.com/courses/M201/about">MongoDB performance training course</a>.</li>
+<li><a href="https://mongoing.com/archives/74637">Performance Best Practices: MongoDB Query Patterns and Analysis</a></li>
+<li><a href="https://mongoing.com/archives/73797">Performance Best Practices: MongoDB Data Modeling and Memory Sizing</a></li>
+<li><a href="https://kevcodez.medium.com/mongodb-performance-guide-9121dff56cd1">How to improve the performance of MongoDB</a></li>
+<li><a href="https://mongoing.com/archives/3895">MongoDB best practice</a></li>
+<li><a href="https://mongoing.com/archives/3998">MongoDB CPU usage is high/requests are slow, how can it be broken?</a></li>
+<li><a href="https://www.percona.com/blog/2021/05/24/mongodb-tuning-anti-patterns-how-tuning-memory-can-make-things-much-worse/">https://www.percona.com/blog/2021/05/24/mongodb-tuning-anti-patterns-how-tuning-memory-can-make-things-much-worse/</a></li>
+<li><a href="https://medium.com/mongodb-performance-tuning/getting-started-with-mongodb-explain-8a3d0c6c7e68">Getting started with MongoDB explain()</a></li>
+<li><a href="https://medium.com/mongodb-performance-tuning/explaining-aggregation-pipelines-2d1edd46a341">https://medium.com/mongodb-performance-tuning/explaining-aggregation-pipelines-2d1edd46a341</a>  (this blog has util function to print the explain outpuit in readable format)</li>
+<li><a href="https://www.percona.com/blog/mongodb-101-5-configuration-options-that-impact-performance-and-how-to-set-them/">MongoDB 101: 5 Configuration Options That Impact Performance and How to Set Them</a></li>
+<li><a href="https://medium.com/mongodb-performance-tuning">https://medium.com/mongodb-performance-tuning</a> (A collection blog regarding performance)</li>
+<li><a href="https://medium.com/shelf-io-engineering/how-to-update-63-million-records-in-mongodb-50-faster-a6dbf23ec9b3">https://medium.com/shelf-io-engineering/how-to-update-63-million-records-in-mongodb-50-faster-a6dbf23ec9b3</a> (by running paralley using <a href="https://radash-docs.vercel.app/docs/getting-started">radsh</a> lib similar to loadash lib)</li>
+<li><a href="https://github.com/harazdovskiy/mongo-performance">https://github.com/harazdovskiy/mongo-performance</a> ( a script to test mongodb from pervoius articel)</li>
+<li><a href="https://medium.com/globant/mongodb-mongoose-query-optimizations-63cfc6def9d9">https://medium.com/globant/mongodb-mongoose-query-optimizations-63cfc6def9d9</a>  (lean,projection,indexing and script to test the speed )</li>
+</ol>
+</li>
+</ul>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>

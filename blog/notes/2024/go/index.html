@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Go | programmerraja blog</title>
+<meta property="og:title" content="Go | programmerraja blog" />
+<meta name="twitter:title" content="Go | programmerraja blog" />
+<meta itemprop="name" content="Go | programmerraja blog" />
+<meta name="application-name" content="Go | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/go/" title="" />
+
+
+
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/go/">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Go</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-01-01T11:39:28&#43;05:30" itemprop="datePublished"> Jan 1, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#introduction" aria-label="Introduction">Introduction</a></li>
+                <li>
+                    <a href="#data-types" aria-label="Data types">Data types</a></li>
+                <li>
+                    <a href="#function" aria-label="Function">Function</a></li>
+                <li>
+                    <a href="#pointers" aria-label="Pointers">Pointers</a></li>
+                <li>
+                    <a href="#conditions" aria-label="Conditions">Conditions</a></li>
+                <li>
+                    <a href="#loops" aria-label="Loops">Loops</a></li>
+                <li>
+                    <a href="#runes" aria-label="Runes">Runes</a></li>
+                <li>
+                    <a href="#short-variable-declaration" aria-label="short variable declaration">short variable declaration</a></li>
+                <li>
+                    <a href="#conversions" aria-label="Conversions">Conversions</a></li>
+                <li>
+                    <a href="#packages" aria-label="Packages">Packages</a></li>
+                <li>
+                    <a href="#others" aria-label="others">others</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="introduction">Introduction</h2>
+<ul>
+<li>
+<p>From c++ by google c++ author will convert to exe</p>
+</li>
+<li>
+<p>go get githublink→ to download pkg and put under folder pkg</p>
+</li>
+<li>
+<p>it has main function to run <code>go run filename.go</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">package</span> <span class="nx">main</span> <span class="c1">//-&gt; our package name 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">imort</span> <span class="s2">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">(</span><span class="s2">&#34;fmt&#34;</span><span class="p">,</span><span class="s2">&#34;math&#34;</span><span class="p">)</span> <span class="c1">//-&gt; to import multiple pkg
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">func</span> <span class="nx">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s2">&#34;hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="data-types">Data types</h2>
+<ul>
+<li>
+<p>string, bool, int, byte , float32 ,float64, arrays</p>
+</li>
+<li>
+<p>using var keyword and const → to not reassign</p>
+</li>
+<li>
+<p>var name string = “d” (if directly assing vaule we don’t need to mention the data type)</p>
+</li>
+<li>
+<p>var age = 23</p>
+</li>
+<li>
+<p>name := “test” → this kind of declaration we can be only defined inside function</p>
+</li>
+<li>
+<p>name,email := “test”,”email”</p>
+</li>
+<li>
+<p>Arrays</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"> <span class="kd">var</span> <span class="nx">name</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="nx">string</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;1&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">name</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="nx">string</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">,</span><span class="s2">&#34;2&#34;</span><span class="p">)</span> <span class="c1">//size optional
+</span></span></span><span class="line"><span class="cl"><span class="c1">//slice 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">name</span> <span class="o">:=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="nx">string</span><span class="p">{</span><span class="s2">&#34;1&#34;</span><span class="p">,</span><span class="s2">&#34;2&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">len</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="c1">//-&gt; to get length
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span><span class="p">[</span><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1">//-&gt; slice the array
+</span></span></span></code></pre></div></li>
+<li>
+<p>Struct</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">type</span> <span class="nx">Animal</span> <span class="nx">struct</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">string</span>
+</span></span><span class="line"><span class="cl"><span class="nx">age</span> <span class="kr">int</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">teddy</span> <span class="o">=</span> <span class="nx">Animal</span><span class="p">{</span> <span class="kr">class</span><span class="o">:</span><span class="s2">&#34;bear&#34;</span><span class="p">,</span><span class="nx">age</span><span class="o">:</span><span class="mi">14</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">or</span> 
+</span></span><span class="line"><span class="cl"><span class="nx">Animal</span><span class="p">{</span><span class="s2">&#34;bear&#34;</span><span class="p">,</span><span class="mi">14</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//teddy.age
+</span></span></span></code></pre></div></li>
+<li>
+<p>Map</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"> <span class="nx">emails</span> <span class="o">:=</span>  <span class="nx">make</span><span class="p">(</span><span class="nx">map</span><span class="p">[</span><span class="nx">string</span><span class="p">]</span><span class="nx">string</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="o">:=</span> <span class="nx">map</span><span class="p">[</span><span class="nx">stringstring</span><span class="p">{</span><span class="s2">&#34;key&#34;</span><span class="o">:</span><span class="s2">&#34;value&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">emails</span><span class="p">[</span><span class="s2">&#34;name&#34;</span><span class="p">]</span><span class="o">=</span> <span class="s2">&#34;key&#34;</span>
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="function">Function</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">function</span> <span class="nf">name</span> <span class="p">(</span><span class="nx">params</span> <span class="kd">type</span><span class="p">)</span> <span class="nx">returnType</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">cmd</span><span class="p">..</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//type is not mandatory
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="nf">name</span><span class="p">(</span><span class="nx">params</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="nx">multiple</span> <span class="k">return</span> <span class="nx">vaule</span>
+</span></span><span class="line"><span class="cl"><span class="nx">function</span> <span class="nf">name</span> <span class="p">(</span><span class="nx">params</span> <span class="kd">type</span><span class="p">)</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="kt">bool</span><span class="p">..)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="mi">4</span><span class="p">,</span><span class="kc">true</span><span class="p">,..</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"> <span class="nx">number</span> <span class="p">,</span><span class="kt">bool</span> <span class="o">:=</span> <span class="nf">name</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">we</span> <span class="nx">can</span> <span class="nx">also</span> <span class="nx">give</span> <span class="nx">name</span> <span class="k">for</span> <span class="nx">the</span> <span class="k">return</span> <span class="kd">type</span> <span class="nx">of</span> <span class="nx">function</span> <span class="nx">like</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">function</span> <span class="nf">name</span> <span class="p">()</span> <span class="p">(</span><span class="nx">number</span> <span class="kt">int</span> <span class="p">,</span> <span class="p">..)</span> <span class="o">-</span><span class="p">&gt;</span> <span class="nx">it</span> <span class="nx">is</span> <span class="nx">purely</span> <span class="k">for</span> <span class="nx">doc</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span><span class="nx">Error</span> <span class="nx">Handling</span>
+</span></span></code></pre></div><ul>
+<li>Arguments are passed as copy use pointer for call by reference</li>
+</ul>
+<h2 id="pointers">Pointers</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Declare a variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">num</span> <span class="kt">int</span> <span class="p">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Declare a pointer variable
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">var</span> <span class="nx">ptr</span> <span class="o">*</span><span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Assign the address of num to ptr
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ptr</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">num</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Access the value through the pointer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Value of num:&#34;</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Value of num through pointer:&#34;</span><span class="p">,</span> <span class="o">*</span><span class="nx">ptr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Modify the value through the pointer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="nx">ptr</span> <span class="p">=</span> <span class="mi">20</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;New value of num:&#34;</span><span class="p">,</span> <span class="nx">num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="conditions">Conditions</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="k">if</span> <span class="nx">x</span><span class="p">&lt;</span><span class="nt">y</span> <span class="err">||</span> <span class="na">cond2</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="err">//</span><span class="na">code</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>  <span class="na">else</span> <span class="na">if</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="err">//</span><span class="na">code</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="na">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="err">//</span><span class="na">code</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">//</span><span class="na">switch</span>
+</span></span><span class="line"><span class="cl"><span class="na">color</span> <span class="err">:=</span> <span class="err">&#34;</span><span class="na">red</span><span class="err">&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">switch</span> <span class="na">color</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="na">case</span> <span class="err">&#34;</span><span class="na">red</span><span class="err">&#34;:</span>
+</span></span><span class="line"><span class="cl">		<span class="err">//</span><span class="na">code</span>
+</span></span><span class="line"><span class="cl">  <span class="na">case</span> <span class="err">&#34;&#34;:</span>
+</span></span><span class="line"><span class="cl">			<span class="err">//</span><span class="na">code</span>
+</span></span><span class="line"><span class="cl">	<span class="na">default</span><span class="err">:</span>
+</span></span><span class="line"><span class="cl">		<span class="err">//</span><span class="na">code</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="loops">Loops</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">i</span> <span class="o">:=</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="mi">10</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//code 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">i</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="nx">i</span><span class="o">:=</span><span class="mi">1</span> <span class="nx">i</span><span class="p">&lt;</span><span class="nt">10</span><span class="err">;</span><span class="na">i</span><span class="err">++</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="err">//</span><span class="na">code</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">//</span><span class="na">using</span> <span class="na">range</span>
+</span></span><span class="line"><span class="cl"><span class="na">ids</span> <span class="err">:=</span> <span class="err">[]</span><span class="na">int</span><span class="p">{</span><span class="na">33</span><span class="err">,</span><span class="na">33</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">for</span> <span class="na">i</span><span class="err">,</span><span class="na">id</span> <span class="err">:=</span> <span class="na">range</span> <span class="na">ids</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">//</span><span class="na">range</span> <span class="na">with</span> <span class="na">map</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">for</span> <span class="na">k</span><span class="err">,</span><span class="na">v</span> <span class="err">:=</span> <span class="na">range</span> <span class="na">map</span> <span class="p">{</span> <span class="p">}</span>
+</span></span></code></pre></div><h2 id="runes">Runes</h2>
+<p>Go’s runes are used to represent single characters. &lsquo;A&rsquo; -&gt;65
+Runes are kept as numeric codes</p>
+<p>If you declare a variable without assigning it a value, that variable will
+contain the zero value</p>
+<h2 id="short-variable-declaration">short variable declaration</h2>
+<p>instead of explicitly declaring the type of the variable and later assigning to it with
+= , you do both at once using := .</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Go" data-lang="Go"><span class="line"><span class="cl"><span class="nx">quantity</span> <span class="o">:=</span> <span class="mi">4</span>
+</span></span></code></pre></div><p>If the name of a variable, function, or type begins with a capital letter, it is considered exported and can be accessed from packages outside the current one.</p>
+<h2 id="conversions">Conversions</h2>
+<p>Only same type can be do math operation float and int cannot to convert</p>
+<ul>
+<li>int(3.0)</li>
+<li>float64(9)</li>
+</ul>
+<h2 id="packages">Packages</h2>
+<p>Go tools look for package code in a special directory (folder) on your computer called the workspace. By default, the workspace is a directory named go in the current user’s home directory.</p>
+<p>The workspace directory contains three subdirectories</p>
+<ul>
+<li>bin, which holds compiled binary executable programs.</li>
+<li>pkg, which holds compiled binary package files.</li>
+<li>src, which holds Go source code.</li>
+</ul>
+<h2 id="others">others</h2>
+<p>Split your application into <strong>components</strong> written as regular Go interfaces. Don&rsquo;t fuss with any networking or serialization code. Focus on your business logic. (<a href="https://serviceweaver.dev/">https://serviceweaver.dev/</a>)</p>
+<ol>
+<li>Go routine -&gt; make threads simple</li>
+<li>channel</li>
+</ol>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+
+    
+
+</main>
+    </body>
+</html>

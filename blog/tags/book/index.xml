@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Book on programmerraja blog</title>
+    <link>http://localhost:1313/blog/tags/book/</link>
+    <description>Recent content in Book on programmerraja blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Jan 2024 08:19:32 +0530</lastBuildDate><atom:link href="http://localhost:1313/blog/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Philosophy of Software Design Book Notes</title>
+      <link>http://localhost:1313/blog/notes/2024/a-philosophy-of-software-design-book-notes/</link>
+      <pubDate>Thu, 18 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>http://localhost:1313/blog/notes/2024/a-philosophy-of-software-design-book-notes/</guid>
+      
+      <description>The Nature of Complexity Complexity is anything related to the structure of a software systemthat makes it hard to understand and modify the system.
+Symptoms of complexity Change amplification: The first symptom of complexity is that a seemingly simple change requires code modifications in many different places. Cognitive load: how much a developer needs to know in order to complete a task Unknown unknowns: it is not obvious which pieces of code must be modified to complete a task, or whatinformation a developer must have to carry out the task successfully Strategic vs.</description>
+      
+    </item>
+    
+    <item>
+      <title>Database internal book Notes</title>
+      <link>http://localhost:1313/blog/notes/2024/database-internal/</link>
+      <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
+      
+      <guid>http://localhost:1313/blog/notes/2024/database-internal/</guid>
+      
+      <description>Storage Engines The storage engine (or database engine) is a software component of a database man‐ agement system responsible for storing, retrieving, and managing data in memory and on disk, designed to capture a persistent, long-term memory of each node.
+Storage engines such as BerkeleyDB, LevelDB and its descendant RocksDB, LMDB and its descendant libmdbx, Sophia, HaloDB,
+Row-Oriented Data Layout Row-oriented database management systems store data in records or rows. Their layout is quite close to the tabular data representation, where every row has the same set of fields.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

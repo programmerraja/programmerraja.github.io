@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Python | programmerraja blog</title>
+<meta property="og:title" content="Python | programmerraja blog" />
+<meta name="twitter:title" content="Python | programmerraja blog" />
+<meta itemprop="name" content="Python | programmerraja blog" />
+<meta name="application-name" content="Python | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/python/" title="" />
+
+
+
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/python/">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Python</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-05-09T12:16:34&#43;05:30" itemprop="datePublished"> May 9, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#data-types" aria-label="Data types">Data types</a></li>
+                <li>
+                    <a href="#mutable-and-imutable" aria-label="Mutable and Imutable">Mutable and Imutable</a></li>
+                <li>
+                    <a href="#namespace" aria-label="Namespace">Namespace</a></li>
+                <li>
+                    <a href="#input-and-output" aria-label="input and output">input and output</a><ul>
+                        
+                <li>
+                    <a href="#reading-input" aria-label="Reading Input:">Reading Input:</a></li>
+                <li>
+                    <a href="#output" aria-label="Output:">Output:</a></li>
+                <li>
+                    <a href="#formatting-output" aria-label="Formatting Output:">Formatting Output:</a></li>
+                <li>
+                    <a href="#conditional-statements" aria-label="Conditional Statements:">Conditional Statements:</a><ul>
+                        
+                <li>
+                    <a href="#if-elif-else-statement" aria-label="if-elif-else statement:">if-elif-else statement:</a></li></ul>
+                </li>
+                <li>
+                    <a href="#loops" aria-label="Loops:">Loops:</a><ul>
+                        
+                <li>
+                    <a href="#1-for-loop" aria-label="1. for loop:">1. for loop:</a></li>
+                <li>
+                    <a href="#2-while-loop" aria-label="2. while loop:">2. while loop:</a></li>
+                <li>
+                    <a href="#loop-control-statements" aria-label="Loop Control Statements:">Loop Control Statements:</a><ul>
+                        
+                <li>
+                    <a href="#--break-statement" aria-label="- break statement:">- break statement:</a></li>
+                <li>
+                    <a href="#--continue-statement" aria-label="- continue statement:">- continue statement:</a></li></ul>
+                </li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#functions" aria-label="Functions">Functions</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#_arbitrary-positional-and-arbitrary-keyword-arguments_" aria-label="arbitrary positional and Arbitrary Keyword arguments">arbitrary positional and Arbitrary Keyword arguments</a></li>
+                <li>
+                    <a href="#unpacking-arguments" aria-label="Unpacking arguments">Unpacking arguments</a></li>
+                <li>
+                    <a href="#lambda-functions" aria-label="Lambda Functions">Lambda Functions</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#generators" aria-label="Generators">Generators</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#decorators" aria-label="Decorators">Decorators</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#modules" aria-label="Modules">Modules</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#import-module-resolution" aria-label="Import module resolution">Import module resolution</a></li>
+                <li>
+                    <a href="#__pycache__" aria-label="pycache">pycache</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#packages" aria-label="Packages">Packages</a></li>
+                <li>
+                    <a href="#context-manger" aria-label="Context manger">Context manger</a></li>
+                <li>
+                    <a href="#builtin-modules" aria-label="Builtin modules">Builtin modules</a></li>
+                <li>
+                    <a href="#exception-handling" aria-label="Exception handling">Exception handling</a></li>
+                <li>
+                    <a href="#oops" aria-label="OOPS">OOPS</a></li>
+                <li>
+                    <a href="#file-handling" aria-label="File handling">File handling</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#file-modes" aria-label="File Modes">File Modes</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#threading" aria-label="Threading">Threading</a></li>
+                <li>
+                    <a href="#byte-code" aria-label="Byte code">Byte code</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="data-types">Data types</h2>
+<pre tabindex="0"><code>- Numeric Types
+  - int
+  - float
+  - complex
+- Sequence Types
+  - str #&#34;&#34;
+  - list #[]
+  - tuple #()
+- Mapping Type
+  - dict #{}
+- Set Types
+  - set #{}
+  - frozenset
+- Boolean Type
+  - bool #True/False
+- Binary Types
+  - bytes #[]
+  - bytearray
+  - memoryview
+</code></pre><h2 id="mutable-and-imutable">Mutable and Imutable</h2>
+<p>Mutable data types are those whose contents can be changed after creation, while immutable data types cannot be changed once they are created.</p>
+<p>Mutable data types:</p>
+<ol>
+<li>Lists</li>
+<li>Dictionaries</li>
+<li>Sets</li>
+<li>Byte arrays</li>
+</ol>
+<p>Immutable data types:</p>
+<ol>
+<li>Integers (<code>int</code>)</li>
+<li>Floating-point numbers (<code>float</code>)</li>
+<li>Complex numbers (<code>complex</code>)</li>
+<li>Strings (<code>str</code>)</li>
+<li>Tuples (<code>tuple</code>)</li>
+<li>Frozensets (<code>frozenset</code>)</li>
+<li>Bytes (<code>bytes</code>)</li>
+<li>Booleans (<code>bool</code>)</li>
+</ol>
+<p>All mutable data type will point to same memory when they have same vaule</p>
+<p>Example</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">x</span><span class="o">=</span><span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="o">=</span><span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#both will be point to same memory reference</span>
+</span></span><span class="line"><span class="cl"><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1"># print the memory location</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="ow">is</span> <span class="n">y</span> <span class="c1"># is operator used to find does in same location</span>
+</span></span></code></pre></div><h2 id="namespace">Namespace</h2>
+<p>A namespace is a mapping from names to objects. It serves as a container for identifiers (variable names, function names, class names, etc.) and helps in avoiding naming conflicts and organizing code logically.</p>
+<p><strong>Local Namespace</strong>:</p>
+<ul>
+<li>A local namespace contains the names that are defined within a specific function or method.</li>
+<li>It is created when a function is called and is destroyed when the function exits.</li>
+<li>The local namespace is accessible only within the function or method where it is defined.</li>
+</ul>
+<p><strong>Enclosing Namespace (non-local)</strong>:</p>
+<ul>
+<li>An enclosing namespace contains names defined in the enclosing function or outer scope.</li>
+<li>It is used in nested functions or closures. use keyword <code>non-local</code></li>
+<li><code>Names in the enclosing namespace are accessible within the nested function but not modifiable by it.</code></li>
+</ul>
+<p><strong>Global Namespace</strong>:</p>
+<ul>
+<li>The global namespace contains names defined at the top level of a module or script.</li>
+<li>It is created when the module is imported or when the script is executed.</li>
+</ul>
+<p><strong>Built-in Namespace</strong>:</p>
+<ul>
+<li>The built-in namespace contains names of built-in functions, exceptions, and other objects provided by Python.</li>
+<li>It is automatically loaded when Python starts up.</li>
+<li>The objects in <code>__builtins__</code> include commonly used functions like <code>print()</code>, <code>len()</code>, <code>range()</code>, etc</li>
+<li>Python 3, <code>__builtins__</code> is read-only by default.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">__builtins__</span><span class="o">.</span><span class="n">len</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span> <span class="c1"># Output: 3</span>
+</span></span></code></pre></div><h2 id="input-and-output">input and output</h2>
+<h3 id="reading-input">Reading Input:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Reading input from the user</span>
+</span></span><span class="line"><span class="cl"><span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;Enter something: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Print the input</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;You entered:&#34;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">)</span>
+</span></span></code></pre></div><p>The <code>input()</code> function takes an optional string argument that serves as the prompt, which will be displayed to the user before waiting for input. It returns the user&rsquo;s input as a string.</p>
+<h3 id="output">Output:</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Printing output</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello, world!&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>The <code>print()</code> function is used to display output to the console. You can pass one or more objects as arguments to <code>print()</code>, and they will be printed to the console separated by spaces by default.</p>
+<h3 id="formatting-output">Formatting Output:</h3>
+<p>You can also format the output using various techniques such as string formatting or using the <code>.format()</code> method:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Alice&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">30</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Name: </span><span class="si">{}</span><span class="s2">, Age: </span><span class="si">{}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># or</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, Age: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p>In Python, conditional statements and loops are fundamental control structures used for decision-making and iteration. Let&rsquo;s go through each of them:</p>
+<h3 id="conditional-statements">Conditional Statements:</h3>
+<h4 id="if-elif-else-statement"><code>if-elif-else</code> statement:</h4>
+<p>The <code>if-elif-else</code> statement is used when there are multiple conditions to check.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;x is greater than 5&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;x is equal to 5&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;x is less than 5&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="loops">Loops:</h3>
+<h4 id="1-for-loop">1. <code>for</code> loop:</h4>
+<p>The <code>for</code> loop is used to iterate over a sequence (such as a list, tuple, string, etc.) or any iterable object.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="2-while-loop">2. <code>while</code> loop:</h4>
+<p>The <code>while</code> loop is used to execute a block of code repeatedly as long as a condition is true.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span></code></pre></div><h4 id="loop-control-statements">Loop Control Statements:</h4>
+<h5 id="--break-statement">- <code>break</code> statement:</h5>
+<p>The <code>break</code> statement is used to exit the loop prematurely based on a condition.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></div><h5 id="--continue-statement">- <code>continue</code> statement:</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="functions">Functions</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">	<span class="n">body</span>
+</span></span></code></pre></div><p>function will default return none</p>
+<h4 id="_arbitrary-positional-and-arbitrary-keyword-arguments_"><em>arbitrary positional and Arbitrary Keyword arguments</em></h4>
+<p><strong>Positional</strong> : When we define a parameter with <code>*args</code>, it allows the function to accept any number of positional arguments. These arguments are packed into a tuple inside the function</p>
+<p><strong>Keyword:</strong> it allows the function to accept any number of keyword arguments. These arguments are packed into a dictionary inside the function.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#**Positional**</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">my_function</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Keyword</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&#34;:&#34;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">my_function</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="unpacking-arguments">Unpacking arguments</h4>
+<p>To pass elements of a list, tuple, or dictionary as separate arguments to a function.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">   <span class="k">def</span> <span class="nf">my_function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;a:&#34;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;b:&#34;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">       <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;c:&#34;</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">   <span class="n">my_function</span><span class="p">(</span><span class="o">*</span><span class="n">my_list</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">   <span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">   <span class="n">my_function</span><span class="p">(</span><span class="o">**</span><span class="n">my_dict</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">   <span class="c1"># the function params need to have same name as keys in dict</span>
+</span></span></code></pre></div><h4 id="lambda-functions"><strong>Lambda Functions</strong></h4>
+<p>Lambda functions, also known as anonymous functions,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">lambda</span> <span class="n">arguments</span><span class="p">:</span> <span class="n">expression</span>
+</span></span></code></pre></div><p>Lambda functions are typically used when you need a simple function for a short period, often as an argument to higher-order functions like <code>map()</code>, <code>filter()</code>, and <code>sorted()</code>, or within a list comprehension.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">add</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Output: 8</span>
+</span></span></code></pre></div><h2 id="generators">Generators</h2>
+<p>Generators are functions that can pause and resume their execution. They generate a sequence of values lazily, one value at a time, and only when requested.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">countdown</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">        <span class="n">n</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Using the generator in a loop</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">countdown</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">gen</span> <span class="o">=</span> <span class="n">countdown</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  <span class="c1"># Output: 3</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">))</span>  <span class="c1"># Output: 2</span>
+</span></span></code></pre></div><p><strong>Memory Efficiency</strong>: Generators produce values on-the-fly, so they don&rsquo;t store the entire sequence in memory at once. This makes them memory efficient, particularly for large datasets.</p>
+<p><strong>Lazy Evaluation</strong>: Values are generated only when requested, which can improve performance and reduce unnecessary computation.</p>
+<p><strong>Support for Infinite Sequences</strong>: Generators can produce infinite sequences of values without running out of memory or crashing the program.</p>
+<h4 id="decorators">Decorators</h4>
+<p>Allows us to modify or extend the behavior of functions or methods. They provide a clean and concise way to add functionality to existing code without modifying it directly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">my_decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Before&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">func</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;After&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">wrapper</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nd">@my_decorator</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">say_hello</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#output</span>
+</span></span><span class="line"><span class="cl"><span class="n">Before</span>
+</span></span><span class="line"><span class="cl"><span class="n">Hello</span><span class="err">!</span> 
+</span></span><span class="line"><span class="cl"><span class="n">After</span>
+</span></span></code></pre></div><p>When we give multiple decorator it will excute from bottom to top</p>
+<h2 id="modules">Modules</h2>
+<p>When a Python module is imported, it gets its own <code>__name__</code> attribute. This attribute contains the name of the module. Additionally, modules have a <code>__file__</code> attribute, which stores the path to the module&rsquo;s source file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">my_module</span> 
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">my_module</span> <span class="k">as</span> <span class="nn">mm</span> <span class="c1">#**Module Aliases**</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">my_module</span> <span class="kn">import</span> <span class="n">my_function</span><span class="err">`</span> <span class="c1">#**Importing Specific Items**</span>
+</span></span></code></pre></div><p>When Python executes a script, it assigns the special variable <code>__name__</code> a value of <code>&quot;__main__&quot;</code> if the script is being run directly. By using <code>if __name__ == &quot;__main__&quot;:</code>, we can write code that will only execute when the script is run directly and not when it&rsquo;s imported as a module.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># my_script.py</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;This is the main function.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><h4 id="import-module-resolution">Import module resolution</h4>
+<p><strong>sys.path</strong>: Python maintains a list of directories called <code>sys.path</code> where it searches for modules when you import them. This list includes several default locations such as:</p>
+<ul>
+<li>The directory containing the script that is being executed.</li>
+<li>The directories listed in the <code>PYTHONPATH</code> environment variable.</li>
+<li>The installation-dependent default path, which typically includes standard library directories, site-packages directories, etc.</li>
+</ul>
+<p><strong>site-packages Directory</strong>: When you install third-party packages using tools like <code>pip</code>, they are typically installed into a directory called <code>site-packages</code>. This directory contains modules and packages installed via <code>pip</code> and is added to <code>sys.path</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">dir</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span> <span class="c1">#print all function present in module</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">help</span><span class="p">(</span><span class="n">modulename</span><span class="p">))</span>
+</span></span></code></pre></div><h4 id="__pycache__"><strong>pycache</strong></h4>
+<p><code>__pycache__</code> is a directory automatically created by Python when it compiles source files into bytecode files. Python compiles source files into bytecode (.pyc) files to speed up execution by avoiding recompilation each time the script is run.</p>
+<ol>
+<li>When you import a module in Python, the interpreter first checks if there&rsquo;s a corresponding bytecode file (.pyc) in the <code>__pycache__</code> directory.</li>
+<li>If the bytecode file exists and is up to date (i.e., the source file has not been modified since the bytecode was generated), Python uses the bytecode file for execution, bypassing the compilation step.</li>
+<li>If the bytecode file does not exist or is outdated, Python compiles the source file into bytecode and stores it in the <code>__pycache__</code> directory for future use.</li>
+</ol>
+<h2 id="packages">Packages</h2>
+<p>A package is a collection of Python modules organized in a directory hierarchy. It typically contains an <code>__init__.py</code> file to indicate that the directory should be treated as a package. Packages allow you to further organize your code into meaningful units.</p>
+<h2 id="context-manger">Context manger</h2>
+<p>objects that are used with the <code>with</code> statement to ensure that certain operations are properly initialized and cleaned up</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyContextManager</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Initialization code goes here</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Entering the context&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Cleanup code goes here</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Exiting the context&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Handle exceptions if needed</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># True if exceptions are handled, False otherwise</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Using the context manager with the &#39;with&#39; statement</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">MyContextManager</span><span class="p">()</span> <span class="k">as</span> <span class="n">cm</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Code inside the &#39;with&#39; block</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Inside the context&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="builtin-modules">Builtin modules</h2>
+<h2 id="exception-handling">Exception handling</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Code that might raise an exception</span>
+</span></span><span class="line"><span class="cl">    <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span> <span class="c1">#catch all exception</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Cannot divide by zero!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"> <span class="c1"># Handle the specific exception (ZeroDivisionError in this case)</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span> 
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Cannot divide by zero!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Handle division by zero print(&#34;Cannot divide by zero!&#34;)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">finally</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Optional cleanup code</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;This will always execute.&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><p><strong>Custom erros:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Define a custom exception class</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">CustomError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">&#34;Something went wrong.&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Raise the custom exception</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">example_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="n">CustomError</span><span class="p">(</span><span class="s2">&#34;Input value cannot be negative.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#or</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># raise Exception(&#34;Input value cannot be negative.&#34;) </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">example_function</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="n">CustomError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Custom error caught:&#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="oops">OOPS</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brand</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">brand</span> <span class="o">=</span> <span class="n">brand</span> <span class="c1">#attributes</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">drive</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Driving </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">brand</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">my_car</span> <span class="o">=</span> <span class="n">Car</span><span class="p">(</span><span class="s2">&#34;Toyota&#34;</span><span class="p">,</span> <span class="s2">&#34;Camry&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_car</span><span class="o">.</span><span class="n">drive</span><span class="p">()</span>  <span class="c1"># Output: Driving Toyota Camry</span>
+</span></span></code></pre></div><p><strong>Attributes</strong>: Attributes are variables associated with a class or an object. They represent the state of the object. methods of attributes <code>hasattr()</code> , <code>setattr()</code>, <code>delattr()</code> and <code>getattr()</code></p>
+<p><strong>Methods</strong>:Methods are functions defined within a class that operate on the object&rsquo;s data. The first argument of a method is always <code>self</code>, which refers to the object itself.</p>
+<p><strong>Constructor (<code>__init__</code>)</strong>: The <code>__init__</code> method is a special method called the constructor. It is used to initialize object attributes when an object is created.</p>
+<p><strong>Inheritance</strong> Inheritance allows a class (subclass) to inherit attributes and methods from another class (superclass). Subclasses can override or extend the behavior of the superclass.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">   <span class="k">class</span> <span class="nc">ElectricCar</span><span class="p">(</span><span class="n">Car</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">       <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">brand</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">battery_capacity</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">           <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">brand</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">           <span class="bp">self</span><span class="o">.</span><span class="n">battery_capacity</span> <span class="o">=</span> <span class="n">battery_capacity</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">       <span class="k">def</span> <span class="nf">charge</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">           <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Charging </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">brand</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="si">}</span><span class="s2"> with </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">battery_capacity</span><span class="si">}</span><span class="s2"> kWh&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">   <span class="n">my_electric_car</span> <span class="o">=</span> <span class="n">ElectricCar</span><span class="p">(</span><span class="s2">&#34;Tesla&#34;</span><span class="p">,</span> <span class="s2">&#34;Model S&#34;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">   <span class="n">my_electric_car</span><span class="o">.</span><span class="n">drive</span><span class="p">()</span>   <span class="c1"># Output: Driving Tesla Model S</span>
+</span></span><span class="line"><span class="cl">   <span class="n">my_electric_car</span><span class="o">.</span><span class="n">charge</span><span class="p">()</span>  <span class="c1"># Output: Charging Tesla Model S with 100 kWh</span>
+</span></span></code></pre></div><p><strong>Class (static) variable</strong>: are variables that are shared among all instances (objects) of a class. They are defined within a class but outside of any methods. Class variables are accessed using the class name rather than instance variables</p>
+<p><strong>Static method</strong> : It is decorated with <code>@staticmethod</code> to indicate that it is a static method. can be called using class name or using instance. static methods don&rsquo;t have access to instance attributes or methods</p>
+<p><strong>Class Methods</strong>: They have access to class variables but not to instance variables.The first parameter of a class method conventionally named <code>cls</code>, which refers to the class itself.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># Class variable</span>
+</span></span><span class="line"><span class="cl">    <span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;Canis familiaris&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Instance variables</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">	<span class="nd">@staticmethod</span> 
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="nf">static_method</span><span class="p">():</span> 
+</span></span><span class="line"><span class="cl">		<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;This is a static method&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nd">@classmethod</span> 
+</span></span><span class="line"><span class="cl">	<span class="k">def</span> <span class="nf">class_method</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">		<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Class method called&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Accessing class variable using class name</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">Dog</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>  <span class="c1"># Output: Canis familiaris</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Creating instances of the Dog class</span>
+</span></span><span class="line"><span class="cl"><span class="n">dog1</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;Buddy&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">dog2</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s1">&#39;Max&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Accessing class variable using instance</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dog1</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>  <span class="c1"># Output: Canis familiaris</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dog2</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>  <span class="c1"># Output: Canis familiaris</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Modifying class variable using class name</span>
+</span></span><span class="line"><span class="cl"><span class="n">Dog</span><span class="o">.</span><span class="n">species</span> <span class="o">=</span> <span class="s1">&#39;Canis lupus&#39;</span>  <span class="c1"># Changes species for all instances</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Accessing class variable using instance after modification</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dog1</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>  <span class="c1"># Output: Canis lupus</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">dog2</span><span class="o">.</span><span class="n">species</span><span class="p">)</span>  <span class="c1"># Output: Canis lupus</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">())</span>
+</span></span></code></pre></div><p><strong>Dunder methods</strong>: are special methods in Python that have double underscores at the beginning and end of their names. These methods allow you to define behavior for built-in operations in Python.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Point</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)&#34;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;Point(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">)&#34;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">Point</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create two Point objects</span>
+</span></span><span class="line"><span class="cl"><span class="n">p1</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p2</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Test magic methods</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>          <span class="c1"># Output: (1, 2)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">p1</span><span class="p">))</span>    <span class="c1"># Output: Point(1, 2)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="n">p2</span><span class="p">)</span>    <span class="c1"># Output: False</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">+</span> <span class="n">p2</span><span class="p">)</span>     <span class="c1"># Output: Point(4, 6)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">p2</span> <span class="o">-</span> <span class="n">p1</span><span class="p">)</span>     <span class="c1"># Output: Point(2, 2)</span>
+</span></span></code></pre></div><h2 id="file-handling">File handling</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Open a file for reading</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;example.txt&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Open a file for writing</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;example.txt&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Open a file for appending</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;example.txt&#34;</span><span class="p">,</span> <span class="s2">&#34;a&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Read the entire file</span>
+</span></span><span class="line"><span class="cl"><span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Read one line at a time</span>
+</span></span><span class="line"><span class="cl"><span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Read all lines into a list</span>
+</span></span><span class="line"><span class="cl"><span class="n">lines</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Write to a file</span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;Hello, World!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Close the file </span>
+</span></span><span class="line"><span class="cl"><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#using context manager</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Open a file for writing</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;example.txt&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;Hello, World!</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&#34;This is a Python file handling example.</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h4 id="file-modes">File Modes</h4>
+<ul>
+<li><code>&quot;r&quot;</code>: Read mode (default). Opens a file for reading. File must exist.</li>
+<li><code>&quot;w&quot;</code>: Write mode. Opens a file for writing. Creates a new file or truncates an existing file.</li>
+<li><code>&quot;a&quot;</code>: Append mode. Opens a file for appending. Creates a new file if it does not exist.</li>
+<li><code>&quot;b&quot;</code>: Binary mode. Used in conjunction with other modes to open a file in binary mode (e.g., <code>&quot;rb&quot;</code>, <code>&quot;wb&quot;</code>, <code>&quot;ab&quot;</code>).</li>
+</ul>
+<h2 id="threading">Threading</h2>
+<p>create a new thread by subclassing the <code>Thread</code> class and overriding the <code>run()</code> method or by passing a target function to the <code>Thread</code> constructor.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">threading</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Subclassing Thread class</span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyThread</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Thread is running&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Using target function</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Thread is running&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">thread1</span> <span class="o">=</span> <span class="n">MyThread</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">thread2</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">my_function</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">thread1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl"><span class="n">thread2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#### Waiting for Threads to Complete</span>
+</span></span><span class="line"><span class="cl"><span class="n">thread1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">thread2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</span></span></code></pre></div><p><strong>Join</strong>: <code>join()</code> method is used to wait for a thread to complete its execution before continuing with the main thread. When you call <code>join()</code> on a thread object, the program will block and wait until that thread finishes its execution.<code>If we want the main thread to wait for one or more additional threads to finish their execution before proceeding further, you can call the </code>join()<code> method on those thread objects.</code></p>
+<p><strong>Daemon thread</strong>: Are threads that run in the background and are automatically terminated when the program exits it not like normal threads</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">threading</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">demon_worker</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Demon thread is running...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a demon thread</span>
+</span></span><span class="line"><span class="cl"><span class="n">demon_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">demon_worker</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">demon_thread</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Set the thread as demon</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Start the demon thread</span>
+</span></span><span class="line"><span class="cl"><span class="n">demon_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Main thread continues execution</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Main thread continues...&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Simulate the program running for a while</span>
+</span></span><span class="line"><span class="cl"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="byte-code">Byte code</h2>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+
+    
+
+</main>
+    </body>
+</html>

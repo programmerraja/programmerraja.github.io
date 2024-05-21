@@ -1,21 +1,46 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My Blog</title>
-    <link>https://programmerraja.github.io/blog/post/</link>
-    <description>Recent content in Posts on My Blog</description>
+    <title>Posts on programmerraja blog</title>
+    <link>http://localhost:1313/blog/post/</link>
+    <description>Recent content in Posts on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Dec 2023 09:44:50 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 May 2024 12:50:16 +0530</lastBuildDate><atom:link href="http://localhost:1313/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Journey into Unseen Threats on our VM</title>
+      <link>http://localhost:1313/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/</link>
+      <pubDate>Sat, 04 May 2024 19:51:57 +0530</pubDate>
+      
+      <guid>http://localhost:1313/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/</guid>
+      
+      <description>As the sun set on a typical Saturday evening, I found myself engrossed in a blog titled &amp;ldquo;Visualizing Malicious IP Addresses.&amp;rdquo; The author shared clever ways to detect unauthorized attempts to access virtual machines via SSH, using commands like:
+$ journalctl --since &amp;#34;-1d&amp;#34; -u sshd | grep &amp;#34;Failed password&amp;#34; | wc -l $ journalctl --since &amp;#34;-1d&amp;#34; -u sshd | grep &amp;#34;Failed publickey&amp;#34; | wc -l Curious, I decided to try these commands on our own VM.</description>
+      
+    </item>
+    
     <item>
       <title>Hello world</title>
-      <link>https://programmerraja.github.io/blog/post/helloworld/</link>
+      <link>http://localhost:1313/blog/post/2023/helloworld/</link>
       <pubDate>Sun, 03 Dec 2023 09:44:50 +0530</pubDate>
       
-      <guid>https://programmerraja.github.io/blog/post/helloworld/</guid>
+      <guid>http://localhost:1313/blog/post/2023/helloworld/</guid>
       
       <description>Hi, I&amp;rsquo;m K.Boopathi! 👋 About Me I&amp;rsquo;m a passionate programmer with an insatiable curiosity for exploring diverse technologies and leveraging them to create cutting-edge products. My journey in the realm of tech is driven by a fervent desire to learn and innovate.
 What I Do My blog is a reflection of my love for web development, offering insightful content, tutorials, and invaluable resources. I&amp;rsquo;m dedicated to sharing my knowledge and experiences, empowering aspiring developers to embark on their own coding adventures.</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</guid>
+      
+      <description>o+++ title = &amp;lsquo;How to capture mongodb protocol in wireshark&amp;rsquo; date = 2024-02-12T08:28:27.2727+05:30 draft = false tags =[] +++
+export SSLKEYLOGFILE=/tmp/tlskey.log Run a nodejs program as node --tls-keylog=/tmp/tlskey index.js where the tls key will be stored on that path and add this tlskey path to wire shark to decrypt the msg by doing following
+Go to Preferences-&amp;gt;Protocols-&amp;gt;TLS and edit the path as shown in the screenshot below. ![[Pasted image 20240212083026.png]]</description>
       
     </item>
     

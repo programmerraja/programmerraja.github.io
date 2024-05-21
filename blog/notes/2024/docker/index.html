@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Docker Notes | programmerraja blog</title>
+<meta property="og:title" content="Docker Notes | programmerraja blog" />
+<meta name="twitter:title" content="Docker Notes | programmerraja blog" />
+<meta itemprop="name" content="Docker Notes | programmerraja blog" />
+<meta name="application-name" content="Docker Notes | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/docker/" title="" />
+
+
+
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/docker/">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Docker Notes</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-01-15T08:19:32&#43;05:30" itemprop="datePublished"> Jan 15, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#docker-engine" aria-label="Docker Engine">Docker Engine</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#what-happen-when-run-a-cmd" aria-label="What happen when run a cmd">What happen when run a cmd</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#builders" aria-label="Builders">Builders</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#features-in-buildkit" aria-label="Features in buildKit">Features in buildKit</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#images" aria-label="Images">Images</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#args" aria-label="Args">Args</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#containers" aria-label="Containers">Containers</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#memory--cpu-constraints" aria-label="Memory &amp; CPU Constraints">Memory &amp; CPU Constraints</a></li>
+                <li>
+                    <a href="#enviroment-var" aria-label="Enviroment Var">Enviroment Var</a></li>
+                <li>
+                    <a href="#logs" aria-label="Logs">Logs</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#networking" aria-label="Networking">Networking</a><ul>
+                        
+                <li>
+                    <a href="#drivers" aria-label="Drivers">Drivers</a><ul>
+                        
+                <li>
+                    <a href="#bridge-network" aria-label="bridge Network">bridge Network</a></li>
+                <li>
+                    <a href="#host-network" aria-label="Host Network">Host Network</a></li>
+                <li>
+                    <a href="#macvlan" aria-label="MACVLAN">MACVLAN</a></li>
+                <li>
+                    <a href="#communication-between-two-container-in-same-region" aria-label="Communication between two container in same region">Communication between two container in same region</a></li>
+                <li>
+                    <a href="#communication-between-two-container-in-different-region" aria-label="Communication between two container in different region">Communication between two container in different region</a></li>
+                <li>
+                    <a href="#how-docker-networking-working-from-scratch" aria-label="How docker networking working from scratch">How docker networking working from scratch</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#volumes" aria-label="Volumes">Volumes</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#types" aria-label="Types">Types</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#multistage-build" aria-label="Multistage Build">Multistage Build</a></li>
+                <li>
+                    <a href="#security" aria-label="Security">Security</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#scanning-for-vulernablity" aria-label="Scanning for vulernablity">Scanning for vulernablity</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#docker-compose" aria-label="Docker Compose">Docker Compose</a></li>
+                <li>
+                    <a href="#best-practices" aria-label="Best practices">Best practices</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#caching" aria-label="caching">caching</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#debugging" aria-label="Debugging">Debugging</a></li>
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a></li>
+                <li>
+                    <a href="#tools" aria-label="Tools">Tools</a></li>
+                <li>
+                    <a href="#internal" aria-label="internal">internal</a></li>
+                <li>
+                    <a href="#internal-1" aria-label="Internal">Internal</a><ul>
+                        
+                <li>
+                    <a href="#whats-an-oci-image" aria-label="What’s An OCI Image?">What’s An OCI Image?</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="docker-engine">Docker Engine</h2>
+<p>When you install Docker, you get two major components:</p>
+<ul>
+<li>Docker client →is a command-line tool used to interact with the Docker Engine,</li>
+<li>Docker daemon (sometimes called “server” or “engine”)
+In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at <code>/var/run/docker.sock</code></li>
+</ul>
+<p>The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd <code>(to manage container lifecycle operations — start | stop | pause | rm.)</code></p>
+<h4 id="what-happen-when-run-a-cmd">What happen when run a cmd</h4>
+<p><code>docker container run --name ctr1 -it alpine:latest sh</code></p>
+<ul>
+<li>
+<p>When you type commands like this into the Docker CLI, the Docker client converts them into the appropriate API payload and POSTs them to the correct API endpoint.</p>
+</li>
+<li>
+<p>The API is implemented in the daemon. The <strong>daemon</strong> communicates with <strong>containerd</strong> via a CRUD-style API over gRPC to create container</p>
+</li>
+<li>
+<p>containerd cannot actually create containers. It uses <strong>runc</strong> to do that. It converts the required Docker image into an OCI bundle and tells runc to use this to create a new container.<strong>(it forks a new instance of runc for every container it creates.)</strong></p>
+</li>
+<li>
+<p><strong>How it’s implemented on Linux</strong></p>
+<ul>
+<li>dockerd (the Docker daemon)</li>
+<li>docker-containerd (containerd)</li>
+<li>docker-containerd-shim (shim)</li>
+<li>docker-runc (runc)</li>
+</ul>
+</li>
+</ul>
+<h2 id="builders">Builders</h2>
+<p>A builder is a BuildKit daemon that you can use to run your builds. BuildKit is the build engine that solves the build steps in a Dockerfile to produce a container image or other artifacts.</p>
+<p>Starting from Docker 18.09, BuildKit is included</p>
+<p><strong>BuildKit</strong> is an advanced and modular container image building tool that is part of the Docker ecosystem. It is designed to improve the performance, flexibility, and security of building container images. BuildKit introduces features like <strong>parallelization, caching improvements</strong>, and the ability to use custom frontends, which allows for more efficient and customizable image building processes.</p>
+<p>we need to enable it explicitly. You can do this by setting the <strong><code>DOCKER_BUILDKIT</code></strong> environment variable to <strong><code>1</code></strong>. <code>export DOCKER_BUILDKIT=1</code></p>
+<p><strong><code>DOCKER_BUILDKIT=1 docker build . —no-cache</code> → this cmd use the docker build kit and pull the layer parallely and faster then normal build. you can see the build output is running parallely</strong></p>
+<p>To create a multi-platform Docker image that can run on Windows, Linux, and macOS, you can use the <strong><code>buildx</code></strong> command,<code>**docker buildx build -t your-app-image --platform linux/amd64,windows/amd64,darwin/amd64 .**</code></p>
+<p>Before buildKit when we building docker image by setting <code>cwd .</code> the hole repo will send to docker engine expect docker ingore file but in buildkit the engine will request for the file it needed</p>
+<p>In docker desktop default it use builkit.</p>
+<h4 id="features-in-buildkit">Features in buildKit</h4>
+<ol>
+<li>Mount</li>
+<li>Custom front end where we can use go language and other supported language to write the docker file</li>
+</ol>
+<h2 id="images">Images</h2>
+<p>Images are made up of multiple layers that get stacked on top of each other and represented as a single object.</p>
+<p>A Docker image is just a bunch of loosely-connected read-only layers. To inspect the image with the docker image inspect command</p>
+<p><code>docker image inspect ubuntu:latest</code></p>
+<ul>
+<li>Will print all layers in the image</li>
+</ul>
+<p>Docker employs a storage driver (snapshotter in newer versions) that is responsible for stacking layers and presenting them as a single unified filesystem. Examples of storage drivers on Linux include <strong>AUFS , overlay2 , devicemapper , btrfs and zfs</strong> . As their names suggest, each one is based on a Linux filesystem or block-device technology, and each has its own unique performance characteristics.</p>
+<p><strong>Sharing image layers:</strong>  If we downloading the image and that has base layer is unbuntu which we already have it will reuse it</p>
+<p><strong>digests of images:</strong> Every time you pull an image, the docker image pull command will include the image’s digest (cryptographic content hash) as part of the return code. You can also view the digests of images in your Docker host’s local repository by adding the &ndash;digests flag to the docker image ls command</p>
+<p><strong>distribution hash:</strong> When we pushing and pulling image to hub we send the layer in compressed manner. which cause the image digest to change so we use distribution hash. which is hash value of compressed image</p>
+<p><strong>dangling images:</strong> A dangling image is an image that is no longer tagged, and appears in listings as <code>none:none</code> to get <code>docker image ls --filter dangling=true</code></p>
+<p><strong>manifest list:</strong> User may have different architectures, such as Windows, ARM, and s390x. so when we pulling the image with tag we need to download the our architectures suitable image for that we use manifest list</p>
+<p>manifest list contain entries for each architecture the image supports with same tag.</p>
+<p>When we pull an image, your Docker client makes the relevant calls to the Docker Registry API running on Docker Hub. If a manifest list exists for the image, it will be parsed to see if an entry exists for Linux on ARM. If an ARM entry exists, the manifest for that image is retrieved and parsed for the crypto ID’s of the layers that make up the image. Each layer is then pulled from Docker Hub’s</p>
+<h4 id="args">Args</h4>
+<h2 id="containers">Containers</h2>
+<p>A container is the runtime instance of an image. <code>docker container run image --name</code></p>
+<p><strong>Stopping containers gracefully:</strong> Docker container stop sends a <strong>SIGTERM</strong> signal to the PID 1 process inside of the container. As we just said, this gives the process a chance to clean things up and gracefully shut itself down.If it doesn’t exit within 10 seconds, it will receive a <strong>SIGKILL.</strong></p>
+<p><strong>Self-healing containers with restart policies:</strong> The following restart policies exist</p>
+<ul>
+<li><strong>always</strong>  Will restart the container once docker is resarting (<strong>systemlctl restart docker)</strong></li>
+<li><strong>unless-stopped</strong></li>
+<li><strong>on-failed</strong> will restart a container if it exits with a non-zero exit code</li>
+</ul>
+<p>Containerizing an App</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl"><span class="c"># Use an official Node.js runtime as a base image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> node:14</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Set the working directory in the container</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /usr/src/app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy package.json and package-lock.json to the container</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> package*.json ./<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Install the application dependencies</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> npm install<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Copy the application code to the container</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> . .<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Expose the port the app runs on</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 3000</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Define the command to run your application</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;node&#34;</span><span class="p">,</span> <span class="s2">&#34;app.js&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></div><ul>
+<li>docker build -t app-image .</li>
+<li>docker run -p 3000:3000 -d app-image</li>
+</ul>
+<h4 id="memory--cpu-constraints">Memory &amp; CPU Constraints</h4>
+<ul>
+<li>By default it take the host cpu and memory as much it need</li>
+<li><code>docker run —-memory 60m my-image:tag</code> 60Mb limit</li>
+<li>Docker have OOM killer (out of memory killer) which is enabled by default what it do was when ever the container is getting out of memory it wil the process that consume more memory to disable the OOM <code>docker run -m 128m --oom-kill-disable my-image:tag</code></li>
+<li><strong>Swap:</strong> Swap is an extension of physical memory (RAM) that allows the operating system to use a portion of the disk as if it were additional RAM. <code>docker run --memory=512m --memory-swap=1g my_container</code></li>
+<li>swap space is typically enabled by default. This means that the operating system may use swap space to store less frequently accessed data when the physical memory (RAM) is fully utilized.</li>
+<li>If we set memory and swap same it won&rsquo;t use swap</li>
+<li><code>Note:</code> Swap may downgrad the performance of the host</li>
+<li><code>docker run --cpus .5 my-image:tag</code> can use only 50% of the CPU</li>
+<li><code>docker run —-cpuset-cpus 1,2 my-image:tag</code> allocate the 2nd and 3rd CPU</li>
+</ul>
+<h4 id="enviroment-var">Enviroment Var</h4>
+<ul>
+<li><code>docker run -e VARIABLE_NAME=variable_value my_container</code></li>
+<li><code>docker inspect --format='{{range .Config.Env}}{{println .}}{{end}}' container_id</code> to inspect the environment variables of a running container.</li>
+</ul>
+<h4 id="logs">Logs</h4>
+<ul>
+<li><code>docker logs [container_name_or_id]</code></li>
+<li><code>docker events —-since ‘5m’</code></li>
+<li><code>docker logs -f my-container</code> follow logs</li>
+<li><code>docker run -D </code> Run in debugging mode</li>
+</ul>
+<h2 id="networking">Networking</h2>
+<p>Docker networking comprises three major components:</p>
+<ul>
+<li>The Container Network Model (CNM) →is a specification that defines how container runtimes like Docker should provide networking for containers.</li>
+<li>libnetwork →is the library that implements the CNM specifications. It’s written in Go, and implements the core components outlined in the CNM.</li>
+<li>Drivers →drivers are plugins that implement the CNM specifications through <strong><code>libnetwork</code></strong></li>
+</ul>
+<p><strong>The Container Network Model (CNM)</strong></p>
+<p>it defines three building blocks</p>
+<ul>
+<li><strong>Sandboxes</strong> →is an isolated network stack. It includes; Ethernet interfaces, ports, routing tables, and DNS config.</li>
+<li><strong>Endpoints</strong>→are virtual network interfaces (E.g. veth ). Like normal network interfaces, they’re responsible for making connections. In the case of the CNM, it’s the job of the endpoint to connect a sandbox to a network.</li>
+<li><strong>Networks</strong> →are a software implementation of an 802.1d bridge (more commonly known as a switch). As such, they group together, and isolate, a collection of endpoints that need to communicate.</li>
+</ul>
+<h3 id="drivers">Drivers</h3>
+<table>
+<thead>
+<tr>
+<th>Driver</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bridge</code></td>
+<td>The default network driver.</td>
+</tr>
+<tr>
+<td><code>host</code></td>
+<td>Remove network isolation between the container and the Docker host.</td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>Completely isolate a container from the host and other containers.</td>
+</tr>
+<tr>
+<td><code>overlay</code></td>
+<td>Overlay networks connect multiple Docker daemons together.</td>
+</tr>
+<tr>
+<td><code>ipvlan</code></td>
+<td>IPvlan networks provide full control over both IPv4 and IPv6 addressing.</td>
+</tr>
+<tr>
+<td><code>macvlan</code></td>
+<td>Assign a MAC address to a container.</td>
+</tr>
+</tbody>
+</table>
+<p>By default docker have bridge network(in windows it called NAT) which assign a unique ip address for each container from the range of <code>172.17.0.0/16</code></p>
+<p>The default “bridge” network, on all Linux-based Docker hosts, maps to an underlying Linux bridge in the kernel called <strong>“docker0”</strong>  <code>docker network inspect bridge | grep bridge.name </code></p>
+<p>to check the docker network inspect (<code>docker network inspect bridge</code>) the container.</p>
+<p>How to make two docker to communicate among them</p>
+<ol>
+<li>Create a network <code>docker network create -d nat localnet</code></li>
+<li>Run two container on same network <code>docker container run --network localnet name</code></li>
+<li>Communicate with docker name in container <code>ping containername1</code></li>
+</ol>
+<p><code>Note</code>: The default bridge network on Linux does not support name resolution via the Docker DNS service.</p>
+<h4 id="bridge-network">bridge Network</h4>
+<p>we can create a custom bridge using <code>docker create network name </code>which will create the new netowork bind with bridge and allocate the new Ip range and if you want the container to run on this network attach with <code>—network=name</code></p>
+<h4 id="host-network">Host Network</h4>
+<p>It directly bind the container to host and exposed to access publicly <code>docker run --network host name</code> we can access this by host IP.</p>
+<h4 id="macvlan">MACVLAN</h4>
+<p>Connect the container interface through to the hosts interface.it requires the host NIC to be in promiscuous mode (isn’t allowed on most public cloud platforms)</p>
+<h4 id="communication-between-two-container-in-same-region">Communication between two container in same region</h4>
+<p>When you send a packet to <code>172.23.2.1</code> on your local network, your operating system (Linux, for our purposes) looks up the MAC address for that IP address in a table it maintains (called the ARP table). Then it puts that MAC address on the packet and sends it off.</p>
+<p>So! What if I had a packet for the container <code>10.4.4.4</code> but I actually wanted it to go to the computer <code>172.23.1.1</code> where another container is running?. You just add an entry to another table. It’s all tables.</p>
+<p>Here’s command you could run to do this manually:</p>
+<pre tabindex="0"><code>sudo ip route add 10.4.4.0/24 via 172.23.1.1 dev eth0
+</code></pre><p><code>ip route add</code> adds an entry to the <strong>route table</strong> on your computer. This route table entry says “Linux, whenever you see a packet for <code>10.4.4.*</code>, just send it to the MAC address for <code>172.23.2.1</code>,</p>
+<h4 id="communication-between-two-container-in-different-region">Communication between two container in different region</h4>
+<p>route table trick will only work if the computers are connected directly. If the two computers are far apart (in different local networks) we’ll need to do something more complicated.</p>
+<p>We want to send a packet to the container IP 10.4.4.4, and it is on the computer 172.9.9.9. But because the computer is far away, we <strong>have</strong> to address the packet to the IP address 172.9.9.9. Woe is us! All is lost! Where are we going to put the IP address 10.4.4.4?</p>
+<p><strong>Encapsulation</strong></p>
+<p>All is not lost. We can do a thing called “encapsulation”. This is where you take a network packet and put it inside ANOTHER network packet.</p>
+<p>So instead of sending</p>
+<pre tabindex="0"><code>IP: 10.4.4.4
+TCP stuff
+HTTP stuff
+</code></pre><p>we will send</p>
+<pre tabindex="0"><code>IP: 172.9.9.9
+(extra wrapper stuff)
+IP: 10.4.4.4
+TCP stuff
+HTTP stuff
+</code></pre><p>There are at least 2 different ways of doing encapsulation: there’s “ip-in-ip” and “vxlan” encapsulation.</p>
+<p><strong>vxlan</strong> encapsulation takes your whole packet (including the MAC address) and wraps it inside a UDP packet. That looks like this:</p>
+<pre tabindex="0"><code>MAC address: 11:11:11:11:11:11
+IP: 172.9.9.9
+UDP port 8472 (the &#34;vxlan port&#34;)
+MAC address: ab:cd:ef:12:34:56
+IP: 10.4.4.4
+TCP port 80
+HTTP stuff
+</code></pre><p><strong>ip-in-ip</strong> encapsulation just slaps on an extra IP header on top of your old IP header. This means you don’t get to keep the MAC address you wanted to send it to but I’m not sure why you would care about that anyway.</p>
+<pre tabindex="0"><code>MAC:  11:11:11:11:11:11
+IP: 172.9.9.9
+IP: 10.4.4.4
+TCP stuff
+HTTP stuff
+</code></pre><h4 id="how-docker-networking-working-from-scratch">How docker networking working from scratch</h4>
+<ul>
+<li>In linux we can create a multiple namespace and ethernet with ip table</li>
+<li>refer <a href="https://github.dev/kristenjacobs/container-networking">https://github.dev/kristenjacobs/container-networking</a></li>
+</ul>
+<h2 id="volumes">Volumes</h2>
+<p>If you want your container’s data to stick around (persist), you need to put it on a volume. Volumes are decoupled from containers, meaning you create and manage them separately, and they’re not tied to the lifecycle of any container. Net result, you can delete a container with a volume, and the volume will not be deleted.</p>
+<p><code>docker volume create myvol</code></p>
+<p><code>docker volume inspect myvol</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">[</span>
+</span></span><span class="line"><span class="cl">	<span class="p">{</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;CreatedAt&#34;</span><span class="p">:</span> <span class="s2">&#34;2018-01-12T12:12:10Z&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;Driver&#34;</span><span class="p">:</span> <span class="s2">&#34;local&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;Labels&#34;</span><span class="p">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;Mountpoint&#34;</span><span class="p">:</span> <span class="s2">&#34;/var/lib/docker/volumes/myvol/_data&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;Name&#34;</span><span class="p">:</span> <span class="s2">&#34;myvol&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;Options&#34;</span><span class="p">:</span> <span class="p">{},</span>
+</span></span><span class="line"><span class="cl">		<span class="nt">&#34;Scope&#34;</span><span class="p">:</span> <span class="s2">&#34;local&#34;</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span></code></pre></div><ul>
+<li>Mountpoint → where the data will be stored</li>
+</ul>
+<p>By default, Docker creates new volumes with the built-in local driver. As the name suggests, local volumes are only available to containers on the node they’re created on. Use the -d flag to specify a different driver. Third-party drivers are available as plugins. These can provide advanced storage features, and integrate external storage systems with Docker</p>
+<h4 id="types">Types</h4>
+<ul>
+<li><strong>Host volume</strong> → we explicitly tell the host path and container path</li>
+<li><strong>Anonymous voulme</strong> → we only tell the container path it will automatically mount the data to <code>/var/lib/docker/volumes/random_hash/data</code></li>
+<li><strong>Named volume</strong> → Create volume using <code>docker volume create myvol</code> and attach it when running <code>docker run -v myvol:path_in_container</code></li>
+</ul>
+<p><code>docker run —name myapp -p 4000:4000 -v full_path_in_current_host:path_in_docker run imagename</code></p>
+<p>we can use this to avoid rebuiliding the images for each file change in our code we can directly mount the current code dir to docker container which will help to avoid building again and again. use this only for dev.</p>
+<h2 id="multistage-build">Multistage Build</h2>
+<p>This will be used to reduce the size of docker image by removing the unwanted things that no need for running the appliaction.let us assume you have program that can be compiled in to bin so we don’t need the things that we used during building the program.</p>
+<p>Example : In nodejs typescript code we no need the src code after compilling in to js so we can just copy the necessary file and remove other things.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Stage 1: Build Stage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">FROM node:latest AS build</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">WORKDIR /app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Copy package.json and package-lock.json</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">COPY package*.json ./</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Install dependencies</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">RUN npm install</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Copy source code</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">COPY . .</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Build the application</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">RUN npm run build</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Stage 2: Production Stage (new base layer)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#FROM will start a new base layer old will be ingored</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">FROM nginx:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Copy built files from the build stage to the production image </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#(the above will be considered as seprate image and removed)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">COPY --from=build /app/dist /usr/share/nginx/html</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Other configurations, if needed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Container startup command for the web server (nginx in this case)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">CMD [&#34;nginx&#34;, &#34;-g&#34;, &#34;daemon off;&#34;]</span><span class="w">
+</span></span></span></code></pre></div><p><code>docker image history image name </code>→ to print all layers and how it was builded</p>
+<h2 id="security">Security</h2>
+<h4 id="scanning-for-vulernablity">Scanning for vulernablity</h4>
+<ul>
+<li><strong>Trivy:</strong> Lightweight and easy to use.</li>
+<li><strong>Clair:</strong> Part of the CoreOS project, designed for container scanning.</li>
+<li><strong>Dagda:</strong> Extensive vulnerability scanner for Docker containers.</li>
+<li><strong>Anchore:</strong> Provides detailed analysis and policy enforcement.</li>
+<li><code>docker scan &lt;image_name&gt;:&lt;tag&gt;</code> part of Docker Hub and is designed to analyze Docker images for security vulnerabilities.</li>
+</ul>
+<h2 id="docker-compose">Docker Compose</h2>
+<p>It was a Python tool (v1) that sat on top of Docker, and allowed you to define entire multi-container apps in a single YAML file. now v3 written in GO</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-docker" data-lang="docker"><span class="line"><span class="cl">version:3<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>services:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  web: <span class="c1">#name for the container</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    build: . <span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>		<span class="c1">#context if we have docker file give the path here and not give image</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>		image: imagename<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>		enviroment:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>				DB_URL: value<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    ports:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - <span class="s2">&#34;8000:5000&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    volumes:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - .:/code  <span class="c1">#(map current dir (.) to the /code dir in container)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    depends_on:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>      - redis <span class="c1">#will wait for redis to spin up</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>		restart: always<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>  redis:<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    image: redis<span class="err">
+</span></span></span></code></pre></div><p><strong><strong>Compose file Structure</strong></strong></p>
+<ul>
+<li><strong><code>version</code></strong>: Specifies the version of the Docker Compose file syntax. It ensures compatibility and defines which features are available. ****</li>
+<li><strong><code>Services</code></strong> Describes the containers that make up the application, specifying their configuration, links, and other details.
+<ol>
+<li><strong><code>image</code></strong>: Specifies the Docker image to use for the service. It can be an official image from a registry or a custom image.</li>
+<li><strong><code>build</code></strong>: Defines the build context for the service, allowing you to build a custom image from a Dockerfile.</li>
+<li><strong><code>ports</code></strong>: Maps container ports to host ports, allowing external access to the service.</li>
+<li><strong><code>volumes</code></strong>: Mounts volumes from the host or other containers into the service, providing persistent storage.</li>
+<li><strong><code>environment</code></strong>: Sets environment variables for the service, influencing its runtime behavior.</li>
+<li><strong><code>depends_on</code></strong>: Specifies dependencies between services, ensuring one service starts only after its dependencies are up.</li>
+<li><strong><code>networks</code></strong>: Connects the service to specific networks, facilitating communication with other services.</li>
+<li><strong><code>command</code></strong>: Overrides the default command specified in the Docker image, allowing custom command execution.</li>
+<li><strong><code>entrypoint</code></strong>: Similar to <strong><code>command</code></strong>, but it specifies the entry point for the container.</li>
+<li><strong><code>restart</code></strong>: Defines the restart policy for the service, determining how the container behaves after it exits.</li>
+</ol>
+</li>
+<li><strong><code>networks</code></strong> Defines networks that containers can connect to. This allows you to isolate containers or facilitate communication between them.</li>
+<li><strong><code>volumes</code></strong>: Declares named volumes that can be mounted into containers. Volumes persist data beyond the lifetime of a container.</li>
+<li><strong><code>configs</code></strong>: Specifies configuration files for services. It allows you to manage configuration separately from the Compose file.</li>
+<li><strong><code>secrets</code></strong>: Defines secrets that can be used by services. It helps manage sensitive data securely.</li>
+<li><strong><code>extensions</code></strong>: Provides a way to extend the Compose file by referencing external Compose files.</li>
+</ul>
+<p><strong>Docker compose CMDs</strong></p>
+<ol>
+<li><strong><code>docker-compose up</code></strong>: Builds, (re)creates, starts, and attaches to containers as per the configuration defined in the <strong><code>docker-compose.yml</code></strong> file.</li>
+<li><strong><code>docker-compose down</code></strong>: Stops and removes containers, networks, volumes, and images created by <strong><code>docker-compose up</code></strong>.</li>
+<li><strong><code>docker-compose build</code></strong>: Builds or rebuilds services specified in the <strong><code>docker-compose.yml</code></strong> file. it will build all images with prefix with name of directory</li>
+<li><strong><code>docker-compose ps</code></strong>: Lists the running containers associated with the Docker Compose configuration.</li>
+<li><strong><code>docker-compose logs</code></strong>: Displays log output from services. You can specify the service name to view logs for a specific service.</li>
+<li><strong><code>docker-compose exec</code></strong>: Runs a command in a running service container. Useful for executing one-off commands or accessing a shell within a container.</li>
+<li><strong><code>docker-compose stop</code></strong>: Stops running services defined in the <strong><code>docker-compose.yml</code></strong> file without removing them.</li>
+<li><strong><code>docker-compose start</code></strong>: Starts stopped services defined in the <strong><code>docker-compose.yml</code></strong> file.</li>
+<li><strong><code>docker-compose restart</code></strong>: Restarts services. This is equivalent to stopping and then starting services.</li>
+<li><strong><code>docker-compose down -v</code></strong>: Stops and removes containers, networks, volumes, and images, including volumes. Useful for a complete cleanup.</li>
+</ol>
+<h2 id="best-practices">Best practices</h2>
+<h4 id="caching">caching</h4>
+<ul>
+<li>Make sure the order is correct such that it will do caching docker will not apply caching after one non caching stage</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">COPY ./app</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">RUN apt-get install </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">RUN apt-get install </span><span class="w">
+</span></span></span></code></pre></div><ul>
+<li>In above example COPY will always change if we make a code change which cause the doker to not use cache for the upcoming layer so move that to last as possible</li>
+<li>Remove the pkg that no need</li>
+</ul>
+<h2 id="debugging">Debugging</h2>
+<h2 id="resources">Resources</h2>
+<ol>
+<li><a href="https://medium.com/datamindedbe/how-we-reduced-our-docker-build-times-by-40-afea7b7f5fe7">https://medium.com/datamindedbe/how-we-reduced-our-docker-build-times-by-40-afea7b7f5fe7</a></li>
+<li><a href="https://btholt.github.io/complete-intro-to-containers/">https://btholt.github.io/complete-intro-to-containers/</a></li>
+</ol>
+<h2 id="tools">Tools</h2>
+<ul>
+<li><a href="https://github.com/nicolaka/netshoot">A Docker + Kubernetes network trouble-shooting swiss-army container</a></li>
+<li><a href="https://github.com/serversideup/spin">https://github.com/serversideup/spin</a> [Replicate your production environment locally using Docker.]</li>
+</ul>
+<h2 id="internal">internal</h2>
+<ul>
+<li>Cgroups, namespaces, and beyond: what are containers made from? By Jérôme Petazzoni - <a href="https://t.co/6hJyVqYHGA">https://youtube.com/watch?v=sK5i-N34im8…</a> Watch: Containers From Scratch by</li>
+<li><a href="https://t.co/KG4UWJbROE">https://youtube.com/watch?v=oSlheqvaRso…</a> Watch: Rootless Containers from Scratch by</li>
+<li><a href="https://t.co/6TANRehH6u">https://youtube.com/watch?v=jeTKgAEyhsA…</a> Code: Build your own Docker at</li>
+<li><a href="https://t.co/wWWJGAH4mO">https://app.codecrafters.io/join?via=JohnCrickett…</a> Watch: Build your own Container Runtime with chroot by Adam Gordon Bell - </li>
+<li><a href="https://t.co/BR2y3MnNyC">https://youtu.be/89ESCBzM-3Q?si=D6S3V1cyJ1K_QKO4…</a> and another version of the same presentation - <a href="https://t.co/ELxy4PWRNG">https://youtube.com/watch?v=JOsWB50LmwQ…</a></li>
+<li>Watch: Building Containers From Scratch by Vinesh Agrawal - <a href="https://t.co/G8eLXeoMZG">https://youtube.com/watch?v=GFUpXhft8zA…</a></li>
+<li>Code: Linux namespace Golang experiments by Songrong Jiang - <a href="https://t.co/j6jdIC9iYX">https://github.com/songrgg/namespace-demo…</a></li>
+<li>Read: Building a Container in Go - <a href="https://t.co/8Mo122PK0n">https://infoq.com/articles/build-a-container-golang/…</a></li>
+<li><a href="https://www.youtube.com/watch?v=wyqoi52k5jM">Containers from Scratch - Eric Chiang, CoreOS</a></li>
+<li><a href="https://www.youtube.com/watch?v=b3XDl0YsVsg">Deep Dive in Docker Overlay Networks</a></li>
+<li><a href="https://blog.mbrt.dev/posts/container-network/">https://blog.mbrt.dev/posts/container-network/</a></li>
+<li><a href="https://litchipi.site/serie/containers_in_rust">Writing a container in rust </a></li>
+</ul>
+<h2 id="internal-1">Internal</h2>
+<h3 id="whats-an-oci-image">What’s An OCI Image?</h3>
+<p> OCI is <a href="https://github.com/opencontainers/image-spec/blob/main/spec.md">the standardized container format used by Docker</a> — are pretty simple. An OCI image is just a stack of tarballs. A OCI can run multiple different runtime</p>
+<p>A useful way to look at a Dockerfile is as a series of shell commands, each generating a tarball; we call these “layers”. To rehydrate a container from its image, we just start the the first layer and unpack one on top of the next.</p>
+<p>docker images are just tar file and json meta data</p>
+<p><code>docker save nginx:latest -o ngnix.tar</code> -&gt; will save image as tar file
+<code>tar -xvf ngnix.tar --one-top-level</code> -&gt; exctract the tar file which have tar and json for each layer <code>docker export containername -o mycontainer.tar</code></p>
+<p>if you create file inside container we can see inside proc file of the docker process id ls <code>/proc/procoid/root</code></p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+
+    
+
+</main>
+    </body>
+</html>

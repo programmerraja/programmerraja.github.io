@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Nginx Notes | programmerraja blog</title>
+<meta property="og:title" content="Nginx Notes | programmerraja blog" />
+<meta name="twitter:title" content="Nginx Notes | programmerraja blog" />
+<meta itemprop="name" content="Nginx Notes | programmerraja blog" />
+<meta name="application-name" content="Nginx Notes | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/nginx/" title="" />
+
+
+
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.125.7">
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/nginx/">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Nginx Notes</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-01-10T08:19:32&#43;05:30" itemprop="datePublished"> Jan 10, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#how-does-nginx-work" aria-label="How Does NGINX Work?">How Does NGINX Work?</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#configuration-files" aria-label="Configuration files">Configuration files</a></li>
+                <li>
+                    <a href="#sites-enaled-and-sites-avalible" aria-label="sites-enaled and sites-avalible">sites-enaled and sites-avalible</a></li>
+                <li>
+                    <a href="#example" aria-label="Example">Example</a></li>
+                <li>
+                    <a href="#how-nginx-processes-a-request" aria-label="How nginx processes a request">How nginx processes a request</a></li>
+                <li>
+                    <a href="#reloading-server-with-zero-down-time" aria-label="Reloading server with zero down time">Reloading server with zero down time</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#logs" aria-label="Logs">Logs</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#accesslog" aria-label="accesslog">accesslog</a></li>
+                <li>
+                    <a href="#error-logs" aria-label="Error Logs">Error Logs</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#caching" aria-label="Caching">Caching</a></li>
+                <li>
+                    <a href="#load-balancer" aria-label="load balancer">load balancer</a></li>
+                <li>
+                    <a href="#socket-sharding" aria-label="Socket sharding">Socket sharding</a></li>
+                <li>
+                    <a href="#cmds" aria-label="CMDS">CMDS</a></li>
+                <li>
+                    <a href="#alternative" aria-label="Alternative">Alternative</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#envoyhttpswwwenvoyproxyiodocsenvoylatest" aria-label="Envoy">Envoy</a></li>
+                <li>
+                    <a href="#pingora-cloudfare" aria-label="Pingora [cloudfare]">Pingora [cloudfare]</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a></li>
+                <li>
+                    <a href="#tool" aria-label="Tool">Tool</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="how-does-nginx-work"><strong>How Does NGINX Work?</strong></h2>
+<p>NGINX uses a predictable process model that is tuned to the available hardware resources:</p>
+<ul>
+<li>The <strong>master process</strong> performs the privileged operations such as reading configuration and binding to ports, and then creates a small number of child processes (the next three types).</li>
+<li>The <strong>cache loader</strong> process runs at startup to load the disk‑based cache into memory, and then exits. It is scheduled conservatively, so its resource demands are low.</li>
+<li>The <strong>cache manager</strong> process runs periodically and prunes entries from the disk caches to keep them within the configured sizes.</li>
+<li>The <strong>worker processes</strong> do all of the work! They handle network connections, read and write content to disk, and communicate with upstream servers.</li>
+<li>Each request handled by each process</li>
+</ul>
+<h4 id="configuration-files">Configuration files</h4>
+<h4 id="sites-enaled-and-sites-avalible">sites-enaled and sites-avalible</h4>
+<p><strong>sites-available</strong>: This directory contains individual configuration files for each website or application that NGINX can serve</p>
+<p><strong>sites-enable</strong>: This directory contains symbolic links (or sometimes actual copies) to the configuration files in the <code>sites-available</code> directory.</p>
+<p>NGINX only reads configuration files from the <code>sites-enabled</code> directory when it starts or reloads. This separation allows administrators to easily enable or disable sites without deleting or moving configuration files.</p>
+<p>cd /etc/ngnix → has config file</p>
+<p>The way nginx and its modules work is determined in the configuration file. By default, the configuration file is named <code>nginx.conf</code> and placed in the directory <code>/usr/local/nginx/conf</code>, <code>/etc/nginx</code>, or <code>/usr/local/etc/nginx</code>.</p>
+<p>[http {},events {}] → these are called contexts</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">http</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="nx">listen</span> <span class="o">:</span> <span class="mi">8080</span>
+</span></span><span class="line"><span class="cl"><span class="nx">root</span> <span class="o">:</span> <span class="kr">static</span> <span class="nx">path</span> <span class="nx">to</span> <span class="nx">html</span> 
+</span></span><span class="line"><span class="cl">	<span class="nx">location</span>  <span class="o">/</span><span class="nx">path</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">root</span> <span class="o">:</span><span class="nx">satic</span> <span class="nx">path</span> <span class="nx">to</span> <span class="nx">html</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="example">Example</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">worker_processes</span>  <span class="mi">5</span><span class="p">;</span>  <span class="err">##</span> <span class="nx">Default</span><span class="o">:</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nx">error_log</span>  <span class="nx">logs</span><span class="o">/</span><span class="nx">error</span><span class="p">.</span><span class="nx">log</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">worker_rlimit_nofile</span> <span class="mi">8192</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">events</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">worker_connections</span>  <span class="mi">4096</span><span class="p">;</span>  <span class="err">##</span> <span class="nx">Default</span><span class="o">:</span> <span class="mi">1024</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">http</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">include</span>    <span class="nx">conf</span><span class="o">/</span><span class="nx">mime</span><span class="p">.</span><span class="nx">types</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">include</span>    <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">nginx</span><span class="o">/</span><span class="nx">proxy</span><span class="p">.</span><span class="nx">conf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">include</span>    <span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">nginx</span><span class="o">/</span><span class="nx">fastcgi</span><span class="p">.</span><span class="nx">conf</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">index</span>    <span class="nx">index</span><span class="p">.</span><span class="nx">html</span> <span class="nx">index</span><span class="p">.</span><span class="nx">htm</span> <span class="nx">index</span><span class="p">.</span><span class="nx">php</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">default_type</span> <span class="nx">application</span><span class="o">/</span><span class="nx">octet</span><span class="o">-</span><span class="nx">stream</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log_format</span>   <span class="nx">main</span> <span class="s1">&#39;$remote_addr - $remote_user [$time_local]  $status &#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#34;$request&#34; $body_bytes_sent &#34;$http_referer&#34; &#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">access_log</span>   <span class="nx">logs</span><span class="o">/</span><span class="nx">access</span><span class="p">.</span><span class="nx">log</span>  <span class="nx">main</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">sendfile</span>     <span class="nx">on</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">tcp_nopush</span>   <span class="nx">on</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">server_names_hash_bucket_size</span> <span class="mi">128</span><span class="p">;</span> <span class="err">#</span> <span class="k">this</span> <span class="nx">seems</span> <span class="nx">to</span> <span class="nx">be</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">some</span> <span class="nx">vhosts</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">server</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">    <span class="nx">listen</span>       <span class="mi">80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">server_name</span>  <span class="nx">domain1</span><span class="p">.</span><span class="nx">com</span> <span class="nx">www</span><span class="p">.</span><span class="nx">domain1</span><span class="p">.</span><span class="nx">com</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">access_log</span>   <span class="nx">logs</span><span class="o">/</span><span class="nx">domain1</span><span class="p">.</span><span class="nx">access</span><span class="p">.</span><span class="nx">log</span>  <span class="nx">main</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">root</span>         <span class="nx">html</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">location</span> <span class="o">~</span> <span class="err">\</span><span class="p">.</span><span class="nx">php$</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">fastcgi_pass</span>   <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">1025</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">server</span> <span class="p">{</span> <span class="err">#</span> <span class="nx">simple</span> <span class="nx">reverse</span><span class="o">-</span><span class="nx">proxy</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">listen</span>       <span class="mi">80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">server_name</span>  <span class="nx">domain2</span><span class="p">.</span><span class="nx">com</span> <span class="nx">www</span><span class="p">.</span><span class="nx">domain2</span><span class="p">.</span><span class="nx">com</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">access_log</span>   <span class="nx">logs</span><span class="o">/</span><span class="nx">domain2</span><span class="p">.</span><span class="nx">access</span><span class="p">.</span><span class="nx">log</span>  <span class="nx">main</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">serve</span> <span class="kr">static</span> <span class="nx">files</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">location</span> <span class="o">~</span> <span class="o">^</span><span class="sr">/(images|javascript|js|css|flash|media|static)/</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">root</span>    <span class="o">/</span><span class="kd">var</span><span class="err">/www/virtual/big.server.com/htdocs;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">expires</span> <span class="mi">30</span><span class="nx">d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nx">pass</span> <span class="nx">requests</span> <span class="k">for</span> <span class="nx">dynamic</span> <span class="nx">content</span> <span class="nx">to</span> <span class="nx">rails</span><span class="o">/</span><span class="nx">turbogears</span><span class="o">/</span><span class="nx">zope</span><span class="p">,</span> <span class="nx">et</span> <span class="nx">al</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">location</span> <span class="o">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">proxy_pass</span>      <span class="nx">http</span><span class="o">:</span><span class="c1">//127.0.0.1:8080;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">upstream</span> <span class="nx">big_server_com</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">server</span> <span class="mf">127.0.0.3</span><span class="o">:</span><span class="mi">8000</span> <span class="nx">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">server</span> <span class="mf">127.0.0.3</span><span class="o">:</span><span class="mi">8001</span> <span class="nx">weight</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">server</span> <span class="mf">192.168.0.1</span><span class="o">:</span><span class="mi">8000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">server</span> <span class="mf">192.168.0.1</span><span class="o">:</span><span class="mi">8001</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">server</span> <span class="p">{</span> <span class="err">#</span> <span class="nx">simple</span> <span class="nx">load</span> <span class="nx">balancing</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">listen</span>          <span class="mi">80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">server_name</span>     <span class="nx">big</span><span class="p">.</span><span class="nx">server</span><span class="p">.</span><span class="nx">com</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">access_log</span>      <span class="nx">logs</span><span class="o">/</span><span class="nx">big</span><span class="p">.</span><span class="nx">server</span><span class="p">.</span><span class="nx">access</span><span class="p">.</span><span class="nx">log</span> <span class="nx">main</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">location</span> <span class="o">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">proxy_pass</span>      <span class="nx">http</span><span class="o">:</span><span class="c1">//big_server_com;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li><strong>Context:</strong>  determines the scope and inheritance of directives, helping organize configuration settings and control their application at different levels</li>
+</ul>
+<pre tabindex="0"><code>Main Context
+├── Events Context
+│   ├── worker_connections
+│   ├── use
+│   └── multi_accept
+├── HTTP Context
+│   ├── log_format
+│   ├── access_log
+│   ├── default_type
+│   ├── include
+│   └── Server Context
+│       ├── listen
+│       ├── server_name
+│       ├── ssl_certificate
+│       ├── location
+│       │   ├── root
+│       │   ├── proxy_pass
+│       │   ├── try_files
+│       │   └── rewrite
+│       └── Location Context
+│           ├── root
+│           ├── proxy_pass
+│           ├── try_files
+│           └── rewrite
+└── Stream Context
+    ├── log_format
+    └── Server Context
+        ├── listen
+        └── upstream
+</code></pre><ul>
+<li>
+<p><strong>worker_processor</strong>: default 1 set auto or set how many cores you have</p>
+</li>
+<li>
+<p><strong>worker_rlimit_nofile</strong>: No of file can be open for connection set<code> 2* no of worker processor</code> if you using as reverse proxy set 3* worker because for listen one file and for stroing response from proxy</p>
+</li>
+<li>
+<p><strong>worker_connections</strong> : total amount of connection can be handle by per worker for per sec so if reach the threashold  it won&rsquo;t handle above the count it adviseable to set <code>2 * no of cpu</code> as count if we not using as reverse proxy</p>
+</li>
+</ul>
+<h4 id="how-nginx-processes-a-request">How nginx processes a request</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">server {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">listen      80 default_server;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">server_name example.org www.example.org;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">server {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">listen      80;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">server_name example.net www.example.net;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">server {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">listen      80;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">server_name example.com www.example.com;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span></code></pre></div><p>In this configuration nginx tests only the request’s header field “Host” to determine which server the request should be routed to. If its value does not match any server name, or the request does not contain this header field at all, then nginx will route the request to the default server for this port.</p>
+<h4 id="reloading-server-with-zero-down-time">Reloading server with zero down time</h4>
+<p>Updating NGINX configuration is a very simple, lightweight, and reliable operation. It typically just means running the <code>nginx</code> <code>-s</code> <code>reload</code> command, which checks the configuration on disk and sends the master process a SIGHUP signal.</p>
+<p>When the master process receives a SIGHUP, it does two things:</p>
+<ol>
+<li>Reloads the configuration and forks a new set of worker processes. These new worker processes immediately begin accepting connections and processing traffic (using the new configuration settings).</li>
+<li>Signals the old worker processes to gracefully exit. The worker processes stop accepting new connections. As soon as each current HTTP request completes, the worker process cleanly shuts down the connection (that is, there are no lingering keepalives). Once all connections are closed, the worker processes exit.</li>
+</ol>
+<p>This reload process can cause a small spike in CPU and memory usage, but it’s generally imperceptible compared to the resource load from active connections</p>
+<h2 id="logs">Logs</h2>
+<h4 id="accesslog">accesslog</h4>
+<p>have all api logs what are the requset came .</p>
+<pre tabindex="0"><code>http {
+    ...
+    log_format main &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#34; &#39;
+                      &#39;$status $body_bytes_sent &#34;$http_referer&#34; &#39;
+                      &#39;&#34;$http_user_agent&#34; &#34;$http_x_forwarded_for&#34;&#39;;
+    
+    access_log /var/log/nginx/access.log main;
+    ...
+}
+</code></pre><h4 id="error-logs">Error Logs</h4>
+<pre tabindex="0"><code>http {
+    ...
+    error_log /var/log/nginx/error.log;
+    ...
+}
+</code></pre><h2 id="caching">Caching</h2>
+<p>When nginx reads the response from an upstream server, the content is first written to a temporary file outside of the cache directory structure. When nginx finishes processing the request it renames the temporary file and moves it to the cache directory. If the temporary files directory for proxying is on another file system, the file will be copied, thus it&rsquo;s recommended to keep both temporary and cache directories on the same file system. It is also quite safe to delete files from the cache directory structure when they need to be explicitly purged. There are third-party extensions for nginx which make it possible to control cached content remotely, and more work is planned to integrate this functionality in the main distribution.</p>
+<p>The <code>ngx_http_limit_conn_module</code> module is used to limit the number of connections per the defined key, in particular, the number of connections from a single IP address.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="nx">http</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">proxy_cache_path</span> <span class="o">/</span><span class="nx">path</span>  <span class="p">(</span><span class="nx">physical</span> <span class="nx">loation</span> <span class="nx">to</span> <span class="nx">live</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">max_size</span><span class="o">=</span><span class="mi">300</span><span class="nx">g</span> <span class="nx">inactive</span><span class="o">=</span><span class="mi">12</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">proxy_cache_key</span> <span class="nx">$scheme$proxy_host</span> <span class="o">-&gt;</span> <span class="nx">define</span> <span class="nx">key</span> <span class="k">for</span> <span class="nx">caching</span> <span class="nx">we</span> <span class="nx">can</span> <span class="nx">give</span> <span class="nx">cookie</span> <span class="nx">any</span> <span class="nx">unique</span> <span class="nx">key</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>cache manager → activated perodically to check the state of cache and clear it based on constraints</p>
+<p>Cache loader → runs only after ngnix start it load metadata about perv cached data</p>
+<h2 id="load-balancer">load balancer</h2>
+<p>To load balance the request</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">http {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">upstream backend_servers {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">server backend1.example.com:8080 weight=20;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">server backend2.example.com:8080;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">server backend3.example.com:8080;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">server {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">listen 80;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">server_name example.com;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">location / {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="l">proxy_pass http://backend_servers;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span></code></pre></div><h2 id="socket-sharding">Socket sharding</h2>
+<p>When we run a server the ip and port are bind to the socket and if try to bind same ip and port again it will throw error but by using <strong>Socket sharding</strong> we can bind multiple app instance to single socket and kernel will do load balancing for the incoming request.</p>
+<p><strong>Configuring Socket Sharding</strong></p>
+<p>To enable the <code>SO_REUSEPORT</code> socket option, include the new <code>reuseport</code> parameter to the <code>listen</code> directive for HTTP or TCP (<strong>stream</strong> module) traffic,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">http {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="l">server {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="l">listen 80 reuseport;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="l">server_name  localhost;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="c"># ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">stream {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span><span class="l">server {</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="l">listen 12345 reuseport;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="c"># ...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">     </span>}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
+</span></span></span></code></pre></div><p>Rate limiting →https://www.nginx.com/blog/rate-limiting-nginx/</p>
+<h2 id="cmds">CMDS</h2>
+<ul>
+<li><code>ngnix -t </code>→ to test the config file is everything ok</li>
+</ul>
+<h2 id="alternative">Alternative</h2>
+<h4 id="envoyhttpswwwenvoyproxyiodocsenvoylatest"><a href="https://www.envoyproxy.io/docs/envoy/latest/">Envoy</a></h4>
+<p>it is layer 7 proxy and use Yaml extension for config</p>
+<ol>
+<li>Downstream → request come from [client]</li>
+<li>Upstream → response come from [server]</li>
+<li>Cluster → host are called .it has load balancing policy
+<ol>
+<li>cluster app1- &gt; have 2 host</li>
+<li>cluster app2 → can have 2 host</li>
+</ol>
+</li>
+<li>connection pool → each host in cluster gets 1 or more connection pool and connection pools are per worker thread each thread bound to single connection. no cordination between threads</li>
+</ol>
+<h4 id="pingora-cloudfare">Pingora [cloudfare]</h4>
+<h2 id="resources">Resources</h2>
+<ol>
+<li><a href="https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/">https://www.nginx.com/blog/inside-nginx-how-we-designed-for-performance-scale/</a></li>
+<li><a href="https://www.nginx.com/blog/tuning-nginx/">https://www.nginx.com/blog/tuning-nginx/</a></li>
+<li><a href="https://aosabook.org/en/v2/nginx.html">https://aosabook.org/en/v2/nginx.html</a></li>
+<li><a href="https://blog.cloudflare.com/how-we-built-pingora-the-proxy-that-connects-cloudflare-to-the-internet/">https://blog.cloudflare.com/how-we-built-pingora-the-proxy-that-connects-cloudflare-to-the-internet/</a></li>
+<li><a href="https://nginx.org/en/docs/">https://nginx.org/en/docs/</a></li>
+<li><a href="https://blog.martinfjordvald.com/optimizing-nginx-for-high-traffic-loads/">https://blog.martinfjordvald.com/optimizing-nginx-for-high-traffic-loads/</a></li>
+</ol>
+<h2 id="tool">Tool</h2>
+<ol>
+<li><a href="https://github.com/louislam/uptime-kuma">https://github.com/louislam/uptime-kuma</a></li>
+</ol>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+
+    
+
+</main>
+    </body>
+</html>
