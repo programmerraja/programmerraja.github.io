@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<html lang="en-us"><head><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,24 +18,24 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/nginx/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/nginx/" title="" />
 
 
 
-  <meta itemprop="image" content="http://localhost:1313/blog/" />
-  <meta property="og:image" content="http://localhost:1313/blog/" />
-  <meta name="twitter:image" content="http://localhost:1313/blog/" />
-  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
 
 
 
 
 
-<meta name="generator" content="Hugo 0.125.7">
+<meta name="generator" content="Hugo 0.127.0">
 
     
 
-    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/nginx/">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/nginx/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
 
 
 
-<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
 
 <meta name="msapplication-config" content="/blog/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -58,15 +58,16 @@
     
     <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
 
+    
     </head>
 <body data-theme = "" class="notransition">
         <main class="main">
 
-<script src="/blog/js/theme.js"></script>
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="http://localhost:1313/blog/" class="logo">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -178,7 +179,11 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#socket-sharding" aria-label="Socket sharding">Socket sharding</a></li>
                 <li>
+                    <a href="#optimization" aria-label="Optimization">Optimization</a></li>
+                <li>
                     <a href="#cmds" aria-label="CMDS">CMDS</a></li>
+                <li>
+                    <a href="#security" aria-label="Security">Security</a></li>
                 <li>
                     <a href="#alternative" aria-label="Alternative">Alternative</a><ul>
                         <ul>
@@ -430,10 +435,63 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span></span><span class="line"><span class="cl"><span class="w">     </span>}<span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>}<span class="w">
 </span></span></span></code></pre></div><p>Rate limiting →https://www.nginx.com/blog/rate-limiting-nginx/</p>
-<h2 id="cmds">CMDS</h2>
+<h2 id="optimization">Optimization</h2>
+<p>When a client sends an HTTP request to the NGINX server, it typically establishes a TCP connection to send and receive data. This connection can be reused for multiple requests, especially if keepalive connections are enabled.</p>
+<p><strong>keepalive_requests</strong> and <strong>keepalive_timeout</strong> directives to
+alter the number of requests that can be made over a single connec‐
+tion and the time idle connections can stay open:</p>
+<pre tabindex="0"><code>http {
+	
+	keepalive_requests 320;
+	keepalive_timeout 300s;
+
+}
+</code></pre><p>The keepalive_requests directive defaults to 100, and the
+keepalive_timeout directive defaults to 75 seconds.</p>
+<p><strong>Keeping Connections Open Upstream</strong></p>
+<p>When opening connection to upstream server we can set keep live that make connection to open and resuse for further request such that for each request it won&rsquo;t open new connection</p>
+<pre tabindex="0"><code>proxy_http_version 1.1; 
+proxy_set_header Connection &#34;&#34; #remove the `Connection` header when forwarding requests to upstream servers. to make connection live
+
+upstream backend {
+    server 10.0.0.42;
+    server 10.0.2.56;
+    keepalive 32; # specifies that NGINX should maintain up to 32 idle connections to each of the upstream servers
+}
+</code></pre><p><strong>Response buffering</strong></p>
+<p>When nginx recevied the response that is passed to a client synchronously, immediately as it is received. nginx will not try to read the whole response from the proxied server. we can enable buffering .</p>
+<p>nginx receives a response from the proxied server as soon as possible, saving it into the buffers set by the <a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffer_size">proxy_buffer_size</a> and <a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffers">proxy_buffers</a> directives. If the whole response does not fit into memory, a part of it can be saved to a <a href="https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_temp_path">temporary file</a> on the disk.</p>
+<pre tabindex="0"><code>server {
+proxy_buffering on;
+proxy_buffer_size 8k;
+proxy_buffers 8 32k;
+proxy_busy_buffer_size 64k;
+...
+}
+</code></pre><p><code>Note: **Proxy buffering is enabled by default in NGINX**</code></p>
+<p><strong>Buffering Access Logs</strong></p>
+<p>buffer logs to reduce the opportunity of blocks to the NGINX worker process when the system is under load.</p>
+<pre tabindex="0"><code>http {
+	access_log /var/log/nginx/access.log main buffer=32k flush=1m;
+}
+</code></pre><h2 id="cmds">CMDS</h2>
 <ul>
 <li><code>ngnix -t </code>→ to test the config file is everything ok</li>
 </ul>
+<h2 id="security">Security</h2>
+<p>This will not send the ngix version</p>
+<pre tabindex="0"><code>http{
+# Turn off server tokens 
+server_tokens off;
+}
+</code></pre><ol>
+<li>
+<p><strong>Prevents MIME type sniffing</strong>: Browsers sometimes try to guess the MIME type of a file based on its content, which can lead to security vulnerabilities. For example, a file with a misleading extension might be interpreted as a different type of file than it actually is, potentially leading to XSS (Cross-Site Scripting) attacks.</p>
+</li>
+<li>
+<p><strong>Forces the browser to respect the declared content type</strong>: By sending the <code>X-Content-Type-Options: nosniff</code> header, you&rsquo;re instructing the browser to trust the MIME type provided by the server and not try to infer it.</p>
+</li>
+</ol>
 <h2 id="alternative">Alternative</h2>
 <h4 id="envoyhttpswwwenvoyproxyiodocsenvoylatest"><a href="https://www.envoyproxy.io/docs/envoy/latest/">Envoy</a></h4>
 <p>it is layer 7 proxy and use Yaml extension for config</p>
@@ -528,7 +586,7 @@ stroke-linejoin="round" class="feather feather-home">
 
 
     
-    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
 
     
 

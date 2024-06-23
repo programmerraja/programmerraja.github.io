@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<html lang="en-us"><head><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,24 +18,24 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/python/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/python/" title="" />
 
 
 
-  <meta itemprop="image" content="http://localhost:1313/blog/" />
-  <meta property="og:image" content="http://localhost:1313/blog/" />
-  <meta name="twitter:image" content="http://localhost:1313/blog/" />
-  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
 
 
 
 
 
-<meta name="generator" content="Hugo 0.125.7">
+<meta name="generator" content="Hugo 0.127.0">
 
     
 
-    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/python/">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/python/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
 
 
 
-<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
 
 <meta name="msapplication-config" content="/blog/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -58,15 +58,16 @@
     
     <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
 
+    
     </head>
 <body data-theme = "" class="notransition">
         <main class="main">
 
-<script src="/blog/js/theme.js"></script>
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="http://localhost:1313/blog/" class="logo">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -208,13 +209,23 @@ stroke-linejoin="round" class="feather feather-home">
                         <ul>
                         
                 <li>
-                    <a href="#import-module-resolution" aria-label="Import module resolution">Import module resolution</a></li>
-                <li>
-                    <a href="#__pycache__" aria-label="pycache">pycache</a></li></ul>
+                    <a href="#import-module-resolution" aria-label="Import module resolution">Import module resolution</a></li></ul>
                     </ul>
                 </li>
                 <li>
-                    <a href="#packages" aria-label="Packages">Packages</a></li>
+                    <a href="#packages" aria-label="Packages">Packages</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#wheel-files" aria-label="Wheel files">Wheel files</a></li></ul>
+                    
+                <li>
+                    <a href="#wheel-file-structure" aria-label="Wheel File Structure">Wheel File Structure</a><ul>
+                        
+                <li>
+                    <a href="#__pycache__" aria-label="pycache">pycache</a></li></ul>
+                </li></ul>
+                </li>
                 <li>
                     <a href="#context-manger" aria-label="Context manger">Context manger</a></li>
                 <li>
@@ -234,8 +245,19 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#threading" aria-label="Threading">Threading</a></li>
                 <li>
-                    <a href="#byte-code" aria-label="Byte code">Byte code</a>
+                    <a href="#byte-code" aria-label="Byte code">Byte code</a></li>
+                <li>
+                    <a href="#async-io" aria-label="Async IO">Async IO</a></li>
+                <li>
+                    <a href="#type-hints--annotations" aria-label="Type hints &amp; Annotations">Type hints &amp; Annotations</a></li>
+                <li>
+                    <a href="#other-modules" aria-label="Other Modules">Other Modules</a><ul>
+                        
+                <li>
+                    <a href="#pydantic" aria-label="Pydantic">Pydantic</a>
                 </li>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
@@ -471,15 +493,44 @@ stroke-linejoin="round" class="feather feather-home">
 <p><strong>site-packages Directory</strong>: When you install third-party packages using tools like <code>pip</code>, they are typically installed into a directory called <code>site-packages</code>. This directory contains modules and packages installed via <code>pip</code> and is added to <code>sys.path</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nb">dir</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span> <span class="c1">#print all function present in module</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">help</span><span class="p">(</span><span class="n">modulename</span><span class="p">))</span>
-</span></span></code></pre></div><h4 id="__pycache__"><strong>pycache</strong></h4>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">#my_package/pythonscript.py</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">my_package</span> <span class="kn">import</span> <span class="n">pythonscript</span> <span class="c1">#will import the whole file</span>
+</span></span><span class="line"><span class="cl"><span class="n">pythonscript</span><span class="o">.</span><span class="n">myfunc</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">my_package.pythonscript</span> <span class="kn">import</span> <span class="n">myfunc</span>
+</span></span></code></pre></div><p>Let say if we have two file inside single folder if we want to import both file like <code>from foldername import *</code> it won&rsquo;t work we need to use package by creating the <code>__init__</code> file</p>
+<h2 id="packages">Packages</h2>
+<p>A package is a collection of Python modules organized in a directory hierarchy. It typically contains an <code>__init__.py</code> file to indicate that the directory should be treated as a package. Packages allow you to further organize your code into meaningful units.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># my_package/__init__.py</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Initialization code for the package</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Initializing my_package&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Importing specific functions or classes from the package modules</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.module1</span> <span class="kn">import</span> <span class="n">function1</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">.module2</span> <span class="kn">import</span> <span class="n">function2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Defining __all__ to specify what is exported when &#39;from my_package import *&#39; is used</span>
+</span></span><span class="line"><span class="cl"><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;function1&#39;</span><span class="p">,</span> <span class="s1">&#39;function2&#39;</span><span class="p">]</span>
+</span></span></code></pre></div><h4 id="wheel-files">Wheel files</h4>
+<p>is a built package format for Python that helps distribute and install Python software. It is a binary distribution format, which means it contains all the files necessary for running the package without requiring a build step. This format makes installation faster and easier compared to source distributions, which need to be built on the user&rsquo;s system.</p>
+<p>when we installing pkg using pip it get downloaded as wheel file.</p>
+<h3 id="wheel-file-structure">Wheel File Structure</h3>
+<p>A wheel file is essentially a ZIP archive with a specific naming convention and structure. The structure typically includes:</p>
+<ul>
+<li><code>data/</code>: Optional directory for package data files.</li>
+<li><code>dist-info/</code>: Directory containing metadata files such as <code>METADATA</code>, <code>RECORD</code>, <code>WHEEL</code>, and <code>entry_points.txt</code>.</li>
+<li><code>name/</code>: The package’s code files.</li>
+<li></li>
+</ul>
+<h4 id="__pycache__"><strong>pycache</strong></h4>
 <p><code>__pycache__</code> is a directory automatically created by Python when it compiles source files into bytecode files. Python compiles source files into bytecode (.pyc) files to speed up execution by avoiding recompilation each time the script is run.</p>
 <ol>
 <li>When you import a module in Python, the interpreter first checks if there&rsquo;s a corresponding bytecode file (.pyc) in the <code>__pycache__</code> directory.</li>
 <li>If the bytecode file exists and is up to date (i.e., the source file has not been modified since the bytecode was generated), Python uses the bytecode file for execution, bypassing the compilation step.</li>
 <li>If the bytecode file does not exist or is outdated, Python compiles the source file into bytecode and stores it in the <code>__pycache__</code> directory for future use.</li>
 </ol>
-<h2 id="packages">Packages</h2>
-<p>A package is a collection of Python modules organized in a directory hierarchy. It typically contains an <code>__init__.py</code> file to indicate that the directory should be treated as a package. Packages allow you to further organize your code into meaningful units.</p>
 <h2 id="context-manger">Context manger</h2>
 <p>objects that are used with the <code>with</code> statement to ensure that certain operations are properly initialized and cleaned up</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyContextManager</span><span class="p">:</span>
@@ -707,6 +758,107 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl"><span class="c1"># Simulate the program running for a while</span>
 </span></span><span class="line"><span class="cl"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </span></span></code></pre></div><h2 id="byte-code">Byte code</h2>
+<p>Generated by the Python interpreter when it translates the source code into a form that can be executed by the Python virtual machine (PVM).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">dis</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Use the disassemble function from the dis module to inspect the bytecode</span>
+</span></span><span class="line"><span class="cl"><span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+</span></span></code></pre></div><pre tabindex="0"><code class="language-bytecode" data-lang="bytecode">  4           0 LOAD_FAST                0 (a)
+              2 LOAD_FAST                1 (b)
+              4 BINARY_ADD
+              6 RETURN_VALUE
+</code></pre><h2 id="async-io">Async IO</h2>
+<p><code>asyncio</code> module provides infrastructure to write single-threaded concurrent code using coroutines, multiplexing I/O access over sockets and other resources, running network clients and servers, and other related primitives.</p>
+<ol>
+<li>
+<p><strong>Coroutines (<code>async</code>/<code>await</code>)</strong>: Coroutines are special functions that can pause execution at <code>await</code> expressions and then resume where they left off. They are defined using <code>async def</code> syntax and can be paused and resumed asynchronously.</p>
+</li>
+<li>
+<p><strong>Event Loop</strong>: The event loop is the central component of <code>asyncio</code>. It manages and schedules coroutines, IO operations, and callbacks. The event loop continuously checks for events such as IO operations, callbacks, and scheduled tasks, and executes them in an asynchronous manner.</p>
+</li>
+<li>
+<p><strong>Tasks</strong>: Tasks are used to schedule coroutines for execution on the event loop. A task wraps a coroutine, allowing it to be scheduled and managed by the event loop.</p>
+</li>
+<li>
+<p><strong>Event Loop Policies</strong>: Event loop policies allow you to customize the event loop used by <code>asyncio</code>. This can be useful for integrating <code>asyncio</code> with other event loops or frameworks.</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">asyncio</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;World&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="k">await</span> <span class="n">hello</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</span></span></code></pre></div><h2 id="type-hints--annotations">Type hints &amp; Annotations</h2>
+<p>Introduced in python 3.5 above it won&rsquo;t force to strict type we can give any type</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">:</span><span class="nb">str</span> <span class="o">=</span><span class="mi">1</span> <span class="c1">#no error</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span><span class="n">b</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span><span class="n">Dict</span><span class="p">,</span><span class="n">Set</span><span class="p">,</span><span class="n">Optional</span><span class="p">,</span><span class="n">Any</span><span class="p">,</span><span class="n">Sequence</span><span class="p">,</span><span class="n">Callable</span><span class="p">,</span><span class="n">TypeVar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">list</span> <span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">dict</span> <span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;key&#34;</span><span class="p">:</span><span class="s2">&#34;vaule&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Reusing type by assign to var</span>
+</span></span><span class="line"><span class="cl"><span class="n">Vector</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">list</span> <span class="p">:</span> <span class="n">Vector</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.3</span><span class="p">,</span><span class="mf">2.4</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func</span> <span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span><span class="n">b</span><span class="p">:</span><span class="n">Any</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#func as param first array args and last one is return type</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">func</span><span class="p">:</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">int</span><span class="p">,</span><span class="nb">int</span><span class="p">],[</span><span class="nb">int</span><span class="p">]]):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#Generic</span>
+</span></span><span class="line"><span class="cl"><span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&#34;T&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="nb">list</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="n">T</span><span class="p">])</span><span class="o">-&gt;</span><span class="n">T</span> <span class="p">:</span>
+</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="s2">&#34;&#34;</span>
+</span></span></code></pre></div><p>if we want to force type we need to use static analysis of code using <code>pip install mypy</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">mypy</span> <span class="n">filename</span><span class="o">.</span><span class="n">py</span> <span class="c1">#will strictly check the type</span>
+</span></span></code></pre></div><h2 id="other-modules">Other Modules</h2>
+<h3 id="pydantic">Pydantic</h3>
+<p>Pydantic is the most widely used data validation library for Python.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Delivery</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">timestamp</span><span class="p">:</span> <span class="n">datetime</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dimensions</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">m</span> <span class="o">=</span> <span class="n">Delivery</span><span class="p">(</span><span class="n">timestamp</span><span class="o">=</span><span class="s1">&#39;2020-01-02T03:04:05Z&#39;</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">timestamp</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; datetime.datetime(2020, 1, 2, 3, 4, 5, tzinfo=TzInfo(UTC))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">dimensions</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#&gt; (10, 20)</span>
+</span></span></code></pre></div><p>new tools</p>
+<ul>
+<li>pydantic</li>
+<li>Ruff [ linting and formating]</li>
+<li>uv</li>
+<li>mypy</li>
+</ul>
 
             </div>
         </article></main>
@@ -773,7 +925,7 @@ stroke-linejoin="round" class="feather feather-home">
 
 
     
-    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
 
     
 

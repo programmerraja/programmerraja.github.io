@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learning on programmerraja blog</title>
+    <link>https://programmerraja.github.io/blog/tags/learning/</link>
+    <description>Recent content in Learning on programmerraja blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Apr 2024 16:45:15 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>System Design Case study</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/system-design-case-study/</link>
+      <pubDate>Sat, 20 Apr 2024 16:45:15 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/system-design-case-study/</guid>
+      
+      <description>Database Scalling Shopfiy they started off by splitting the primary database into separate parts They identified groups of large tables that could exist on separate databases, and used GhostFerry to move a few tables onto a new database. This scaling approach is referred to as “federation” where tables are stored in different MySQLs As the app further grew, they were starting to hit the limit of a single MySQL.disk size take many Terabytes.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

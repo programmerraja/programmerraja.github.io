@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">System Design Case study | programmerraja blog</title>
+<meta property="og:title" content="System Design Case study | programmerraja blog" />
+<meta name="twitter:title" content="System Design Case study | programmerraja blog" />
+<meta itemprop="name" content="System Design Case study | programmerraja blog" />
+<meta name="application-name" content="System Design Case study | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/system-design-case-study/" title="" />
+
+
+
+  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.127.0">
+
+    
+
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/system-design-case-study/">
+    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">System Design Case study</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-04-20T16:45:15&#43;05:30" itemprop="datePublished"> Apr 20, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#database-scalling" aria-label="Database Scalling">Database Scalling</a><ul>
+                        
+                <li>
+                    <a href="#shopfiyhttpsshopifyengineeringhorizontally-scaling-the-rails-backend-of-shop-app-with-vitess" aria-label="Shopfiy">Shopfiy</a></li>
+                <li>
+                    <a href="#figma" aria-label="Figma">Figma</a><ul>
+                        
+                <li>
+                    <a href="#verticall-shardinghttpswwwfigmacombloghow-figmas-databases-team-lived-to-tell-the-scale-april-4-2023-" aria-label="Verticall sharding (April 4, 2023 )">Verticall sharding (April 4, 2023 )</a></li>
+                <li>
+                    <a href="#horizontal-shardinghttpswwwfigmacombloghow-figmas-databases-team-lived-to-tell-the-scale-march-14-2024" aria-label="Horizontal sharding (March 14, 2024)">Horizontal sharding (March 14, 2024)</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#notion" aria-label="Notion">Notion</a></li>
+                <li>
+                    <a href="#caching" aria-label="Caching">Caching</a><ul>
+                        
+                <li>
+                    <a href="#doordashshttpsdoordashengineering20231019how-doordash-standardized-and-improved-microservices-caching" aria-label="DoorDash’s">DoorDash’s</a></li>
+                <li>
+                    <a href="#uberhttpswwwubercomen-inbloghow-uber-serves-over-40-million-reads-per-second-using-an-integrated-cache" aria-label="Uber">Uber</a><ul>
+                        
+                <li>
+                    <a href="#docstore" aria-label="Docstore">Docstore</a></li>
+                <li>
+                    <a href="#cachefront" aria-label="CacheFront">CacheFront</a></li>
+                <li>
+                    <a href="#cache-invalidation" aria-label="Cache Invalidation">Cache Invalidation</a></li>
+                <li>
+                    <a href="#cache-key" aria-label="Cache key">Cache key</a></li>
+                <li>
+                    <a href="#cache-warming" aria-label="Cache Warming">Cache Warming</a></li></ul>
+                </li>
+                <li>
+                    <a href="#circuit-breakers" aria-label="Circuit Breakers">Circuit Breakers</a></li></ul>
+                </li>
+                <li>
+                    <a href="#logging" aria-label="Logging">Logging</a><ul>
+                        
+                <li>
+                    <a href="#pinterest" aria-label="Pinterest">Pinterest</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="database-scalling">Database Scalling</h2>
+<h3 id="shopfiyhttpsshopifyengineeringhorizontally-scaling-the-rails-backend-of-shop-app-with-vitess"><a href="https://shopify.engineering/horizontally-scaling-the-rails-backend-of-shop-app-with-vitess">Shopfiy</a></h3>
+<ul>
+<li>they started off by splitting the primary database into separate parts</li>
+<li>They identified groups of large tables that could exist on separate databases, and used <a href="https://github.com/Shopify/ghostferry">GhostFerry</a> to move a few tables onto a new database.</li>
+<li> This scaling approach is referred to as “federation” where tables are stored in different MySQLs</li>
+<li>As the app further grew, they were starting to hit the limit of a single MySQL.disk size take many Terabytes.y. they couldn’t further split the primary database, as that would add more complexity in the application layer, and require cross database transactions.</li>
+<li>They choose Vitess  (Vitess is <a href="https://github.com/vitessio/vitess">an open source</a> database system abstraction on top of MySQL that provides many benefits (<a href="https://vitess.io/docs/archive/15.0/overview/whatisvitess/" title="What is Vitess">docs with details)</a> )</li>
+</ul>
+<h3 id="figma">Figma</h3>
+<h4 id="verticall-shardinghttpswwwfigmacombloghow-figmas-databases-team-lived-to-tell-the-scale-april-4-2023-"><a href="https://www.figma.com/blog/how-figmas-databases-team-lived-to-tell-the-scale/">Verticall sharding</a> (April 4, 2023 )</h4>
+<p>They go with vertically partition[[Databases#Database Partitioning]] the database by table(s). Instead of splitting each table across many databases, we would move <em>groups of tables</em> onto their own databases. This proved to have both short- and long-term benefits: Vertical partitioning relieves our original database now, while providing a path forward for horizontally sharding subsets of our tables in the future.</p>
+<p>They identify which tables can be split by using  <code>average active sessions</code> (AAS) for queries, which describes the average number of active threads dedicated to a given query at a certain point in time. We calculated this information by querying <a href="https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW"><code>pg_stat_activity</code></a> in 10 millisecond intervals to identify CPU waits associated with a query, and then aggregated the information by table name</p>
+<p>They choose the table which will not do joins and required transactions</p>
+<p>Migration approach</p>
+<ol>
+<li>Prepare client applications to query from multiple database partitions</li>
+<li>Replicate tables from original database to a new database until replication lag is near 0</li>
+<li>Pause activity on original database</li>
+<li>Wait for databases to synchronize</li>
+<li>Reroute query traffic to the new database</li>
+<li>Resume activity</li>
+</ol>
+<p><code>Note</code>: To fast down the r <a href="https://www.postgresql.org/docs/current/logical-replication.html">logical replication</a> on they removed the indexing and add the indexing after everythings compeleted</p>
+<p>They used Log Sequence Number (it is a unique identifier assigned to each transaction log entry, representing the order in which changes were made to the database. LSNs are used to track the state of replication and determine whether two databases are synchronized.)</p>
+<p>They created new <strong><code>Query Routing service</code></strong>  will centralize and simplify routing logic as we scale to more partitions.</p>
+<h4 id="horizontal-shardinghttpswwwfigmacombloghow-figmas-databases-team-lived-to-tell-the-scale-march-14-2024"><a href="https://www.figma.com/blog/how-figmas-databases-team-lived-to-tell-the-scale/">Horizontal sharding</a> (March 14, 2024)</h4>
+<p> Our first goal was to shard a relatively simple but very high traffic table in production as soon as possible
+ 
+ horizontally sharded groups of related tables into colocations.which shared the same sharding key and physical sharding layout. This provided a friendly abstraction for developers to interact with horizontally sharded tables.</p>
+<p><code>shard key</code> -&gt; selected a handful of sharding keys like UserID, FileID, or OrgID. Almost every table at Figma could be sharded using one of these keys.</p>
+<p>They group the table in same sharding if they comes under single domain and they have same shard key such that the query will support join and transaction</p>
+<p><code>Example:</code> Imagine Figma has a colo named &ldquo;UserColo&rdquo; that includes tables related to user data. Within this colo, there are tables such as &ldquo;Users&rdquo;, &ldquo;UserPreferences&rdquo;, and &ldquo;UserActivity&rdquo;. Each of these tables is sharded based on the UserID, ensuring that data related to a specific user is stored together on the same shard.</p>
+<p><strong>Logical Sharding</strong> and <strong>Physical Sharding</strong></p>
+<p>First they did <strong>Logical Sharding</strong> that involves partitioning or organizing data at the application layer in a way that simulates horizontal sharding without physically distributing the data across multiple shards.</p>
+<p>Then after sucess of logical they implement <strong>Physical Sharding</strong> that involves the actual distribution of data across multiple backend database servers</p>
+<p> <code>DBProxy service</code> that intercepts SQL queries generated by our application layer, and dynamically routes queries to various Postgres databases. build with <code>GO</code>
+ The job is
+ - A query parser reads SQL sent by the application and transforms it into an Abstract Syntax Tree (AST).</p>
+<ul>
+<li>A logical planner parses the AST and extracts the query type (insert, update, etc) and logical shard IDs from the query plan.</li>
+<li>A physical planner maps the query from logical shard IDs to physical databases. It rewrites queries to execute on the appropriate physical shard.</li>
+<li>if query does not have shard key it will send to all cluster and aggregate the result.</li>
+<li>If they running query that join two table in different shard they will reject it</li>
+</ul>
+<h2 id="notion">Notion</h2>
+<p>check <a href="https://www.notion.so/blog/sharding-postgres-at-notion">here</a></p>
+<ul>
+<li>They go with horizontal sharding and <strong>application-level sharding</strong>.</li>
+<li>Partition block data by workspace ID</li>
+<li><strong>480 logical shards</strong> evenly distributed across <strong>32 physical databases</strong>.</li>
+</ul>
+<p>Migratio process</p>
+<ol>
+<li><strong>Double-write:</strong> Incoming writes get applied to both the old and new databases.</li>
+<li><strong>Backfill:</strong> Once double-writing has begun, migrate the old data to the new database.</li>
+<li><strong>Verification:</strong> Ensure the integrity of data in the new database.</li>
+<li><strong>Switch-over:</strong> Actually switch to the new database. This can be done incrementally, e.g. double-reads, then migrate all reads.</li>
+</ol>
+<h2 id="caching">Caching</h2>
+<h3 id="doordashshttpsdoordashengineering20231019how-doordash-standardized-and-improved-microservices-caching"><a href="https://doordash.engineering/2023/10/19/how-doordash-standardized-and-improved-microservices-caching/">DoorDash’s</a></h3>
+<p>They use Layered caches</p>
+<ol>
+<li><em>Request local cache</em>: Lives only for the lifetime of the request; uses a simple HashMap.</li>
+<li><em>Local cache</em>: Visible to all workers within a single Java virtual machine; uses a <a href="https://github.com/ben-manes/caffeine">Caffeine cache</a> for heavy lifting.</li>
+<li><em>Redis cache</em>: Visible to all pods sharing the same Redis cluster; uses Lettuce client.</li>
+</ol>
+<p>They have Runtime feature flag control to enable and disable the caching in layer</p>
+<p>Cache invalidation</p>
+<ul>
+<li>Using Change Data Capture events emitted when database tables are updated</li>
+<li> The cache could be invalidated directly within the application code when data changes. This is faster but potentially more complex</li>
+</ul>
+<p>Cache key how they create unique cache key</p>
+<ol>
+<li>Unique cache name, which is used as a reference in runtime controls. </li>
+<li>Cache key type, a string representing the key’s type of entity to allow categorization of cache keys.</li>
+<li>ID, a string that refers to some unique entity of cache key type.</li>
+<li>Configuration, which includes default TTLs and a Kotlin serializer.</li>
+</ol>
+<p>To standardize key schema, we chose the uniform resource name (<a href="https://en.wikipedia.org/wiki/Uniform_Resource_Name">URN</a>) format:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="nl">urn</span><span class="p">:</span><span class="n">doordash</span><span class="p">:</span><span class="o">&lt;</span><span class="n">cache</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="n">type</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">id</span><span class="o">&gt;</span><span class="err">#</span><span class="o">&lt;</span><span class="n">cache</span><span class="w"> </span><span class="n">name</span><span class="o">&gt;</span><span class="w">
+</span></span></span></code></pre></div><h3 id="uberhttpswwwubercomen-inbloghow-uber-serves-over-40-million-reads-per-second-using-an-integrated-cache"><a href="https://www.uber.com/en-IN/blog/how-uber-serves-over-40-million-reads-per-second-using-an-integrated-cache/">Uber</a></h3>
+<p>They using <a href="https://www.uber.com/en-IN/blog/schemaless-sql-database/">Docstore</a> (distributed database built on top of MySQL) database  where they want to implement caching in query engine layer to optimize the db so let see how they did</p>
+<h4 id="docstore">Docstore</h4>
+<p>Docstore is mainly divided into three layers: a stateless query engine layer, a stateful storage engine layer, and a control plane.</p>
+<p>The stateless query engine layer is responsible for query planning, routing, sharding, schema management, node health monitoring, request parsing, validation, and AuthN/AuthZ.  (they plan to build cache on front of  stateless query engine)</p>
+<p>The storage engine layer is responsible for consensus via Raft, replication, transactions, concurrency control, and load management. A partition is typically composed of MySQL nodes backed by NVMe SSDs, which are capable of handling heavy read and write workloads. Additionally, data is sharded across multiple partitions containing one leader and two follower nodes using Raft for consensus.</p>
+<h4 id="cachefront">CacheFront</h4>
+<p>Since Docstore’s query engine layer is responsible for serving reads and writes to clients, it is well suited to integrate the caching layer. It also decouples the cache from disk-based storage, allowing us to scale either of them independently. The query engine layer implements an interface to Redis for storing cached data along with a mechanism to invalidate cached entries</p>
+<p>CacheFront uses a cache aside strategy to implement cached reads:</p>
+<ol>
+<li>Query engine layer gets read request for one more rows</li>
+<li>If caching is enabled, try getting rows from Redis; stream response to users</li>
+<li>Retrieve remaining rows (if any) from the storage engine</li>
+<li>Asynchronously populate Redis with the remaining rows</li>
+<li>Stream remaining rows to users</li>
+</ol>
+<h4 id="cache-invalidation">Cache Invalidation</h4>
+<p>They used <code>Change Data Capture for Cache Invalidation</code> they have publisher which will  publishes the events for each update in DB and they have consumer which will listen for the changes and do invalidation in Cache</p>
+<h4 id="cache-key">Cache key</h4>
+<p>They used below format
+<code>RK{&lt;tablename} | &lt;PARTIONkEY&gt;| &lt;ROWKEY&gt;|&lt;INSTANCE&gt;}</code></p>
+<h4 id="cache-warming">Cache Warming</h4>
+<p>A Docstore instance spawns two different geographical regions to ensure high availability and fault tolerance. they both have two seprate redis in there region
+ In case of a region failover, another region must be able to serve all requests.</p>
+<p>If we have two region we need to sync db and cache data among the region such that if one region get down we will get data from other region but the problem is for the Docstore has its own cross-region replication mechanism. If we replicate the cache content using Redis cross-region replication, we will have two independent replication mechanisms, which could lead to cache vs. storage engine inconsistency</p>
+<p>So to solve this they tail the Redis write stream and replicate keys to the remote region. In the remote region instead of directly updating the remote cache, read requests are issued to the query engine layer which, upon a cache miss, reads from the database and writes to the cache such that now both region have same consistent data.</p>
+<h3 id="circuit-breakers">Circuit Breakers</h3>
+<p>If a Redis node goes down, we’d like to be able to short circuit requests to that node to avoid the unnecessary latency penalty of a Redis get/set request</p>
+<p>To achieve this, we use a sliding window circuit breaker. We count the number of errors on each node per time bucket and compute the number of errors in the sliding window width.</p>
+<p>Avoiding DB overload on cache down: let say the redis node is down then suddenly all request will forward to DB. db will be overloaded to avoid that they dynamically adjust the db timeout of the query</p>
+<h2 id="logging">Logging</h2>
+<h3 id="pinterest"><strong>Pinterest</strong></h3>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</main>
+    </body>
+</html>

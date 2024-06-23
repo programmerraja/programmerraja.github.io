@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
+<html lang="en-us"><head><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,24 +18,24 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/databases/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/databases/" title="" />
 
 
 
-  <meta itemprop="image" content="http://localhost:1313/blog/" />
-  <meta property="og:image" content="http://localhost:1313/blog/" />
-  <meta name="twitter:image" content="http://localhost:1313/blog/" />
-  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
+  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
 
 
 
 
 
-<meta name="generator" content="Hugo 0.125.7">
+<meta name="generator" content="Hugo 0.127.0">
 
     
 
-    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/databases/">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/databases/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -49,7 +49,7 @@
 
 
 
-<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
 
 <meta name="msapplication-config" content="/blog/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -58,15 +58,16 @@
     
     <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
 
+    
     </head>
 <body data-theme = "" class="notransition">
         <main class="main">
 
-<script src="/blog/js/theme.js"></script>
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="http://localhost:1313/blog/" class="logo">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -180,11 +181,17 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#junodbshttpsgithubcompaypaljunodb" aria-label="JunoDB’s">JunoDB’s</a></li>
                 <li>
-                    <a href="#redis" aria-label="Redis">Redis</a><ul>
+                    <a href="#redis" aria-label="Redis">Redis</a></li>
+                <li>
+                    <a href="#influx-db" aria-label="Influx DB">Influx DB</a><ul>
                         <ul>
                         
                 <li>
+                    <a href="#concepts" aria-label="Concepts">Concepts</a></li>
+                <li>
                     <a href="#resources" aria-label="Resources">Resources</a></li>
+                <li>
+                    <a href="#resources-1" aria-label="Resources">Resources</a></li>
                 <li>
                     <a href="#tools-1" aria-label="Tools">Tools</a></li></ul>
                     </ul>
@@ -238,7 +245,45 @@ build in java</p>
 <li>use quorum protocol[[Distributed System#quorum-based protocol]]  for read and write among region</li>
 </ul>
 <h2 id="redis">Redis</h2>
+<h2 id="influx-db">Influx DB</h2>
+<p>InfluxDB is an open-source time-series database designed to handle high write and query loads for time-stamped data it uses column oriented</p>
+<h4 id="concepts">Concepts</h4>
+<p>Stroage Engine : LevelDB</p>
+<pre tabindex="0"><code>7gy8H2ZmWzcb0YrWhzlbksyB9vkJjdp8mGvj6trn-USBhYFuf8ZMhQbPsI2fHcQoUOKGUA0WMtlKRmW48K04oQ==
+</code></pre><p>InfluxDB is schemaless, there is still a conceptual schema that includes:</p>
+<ol>
+<li><strong>Measurement</strong>: We&rsquo;ll have a measurement called &ldquo;environment&rdquo; to represent the environmental data recorded by the sensors.</li>
+<li><strong>Tag sets</strong>: We&rsquo;ll use tags to identify each room. For example, we&rsquo;ll have tags like &ldquo;room_id&rdquo; and &ldquo;building_floor&rdquo; to uniquely identify each room. Tags are indexed and are useful for filtering and grouping data efficiently.</li>
+<li><strong>Field set</strong>: The fields will contain the actual data values recorded by the sensors. We&rsquo;ll have fields for &ldquo;temperature&rdquo; and &ldquo;humidity&rdquo;. Fields are where the data resides and are not indexed like tags.</li>
+<li><strong>Timestamp</strong>: Each data point will have a timestamp representing when the data was recorded.</li>
+</ol>
+<p><strong>example</strong></p>
+<pre tabindex="0"><code>Measurement: environment
+
+Tags: room_id=101, building_floor=1
+Fields: temperature=23.5°C, humidity=45%
+Timestamp: 2024-05-15T12:00:00Z
+
+Tags: room_id=102, building_floor=1
+Fields: temperature=24.0°C, humidity=50%
+Timestamp: 2024-05-15T12:00:00Z
+
+Tags: room_id=201, building_floor=2
+Fields: temperature=22.0°C, humidity=40%
+Timestamp: 2024-05-15T12:00:00Z
+
+INSERT environment,room_id=101,building_floor=1 temperature=23.5,humidity=45 1645660800000000000
+</code></pre><p><strong>Flux</strong>
+Flux is a powerful data scripting and query language.It&rsquo;s designed specifically for working with time-series data and is the primary query language for InfluxDB 2.0 and later versions.</p>
+<p>Downsampling is a technique used in time-series databases like InfluxDB to reduce the resolution of data by aggregating multiple data points into larger time intervals.</p>
+<p>InfluxQL is the query language used with InfluxDB versions prior to 2.0. It&rsquo;s specifically designed for querying time-series data stored in InfluxDB</p>
+<p>In InfluxDB, a &ldquo;bucket&rdquo; is a logical container that holds time-series data. It&rsquo;s essentially a storage abstraction used to organize and manage data within the database. Buckets serve as a way to group related data together and define the retention policy for that data.</p>
+<p>LSM  delete are expensive</p>
 <h4 id="resources">Resources</h4>
+<ul>
+<li><a href="https://nakabonne.dev/posts/write-tsdb-from-scratch/">https://nakabonne.dev/posts/write-tsdb-from-scratch/</a></li>
+</ul>
+<h4 id="resources-1">Resources</h4>
 <ul>
 <li><a href="https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/">https://redis.io/docs/latest/operate/oss_and_stack/management/optimization/benchmarks/</a></li>
 <li><a href="https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/understanding-partitioning-and-sharding-in-postgres-and-citus/ba-p/3891629">https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/understanding-partitioning-and-sharding-in-postgres-and-citus/ba-p/3891629</a></li>
@@ -328,7 +373,7 @@ build in java</p>
 
 
     
-    <script async src="http://localhost:1313/blog/js/main.js" ></script>
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
 
     
 
