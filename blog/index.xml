@@ -6,7 +6,19 @@
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Jun 2024 04:57:31 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jun 2024 20:18:56 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sherlock Homes: The Case of the Missing Content Length</title>
+      <link>https://programmerraja.github.io/blog/post/2024/sherlock-homes-the-case-of-the-content-length-mismatch/</link>
+      <pubDate>Fri, 28 Jun 2024 20:18:56 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/sherlock-homes-the-case-of-the-content-length-mismatch/</guid>
+      
+      <description>Running a website smoothly is akin to maintaining a finely-tuned machine. Yet, like any mystery tale, unexpected twists can disrupt the flow. Recently, our team faced a perplexing error while serving our website: Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH in Chrome. Join us as we unravel this digital whodunit and uncover how we cracked the case, restoring our site&amp;rsquo;s seamless operation.
+Initial Clues It all started with user reports of intermittent loading issues on our website.</description>
+      
+    </item>
+    
     <item>
       <title>Python</title>
       <link>https://programmerraja.github.io/blog/notes/2024/python/</link>
@@ -64,6 +76,19 @@ Here&amp;rsquo;s an explanation of index-level shard allocation filtering:</desc
       <description>ZippyDB ZippyDB is the largest strongly consistent, geographically distributed key-value store at Facebook.ZippyDB uses RocksDB as the underlying storage engine
 Cassandra Cassandra is a wide-column NoSQL database management system. It was originally developed at Facebook to power the Facebook inbox search feature build in java
 https://blog.stackademic.com/architecture-of-cassandra-6d9d248a7463 FoundationDB FoundationDB is an open-source, distributed, transactional key-value store. It’s designed to handle large volumes of data and works well for both read/write workloads and write-heavy workloads.</description>
+      
+    </item>
+    
+    <item>
+      <title>How to capture mongodb protocol in  wireshark</title>
+      <link>https://programmerraja.github.io/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</link>
+      <pubDate>Mon, 12 Feb 2024 08:28:27 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</guid>
+      
+      <description>export SSLKEYLOGFILE=/tmp/tlskey.log Run a nodejs program as node --tls-keylog=/tmp/tlskey index.js where the tls key will be stored on that path and add this tlskey path to wire shark to decrypt the msg by doing following
+Go to Preferences-&amp;gt;Protocols-&amp;gt;TLS and edit the path as shown in the screenshot below. ![[Pasted image 20240212083026.png]]
+Mongodb uses Mongodb wire protocol at application level to know more check here</description>
       
     </item>
     
@@ -325,6 +350,24 @@ Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version
     
     <item>
       <title></title>
+      <link>https://programmerraja.github.io/blog/notes/2024/ai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/ai/</guid>
+      
+      <description>**+++ title = &amp;lsquo;AI&amp;rsquo; date = 2024-05-18T18:29:19.1919+05:30 draft = true tags =[] +++
+LLM contain
+Parameters code that run parameters Parameters
+Neural network
+predict the next word Pretraining,finetunning
+GPU are good at matrix multiplication so only they need for AI beacause all AI are matrix multiplication
+Deep learning models
+Discriminative -&amp;gt; classify or predict trainned on labeled data Generative -&amp;gt; predict next word in sequenece,understand distribution of data Computational linguistics: strudy of language grammer,syntax and phonetics</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://programmerraja.github.io/blog/notes/2024/software-architecture/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -332,19 +375,6 @@ Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version
       
       <description>+++ title = &amp;lsquo;Software Architecture&amp;rsquo; date = 2024-03-10T07:39:59.5959+05:30 draft = true tags =[] +++
 https://martinfowler.com/architecture/ https://medium.com/@yt-cloudwaydigital/from-software-developer-to-software-architect-roadmap-to-success-695951521d9b Documentation arc42 is a template for architecture communication and documentation.</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://programmerraja.github.io/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/post/2024/how-to-capture-mongodb-protocol-in--wireshark/</guid>
-      
-      <description>o+++ title = &amp;lsquo;How to capture mongodb protocol in wireshark&amp;rsquo; date = 2024-02-12T08:28:27.2727+05:30 draft = false tags =[] +++
-export SSLKEYLOGFILE=/tmp/tlskey.log Run a nodejs program as node --tls-keylog=/tmp/tlskey index.js where the tls key will be stored on that path and add this tlskey path to wire shark to decrypt the msg by doing following
-Go to Preferences-&amp;gt;Protocols-&amp;gt;TLS and edit the path as shown in the screenshot below. ![[Pasted image 20240212083026.png]]</description>
       
     </item>
     

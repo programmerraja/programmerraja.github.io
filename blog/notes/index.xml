@@ -6,7 +6,7 @@
     <description>Recent content in Notes on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Jun 2024 04:57:31 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Jun 2024 19:48:00 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python</title>
       <link>https://programmerraja.github.io/blog/notes/2024/python/</link>
@@ -243,6 +243,24 @@ Each channel has its own set of resources, such as queues, exchanges, and bindin
       
       <description>MongoDB Architecture and Concepts if the write concern is set to “majority”, then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.
 Oplog The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/notes/2024/ai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/ai/</guid>
+      
+      <description>**+++ title = &amp;lsquo;AI&amp;rsquo; date = 2024-05-18T18:29:19.1919+05:30 draft = true tags =[] +++
+LLM contain
+Parameters code that run parameters Parameters
+Neural network
+predict the next word Pretraining,finetunning
+GPU are good at matrix multiplication so only they need for AI beacause all AI are matrix multiplication
+Deep learning models
+Discriminative -&amp;gt; classify or predict trainned on labeled data Generative -&amp;gt; predict next word in sequenece,understand distribution of data Computational linguistics: strudy of language grammer,syntax and phonetics</description>
       
     </item>
     

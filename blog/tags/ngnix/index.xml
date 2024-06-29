@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ngnix on programmerraja blog</title>
+    <link>https://programmerraja.github.io/blog/tags/ngnix/</link>
+    <description>Recent content in Ngnix on programmerraja blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jun 2024 20:18:56 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/ngnix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sherlock Homes: The Case of the Missing Content Length</title>
+      <link>https://programmerraja.github.io/blog/post/2024/sherlock-homes-the-case-of-the-content-length-mismatch/</link>
+      <pubDate>Fri, 28 Jun 2024 20:18:56 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/sherlock-homes-the-case-of-the-content-length-mismatch/</guid>
+      
+      <description>Running a website smoothly is akin to maintaining a finely-tuned machine. Yet, like any mystery tale, unexpected twists can disrupt the flow. Recently, our team faced a perplexing error while serving our website: Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH in Chrome. Join us as we unravel this digital whodunit and uncover how we cracked the case, restoring our site&amp;rsquo;s seamless operation.
+Initial Clues It all started with user reports of intermittent loading issues on our website.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

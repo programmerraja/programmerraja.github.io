@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name"> | programmerraja blog</title>
-<meta property="og:title" content=" | programmerraja blog" />
-<meta name="twitter:title" content=" | programmerraja blog" />
-<meta itemprop="name" content=" | programmerraja blog" />
-<meta name="application-name" content=" | programmerraja blog" />
+<title itemprop="name">Sherlock Homes: The Case of the Missing Content Length | programmerraja blog</title>
+<meta property="og:title" content="Sherlock Homes: The Case of the Missing Content Length | programmerraja blog" />
+<meta name="twitter:title" content="Sherlock Homes: The Case of the Missing Content Length | programmerraja blog" />
+<meta itemprop="name" content="Sherlock Homes: The Case of the Missing Content Length | programmerraja blog" />
+<meta name="application-name" content="Sherlock Homes: The Case of the Missing Content Length | programmerraja blog" />
 <meta property="og:site_name" content="" />
 
 <meta name="description" content="">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/post/2024/sherlock-homes-the-case-of-the-content-length-mismatch/" title="" />
 
 
 
@@ -35,7 +35,7 @@
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/post/2024/sherlock-homes-the-case-of-the-content-length-mismatch/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -132,7 +132,12 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title"></h1>
+                <h1 class="header-title">Sherlock Homes: The Case of the Missing Content Length</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-06-28T20:18:56&#43;05:30" itemprop="datePublished"> Jun 28, 2024 </time>
+                </div>
                 
             </header><div class="toc">
     <details >
@@ -142,17 +147,56 @@ stroke-linejoin="round" class="feather feather-home">
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#drawing" aria-label="Drawing">Drawing</a>
+                    <a href="#initial-clues" aria-label="Initial Clues">Initial Clues</a></li>
+                <li>
+                    <a href="#considering-the-usual-suspects" aria-label="Considering the Usual Suspects">Considering the Usual Suspects</a></li>
+                <li>
+                    <a href="#delving-deeper" aria-label="Delving Deeper">Delving Deeper</a></li>
+                <li>
+                    <a href="#zeroing-in-on-nginx" aria-label="Zeroing in on Nginx">Zeroing in on Nginx</a></li>
+                <li>
+                    <a href="#a-major-breakthrough" aria-label="A Major Breakthrough">A Major Breakthrough</a></li>
+                <li>
+                    <a href="#understanding-proxy-buffering" aria-label="Understanding Proxy Buffering">Understanding Proxy Buffering</a></li>
+                <li>
+                    <a href="#uncovering-the-root-cause" aria-label="Uncovering the Root Cause">Uncovering the Root Cause</a></li>
+                <li>
+                    <a href="#the-final-resolution" aria-label="The Final Resolution">The Final Resolution</a>
                 </li>
             </ul>
         </div>
     </details>
 </div><div class="page-content">
-                <p>==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==</p>
-<p>%%</p>
-<h1 id="drawing">Drawing</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;excalidraw&#34;</span><span class="p">,</span><span class="nt">&#34;version&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&#34;source&#34;</span><span class="p">:</span><span class="s2">&#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&#34;</span><span class="p">,</span><span class="nt">&#34;elements&#34;</span><span class="p">:[],</span><span class="nt">&#34;appState&#34;</span><span class="p">:{</span><span class="nt">&#34;gridSize&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;viewBackgroundColor&#34;</span><span class="p">:</span><span class="s2">&#34;#ffffff&#34;</span><span class="p">}}</span>
-</span></span></code></pre></div><p>%%</p>
+                <p>Running a website smoothly is akin to maintaining a finely-tuned machine. Yet, like any mystery tale, unexpected twists can disrupt the flow. Recently, our team faced a perplexing error while serving our website: <code>Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH</code> in Chrome. Join us as we unravel this digital whodunit and uncover how we cracked the case, restoring our site&rsquo;s seamless operation.</p>
+<h2 id="initial-clues">Initial Clues</h2>
+<p>It all started with user reports of intermittent loading issues on our website. I  quickly jumped into action, opening Chrome&rsquo;s developer console to gather more clues. There it was, staring back at me: <code>Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH</code>. This error suggested that the content length specified in the response header did not match the actual length of the content served. But why?</p>
+<h2 id="considering-the-usual-suspects">Considering the Usual Suspects</h2>
+<p>With the error in hand, we began to consider the usual suspects:</p>
+<ul>
+<li>Network issues</li>
+<li>Corrupt files</li>
+<li>Web server misconfiguration</li>
+</ul>
+<p>However, these avenues didn&rsquo;t yield any conclusive evidence. It was time to dig deeper.</p>
+<h2 id="delving-deeper">Delving Deeper</h2>
+<p>I started my investigation by inspecting the code environment to ensure everything was built correctly. This involved verifying that all files were generated and deployed as expected, and checking for any build errors or warnings that could indicate an issue. The real breakthrough came when I compared the file content in the code environment with the content received by the browser. It was clear that half the file content was missing, pointing to an issue during the file serving process.</p>
+<h2 id="zeroing-in-on-nginx">Zeroing in on Nginx</h2>
+<p>Given that we use Nginx to serve our content, I suspected it might be the culprit. I logged into the Nginx server to perform basic checks, ensuring all configurations were in order and there were no obvious errors in the logs. Everything appeared normal at first glance, but the problem persisted.</p>
+<p>Determined to dig deeper, I did some research on the specific error <code>Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH</code> in relation to Nginx. During my search, I stumbled upon a Stack Overflow thread that suggested turning off <code>proxy_buffering</code> by adding <code>proxy_buffering off;</code> to the Nginx configuration.</p>
+<h2 id="a-major-breakthrough">A Major Breakthrough</h2>
+<p>Disabling buffering in Nginx seemed like a long shot, but I decided to give it a try. To my surprise, it worked! The error disappeared, and the website began loading correctly. However, I wanted to understand why this change had resolved the issue.</p>
+<h2 id="understanding-proxy-buffering">Understanding Proxy Buffering</h2>
+<p>Delving into the role of proxy buffering, I discovered that when buffering is enabled, Nginx receives the response from the proxied server as quickly as possible, saving it into the buffers set by the <code>proxy_buffer_size</code> and <code>proxy_buffers</code> directives. If the entire response doesn&rsquo;t fit into memory, a portion of it can be saved to a temporary file on the disk. Disabling buffering makes Nginx pass the response to the client synchronously, immediately as it is received, without trying to read the whole response first.</p>
+<h2 id="uncovering-the-root-cause">Uncovering the Root Cause</h2>
+<p>This information led me to investigate the disk usage on our VM. Upon checking, I found that the Nginx server&rsquo;s disk was 100% full. This was a significant clue. I dug further to identify what was consuming all the disk space and discovered that a recently added system service script for internal purpose which have logging enabled and caused the disk to fill up.</p>
+<h2 id="the-final-resolution">The Final Resolution</h2>
+<p>To resolve the issue, I took the following steps:</p>
+<ol>
+<li><strong>Stopping the Logging Service</strong>: I immediately stopped the logging service to prevent further log accumulation.</li>
+<li><strong>Clearing Old Logs</strong>: I cleared the old logs to free up disk space.</li>
+<li><strong>Re-enabling Proxy Buffering</strong>: With the disk space issue resolved, I reverted the <code>proxy_buffering</code> setting to its original state.</li>
+</ol>
+<p>With these actions, our website was back to normal, loading smoothly without any errors.</p>
 
             </div>
         </article></main>
