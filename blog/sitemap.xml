@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://programmerraja.github.io/blog/notes/</loc>
+    <lastmod>2024-07-01T07:14:30+05:30</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/blog/</loc>
+    <lastmod>2024-07-01T07:14:30+05:30</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/blog/tags/backend/</loc>
     <lastmod>2024-06-28T20:18:56+05:30</lastmod>
   </url><url>
@@ -14,10 +20,10 @@
     <loc>https://programmerraja.github.io/blog/post/</loc>
     <lastmod>2024-06-28T20:18:56+05:30</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/blog/</loc>
+    <loc>https://programmerraja.github.io/blog/tags/sherlock-holmes/</loc>
     <lastmod>2024-06-28T20:18:56+05:30</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/blog/post/2024/sherlock-homes-the-case-of-the-content-length-mismatch/</loc>
+    <loc>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-content-length-mismatch/</loc>
     <lastmod>2024-06-28T20:18:56+05:30</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/blog/tags/</loc>
@@ -25,9 +31,6 @@
   </url><url>
     <loc>https://programmerraja.github.io/blog/tags/webdev/</loc>
     <lastmod>2024-06-28T20:18:56+05:30</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/blog/notes/</loc>
-    <lastmod>2024-06-28T19:48:00+05:30</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/blog/tags/notes/</loc>
     <lastmod>2024-05-09T12:16:34+05:30</lastmod>

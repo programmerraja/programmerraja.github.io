@@ -612,7 +612,10 @@ HTTP stuff
 <li>Remove the pkg that no need</li>
 </ul>
 <h2 id="debugging">Debugging</h2>
-<h2 id="resources">Resources</h2>
+<p><code>docker debug</code> we can get a debug shell into any container or image, even if they don&rsquo;t contain a shell. we don&rsquo;t need to modify the image to use Docker Debug</p>
+<p>they have installed builtin tools like <code>vim</code>, <code>nano</code>, <code>htop</code>, and <code>curl</code></p>
+<pre tabindex="0"><code>docker debug my-app
+</code></pre><h2 id="resources">Resources</h2>
 <ol>
 <li><a href="https://medium.com/datamindedbe/how-we-reduced-our-docker-build-times-by-40-afea7b7f5fe7">https://medium.com/datamindedbe/how-we-reduced-our-docker-build-times-by-40-afea7b7f5fe7</a></li>
 <li><a href="https://btholt.github.io/complete-intro-to-containers/">https://btholt.github.io/complete-intro-to-containers/</a></li>
