@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.128.0">
+<meta name="generator" content="Hugo 0.129.0">
 
     
 
@@ -205,7 +205,11 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#probe" aria-label="Probe">Probe</a></li>
                 <li>
-                    <a href="#services" aria-label="Services">Services</a></li>
+                    <a href="#services" aria-label="Services">Services</a><ul>
+                        
+                <li>
+                    <a href="#kube-proxy" aria-label="Kube Proxy">Kube Proxy</a></li></ul>
+                </li>
                 <li>
                     <a href="#types" aria-label="Types">Types</a></li>
                 <li>
@@ -768,6 +772,21 @@ spec:
 <p>kube-proxy is responsible for all assign the IP , forwarding packet, load balancing etc.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">proxy_pass http://SERVICE-NAME.YOUR-NAMESPACE.svc.cluster.local:8080;</span><span class="w">
 </span></span></span></code></pre></div><p>can be accessed</p>
+<h4 id="kube-proxy">Kube Proxy</h4>
+<p>installed on every node and runs in our cluster in the form of a <strong>DaemonSet</strong>.</p>
+<p>How it works
+After Kube-proxy is installed, it authenticates with the API server. When new Services or endpoints are added or removed, the API server communicates these changes to the Kube-Proxy.</p>
+<p>Kube-Proxy then applies these changes as <strong>NAT</strong> rules inside the node. These NAT rules are simply mappings of Service IP to Pod IP. When a request is sent to a Service, it is redirected to a backend Pod based on these rules.</p>
+<p>Now let’s get into more details with an example.</p>
+<p>Assume we have a Service <strong>SVC01</strong> of type ClusterIP. When this Service is created, the API server will check which Pods to be associated with this Service. So, it will look for Pods with <strong>labels</strong> that match the Service’s <strong>label selector</strong>.</p>
+<p>Let’s call these <strong>Pod01</strong> and <strong>Pod02.</strong> Now the API server will create an abstraction called an <strong>endpoint</strong>. Each endpoint represents the IP of one of the Pods. <strong>SVC01</strong> is now tied to 2 endpoints that correspond to our Pods. Let’s call these <strong>EP01</strong> and <strong>EP02</strong>.</p>
+<p>Now the API server maps the IP address of <strong>SVC01</strong> to 2 IP addresses, <strong>EP01</strong> and <strong>EP0</strong> and API server advertises the new mapping to the Kube-proxy on each node, which then applies it as an internal rule.</p>
+<p>Kube-Proxy can operate in three different modes, <strong>user-space mode</strong>, <strong>IPtables mode</strong>, and <strong>IPVS mode</strong>.</p>
+<ul>
+<li><strong>user-space mode</strong> not used now <strong>IPtables</strong> and <strong>IPVS</strong>  are used now where iptables are timeconsuming compared to <strong>IPVS</strong> to lookup o(n)
+By default, Kube-proxy runs on port 10249 and exposes a set of endpoints that you can use to query Kube-proxy for information.</li>
+</ul>
+<p>we can use the<code> /proxyMode</code> endpoint to check the kube-proxy mode.</p>
 <h3 id="types">Types</h3>
 <p><strong>ClusterIP</strong> (default)</p>
 <ul>
@@ -1453,6 +1472,9 @@ webhooks:
 <ol>
 <li><a href="https://k9scli.io/">https://k9scli.io/</a> [Kubectl alternative]</li>
 <li><a href="https://monokle.io/">https://monokle.io/</a> [Monokle&rsquo;s integrated open-source tools and cloud platform make it easy to define, manage, and enforce Kubernetes YAML configuration policies in minutes]</li>
+<li><a href="https://docs.stakater.com/reloader/">Reloader</a> can watch changes in <code>ConfigMap</code> and <code>Secret</code> and do rolling upgrades on Pods</li>
+<li><a href="https://karpenter.sh/">karpenter</a> Just-in-time Nodes for Any Kubernetes Cluster</li>
+<li><strong><a href="https://cdk8s.io/">cdk8s</a></strong> is an open-source software development framework for defining Kubernetes applications and reusable abstractions using familiar programming languages and rich object-oriented APIs</li>
 </ol>
 <p><code>kubectl get deployments --selector=app.kubernetes.io/instance=kubesense,app.kubernetes.io/name=api -n kubesense</code></p>
 <p>to get the deployment file that match the selector</p>

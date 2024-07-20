@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name"> | programmerraja blog</title>
-<meta property="og:title" content=" | programmerraja blog" />
-<meta name="twitter:title" content=" | programmerraja blog" />
-<meta itemprop="name" content=" | programmerraja blog" />
-<meta name="application-name" content=" | programmerraja blog" />
+<title itemprop="name">Sherlock Holmes: The Great Lambda Mystery | programmerraja blog</title>
+<meta property="og:title" content="Sherlock Holmes: The Great Lambda Mystery | programmerraja blog" />
+<meta name="twitter:title" content="Sherlock Holmes: The Great Lambda Mystery | programmerraja blog" />
+<meta itemprop="name" content="Sherlock Holmes: The Great Lambda Mystery | programmerraja blog" />
+<meta name="application-name" content="Sherlock Holmes: The Great Lambda Mystery | programmerraja blog" />
 <meta property="og:site_name" content="" />
 
 <meta name="description" content="">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-great-lambda-mystery/" title="" />
 
 
 
@@ -35,7 +35,7 @@
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-great-lambda-mystery/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -132,7 +132,12 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title"></h1>
+                <h1 class="header-title">Sherlock Holmes: The Great Lambda Mystery</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-07-02T12:27:32&#43;05:30" itemprop="datePublished"> Jul 2, 2024 </time>
+                </div>
                 
             </header><div class="toc">
     <details >
@@ -142,17 +147,46 @@ stroke-linejoin="round" class="feather feather-home">
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#drawing" aria-label="Drawing">Drawing</a>
+                    <a href="#the-early-morning-disturbance" aria-label="The Early Morning Disturbance">The Early Morning Disturbance</a></li>
+                <li>
+                    <a href="#the-first-clue-read-only-file-system" aria-label="The First Clue: Read-Only File System">The First Clue: Read-Only File System</a></li>
+                <li>
+                    <a href="#the-google-search-a-trail-of-breadcrumbs" aria-label="The Google Search: A Trail of Breadcrumbs">The Google Search: A Trail of Breadcrumbs</a></li>
+                <li>
+                    <a href="#the-curious-case-of-the-environment-variable" aria-label="The Curious Case of the Environment Variable">The Curious Case of the Environment Variable</a></li>
+                <li>
+                    <a href="#the-final-piece-of-the-puzzle" aria-label="The Final Piece of the Puzzle">The Final Piece of the Puzzle</a>
                 </li>
             </ul>
         </div>
     </details>
 </div><div class="page-content">
-                <p>==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==</p>
-<p>%%</p>
-<h1 id="drawing">Drawing</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;excalidraw&#34;</span><span class="p">,</span><span class="nt">&#34;version&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&#34;source&#34;</span><span class="p">:</span><span class="s2">&#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&#34;</span><span class="p">,</span><span class="nt">&#34;elements&#34;</span><span class="p">:[],</span><span class="nt">&#34;appState&#34;</span><span class="p">:{</span><span class="nt">&#34;gridSize&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;viewBackgroundColor&#34;</span><span class="p">:</span><span class="s2">&#34;#ffffff&#34;</span><span class="p">}}</span>
-</span></span></code></pre></div><p>%%</p>
+                <p>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I&rsquo;ll tackle the problem with wit and precision. Let&rsquo;s dive in and crack these cases together!</p>
+<h4 id="the-early-morning-disturbance">The Early Morning Disturbance</h4>
+<p>It was 4 o&rsquo;clock in the morning when I received an urgent call from a colleague. Our Lambda function had suddenly stopped working. Groggy but alert, I sprang into action, ready to tackle the issue head-on. The error logs pointed me to a peculiar message: <code>npm ERR! rofs EROFS: read-only file system, mkdir '/home/sbx_user1051'</code>.</p>
+<h4 id="the-first-clue-read-only-file-system">The First Clue: Read-Only File System</h4>
+<p>The error message was clear: npm was attempting to write to a read-only file system. But why was this happening all of a sudden? My first step was to examine our recent code changes. Had we inadvertently introduced code that attempted to write to the disk? A thorough review revealed no such changes.</p>
+<h4 id="the-google-search-a-trail-of-breadcrumbs">The Google Search: A Trail of Breadcrumbs</h4>
+<p>With no immediate answers in the code, I turned to the vast expanse of the internet. After some diligent searching, I stumbled upon a Stack Overflow answer suggesting to set the environment variable <code>NPM_CONFIG_CACHE=/tmp/.npm</code>. Intrigued, I applied the suggested fix. To my relief, it worked. The Lambda function sprang back to life, and I could finally breathe easy.</p>
+<h4 id="the-curious-case-of-the-environment-variable">The Curious Case of the Environment Variable</h4>
+<p>But why did this environment variable fix the issue? My curiosity was piqued, and I spent the next two hours delving into the depths of npm documentation and GitHub repositories. I discovered that starting with npm 8, a change in the <code>@npmcli/run-script</code> module caused scripts to be written into the temporary directory (<code>tmpdir()</code>) of the user path (<code>/home/sbx_user1051</code>). This information was confirmed in the npm CI repository&rsquo;s <a href="https://github.com/npm/cli/issues/7105">issue tab</a></p>
+<h4 id="the-final-piece-of-the-puzzle">The Final Piece of the Puzzle</h4>
+<p>We now understood how setting <code>NPM_CONFIG_CACHE=/tmp/.npm</code> resolved the issue. However, one question remained: why did this problem arise so suddenly? More research revealed the answer. AWS Lambda had deprecated Node.js 14 and automatically upgraded our environment to the latest version, which included npm 8. This upgrade introduced the change that caused our issue.</p>
+<p>Stay tuned for our next adventure, where we continue to unravel the mysteries of the infrastructure world, one case at a time. Until then, keep your magnifying glasses handy and your curiosity alive.</p>
+<p><a href="https://github.com/npm/cli/issues/7105">https://github.com/npm/cli/issues/7105</a></p>
+<p>The issue reported in GitHub is a bug in npm where running <code>npm run</code> on a read-only file system fails due to recent changes in <code>@npmcli/run-script</code>.</p>
+<p>Here are the key points:</p>
+<ul>
+<li>The bug occurs when running <code>npm run</code> on a read-only file system, such as in a Docker container or AWS Lambda environment.</li>
+<li>The error message is <code>EROFS: read-only file system</code>, indicating that npm is trying to write to a directory that is read-only.</li>
+<li>The issue is caused by a recent change in <code>@npmcli/run-script</code> that writes scripts into the temporary directory (<code>tmpdir()</code>).</li>
+<li>This change breaks the ability to run <code>npm run</code> on a read-only file system.</li>
+</ul>
+<p>The reason why this bug is happening is that npm is trying to write to a directory that is read-only. In the past, npm used to write scripts to the current working directory, but with the recent change, it now writes to the temporary directory. This temporary directory is not writable in a read-only file system, causing the error.</p>
+<p>The workaround for this issue is to set the <code>NPM_CONFIG_CACHE</code> environment variable to a writable directory, such as <code>/tmp/.npm</code>. This allows npm to write its cache and scripts to a directory that is writable, even in a read-only file system.</p>
+<p>It&rsquo;s likely that the bug was introduced in a recent version of npm, which is why it started failing suddenly. The exact reason why it worked before without the <code>NPM_CONFIG_CACHE</code> environment variable is not clear, but it&rsquo;s possible that the previous version of npm used a different approach to writing scripts that didn&rsquo;t require a writable directory.</p>
+<p>it is morinnig 4 0 clokc i am getting call from my college that our lambda is not running suddnly i woke up and started my invesitgation and find the logs of <code>npm ERR! rofs EROFS: read-only file system, mkdir '/home/sbx_user1051'</code> we have no idea suddenly why this error is showing  but from this error it clear telling that npm is trying to write something in read only file system then i started checking the code are we recently did any changes in code that writing something to disk but we did not do anything so then i started googling and i find one stack flow answer that said put <code>NPM_CONFIG_CACHE=/tmp/.npm</code> in env i tried it worked then i have great breath after fixing this i am curios to how this env make the fix so then i started spending next 2 hour for doing resource regarding this and i findout that from npm 8 The issue is caused by a recent change in <code>@npmcli/run-script</code> that writes scripts into the temporary directory (<code>tmpdir()</code>). of the user path of <code>'/home/sbx_user1051'</code> this also mentioned in there npm ci repo issue tab</p>
+<p>ok finally we got answer how <code>NPM_CONFIG_CACHE=/tmp/.npm</code>  fix the issue but we still not why this issue suddenly happens because we did not did any code changes then i started reseach again i and find the node 14 is depericated on aws lambda and it will be auto upgrade to the latest version that is npm 8 version so that only cause this issue finally i find answer for all problem</p>
 
             </div>
         </article></main>

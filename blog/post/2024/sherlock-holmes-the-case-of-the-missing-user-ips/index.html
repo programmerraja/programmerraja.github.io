@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name"> | programmerraja blog</title>
-<meta property="og:title" content=" | programmerraja blog" />
-<meta name="twitter:title" content=" | programmerraja blog" />
-<meta itemprop="name" content=" | programmerraja blog" />
-<meta name="application-name" content=" | programmerraja blog" />
+<title itemprop="name">Sherlock Holmes: The Case of the Missing User IPs | programmerraja blog</title>
+<meta property="og:title" content="Sherlock Holmes: The Case of the Missing User IPs | programmerraja blog" />
+<meta name="twitter:title" content="Sherlock Holmes: The Case of the Missing User IPs | programmerraja blog" />
+<meta itemprop="name" content="Sherlock Holmes: The Case of the Missing User IPs | programmerraja blog" />
+<meta name="application-name" content="Sherlock Holmes: The Case of the Missing User IPs | programmerraja blog" />
 <meta property="og:site_name" content="" />
 
 <meta name="description" content="">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-missing-user-ips/" title="" />
 
 
 
@@ -35,7 +35,7 @@
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-missing-user-ips/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -132,7 +132,12 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title"></h1>
+                <h1 class="header-title">Sherlock Holmes: The Case of the Missing User IPs</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-07-01T21:08:07&#43;05:30" itemprop="datePublished"> Jul 1, 2024 </time>
+                </div>
                 
             </header><div class="toc">
     <details >
@@ -142,17 +147,32 @@ stroke-linejoin="round" class="feather feather-home">
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#drawing" aria-label="Drawing">Drawing</a>
+                    <a href="#the-mysterious-ip" aria-label="The Mysterious IP">The Mysterious IP</a></li>
+                <li>
+                    <a href="#the-proxy-puzzle" aria-label="The Proxy Puzzle">The Proxy Puzzle</a></li>
+                <li>
+                    <a href="#the-gateway-revelation" aria-label="The Gateway Revelation">The Gateway Revelation</a></li>
+                <li>
+                    <a href="#kubernetes-configuration-conundrum" aria-label="Kubernetes Configuration Conundrum">Kubernetes Configuration Conundrum</a></li>
+                <li>
+                    <a href="#the-final-piece" aria-label="The Final Piece">The Final Piece</a>
                 </li>
             </ul>
         </div>
     </details>
 </div><div class="page-content">
-                <p>==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==</p>
-<p>%%</p>
-<h1 id="drawing">Drawing</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;excalidraw&#34;</span><span class="p">,</span><span class="nt">&#34;version&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&#34;source&#34;</span><span class="p">:</span><span class="s2">&#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&#34;</span><span class="p">,</span><span class="nt">&#34;elements&#34;</span><span class="p">:[],</span><span class="nt">&#34;appState&#34;</span><span class="p">:{</span><span class="nt">&#34;gridSize&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;viewBackgroundColor&#34;</span><span class="p">:</span><span class="s2">&#34;#ffffff&#34;</span><span class="p">}}</span>
-</span></span></code></pre></div><p>%%</p>
+                <p>Welcome to our series of infrastructure detective stories, where we unravel the mysteries lurking within our systems In this episode, we tackle a perplexing problem: our Nginx server inside Kubernetes was logging an IP address that didn&rsquo;t match the actual user IP. Join me as we unravel the mystery and uncover the truth behind the missing IP.</p>
+<h3 id="the-mysterious-ip">The Mysterious IP</h3>
+<p>It all started when we noticed something unusual in our logs. The IP addresses recorded by Nginx were not matching the actual IPs of our users. Every log entry showed the same IP, regardless of the user. Clearly, something was amiss. The first clue led us to believe that a proxy was involved, obscuring the true origin of the requests.</p>
+<h3 id="the-proxy-puzzle">The Proxy Puzzle</h3>
+<p>Determined to get to the bottom of this, I decided to log the <code>X-Forwarded-For</code> header, hoping it would reveal the original IP. However, to my surprise, the header was empty. This deepened the mystery. What could be interfering with our ability to see the user IPs?</p>
+<h3 id="the-gateway-revelation">The Gateway Revelation</h3>
+<p>Next, I examined the IP that was consistently logged. It turned out to be an address ending with &ldquo;.1&rdquo;, which matched the default gateway of our Nginx service. This pointed the investigation towards Kubernetes. There was something about the Kubernetes configuration that was hidding the user ip.</p>
+<h3 id="kubernetes-configuration-conundrum">Kubernetes Configuration Conundrum</h3>
+<p>Digging into the Kubernetes documentation, I discovered that our nginx service&rsquo;s <code>externalTrafficPolicy</code> was set to <code>Cluster</code>. By default, Kubernetes balances the load among different Nginx pods, proxying requests and masking the original IP. This explained why the user IPs were not appearing in our logs.</p>
+<h3 id="the-final-piece">The Final Piece</h3>
+<p>To solve the problem, I changed the <code>externalTrafficPolicy</code> to <code>Local</code>. This configuration ensures that all requests are sent directly to the pods without being proxied by Kubernetes. While this meant giving up on load balancing, it allowed us to log the true user IPs.</p>
+<p>With the mystery solved, our logs now accurately reflect the IP addresses of our users. This journey through the depths of Kubernetes and Nginx configurations highlights the importance of understanding the tools we use and their impact on our systems. Stay tuned for the next adventure, where we continue to uncover and solve the hidden challenges in our infrastructure.</p>
 
             </div>
         </article></main>

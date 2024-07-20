@@ -6,7 +6,31 @@
     <description>Recent content in Sherlock Holmes on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Jun 2024 20:18:56 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/sherlock-holmes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Jul 2024 12:27:32 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/sherlock-holmes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sherlock Holmes: The Great Lambda Mystery</title>
+      <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-great-lambda-mystery/</link>
+      <pubDate>Tue, 02 Jul 2024 12:27:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-great-lambda-mystery/</guid>
+      
+      <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I&amp;rsquo;ll tackle the problem with wit and precision. Let&amp;rsquo;s dive in and crack these cases together!
+The Early Morning Disturbance It was 4 o&amp;rsquo;clock in the morning when I received an urgent call from a colleague. Our Lambda function had suddenly stopped working.</description>
+      
+    </item>
+    
+    <item>
+      <title>Sherlock Holmes: The Case of the Missing User IPs</title>
+      <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-missing-user-ips/</link>
+      <pubDate>Mon, 01 Jul 2024 21:08:07 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-missing-user-ips/</guid>
+      
+      <description>Welcome to our series of infrastructure detective stories, where we unravel the mysteries lurking within our systems In this episode, we tackle a perplexing problem: our Nginx server inside Kubernetes was logging an IP address that didn&amp;rsquo;t match the actual user IP. Join me as we unravel the mystery and uncover the truth behind the missing IP.
+The Mysterious IP It all started when we noticed something unusual in our logs.</description>
+      
+    </item>
+    
     <item>
       <title>Sherlock Homes: The Case of the Content Length Mismatch</title>
       <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-content-length-mismatch/</link>

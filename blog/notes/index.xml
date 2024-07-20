@@ -6,7 +6,21 @@
     <description>Recent content in Notes on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jul 2024 07:14:30 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jul 2024 07:51:40 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Langchain</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/langchain/</link>
+      <pubDate>Sat, 25 May 2024 09:42:14 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/langchain/</guid>
+      
+      <description>The concepts in langchain
+Prompt template chains Models Retrivers Agent Tools Output Memory Prompt templates Prompt templates help to translate user input and parameters into instructions for a language model. This can be used to guide a model&amp;rsquo;s response, helping it understand the context and generate relevant and coherent language-based output.
+types of prompt templates
+String PromptTemplates from langchain_core.prompts import PromptTemplate from langchain_core.prompts import ChatPromptTemplate prompt_template = PromptTemplate.from_template(&amp;#34;Tell me a joke about {topic}&amp;#34;) prompt = prompt_template.</description>
+      
+    </item>
+    
     <item>
       <title>Python</title>
       <link>https://programmerraja.github.io/blog/notes/2024/python/</link>
@@ -39,19 +53,6 @@
       <description>Indexing it is like collection name in databse
 Index-level shard allocation filtering Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices. This feature gives you fine-grained control over shard placement based on node attributes and conditions, helping you optimize data distribution, resource utilization, and cluster stability.
 Here&amp;rsquo;s an explanation of index-level shard allocation filtering:</description>
-      
-    </item>
-    
-    <item>
-      <title>Databases</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/databases/</link>
-      <pubDate>Sun, 03 Mar 2024 07:34:21 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/databases/</guid>
-      
-      <description>ZippyDB ZippyDB is the largest strongly consistent, geographically distributed key-value store at Facebook.ZippyDB uses RocksDB as the underlying storage engine
-Cassandra Cassandra is a wide-column NoSQL database management system. It was originally developed at Facebook to power the Facebook inbox search feature build in java
-https://blog.stackademic.com/architecture-of-cassandra-6d9d248a7463 FoundationDB FoundationDB is an open-source, distributed, transactional key-value store. It’s designed to handle large volumes of data and works well for both read/write workloads and write-heavy workloads.</description>
       
     </item>
     

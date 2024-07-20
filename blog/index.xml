@@ -6,7 +6,43 @@
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jul 2024 07:14:30 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jul 2024 07:26:19 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sherlock Holmes and the Case of the Broken Website</title>
+      <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-and-the-case-of-the-broken-website/</link>
+      <pubDate>Thu, 11 Jul 2024 05:15:01 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-and-the-case-of-the-broken-website/</guid>
+      
+      <description>Welcome back to our series, where we unravel the mysteries of infrastructure issues with a touch of Sherlock Holmes flair. Today, we tackle a perplexing case involving our trusty web server, Nginx. The problem at hand? A broken website UI after a seemingly simple routing change.
+The Initial Clue: A Broken UI Our journey began with a routine change. We needed to route requests starting with /something to a new server.</description>
+      
+    </item>
+    
+    <item>
+      <title>Sherlock Holmes: The Great Lambda Mystery</title>
+      <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-great-lambda-mystery/</link>
+      <pubDate>Tue, 02 Jul 2024 12:27:32 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-great-lambda-mystery/</guid>
+      
+      <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I&amp;rsquo;ll tackle the problem with wit and precision. Let&amp;rsquo;s dive in and crack these cases together!
+The Early Morning Disturbance It was 4 o&amp;rsquo;clock in the morning when I received an urgent call from a colleague. Our Lambda function had suddenly stopped working.</description>
+      
+    </item>
+    
+    <item>
+      <title>Sherlock Holmes: The Case of the Missing User IPs</title>
+      <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-missing-user-ips/</link>
+      <pubDate>Mon, 01 Jul 2024 21:08:07 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-missing-user-ips/</guid>
+      
+      <description>Welcome to our series of infrastructure detective stories, where we unravel the mysteries lurking within our systems In this episode, we tackle a perplexing problem: our Nginx server inside Kubernetes was logging an IP address that didn&amp;rsquo;t match the actual user IP. Join me as we unravel the mystery and uncover the truth behind the missing IP.
+The Mysterious IP It all started when we noticed something unusual in our logs.</description>
+      
+    </item>
+    
     <item>
       <title>Sherlock Homes: The Case of the Content Length Mismatch</title>
       <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-content-length-mismatch/</link>
@@ -16,6 +52,20 @@
       
       <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I&amp;rsquo;ll tackle the problem with wit and precision. Let&amp;rsquo;s dive in and crack these cases together!
 Running a website smoothly is akin to maintaining a finely-tuned machine. Yet, like any mystery tale, unexpected twists can disrupt the flow. Recently, our team faced a perplexing error while serving our website: Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH in Chrome.</description>
+      
+    </item>
+    
+    <item>
+      <title>Langchain</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/langchain/</link>
+      <pubDate>Sat, 25 May 2024 09:42:14 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/langchain/</guid>
+      
+      <description>The concepts in langchain
+Prompt template chains Models Retrivers Agent Tools Output Memory Prompt templates Prompt templates help to translate user input and parameters into instructions for a language model. This can be used to guide a model&amp;rsquo;s response, helping it understand the context and generate relevant and coherent language-based output.
+types of prompt templates
+String PromptTemplates from langchain_core.prompts import PromptTemplate from langchain_core.prompts import ChatPromptTemplate prompt_template = PromptTemplate.from_template(&amp;#34;Tell me a joke about {topic}&amp;#34;) prompt = prompt_template.</description>
       
     </item>
     
@@ -63,19 +113,6 @@ $ journalctl --since &amp;#34;-1d&amp;#34; -u sshd | grep &amp;#34;Failed passwo
       <description>Indexing it is like collection name in databse
 Index-level shard allocation filtering Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices. This feature gives you fine-grained control over shard placement based on node attributes and conditions, helping you optimize data distribution, resource utilization, and cluster stability.
 Here&amp;rsquo;s an explanation of index-level shard allocation filtering:</description>
-      
-    </item>
-    
-    <item>
-      <title>Databases</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/databases/</link>
-      <pubDate>Sun, 03 Mar 2024 07:34:21 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/databases/</guid>
-      
-      <description>ZippyDB ZippyDB is the largest strongly consistent, geographically distributed key-value store at Facebook.ZippyDB uses RocksDB as the underlying storage engine
-Cassandra Cassandra is a wide-column NoSQL database management system. It was originally developed at Facebook to power the Facebook inbox search feature build in java
-https://blog.stackademic.com/architecture-of-cassandra-6d9d248a7463 FoundationDB FoundationDB is an open-source, distributed, transactional key-value store. It’s designed to handle large volumes of data and works well for both read/write workloads and write-heavy workloads.</description>
       
     </item>
     

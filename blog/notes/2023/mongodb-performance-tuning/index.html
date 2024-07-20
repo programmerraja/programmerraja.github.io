@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.128.0">
+<meta name="generator" content="Hugo 0.129.0">
 
     
 
@@ -272,6 +272,7 @@ operations that are currently running on the database</p>
 </span></span><span class="line"><span class="cl">4  FETCH
 </span></span></code></pre></div><p>The <strong>AND_SORTED</strong> step indicates that an index intersection has been performed.
 Index intersections for $and conditions are unusual</p>
+<p>But this not efficient as compound index and very rarely this will be used this approach need to scan more doc compared to compound index</p>
 <h4 id="type-of-index">Type of index</h4>
 <ol>
 <li>
@@ -406,11 +407,17 @@ The <code>db.serverStatus()</code> command provides details of how much memory M
 </span></span><span class="line"><span class="cl">             <span class="p">[</span><span class="s1">&#39;bytes currently in the cache&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1048576</span>
 </span></span><span class="line"><span class="cl"><span class="p">...</span>     <span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">...</span>   <span class="p">);</span>
-</span></span></code></pre></div><ul>
-<li>virtual -&gt; virtual memory allocated for monogdb</li>
-<li>resident -&gt; Memory that used so far including cache</li>
-<li>the Wired Tiger cache will be set to either 50% of total memory minus 1GB or to 256MB</li>
+</span></span></code></pre></div><p><strong>Virtual Memory</strong></p>
+<ul>
+<li>This value includes all memory that the MongoDB process can access, including both physical RAM and swap space.</li>
+<li>Virtual memory represents the total memory space allocated by the operating system to the process. It includes not only the resident memory but also any memory that may have been swapped out to disk or is reserved but not currently in use.</li>
+<li>Virtual memory can be much larger than physical memory, as it represents the total address space allocated to the process.</li>
 </ul>
+<p><strong>Resident Memory</strong></p>
+<ul>
+<li>is the amount of physical RAM, in mebibytes (MiB), that the MongoDB process is currently using.</li>
+</ul>
+<p><strong>Note :</strong> The Wired Tiger cache will be set to either 50% of total memory minus 1GB or to 256MB</p>
 <h4 id="the-database-cache-hit-ratio">The Database Cache &ldquo;Hit&rdquo; Ratio</h4>
 <p>The database cache hit ratio is a somewhat notorious metric with a long history.Simplistically, the cache hit ratio describes how often you find a block of data you want in memory:</p>
 <p><code>CacheHitRatio = Number of IO requests that were satisfied in the cache / Total IO requests</code></p>
@@ -473,8 +480,8 @@ The <code>db.serverStatus()</code> command provides details of how much memory M
 <table>
 <thead>
 <tr>
+<th></th>
 <th>Read Preference</th>
-<th>Effect</th>
 </tr>
 </thead>
 <tbody>

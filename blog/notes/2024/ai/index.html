@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.128.0">
+<meta name="generator" content="Hugo 0.129.0">
 
     
 
@@ -185,7 +185,13 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#automl" aria-label="AutoML">AutoML</a><ul>
                         
                 <li>
-                    <a href="#llm-evaluation-metrics" aria-label="LLM Evaluation Metrics">LLM Evaluation Metrics</a>
+                    <a href="#llm-evaluation-metrics" aria-label="LLM Evaluation Metrics">LLM Evaluation Metrics</a><ul>
+                        
+                <li>
+                    <a href="#types" aria-label="Types">Types</a></li></ul>
+                </li>
+                <li>
+                    <a href="#llm-as-judge" aria-label="LLM-as-Judge">LLM-as-Judge</a>
                 </li>
             </ul>
             </li>
@@ -705,10 +711,60 @@ Model stored in  /user/share/ollama/.ollama/models</p>
 <h2 id="automl">AutoML</h2>
 <p>Frameworks represent a noteworthy leap in the evolution of machine learning. By streamlining the complete model development cycle, including tasks such as data cleaning, feature selection, model training, and hyperparameter tuning, AutoML frameworks significantly economize on the time and effort customarily expended by data scientists.</p>
 <h3 id="llm-evaluation-metrics">LLM Evaluation Metrics</h3>
+<h4 id="types">Types</h4>
+<p><strong>Intrinsic metrics</strong>: evaluate the model&rsquo;s internal workings, such as perplexity and fluency.</p>
+<ul>
+<li><strong>Perplexity</strong>: measures how well the model predicts a test dataset. Lower perplexity indicates better performance.</li>
+<li><strong>Fluency</strong>: measures the coherence and naturalness of the generated text.</li>
+<li><strong>BLEU (Bilingual Evaluation Understudy) Score</strong>: measures the similarity between the generated text and a reference text.</li>
+</ul>
+<p><strong>Extrinsic metrics</strong>: evaluate the model&rsquo;s performance on specific tasks, such as question-answering and text classification.</p>
+<ul>
+<li><strong>Accuracy</strong>: measures the proportion of correct predictions or answers.</li>
+<li><strong>F1 Score</strong>: measures the balance between precision and recall.</li>
+<li><strong>ROUGE (Recall-Oriented Understudy for Gisting Evaluation) Score</strong>: measures the quality of generated summaries.</li>
+</ul>
+<p><strong>Hybrid metrics</strong>: combine intrinsic and extrinsic metrics to provide a more comprehensive evaluation.</p>
+<ul>
+<li><strong>METEOR (Metric for Evaluation of Translation with Explicit ORdering) Score</strong>: measures the similarity between generated and reference translations, taking into account the order of the words.</li>
+<li>GEVAL</li>
+</ul>
 <p><a href="https://github.com/nlpyang/geval">G-Eval</a></p>
 <ul>
 <li>using GPT-4 and chain-of-thoughts (CoT) approach to generate detailed evaluation steps for NLG outputs.</li>
 </ul>
+<p><a href="https://github.com/potsawee/selfcheckgpt">SelfcheckGPT</a></p>
+<ol>
+<li><strong>BERTScore</strong>: Compares the generated text with reference samples using BERT embeddings.</li>
+<li><strong>Question-Answering (QA)</strong>: Generates questions from the text and checks consistency in answers.</li>
+<li><strong>N-gram Analysis</strong>: Uses statistical properties of n-grams for consistency checks.</li>
+<li><strong>Natural Language Inference (NLI)</strong>: Uses entailment and contradiction probabilities.</li>
+<li><strong>LLM Prompting</strong>: Queries LLMs directly to check consistency.</li>
+</ol>
+<p><a href="https://github.com/confident-ai/deepeval">DeepEval, an open-source LLM evaluation framework</a></p>
+<ul>
+<li>G-Eval</li>
+<li>Summarization</li>
+<li>Answer Relevancy</li>
+<li>Faithfulness</li>
+<li>Contextual Recall</li>
+<li>Contextual Precision</li>
+<li>RAGAS</li>
+<li>Hallucination</li>
+<li>Toxicity</li>
+<li>Bias</li>
+<li>etc.</li>
+</ul>
+<h3 id="llm-as-judge">LLM-as-Judge</h3>
+<ul>
+<li>Use pairwise comparisons: Instead of asking the LLM to score a single output on a <a href="https://en.wikipedia.org/wiki/Likert_scale">Likert</a> scale, present it with two options and ask it to select the better one. This tends to lead to more stable results.</li>
+<li>Control for position bias: The order of options presented can bias the LLM’s decision. To mitigate this, do each pairwise comparison twice, swapping the order of pairs each time. Just be sure to attribute wins to the right option after swapping!</li>
+<li>Allow for ties: In some cases, both options may be equally good. Thus, allow the LLM to declare a tie so it doesn’t have to arbitrarily pick a winner.</li>
+<li>Use Chain-of-Thought: Asking the LLM to explain its decision before giving a final answer can increase eval reliability. As a bonus, this lets you to use a weaker but faster LLM and still achieve similar results. Because this part of the pipeline is typically run in batch, the extra latency from CoT isn’t a problem.</li>
+<li>Control for response length: LLMs tend to bias toward longer responses. To mitigate this, ensure response pairs are similar in length.</li>
+</ul>
+<p>use YAML because it is less verbose, and hence consumes fewer tokens than JSON. when getting output from LLM</p>
+<p><a href="https://applied-llms.org/">https://applied-llms.org/</a></p>
 
             </div>
         </article></main>

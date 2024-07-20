@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.128.0">
+<meta name="generator" content="Hugo 0.129.0">
 
     
 
@@ -158,10 +158,12 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#verticall-shardinghttpswwwfigmacombloghow-figmas-databases-team-lived-to-tell-the-scale-april-4-2023-" aria-label="Verticall sharding (April 4, 2023 )">Verticall sharding (April 4, 2023 )</a></li>
                 <li>
                     <a href="#horizontal-shardinghttpswwwfigmacombloghow-figmas-databases-team-lived-to-tell-the-scale-march-14-2024" aria-label="Horizontal sharding (March 14, 2024)">Horizontal sharding (March 14, 2024)</a></li></ul>
-                </li></ul>
                 </li>
                 <li>
                     <a href="#notion" aria-label="Notion">Notion</a></li>
+                <li>
+                    <a href="#zerodha" aria-label="Zerodha">Zerodha</a></li></ul>
+                </li>
                 <li>
                     <a href="#caching" aria-label="Caching">Caching</a><ul>
                         
@@ -219,7 +221,7 @@ stroke-linejoin="round" class="feather feather-home">
 <li>Reroute query traffic to the new database</li>
 <li>Resume activity</li>
 </ol>
-<p><code>Note</code>: To fast down the r <a href="https://www.postgresql.org/docs/current/logical-replication.html">logical replication</a> on they removed the indexing and add the indexing after everythings compeleted</p>
+<p><code>Note</code>: To fast down the  <a href="https://www.postgresql.org/docs/current/logical-replication.html">logical replication</a> on they removed the indexing and add the indexing after everythings compeleted</p>
 <p>They used Log Sequence Number (it is a unique identifier assigned to each transaction log entry, representing the order in which changes were made to the database. LSNs are used to track the state of replication and determine whether two databases are synchronized.)</p>
 <p>They created new <strong><code>Query Routing service</code></strong>  will centralize and simplify routing logic as we scale to more partitions.</p>
 <h4 id="horizontal-shardinghttpswwwfigmacombloghow-figmas-databases-team-lived-to-tell-the-scale-march-14-2024"><a href="https://www.figma.com/blog/how-figmas-databases-team-lived-to-tell-the-scale/">Horizontal sharding</a> (March 14, 2024)</h4>
@@ -241,7 +243,7 @@ stroke-linejoin="round" class="feather feather-home">
 <li>if query does not have shard key it will send to all cluster and aggregate the result.</li>
 <li>If they running query that join two table in different shard they will reject it</li>
 </ul>
-<h2 id="notion">Notion</h2>
+<h3 id="notion">Notion</h3>
 <p>check <a href="https://www.notion.so/blog/sharding-postgres-at-notion">here</a></p>
 <ul>
 <li>They go with horizontal sharding and <strong>application-level sharding</strong>.</li>
@@ -255,6 +257,11 @@ stroke-linejoin="round" class="feather feather-home">
 <li><strong>Verification:</strong> Ensure the integrity of data in the new database.</li>
 <li><strong>Switch-over:</strong> Actually switch to the new database. This can be done incrementally, e.g. double-reads, then migrate all reads.</li>
 </ol>
+<h3 id="zerodha">Zerodha</h3>
+<p>They have only one database no replica set and split the database based on financial year. they doing backup in s3</p>
+<p>they using postgres as caching layer where they stored one day of data in this postgres caching layer after one day they drop the database and again move one day data to caching layer. the tool they used  is <a href="https://github.com/zerodha/dungbeetle">dungbeetle</a>
+spec : 16core 32GB ram</p>
+<p>Learning: we can do wired thing if it work for us :)</p>
 <h2 id="caching">Caching</h2>
 <h3 id="doordashshttpsdoordashengineering20231019how-doordash-standardized-and-improved-microservices-caching"><a href="https://doordash.engineering/2023/10/19/how-doordash-standardized-and-improved-microservices-caching/">DoorDash’s</a></h3>
 <p>They use Layered caches</p>

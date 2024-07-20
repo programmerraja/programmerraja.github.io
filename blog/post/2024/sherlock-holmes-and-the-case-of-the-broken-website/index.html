@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name"> | programmerraja blog</title>
-<meta property="og:title" content=" | programmerraja blog" />
-<meta name="twitter:title" content=" | programmerraja blog" />
-<meta itemprop="name" content=" | programmerraja blog" />
-<meta name="application-name" content=" | programmerraja blog" />
+<title itemprop="name">Sherlock Holmes and the Case of the Broken Website | programmerraja blog</title>
+<meta property="og:title" content="Sherlock Holmes and the Case of the Broken Website | programmerraja blog" />
+<meta name="twitter:title" content="Sherlock Holmes and the Case of the Broken Website | programmerraja blog" />
+<meta itemprop="name" content="Sherlock Holmes and the Case of the Broken Website | programmerraja blog" />
+<meta name="application-name" content="Sherlock Holmes and the Case of the Broken Website | programmerraja blog" />
 <meta property="og:site_name" content="" />
 
 <meta name="description" content="">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/post/2024/sherlock-holmes-and-the-case-of-the-broken-website/" title="" />
 
 
 
@@ -35,7 +35,7 @@
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/excalidraw/art-2024-02-11-07.27.35/">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/post/2024/sherlock-holmes-and-the-case-of-the-broken-website/">
     <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -132,7 +132,12 @@ stroke-linejoin="round" class="feather feather-home">
     <main class="page-content" aria-label="Content">
         <article>
             <header class="header">
-                <h1 class="header-title"></h1>
+                <h1 class="header-title">Sherlock Holmes and the Case of the Broken Website</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-07-11T05:15:01&#43;05:30" itemprop="datePublished"> Jul 11, 2024 </time>
+                </div>
                 
             </header><div class="toc">
     <details >
@@ -142,17 +147,44 @@ stroke-linejoin="round" class="feather feather-home">
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#drawing" aria-label="Drawing">Drawing</a>
+                    <a href="#the-initial-clue-a-broken-ui" aria-label="The Initial Clue: A Broken UI">The Initial Clue: A Broken UI</a></li>
+                <li>
+                    <a href="#the-investigation-begins-network-tab-analysis" aria-label="The Investigation Begins: Network Tab Analysis">The Investigation Begins: Network Tab Analysis</a></li>
+                <li>
+                    <a href="#the-suspects-nginx-configuration-and-regex" aria-label="The Suspects: Nginx Configuration and Regex">The Suspects: Nginx Configuration and Regex</a></li>
+                <li>
+                    <a href="#the-breakthrough-a-clue-from-cloudflare" aria-label="The Breakthrough: A Clue from Cloudflare">The Breakthrough: A Clue from Cloudflare</a></li>
+                <li>
+                    <a href="#the-solution-purging-the-cache" aria-label="The Solution: Purging the Cache">The Solution: Purging the Cache</a></li>
+                <li>
+                    <a href="#the-conclusion-a-lesson-learned" aria-label="The Conclusion: A Lesson Learned">The Conclusion: A Lesson Learned</a>
                 </li>
             </ul>
         </div>
     </details>
 </div><div class="page-content">
-                <p>==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==</p>
-<p>%%</p>
-<h1 id="drawing">Drawing</h1>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="nt">&#34;type&#34;</span><span class="p">:</span><span class="s2">&#34;excalidraw&#34;</span><span class="p">,</span><span class="nt">&#34;version&#34;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="nt">&#34;source&#34;</span><span class="p">:</span><span class="s2">&#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&#34;</span><span class="p">,</span><span class="nt">&#34;elements&#34;</span><span class="p">:[],</span><span class="nt">&#34;appState&#34;</span><span class="p">:{</span><span class="nt">&#34;gridSize&#34;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="nt">&#34;viewBackgroundColor&#34;</span><span class="p">:</span><span class="s2">&#34;#ffffff&#34;</span><span class="p">}}</span>
-</span></span></code></pre></div><p>%%</p>
+                <p>Welcome back to our series, where we unravel the mysteries of infrastructure issues with a touch of Sherlock Holmes flair. Today, we tackle a perplexing case involving our trusty web server, Nginx. The problem at hand? A broken website UI after a seemingly simple routing change.</p>
+<h3 id="the-initial-clue-a-broken-ui">The Initial Clue: A Broken UI</h3>
+<p>Our journey began with a routine change. We needed to route requests starting with <code>/something</code> to a new server. The Nginx configuration was updated as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">location</span> <span class="p">~</span> <span class="sr">/something/*</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">proxy_pass</span> <span class="s">http://newserver</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>With the change in place, we restarted Nginx and visited our website, only to find the UI in shambles. This was our first clue that something was amiss.</p>
+<h3 id="the-investigation-begins-network-tab-analysis">The Investigation Begins: Network Tab Analysis</h3>
+<p>Like any good detective, I started my investigation by examining the network tab in the browser&rsquo;s developer tools. It didn&rsquo;t take long to spot the problem: a JavaScript file request was failing with a 404 error. The request path looked something like <code>/something/.../jsfile</code>.</p>
+<h3 id="the-suspects-nginx-configuration-and-regex">The Suspects: Nginx Configuration and Regex</h3>
+<p>First, I suspected our Nginx configuration. Was the regex pattern correct? I double-checked it, ensuring it should route requests starting with <code>/something</code> to the new server. Everything seemed in order, but the 404 errors persisted.</p>
+<p>Here, I noticed an odd pattern: while some paths starting with <code>/something</code> were correctly proxied to the new server, the JavaScript file request was still being served from the default server.</p>
+<h3 id="the-breakthrough-a-clue-from-cloudflare">The Breakthrough: A Clue from Cloudflare</h3>
+<p>The investigation took a new turn when I remembered that we use Cloudflare. Could it be that Cloudflare was caching the old server&rsquo;s responses? To test this theory, I examined the response headers of the failing requests and found that they were indeed being served from Cloudflare&rsquo;s cache. (<code>X-Cache: Hit from cloudfront</code>)</p>
+<h3 id="the-solution-purging-the-cache">The Solution: Purging the Cache</h3>
+<p>With the culprit identified, the solution was straightforward: purge the cache on Cloudflare. Once the cache was cleared, the requests were correctly routed to the new server, and the website UI was restored to its former glory.</p>
+<h3 id="the-conclusion-a-lesson-learned">The Conclusion: A Lesson Learned</h3>
+<p>This case taught us the importance of considering caching layers when troubleshooting routing issues. A seemingly perfect server configuration can be undermined by an overlooked cache.</p>
+<p>Stay tuned for our next adventure, where we&rsquo;ll dive into another thrilling mystery of the infrastructure world. Until then, keep your detective hats on and your configurations tight!</p>
+<p>Stay tuned for the next adventure in our Sherlock Holmes series, where we continue to unearth and solve the mysteries.</p>
 
             </div>
         </article></main>
