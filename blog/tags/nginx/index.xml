@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx on programmerraja blog</title>
+    <link>https://programmerraja.github.io/blog/tags/nginx/</link>
+    <description>Recent content in Nginx on programmerraja blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Jul 2024 05:15:01 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sherlock Holmes and the Case of the Broken Website</title>
+      <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-and-the-case-of-the-broken-website/</link>
+      <pubDate>Thu, 11 Jul 2024 05:15:01 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-and-the-case-of-the-broken-website/</guid>
+      
+      <description>Welcome back to our series, where we unravel the mysteries of infrastructure issues with a touch of Sherlock Holmes flair. Today, we tackle a perplexing case involving our trusty web server, Nginx. The problem at hand? A broken website UI after a seemingly simple routing change.
+The Initial Clue: A Broken UI Our journey began with a routine change. We needed to route requests starting with /something to a new server.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,19 @@
     <description>Recent content in Debugging on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 01 Jul 2024 21:08:07 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Jul 2024 05:15:01 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sherlock Holmes and the Case of the Broken Website</title>
+      <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-and-the-case-of-the-broken-website/</link>
+      <pubDate>Thu, 11 Jul 2024 05:15:01 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-and-the-case-of-the-broken-website/</guid>
+      
+      <description>Welcome back to our series, where we unravel the mysteries of infrastructure issues with a touch of Sherlock Holmes flair. Today, we tackle a perplexing case involving our trusty web server, Nginx. The problem at hand? A broken website UI after a seemingly simple routing change.
+The Initial Clue: A Broken UI Our journey began with a routine change. We needed to route requests starting with /something to a new server.</description>
+      
+    </item>
+    
     <item>
       <title>Sherlock Holmes: The Case of the Missing User IPs</title>
       <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-missing-user-ips/</link>

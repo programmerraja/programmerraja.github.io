@@ -31,12 +31,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.129.0">
+<meta name="generator" content="Hugo 0.131.0">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/react/">
-    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -133,6 +133,7 @@ stroke-linejoin="round" class="feather feather-home">
         <article>
             <header class="header">
                 <h1 class="header-title">React</h1>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
                 
                 
                 <div class="post-meta">
@@ -194,6 +195,8 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#the-mystery-of-react-element-children-parents-and-re-renders" aria-label="The mystery of React Element, children, parents and re-renders">The mystery of React Element, children, parents and re-renders</a></li></ul>
                     </ul>
                 </li>
+                <li>
+                    <a href="#memory-leak" aria-label="Memory leak">Memory leak</a></li>
                 <li>
                     <a href="#resources" aria-label="Resources">Resources</a><ul>
                         <ul>
@@ -656,7 +659,53 @@ have</p>
 </span></span><span class="line"><span class="cl">  <span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="resources">Resources</h2>
+</span></span></code></pre></div><h2 id="memory-leak">Memory leak</h2>
+<p>When using memoization techniques like <code>useCallback</code> to avoid unnecessary re-renders, there are some things to watch out for. <code>useCallback</code> will hold a reference to a function as long as the dependencies don&rsquo;t change. Here&rsquo;s an example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">useState</span><span class="p">,</span> <span class="nx">useCallback</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">&#34;react&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">BigObject</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">public</span> <span class="nx">readonly</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Uint8Array</span><span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">countA</span><span class="p">,</span> <span class="nx">setCountA</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">countB</span><span class="p">,</span> <span class="nx">setCountB</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">bigData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BigObject</span><span class="p">();</span> <span class="c1">// 10MB of data
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleClickA</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setCountA</span><span class="p">(</span><span class="nx">countA</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="p">[</span><span class="nx">countA</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleClickB</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setCountB</span><span class="p">(</span><span class="nx">countB</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="p">[</span><span class="nx">countB</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// This only exists to demonstrate the problem
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kr">const</span> <span class="nx">handleClickBoth</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">handleClickA</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">handleClickB</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bigData</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClickA</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increment</span> <span class="nx">A</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClickB</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increment</span> <span class="nx">B</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">handleClickBoth</span><span class="p">}</span><span class="o">&gt;</span><span class="nx">Increment</span> <span class="nx">Both</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">A</span><span class="o">:</span> <span class="p">{</span><span class="nx">countA</span><span class="p">},</span> <span class="nx">B</span><span class="o">:</span> <span class="p">{</span><span class="nx">countB</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><ul>
+<li>The first click on “Increment A” will cause <code>handleClickA()</code> to be recreated since we change <code>countA</code> - let’s call the new one <code>handleClickA()#1</code>.</li>
+<li><code>handleClickB()#0</code> will <em>not</em> get recreated since <code>countB</code> didn’t change.</li>
+<li>This means, however, that <code>handleClickB()#0</code> will still hold a reference to the previous <code>AppScope#0</code>.</li>
+<li>The new <code>handleClickA()#1</code> will hold a reference to <code>AppScope#1</code>, which holds a reference to <code>handleClickB()#0</code>.</li>
+</ul>
+<p>The general problem is that different <code>useCallback</code> hooks in a single component might reference each other and other expensive data through the closure scopes. The closures are then held in memory until the <code>useCallback</code> hooks are recreated. Having more than one <code>useCallback</code> hook in a component makes it super hard to reason about what’s being held in memory and when it’s being released. The more callbacks you have, the more likely it is that you’ll encounter this issue.</p>
+<h2 id="resources">Resources</h2>
 <ol>
 <li>[React re-renders guide: everything, all at once](<a href="https://www.developerway.com/posts/react-re-renders-guide">https://www.developerway.com/posts/react-re-renders-guide</a></li>
 <li><a href="https://www.developerway.com/posts/react-elements-children-parents">React Element, children, parents and re-renders</a></li>

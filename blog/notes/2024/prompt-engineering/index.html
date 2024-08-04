@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Prompt Engineering | programmerraja blog</title>
+<meta property="og:title" content="Prompt Engineering | programmerraja blog" />
+<meta name="twitter:title" content="Prompt Engineering | programmerraja blog" />
+<meta itemprop="name" content="Prompt Engineering | programmerraja blog" />
+<meta name="application-name" content="Prompt Engineering | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/prompt-engineering/" title="" />
+
+
+
+  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.131.0">
+
+    
+
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/prompt-engineering/">
+    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Prompt Engineering</h1>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-01-22T09:51:27&#43;05:30" itemprop="datePublished"> Jan 22, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a></li>
+                <li>
+                    <a href="#plan-like-a-graph" aria-label="Plan Like a Graph">Plan Like a Graph</a></li>
+                <li>
+                    <a href="#dspy" aria-label="Dspy">Dspy</a><ul>
+                        
+                <li>
+                    <a href="#singature" aria-label="Singature">Singature</a></li>
+                <li>
+                    <a href="#modules-abstracting-prompting-techniques" aria-label="Modules: Abstracting prompting techniques">Modules: Abstracting prompting techniques</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://eugeneyan.com/writing/prompting/">https://eugeneyan.com/writing/prompting/</a></li>
+</ul>
+<p>![[Pasted image 20240720193516.png]]</p>
+<h2 id="plan-like-a-graph">Plan Like a Graph</h2>
+<p>Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance of LLMs in asynchronous planning tasks.</p>
+<pre tabindex="0"><code>Let&#39;s say we have an asynchronous planning task where we need to bake a cake, frost it, and then decorate it, and we have the following time durations and constraints:
+
+- Mixing the cake batter takes 10 minutes
+- Baking the cake takes 30 minutes
+- Frosting the cake takes 5 minutes
+- Decorating the cake takes 15 minutes
+- Baking the cake must be done after mixing the batter
+- Frosting the cake must be done after baking the cake
+- Decorating the cake must be done after frosting it
+
+To use the PLaG technique, we would first convert this task into a graph representation, where the nodes represent the steps in the task and the edges represent the constraints between them. The resulting graph would look like this:
+
+
+`1Mix batter (10 min) ----&gt; Bake cake (30 min) ----&gt; Frost cake (5 min) ----&gt; Decorate cake (15 min)`
+
+Next, we would prompt the LLM with the task description and the graph representation, instructing it to reason based on the graph. For example, the prompt might look like this:
+
+&#34;Consider the following task: Bake a cake, frost it, and then decorate it. The steps and time durations are as follows:
+
+- Mixing the cake batter takes 10 minutes
+- Baking the cake takes 30 minutes
+- Frosting the cake takes 5 minutes
+- Decorating the cake takes 15 minutes
+
+The constraints between the steps are as follows:
+
+- Baking the cake must be done after mixing the batter
+- Frosting the cake must be done after baking the cake
+- Decorating the cake must be done after frosting it
+
+Use the following graph to reason about the task and determine the shortest possible time needed to complete it:
+
+`1Mix batter (10 min) ----&gt; Bake cake (30 min) ----&gt; Frost cake (5 min) ----&gt; Decorate cake (15 min)`
+
+By providing the LLM with a graph representation of the task, we can help it reason more effectively about the constraints and time durations involved, leading to more accurate predictions about the shortest possible time needed to complete the task.
+</code></pre><table>
+<thead>
+<tr>
+<th>Pattern Category</th>
+<th>Prompt Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input Semantics</td>
+<td>Meta Language Creation</td>
+</tr>
+<tr>
+<td>Output  Customization</td>
+<td>Output Automater  <br>Persona Visualization <br>Generator Recipe Template</td>
+</tr>
+<tr>
+<td>Error Identification</td>
+<td>Fact Check List<br>Reflection</td>
+</tr>
+<tr>
+<td>Prompt  Improvement</td>
+<td>Question Refinement <br>Alternative Approaches<br>Cognitive Verifier <br>Refusal Breaker</td>
+</tr>
+<tr>
+<td>Interaction</td>
+<td>Flipped Interaction<br> Game Play <br>Infinite Generation</td>
+</tr>
+<tr>
+<td>Context Control</td>
+<td>Context Manager</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dspy">Dspy</h2>
+<p>Dspy(Declarative Self-improving Language Programs) make it easy to follow the data science process when building LM apps</p>
+<p>Workflow</p>
+<ul>
+<li>define your task</li>
+<li>collect some data and LM/RM connection</li>
+<li>Define your metrics</li>
+<li>setup a pipeline</li>
+<li>compile/optimize the program</li>
+<li>Save your experiment and iterate</li>
+</ul>
+<p>Components of Dspy</p>
+<ul>
+<li>
+<p>Signatures: Define the input-output structure for model interactions, ensuring clarity and consistency across different modules. (question -&gt; answer , doc-&gt; summary)</p>
+</li>
+<li>
+<p>Modules: Encapsulate specific tasks or operations as reusable components. This modular design enhances the flexibility and scalability of applications built with DSPy.</p>
+</li>
+<li>
+<p>Teleprompters: Manage the execution flow of modules, allowing for sophisticated sequencing and optimization of interactions with language models.</p>
+</li>
+<li>
+<p>Hand-written prompts and fine-tuning are abstracted and replaced by <strong>signatures</strong></p>
+</li>
+<li>
+<p>Prompting techniques, such as <strong>Chain of Thought</strong> or <strong>ReAct</strong>, are abstracted and replaced by <strong>modules</strong></p>
+</li>
+<li>
+<p>Manual prompt engineering is automated with optimizers <strong>teleprompters</strong> and a DSPy <strong>Compiler</strong></p>
+</li>
+</ul>
+<h3 id="singature">Singature</h3>
+<p> signature is a short function that specifies <strong>what</strong> a transformation does rather than <strong>how</strong> to prompt the LM to do it (e.g., &ldquo;consume questions and context and return answers&rdquo;).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">&#34;context, question&#34;    -&gt; &#34;answer&#34;
+</span></span><span class="line"><span class="cl">Input seprated by comma | output
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&#34;question -&gt; answer&#34; 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&#34;long-document -&gt; summary&#34; 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&#34;context, question -&gt; answer&#34;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">GenerateAnswer</span><span class="p">(</span><span class="n">dspy</span><span class="o">.</span><span class="n">Signature</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">	<span class="s2">&#34;&#34;&#34;Answer questions with short factoid answers.&#34;&#34;&#34;</span> 
+</span></span><span class="line"><span class="cl">	<span class="n">context</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&#34;may contain relevant facts&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">	<span class="n">question</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">	<span class="n">answer</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&#34;often between 1 and 5 words&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><h3 id="modules-abstracting-prompting-techniques">Modules: Abstracting prompting techniques</h3>
+<p>Modules in DSPy are templated and parameterized to abstract these prompting techniques. This means that they are used to adapt DSPy signatures to a task by applying prompting, fine-tuning, augmentation, and reasoning techniques.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Option 1: Pass minimal signature to ChainOfThought module </span>
+</span></span><span class="line"><span class="cl"><span class="n">generate_answer</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">ChainOfThought</span><span class="p">(</span><span class="s2">&#34;context, question -&gt; answer&#34;</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Option 2: Or pass full notation signature to ChainOfThought module </span>
+</span></span><span class="line"><span class="cl"><span class="n">generate_answer</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">ChainOfThought</span><span class="p">(</span><span class="n">GenerateAnswer</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Call the module on a particular input. </span>
+</span></span><span class="line"><span class="cl"><span class="n">pred</span> <span class="o">=</span> <span class="n">generate_answer</span><span class="p">(</span><span class="n">context</span> <span class="o">=</span> <span class="s2">&#34;Which meant learning Lisp, since in those days Lisp was regarded as the language of AI.&#34;</span><span class="p">,</span> <span class="n">question</span> <span class="o">=</span> <span class="s2">&#34;What programming language did the author learn in college?&#34;</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>
+<p><code>dspy.Predict</code>: Processes the input and output fields, generates instructions, and creates a template for the specified <code>signature</code>.</p>
+</li>
+<li>
+<p><code>dspy.ChainOfThought</code>: Inherits from the <code>Predict</code> module and adds functionality for &ldquo;Chain of Thought&rdquo; processing.</p>
+</li>
+<li>
+<p><code>dspy.ChainOfThoughtWithHint</code>: Inherits from the <code>Predict</code> module and enhances the <code>ChainOfThought</code> module with the option to provide hints for reasoning.</p>
+</li>
+<li>
+<p><code>dspy.MultiChainComparison</code>: Inherits from the <code>Predict</code> module and adds functionality for multiple chain comparisons.</p>
+</li>
+<li>
+<p><code>dspy.Retrieve</code>: Retrieves passages from a retriever module.</p>
+</li>
+<li>
+<p><code>dspy.ReAct</code>: Designed to compose the interleaved steps of Thought, Action, and Observation.</p>
+</li>
+</ul>
+<p>You can chain these modules together in classes that are inherited from <code>dspy.Module</code> and take two methods. You might already notice a syntactic similarity to PyTorch</p>
+<ul>
+<li><code>__init__()</code>: Declares the used submodules.</li>
+<li><code>forward()</code>: Describes the control flow among the defined sub-modules.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">RAG</span><span class="p">(</span><span class="n">dspy</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl"> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_passages</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">	<span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span> 
+</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">Retrieve</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">num_passages</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">	<span class="bp">self</span><span class="o">.</span><span class="n">generate_answer</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">ChainOfThought</span><span class="p">(</span><span class="n">GenerateAnswer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">question</span><span class="p">):</span> 
+</span></span><span class="line"><span class="cl">	  <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">question</span><span class="p">)</span><span class="o">.</span><span class="n">passages</span> 
+</span></span><span class="line"><span class="cl">	  <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_answer</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl">	  <span class="k">return</span> <span class="n">dspy</span><span class="o">.</span><span class="n">Prediction</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">answer</span><span class="o">=</span><span class="n">prediction</span><span class="o">.</span><span class="n">answer</span><span class="p">)</span>
+</span></span></code></pre></div>
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</main>
+    </body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us"><head><meta charset="utf-8">
+<html lang="en-us"><head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,25 +18,25 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/ai/" title="" />
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/blog/notes/2024/ai/" title="" />
 
 
 
-  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
-  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
-  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
-  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
+  <meta itemprop="image" content="http://localhost:1313/blog/" />
+  <meta property="og:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image" content="http://localhost:1313/blog/" />
+  <meta name="twitter:image:src" content="http://localhost:1313/blog/" />
 
 
 
 
 
-<meta name="generator" content="Hugo 0.129.0">
+<meta name="generator" content="Hugo 0.131.0">
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/ai/">
-    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link rel="canonical" href="http://localhost:1313/blog/notes/2024/ai/">
+    <link href="/blog/style.min.2ac0afe1c292588e114b3d3f89e1c73bf0263909ea461fa80e434482e75bbb65.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -49,7 +49,7 @@
 
 
 
-<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
+<link rel="manifest" href="http://localhost:1313/blog/site.webmanifest">
 
 <meta name="msapplication-config" content="/blog/browserconfig.xml">
 <meta name="msapplication-TileColor" content="#2d89ef">
@@ -58,16 +58,15 @@
     
     <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
 
-    
     </head>
 <body data-theme = "" class="notransition">
         <main class="main">
 
-<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+<script src="/blog/js/theme.js"></script>
 
 <div class="navbar" role="navigation">
     <nav class="menu" aria-label="Main Navigation">
-        <a href="https://programmerraja.github.io/blog/" class="logo">
+        <a href="http://localhost:1313/blog/" class="logo">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
 stroke-linejoin="round" class="feather feather-home">
@@ -133,6 +132,7 @@ stroke-linejoin="round" class="feather feather-home">
         <article>
             <header class="header">
                 <h1 class="header-title"></h1>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
                 
             </header><div class="toc">
     <details >
@@ -176,8 +176,6 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#langchain" aria-label="Langchain">Langchain</a></li>
                 <li>
-                    <a href="#crag" aria-label="CRAG">CRAG</a></li>
-                <li>
                     <a href="#vector-database" aria-label="Vector database">Vector database</a></li>
                 <li>
                     <a href="#resources-1" aria-label="Resources">Resources</a></li>
@@ -191,10 +189,11 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#types" aria-label="Types">Types</a></li></ul>
                 </li>
                 <li>
-                    <a href="#llm-as-judge" aria-label="LLM-as-Judge">LLM-as-Judge</a>
+                    <a href="#llm-as-judge" aria-label="LLM-as-Judge">LLM-as-Judge</a></li></ul>
                 </li>
-            </ul>
-            </li>
+                <li>
+                    <a href="#1-bit-llm" aria-label="1 Bit LLM">1 Bit LLM</a>
+                </li>
             </ul>
         </div>
     </details>
@@ -575,14 +574,6 @@ Model stored in  /user/share/ollama/.ollama/models</p>
 <p>which has blobs and manifests/registry.ollama.ai</p>
 <p>blobs contain actula model code</p>
 <p><a href="https://github.com/vercel/ai">https://github.com/vercel/ai</a></p>
-<p>RAG</p>
-<p><a href="https://github.com/zahaby/intro-llm-rag">https://github.com/zahaby/intro-llm-rag</a></p>
-<p><a href="https://github.dev/pinecone-io/canopy">https://github.dev/pinecone-io/canopy</a> -&gt; Framework build by pinecone</p>
-<p><a href="https://github.com/truera/trulens">https://github.com/truera/trulens</a> Evaluation and Tracking for LLM Experiments</p>
-<p><a href="https://microsoft.github.io/autogen/">https://microsoft.github.io/autogen/</a>
-<a href="https://github.com/decodingml/llm-twin-course">https://github.com/decodingml/llm-twin-course</a></p>
-<h2 id="crag">CRAG</h2>
-<p>Corrective Retrieval Augmented Generation.The strategy we followed for this let’s say for each topic, we consult the book and identify relevant sections. Before forming an opinion, categorize the gathered information into three groups: <code>**Correct**</code>, <code>**Incorrect**</code>, and <code>**Ambiguous**</code>. Process each type of information separately. Then, based on this processed information, compile and summarize it mentally</p>
 <p>Rank GPT</p>
 <ul>
 <li>instead of just querying in vector and sending to LLM after querying ask LLM can you rank the doc that fetched from vecotr db based relvant to the query and again send to LLM with re ranked doc</li>
@@ -765,6 +756,8 @@ Model stored in  /user/share/ollama/.ollama/models</p>
 </ul>
 <p>use YAML because it is less verbose, and hence consumes fewer tokens than JSON. when getting output from LLM</p>
 <p><a href="https://applied-llms.org/">https://applied-llms.org/</a></p>
+<h2 id="1-bit-llm">1 Bit LLM</h2>
+<p> BitNet b1.58 where every weight in a Transformer can be represented as a {-1, 0, 1} instead of a floating point number.</p>
 
             </div>
         </article></main>
@@ -831,7 +824,7 @@ Model stored in  /user/share/ollama/.ollama/models</p>
 
 
     
-    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+    <script async src="http://localhost:1313/blog/js/main.js" ></script>
 
     
 

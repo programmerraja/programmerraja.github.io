@@ -31,12 +31,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.129.0">
+<meta name="generator" content="Hugo 0.131.0">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-great-lambda-mystery/">
-    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -133,6 +133,7 @@ stroke-linejoin="round" class="feather feather-home">
         <article>
             <header class="header">
                 <h1 class="header-title">Sherlock Holmes: The Great Lambda Mystery</h1>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
                 
                 
                 <div class="post-meta">
@@ -173,20 +174,6 @@ stroke-linejoin="round" class="feather feather-home">
 <h4 id="the-final-piece-of-the-puzzle">The Final Piece of the Puzzle</h4>
 <p>We now understood how setting <code>NPM_CONFIG_CACHE=/tmp/.npm</code> resolved the issue. However, one question remained: why did this problem arise so suddenly? More research revealed the answer. AWS Lambda had deprecated Node.js 14 and automatically upgraded our environment to the latest version, which included npm 8. This upgrade introduced the change that caused our issue.</p>
 <p>Stay tuned for our next adventure, where we continue to unravel the mysteries of the infrastructure world, one case at a time. Until then, keep your magnifying glasses handy and your curiosity alive.</p>
-<p><a href="https://github.com/npm/cli/issues/7105">https://github.com/npm/cli/issues/7105</a></p>
-<p>The issue reported in GitHub is a bug in npm where running <code>npm run</code> on a read-only file system fails due to recent changes in <code>@npmcli/run-script</code>.</p>
-<p>Here are the key points:</p>
-<ul>
-<li>The bug occurs when running <code>npm run</code> on a read-only file system, such as in a Docker container or AWS Lambda environment.</li>
-<li>The error message is <code>EROFS: read-only file system</code>, indicating that npm is trying to write to a directory that is read-only.</li>
-<li>The issue is caused by a recent change in <code>@npmcli/run-script</code> that writes scripts into the temporary directory (<code>tmpdir()</code>).</li>
-<li>This change breaks the ability to run <code>npm run</code> on a read-only file system.</li>
-</ul>
-<p>The reason why this bug is happening is that npm is trying to write to a directory that is read-only. In the past, npm used to write scripts to the current working directory, but with the recent change, it now writes to the temporary directory. This temporary directory is not writable in a read-only file system, causing the error.</p>
-<p>The workaround for this issue is to set the <code>NPM_CONFIG_CACHE</code> environment variable to a writable directory, such as <code>/tmp/.npm</code>. This allows npm to write its cache and scripts to a directory that is writable, even in a read-only file system.</p>
-<p>It&rsquo;s likely that the bug was introduced in a recent version of npm, which is why it started failing suddenly. The exact reason why it worked before without the <code>NPM_CONFIG_CACHE</code> environment variable is not clear, but it&rsquo;s possible that the previous version of npm used a different approach to writing scripts that didn&rsquo;t require a writable directory.</p>
-<p>it is morinnig 4 0 clokc i am getting call from my college that our lambda is not running suddnly i woke up and started my invesitgation and find the logs of <code>npm ERR! rofs EROFS: read-only file system, mkdir '/home/sbx_user1051'</code> we have no idea suddenly why this error is showing  but from this error it clear telling that npm is trying to write something in read only file system then i started checking the code are we recently did any changes in code that writing something to disk but we did not do anything so then i started googling and i find one stack flow answer that said put <code>NPM_CONFIG_CACHE=/tmp/.npm</code> in env i tried it worked then i have great breath after fixing this i am curios to how this env make the fix so then i started spending next 2 hour for doing resource regarding this and i findout that from npm 8 The issue is caused by a recent change in <code>@npmcli/run-script</code> that writes scripts into the temporary directory (<code>tmpdir()</code>). of the user path of <code>'/home/sbx_user1051'</code> this also mentioned in there npm ci repo issue tab</p>
-<p>ok finally we got answer how <code>NPM_CONFIG_CACHE=/tmp/.npm</code>  fix the issue but we still not why this issue suddenly happens because we did not did any code changes then i started reseach again i and find the node 14 is depericated on aws lambda and it will be auto upgrade to the latest version that is npm 8 version so that only cause this issue finally i find answer for all problem</p>
 
             </div>
         </article></main>

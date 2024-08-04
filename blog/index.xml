@@ -6,7 +6,19 @@
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jul 2024 07:26:19 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Aug 2024 10:24:09 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hunting the Hacker: A Deep Dive into Courier Fraud</title>
+      <link>https://programmerraja.github.io/blog/post/2024/hunting-the-hacker-a-deep-dive-into-courier-fraud/</link>
+      <pubDate>Sat, 20 Jul 2024 07:26:19 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/hunting-the-hacker-a-deep-dive-into-courier-fraud/</guid>
+      
+      <description>In today&amp;rsquo;s digital age, cyber scams are becoming increasingly sophisticated. Recently, one of our colleagues received a suspicious call that led to an attempted scam. This blog post details our investigation into the scam, revealing the techniques used by the fraudsters and how we managed to thwart their efforts.
+The Call It all began when one of our colleagues received a phone call from someone claiming to be from a courier company.</description>
+      
+    </item>
+    
     <item>
       <title>Sherlock Holmes and the Case of the Broken Website</title>
       <link>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-and-the-case-of-the-broken-website/</link>
@@ -141,6 +153,19 @@ resources https://youtu.be/taj_inLi-pY?si=2qu_7nqx6YRwX0Co
 Crational Design pattern Once upon a time in the colorful land of Toyland, there were magical creatures known as Creators. Each Creator had a unique way of bringing toys to life, showcasing various creational design patterns.
 Abstract Factory Pattern: The Artisan Workshop
 In the heart of Toyland, there was an Artisan Workshop where the master toymaker, the Abstract Artisan, crafted a variety of toys.</description>
+      
+    </item>
+    
+    <item>
+      <title>Prompt Engineering</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/prompt-engineering/</link>
+      <pubDate>Mon, 22 Jan 2024 09:51:27 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/prompt-engineering/</guid>
+      
+      <description>Resources https://eugeneyan.com/writing/prompting/ ![[Pasted image 20240720193516.png]]
+Plan Like a Graph Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance of LLMs in asynchronous planning tasks.
+Let&amp;#39;s say we have an asynchronous planning task where we need to bake a cake, frost it, and then decorate it, and we have the following time durations and constraints: - Mixing the cake batter takes 10 minutes - Baking the cake takes 30 minutes - Frosting the cake takes 5 minutes - Decorating the cake takes 15 minutes - Baking the cake must be done after mixing the batter - Frosting the cake must be done after baking the cake - Decorating the cake must be done after frosting it To use the PLaG technique, we would first convert this task into a graph representation, where the nodes represent the steps in the task and the edges represent the constraints between them.</description>
       
     </item>
     
@@ -374,6 +399,19 @@ Drawing {&amp;#34;type&amp;#34;:&amp;#34;excalidraw&amp;#34;,&amp;#34;version&am
     
     <item>
       <title></title>
+      <link>https://programmerraja.github.io/blog/excalidraw/art-2024-07-21-05.41.43/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/excalidraw/art-2024-07-21-05.41.43/</guid>
+      
+      <description>==⚠ Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠==
+Text Elements %%
+Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version&amp;#34;: 2, &amp;#34;source&amp;#34;: &amp;#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&amp;#34;, &amp;#34;elements&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;ioy-OpeXSXPeub9e6kUfj&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;rectangle&amp;#34;, &amp;#34;x&amp;#34;: -20.821990966796875, &amp;#34;y&amp;#34;: 144.857412815094, &amp;#34;width&amp;#34;: 106.2581787109375, &amp;#34;height&amp;#34;: 110.63998413085938, &amp;#34;angle&amp;#34;: 0, &amp;#34;strokeColor&amp;#34;: &amp;#34;#1e1e1e&amp;#34;, &amp;#34;backgroundColor&amp;#34;: &amp;#34;transparent&amp;#34;, &amp;#34;fillStyle&amp;#34;: &amp;#34;solid&amp;#34;, &amp;#34;strokeWidth&amp;#34;: 2, &amp;#34;strokeStyle&amp;#34;: &amp;#34;solid&amp;#34;, &amp;#34;roughness&amp;#34;: 1, &amp;#34;opacity&amp;#34;: 100, &amp;#34;groupIds&amp;#34;: [], &amp;#34;frameId&amp;#34;: null, &amp;#34;roundness&amp;#34;: { &amp;#34;type&amp;#34;: 3 }, &amp;#34;seed&amp;#34;: 1242484522, &amp;#34;version&amp;#34;: 23, &amp;#34;versionNonce&amp;#34;: 734106614, &amp;#34;isDeleted&amp;#34;: false, &amp;#34;boundElements&amp;#34;: null, &amp;#34;updated&amp;#34;: 1721520715452, &amp;#34;link&amp;#34;: null, &amp;#34;locked&amp;#34;: false } ], &amp;#34;appState&amp;#34;: { &amp;#34;theme&amp;#34;: &amp;#34;light&amp;#34;, &amp;#34;viewBackgroundColor&amp;#34;: &amp;#34;#ffffff&amp;#34;, &amp;#34;currentItemStrokeColor&amp;#34;: &amp;#34;#1e1e1e&amp;#34;, &amp;#34;currentItemBackgroundColor&amp;#34;: &amp;#34;transparent&amp;#34;, &amp;#34;currentItemFillStyle&amp;#34;: &amp;#34;solid&amp;#34;, &amp;#34;currentItemStrokeWidth&amp;#34;: 2, &amp;#34;currentItemStrokeStyle&amp;#34;: &amp;#34;solid&amp;#34;, &amp;#34;currentItemRoughness&amp;#34;: 1, &amp;#34;currentItemOpacity&amp;#34;: 100, &amp;#34;currentItemFontFamily&amp;#34;: 1, &amp;#34;currentItemFontSize&amp;#34;: 20, &amp;#34;currentItemTextAlign&amp;#34;: &amp;#34;left&amp;#34;, &amp;#34;currentItemStartArrowhead&amp;#34;: null, &amp;#34;currentItemEndArrowhead&amp;#34;: &amp;#34;arrow&amp;#34;, &amp;#34;scrollX&amp;#34;: 839.</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://programmerraja.github.io/blog/excalidraw/langchainagent/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -387,36 +425,6 @@ Thought ^bWKfw2I9
 Final answer ^kX5wUkJy
 %%
 Drawing { &amp;#34;type&amp;#34;: &amp;#34;excalidraw&amp;#34;, &amp;#34;version&amp;#34;: 2, &amp;#34;source&amp;#34;: &amp;#34;https://github.com/zsviczian/obsidian-excalidraw-plugin/releases/tag/2.0.13&amp;#34;, &amp;#34;elements&amp;#34;: [ { &amp;#34;type&amp;#34;: &amp;#34;rectangle&amp;#34;, &amp;#34;version&amp;#34;: 132, &amp;#34;versionNonce&amp;#34;: 281506080, &amp;#34;isDeleted&amp;#34;: false, &amp;#34;id&amp;#34;: &amp;#34;--fsbaFWo5esGFBb-o9oq&amp;#34;, &amp;#34;fillStyle&amp;#34;: &amp;#34;solid&amp;#34;, &amp;#34;strokeWidth&amp;#34;: 2, &amp;#34;strokeStyle&amp;#34;: &amp;#34;solid&amp;#34;, &amp;#34;roughness&amp;#34;: 1, &amp;#34;opacity&amp;#34;: 100, &amp;#34;angle&amp;#34;: 0, &amp;#34;x&amp;#34;: -391.6125675324471, &amp;#34;y&amp;#34;: 879.8537228338178, &amp;#34;strokeColor&amp;#34;: &amp;#34;#1e1e1e&amp;#34;, &amp;#34;backgroundColor&amp;#34;: &amp;#34;transparent&amp;#34;, &amp;#34;width&amp;#34;: 376.</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://programmerraja.github.io/blog/notes/2024/ai/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/ai/</guid>
-      
-      <description>**+++ title = &amp;lsquo;AI&amp;rsquo; date = 2024-05-18T18:29:19.1919+05:30 draft = true tags =[] +++
-LLM contain
-Parameters code that run parameters Parameters
-Neural network
-predict the next word Pretraining,finetunning
-GPU are good at matrix multiplication so only they need for AI beacause all AI are matrix multiplication
-Deep learning models
-Discriminative -&amp;gt; classify or predict trainned on labeled data Generative -&amp;gt; predict next word in sequenece,understand distribution of data Computational linguistics: strudy of language grammer,syntax and phonetics</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://programmerraja.github.io/blog/notes/2024/software-architecture/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/software-architecture/</guid>
-      
-      <description>+++ title = &amp;lsquo;Software Architecture&amp;rsquo; date = 2024-03-10T07:39:59.5959+05:30 draft = true tags =[] +++
-https://martinfowler.com/architecture/ https://medium.com/@yt-cloudwaydigital/from-software-developer-to-software-architect-roadmap-to-success-695951521d9b Documentation arc42 is a template for architecture communication and documentation.</description>
       
     </item>
     

@@ -6,7 +6,7 @@
     <description>Recent content in Notes on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jul 2024 07:51:40 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Aug 2024 10:24:09 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Langchain</title>
       <link>https://programmerraja.github.io/blog/notes/2024/langchain/</link>
@@ -68,6 +68,19 @@ resources https://youtu.be/taj_inLi-pY?si=2qu_7nqx6YRwX0Co
 Crational Design pattern Once upon a time in the colorful land of Toyland, there were magical creatures known as Creators. Each Creator had a unique way of bringing toys to life, showcasing various creational design patterns.
 Abstract Factory Pattern: The Artisan Workshop
 In the heart of Toyland, there was an Artisan Workshop where the master toymaker, the Abstract Artisan, crafted a variety of toys.</description>
+      
+    </item>
+    
+    <item>
+      <title>Prompt Engineering</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/prompt-engineering/</link>
+      <pubDate>Mon, 22 Jan 2024 09:51:27 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/prompt-engineering/</guid>
+      
+      <description>Resources https://eugeneyan.com/writing/prompting/ ![[Pasted image 20240720193516.png]]
+Plan Like a Graph Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance of LLMs in asynchronous planning tasks.
+Let&amp;#39;s say we have an asynchronous planning task where we need to bake a cake, frost it, and then decorate it, and we have the following time durations and constraints: - Mixing the cake batter takes 10 minutes - Baking the cake takes 30 minutes - Frosting the cake takes 5 minutes - Decorating the cake takes 15 minutes - Baking the cake must be done after mixing the batter - Frosting the cake must be done after baking the cake - Decorating the cake must be done after frosting it To use the PLaG technique, we would first convert this task into a graph representation, where the nodes represent the steps in the task and the edges represent the constraints between them.</description>
       
     </item>
     
@@ -244,36 +257,6 @@ Each channel has its own set of resources, such as queues, exchanges, and bindin
       
       <description>MongoDB Architecture and Concepts if the write concern is set to “majority”, then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.
 Oplog The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://programmerraja.github.io/blog/notes/2024/ai/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/ai/</guid>
-      
-      <description>**+++ title = &amp;lsquo;AI&amp;rsquo; date = 2024-05-18T18:29:19.1919+05:30 draft = true tags =[] +++
-LLM contain
-Parameters code that run parameters Parameters
-Neural network
-predict the next word Pretraining,finetunning
-GPU are good at matrix multiplication so only they need for AI beacause all AI are matrix multiplication
-Deep learning models
-Discriminative -&amp;gt; classify or predict trainned on labeled data Generative -&amp;gt; predict next word in sequenece,understand distribution of data Computational linguistics: strudy of language grammer,syntax and phonetics</description>
-      
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://programmerraja.github.io/blog/notes/2024/software-architecture/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/software-architecture/</guid>
-      
-      <description>+++ title = &amp;lsquo;Software Architecture&amp;rsquo; date = 2024-03-10T07:39:59.5959+05:30 draft = true tags =[] +++
-https://martinfowler.com/architecture/ https://medium.com/@yt-cloudwaydigital/from-software-developer-to-software-architect-roadmap-to-success-695951521d9b Documentation arc42 is a template for architecture communication and documentation.</description>
       
     </item>
     

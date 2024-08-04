@@ -31,12 +31,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.129.0">
+<meta name="generator" content="Hugo 0.131.0">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/system-design-case-study/">
-    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -133,6 +133,7 @@ stroke-linejoin="round" class="feather feather-home">
         <article>
             <header class="header">
                 <h1 class="header-title">System Design Case study</h1>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
                 
                 
                 <div class="post-meta">
@@ -162,7 +163,13 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#notion" aria-label="Notion">Notion</a></li>
                 <li>
-                    <a href="#zerodha" aria-label="Zerodha">Zerodha</a></li></ul>
+                    <a href="#zerodha" aria-label="Zerodha">Zerodha</a></li>
+                <li>
+                    <a href="#stripe" aria-label="Stripe">Stripe</a><ul>
+                        
+                <li>
+                    <a href="#how-applications-access-docdb" aria-label="How Applications Access DocDB?">How Applications Access DocDB?</a></li></ul>
+                </li></ul>
                 </li>
                 <li>
                     <a href="#caching" aria-label="Caching">Caching</a><ul>
@@ -184,13 +191,21 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#cache-warming" aria-label="Cache Warming">Cache Warming</a></li></ul>
                 </li>
                 <li>
-                    <a href="#circuit-breakers" aria-label="Circuit Breakers">Circuit Breakers</a></li></ul>
+                    <a href="#circuit-breakers" aria-label="Circuit Breakers">Circuit Breakers</a></li>
+                <li>
+                    <a href="#facebook" aria-label="Facebook">Facebook</a></li></ul>
                 </li>
                 <li>
                     <a href="#logging" aria-label="Logging">Logging</a><ul>
                         
                 <li>
-                    <a href="#pinterest" aria-label="Pinterest">Pinterest</a>
+                    <a href="#pinterest" aria-label="Pinterest">Pinterest</a></li></ul>
+                </li>
+                <li>
+                    <a href="#search" aria-label="Search">Search</a><ul>
+                        
+                <li>
+                    <a href="#twitter" aria-label="Twitter">Twitter</a>
                 </li>
             </ul>
             </li>
@@ -262,6 +277,18 @@ stroke-linejoin="round" class="feather feather-home">
 <p>they using postgres as caching layer where they stored one day of data in this postgres caching layer after one day they drop the database and again move one day data to caching layer. the tool they used  is <a href="https://github.com/zerodha/dungbeetle">dungbeetle</a>
 spec : 16core 32GB ram</p>
 <p>Learning: we can do wired thing if it work for us :)</p>
+<h3 id="stripe">Stripe</h3>
+<p><a href="https://stripe.com/blog/how-stripes-document-databases-supported-99.999-uptime-with-zero-downtime-data-migrations">Stripe’s</a> database infrastructure team built an internal database-as-a-service (DBaaS) offering called DocDB.</p>
+<h4 id="how-applications-access-docdb">How Applications Access DocDB?</h4>
+<p>DocDB leverages sharding to achieve horizontal scalability for its database infrastructure. With thousands of database shards distributed across Stripe’s product applications, sharding enables efficient data distribution and parallel processing.</p>
+<p>Stripe’s database infrastructure team developed a fleet of database proxy servers implemented in Golang. These proxy servers handle the task of routing queries to the correct shard.</p>
+<p>When an application sends a query to a database proxy server, it performs the following steps:</p>
+<ul>
+<li>Parsing the query</li>
+<li>Routing it to one or more shards</li>
+<li>Combining the results received from the shards</li>
+<li>Returning the final result to the application</li>
+</ul>
 <h2 id="caching">Caching</h2>
 <h3 id="doordashshttpsdoordashengineering20231019how-doordash-standardized-and-improved-microservices-caching"><a href="https://doordash.engineering/2023/10/19/how-doordash-standardized-and-improved-microservices-caching/">DoorDash’s</a></h3>
 <p>They use Layered caches</p>
@@ -315,8 +342,40 @@ spec : 16core 32GB ram</p>
 <p>If a Redis node goes down, we’d like to be able to short circuit requests to that node to avoid the unnecessary latency penalty of a Redis get/set request</p>
 <p>To achieve this, we use a sliding window circuit breaker. We count the number of errors on each node per time bucket and compute the number of errors in the sliding window width.</p>
 <p>Avoiding DB overload on cache down: let say the redis node is down then suddenly all request will forward to DB. db will be overloaded to avoid that they dynamically adjust the db timeout of the query</p>
+<h3 id="facebook">Facebook</h3>
+<p><strong>How Meta Achieves 99.99999999% Cache Consistency:</strong></p>
+<p>common race condition for inconsistency:</p>
+<ol>
+<li>The client queries the cache for a value not present in it</li>
+<li>So the cache queries the database for the value: x = 0</li>
+<li>In the meantime, the value in the database gets changed: x = 1</li>
+<li>But the cache invalidation event reaches the cache first: x = 1</li>
+<li>Then the value from cache fill reaches the cache: x = 0</li>
+</ol>
+<p>To solve this  they created  <em>observability</em> solution.</p>
+<p><strong>Monitoring</strong>
+They created a separate service to monitor cache inconsistency &amp; called it <strong>Polaris</strong></p>
+<ul>
+<li>It acts like a cache server &amp; receives cache invalidation events</li>
+<li>Then it queries cache servers to find data inconsistency</li>
+<li>It queues inconsistent cache servers &amp; checks again later</li>
+<li>It checks data correctness during writes, so finding cache inconsistency is faster</li>
+<li>Simply put, it measures cache inconsistency</li>
+<li>Polaris queries the database at timescales of 1, 5, or 10 minutes. It lets them back off efficiently &amp; improve accuracy.</li>
+</ul>
+<p><strong>Tracing</strong></p>
+<ul>
+<li>It logs only data changes that occur during the race condition time window. Thus log storage becomes cheaper</li>
+<li>It keeps an index of recently modified data to determine if the next data change must be logged</li>
+<li>Polaris reads logs if cache inconsistency is found &amp; then sends notifications</li>
+</ul>
 <h2 id="logging">Logging</h2>
 <h3 id="pinterest"><strong>Pinterest</strong></h3>
+<h2 id="search">Search</h2>
+<h3 id="twitter">Twitter</h3>
+<p>To achieve stability and scalability, they used Open Distro for Elasticsearch, but added a proxy and two services: Ingestion Service and Backfill Service.</p>
+<p>The proxy separates read and write traffic from clients, handles client authentication, and provides additional metrics and flexible routing and throttling. This design creates a single entry point for all requests and makes it easier for customers to build solutions.</p>
+<p>The Ingestion Service was introduced to handle large traffic spikes. It queues requests from clients into a Kafka topic, and worker clients then send the requests to the Elasticsearch cluster. The service batches requests, listens to back-pressure, auto-throttles, and retries with backoff, smoothing out traffic to the cluster and preventing overload.</p>
 
             </div>
         </article></main>

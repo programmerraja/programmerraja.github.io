@@ -6,7 +6,19 @@
     <description>Recent content in Hacking on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 May 2024 19:51:57 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jul 2024 07:26:19 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hunting the Hacker: A Deep Dive into Courier Fraud</title>
+      <link>https://programmerraja.github.io/blog/post/2024/hunting-the-hacker-a-deep-dive-into-courier-fraud/</link>
+      <pubDate>Sat, 20 Jul 2024 07:26:19 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/hunting-the-hacker-a-deep-dive-into-courier-fraud/</guid>
+      
+      <description>In today&amp;rsquo;s digital age, cyber scams are becoming increasingly sophisticated. Recently, one of our colleagues received a suspicious call that led to an attempted scam. This blog post details our investigation into the scam, revealing the techniques used by the fraudsters and how we managed to thwart their efforts.
+The Call It all began when one of our colleagues received a phone call from someone claiming to be from a courier company.</description>
+      
+    </item>
+    
     <item>
       <title>A Journey into Unseen Threats on our VM</title>
       <link>https://programmerraja.github.io/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/</link>

@@ -31,12 +31,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.129.0">
+<meta name="generator" content="Hugo 0.131.0">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/">
-    <link href="/blog/style.min.990327e048d1ffda356422f12681bcde50a59abea2012cf8e2855e248c7ca809.css" rel="stylesheet">
+    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -133,6 +133,7 @@ stroke-linejoin="round" class="feather feather-home">
         <article>
             <header class="header">
                 <h1 class="header-title">MongoDB Performance Tuning Book Notes</h1>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
                 
                 
                 <div class="post-meta">
@@ -396,8 +397,8 @@ range scans which might be less effective than a collection scan.</p>
 <p>It uses WiredTiger storage engine.Each connection uses up to 1 megabyte of RAM.By default, WiredTiger uses Snappy block compression for all collections and prefix compression for all indexes and  we can have up to 100 open connections in the pool</p>
 <p>The WiredTiger storage engine maintains lists of empty records in data files as it deletes documents. This space can be reused by WiredTiger, but will not be returned to the operating system unless under very specific circumstances.</p>
 <p>The amount of empty space available for reuse by WiredTiger is reflected in the output of <a href="https://www.mongodb.com/docs/manual/reference/method/db.collection.stats/#mongodb-method-db.collection.stats">db.collection.stats()</a> under the heading <code>wiredTiger.block-manager.file bytes available for reuse</code>.</p>
-<p>To allow the WiredTiger storage engine to release this empty space to the operating system, you can de-fragment your data file. This can be achieved using the <a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">compact</a> command. For more information on its behavior and other considerations, see <a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">compact</a><a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">.</a>``
-The <code>db.serverStatus()</code> command provides details of how much memory MongoDB is using. The following script prints out a top-level summary of memory utilization.</p>
+<p>To allow the WiredTiger storage engine to release this empty space to the operating system, you can de-fragment your data file. This can be achieved using the <a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">compact</a> command. For more information on its behavior and other considerations, see <a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">compact</a><a href="https://www.mongodb.com/docs/manual/reference/command/compact/#mongodb-dbcommand-dbcmd.compact">.</a>``</p>
+<p>The <code>db.serverStatus()</code> command provides details of how much memory MongoDB is using. The following script prints out a top-level summary of memory utilization.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">serverStats</span> <span class="o">=</span> <span class="nx">db</span><span class="p">.</span><span class="nx">serverStatus</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Mongod virtual memory &#39;</span><span class="p">,</span> <span class="nx">serverStats</span><span class="p">.</span><span class="nx">mem</span><span class="p">.</span><span class="nx">virtual</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Mongod resident memory&#39;</span><span class="p">,</span> <span class="nx">serverStats</span><span class="p">.</span><span class="nx">mem</span><span class="p">.</span><span class="nx">resident</span><span class="p">);</span>
