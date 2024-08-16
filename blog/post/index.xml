@@ -6,7 +6,18 @@
     <description>Recent content in Posts on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Aug 2024 10:01:36 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Aug 2024 20:17:08 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automate, Relax, Repeat: The Power of Coding (#1)</title>
+      <link>https://programmerraja.github.io/blog/post/2024/automate-relax-repeat-the-power-of-coding/</link>
+      <pubDate>Fri, 16 Aug 2024 20:17:08 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/automate-relax-repeat-the-power-of-coding/</guid>
+      
+      <description>Hello, fellow techies! I am super stoked to introduce you to my new blog series where I&amp;rsquo;ll be sharing my journey of automating everything boring using code. Being a guy on the lookout for how to live life easily and simply most of the time, I have come to realize that programming is just the correct tool to do well—and anything monotonous, freeing some more time for the things that count.</description>
+      
+    </item>
+    
     <item>
       <title>Hunting the Hacker: A Deep Dive into Courier Fraud</title>
       <link>https://programmerraja.github.io/blog/post/2024/hunting-the-hacker-a-deep-dive-into-courier-fraud/</link>

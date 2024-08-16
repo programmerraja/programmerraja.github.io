@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.132.1">
+<meta name="generator" content="Hugo 0.132.2">
 
     
 
@@ -162,8 +162,17 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#modules-abstracting-prompting-techniques" aria-label="Modules: Abstracting prompting techniques">Modules: Abstracting prompting techniques</a></li></ul>
                 </li>
                 <li>
-                    <a href="#summarization" aria-label="Summarization">Summarization</a>
+                    <a href="#evallm" aria-label="EvalLM">EvalLM</a></li>
+                <li>
+                    <a href="#summarization" aria-label="Summarization">Summarization</a></li>
+                <li>
+                    <a href="#prompt-hacking" aria-label="Prompt Hacking">Prompt Hacking</a><ul>
+                        
+                <li>
+                    <a href="#output2prompt" aria-label="output2prompt">output2prompt</a>
                 </li>
+            </ul>
+            </li>
             </ul>
         </div>
     </details>
@@ -396,10 +405,15 @@ check <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engin
 </span></span><span class="line"><span class="cl">	  <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">question</span><span class="p">)</span><span class="o">.</span><span class="n">passages</span> 
 </span></span><span class="line"><span class="cl">	  <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_answer</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl">	  <span class="k">return</span> <span class="n">dspy</span><span class="o">.</span><span class="n">Prediction</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">answer</span><span class="o">=</span><span class="n">prediction</span><span class="o">.</span><span class="n">answer</span><span class="p">)</span>
-</span></span></code></pre></div><h2 id="summarization">Summarization</h2>
+</span></span></code></pre></div><h2 id="evallm">EvalLM</h2>
+<p>Interactive Evaluation of Large Language Model Prompts on User-Defined Criteria</p>
+<h2 id="summarization">Summarization</h2>
 <ul>
 <li><a href="https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb">https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb</a></li>
 </ul>
+<h2 id="prompt-hacking">Prompt Hacking</h2>
+<h3 id="output2prompt">output2prompt</h3>
+<p>The core idea behind output2prompt is clever in its simplicity. By analyzing patterns in the AI’s responses, another AI can infer the instructions that produced those responses.</p>
 
             </div>
         </article></main>

@@ -2,14 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://programmerraja.github.io/blog/notes/</loc>
-    <lastmod>2024-08-12T08:57:53+05:30</lastmod>
+    <loc>https://programmerraja.github.io/blog/post/2024/automate-relax-repeat-the-power-of-coding/</loc>
+    <lastmod>2024-08-16T20:17:08+05:30</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/blog/</loc>
-    <lastmod>2024-08-12T08:57:53+05:30</lastmod>
+    <loc>https://programmerraja.github.io/blog/tags/automation/</loc>
+    <lastmod>2024-08-16T20:17:08+05:30</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/blog/tags/nodejs/</loc>
+    <lastmod>2024-08-16T20:17:08+05:30</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/blog/post/</loc>
-    <lastmod>2024-08-04T10:01:36+05:30</lastmod>
+    <lastmod>2024-08-16T20:17:08+05:30</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/blog/</loc>
+    <lastmod>2024-08-16T20:17:08+05:30</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/blog/tags/puppeteer/</loc>
+    <lastmod>2024-08-16T20:17:08+05:30</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/blog/tags/</loc>
+    <lastmod>2024-08-16T20:17:08+05:30</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/blog/notes/</loc>
+    <lastmod>2024-08-12T08:57:53+05:30</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/blog/tags/hacking/</loc>
     <lastmod>2024-07-20T07:26:19+05:30</lastmod>
@@ -18,9 +33,6 @@
     <lastmod>2024-07-20T07:26:19+05:30</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/blog/tags/scam/</loc>
-    <lastmod>2024-07-20T07:26:19+05:30</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/blog/tags/</loc>
     <lastmod>2024-07-20T07:26:19+05:30</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/blog/tags/debugging/</loc>
