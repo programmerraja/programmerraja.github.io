@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.132.1">
 
     
 
@@ -152,15 +152,18 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#plan-like-a-graph" aria-label="Plan Like a Graph">Plan Like a Graph</a></li>
                 <li>
+                    <a href="#claude-meta-prompt" aria-label="Claude Meta Prompt">Claude Meta Prompt</a></li>
+                <li>
                     <a href="#dspy" aria-label="Dspy">Dspy</a><ul>
                         
                 <li>
                     <a href="#singature" aria-label="Singature">Singature</a></li>
                 <li>
-                    <a href="#modules-abstracting-prompting-techniques" aria-label="Modules: Abstracting prompting techniques">Modules: Abstracting prompting techniques</a>
+                    <a href="#modules-abstracting-prompting-techniques" aria-label="Modules: Abstracting prompting techniques">Modules: Abstracting prompting techniques</a></li></ul>
                 </li>
-            </ul>
-            </li>
+                <li>
+                    <a href="#summarization" aria-label="Summarization">Summarization</a>
+                </li>
             </ul>
         </div>
     </details>
@@ -241,6 +244,9 @@ By providing the LLM with a graph representation of the task, we can help it rea
 </tr>
 </tbody>
 </table>
+<h2 id="claude-meta-prompt">Claude Meta Prompt</h2>
+<p>Claude have written a prompt that will help to get perfect prompt in XML
+check <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-generator">here</a></p>
 <h2 id="dspy">Dspy</h2>
 <p>Dspy(Declarative Self-improving Language Programs) make it easy to follow the data science process when building LM apps</p>
 <p>Workflow</p>
@@ -288,6 +294,31 @@ By providing the LLM with a graph representation of the task, we can help it rea
 </span></span><span class="line"><span class="cl">	<span class="n">context</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&#34;may contain relevant facts&#34;</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl">	<span class="n">question</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">InputField</span><span class="p">()</span> 
 </span></span><span class="line"><span class="cl">	<span class="n">answer</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">OutputField</span><span class="p">(</span><span class="n">desc</span><span class="o">=</span><span class="s2">&#34;often between 1 and 5 words&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">predict</span> <span class="o">=</span> <span class="n">dspy</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">GenerateAnswer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">prediction</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">question</span><span class="o">=</span><span class="s2">&#34;how many hydrogent present in water&#34;</span><span class="p">,</span><span class="n">context</span><span class="o">=</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">predict</span><span class="o">.</span><span class="n">answer</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">turbo</span><span class="o">.</span><span class="n">inspect_history</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#&#34;Prints the last n prompts and their completions</span>
+</span></span></code></pre></div><p>below data will send to LLM and context,question and answer to get by using <code>pydantic</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Answer questions with short factoid answers. #-&gt;  using signature doc string
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Follow the following format.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Context: may contain relevant facts
+</span></span><span class="line"><span class="cl">Question: ${question}
+</span></span><span class="line"><span class="cl">Answer: often between 1 and 5 words
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Context: 
+</span></span><span class="line"><span class="cl">Question: how many hydrogent present in water
+</span></span><span class="line"><span class="cl">Answer:Context: 
+</span></span><span class="line"><span class="cl">Question: how many hydrogent present in water
+</span></span><span class="line"><span class="cl">Answer: Two  #answer from chat gpt
 </span></span></code></pre></div><h3 id="modules-abstracting-prompting-techniques">Modules: Abstracting prompting techniques</h3>
 <p>Modules in DSPy are templated and parameterized to abstract these prompting techniques. This means that they are used to adapt DSPy signatures to a task by applying prompting, fine-tuning, augmentation, and reasoning techniques.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Option 1: Pass minimal signature to ChainOfThought module </span>
@@ -298,6 +329,38 @@ By providing the LLM with a graph representation of the task, we can help it rea
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Call the module on a particular input. </span>
 </span></span><span class="line"><span class="cl"><span class="n">pred</span> <span class="o">=</span> <span class="n">generate_answer</span><span class="p">(</span><span class="n">context</span> <span class="o">=</span> <span class="s2">&#34;Which meant learning Lisp, since in those days Lisp was regarded as the language of AI.&#34;</span><span class="p">,</span> <span class="n">question</span> <span class="o">=</span> <span class="s2">&#34;What programming language did the author learn in college?&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">pred</span><span class="o">.</span><span class="n">answer</span><span class="p">)</span>
+</span></span></code></pre></div><p>Below prompt will send to LLM for above code</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Given the fields `context`, `question`, produce the fields `answer`.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Follow the following format.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Context: ${context}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Question: ${question}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Reasoning: Let&#39;s think step by step in order to ${produce the answer}. We ...
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Answer: ${answer}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Context: Which meant learning Lisp, since in those days Lisp was regarded as the language of AI.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Question: What programming language did the author learn in college?
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Reasoning: Let&#39;s think step by step in order to
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Context: Which meant learning Lisp, since in those days Lisp was regarded as the language of AI.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Question: What programming language did the author learn in college?
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Reasoning: Let&#39;s think step by step in order to find the answer to the question. The context states that the author learned Lisp in college. 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Answer: Lisp 
 </span></span></code></pre></div><ul>
 <li>
 <p><code>dspy.Predict</code>: Processes the input and output fields, generates instructions, and creates a template for the specified <code>signature</code>.</p>
@@ -333,7 +396,11 @@ By providing the LLM with a graph representation of the task, we can help it rea
 </span></span><span class="line"><span class="cl">	  <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">question</span><span class="p">)</span><span class="o">.</span><span class="n">passages</span> 
 </span></span><span class="line"><span class="cl">	  <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_answer</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl">	  <span class="k">return</span> <span class="n">dspy</span><span class="o">.</span><span class="n">Prediction</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">answer</span><span class="o">=</span><span class="n">prediction</span><span class="o">.</span><span class="n">answer</span><span class="p">)</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="summarization">Summarization</h2>
+<ul>
+<li><a href="https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb">https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb</a></li>
+</ul>
+
             </div>
         </article></main>
 </div>

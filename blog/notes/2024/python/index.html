@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.131.0">
+<meta name="generator" content="Hugo 0.132.1">
 
     
 
@@ -255,10 +255,11 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#other-modules" aria-label="Other Modules">Other Modules</a><ul>
                         
                 <li>
-                    <a href="#pydantic" aria-label="Pydantic">Pydantic</a>
+                    <a href="#pydantic" aria-label="Pydantic">Pydantic</a></li></ul>
                 </li>
-            </ul>
-            </li>
+                <li>
+                    <a href="#docstrings" aria-label="Docstrings">Docstrings</a>
+                </li>
             </ul>
         </div>
     </details>
@@ -853,6 +854,22 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl"><span class="c1">#&gt; datetime.datetime(2020, 1, 2, 3, 4, 5, tzinfo=TzInfo(UTC))</span>
 </span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">dimensions</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#&gt; (10, 20)</span>
+</span></span></code></pre></div><h2 id="docstrings">Docstrings</h2>
+<p>A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. It is used to document the code and provide information about what the code does, its parameters, return values, and any other relevant details.</p>
+<p>A docstring is typically enclosed in triple quotes <code>&quot;&quot;&quot;...&quot;&quot;&quot;</code> or <code>'''...'''</code>, and it can span multiple lines.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Print a personalized greeting message.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Args:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        name (str): The name of the person to greet.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Returns:
+</span></span></span><span class="line"><span class="cl"><span class="s2">        None
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">help</span><span class="p">(</span><span class="n">greet</span><span class="p">)</span>
 </span></span></code></pre></div><p>new tools</p>
 <ul>
 <li>pydantic</li>
