@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.132.2">
+<meta name="generator" content="Hugo 0.133.0">
 
     
 
@@ -158,7 +158,7 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#the-solution-purging-the-cache" aria-label="The Solution: Purging the Cache">The Solution: Purging the Cache</a></li>
                 <li>
-                    <a href="#the-conclusion-a-lesson-learned" aria-label="The Conclusion: A Lesson Learned">The Conclusion: A Lesson Learned</a>
+                    <a href="#the-conclusion" aria-label="The Conclusion">The Conclusion</a>
                 </li>
             </ul>
         </div>
@@ -182,7 +182,7 @@ stroke-linejoin="round" class="feather feather-home">
 <p>The investigation took a new turn when I remembered that we use Cloudflare. Could it be that Cloudflare was caching the old server&rsquo;s responses? To test this theory, I examined the response headers of the failing requests and found that they were indeed being served from Cloudflare&rsquo;s cache. (<code>X-Cache: Hit from cloudfront</code>)</p>
 <h3 id="the-solution-purging-the-cache">The Solution: Purging the Cache</h3>
 <p>With the culprit identified, the solution was straightforward: purge the cache on Cloudflare. Once the cache was cleared, the requests were correctly routed to the new server, and the website UI was restored to its former glory.</p>
-<h3 id="the-conclusion-a-lesson-learned">The Conclusion: A Lesson Learned</h3>
+<h3 id="the-conclusion">The Conclusion</h3>
 <p>This case taught us the importance of considering caching layers when troubleshooting routing issues. A seemingly perfect server configuration can be undermined by an overlooked cache.</p>
 <p>Stay tuned for the next adventure in our Sherlock Holmes series, where we continue to unearth and solve the mysteries.</p>
 

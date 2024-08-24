@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on programmerraja blog</title>
+    <link>https://programmerraja.github.io/blog/tags/python/</link>
+    <description>Recent content in Python on programmerraja blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Aug 2024 04:35:58 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automate, Relax, Repeat: The Power of Coding (#2)</title>
+      <link>https://programmerraja.github.io/blog/post/2024/automate-relax-repeat-the-power-of-coding-2/</link>
+      <pubDate>Sat, 17 Aug 2024 04:35:58 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/automate-relax-repeat-the-power-of-coding-2/</guid>
+      
+      <description>Hello, fellow techies! I am super stoked to introduce you to my new blog series where I&amp;rsquo;ll be sharing my journey of automating everything boring using code. Being a guy on the lookout for how to live life easily and simply most of the time, I have come to realize that programming is just the correct tool to do well—and anything monotonous, freeing some more time for the things that count.</description>
+      
+    </item>
+    
+  </channel>
+</rss>

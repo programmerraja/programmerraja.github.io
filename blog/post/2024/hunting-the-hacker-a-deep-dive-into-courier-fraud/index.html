@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.132.2">
+<meta name="generator" content="Hugo 0.133.0">
 
     
 
@@ -166,7 +166,7 @@ stroke-linejoin="round" class="feather feather-home">
 <h3 id="the-call">The Call</h3>
 <p>It all began when one of our colleagues received a phone call from someone claiming to be from a courier company. They were told that our college had an courier to be delivered, but to complete the delivery, a payment of ₹6 was required. The caller insisted on sending an APK file via WhatsApp, which needed to be installed to make the payment.</p>
 <h3 id="the-apk">The APK</h3>
-<p>Suspicious of the request, our colleague forwarded the APK to me, knowing my expertise in software development and cybersecurity. My investigation began by downloading and extracting the contents of the APK. Inside, I found several dex files, which I knew contained the app&rsquo;s compiled source code. Using a tool called <a href="https://github.com/skylot/jadx">jadx</a>, (<code>jadx -d extractedapkfile</code>) I decompiled the APK to inspect its source code.</p>
+<p>Suspicious of the request, our colleague forwarded the APK to me, knowing my expertise in software development and cybersecurity. My investigation began by downloading and extracting the contents of the APK. Inside, I found several dex files, which I knew contained the app&rsquo;s compiled source code. Using a tool called <a href="https://github.com/skylot/jadx">jadx</a>, (<code>jadx -d outputDirName extractedapkfile</code>) I decompiled the APK to inspect its source code.</p>
 <h3 id="the-investigation">The Investigation</h3>
 <p>As I delved into the code, I searched for URLs that might indicate where the app was communicating. I discovered a domain:<code>parceltracing.com.</code> Visiting the website, I found it appeared to be a legitimate parcel tracking service with a professional landing page.</p>
 <p>Continuing my investigation, I found a suspicious line of code: <code>this.webView.loadUrl(&quot;file:///android_asset/index.html&quot;);</code>. This indicated that the app was loading a local HTML file. I examined the contents of <code>index.html</code> and found two images of parcels and a form requesting an address and payment amount. Clicking &lsquo;Next&rsquo; on the form led to another page asking for UPI payment details, including phone number, bank name, and UPI ID.</p>
