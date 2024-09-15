@@ -14,8 +14,8 @@
       
       <guid>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-case-of-the-content-length-mismatch/</guid>
       
-      <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I&amp;rsquo;ll tackle the problem with wit and precision. Let&amp;rsquo;s dive in and crack these cases together!
-Running a website smoothly is akin to maintaining a finely-tuned machine. Yet, like any mystery tale, unexpected twists can disrupt the flow. Recently, our team faced a perplexing error while serving our website: Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH in Chrome.</description>
+      <description>&lt;p&gt;Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I&amp;rsquo;ll tackle the problem with wit and precision. Let&amp;rsquo;s dive in and crack these cases together!&lt;/p&gt;
+&lt;p&gt;Running a website smoothly is akin to maintaining a finely-tuned machine. Yet, like any mystery tale, unexpected twists can disrupt the flow. Recently, our team faced a perplexing error while serving our website: &lt;code&gt;Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH&lt;/code&gt; in Chrome. Join us as we unravel this digital whodunit and uncover how we cracked the case, restoring our site&amp;rsquo;s seamless operation.&lt;/p&gt;</description>
       
     </item>
     

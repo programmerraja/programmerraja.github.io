@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.133.0">
+<meta name="generator" content="Hugo 0.134.1">
 
     
 
@@ -238,15 +238,16 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#tools" aria-label="Tools">Tools</a></li>
                 <li>
-                    <a href="#internal" aria-label="internal">internal</a></li>
+                    <a href="#internal" aria-label="Internal">Internal</a></li>
                 <li>
                     <a href="#internal-1" aria-label="Internal">Internal</a><ul>
                         
                 <li>
-                    <a href="#whats-an-oci-image" aria-label="What’s An OCI Image?">What’s An OCI Image?</a>
+                    <a href="#whats-an-oci-image" aria-label="What’s An OCI Image?">What’s An OCI Image?</a></li></ul>
                 </li>
-            </ul>
-            </li>
+                <li>
+                    <a href="#performance-analysis" aria-label="Performance analysis">Performance analysis</a>
+                </li>
             </ul>
         </div>
     </details>
@@ -385,38 +386,38 @@ In a default Linux installation, the client talks to the daemon via a local IPC/
 </ul>
 <h3 id="drivers">Drivers</h3>
 <table>
-<thead>
-<tr>
-<th>Driver</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>bridge</code></td>
-<td>The default network driver.</td>
-</tr>
-<tr>
-<td><code>host</code></td>
-<td>Remove network isolation between the container and the Docker host.</td>
-</tr>
-<tr>
-<td><code>none</code></td>
-<td>Completely isolate a container from the host and other containers.</td>
-</tr>
-<tr>
-<td><code>overlay</code></td>
-<td>Overlay networks connect multiple Docker daemons together.</td>
-</tr>
-<tr>
-<td><code>ipvlan</code></td>
-<td>IPvlan networks provide full control over both IPv4 and IPv6 addressing.</td>
-</tr>
-<tr>
-<td><code>macvlan</code></td>
-<td>Assign a MAC address to a container.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Driver</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>bridge</code></td>
+          <td style="text-align: left">The default network driver.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>host</code></td>
+          <td style="text-align: left">Remove network isolation between the container and the Docker host.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>none</code></td>
+          <td style="text-align: left">Completely isolate a container from the host and other containers.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>overlay</code></td>
+          <td style="text-align: left">Overlay networks connect multiple Docker daemons together.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>ipvlan</code></td>
+          <td style="text-align: left">IPvlan networks provide full control over both IPv4 and IPv6 addressing.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>macvlan</code></td>
+          <td style="text-align: left">Assign a MAC address to a container.</td>
+      </tr>
+  </tbody>
 </table>
 <p>By default docker have bridge network(in windows it called NAT) which assign a unique ip address for each container from the range of <code>172.17.0.0/16</code></p>
 <p>The default “bridge” network, on all Linux-based Docker hosts, maps to an underlying Linux bridge in the kernel called <strong>“docker0”</strong>  <code>docker network inspect bridge | grep bridge.name </code></p>
@@ -616,31 +617,123 @@ HTTP stuff
 <p><code>docker debug</code> we can get a debug shell into any container or image, even if they don&rsquo;t contain a shell. we don&rsquo;t need to modify the image to use Docker Debug</p>
 <p>they have installed builtin tools like <code>vim</code>, <code>nano</code>, <code>htop</code>, and <code>curl</code></p>
 <pre tabindex="0"><code>docker debug my-app
-</code></pre><h2 id="resources">Resources</h2>
+</code></pre><p>Here’s a formatted summary of the resources and tools related to Docker, containers, and related technologies:</p>
+<hr>
+<h2 id="resources">Resources</h2>
 <ol>
-<li><a href="https://medium.com/datamindedbe/how-we-reduced-our-docker-build-times-by-40-afea7b7f5fe7">https://medium.com/datamindedbe/how-we-reduced-our-docker-build-times-by-40-afea7b7f5fe7</a></li>
-<li><a href="https://btholt.github.io/complete-intro-to-containers/">https://btholt.github.io/complete-intro-to-containers/</a></li>
+<li>
+<p><strong>Reducing Docker Build Times</strong></p>
+<ul>
+<li>Article: <a href="https://medium.com/datamindedbe/how-we-reduced-our-docker-build-times-by-40-afea7b7f5fe7">How We Reduced Our Docker Build Times by 40%</a></li>
+<li>Summary: This article discusses strategies and techniques to optimize Docker build times, achieving a 40% reduction in build duration.</li>
+</ul>
+</li>
+<li>
+<p><strong>Complete Intro to Containers</strong></p>
+<ul>
+<li>Guide: <a href="https://btholt.github.io/complete-intro-to-containers/">Complete Intro to Containers</a></li>
+<li>Summary: A comprehensive guide on the basics of containers, their use cases, and practical applications.</li>
+</ul>
+</li>
 </ol>
 <h2 id="tools">Tools</h2>
+<ol>
+<li>
+<p><strong>Network Troubleshooting Tool</strong></p>
 <ul>
-<li><a href="https://github.com/nicolaka/netshoot">A Docker + Kubernetes network trouble-shooting swiss-army container</a></li>
-<li><a href="https://github.com/serversideup/spin">https://github.com/serversideup/spin</a> [Replicate your production environment locally using Docker.]</li>
+<li>Tool: <a href="https://github.com/nicolaka/netshoot">Netshoot</a></li>
+<li>Description: A versatile container for diagnosing network issues in Docker and Kubernetes environments.</li>
 </ul>
-<h2 id="internal">internal</h2>
+</li>
+<li>
+<p><strong>Local Production Environment Replication</strong></p>
 <ul>
-<li>Cgroups, namespaces, and beyond: what are containers made from? By Jérôme Petazzoni - <a href="https://t.co/6hJyVqYHGA">https://youtube.com/watch?v=sK5i-N34im8…</a> Watch: Containers From Scratch by</li>
-<li><a href="https://t.co/KG4UWJbROE">https://youtube.com/watch?v=oSlheqvaRso…</a> Watch: Rootless Containers from Scratch by</li>
-<li><a href="https://t.co/6TANRehH6u">https://youtube.com/watch?v=jeTKgAEyhsA…</a> Code: Build your own Docker at</li>
-<li><a href="https://t.co/wWWJGAH4mO">https://app.codecrafters.io/join?via=JohnCrickett…</a> Watch: Build your own Container Runtime with chroot by Adam Gordon Bell - </li>
-<li><a href="https://t.co/BR2y3MnNyC">https://youtu.be/89ESCBzM-3Q?si=D6S3V1cyJ1K_QKO4…</a> and another version of the same presentation - <a href="https://t.co/ELxy4PWRNG">https://youtube.com/watch?v=JOsWB50LmwQ…</a></li>
-<li>Watch: Building Containers From Scratch by Vinesh Agrawal - <a href="https://t.co/G8eLXeoMZG">https://youtube.com/watch?v=GFUpXhft8zA…</a></li>
-<li>Code: Linux namespace Golang experiments by Songrong Jiang - <a href="https://t.co/j6jdIC9iYX">https://github.com/songrgg/namespace-demo…</a></li>
-<li>Read: Building a Container in Go - <a href="https://t.co/8Mo122PK0n">https://infoq.com/articles/build-a-container-golang/…</a></li>
-<li><a href="https://www.youtube.com/watch?v=wyqoi52k5jM">Containers from Scratch - Eric Chiang, CoreOS</a></li>
-<li><a href="https://www.youtube.com/watch?v=b3XDl0YsVsg">Deep Dive in Docker Overlay Networks</a></li>
-<li><a href="https://blog.mbrt.dev/posts/container-network/">https://blog.mbrt.dev/posts/container-network/</a></li>
-<li><a href="https://litchipi.site/serie/containers_in_rust">Writing a container in rust </a></li>
+<li>Tool: <a href="https://github.com/serversideup/spin">Spin</a></li>
+<li>Description: Tool for replicating production environments locally using Docker to ensure consistency and easier testing.</li>
 </ul>
+</li>
+</ol>
+<h2 id="internal">Internal</h2>
+<ol>
+<li>
+<p><strong>Containers and Cgroups</strong></p>
+<ul>
+<li>Video: <a href="https://youtube.com/watch?v=sK5i-N34im8">Cgroups, Namespaces, and Beyond: What Are Containers Made From?</a> by Jérôme Petazzoni</li>
+<li>Summary: An in-depth look at the components and mechanisms that form the basis of container technology.</li>
+</ul>
+</li>
+<li>
+<p><strong>Rootless Containers</strong></p>
+<ul>
+<li>Video: <a href="https://youtube.com/watch?v=oSlheqvaRso">Rootless Containers from Scratch</a></li>
+<li>Summary: Explores the concept and implementation of rootless containers, which enhance security by running containers without root privileges.</li>
+</ul>
+</li>
+<li>
+<p><strong>Building Docker from Scratch</strong></p>
+<ul>
+<li>Video: <a href="https://youtube.com/watch?v=jeTKgAEyhsA">Build Your Own Docker</a></li>
+<li>Summary: A tutorial on constructing a Docker-like container system from scratch.</li>
+</ul>
+</li>
+<li>
+<p><strong>Build Your Own Container Runtime</strong></p>
+<ul>
+<li>Video: <a href="https://app.codecrafters.io/join?via=JohnCrickett">Build Your Own Container Runtime with chroot</a></li>
+<li>Summary: A guided approach to creating a basic container runtime using chroot.</li>
+</ul>
+</li>
+<li>
+<p><strong>Building Containers: Two Versions</strong></p>
+<ul>
+<li>Video: <a href="https://youtube.com/watch?v=GFUpXhft8zA">Building Containers From Scratch - Vinesh Agrawal</a></li>
+<li>Additional Video: <a href="https://youtube.com/watch?v=JOsWB50LmwQ">Another Version of the Same Presentation</a></li>
+<li>Summary: Two presentations that delve into the process of building containers from the ground up.</li>
+</ul>
+</li>
+<li>
+<p><strong>Linux Namespace Golang Experiments</strong></p>
+<ul>
+<li>Code: <a href="https://github.com/songrgg/namespace-demo">Linux Namespace Golang Experiments</a></li>
+<li>Summary: A collection of Golang experiments showcasing the use of Linux namespaces.</li>
+</ul>
+</li>
+<li>
+<p><strong>Building a Container in Go</strong></p>
+<ul>
+<li>Article: <a href="https://infoq.com/articles/build-a-container-golang/">Building a Container in Go</a></li>
+<li>Summary: An informative article on creating a container implementation using the Go programming language.</li>
+</ul>
+</li>
+<li>
+<p><strong>Containers from Scratch - Eric Chiang</strong></p>
+<ul>
+<li>Video: <a href="https://www.youtube.com/watch?v=wyqoi52k5jM">Containers from Scratch - Eric Chiang</a></li>
+<li>Summary: A detailed explanation of building containers from scratch by Eric Chiang.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deep Dive into Docker Overlay Networks</strong></p>
+<ul>
+<li>Video: <a href="https://www.youtube.com/watch?v=b3XDl0YsVsg">Deep Dive in Docker Overlay Networks</a></li>
+<li>Summary: An in-depth look at Docker overlay networks, exploring their architecture and functionality.</li>
+</ul>
+</li>
+<li>
+<p><strong>Container Networking</strong></p>
+<ul>
+<li>Blog: <a href="https://blog.mbrt.dev/posts/container-network/">Container Network Overview</a></li>
+<li>Summary: A blog post covering various aspects of container networking.</li>
+</ul>
+</li>
+<li>
+<p><strong>Writing a Container in Rust</strong></p>
+<ul>
+<li>Article: <a href="https://litchipi.site/serie/containers_in_rust">Writing a Container in Rust</a></li>
+<li>Summary: An article on implementing a container using the Rust programming language.</li>
+</ul>
+</li>
+</ol>
 <h2 id="internal-1">Internal</h2>
 <h3 id="whats-an-oci-image">What’s An OCI Image?</h3>
 <p> OCI is <a href="https://github.com/opencontainers/image-spec/blob/main/spec.md">the standardized container format used by Docker</a> — are pretty simple. An OCI image is just a stack of tarballs. A OCI can run multiple different runtime</p>
@@ -649,6 +742,7 @@ HTTP stuff
 <p><code>docker save nginx:latest -o ngnix.tar</code> -&gt; will save image as tar file
 <code>tar -xvf ngnix.tar --one-top-level</code> -&gt; exctract the tar file which have tar and json for each layer <code>docker export containername -o mycontainer.tar</code></p>
 <p>if you create file inside container we can see inside proc file of the docker process id ls <code>/proc/procoid/root</code></p>
+<h2 id="performance-analysis">Performance analysis</h2>
 
             </div>
         </article></main>

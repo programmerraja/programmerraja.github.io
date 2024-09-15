@@ -14,8 +14,14 @@
       
       <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
       
-      <description>Docker Engine When you install Docker, you get two major components:
-Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd (to manage container lifecycle operations — start | stop | pause | rm.</description>
+      <description>&lt;h2 id=&#34;docker-engine&#34;&gt;Docker Engine&lt;/h2&gt;
+&lt;p&gt;When you install Docker, you get two major components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker client →is a command-line tool used to interact with the Docker Engine,&lt;/li&gt;
+&lt;li&gt;Docker daemon (sometimes called “server” or “engine”)
+In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at &lt;code&gt;/var/run/docker.sock&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd &lt;code&gt;(to manage container lifecycle operations — start | stop | pause | rm.)&lt;/code&gt;&lt;/p&gt;</description>
       
     </item>
     

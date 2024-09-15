@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.133.0">
+<meta name="generator" content="Hugo 0.134.1">
 
     
 
@@ -148,8 +148,6 @@ stroke-linejoin="round" class="feather feather-home">
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#resources" aria-label="Resources">Resources</a></li>
-                <li>
                     <a href="#plan-like-a-graph" aria-label="Plan Like a Graph">Plan Like a Graph</a></li>
                 <li>
                     <a href="#claude-meta-prompt" aria-label="Claude Meta Prompt">Claude Meta Prompt</a></li>
@@ -162,26 +160,35 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#modules-abstracting-prompting-techniques" aria-label="Modules: Abstracting prompting techniques">Modules: Abstracting prompting techniques</a></li></ul>
                 </li>
                 <li>
+                    <a href="#zenbase" aria-label="Zenbase">Zenbase</a></li>
+                <li>
                     <a href="#evallm" aria-label="EvalLM">EvalLM</a></li>
+                <li>
+                    <a href="#reflection-fine-tuning" aria-label="Reflection Fine-Tuning">Reflection Fine-Tuning</a></li>
+                <li>
+                    <a href="#chain-of-thought-cot" aria-label="Chain-of-thought (CoT)">Chain-of-thought (CoT)</a></li>
+                <li>
+                    <a href="#self-consistency-with-cot" aria-label="Self-consistency with (CoT)">Self-consistency with (CoT)</a></li>
+                <li>
+                    <a href="#tree-of-thoughts" aria-label="Tree of Thoughts">Tree of Thoughts</a></li>
                 <li>
                     <a href="#summarization" aria-label="Summarization">Summarization</a></li>
                 <li>
                     <a href="#prompt-hacking" aria-label="Prompt Hacking">Prompt Hacking</a><ul>
                         
                 <li>
-                    <a href="#output2prompt" aria-label="output2prompt">output2prompt</a>
+                    <a href="#output2prompt" aria-label="output2prompt">output2prompt</a></li></ul>
                 </li>
-            </ul>
-            </li>
+                <li>
+                    <a href="#my-thoughts" aria-label="My Thoughts">My Thoughts</a></li>
+                <li>
+                    <a href="#resourceses" aria-label="Resourceses">Resourceses</a>
+                </li>
             </ul>
         </div>
     </details>
 </div><div class="page-content">
-                <h2 id="resources">Resources</h2>
-<ul>
-<li><a href="https://eugeneyan.com/writing/prompting/">https://eugeneyan.com/writing/prompting/</a></li>
-</ul>
-<p>![[Pasted image 20240720193516.png]]</p>
+                <p>![[Pasted image 20240720193516.png]]</p>
 <h2 id="plan-like-a-graph">Plan Like a Graph</h2>
 <p>Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance of LLMs in asynchronous planning tasks.</p>
 <pre tabindex="0"><code>Let&#39;s say we have an asynchronous planning task where we need to bake a cake, frost it, and then decorate it, and we have the following time durations and constraints:
@@ -220,38 +227,38 @@ Use the following graph to reason about the task and determine the shortest poss
 
 By providing the LLM with a graph representation of the task, we can help it reason more effectively about the constraints and time durations involved, leading to more accurate predictions about the shortest possible time needed to complete the task.
 </code></pre><table>
-<thead>
-<tr>
-<th>Pattern Category</th>
-<th>Prompt Pattern</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Input Semantics</td>
-<td>Meta Language Creation</td>
-</tr>
-<tr>
-<td>Output  Customization</td>
-<td>Output Automater  <br>Persona Visualization <br>Generator Recipe Template</td>
-</tr>
-<tr>
-<td>Error Identification</td>
-<td>Fact Check List<br>Reflection</td>
-</tr>
-<tr>
-<td>Prompt  Improvement</td>
-<td>Question Refinement <br>Alternative Approaches<br>Cognitive Verifier <br>Refusal Breaker</td>
-</tr>
-<tr>
-<td>Interaction</td>
-<td>Flipped Interaction<br> Game Play <br>Infinite Generation</td>
-</tr>
-<tr>
-<td>Context Control</td>
-<td>Context Manager</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Pattern Category</th>
+          <th style="text-align: left">Prompt Pattern</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Input Semantics</td>
+          <td style="text-align: left">Meta Language Creation</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Output  Customization</td>
+          <td style="text-align: left">Output Automater  <br>Persona Visualization <br>Generator Recipe Template</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Error Identification</td>
+          <td style="text-align: left">Fact Check List<br>Reflection</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Prompt  Improvement</td>
+          <td style="text-align: left">Question Refinement <br>Alternative Approaches<br>Cognitive Verifier <br>Refusal Breaker</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Interaction</td>
+          <td style="text-align: left">Flipped Interaction<br> Game Play <br>Infinite Generation</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Context Control</td>
+          <td style="text-align: left">Context Manager</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="claude-meta-prompt">Claude Meta Prompt</h2>
 <p>Claude have written a prompt that will help to get perfect prompt in XML
@@ -405,8 +412,27 @@ check <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engin
 </span></span><span class="line"><span class="cl">	  <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">question</span><span class="p">)</span><span class="o">.</span><span class="n">passages</span> 
 </span></span><span class="line"><span class="cl">	  <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_answer</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl">	  <span class="k">return</span> <span class="n">dspy</span><span class="o">.</span><span class="n">Prediction</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">answer</span><span class="o">=</span><span class="n">prediction</span><span class="o">.</span><span class="n">answer</span><span class="p">)</span>
-</span></span></code></pre></div><h2 id="evallm">EvalLM</h2>
+</span></span></code></pre></div><h2 id="zenbase">Zenbase</h2>
+<p>Developer tools and cloud infrastructure for perfectionists using LLMs. <a href="https://zenbase.ai">Zenbase</a> takes care of the hassle of prompt engineering and model selection.</p>
+<h2 id="evallm">EvalLM</h2>
 <p>Interactive Evaluation of Large Language Model Prompts on User-Defined Criteria</p>
+<h2 id="reflection-fine-tuning">Reflection Fine-Tuning</h2>
+<p>Reflection is the new fine-tuning technique where the fine-tuning prompt is changed a bit to incorporate self reflection while training the LLM, improving the results by a big margin.
+Prompt</p>
+<pre tabindex="0"><code>You are a world-class AI system, capable of complex reasoning and reflection.  
+Reason through the query inside &lt;thinking&gt; tags, and  
+then provide your final response inside &lt;output&gt; tags.  
+If you detect that you made a mistake in your reasoning at any point,  
+correct yourself inside &lt;reflection&gt; tags.
+</code></pre><ul>
+<li>The model begins by generating its reasoning within <code>&lt;thinking&gt;</code> tags. This section contains the model&rsquo;s internal thought process as it analyzes the input query.</li>
+<li>Within the <code>&lt;thinking&gt;</code> section, the model may include <code>&lt;reflection&gt;</code> tags if it identifies any mistakes in its reasoning. This indicates that the model is capable of recognizing errors and will attempt to correct them before finalizing its answer.</li>
+</ul>
+<h2 id="chain-of-thought-cot">Chain-of-thought (CoT)</h2>
+<p> By leveraging in-context learning abilities, CoT prompting encourages a language model to more effectively solve complex problems by outputting along with its solution a corresponding “chain of thought” (i.e., a step-by-step explanation for how the problem was solved). The model can be prompted to generate a chain of thought via a few-shot learning approach that provides several chain of thought exemplars; see above. The CoT technique is most effective when the map from input to output is highly non-trivial; e.g., math or multi-step reasoning problems.</p>
+<h2 id="self-consistency-with-cot">Self-consistency with (CoT)</h2>
+<h2 id="tree-of-thoughts">Tree of Thoughts</h2>
+<p>Tree of Thoughts is an innovative approach to AI reasoning that expands upon the Chain of Thought (CoT) methodology. While CoT prompts an AI to explain its thinking in a linear fashion, ToT takes this a step further by encouraging the AI to explore multiple paths of reasoning simultaneously, much like a tree branching out in various directions.</p>
 <h2 id="summarization">Summarization</h2>
 <ul>
 <li><a href="https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb">https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb</a></li>
@@ -417,6 +443,17 @@ Begin in &lt;scratchpad&gt; tags and write out and brainstorm in a couple paragr
 </code></pre><h2 id="prompt-hacking">Prompt Hacking</h2>
 <h3 id="output2prompt">output2prompt</h3>
 <p>The core idea behind output2prompt is clever in its simplicity. By analyzing patterns in the AI’s responses, another AI can infer the instructions that produced those responses.</p>
+<h2 id="my-thoughts">My Thoughts</h2>
+<ul>
+<li>When you write a prompt think how it process and response by yourself it will give you a idea how your prompt will work and where to improve</li>
+<li>Provide important thing at start of the prompt</li>
+<li>Think as it just next word predictor not more then that so think in the way when writing prompt</li>
+<li>Visulize attention mechnaism on the prompt</li>
+</ul>
+<h2 id="resourceses">Resourceses</h2>
+<ul>
+<li><a href="https://eugeneyan.com/writing/prompting/">https://eugeneyan.com/writing/prompting/</a></li>
+</ul>
 
             </div>
         </article></main>

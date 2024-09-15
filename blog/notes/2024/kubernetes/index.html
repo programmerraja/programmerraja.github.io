@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.133.0">
+<meta name="generator" content="Hugo 0.134.1">
 
     
 
@@ -734,7 +734,6 @@ spec:
 <li>Then replica will be created to monitor the pod status does is have 2 active pod by using selector</li>
 <li>Then depolyment will be created</li>
 </ul>
-<p>![[art-2024-04-28 14.38.57.excalidraw]]</p>
 <h3 id="what-happend-when-we-apply-yml-file">What happend when we apply yml file</h3>
 <p>when we run <code>kubctl apply -f name.yml</code></p>
 <ul>
@@ -775,8 +774,8 @@ spec:
 </span></span></span></code></pre></div><p>can be accessed</p>
 <h4 id="kube-proxy">Kube Proxy</h4>
 <p>installed on every node and runs in our cluster in the form of a <strong>DaemonSet</strong>.</p>
-<p>How it works
-After Kube-proxy is installed, it authenticates with the API server. When new Services or endpoints are added or removed, the API server communicates these changes to the Kube-Proxy.</p>
+<p><strong>How it works</strong></p>
+<p>After Kube-proxy is installed, it authenticates with the API server. When new Services or endpoints are added or removed, the API server communicates these changes to the Kube-Proxy.</p>
 <p>Kube-Proxy then applies these changes as <strong>NAT</strong> rules inside the node. These NAT rules are simply mappings of Service IP to Pod IP. When a request is sent to a Service, it is redirected to a backend Pod based on these rules.</p>
 <p>Now let’s get into more details with an example.</p>
 <p>Assume we have a Service <strong>SVC01</strong> of type ClusterIP. When this Service is created, the API server will check which Pods to be associated with this Service. So, it will look for Pods with <strong>labels</strong> that match the Service’s <strong>label selector</strong>.</p>
@@ -784,9 +783,9 @@ After Kube-proxy is installed, it authenticates with the API server. When new Se
 <p>Now the API server maps the IP address of <strong>SVC01</strong> to 2 IP addresses, <strong>EP01</strong> and <strong>EP0</strong> and API server advertises the new mapping to the Kube-proxy on each node, which then applies it as an internal rule.</p>
 <p>Kube-Proxy can operate in three different modes, <strong>user-space mode</strong>, <strong>IPtables mode</strong>, and <strong>IPVS mode</strong>.</p>
 <ul>
-<li><strong>user-space mode</strong> not used now <strong>IPtables</strong> and <strong>IPVS</strong>  are used now where iptables are timeconsuming compared to <strong>IPVS</strong> to lookup o(n)
-By default, Kube-proxy runs on port 10249 and exposes a set of endpoints that you can use to query Kube-proxy for information.</li>
+<li><strong>user-space mode</strong> not used now <strong>IPtables</strong> and <strong>IPVS</strong>  are used now where iptables are timeconsuming compared to <strong>IPVS</strong> to lookup o(n)</li>
 </ul>
+<p>By default, Kube-proxy runs on port 10249 and exposes a set of endpoints that you can use to query Kube-proxy for information.</p>
 <p>we can use the<code> /proxyMode</code> endpoint to check the kube-proxy mode.</p>
 <h3 id="types">Types</h3>
 <p><strong>ClusterIP</strong> (default)</p>
@@ -1462,6 +1461,7 @@ webhooks:
 <ul>
 <li><a href="https://github.com/shubheksha/kubernetes-internals">Collection of resources for inner workings of Kubernetes</a></li>
 <li><a href="https://ronaknathani.com/blog/2020/08/how-a-kubernetes-pod-gets-an-ip-address/">https://ronaknathani.com/blog/2020/08/how-a-kubernetes-pod-gets-an-ip-address/</a></li>
+<li><a href="https://itnext.io/deciphering-the-kubernetes-networking-maze-navigating-load-balance-bgp-ipvs-and-beyond-7123ef428572">https://itnext.io/deciphering-the-kubernetes-networking-maze-navigating-load-balance-bgp-ipvs-and-beyond-7123ef428572</a></li>
 <li></li>
 </ul>
 <h3 id="products">Products</h3>

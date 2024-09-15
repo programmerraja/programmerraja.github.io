@@ -14,7 +14,27 @@
       
       <guid>https://programmerraja.github.io/blog/notes/2024/python/</guid>
       
-      <description>Data types - Numeric Types - int - float - complex - Sequence Types - str #&amp;#34;&amp;#34; - list #[] - tuple #() - Mapping Type - dict #{} - Set Types - set #{} - frozenset - Boolean Type - bool #True/False - Binary Types - bytes #[] - bytearray - memoryview Mutable and Imutable Mutable data types are those whose contents can be changed after creation, while immutable data types cannot be changed once they are created.</description>
+      <description>&lt;h2 id=&#34;data-types&#34;&gt;Data types&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- Numeric Types
+  - int
+  - float
+  - complex
+- Sequence Types
+  - str #&amp;#34;&amp;#34;
+  - list #[]
+  - tuple #()
+- Mapping Type
+  - dict #{}
+- Set Types
+  - set #{}
+  - frozenset
+- Boolean Type
+  - bool #True/False
+- Binary Types
+  - bytes #[]
+  - bytearray
+  - memoryview
+&lt;/code&gt;&lt;/pr</description>
       
     </item>
     

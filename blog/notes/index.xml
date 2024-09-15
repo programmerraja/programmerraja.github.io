@@ -6,7 +6,7 @@
     <description>Recent content in Notes on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Aug 2024 09:32:35 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Sep 2024 05:44:13 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Langchain</title>
       <link>https://programmerraja.github.io/blog/notes/2024/langchain/</link>
@@ -14,10 +14,36 @@
       
       <guid>https://programmerraja.github.io/blog/notes/2024/langchain/</guid>
       
-      <description>The concepts in langchain
-Prompt template chains Models Retrivers Agent Tools Output Memory Prompt templates Prompt templates help to translate user input and parameters into instructions for a language model. This can be used to guide a model&amp;rsquo;s response, helping it understand the context and generate relevant and coherent language-based output.
-types of prompt templates
-String PromptTemplates from langchain_core.prompts import PromptTemplate from langchain_core.prompts import ChatPromptTemplate prompt_template = PromptTemplate.from_template(&amp;#34;Tell me a joke about {topic}&amp;#34;) prompt = prompt_template.</description>
+      <description>&lt;p&gt;The concepts in langchain&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Prompt template&lt;/li&gt;
+&lt;li&gt;chains&lt;/li&gt;
+&lt;li&gt;Models&lt;/li&gt;
+&lt;li&gt;Retrivers&lt;/li&gt;
+&lt;li&gt;Agent&lt;/li&gt;
+&lt;li&gt;Tools&lt;/li&gt;
+&lt;li&gt;Output&lt;/li&gt;
+&lt;li&gt;Memory&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;prompt-templates&#34;&gt;Prompt templates&lt;/h2&gt;
+&lt;p&gt;Prompt templates help to translate user input and parameters into instructions for a language model. This can be used to guide a model&amp;rsquo;s response, helping it understand the context and generate relevant and coherent language-based output.&lt;/p&gt;
+&lt;p&gt; types of prompt templates&lt;/p&gt;
+&lt;h3 id=&#34;string-prompttemplates&#34;&gt;&lt;strong&gt;String PromptTemplates&lt;/strong&gt;&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;langchain_core.prompts&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PromptTemplate&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;langchain_core.prompts&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ChatPromptTemplate&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;prompt_template&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PromptTemplate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;from_template&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Tell me a joke about &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{topic}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prompt_template&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;invoke&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;topic&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;cats&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;# return as human message format&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;messages&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   		&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;system&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;you are ..&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   		&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;human&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;tell me $&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{msg}&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ChatPromptTemplate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;from_messages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;messages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;invoke&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
       
     </item>
     
@@ -28,7 +54,27 @@ String PromptTemplates from langchain_core.prompts import PromptTemplate from la
       
       <guid>https://programmerraja.github.io/blog/notes/2024/python/</guid>
       
-      <description>Data types - Numeric Types - int - float - complex - Sequence Types - str #&amp;#34;&amp;#34; - list #[] - tuple #() - Mapping Type - dict #{} - Set Types - set #{} - frozenset - Boolean Type - bool #True/False - Binary Types - bytes #[] - bytearray - memoryview Mutable and Imutable Mutable data types are those whose contents can be changed after creation, while immutable data types cannot be changed once they are created.</description>
+      <description>&lt;h2 id=&#34;data-types&#34;&gt;Data types&lt;/h2&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;- Numeric Types
+  - int
+  - float
+  - complex
+- Sequence Types
+  - str #&amp;#34;&amp;#34;
+  - list #[]
+  - tuple #()
+- Mapping Type
+  - dict #{}
+- Set Types
+  - set #{}
+  - frozenset
+- Boolean Type
+  - bool #True/False
+- Binary Types
+  - bytes #[]
+  - bytearray
+  - memoryview
+&lt;/code&gt;&lt;/pr</description>
       
     </item>
     
@@ -39,7 +85,18 @@ String PromptTemplates from langchain_core.prompts import PromptTemplate from la
       
       <guid>https://programmerraja.github.io/blog/notes/2024/system-design-case-study/</guid>
       
-      <description>Database Scalling Shopfiy they started off by splitting the primary database into separate parts They identified groups of large tables that could exist on separate databases, and used GhostFerry to move a few tables onto a new database. This scaling approach is referred to as “federation” where tables are stored in different MySQLs As the app further grew, they were starting to hit the limit of a single MySQL.disk size take many Terabytes.</description>
+      <description>&lt;h2 id=&#34;database-scalling&#34;&gt;Database Scalling&lt;/h2&gt;
+&lt;h3 id=&#34;shopfiyhttpsshopifyengineeringhorizontally-scaling-the-rails-backend-of-shop-app-with-vitess&#34;&gt;&lt;a href=&#34;https://shopify.engineering/horizontally-scaling-the-rails-backend-of-shop-app-with-vitess&#34;&gt;Shopfiy&lt;/a&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;they started off by splitting the primary database into separate parts&lt;/li&gt;
+&lt;li&gt;They identified groups of large tables that could exist on separate databases, and used &lt;a href=&#34;https://github.com/Shopify/ghostferry&#34;&gt;GhostFerry&lt;/a&gt; to move a few tables onto a new database.&lt;/li&gt;
+&lt;li&gt; This scaling approach is referred to as “federation” where tables are stored in different MySQLs&lt;/li&gt;
+&lt;li&gt;As the app further grew, they were starting to hit the limit of a single MySQL.disk size take many Terabytes.y. they couldn’t further split the primary database, as that would add more complexity in the application layer, and require cross database transactions.&lt;/li&gt;
+&lt;li&gt;They choose Vitess  (Vitess is &lt;a href=&#34;https://github.com/vitessio/vitess&#34;&gt;an open source&lt;/a&gt; database system abstraction on top of MySQL that provides many benefits (&lt;a href=&#34;https://vitess.io/docs/archive/15.0/overview/whatisvitess/&#34; title=&#34;What is Vitess&#34;&gt;docs with details)&lt;/a&gt; )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;figma&#34;&gt;Figma&lt;/h3&gt;
+&lt;h4 id=&#34;verticall-shardinghttpswwwfigmacombloghow-figmas-databases-team-lived-to-tell-the-scale-april-4-2023-&#34;&gt;&lt;a href=&#34;https://www.figma.com/blog/how-figmas-databases-team-lived-to-tell-the-scale/&#34;&gt;Verticall sharding&lt;/a&gt; (April 4, 2023 )&lt;/h4&gt;
+&lt;p&gt;They go with vertically partition[[Databases#Database Partitioning]] the database by table(s). Instead of splitting each table across many databases, we would move &lt;em&gt;groups of tables&lt;/em&gt; onto their own databases. This proved to have both short- and long-term benefits: Vertical partitioning relieves our original database now, while providing a path forward for horizontally sharding subsets of our tables in the future.&lt;/p&gt;</description>
       
     </item>
     
@@ -50,9 +107,10 @@ String PromptTemplates from langchain_core.prompts import PromptTemplate from la
       
       <guid>https://programmerraja.github.io/blog/notes/2024/elastic-search/</guid>
       
-      <description>Indexing it is like collection name in databse
-Index-level shard allocation filtering Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices. This feature gives you fine-grained control over shard placement based on node attributes and conditions, helping you optimize data distribution, resource utilization, and cluster stability.
-Here&amp;rsquo;s an explanation of index-level shard allocation filtering:</description>
+      <description>&lt;h2 id=&#34;indexing&#34;&gt;Indexing&lt;/h2&gt;
+&lt;p&gt;it is like collection name in databse&lt;/p&gt;
+&lt;h4 id=&#34;index-level-shard-allocation-filtering&#34;&gt;&lt;strong&gt;Index-level shard allocation filtering&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices. This feature gives you fine-grained control over shard placement based on node attributes and conditions, helping you optimize data distribution, resource utilization, and cluster stability.&lt;/p&gt;</description>
       
     </item>
     
@@ -63,11 +121,14 @@ Here&amp;rsquo;s an explanation of index-level shard allocation filtering:</desc
       
       <guid>https://programmerraja.github.io/blog/notes/2024/design-pattern/</guid>
       
-      <description>to rember the design pattern narrate it as real life story
-resources https://youtu.be/taj_inLi-pY?si=2qu_7nqx6YRwX0Co
-Crational Design pattern Once upon a time in the colorful land of Toyland, there were magical creatures known as Creators. Each Creator had a unique way of bringing toys to life, showcasing various creational design patterns.
-Abstract Factory Pattern: The Artisan Workshop
-In the heart of Toyland, there was an Artisan Workshop where the master toymaker, the Abstract Artisan, crafted a variety of toys.</description>
+      <description>&lt;p&gt;to rember the design pattern narrate it as real life story&lt;/p&gt;
+&lt;p&gt;resources &lt;a href=&#34;https://youtu.be/taj_inLi-pY?si=2qu_7nqx6YRwX0Co&#34;&gt;https://youtu.be/taj_inLi-pY?si=2qu_7nqx6YRwX0Co&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;crational-design-pattern&#34;&gt;Crational Design pattern&lt;/h2&gt;
+&lt;p&gt;Once upon a time in the colorful land of Toyland, there were magical creatures known as Creators. Each Creator had a unique way of bringing toys to life, showcasing various creational design patterns.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Abstract Factory Pattern: The Artisan Workshop&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In the heart of Toyland, there was an Artisan Workshop where the master toymaker, the Abstract Artisan, crafted a variety of toys. Depending on the season – be it spring, summer, fall, or winter – the Artisan would use a specialized machine to create toys that matched the spirit of that season. The workshop could seamlessly switch between crafting delightful flower-shaped puzzles in spring to building snowflake-adorned snow globes in winter.&lt;/p&gt;</description>
       
     </item>
     
@@ -78,9 +139,45 @@ In the heart of Toyland, there was an Artisan Workshop where the master toymaker
       
       <guid>https://programmerraja.github.io/blog/notes/2024/prompt-engineering/</guid>
       
-      <description>Resources https://eugeneyan.com/writing/prompting/ ![[Pasted image 20240720193516.png]]
-Plan Like a Graph Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance of LLMs in asynchronous planning tasks.
-Let&amp;#39;s say we have an asynchronous planning task where we need to bake a cake, frost it, and then decorate it, and we have the following time durations and constraints: - Mixing the cake batter takes 10 minutes - Baking the cake takes 30 minutes - Frosting the cake takes 5 minutes - Decorating the cake takes 15 minutes - Baking the cake must be done after mixing the batter - Frosting the cake must be done after baking the cake - Decorating the cake must be done after frosting it To use the PLaG technique, we would first convert this task into a graph representation, where the nodes represent the steps in the task and the edges represent the constraints between them.</description>
+      <description>&lt;p&gt;![[Pasted image 20240720193516.png]]&lt;/p&gt;
+&lt;h2 id=&#34;plan-like-a-graph&#34;&gt;Plan Like a Graph&lt;/h2&gt;
+&lt;p&gt;Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance of LLMs in asynchronous planning tasks.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Let&amp;#39;s say we have an asynchronous planning task where we need to bake a cake, frost it, and then decorate it, and we have the following time durations and constraints:
+
+- Mixing the cake batter takes 10 minutes
+- Baking the cake takes 30 minutes
+- Frosting the cake takes 5 minutes
+- Decorating the cake takes 15 minutes
+- Baking the cake must be done after mixing the batter
+- Frosting the cake must be done after baking the cake
+- Decorating the cake must be done after frosting it
+
+To use the PLaG technique, we would first convert this task into a graph representation, where the nodes represent the steps in the task and the edges represent the constraints between them. The resulting graph would look like this:
+
+
+`1Mix batter (10 min) ----&amp;gt; Bake cake (30 min) ----&amp;gt; Frost cake (5 min) ----&amp;gt; Decorate cake (15 min)`
+
+Next, we would prompt the LLM with the task description and the graph representation, instructing it to reason based on the graph. For example, the prompt might look like this:
+
+&amp;#34;Consider the following task: Bake a cake, frost it, and then decorate it. The steps and time durations are as follows:
+
+- Mixing the cake batter takes 10 minutes
+- Baking the cake takes 30 minutes
+- Frosting the cake takes 5 minutes
+- Decorating the cake takes 15 minutes
+
+The constraints between the steps are as follows:
+
+- Baking the cake must be done after mixing the batter
+- Frosting the cake must be done after baking the cake
+- Decorating the cake must be done after frosting it
+
+Use the following graph to reason about the task and determine the shortest possible time needed to complete it:
+
+`1Mix batter (10 min) ----&amp;gt; Bake cake (30 min) ----&amp;gt; Frost cake (5 min) ----&amp;gt; Decorate cake (15 min)`
+
+By providing the LLM with a graph representation of the task, we can help it reason more effectively about the constraints and time durations involved, leading to more accurate predictions about the shortest possible time needed to complete the task.
+&lt;/code&gt;&lt;/pr</description>
       
     </item>
     
@@ -91,8 +188,17 @@ Let&amp;#39;s say we have an asynchronous planning task where we need to bake a 
       
       <guid>https://programmerraja.github.io/blog/notes/2024/software-architecture-and-decision-making/</guid>
       
-      <description>Book Core concepts It explains principles and concepts I believe a senior architect must understand deeply and discusses how to employ those principles to manage uncertainty
-Books for leadership The Hard Things About Hard Things by Ben Horowitz, Trillion Dollar Coach by Eric Schmidt et al., Team of Teams: New Rules of Engagement for a Complex World by Stanley McChrystal Good Strategy, Bad Strategy by Richard Rumel Three layers of architecture of The Open Group Architecture Framework (TOGAF)</description>
+      <description>&lt;h2 id=&#34;book-core-concepts&#34;&gt;Book Core concepts&lt;/h2&gt;
+&lt;p&gt;It explains principles and concepts I believe a senior architect must understand deeply and discusses how to employ those principles to manage uncertainty&lt;/p&gt;
+&lt;p&gt;Books for Leadership&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The Hard Thing About Hard Things&lt;/strong&gt; by Ben Horowitz&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trillion Dollar Coach&lt;/strong&gt; by Eric Schmidt et al.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Team of Teams: New Rules of Engagement for a Complex World&lt;/strong&gt; by Stanley McChrystal&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Good Strategy, Bad Strategy&lt;/strong&gt; by Richard Rumelt&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;system-architecture-approaches&#34;&gt;System Architecture Approaches&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Two Prominent Approaches&lt;/strong&gt;&lt;/p&gt;</description>
       
     </item>
     
@@ -103,7 +209,67 @@ Books for leadership The Hard Things About Hard Things by Ben Horowitz, Trillion
       
       <guid>https://programmerraja.github.io/blog/notes/2024/react/</guid>
       
-      <description>Notes Context function App() { return ( &amp;lt;div className=&amp;#34;App&amp;#34;&amp;gt; &amp;lt;AdaptivityProvider&amp;gt; &amp;lt;Child1 /&amp;gt; &amp;lt;Child2 /&amp;gt; &amp;lt;/AdaptivityProvider&amp;gt; &amp;lt;/div&amp;gt; ); } let child1 = 0; let child2 = 0; function Child1() { //TO Consume const { width } = useSize(); child1 += 1; return &amp;lt;p&amp;gt;{child1}&amp;lt;/p&amp;gt;; } function Child2() { const { isMobile } = useMobile(); child2 += 1; return &amp;lt;p&amp;gt;{child2}&amp;lt;/p&amp;gt;; } //create context const SizeContext = createContext({}); const MobileContext = createContext({}); //create provider export const Provider = (props) =&amp;gt; { const [width, setWidth] = useState(window.</description>
+      <description>&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;h5 id=&#34;context&#34;&gt;Context&lt;/h5&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;App&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;className&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;App&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;AdaptivityProvider&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Child1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Child2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/AdaptivityProvider&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/div&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;child1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;child2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Child1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;c1&#34;&gt;//TO Consume
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;width&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useSize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;child1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;child1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/p&amp;gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Child2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;isMobile&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useMobile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;child2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;child2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/p&amp;gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//create context
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;SizeContext&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;MobileContext&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;//create provider
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Provider&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;props&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setWidth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;innerWidth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;useLayoutEffect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;onResize&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setWidth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;innerWidth&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;addEventListener&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;resize&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;onResize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;window&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;removeEventListener&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;resize&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;onResize&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;isMobile&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;width&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;680&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;SizeContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Provider&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;width&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;MobileContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Provider&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;isMobile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;props&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;children&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/MobileContext.Provider&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;/SizeContext.Provider&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useSize&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;SizeContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useMobile&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;MobileContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
       
     </item>
     
@@ -114,8 +280,17 @@ Books for leadership The Hard Things About Hard Things by Ben Horowitz, Trillion
       
       <guid>https://programmerraja.github.io/blog/notes/2024/a-philosophy-of-software-design-book-notes/</guid>
       
-      <description>The Nature of Complexity Complexity is anything related to the structure of a software systemthat makes it hard to understand and modify the system.
-Symptoms of complexity Change amplification: The first symptom of complexity is that a seemingly simple change requires code modifications in many different places. Cognitive load: how much a developer needs to know in order to complete a task Unknown unknowns: it is not obvious which pieces of code must be modified to complete a task, or whatinformation a developer must have to carry out the task successfully Strategic vs.</description>
+      <description>&lt;h2 id=&#34;the-nature-of-complexity&#34;&gt;The Nature of Complexity&lt;/h2&gt;
+&lt;p&gt;Complexity is anything related to the structure of a software systemthat makes it hard to understand and modify the system.&lt;/p&gt;
+&lt;h4 id=&#34;symptoms-of-complexity&#34;&gt;Symptoms of complexity&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Change amplification&lt;/strong&gt;: The first symptom of complexity is that a seemingly simple change requires code modifications in many different places.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Cognitive load:&lt;/strong&gt; how much a developer needs to know in order to complete a task&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unknown unknowns:&lt;/strong&gt;  it is not obvious which pieces of code must be modified to complete a task, or whatinformation a developer must have to carry out the task successfully&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;strategic-vs-tactical-programming&#34;&gt;Strategic vs. Tactical Programming&lt;/h2&gt;
+&lt;h4 id=&#34;tactical-programming&#34;&gt;Tactical programming&lt;/h4&gt;
+&lt;p&gt;In the tactical approach, your main focus is to get something working, such as a new feature or a bug fix.&lt;/p&gt;</description>
       
     </item>
     
@@ -126,9 +301,24 @@ Symptoms of complexity Change amplification: The first symptom of complexity is 
       
       <guid>https://programmerraja.github.io/blog/notes/2024/android-internal/</guid>
       
-      <description>File system Android devices typically have a partitioned storage system, where the storage is divided into different partitions, each serving a specific purpose.
-/system: This directory contains the Android operating system and system applications. It is read-only to ensure the integrity of the system. Modifying files in this directory could potentially harm the device.
-/app: prebundled apps from Google, as well as any vendor or carrier-installed apps /bin: various daemons, as well as shell commands contain bootanimation,dalvikvm, adb, etc.</description>
+      <description>&lt;h2 id=&#34;file-system&#34;&gt;File system&lt;/h2&gt;
+&lt;p&gt;Android devices typically have a partitioned storage system, where the storage is divided into different partitions, each serving a specific purpose.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;/system:&lt;/strong&gt; This directory contains the Android operating system and system applications. It is read-only to ensure the integrity of the system. Modifying files in this directory could potentially harm the device.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;/app:&lt;/strong&gt; prebundled apps from Google, as well as any vendor or carrier-installed apps&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/bin:&lt;/strong&gt; various daemons, as well as shell commands contain&lt;code&gt; bootanimation,dalvikvm, adb,&lt;/code&gt; etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/etc:&lt;/strong&gt; Miscellaneous configuration files&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/framework:&lt;/strong&gt; contained in .jar files, with their executable dex files optimized alongside them in .odex .&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/lib:&lt;/strong&gt; native ELF shared object (.so) files. This directory serves the same role as /lib in vanilla Linux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/media:&lt;/strong&gt; Alarm, notification, ringtone and UI-effect audio files in .ogg format,and the system boot animation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/usr:&lt;/strong&gt; Support files, such as unicode mappings (icudt511.dat), key layout files for keyboards and devices, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/vendor:&lt;/strong&gt; Vendor specific files&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;/data:&lt;/strong&gt; This directory stores user data, settings, and application data. It includes subdirectories for individual apps, each identified by its package name. User-generated data, app preferences, and other user-specific information are stored here.&lt;/p&gt;</description>
       
     </item>
     
@@ -139,8 +329,14 @@ Symptoms of complexity Change amplification: The first symptom of complexity is 
       
       <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
       
-      <description>Docker Engine When you install Docker, you get two major components:
-Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd (to manage container lifecycle operations — start | stop | pause | rm.</description>
+      <description>&lt;h2 id=&#34;docker-engine&#34;&gt;Docker Engine&lt;/h2&gt;
+&lt;p&gt;When you install Docker, you get two major components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker client →is a command-line tool used to interact with the Docker Engine,&lt;/li&gt;
+&lt;li&gt;Docker daemon (sometimes called “server” or “engine”)
+In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at &lt;code&gt;/var/run/docker.sock&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd &lt;code&gt;(to manage container lifecycle operations — start | stop | pause | rm.)&lt;/code&gt;&lt;/p&gt;</description>
       
     </item>
     
@@ -151,23 +347,14 @@ Docker client →is a command-line tool used to interact with the Docker Engine,
       
       <guid>https://programmerraja.github.io/blog/notes/2024/database-internal/</guid>
       
-      <description>Storage Engines The storage engine (or database engine) is a software component of a database man‐ agement system responsible for storing, retrieving, and managing data in memory and on disk, designed to capture a persistent, long-term memory of each node.
-Storage engines such as BerkeleyDB, LevelDB and its descendant RocksDB, LMDB and its descendant libmdbx, Sophia, HaloDB,
-Row-Oriented Data Layout Row-oriented database management systems store data in records or rows. Their layout is quite close to the tabular data representation, where every row has the same set of fields.</description>
-      
-    </item>
-    
-    <item>
-      <title>MicroServices</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/microservices/</link>
-      <pubDate>Fri, 12 Jan 2024 08:19:32 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/microservices/</guid>
-      
-      <description>Questions to be asked
-How will new service be deployed and upgraded how will it be consumed by the rest of the system Service registery -&amp;gt; Eureka
-Where single service when new service it inform to service regis and who want to lookup it ask for service regis single point of failure we need to write code on each service Service Mesh -&amp;gt; TO solve the above problem
-use side car and control tower (mange the sidecar ) no need to write a single code Service mesh typically consists of two components</description>
+      <description>&lt;h2 id=&#34;storage-engines&#34;&gt;Storage Engines&lt;/h2&gt;
+&lt;p&gt;The storage engine (or database engine) is a software component of a database man‐
+agement system responsible for storing, retrieving, and managing data in memory
+and on disk, designed to capture a persistent, long-term memory of each node.&lt;/p&gt;
+&lt;p&gt;Storage engines such as BerkeleyDB, LevelDB and its descendant RocksDB, LMDB
+and its descendant libmdbx, Sophia, HaloDB,&lt;/p&gt;
+&lt;h2 id=&#34;row-oriented-data-layout&#34;&gt;Row-Oriented Data Layout&lt;/h2&gt;
+&lt;p&gt;Row-oriented database management systems store data in records or rows. Their layout is quite close to the tabular data representation, where every row has the same set of fields.&lt;/p&gt;</description>
       
     </item>
     
@@ -178,8 +365,20 @@ use side car and control tower (mange the sidecar ) no need to write a single co
       
       <guid>https://programmerraja.github.io/blog/notes/2024/networking/</guid>
       
-      <description>OSI Model The Open Systems Interconnection (OSI) model describes seven layers that computer systems use to communicate over a network.
-Application Layer (Htttp,DHCP,FMTP,Telnet,NFS) Presentation Layer (Encryption,Data format,Data compression,ASCII to Bin) Session Layer (TCP/IP socket authentication RTCP protocol) Transport Layer (Process level addressing TCP/UDP, Multiplexing,demultiplexing,segmentation,connection establishment) Network Layer (logical addressing IP , Routing, packet encapsulation) Data Link Layer (LAN,MAC,Data framing,Error detection) Physical Layer (Converting Bin to singals to transfer the data) Application Layer HTTP/HTTPS Is the protocol used to communicate with server.</description>
+      <description>&lt;h2 id=&#34;osi-model&#34;&gt;OSI Model&lt;/h2&gt;
+&lt;p&gt;The Open Systems Interconnection (OSI) model describes seven layers that computer systems use to communicate over a network.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Application Layer&lt;/strong&gt; (Htttp,DHCP,FMTP,Telnet,NFS)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Presentation Layer&lt;/strong&gt; (Encryption,Data format,Data compression,ASCII to Bin)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Session Layer&lt;/strong&gt; (TCP/IP socket authentication RTCP protocol)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transport Layer&lt;/strong&gt; (Process level addressing TCP/UDP, Multiplexing,demultiplexing,segmentation,connection establishment)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Network Layer&lt;/strong&gt; (logical addressing IP , Routing, packet encapsulation)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data Link Layer&lt;/strong&gt; (LAN,MAC,Data framing,Error detection)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Physical Layer&lt;/strong&gt; (Converting Bin to singals to transfer the data)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;application-layer&#34;&gt;Application Layer&lt;/h2&gt;
+&lt;h4 id=&#34;httphttps&#34;&gt;HTTP/HTTPS&lt;/h4&gt;
+&lt;p&gt;Is the protocol used to communicate with server. it underling using TCP protocol&lt;/p&gt;</description>
       
     </item>
     
@@ -190,8 +389,18 @@ Application Layer (Htttp,DHCP,FMTP,Telnet,NFS) Presentation Layer (Encryption,Da
       
       <guid>https://programmerraja.github.io/blog/notes/2024/nginx/</guid>
       
-      <description>How Does NGINX Work? NGINX uses a predictable process model that is tuned to the available hardware resources:
-The master process performs the privileged operations such as reading configuration and binding to ports, and then creates a small number of child processes (the next three types). The cache loader process runs at startup to load the disk‑based cache into memory, and then exits. It is scheduled conservatively, so its resource demands are low.</description>
+      <description>&lt;h2 id=&#34;how-does-nginx-work&#34;&gt;&lt;strong&gt;How Does NGINX Work?&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;NGINX uses a predictable process model that is tuned to the available hardware resources:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The &lt;strong&gt;master process&lt;/strong&gt; performs the privileged operations such as reading configuration and binding to ports, and then creates a small number of child processes (the next three types).&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;cache loader&lt;/strong&gt; process runs at startup to load the disk‑based cache into memory, and then exits. It is scheduled conservatively, so its resource demands are low.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;cache manager&lt;/strong&gt; process runs periodically and prunes entries from the disk caches to keep them within the configured sizes.&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;worker processes&lt;/strong&gt; do all of the work! They handle network connections, read and write content to disk, and communicate with upstream servers.&lt;/li&gt;
+&lt;li&gt;Each request handled by each process&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;configuration-files&#34;&gt;Configuration files&lt;/h4&gt;
+&lt;h4 id=&#34;sites-enaled-and-sites-avalible&#34;&gt;sites-enaled and sites-avalible&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;sites-available&lt;/strong&gt;: This directory contains individual configuration files for each website or application that NGINX can serve&lt;/p&gt;</description>
       
     </item>
     
@@ -202,12 +411,26 @@ The master process performs the privileged operations such as reading configura
       
       <guid>https://programmerraja.github.io/blog/notes/2024/go/</guid>
       
-      <description>Introduction From c++ by google c++ author will convert to exe
-go get githublink→ to download pkg and put under folder pkg
-it has main function to run go run filename.go
-package main //-&amp;gt; our package name imort &amp;#34;fmt&amp;#34; import (&amp;#34;fmt&amp;#34;,&amp;#34;math&amp;#34;) //-&amp;gt; to import multiple pkg func main(){ fmt.Println(&amp;#34;hello&amp;#34;) } Data types string, bool, int, byte , float32 ,float64, arrays
-using var keyword and const → to not reassign
-var name string = “d” (if directly assing vaule we don’t need to mention the data type)</description>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;From c++ by google c++ author will convert to exe&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;go get githublink→ to download pkg and put under folder pkg&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;it has main function to run &lt;code&gt;go run filename.go&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;package&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//-&amp;gt; our package name 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;imort&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;math&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//-&amp;gt; to import multiple pkg
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
       
     </item>
     
@@ -218,9 +441,23 @@ var name string = “d” (if directly assing vaule we don’t need to mention t
       
       <guid>https://programmerraja.github.io/blog/notes/2024/kubernetes/</guid>
       
-      <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster ![[Pasted image 20240312073714.png]]
-A Kubernetes cluster contains six main components:
-API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on.</description>
+      <description>&lt;h3 id=&#34;kubernetes-is-two-things&#34;&gt;Kubernetes is two things&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;A cluster for running applications&lt;/li&gt;
+&lt;li&gt;An orchestrator of cloud-native microservices apps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;kubernetes-cluster&#34;&gt;Kubernetes cluster&lt;/h3&gt;
+&lt;p&gt;![[Pasted image 20240312073714.png]]&lt;/p&gt;
+&lt;p&gt;A Kubernetes cluster contains six main components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;API server:&lt;/code&gt; Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Scheduler&lt;/code&gt;: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Controller manager&lt;/code&gt;: Runs controller processes and reconciles the cluster’s actual state with its desired specifications. Manages controllers such as node controllers, endpoints controllers,replica,statefulset,cron and replication controllers.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Kubelet&lt;/code&gt;: Ensures that containers are running in a Pod by interacting with the Docker engine , the default program for creating and managing containers. Takes a set of provided PodSpecs and ensures that their corresponding containers are fully operational.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Kube-proxy&lt;/code&gt;: Manages network connectivity and maintains network rules across nodes. Implements the Kubernetes Service concept across every node in a given cluster.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Etcd:&lt;/code&gt; Stores all cluster data like how many pod and there replica count . Consistent and highly available Kubernetes backing store. all yaml file and current pod status are stored here&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Ways to create kubernetes cluster&lt;/strong&gt;&lt;/p&gt;</description>
       
     </item>
     
@@ -231,7 +468,37 @@ API server: Exposes a REST interface to all Kubernetes resources. Serves as the 
       
       <guid>https://programmerraja.github.io/blog/notes/2024/learning-from-blog/</guid>
       
-      <description>How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60% They heavly using microservice to avoid the latency between the service they go with protocol buffers Protocol buffer (Protobuf) is a data serialization format and a set of tools to exchange data. Protobuf keeps data and the metadata separate. And serializes data into binary format. Use Protobuf when: Payload is big Communication between non-JavaScript environments needed Frequent changes to the payload schema expected Scaling Slack’s Job Queue They using redis queue for all async operation they have face few issue with that such as Operational Memory Constraints in Redis, Complex Redis Connection Structure ,Worker Scalability Dependency on Redis etc Instead fully replace with kafa they go step by step.</description>
+      <description>&lt;h2 id=&#34;how-linkedin-adopted-protocol-buffers-to-reduce-latency-by-60httpsnewslettersystemdesignonepprotocol-buffers-vs-json&#34;&gt;&lt;strong&gt;&lt;a href=&#34;https://newsletter.systemdesign.one/p/protocol-buffers-vs-json&#34;&gt;How LinkedIn Adopted Protocol Buffers to Reduce Latency by 60%&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;They heavly using microservice to avoid the latency between the service they go with protocol buffers&lt;/li&gt;
+&lt;li&gt;Protocol buffer (&lt;strong&gt;Protobuf&lt;/strong&gt;) is a data serialization format and a set of tools to exchange data. Protobuf keeps data and the metadata separate. And serializes data into binary format.&lt;/li&gt;
+&lt;li&gt;Use Protobuf when:
+&lt;ul&gt;
+&lt;li&gt;Payload is big&lt;/li&gt;
+&lt;li&gt;Communication between non-JavaScript environments needed&lt;/li&gt;
+&lt;li&gt;Frequent changes to the payload schema expected&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;scaling-slacks-job-queuehttpsslackengineeringscaling-slacks-job-queue&#34;&gt;&lt;strong&gt;&lt;a href=&#34;https://slack.engineering/scaling-slacks-job-queue/&#34;&gt;Scaling Slack’s Job Queue&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;They using &lt;a href=&#34;https://redis.com/glossary/redis-queue/&#34;&gt;redis queue&lt;/a&gt; for all async operation they have face few issue with that such as &lt;strong&gt;Operational Memory Constraints in Redis, Complex Redis Connection Structure ,Worker Scalability Dependency on Redis etc&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Instead fully replace with kafa they go step by step.First they push message to kafa and from kafa they have written JQRelay which is a stateless service written in Go that relays jobs from a Kafka topic to its corresponding Redis cluster.&lt;/li&gt;
+&lt;li&gt;When a JQRelay instance starts up, it attempts to acquire a &lt;a href=&#34;https://www.consul.io/&#34;&gt;Consul&lt;/a&gt; lock on an key/value entry corresponding to the Kafka topic. If it gets the lock, it starts relaying jobs from all partitions of this topic.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hashnodes-overall-architecturehttpsengineeringhashnodecomhashnodes-overall-architecture&#34;&gt;&lt;strong&gt;&lt;a href=&#34;https://engineering.hashnode.com/hashnodes-overall-architecture&#34;&gt;Hashnode&amp;rsquo;s Overall Architecture&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;They caching mechanism
+&lt;ul&gt;
+&lt;li&gt;page cache using next js&lt;/li&gt;
+&lt;li&gt;API cache using &lt;code&gt;GraphQL Edge Caching with Stellate&lt;/code&gt; and &lt;code&gt;Serverless Function Caching with Vercel&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;scaling-cron-monitoringhttpssentryengineeringblogscaling-cron-monitoring&#34;&gt;&lt;strong&gt;&lt;a href=&#34;https://sentry.engineering/blog/scaling-cron-monitoring&#34;&gt;Scaling Cron Monitoring&lt;/a&gt;&lt;/strong&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;They have Relay which listen for check in and other event from cron and push to kafa&lt;/p&gt;</description>
       
     </item>
     
@@ -242,9 +509,11 @@ API server: Exposes a REST interface to all Kubernetes resources. Serves as the 
       
       <guid>https://programmerraja.github.io/blog/notes/2023/rabbitmq/</guid>
       
-      <description>What is RabbitMQ? RabbitMQ is a popular open-source message broker that implements the AMQP (Advanced Message Queuing Protocol) standard.
-Channel A channel is a separate communication channel within a single connection. Channels allow multiple concurrent exchanges to be executed in parallel, providing a way to separate different parts of your application.
-Each channel has its own set of resources, such as queues, exchanges, and bindings, which are independent of the resources used by other channels in the same connection.</description>
+      <description>&lt;h2 id=&#34;what--is-rabbitmq&#34;&gt;What  is RabbitMQ?&lt;/h2&gt;
+&lt;p&gt;RabbitMQ is a popular open-source message broker that implements the AMQP (Advanced Message Queuing Protocol) standard.&lt;/p&gt;
+&lt;h2 id=&#34;channel&#34;&gt;Channel&lt;/h2&gt;
+&lt;p&gt;A channel is a separate communication channel within a single connection. Channels allow multiple concurrent exchanges to be executed in parallel, providing a way to separate different parts of your application.&lt;/p&gt;
+&lt;p&gt;Each channel has its own set of resources, such as queues, exchanges, and bindings, which are independent of the resources used by other channels in the same connection. This allows you to manage concurrency and improve performance by isolating different parts of your application into separate channels.&lt;/p&gt;</description>
       
     </item>
     
@@ -255,8 +524,9 @@ Each channel has its own set of resources, such as queues, exchanges, and bindin
       
       <guid>https://programmerraja.github.io/blog/notes/2023/mongodb-performance-tuning/</guid>
       
-      <description>MongoDB Architecture and Concepts if the write concern is set to “majority”, then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.
-Oplog The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.</description>
+      <description>&lt;h2 id=&#34;mongodb-architecture-and-concepts&#34;&gt;MongoDB Architecture and Concepts&lt;/h2&gt;
+&lt;p&gt;if the &lt;strong&gt;write concern is set to “majority”,&lt;/strong&gt; then the database will not complete the write operation until a majority of secondaries receive the write. We can also set the write concern to wait until all secondaries or a specific number of secondaries receive the write operation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Oplog&lt;/strong&gt; The primary node stores information about document changes in a collection within its local database called the Oplog. The primary will continuously attempt to apply these changes to secondary instances.&lt;/p&gt;</description>
       
     </item>
     

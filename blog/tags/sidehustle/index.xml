@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sidehustle on programmerraja blog</title>
+    <link>https://programmerraja.github.io/blog/tags/sidehustle/</link>
+    <description>Recent content in Sidehustle on programmerraja blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Aug 2024 06:40:04 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/sidehustle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Side Hustle to Payday: How I Earned My First $100 with a MERN Stack Project</title>
+      <link>https://programmerraja.github.io/blog/post/2024/from-side-hustle-to-payday-how-i-earned-my-first-100/</link>
+      <pubDate>Wed, 21 Aug 2024 06:40:04 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/from-side-hustle-to-payday-how-i-earned-my-first-100/</guid>
+      
+      <description>&lt;h2 id=&#34;turning-lockdown-into-learning&#34;&gt;&lt;strong&gt;Turning Lockdown into Learning&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;During the lockdown—a period when the world seemed to hit pause—many of us found ourselves with more time than ever before. As classes shifted online and social media became a black hole of endless scrolling, I decided to use this time productively. My choice? To dive into the MERN stack, a powerful web development suite consisting of MongoDB, Express.js, React, and Node.js.&lt;/p&gt;
+&lt;h2 id=&#34;from-idea-to-reality&#34;&gt;&lt;strong&gt;From Idea to Reality&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Eager to apply what I was learning, I wanted to build something meaningful. That’s when inspiration struck: an IP Logger. The concept was simple but intriguing. Users could sign up, log in, and generate a unique link from any URL. Clicking this link would capture the visitor’s IP address and details before redirecting them to the original URL. It promised to be a handy tool for gaining insights into link clicks.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

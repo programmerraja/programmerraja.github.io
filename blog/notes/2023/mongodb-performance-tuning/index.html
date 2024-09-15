@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.133.0">
+<meta name="generator" content="Hugo 0.134.1">
 
     
 
@@ -479,34 +479,34 @@ range scans which might be less effective than a collection scan.</p>
 <p>A replica set following best practice consists of a primary node together with two or more secondary nodes. It is recommended to use three or more nodes, with an odd number of total nodes. The primary node accepts all write requests which are propagated synchronously or asynchronously to the secondary nodes. In the event of a failure of a primary, an election occurs to which a secondary node is elected to serve as the new primary and database operations can continue</p>
 <p><strong>Read Preference</strong> → By default, all reads are directed to the primary node. However, we can set a read preference which directs the MongoDB drivers to direct read requests to secondary nodes.</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>Read Preference</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>primary</td>
-<td>This is the default. All reads are directed to the replica set primary.</td>
-</tr>
-<tr>
-<td>primaryPreferred</td>
-<td>Direct reads to the primary, but if no primary is available, direct reads to a secondary.</td>
-</tr>
-<tr>
-<td>secondary</td>
-<td>Direct reads to a secondary.</td>
-</tr>
-<tr>
-<td>secondaryPreferred</td>
-<td>Direct reads to a secondary, but if no secondary is available, direct reads to the primary.</td>
-</tr>
-<tr>
-<td>nearest</td>
-<td>Direct reads to the replica set member with the lowest network round trip time to the calling program.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">Read Preference</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">primary</td>
+          <td style="text-align: left">This is the default. All reads are directed to the replica set primary.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">primaryPreferred</td>
+          <td style="text-align: left">Direct reads to the primary, but if no primary is available, direct reads to a secondary.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">secondary</td>
+          <td style="text-align: left">Direct reads to a secondary.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">secondaryPreferred</td>
+          <td style="text-align: left">Direct reads to a secondary, but if no secondary is available, direct reads to the primary.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">nearest</td>
+          <td style="text-align: left">Direct reads to the replica set member with the lowest network round trip time to the calling program.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>maxStalenessSeconds</strong> : can be added to a read preference to control the tolerable lag in data. When picking a secondary node, the MongoDB driver will only consider those nodes who have data within <code>maxStalenessSeconds</code> seconds of the primary. The minimum value is 90 seconds. For instance, this URL specified a preference for secondary nodes, but only if their data timestamps are within 5 minutes (300 seconds) of the primary:</p>
 <p><strong>Replica Set Tag Sets</strong>: Tag sets can be used to direct read requests to specific nodes. You can use tag sets to nominate nodes for special purposes such as analytics or to distribute read workload more evenly across all nodes in the cluster.</p>

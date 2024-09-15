@@ -14,8 +14,14 @@
       
       <guid>https://programmerraja.github.io/blog/notes/2024/docker/</guid>
       
-      <description>Docker Engine When you install Docker, you get two major components:
-Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called “server” or “engine”) In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at /var/run/docker.sock The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd (to manage container lifecycle operations — start | stop | pause | rm.</description>
+      <description>&lt;h2 id=&#34;docker-engine&#34;&gt;Docker Engine&lt;/h2&gt;
+&lt;p&gt;When you install Docker, you get two major components:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Docker client →is a command-line tool used to interact with the Docker Engine,&lt;/li&gt;
+&lt;li&gt;Docker daemon (sometimes called “server” or “engine”)
+In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at &lt;code&gt;/var/run/docker.sock&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd &lt;code&gt;(to manage container lifecycle operations — start | stop | pause | rm.)&lt;/code&gt;&lt;/p&gt;</description>
       
     </item>
     
@@ -26,9 +32,23 @@ Docker client →is a command-line tool used to interact with the Docker Engine,
       
       <guid>https://programmerraja.github.io/blog/notes/2024/kubernetes/</guid>
       
-      <description>Kubernetes is two things A cluster for running applications An orchestrator of cloud-native microservices apps Kubernetes cluster ![[Pasted image 20240312073714.png]]
-A Kubernetes cluster contains six main components:
-API server: Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane. Scheduler: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on.</description>
+      <description>&lt;h3 id=&#34;kubernetes-is-two-things&#34;&gt;Kubernetes is two things&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;A cluster for running applications&lt;/li&gt;
+&lt;li&gt;An orchestrator of cloud-native microservices apps&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;kubernetes-cluster&#34;&gt;Kubernetes cluster&lt;/h3&gt;
+&lt;p&gt;![[Pasted image 20240312073714.png]]&lt;/p&gt;
+&lt;p&gt;A Kubernetes cluster contains six main components:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;API server:&lt;/code&gt; Exposes a REST interface to all Kubernetes resources. Serves as the front end of the Kubernetes control plane.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Scheduler&lt;/code&gt;: Places containers according to resource requirements and metrics. Makes note of Pods with no assigned node, and selects nodes for them to run on.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Controller manager&lt;/code&gt;: Runs controller processes and reconciles the cluster’s actual state with its desired specifications. Manages controllers such as node controllers, endpoints controllers,replica,statefulset,cron and replication controllers.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Kubelet&lt;/code&gt;: Ensures that containers are running in a Pod by interacting with the Docker engine , the default program for creating and managing containers. Takes a set of provided PodSpecs and ensures that their corresponding containers are fully operational.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Kube-proxy&lt;/code&gt;: Manages network connectivity and maintains network rules across nodes. Implements the Kubernetes Service concept across every node in a given cluster.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Etcd:&lt;/code&gt; Stores all cluster data like how many pod and there replica count . Consistent and highly available Kubernetes backing store. all yaml file and current pod status are stored here&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Ways to create kubernetes cluster&lt;/strong&gt;&lt;/p&gt;</description>
       
     </item>
     

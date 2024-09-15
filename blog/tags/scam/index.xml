@@ -14,8 +14,9 @@
       
       <guid>https://programmerraja.github.io/blog/post/2024/hunting-the-hacker-a-deep-dive-into-courier-fraud/</guid>
       
-      <description>In today&amp;rsquo;s digital age, cyber scams are becoming increasingly sophisticated. Recently, one of our colleagues received a suspicious call that led to an attempted scam. This blog post details our investigation into the scam, revealing the techniques used by the fraudsters and how we managed to thwart their efforts.
-The Call It all began when one of our colleagues received a phone call from someone claiming to be from a courier company.</description>
+      <description>&lt;p&gt;In today&amp;rsquo;s digital age, cyber scams are becoming increasingly sophisticated. Recently, one of our colleagues received a suspicious call that led to an attempted scam. This blog post details our investigation into the scam, revealing the techniques used by the fraudsters and how we managed to thwart their efforts.&lt;/p&gt;
+&lt;h3 id=&#34;the-call&#34;&gt;The Call&lt;/h3&gt;
+&lt;p&gt;It all began when one of our colleagues received a phone call from someone claiming to be from a courier company. They were told that our college had an courier to be delivered, but to complete the delivery, a payment of ₹6 was required. The caller insisted on sending an APK file via WhatsApp, which needed to be installed to make the payment.&lt;/p&gt;</description>
       
     </item>
     

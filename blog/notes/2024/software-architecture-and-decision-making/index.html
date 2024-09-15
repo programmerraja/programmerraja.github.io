@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.133.0">
+<meta name="generator" content="Hugo 0.134.1">
 
     
 
@@ -150,36 +150,42 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#book-core-concepts" aria-label="Book Core concepts">Book Core concepts</a></li>
                 <li>
-                    <a href="#books-for-leadership" aria-label="Books for leadership">Books for leadership</a></li>
-                <li>
-                    <a href="#understanding-systems-design-and-architecture" aria-label="Understanding Systems, Design, and Architecture">Understanding Systems, Design, and Architecture</a><ul>
-                        <ul>
+                    <a href="#system-architecture-approaches" aria-label="System Architecture Approaches">System Architecture Approaches</a><ul>
                         
                 <li>
-                    <a href="#how-to-design-a-system" aria-label="How to Design a System">How to Design a System</a></li></ul>
-                    </ul>
+                    <a href="#togaf-architecture-layers" aria-label="TOGAF Architecture Layers">TOGAF Architecture Layers</a></li></ul>
                 </li>
                 <li>
-                    <a href="#mental-models-for-understanding-and-explaining-system-performance" aria-label="Mental Models for Understanding and Explaining System Performance">Mental Models for Understanding and Explaining System Performance</a><ul>
-                        <ul>
+                    <a href="#understanding-systems-design-and-architecture" aria-label="Understanding Systems, Design, and Architecture">Understanding Systems, Design, and Architecture</a><ul>
                         
+                <li>
+                    <a href="#cloud-app-design-choices" aria-label="Cloud App Design Choices">Cloud App Design Choices</a></li>
+                <li>
+                    <a href="#how-to-design-a-system" aria-label="How to Design a System">How to Design a System</a></li></ul>
+                </li>
+                <li>
+                    <a href="#mental-models-for-understanding-and-explaining-system-performance" aria-label="Mental Models for Understanding and Explaining System Performance">Mental Models for Understanding and Explaining System Performance</a></li>
                 <li>
                     <a href="#optimization-techniques" aria-label="Optimization Techniques">Optimization Techniques</a><ul>
                         
                 <li>
                     <a href="#cpu-optimization-techniques" aria-label="CPU Optimization Techniques">CPU Optimization Techniques</a></li>
                 <li>
-                    <a href="#io-optimization-techniques" aria-label="I/O Optimization Techniques">I/O Optimization Techniques</a></li></ul>
-                </li>
+                    <a href="#io-optimization-techniques" aria-label="I/O Optimization Techniques">I/O Optimization Techniques</a></li>
                 <li>
                     <a href="#memory-optimization-techniques" aria-label="Memory Optimization Techniques">Memory Optimization Techniques</a></li>
                 <li>
-                    <a href="#latency-optimization-techniques" aria-label="Latency Optimization Techniques">Latency Optimization Techniques</a></li>
+                    <a href="#latency-optimization-techniques" aria-label="Latency Optimization Techniques">Latency Optimization Techniques</a><ul>
+                        
                 <li>
-                    <a href="#cpu-utilization-is-wrong" aria-label="CPU Utilization is Wrong">CPU Utilization is Wrong</a></li>
+                    <a href="#cpu-utilization-is-wrong" aria-label="CPU Utilization is Wrong">CPU Utilization is Wrong</a></li></ul>
+                </li></ul>
+                </li>
                 <li>
-                    <a href="#the-use-method" aria-label="The USE Method">The USE Method</a></li></ul>
-                    </ul>
+                    <a href="#the-use-method" aria-label="The USE Method">The USE Method</a><ul>
+                        
+                <li>
+                    <a href="#references" aria-label="References">References</a></li></ul>
                 </li>
                 <li>
                     <a href="#understanding-user-experience-ux" aria-label="Understanding User Experience (UX)">Understanding User Experience (UX)</a></li>
@@ -190,9 +196,9 @@ stroke-linejoin="round" class="feather feather-home">
                         <ul>
                         
                 <li>
-                    <a href="#drive-flow-from-the-client" aria-label="Drive flow from the client">Drive flow from the client</a></li>
+                    <a href="#drive-flow-from-the-client" aria-label="Drive Flow from the Client">Drive Flow from the Client</a></li>
                 <li>
-                    <a href="#another-service" aria-label="Another service">Another service</a></li>
+                    <a href="#another-service" aria-label="Another Service">Another Service</a></li>
                 <li>
                     <a href="#implement-choreography" aria-label="Implement Choreography">Implement Choreography</a></li></ul>
                     </ul>
@@ -202,9 +208,9 @@ stroke-linejoin="round" class="feather feather-home">
                         <ul>
                         
                 <li>
-                    <a href="#two-phase-commit-protocol" aria-label="Two-phase commit protocol">Two-phase commit protocol</a></li>
+                    <a href="#two-phase-commit-protocol" aria-label="Two-Phase Commit Protocol">Two-Phase Commit Protocol</a></li>
                 <li>
-                    <a href="#approaches-to-going-beyond-transactions" aria-label="Approaches to going beyond transactions">Approaches to going beyond transactions</a></li></ul>
+                    <a href="#approaches-to-going-beyond-transactions" aria-label="Approaches to Going Beyond Transactions">Approaches to Going Beyond Transactions</a></li></ul>
                     </ul>
                 </li>
                 <li>
@@ -218,7 +224,11 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#macro-architecture-handling-high-availability-and-scale" aria-label="Macro Architecture: Handling High Availability and Scale">Macro Architecture: Handling High Availability and Scale</a></li>
                 <li>
-                    <a href="#macro-architecture-microservices-considerations" aria-label="Macro Architecture: Microservices Considerations">Macro Architecture: Microservices Considerations</a></li>
+                    <a href="#macro-architecture-microservices-considerations" aria-label="Macro Architecture: Microservices Considerations">Macro Architecture: Microservices Considerations</a><ul>
+                        
+                <li>
+                    <a href="#decisions-to-make-before-adopting-microservices" aria-label="Decisions to Make Before Adopting Microservices">Decisions to Make Before Adopting Microservices</a></li></ul>
+                </li>
                 <li>
                     <a href="#server-architectures" aria-label="Server Architectures">Server Architectures</a><ul>
                         <ul>
@@ -250,48 +260,75 @@ stroke-linejoin="round" class="feather feather-home">
 </div><div class="page-content">
                 <h2 id="book-core-concepts">Book Core concepts</h2>
 <p>It explains principles and concepts I believe a senior architect must understand deeply and discusses how to employ those principles to manage uncertainty</p>
-<h2 id="books-for-leadership">Books for leadership</h2>
-<ul>
-<li>The Hard Things About Hard Things by Ben Horowitz,</li>
-<li>Trillion Dollar Coach by Eric Schmidt et al.,</li>
-<li>Team of Teams:</li>
-<li>New Rules of Engagement for a Complex World by Stanley McChrystal</li>
-<li>Good Strategy, Bad Strategy by Richard Rumel</li>
-</ul>
-<p>Three layers of architecture of The Open Group Architecture Framework (TOGAF)</p>
-<p><strong>Two prominent approaches to system architecture:</strong></p>
+<p>Books for Leadership</p>
 <ol>
-<li><strong>Waterfall</strong> -&gt;identify the system’s requirements in full detail beforehand and start building</li>
-<li><strong>Agile</strong> -&gt; Iterative way (collaborating with users to refine requirements and construct a system that can genuinely benefit the user)</li>
+<li><strong>The Hard Thing About Hard Things</strong> by Ben Horowitz</li>
+<li><strong>Trillion Dollar Coach</strong> by Eric Schmidt et al.</li>
+<li><strong>Team of Teams: New Rules of Engagement for a Complex World</strong> by Stanley McChrystal</li>
+<li><strong>Good Strategy, Bad Strategy</strong> by Richard Rumelt</li>
 </ol>
+<h2 id="system-architecture-approaches">System Architecture Approaches</h2>
+<p><strong>Two Prominent Approaches</strong></p>
+<ol>
+<li><strong>Waterfall</strong>: Identify the system’s requirements in full detail beforehand and start building.</li>
+<li><strong>Agile</strong>: Iterative approach, collaborating with users to refine requirements and construct a system that genuinely benefits the user.</li>
+</ol>
+<h3 id="togaf-architecture-layers">TOGAF Architecture Layers</h3>
+<p><strong>Three Layers of TOGAF Architecture</strong>:</p>
+<ul>
+<li><strong>Business Architecture</strong></li>
+<li><strong>Information Systems Architecture</strong></li>
+<li><strong>Technology Architecture</strong></li>
+</ul>
 <h2 id="understanding-systems-design-and-architecture">Understanding Systems, Design, and Architecture</h2>
-<p>When writing a cloud app, we have two choices: We can choose a single cloud, taking advantage of its unique strengths for our application, or we can make the application portable across several cloud providers</p>
-<h4 id="how-to-design-a-system">How to Design a System</h4>
-<p>Five questions and 7 Principles to understand the context of system we building</p>
-<ol>
-<li>When is the best time to market?
+<h3 id="cloud-app-design-choices">Cloud App Design Choices</h3>
 <ul>
-<li>If the feature need to go urgent becasue of market urgent. we can design the way simple and fast. and we also ready to re-write it.</li>
+<li><strong>Single Cloud</strong>: Leverage the unique strengths of one cloud provider.</li>
+<li><strong>Multi-Cloud</strong>: Make the application portable across several cloud providers.</li>
+</ul>
+<h3 id="how-to-design-a-system">How to Design a System</h3>
+<p><strong>Five Questions to Consider:</strong></p>
+<ol>
+<li><strong>When is the best time to market?</strong>
+<ul>
+<li>If a feature needs to go to market urgently, design it simply and quickly, with readiness to revise it later.</li>
 </ul>
 </li>
-<li>What is the skill level of the team?</li>
-<li>What is our system’s performance sensitivity?</li>
-<li>When can we rewrite the system?</li>
-<li>What are the hard problems?</li>
+<li><strong>What is the skill level of the team?</strong></li>
+<li><strong>What is our system’s performance sensitivity?</strong></li>
+<li><strong>When can we rewrite the system?</strong></li>
+<li><strong>What are the hard problems?</strong></li>
 </ol>
-<p>Seven principles</p>
+<p><strong>Seven Principles of System Design:</strong></p>
 <ol>
-<li>Drive everything from the user’s journey.</li>
-<li>Use an iterative thin slice strategy
+<li><strong>Drive Everything from the User’s Journey</strong>: Focus on the user experience.</li>
+<li><strong>Use an Iterative Thin Slice Strategy</strong>:
 <ul>
-<li>Unless you have a specific reason, always start with simple architectural choices. Measure the system, find the bottlenecks, and improve the system later.</li>
+<li>Start with simple architectural choices.</li>
+<li>Measure the system, find bottlenecks, and refine later.</li>
 </ul>
 </li>
-<li>On each iteration, add the most value for the least effort to support more users</li>
-<li>Make decisions and absorb the risks</li>
-<li>Design deeply things that are hard to change but implement them slowly</li>
-<li>Eliminate the unknowns and learn from the evidence by working on hard problems early and in parallel</li>
-<li>Understand the trade-offs between cohesion and flexibility in the software architecture</li>
+<li><strong>Add the Most Value for the Least Effort</strong>:
+<ul>
+<li>On each iteration, prioritize actions that offer the most value with minimal effort.</li>
+</ul>
+</li>
+<li><strong>Make Decisions and Absorb Risks</strong>: Be prepared to make informed decisions and accept associated risks.</li>
+<li><strong>Design Deeply for Hard-to-Change Aspects</strong>:
+<ul>
+<li>Implement slowly and carefully for components that are difficult to alter.</li>
+</ul>
+</li>
+<li><strong>Eliminate Unknowns and Learn from Evidence</strong>:
+<ul>
+<li>Tackle hard problems early and work in parallel to gain insights.</li>
+</ul>
+</li>
+<li><strong>Understand Trade-Offs</strong>:
+<ul>
+<li>Balance between cohesion and flexibility in software architecture.</li>
+</ul>
+</li>
 </ol>
 <h2 id="mental-models-for-understanding-and-explaining-system-performance">Mental Models for Understanding and Explaining System Performance</h2>
 <p>Eight mental models that help us think about and understand performance</p>
@@ -304,105 +341,105 @@ stroke-linejoin="round" class="feather feather-home">
 <li>Operations Hierarchy</li>
 </ol>
 <table>
-<thead>
-<tr>
-<th>Operation</th>
-<th>Time/Speed (Example)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>L1 Cache Reference</td>
-<td>0.5 ns</td>
-<td>Accessing data from Level 1 cache in the CPU.</td>
-</tr>
-<tr>
-<td>L2 Cache Reference</td>
-<td>7 ns</td>
-<td>Accessing data from Level 2 cache in the CPU.</td>
-</tr>
-<tr>
-<td>L3 Cache Reference</td>
-<td>20 ns</td>
-<td>Accessing data from Level 3 cache in the CPU.</td>
-</tr>
-<tr>
-<td>Main Memory (RAM) Access</td>
-<td>100 ns</td>
-<td>Retrieving data from the system&rsquo;s RAM.</td>
-</tr>
-<tr>
-<td>SSD Storage Access</td>
-<td>1,000,000 ns (1 ms)</td>
-<td>Accessing data from Solid State Drive (SSD).</td>
-</tr>
-<tr>
-<td>HDD Storage Access</td>
-<td>10,000,000 ns (10 ms)</td>
-<td>Accessing data from Hard Disk Drive (HDD).</td>
-</tr>
-<tr>
-<td>Network Packet Round Trip (US to India)</td>
-<td>150,000,000 ns (150 ms)</td>
-<td>Sending a packet from the US to India and receiving the acknowledgment.</td>
-</tr>
-<tr>
-<td>CPU Processing (Instruction)</td>
-<td>0.2 ns per instruction</td>
-<td>Executing a single CPU instruction.</td>
-</tr>
-<tr>
-<td>GPU Processing (Parallel)</td>
-<td>50 ns per parallel task</td>
-<td>Executing parallel tasks on a Graphics Processing Unit (GPU).</td>
-</tr>
-<tr>
-<td>PCIe Data Transfer (Device to CPU)</td>
-<td>2,000 ns (2 us)</td>
-<td>Transferring data between a peripheral device and the CPU via PCIe.</td>
-</tr>
-<tr>
-<td>Context Switch (Kernel)</td>
-<td>1,000 ns (1 us)</td>
-<td>Switching between different processes in the kernel.</td>
-</tr>
-<tr>
-<td>RAM-to-Cache Transfer</td>
-<td>20 ns</td>
-<td>Copying data from RAM to cache in the CPU.</td>
-</tr>
-<tr>
-<td>Database Query (Local)</td>
-<td>10,000,000 ns (10 ms)</td>
-<td>Executing a database query on a local server.</td>
-</tr>
-<tr>
-<td>Database Query (Remote)</td>
-<td>50,000,000 ns (50 ms)</td>
-<td>Executing a database query on a remote server.</td>
-</tr>
-<tr>
-<td>System Call (Linux)</td>
-<td>1,000 ns (1 us)</td>
-<td>Initiating a system call in a Linux environment.</td>
-</tr>
-<tr>
-<td>I/O Operation (Disk Write)</td>
-<td>10,000 ns (10 us)</td>
-<td>Writing data to a disk.</td>
-</tr>
-<tr>
-<td>I/O Operation (Network Send)</td>
-<td>1,000,000 ns (1 ms)</td>
-<td>Sending data over a network.</td>
-</tr>
-<tr>
-<td>I/O Operation (Network Receive)</td>
-<td>1,000,000 ns (1 ms)</td>
-<td>Receiving data over a network.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Operation</th>
+          <th style="text-align: left">Time/Speed (Example)</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">L1 Cache Reference</td>
+          <td style="text-align: left">0.5 ns</td>
+          <td style="text-align: left">Accessing data from Level 1 cache in the CPU.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">L2 Cache Reference</td>
+          <td style="text-align: left">7 ns</td>
+          <td style="text-align: left">Accessing data from Level 2 cache in the CPU.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">L3 Cache Reference</td>
+          <td style="text-align: left">20 ns</td>
+          <td style="text-align: left">Accessing data from Level 3 cache in the CPU.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Main Memory (RAM) Access</td>
+          <td style="text-align: left">100 ns</td>
+          <td style="text-align: left">Retrieving data from the system&rsquo;s RAM.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">SSD Storage Access</td>
+          <td style="text-align: left">1,000,000 ns (1 ms)</td>
+          <td style="text-align: left">Accessing data from Solid State Drive (SSD).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">HDD Storage Access</td>
+          <td style="text-align: left">10,000,000 ns (10 ms)</td>
+          <td style="text-align: left">Accessing data from Hard Disk Drive (HDD).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Network Packet Round Trip (US to India)</td>
+          <td style="text-align: left">150,000,000 ns (150 ms)</td>
+          <td style="text-align: left">Sending a packet from the US to India and receiving the acknowledgment.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">CPU Processing (Instruction)</td>
+          <td style="text-align: left">0.2 ns per instruction</td>
+          <td style="text-align: left">Executing a single CPU instruction.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">GPU Processing (Parallel)</td>
+          <td style="text-align: left">50 ns per parallel task</td>
+          <td style="text-align: left">Executing parallel tasks on a Graphics Processing Unit (GPU).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">PCIe Data Transfer (Device to CPU)</td>
+          <td style="text-align: left">2,000 ns (2 us)</td>
+          <td style="text-align: left">Transferring data between a peripheral device and the CPU via PCIe.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Context Switch (Kernel)</td>
+          <td style="text-align: left">1,000 ns (1 us)</td>
+          <td style="text-align: left">Switching between different processes in the kernel.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">RAM-to-Cache Transfer</td>
+          <td style="text-align: left">20 ns</td>
+          <td style="text-align: left">Copying data from RAM to cache in the CPU.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Database Query (Local)</td>
+          <td style="text-align: left">10,000,000 ns (10 ms)</td>
+          <td style="text-align: left">Executing a database query on a local server.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Database Query (Remote)</td>
+          <td style="text-align: left">50,000,000 ns (50 ms)</td>
+          <td style="text-align: left">Executing a database query on a remote server.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">System Call (Linux)</td>
+          <td style="text-align: left">1,000 ns (1 us)</td>
+          <td style="text-align: left">Initiating a system call in a Linux environment.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">I/O Operation (Disk Write)</td>
+          <td style="text-align: left">10,000 ns (10 us)</td>
+          <td style="text-align: left">Writing data to a disk.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">I/O Operation (Network Send)</td>
+          <td style="text-align: left">1,000,000 ns (1 ms)</td>
+          <td style="text-align: left">Sending data over a network.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">I/O Operation (Network Receive)</td>
+          <td style="text-align: left">1,000,000 ns (1 ms)</td>
+          <td style="text-align: left">Receiving data over a network.</td>
+      </tr>
+  </tbody>
 </table>
 <ol start="3">
 <li>Context Switching Overhead
@@ -431,37 +468,36 @@ stroke-linejoin="round" class="feather feather-home">
 <li>Designing for Throughput with the Maximal Useful  Utilization (MUU) Model</li>
 <li>Adding Latency Limits</li>
 </ol>
-<h4 id="optimization-techniques">Optimization Techniques</h4>
-<p>To optimize, we need to decide where the bottlenecks are. Bottlenecks usually come in one of three forms:</p>
+<hr>
+<h2 id="optimization-techniques">Optimization Techniques</h2>
+<p>To effectively optimize, it&rsquo;s crucial to identify where the bottlenecks occur. Bottlenecks typically manifest in one of three forms:</p>
+<ol>
+<li><strong>Resource Bottleneck</strong>: One of the resources (e.g., CPU, I/O, or memory) is the limiting factor.</li>
+<li><strong>Thread Model Bottleneck</strong>: Thread models are causing critical resources to be idle.</li>
+<li><strong>Resource Waste</strong>: Resources are being wasted on nonessential tasks (e.g., context switches, garbage collection).</li>
+</ol>
+<h3 id="cpu-optimization-techniques">CPU Optimization Techniques</h3>
 <ul>
-<li>One of the resources (e.g., CPU, I/O, or memory) is the
-bottleneck.</li>
-<li>Thread models are causing critical resources to be idle.</li>
-<li>Resources are wasted on nonessential tasks (e.g., context
-switches, GC).</li>
+<li><strong>Optimize Individual Tasks</strong>: Improve the efficiency of specific tasks that use CPU resources.</li>
+<li><strong>Optimize Memory</strong>: Ensure that memory usage is efficient to reduce the CPU&rsquo;s burden.</li>
+<li><strong>Maximize CPU Utilization</strong>: Ensure that the CPU is used to its fullest potential without unnecessary idling.</li>
 </ul>
-<h5 id="cpu-optimization-techniques">CPU Optimization Techniques</h5>
+<h3 id="io-optimization-techniques">I/O Optimization Techniques</h3>
 <ul>
-<li>Optimize Individual Tasks</li>
-<li>Optimize Memory</li>
-<li>Maximize CPU Utilization</li>
+<li><strong>Avoid I/O</strong>: Use caching to minimize direct I/O operations.</li>
+<li><strong>Buffering</strong>: Implement buffering to handle I/O operations more efficiently.</li>
+<li><strong>Send Early, Receive Late, Don’t Ask but Tell</strong>: Design systems to send data early and receive it late, and use push-based communication rather than pull-based.</li>
+<li><strong>Prefetching</strong>: Load data before it’s needed to reduce wait times.</li>
+<li><strong>Append-Only Processing</strong>: Use append-only structures (e.g., Kafka) to improve I/O performance.</li>
 </ul>
-<h5 id="io-optimization-techniques">I/O Optimization Techniques</h5>
+<h3 id="memory-optimization-techniques">Memory Optimization Techniques</h3>
 <ul>
-<li>Avoid I/O (use a cache)</li>
-<li>Buffering</li>
-<li>Send Early, Receive Late, Don’t Ask but Tell</li>
-<li>Prefetching</li>
-<li>Append-Only Processing (Kafka)</li>
+<li><strong>Reduce Cache Misses</strong>: Minimize the number of cache misses to improve memory access efficiency.</li>
 </ul>
-<h4 id="memory-optimization-techniques">Memory Optimization Techniques</h4>
+<h3 id="latency-optimization-techniques">Latency Optimization Techniques</h3>
 <ul>
-<li>Too Many Cache Misses</li>
-</ul>
-<h4 id="latency-optimization-techniques">Latency Optimization Techniques</h4>
-<ul>
-<li>Do Work in Parallel</li>
-<li>Reduce I/O</li>
+<li><strong>Do Work in Parallel</strong>: Utilize parallel processing to reduce overall latency.</li>
+<li><strong>Reduce I/O</strong>: Minimize I/O operations to lower latency.</li>
 </ul>
 <h4 id="cpu-utilization-is-wrong">CPU Utilization is Wrong</h4>
 <ul>
@@ -470,28 +506,28 @@ switches, GC).</li>
 <li>So  high %CPU to mean that the processing unit is the bottleneck, which is wrong because CPU is capable of doing the process it may wait for I/O or something .</li>
 <li><code>Source: https://opensource.com/article/18/4/cpu-utilization-wrong</code></li>
 </ul>
-<h4 id="the-use-method">The USE Method</h4>
-<p>The Utilization Saturation and Errors (USE) Method is a methodology for analyzing the performance of any system</p>
-<p><code>For every resource, check utilization, saturation, and errors.</code></p>
+<h2 id="the-use-method">The USE Method</h2>
+<p>The <strong>Utilization Saturation and Errors (USE) Method</strong> is a methodology for analyzing the performance of any system.</p>
+<p><strong>For every resource, check the following:</strong></p>
 <ul>
-<li><strong>resource</strong>: all physical server functional components (CPUs, disks, busses, &hellip;)</li>
-<li><strong>utilization</strong>: the average time that the resource was busy servicing work</li>
-<li><strong>saturation</strong>: the degree to which the resource has extra work which it can&rsquo;t service, often queued</li>
-<li><strong>errors</strong>: the count of error events
-Refer</li>
+<li><strong>Utilization</strong>: The average time that the resource was busy servicing work.</li>
+<li><strong>Saturation</strong>: The degree to which the resource has extra work it can&rsquo;t service, often resulting in a queue.</li>
+<li><strong>Errors</strong>: The count of error events associated with the resource.</li>
 </ul>
+<p><strong>Resources</strong>: This includes all physical server functional components, such as CPUs, disks, buses, etc.</p>
+<h3 id="references">References</h3>
 <ol>
-<li><a href="https://fs.blog/mental-models/">https://fs.blog/mental-models/</a></li>
-<li><a href="http://highscalability.com/blog/2012/5/16/big-list-of-20-common-bottlenecks.html">http://highscalability.com/blog/2012/5/16/big-list-of-20-common-bottlenecks.html</a></li>
-<li><a href="https://opensource.com/article/18/4/cpu-utilization-wrong">https://opensource.com/article/18/4/cpu-utilization-wrong</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Queueing_theory">https://en.wikipedia.org/wiki/Queueing_theory</a></li>
-<li><a href="https://www.brendangregg.com/usemethod.html">https://www.brendangregg.com/usemethod.html</a> [bottleneck]</li>
-<li><a href="https://medium.freecodecamp.org/what-makes-apache-kafka-so-fast-a8d4f94ab145">https://medium.freecodecamp.org/what-makes-apache-kafka-so-fast-a8d4f94ab145</a></li>
-<li>An Analysis of Web Servers Architectures Performances on Commodity Multicore <a href="https://hal.inria.fr/hal-00674475/document">https://hal.inria.fr/hal-00674475/document</a></li>
-<li><a href="https://ocw.mit.edu/courses/6-851-advanced-data-structures-spring-2012/video_galleries/lecture-videos/">https://ocw.mit.edu/courses/6-851-advanced-data-structures-spring-2012/video_galleries/lecture-videos/</a></li>
+<li><a href="https://fs.blog/mental-models/">Farnam Street: Mental Models</a></li>
+<li><a href="http://highscalability.com/blog/2012/5/16/big-list-of-20-common-bottlenecks.html">High Scalability: Big List of 20 Common Bottlenecks</a></li>
+<li><a href="https://opensource.com/article/18/4/cpu-utilization-wrong">OpenSource.com: CPU Utilization Misconceptions</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queueing_theory">Wikipedia: Queueing Theory</a></li>
+<li><a href="https://www.brendangregg.com/usemethod.html">Brendan Gregg: USE Method</a></li>
+<li><a href="https://medium.freecodecamp.org/what-makes-apache-kafka-so-fast-a8d4f94ab145">Medium: What Makes Apache Kafka So Fast</a></li>
+<li><a href="https://hal.inria.fr/hal-00674475/document">An Analysis of Web Servers Architectures Performances on Commodity Multicore</a></li>
+<li><a href="https://ocw.mit.edu/courses/6-851-advanced-data-structures-spring-2012/video_galleries/lecture-videos/">MIT OpenCourseWare: Advanced Data Structures</a></li>
 </ol>
 <h2 id="understanding-user-experience-ux">Understanding User Experience (UX)</h2>
-<p>Few concepts or principles that help us to design a good UX.</p>
+<p>Few concepts or principles that help us to design a good UX:</p>
 <ul>
 <li>Understand the Users</li>
 <li>Do as Little as Possible</li>
@@ -504,7 +540,7 @@ Refer</li>
 <li>Make Simple Things Simple</li>
 <li>Design UX Before Implementation</li>
 </ul>
-<p><code>Note:</code> having UX expertise on the team is a must</p>
+<p><code>Note:</code> Having UX expertise on the team is a must</p>
 <h2 id="macro-architecture">Macro Architecture</h2>
 <p>Spliting for serivce is macro Architecture.</p>
 <p>Macro Architectural Building Blocks are</p>
@@ -516,49 +552,54 @@ Refer</li>
 <li>Communication (Distributed hash tables,Gossip architectures,Tree of responsibility patterns)</li>
 </ul>
 <h2 id="macro-architecture-coordination">Macro Architecture: Coordination</h2>
-<h4 id="drive-flow-from-the-client">Drive flow from the client</h4>
-<p>Call All API calls to service from client</p>
-<h4 id="another-service">Another service</h4>
-<p>Have seprate service which will cordinate with other and return the result.</p>
-<h4 id="implement-choreography">Implement Choreography</h4>
-<p>Event driven system, where each participant in the process listens to different events and carries out their individual part. Each action generates asynchronous events, which trigger participants downstream</p>
-<p>Refer</p>
-<ol>
-<li><a href="https://www.thoughtworks.com/insights/blog/scaling-microservices-event-stream">https://www.thoughtworks.com/insights/blog/scaling-microservices-event-stream</a></li>
-</ol>
-<h2 id="macro-architecture-preserving-consistency-of-state">Macro Architecture: Preserving Consistency of State</h2>
-<h4 id="two-phase-commit-protocol">Two-phase commit protocol</h4>
-<h4 id="approaches-to-going-beyond-transactions">Approaches to going beyond transactions</h4>
-<ol>
-<li>
-<p>Redefining the Problem to Require Lesser Guarantees</p>
+<h4 id="drive-flow-from-the-client">Drive Flow from the Client</h4>
 <ul>
-<li>Figure out a way to resolve complex situations.</li>
-<li>Provide a button for users to forcefully refresh the page if they can tell that it is outdated</li>
+<li>Call all API calls to the service from the client.</li>
+</ul>
+<h4 id="another-service">Another Service</h4>
+<ul>
+<li>Have a separate service that coordinates with others and returns the result.</li>
+</ul>
+<h4 id="implement-choreography">Implement Choreography</h4>
+<ul>
+<li>Event-driven system where each participant listens to different events and carries out their individual part. Each action generates asynchronous events, triggering participants downstream.</li>
+</ul>
+<p>Refer:</p>
+<ol>
+<li><a href="https://www.thoughtworks.com/insights/blog/scaling-microservices-event-stream">Scaling Microservices with Event Streams</a></li>
+</ol>
+<hr>
+<h2 id="macro-architecture-preserving-consistency-of-state">Macro Architecture: Preserving Consistency of State</h2>
+<h4 id="two-phase-commit-protocol">Two-Phase Commit Protocol</h4>
+<h4 id="approaches-to-going-beyond-transactions">Approaches to Going Beyond Transactions</h4>
+<ol>
+<li><strong>Redefining the Problem to Require Lesser Guarantees</strong>
+<ul>
+<li>Resolve complex situations with reduced guarantees.</li>
+<li>Provide a button for users to forcefully refresh the page if it appears outdated.</li>
 </ul>
 </li>
-<li>
-<p>Using Compensations</p>
+<li><strong>Using Compensations</strong>
 <ul>
 <li>Starbucks <code>Does Not Use Two-Phase Commit</code></li>
-<li>The key idea is that if an action fails, you can compensate.</li>
-<li>Use compenstations if below 3 have statisfy
+<li>The key idea is to compensate if an action fails.</li>
+<li>Use compensations if the following are satisfied:
 <ol>
 <li>Each individual operation can be verified.</li>
-<li>The operation is idempotent. If we repeat the operation with the same data, no additional side effects occur.</li>
-<li>We can handle the failure or take compensative actions</li>
+<li>The operation is idempotent (repeating it with the same data has no additional side effects).</li>
+<li>Failure can be handled or compensatory actions can be taken.</li>
 </ol>
 </li>
 </ul>
 </li>
 </ol>
-<p>Refer</p>
+<p><strong>Resources</strong></p>
 <ol>
-<li><a href="https://en.wikipedia.org/wiki/Consistency_model#Client-centric_consistency_models">https://en.wikipedia.org/wiki/Consistency_model#Client-centric_consistency_models</a></li>
-<li><a href="http://www.allthingsdistributed.com/2007/12/eventually_consistent.html">http://www.allthingsdistributed.com/2007/12/eventually_consistent.html</a></li>
-<li><a href="https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html">https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html</a> [Must need to check and he suggest one book need to check]</li>
-<li>[Life Beyond Distributed Transactions: An Apostate’s Opinion] <a href="https://queue.acm.org/detail.cfm?id=3025012">https://queue.acm.org/detail.cfm?id=3025012</a></li>
-<li><a href="https://etcd.io/">https://etcd.io/</a>  []</li>
+<li><a href="https://en.wikipedia.org/wiki/Consistency_model#Client-centric_consistency_models">Consistency Models</a></li>
+<li><a href="http://www.allthingsdistributed.com/2007/12/eventually_consistent.html">Eventually Consistent Systems</a></li>
+<li><a href="https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html">Starbucks and Two-Phase Commit</a></li>
+<li><a href="https://queue.acm.org/detail.cfm?id=3025012">Life Beyond Distributed Transactions: An Apostate’s Opinion</a></li>
+<li><a href="https://etcd.io/">etcd</a></li>
 </ol>
 <h2 id="macro-architecture-handling-security">Macro Architecture: Handling Security</h2>
 <h4 id="interaction-security">Interaction Security</h4>
@@ -575,49 +616,46 @@ Refer</li>
 <li>Caching</li>
 <li>Async Processing</li>
 </ol>
-<p>Refer</p>
+<p><strong>Resources</strong></p>
 <ol>
 <li>Scalability! But at What COST? (<a href="https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf">https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf</a>)</li>
 </ol>
 <h2 id="macro-architecture-microservices-considerations">Macro Architecture: Microservices Considerations</h2>
-<p>Microservices let us split the structure into many loosely connected parts that can be developed, released, improved, and managed independently.</p>
-<p>The decisions to make before going microservice</p>
+<p>Microservices allow us to split the structure into many loosely connected parts that can be developed, released, improved, and managed independently.</p>
+<h3 id="decisions-to-make-before-adopting-microservices">Decisions to Make Before Adopting Microservices</h3>
 <ol>
-<li>
-<p>Handling Shared Database(s)</p>
+<li><strong>Handling Shared Database(s)</strong>
 <ul>
-<li>Each microservice should have its own database, and two microservices must not share data via the same database. This rule removes a common cause that leads to tight coupling between services</li>
-<li>If we want to share then make sure only one Service do update to avoid data reduntency</li>
-<li>Use transaction if we want both service to update</li>
+<li>Each microservice should have its own database; avoid sharing databases to reduce tight coupling between services.</li>
+<li>If sharing is necessary, ensure only one service performs updates to prevent data redundancy.</li>
+<li>Use transactions if both services need to perform updates.</li>
 </ul>
 </li>
-<li>
-<p>Securing Microservices</p>
-</li>
-<li>
-<p>Coordinating Microservices</p>
-</li>
-<li>
-<p>Avoiding Dependency Hell</p>
+<li><strong>Securing Microservices</strong></li>
+<li><strong>Coordinating Microservices</strong></li>
+<li><strong>Avoiding Dependency Hell</strong>
 <ul>
-<li>One service depolyment not to break other service if we have dependency use <strong>Backward Compatibility</strong> or <strong>Forward Compatibility</strong></li>
-<li><strong>Backward Compatibility:</strong> If we have updated the API to v2 which will accpet query params but make sure that API support without query params that&rsquo;s how before it work&rsquo;s.</li>
-<li><strong>Forward Compatibility:</strong> If V2 not working try V1 (it just temporary solution)</li>
-<li>Avoid dependency hell by <code>Be conservative in what you do, be liberal in what you accept from others</code></li>
+<li>Ensure that one service deployment does not break others. Use <strong>Backward Compatibility</strong> or <strong>Forward Compatibility</strong> to manage dependencies.
+<ul>
+<li><strong>Backward Compatibility</strong>: If updating the API to v2, it should still support the previous version’s functionality without query params.</li>
+<li><strong>Forward Compatibility</strong>: If V2 fails, fall back to V1 as a temporary solution.</li>
+</ul>
+</li>
+<li>Avoid dependency hell by being conservative in what you do and liberal in what you accept from others.</li>
 </ul>
 </li>
 </ol>
-<p>Refer</p>
+<p><strong>Resources</strong></p>
 <ol>
-<li><a href="http://martinfowler.com/articles/microservices.html">http://martinfowler.com/articles/microservices.html</a></li>
-<li><a href="http://martinfowler.com/articles/microservice-trade-offs.html">http://martinfowler.com/articles/microservice-trade-offs.html</a></li>
-<li><a href="http://martinfowler.com/bliki/MicroservicePremium.html">http://martinfowler.com/bliki/MicroservicePremium.html</a></li>
-<li><a href="https://cramonblog.wordpress.com/2014/02/25/micro-services-its-not-only-the-size-that-matters-its-also-how-you-use-them-part-1/">https://cramonblog.wordpress.com/2014/02/25/micro-services-its-not-only-the-size-that-matters-its-also-how-you-use-them-part-1/</a></li>
-<li><a href="https://www.infoq.com/news/2015/06/taming-dependency-hell/">https://www.infoq.com/news/2015/06/taming-dependency-hell/</a></li>
-<li><a href="https://news.ycombinator.com/item?id=9705098">https://news.ycombinator.com/item?id=9705098</a></li>
+<li><a href="http://martinfowler.com/articles/microservices.html">Microservices</a></li>
+<li><a href="http://martinfowler.com/articles/microservice-trade-offs.html">Microservice Trade-Offs</a></li>
+<li><a href="http://martinfowler.com/bliki/MicroservicePremium.html">Microservice Premium</a></li>
+<li><a href="https://cramonblog.wordpress.com/2014/02/25/micro-services-its-not-only-the-size-that-matters-its-also-how-you-use-them-part-1/">Microservices: Size and Use</a></li>
+<li><a href="https://www.infoq.com/news/2015/06/taming-dependency-hell/">Taming Dependency Hell</a></li>
+<li><a href="https://news.ycombinator.com/item?id=9705098">Hacker News Discussion</a></li>
 </ol>
 <h2 id="server-architectures">Server Architectures</h2>
-<p>some guidelines for writing efficient and simple services</p>
+<p>Some guidelines for writing efficient and simple services</p>
 <ul>
 <li>Do not reinvent the wheel</li>
 <li>Use pools to reuse complex objects (need to see how moongose have pool of connections what they doing)</li>
@@ -636,14 +674,14 @@ Refer</li>
 <li>Balanced applications (CPU + Memory + I/O)</li>
 <li>I/O-bound applications (I/O &gt; CPU)</li>
 </ul>
-<p>Refer</p>
-<ol>
-<li><a href="https://stackoverflow.com/questions/3570610/what-is-seda-staged-event-driven-architecture">https://stackoverflow.com/questions/3570610/what-is-seda-staged-event-driven-architecture</a>.</li>
-<li><a href="https://berb.github.io/diploma-thesis/">https://berb.github.io/diploma-thesis/</a></li>
-<li><a href="https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html">https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html</a>.</li>
-<li><a href="https://mechanical-sympathy.blogspot.com/2011/07/memory-barriersfences.html">https://mechanical-sympathy.blogspot.com/2011/07/memory-barriersfences.html</a>.</li>
-<li><a href="https://martinfowler.com/bliki/CQRS.html">https://martinfowler.com/bliki/CQRS.html</a></li>
-</ol>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/3570610/what-is-seda-staged-event-driven-architecture">What is SEDA (Staged Event-Driven Architecture)?</a></li>
+<li><a href="https://berb.github.io/diploma-thesis/">Diploma Thesis by Berb</a></li>
+<li><a href="https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html">Single Writer Principle</a></li>
+<li><a href="https://mechanical-sympathy.blogspot.com/2011/07/memory-barriersfences.html">Memory Barriers/Fences</a></li>
+<li><a href="https://martinfowler.com/bliki/CQRS.html">CQRS (Command Query Responsibility Segregation)</a></li>
+</ul>
 <h2 id="building-stable-systems">Building Stable Systems</h2>
 <p><strong>scenarios that affect stability:</strong></p>
 <ul>
@@ -678,10 +716,11 @@ Refer</li>
 <li>Communicating the Design</li>
 <li>Growth hacking funnel (find where we stuck does in user side or in development are we not pusing not much feature etc..)</li>
 </ul>
-<p>Refer</p>
+<p><strong>Resources</strong></p>
 <ul>
-<li><a href="https://blog.thinkst.com/2022/08/always-be-hacking.html">https://blog.thinkst.com/2022/08/always-be-hacking.html</a>.</li>
+<li><a href="https://blog.thinkst.com/2022/08/always-be-hacking.html">Always Be Hacking</a></li>
 </ul>
+<hr>
 <p>Book</p>
 <ul>
 <li>The Coaching Habit: Say Less, Ask More &amp; Change the Way You Lead Forever</li>

@@ -6,7 +6,29 @@
     <description>Recent content in Hacking on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Jul 2024 07:26:19 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Aug 2024 09:45:17 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/tags/hacking/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C-razy Facebook Hack: How I Pranked My Friend</title>
+      <link>https://programmerraja.github.io/blog/post/2024/c-razy-facebook-hack-how-i-pranked-my-friend/</link>
+      <pubDate>Sun, 18 Aug 2024 09:45:17 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/c-razy-facebook-hack-how-i-pranked-my-friend/</guid>
+      
+      <description>&lt;p&gt;It was my first year of college, and we were all working in the Python lab. My friends, who didn’t really know much about computers, seemed like the perfect targets for a harmless prank. They were excited but didn’t have a clue about the technical stuff I was up to. I saw an opportunity to have a little fun, knowing they’d fall for it because they didn’t know much about programming.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>How I Hacked a Company’s Recruitment Test: The Unexpected Tech Adventure of My College Life</title>
+      <link>https://programmerraja.github.io/blog/post/2024/how-i-hacked-a-company-recruitment-test-the-unexpected-tech-adventure-of-my-college-life/</link>
+      <pubDate>Sun, 04 Aug 2024 10:01:36 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/how-i-hacked-a-company-recruitment-test-the-unexpected-tech-adventure-of-my-college-life/</guid>
+      
+      <description>&lt;p&gt;Ah, college life! The thrill of final year comes with the excitement of job placements. We all know the drill: companies come to campus, conduct aptitude tests, coding challenges, and sometimes, we get to showcase our skills in a high-stakes interview. But what if I told you that one of those tests turned into an unexpected adventure involving a bit of hacking? Buckle up as I share how I turned a routine exam into an impromptu tech experiment—and how it all unfolded.&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Hunting the Hacker: A Deep Dive into Courier Fraud</title>
       <link>https://programmerraja.github.io/blog/post/2024/hunting-the-hacker-a-deep-dive-into-courier-fraud/</link>
@@ -14,8 +36,9 @@
       
       <guid>https://programmerraja.github.io/blog/post/2024/hunting-the-hacker-a-deep-dive-into-courier-fraud/</guid>
       
-      <description>In today&amp;rsquo;s digital age, cyber scams are becoming increasingly sophisticated. Recently, one of our colleagues received a suspicious call that led to an attempted scam. This blog post details our investigation into the scam, revealing the techniques used by the fraudsters and how we managed to thwart their efforts.
-The Call It all began when one of our colleagues received a phone call from someone claiming to be from a courier company.</description>
+      <description>&lt;p&gt;In today&amp;rsquo;s digital age, cyber scams are becoming increasingly sophisticated. Recently, one of our colleagues received a suspicious call that led to an attempted scam. This blog post details our investigation into the scam, revealing the techniques used by the fraudsters and how we managed to thwart their efforts.&lt;/p&gt;
+&lt;h3 id=&#34;the-call&#34;&gt;The Call&lt;/h3&gt;
+&lt;p&gt;It all began when one of our colleagues received a phone call from someone claiming to be from a courier company. They were told that our college had an courier to be delivered, but to complete the delivery, a payment of ₹6 was required. The caller insisted on sending an APK file via WhatsApp, which needed to be installed to make the payment.&lt;/p&gt;</description>
       
     </item>
     
@@ -26,8 +49,10 @@ The Call It all began when one of our colleagues received a phone call from some
       
       <guid>https://programmerraja.github.io/blog/post/2024/a-journey-into-unseen-threats-on-our-vm/</guid>
       
-      <description>As the sun set on a typical Saturday evening, I found myself engrossed in a blog titled &amp;ldquo;Visualizing Malicious IP Addresses.&amp;rdquo; The author shared clever ways to detect unauthorized attempts to access virtual machines via SSH, using commands like:
-$ journalctl --since &amp;#34;-1d&amp;#34; -u sshd | grep &amp;#34;Failed password&amp;#34; | wc -l $ journalctl --since &amp;#34;-1d&amp;#34; -u sshd | grep &amp;#34;Failed publickey&amp;#34; | wc -l Curious, I decided to try these commands on our own VM.</description>
+      <description>&lt;p&gt;As the sun set on a typical Saturday evening, I found myself engrossed in a blog titled &amp;ldquo;&lt;a href=&#34;https://romeov.github.io/malicious_ip_addresses/malicious_ip_analysis.html&#34;&gt;Visualizing Malicious IP Addresses.&lt;/a&gt;&amp;rdquo; The author shared clever ways to detect unauthorized attempts to access virtual machines via SSH, using commands like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ journalctl --since &lt;span class=&#34;s2&#34;&gt;&amp;#34;-1d&amp;#34;&lt;/span&gt; -u sshd &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep &lt;span class=&#34;s2&#34;&gt;&amp;#34;Failed password&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; wc -l
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ journalctl --since &lt;span class=&#34;s2&#34;&gt;&amp;#34;-1d&amp;#34;&lt;/span&gt; -u sshd &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep &lt;span class=&#34;s2&#34;&gt;&amp;#34;Failed publickey&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; wc -l
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
       
     </item>
     

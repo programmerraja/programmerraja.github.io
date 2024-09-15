@@ -14,8 +14,9 @@
       
       <guid>https://programmerraja.github.io/blog/post/2024/sherlock-holmes-the-great-lambda-mystery/</guid>
       
-      <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I&amp;rsquo;ll tackle the problem with wit and precision. Let&amp;rsquo;s dive in and crack these cases together!
-The Early Morning Disturbance It was 4 o&amp;rsquo;clock in the morning when I received an urgent call from a colleague. Our Lambda function had suddenly stopped working.</description>
+      <description>&lt;p&gt;Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I&amp;rsquo;ll tackle the problem with wit and precision. Let&amp;rsquo;s dive in and crack these cases together!&lt;/p&gt;
+&lt;h4 id=&#34;the-early-morning-disturbance&#34;&gt;The Early Morning Disturbance&lt;/h4&gt;
+&lt;p&gt;It was 4 o&amp;rsquo;clock in the morning when I received an urgent call from a colleague. Our Lambda function had suddenly stopped working. Groggy but alert, I sprang into action, ready to tackle the issue head-on. The error logs pointed me to a peculiar message: &lt;code&gt;npm ERR! rofs EROFS: read-only file system, mkdir &#39;/home/sbx_user1051&#39;&lt;/code&gt;.&lt;/p&gt;</description>
       
     </item>
     

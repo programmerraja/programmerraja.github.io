@@ -14,9 +14,24 @@
       
       <guid>https://programmerraja.github.io/blog/notes/2024/android-internal/</guid>
       
-      <description>File system Android devices typically have a partitioned storage system, where the storage is divided into different partitions, each serving a specific purpose.
-/system: This directory contains the Android operating system and system applications. It is read-only to ensure the integrity of the system. Modifying files in this directory could potentially harm the device.
-/app: prebundled apps from Google, as well as any vendor or carrier-installed apps /bin: various daemons, as well as shell commands contain bootanimation,dalvikvm, adb, etc.</description>
+      <description>&lt;h2 id=&#34;file-system&#34;&gt;File system&lt;/h2&gt;
+&lt;p&gt;Android devices typically have a partitioned storage system, where the storage is divided into different partitions, each serving a specific purpose.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;/system:&lt;/strong&gt; This directory contains the Android operating system and system applications. It is read-only to ensure the integrity of the system. Modifying files in this directory could potentially harm the device.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;/app:&lt;/strong&gt; prebundled apps from Google, as well as any vendor or carrier-installed apps&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/bin:&lt;/strong&gt; various daemons, as well as shell commands contain&lt;code&gt; bootanimation,dalvikvm, adb,&lt;/code&gt; etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/etc:&lt;/strong&gt; Miscellaneous configuration files&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/framework:&lt;/strong&gt; contained in .jar files, with their executable dex files optimized alongside them in .odex .&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/lib:&lt;/strong&gt; native ELF shared object (.so) files. This directory serves the same role as /lib in vanilla Linux.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/media:&lt;/strong&gt; Alarm, notification, ringtone and UI-effect audio files in .ogg format,and the system boot animation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/usr:&lt;/strong&gt; Support files, such as unicode mappings (icudt511.dat), key layout files for keyboards and devices, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/vendor:&lt;/strong&gt; Vendor specific files&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;/data:&lt;/strong&gt; This directory stores user data, settings, and application data. It includes subdirectories for individual apps, each identified by its package name. User-generated data, app preferences, and other user-specific information are stored here.&lt;/p&gt;</description>
       
     </item>
     

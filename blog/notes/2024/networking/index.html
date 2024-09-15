@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.133.0">
+<meta name="generator" content="Hugo 0.134.1">
 
     
 
@@ -308,42 +308,42 @@ stroke-linejoin="round" class="feather feather-home">
 <p>Is the protocol used to communicate with server. it underling using TCP protocol</p>
 <h4 id="http-message-format">HTTP Message format</h4>
 <table>
-<thead>
-<tr>
-<th><strong>Start Line or Status Line</strong></th>
-<th>GET /example HTTP/1.1</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Headers</strong></td>
-<td>General Headers (e.g., Cache-Control)</td>
-</tr>
-<tr>
-<td></td>
-<td>Request Headers (e.g., User-Agent)</td>
-</tr>
-<tr>
-<td></td>
-<td>Response Headers (e.g., Content-Type)</td>
-</tr>
-<tr>
-<td></td>
-<td>Entity Headers (e.g., Content-Length)</td>
-</tr>
-<tr>
-<td><strong>(Empty line)</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>Message Body</strong></td>
-<td>Request Body (for Request) / Response Body (for Response)</td>
-</tr>
-<tr>
-<td>message consists of a start-line followed by a CRLF(carriage-return and linefeed) and a sequence of octets in a format similar to the Internet Message Format</td>
-<td></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>Start Line or Status Line</strong></th>
+          <th style="text-align: left">GET /example HTTP/1.1</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Headers</strong></td>
+          <td style="text-align: left">General Headers (e.g., Cache-Control)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Request Headers (e.g., User-Agent)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Response Headers (e.g., Content-Type)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Entity Headers (e.g., Content-Length)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>(Empty line)</strong></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Message Body</strong></td>
+          <td style="text-align: left">Request Body (for Request) / Response Body (for Response)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">message consists of a start-line followed by a CRLF(carriage-return and linefeed) and a sequence of octets in a format similar to the Internet Message Format</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
 </table>
 <p>example</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">
@@ -391,40 +391,40 @@ stroke-linejoin="round" class="feather feather-home">
 </ol>
 <h4 id="http-status-code-range">HTTP Status code range</h4>
 <table>
-<thead>
-<tr>
-<th>Status Code Range</th>
-<th>Category</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1xx</td>
-<td>Informational</td>
-<td>Request received, continuing process</td>
-</tr>
-<tr>
-<td>2xx</td>
-<td>Successful</td>
-<td>The request was successfully received and processed</td>
-</tr>
-<tr>
-<td>3xx</td>
-<td>Redirection</td>
-<td>Further action needs to be taken to complete the request</td>
-</tr>
-<tr>
-<td>4xx</td>
-<td>Client Error</td>
-<td>The request contains bad syntax or cannot be fulfilled by the server</td>
-</tr>
-<tr>
-<td>5xx</td>
-<td>Server Error</td>
-<td>The server failed to fulfill a valid request</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Status Code Range</th>
+          <th style="text-align: left">Category</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">1xx</td>
+          <td style="text-align: left">Informational</td>
+          <td style="text-align: left">Request received, continuing process</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2xx</td>
+          <td style="text-align: left">Successful</td>
+          <td style="text-align: left">The request was successfully received and processed</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">3xx</td>
+          <td style="text-align: left">Redirection</td>
+          <td style="text-align: left">Further action needs to be taken to complete the request</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">4xx</td>
+          <td style="text-align: left">Client Error</td>
+          <td style="text-align: left">The request contains bad syntax or cannot be fulfilled by the server</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5xx</td>
+          <td style="text-align: left">Server Error</td>
+          <td style="text-align: left">The server failed to fulfill a valid request</td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="http-cache">HTTP Cache</h4>
 <p>HTTP caching helps reduce latency, minimize network usage, and improve the overall user experience by avoiding unnecessary resource re-fetching.</p>
