@@ -34,7 +34,8 @@
   - bytes #[]
   - bytearray
   - memoryview
-&lt;/code&gt;&lt;/pr</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;mutable-and-imutable&#34;&gt;Mutable and Imutable&lt;/h2&gt;
+&lt;p&gt;Mutable data types are those whose contents can be changed after creation, while immutable data types cannot be changed once they are created.&lt;/p&gt;</description>
       
     </item>
     

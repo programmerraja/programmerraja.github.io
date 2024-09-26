@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.134.1">
+<meta name="generator" content="Hugo 0.134.3">
 
     
 
@@ -157,7 +157,11 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#singature" aria-label="Singature">Singature</a></li>
                 <li>
-                    <a href="#modules-abstracting-prompting-techniques" aria-label="Modules: Abstracting prompting techniques">Modules: Abstracting prompting techniques</a></li></ul>
+                    <a href="#modules-abstracting-prompting-techniques" aria-label="Modules: Abstracting prompting techniques">Modules: Abstracting prompting techniques</a></li>
+                <li>
+                    <a href="#optimizer" aria-label="Optimizer">Optimizer</a></li>
+                <li>
+                    <a href="#internal-of-dspy" aria-label="Internal of DSPY">Internal of DSPY</a></li></ul>
                 </li>
                 <li>
                     <a href="#zenbase" aria-label="Zenbase">Zenbase</a></li>
@@ -168,11 +172,21 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#chain-of-thought-cot" aria-label="Chain-of-thought (CoT)">Chain-of-thought (CoT)</a></li>
                 <li>
+                    <a href="#auto-cot" aria-label="Auto COT">Auto COT</a></li>
+                <li>
                     <a href="#self-consistency-with-cot" aria-label="Self-consistency with (CoT)">Self-consistency with (CoT)</a></li>
+                <li>
+                    <a href="#react" aria-label="ReAct">ReAct</a></li>
                 <li>
                     <a href="#tree-of-thoughts" aria-label="Tree of Thoughts">Tree of Thoughts</a></li>
                 <li>
+                    <a href="#re-reading-improves-reasoning-in-large-language-models" aria-label="Re-Reading Improves Reasoning in Large Language Models">Re-Reading Improves Reasoning in Large Language Models</a></li>
+                <li>
                     <a href="#summarization" aria-label="Summarization">Summarization</a></li>
+                <li>
+                    <a href="#chatml" aria-label="ChatML">ChatML</a></li>
+                <li>
+                    <a href="#claude" aria-label="Claude">Claude</a></li>
                 <li>
                     <a href="#prompt-hacking" aria-label="Prompt Hacking">Prompt Hacking</a><ul>
                         
@@ -182,7 +196,19 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#my-thoughts" aria-label="My Thoughts">My Thoughts</a></li>
                 <li>
-                    <a href="#resourceses" aria-label="Resourceses">Resourceses</a>
+                    <a href="#frugalgpt" aria-label="FrugalGPT">FrugalGPT</a><ul>
+                        
+                <li>
+                    <a href="#prompt-optimization" aria-label="Prompt Optimization">Prompt Optimization</a></li>
+                <li>
+                    <a href="#llm-approximation" aria-label=" LLM Approximation"> LLM Approximation</a></li>
+                <li>
+                    <a href="#llm-cascade" aria-label="LLM Cascade">LLM Cascade</a></li></ul>
+                </li>
+                <li>
+                    <a href="#resources" aria-label="Resources">Resources</a></li>
+                <li>
+                    <a href="#tools" aria-label="Tools">Tools</a>
                 </li>
             </ul>
         </div>
@@ -318,7 +344,7 @@ check <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engin
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">turbo</span><span class="o">.</span><span class="n">inspect_history</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#&#34;Prints the last n prompts and their completions</span>
 </span></span></code></pre></div><p>below data will send to LLM and context,question and answer to get by using <code>pydantic</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Answer questions with short factoid answers. #-&gt;  using signature doc string
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Answer questions with short factoid answers. 
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">---
 </span></span><span class="line"><span class="cl">
@@ -412,7 +438,21 @@ check <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engin
 </span></span><span class="line"><span class="cl">	  <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">(</span><span class="n">question</span><span class="p">)</span><span class="o">.</span><span class="n">passages</span> 
 </span></span><span class="line"><span class="cl">	  <span class="n">prediction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_answer</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">question</span><span class="o">=</span><span class="n">question</span><span class="p">)</span> 
 </span></span><span class="line"><span class="cl">	  <span class="k">return</span> <span class="n">dspy</span><span class="o">.</span><span class="n">Prediction</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="n">context</span><span class="p">,</span> <span class="n">answer</span><span class="o">=</span><span class="n">prediction</span><span class="o">.</span><span class="n">answer</span><span class="p">)</span>
-</span></span></code></pre></div><h2 id="zenbase">Zenbase</h2>
+</span></span></code></pre></div><h3 id="optimizer">Optimizer</h3>
+<p>A <strong>DSPy optimizer</strong> is an algorithm that can tune the parameters of a DSPy program (i.e., the prompts and/or the LM weights) to maximize the metrics you specify, like accuracy.</p>
+<p>DSPy programs consist of multiple calls to LMs, stacked together as [DSPy modules]. Each DSPy module has internal parameters of three kinds: (1) the LM weights, (2) the instructions, and (3) demonstrations of the input/output behavior.</p>
+<p>Given a metric, DSPy can optimize all of these three with multi-stage optimization algorithms. These can combine gradient descent (for LM weights) and discrete LM-driven optimization, i.e. for crafting/updating instructions and for creating/validating demonstrations. DSPy Demonstrations are like few-shot examples, but they&rsquo;re far more powerful. They can be created from scratch, given your program, and their creation and selection can be optimized in many effective ways.</p>
+<p>Automatic Few-Shot Learning</p>
+<ul>
+<li><strong><code>LabeledFewShot</code></strong></li>
+<li><strong><code>BootstrapFewShot</code></strong></li>
+<li><strong><code>BootstrapFewShotWithRandomSearch</code></strong></li>
+<li><strong><code>BootstrapFewShotWithOptuna</code></strong></li>
+<li><strong><code>KNNFewShot</code></strong></li>
+</ul>
+<h3 id="internal-of-dspy">Internal of DSPY</h3>
+<p>Dspy uses pydantic [[Python#Pydantic]]  for <code>dspy.InputField</code> and other things</p>
+<h2 id="zenbase">Zenbase</h2>
 <p>Developer tools and cloud infrastructure for perfectionists using LLMs. <a href="https://zenbase.ai">Zenbase</a> takes care of the hassle of prompt engineering and model selection.</p>
 <h2 id="evallm">EvalLM</h2>
 <p>Interactive Evaluation of Large Language Model Prompts on User-Defined Criteria</p>
@@ -430,12 +470,97 @@ correct yourself inside &lt;reflection&gt; tags.
 </ul>
 <h2 id="chain-of-thought-cot">Chain-of-thought (CoT)</h2>
 <p> By leveraging in-context learning abilities, CoT prompting encourages a language model to more effectively solve complex problems by outputting along with its solution a corresponding “chain of thought” (i.e., a step-by-step explanation for how the problem was solved). The model can be prompted to generate a chain of thought via a few-shot learning approach that provides several chain of thought exemplars; see above. The CoT technique is most effective when the map from input to output is highly non-trivial; e.g., math or multi-step reasoning problems.</p>
+<p>Note: use COT for mathematical and reasoning where the perform good check out <a href="https://arxiv.org/pdf/2409.12183">here</a> for more</p>
+<h2 id="auto-cot">Auto COT</h2>
+<p>Auto-CoT paradigm to automatically construct demonstrations with questions and reasoning chains. Specifically, Auto-CoT leverages LLMs with the “Let’s think step by step” prompt to generate reasoning chains for demonstrations one by one, and sending that COT with question to LLM as few shot prompting</p>
 <h2 id="self-consistency-with-cot">Self-consistency with (CoT)</h2>
-<h2 id="tree-of-thoughts">Tree of Thoughts</h2>
+<h2 id="react">ReAct</h2>
+<p>ReAct is a general paradigm that combines reasoning and acting with LLMs. ReAct prompts LLMs to generate verbal reasoning traces and actions for a task.</p>
+<p>it to be better than chain-of-thought prompting</p>
+<pre tabindex="0"><code>- Thought 1: I need to search for “Colorado orogeny,” identify the area covered by the eastern sector, and then determine the elevation range of that area.
+- 
+- Action 1: Search [Colorado orogeny]
+- Observation 1: The Colorado orogeny refers to a phase of mountain formation in Colorado and nearby regions.
+- 
+- Thought 2: The eastern sector isn’t mentioned here. I should look up “eastern sector.”
+- Action 2: Lookup [eastern sector]
+- Observation 2: The eastern sector extends into the High Plains and is known as the Central Plains orogeny.
+
+- Thought 3: The eastern sector of the Colorado orogeny reaches into the High Plains. I should search for the High Plains and find its elevation range.
+- Action 3: Search [High Plains]
+- Observation 3: High Plains refers to one of two distinct land regions.
+
+- Thought 4: I should search specifically for “High Plains (United States).”
+
+- Action 4: Search [High Plains (United States)]
+- Observation 4: The High Plains are a part of the Great Plains, with elevations rising from around 1,800 to 7,000 ft (550 to 2,130 m).
+
+- Thought 5: The elevation range of the High Plains is 1,800 to 7,000 ft, so that’s the answer.
+- Action 5: Finish [1,800 to 7,000 ft]
+</code></pre><h2 id="tree-of-thoughts">Tree of Thoughts</h2>
 <p>Tree of Thoughts is an innovative approach to AI reasoning that expands upon the Chain of Thought (CoT) methodology. While CoT prompts an AI to explain its thinking in a linear fashion, ToT takes this a step further by encouraging the AI to explore multiple paths of reasoning simultaneously, much like a tree branching out in various directions.</p>
+<p>check out implementation <a href="https://github.com/kyegomez/tree-of-thoughts">here</a>
+Prompt</p>
+<pre tabindex="0"><code>
+Imagine three different experts are answering this question. All experts will write down 1 step of their thinking, then share it with the group. Then all experts will go on to the next step, etc. If any expert realises they&#39;re wrong at any point then they leave. The question is...
+
+
+
+################ 2nd ################
+
+Simulate three brilliant, logical experts collaboratively answering a question. Each one verbosely explains their thought process in real-time, considering the prior explanations of others and openly acknowledging mistakes. At each step, whenever possible, each expert refines and builds upon the thoughts of others, acknowledging their contributions. They continue until there is a definitive answer to the question. For clarity, your entire response should be in a markdown table. The question is...
+
+
+################ ################
+
+Imagine three highly intelligent experts working together to answer a question. They will follow a tree of thoughts approach, where each expert shares their thought process step by step. They will consider the input from others, refine their thoughts, and build upon the group&#39;s collective knowledge. If an expert realizes their thought is incorrect, they will acknowledge it and withdraw from the discussion. Continue this process until a definitive answer is reached. Present the entire response in a markdown table. The question is...
+
+
+################ 2nd ################
+
+Three experts with exceptional logical thinking skills are collaboratively answering a question using a tree of thoughts method. Each expert will share their thought process in detail, taking into account the previous thoughts of others and admitting any errors. They will iteratively refine and expand upon each other&#39;s ideas, giving credit where it&#39;s due. The process continues until a conclusive answer is found. Organize the entire response in a markdown table format. The question is...
+################ 2nd ################
+
+
+Envision a group of three experts working in unison to tackle a question by employing a tree of thoughts strategy. Each expert will thoroughly explain their line of thinking at every step, while also considering the insights provided by their peers. They will openly recognize any mistakes and build upon the group&#39;s shared understanding. This iterative process will continue until a definitive solution is reached. Structure the entire response as a markdown table. The question is...
+
+
+################ 2nd ################
+
+&#34;Three experts with exceptional logical thinking skills are collaboratively answering a question using the tree of thoughts method. Each expert will share their thought process in detail, taking into account the previous thoughts of others and admitting any errors. They will iteratively refine and expand upon each other&#39;s ideas, giving credit where it&#39;s due. The process continues until a conclusive answer is found. Organize the entire response in a markdown table format. The task is:
+</code></pre><h2 id="re-reading-improves-reasoning-in-large-language-models">Re-Reading Improves Reasoning in Large Language Models</h2>
+<p>The core concept of the paper &ldquo;Re-Reading Improves Reasoning in Large Language Models&rdquo; is that repeating the input question can enhance the reasoning capabilities of Large Language Models (LLMs),</p>
+<p>Unlike many thought-eliciting prompting methods (e.g., Chain-of-Thought) that focus on structuring the output, RE2 focuses on improving how the LLM processes the input This is analogous to how understanding the question is paramount to solving a problem for humans.</p>
+<p>Re-Reading + COT</p>
+<pre tabindex="0"><code>Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each can has 3 tennis balls. How many tennis balls does he have now? 
+
+Read the question again: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each can has 3 tennis balls. How many tennis balls does he have now? A:
+
+Let’s think step by step.
+</code></pre><ul>
+<li>potentially improve the reasoning performance of Large Language Models (LLMs).</li>
+</ul>
 <h2 id="summarization">Summarization</h2>
 <ul>
 <li><a href="https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb">https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb</a></li>
+</ul>
+<h2 id="chatml">ChatML</h2>
+<p>ChatML (Chat Markup Language) is a lightweight markup format used by OpenAI to structure conversations between users and models, especially in chatbot-like environments. It is designed to define roles and organize the flow of conversation between different participants, such as system instructions, user inputs, and model responses.</p>
+<p>In a typical ChatML format, the message blocks are defined by tags such as:</p>
+<ul>
+<li><code>&lt;|system|&gt;</code>: Instructions or setup given to the model (usually hidden from the user).</li>
+<li><code>&lt;|user|&gt;</code>: Represents what the user says.</li>
+<li><code>&lt;|assistant|&gt;</code>: Represents the assistant’s responses.</li>
+<li><code>&lt;im_start|&gt;</code> : the start of an interactive mode where messages will alternate between participants. It’s generally used to transition into the back-and-forth of a conversation.</li>
+<li><code>&lt;im_end|&gt;</code></li>
+</ul>
+<h2 id="claude">Claude</h2>
+<p>Some takeaways you can use for writing your long-context Q&amp;A prompts:</p>
+<ul>
+<li>Use many examples and the scratchpad for best performance on both context lengths.</li>
+<li>Pulling relevant quotes into the scratchpad is helpful in all head-to-head comparisons. It comes at a small cost to latency, but improves accuracy. In Claude Instant’s case, the latency is already so low that this shouldn’t be a concern.</li>
+<li>Contextual examples help on both 70K and 95K, and more examples is better.</li>
+<li>Generic examples on general/external knowledge do not seem to help performance.</li>
 </ul>
 <pre tabindex="0"><code>I need to write a blog post on the topic of [integrating enterprise data with an LLM] for my AI solutions company, AI Disruptor.
 
@@ -449,11 +574,73 @@ Begin in &lt;scratchpad&gt; tags and write out and brainstorm in a couple paragr
 <li>Provide important thing at start of the prompt</li>
 <li>Think as it just next word predictor not more then that so think in the way when writing prompt</li>
 <li>Visulize attention mechnaism on the prompt</li>
+<li>Tell how to handle negative else it will hallucinate</li>
+<li>If you using too much example the response will be more genric based on the example so keep that in mind</li>
+<li>use stop sequence if you want avoid unwanted text</li>
 </ul>
-<h2 id="resourceses">Resourceses</h2>
+<h2 id="frugalgpt">FrugalGPT</h2>
+<p><strong>FrugalGPT</strong> is a framework proposed by Lingjiao Chen, Matei Zaharia and James Zou from Stanford University in their 2023 <a href="https://portkey.ai/blog/frugalgpt-how-to-use-large-language-models-while-reducing-cost-and-improving-performance-summary/">paper</a> &ldquo;<em>FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance</em>&rdquo;. The paper outlines strategies for more cost-effective and performant usage of large language model (LLM) APIs.</p>
+<p>The core of FrugalGPT revolves around three key techniques for reducing LLM inference costs:</p>
+<h3 id="prompt-optimization">Prompt Optimization</h3>
+<p><strong>Prompt Adaptation</strong>:  FrugalGPT wants us to either reduce the size of the prompt OR combine similar prompts together. Core idea is to minimise tokens and thus reduce LLM costs
+<strong>Example</strong> for email classification task we can only pick the <strong>top k</strong> similar examples. using similarity .
+FrugalGPT suggests identifying the best examples to be used instead of all of them.</p>
+<p><strong>Combine similar requests together</strong> : LLMs have been found to retain context for multiple tasks together and FrugalGPT proposes to use this to group multiple requests together thus decreasing the redundant prompt examples in each request.</p>
+<p><strong>Better utilize a smaller model with a more optimized prompt</strong> :</p>
+<p>Example: <a href="https://github.dev/mshumer/gpt-prompt-engineer">from Claude 3.5 Sonnet to GPT-4o-mini &ndash; reducing costs massively while keeping quality high</a>.</p>
+<p><strong>Compress the prompt</strong> : The compression process happens in three main steps:</p>
+<ol>
+<li><strong>Token Classification</strong>:
 <ul>
-<li><a href="https://eugeneyan.com/writing/prompting/">https://eugeneyan.com/writing/prompting/</a></li>
+<li>The trained model processes each token in the original prompt and assigns a <strong>preserve</strong> or <strong>discard</strong> probability based on the token’s importance for preserving the meaning of the text.</li>
 </ul>
+</li>
+<li><strong>Selection of Tokens</strong>:
+<ul>
+<li>The target <strong>compression ratio</strong> is used to decide how many tokens to retain. For example, if a 2x compression ratio is desired, 50% of the original tokens will be retained. The model sorts the tokens based on their <strong>preserve probability</strong> and selects the top tokens to keep in the compressed prompt.</li>
+</ul>
+</li>
+<li><strong>Preserve Token Order</strong>:
+<ul>
+<li>After selecting the tokens to preserve, the original order of the tokens is maintained to ensure that the compressed prompt remains coherent and grammatically correct.</li>
+</ul>
+</li>
+</ol>
+<p>check out <a href="https://github.com/microsoft/LLMLingua">here</a></p>
+<h3 id="llm-approximation"> LLM Approximation</h3>
+<p><strong>Cache LLM Requests</strong> : When the prompt is exactly the same, we can save the inference time and cost by serving the request from cache.</p>
+<p><strong>Fine-tune a smaller model in parallel</strong> : In a production environment, it can be massively beneficial to keep serving requests through a bigger model while continuously logging and fine-tuning a smaller model on those responses. We can then evaluate the results from the fine-tuned model and the larger model to determine when it make sense to switch.</p>
+<h3 id="llm-cascade">LLM Cascade</h3>
+<p>The key idea is to sequentially query different LLMs based on the confidence of the previous LLM&rsquo;s response. If a cheaper LLM can provide a satisfactory answer, there&rsquo;s no need to query the more expensive models, thus saving costs.</p>
+<p>In essence, the LLM cascade makes a request to the smallest model first, evaluates the response, and returns it if it&rsquo;s good enough. Otherwise, it requests the next larger model and so on until a satisfactory response is obtained or the largest model is reached.</p>
+<p>Here are 5 papers you want to read to understand better how <a href="https://www.linkedin.com/company/openai/">OpenAI</a> o1 might work. Focusing on Improving LLM reasoning capabilities for complex tasks via training/RLHF, not prompting. 👀</p>
+<blockquote>
+<p>Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking (<a href="https://lnkd.in/eCPaa-wc">https://lnkd.in/eCPaa-wc</a>) from Stanford</p>
+</blockquote>
+<blockquote>
+<p>Agent Q: Advanced Reasoning and Learning for Autonomous AI Agents (<a href="https://lnkd.in/eebwEkPi">https://lnkd.in/eebwEkPi</a>) from MultiOn/Stanford</p>
+</blockquote>
+<blockquote>
+<p>Let&rsquo;s Verify Step by Step (<a href="https://lnkd.in/egf6EpMd">https://lnkd.in/egf6EpMd</a>) from OpenAI</p>
+</blockquote>
+<blockquote>
+<p>V-STaR: Training Verifiers for Self-Taught Reasoners (<a href="https://lnkd.in/ebRcEKBn">https://lnkd.in/ebRcEKBn</a>) from Microsoft, Mila**</p>
+</blockquote>
+<blockquote>
+<p>Learn Beyond The Answer: Training Language Models with Reflection for Mathematical Reasoning (<a href="https://lnkd.in/eeeaqm6x">https://lnkd.in/eeeaqm6x</a>) from Notre Dam, Tencent</p>
+</blockquote>
+<h2 id="resources">Resources</h2>
+<ol>
+<li><a href="https://eugeneyan.com/writing/prompting/">Eugene Yan&rsquo;s Prompting Guide</a></li>
+<li><a href="https://github.com/linexjlin/GPTs?tab=readme-ov-file">Leaked Prompts of GPTs on GitHub</a></li>
+<li><a href="https://substack.com/@cwolferesearch/p-143156742">https://substack.com/@cwolferesearch/p-143156742</a></li>
+<li><a href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/">https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/</a></li>
+</ol>
+<h2 id="tools">Tools</h2>
+<ol>
+<li><a href="https://promptperfect.jina.ai/">AI Prompt Optimizer</a></li>
+<li><a href="https://www.octiai.com/">Start Generating Prompts with OctiAI</a></li>
+</ol>
 
             </div>
         </article></main>

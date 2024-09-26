@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.134.1">
+<meta name="generator" content="Hugo 0.134.3">
 
     
 
@@ -372,34 +372,30 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 <li>
-<p><strong>Proxy Pattern: The Guardian Toy Sentinel</strong></p>
-<p>Toyland had a cherished collection of rare and delicate toys housed in the Precious Toy Vault. To safeguard these treasures, StructureBuilder employed the Proxy pattern. The Guardian Toy Sentinel acted as a protective proxy, ensuring that only those with special permissions could access the precious toys.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">PreciousToyVault</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">open</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// Open the vault
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">GuardianToySentinel</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">constructor</span><span class="p">(</span><span class="nx">vault</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">vault</span> <span class="o">=</span> <span class="nx">vault</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">accessGranted</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">grantAccess</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// Check permissions and grant access
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">accessGranted</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">openVault</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">accessGranted</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="p">.</span><span class="nx">vault</span><span class="p">.</span><span class="nx">open</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Access denied. Seek permission from the Guardian Toy Sentinel.&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div></li>
+<p><strong>Proxy Pattern</strong>
+The proxy pattern provides a surrogate or placeholder for another object to control access to it. For instance, managing access to an object that is expensive to instantiate.</p>
+</li>
+</ol>
+<pre tabindex="0"><code>class AuthProxy {
+  constructor(user, service) {
+      this.user = user;
+      this.service = service;
+  }
+
+  performAction() {
+      if (this.user.hasAccess) {
+          this.service.performAction();
+      } else {
+          console.log(&#34;Access denied: You do not have permission to perform this action.&#34;);
+      }
+  }
+}
+</code></pre><pre tabindex="0"><code>const user = { name: &#34;John&#34;, hasAccess: false };
+const realService = new RealService();
+const proxy = new AuthProxy(user, realService);
+
+proxy.performAction();
+</code></pre><ol start="6">
 <li>
 <p><strong>Facade Pattern: The Magic Toy Workshop</strong></p>
 <p>In the heart of Toyland, StructureBuilder established the Magic Toy Workshop, a place of enchantment where various toys were crafted. To simplify the complexity of the toy-making process, StructureBuilder implemented the Facade pattern. The Magic Toy Workshop acted as a facade, providing a single entry point for creating different types of toys.</p>
@@ -418,35 +414,39 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 <li>
-<p><strong>Flyweight Pattern: The Whirling Windmill Factory</strong></p>
-<p>In the playful outskirts of Toyland, there stood the Whirling Windmill Factory, a place where windmills of various shapes and colors were crafted. StructureBuilder, mindful of efficiency, implemented the Flyweight pattern. The shared intrinsic properties of the windmills were stored externally, allowing the factory to create a multitude of windmills without duplicating common features.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">WhirlingWindmill</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">constructor</span><span class="p">(</span><span class="nx">color</span><span class="p">,</span> <span class="nx">shape</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">shape</span> <span class="o">=</span> <span class="nx">shape</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">whirl</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// Whirl the windmill
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">WindmillFactory</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">constructor</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="nx">windmills</span> <span class="o">=</span> <span class="p">{};</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nx">createWindmill</span><span class="p">(</span><span class="nx">color</span><span class="p">,</span> <span class="nx">shape</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">key</span> <span class="o">=</span> <span class="sb">`</span><span class="si">${</span><span class="nx">color</span><span class="si">}</span><span class="sb">_</span><span class="si">${</span><span class="nx">shape</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">windmills</span><span class="p">[</span><span class="nx">key</span><span class="p">])</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="k">this</span><span class="p">.</span><span class="nx">windmills</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WhirlingWindmill</span><span class="p">(</span><span class="nx">color</span><span class="p">,</span> <span class="nx">shape</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">windmills</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div></li>
+<p><strong>Flyweight Pattern</strong></p>
+<p>The <strong>Flyweight Pattern</strong> is useful because it helps reduce memory consumption and improve performance by sharing common parts of objects across multiple instances.</p>
+<p>A text editor might contain millions of characters with different fonts, styles, and sizes. By using the Flyweight Pattern, the editor can share common glyphs and styles across characters, reducing memory usage.</p>
+</li>
 </ol>
+<pre tabindex="0"><code>class FontStyle {
+    constructor(font, size, color) {
+        this.font = font;
+        this.size = size;
+        this.color = color;
+    }
+}
+</code></pre><pre tabindex="0"><code>class FontFactory {
+    constructor() {
+        this.styles = {};
+    }
 
+    getFontStyle(font, size, color) {
+        const key = `${font}-${size}-${color}`;
+        if (!this.styles[key]) {
+            this.styles[key] = new FontStyle(font, size, color);
+        }
+        return this.styles[key];
+    }
+}
+</code></pre><pre tabindex="0"><code>// Client code
+const factory = new FontFactory();
+
+const style1 = factory.getFontStyle(&#39;Arial&#39;, 12, &#39;Black&#39;);
+const style2 = factory.getFontStyle(&#39;Arial&#39;, 12, &#39;Black&#39;);  // Reused
+
+console.log(style1 === style2);
+</code></pre>
             </div>
         </article></main>
 </div>

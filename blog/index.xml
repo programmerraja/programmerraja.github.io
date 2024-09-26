@@ -6,7 +6,7 @@
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Sep 2024 18:57:23 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Sep 2024 04:53:33 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code Against the Clock: From Clicks to Cash</title>
       <link>https://programmerraja.github.io/blog/post/2024/code-against-the-clock--from-clicks-to-cash/</link>
@@ -182,7 +182,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ChatPromptTemplate&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;from_messages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;messages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;invoke&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;msg&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;})&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;chatprompttemplates&#34;&gt;ChatPromptTemplates&lt;/h3&gt;
+&lt;p&gt;These prompt templates are used to format a list of messages.&lt;/p&gt;</description>
       
     </item>
     
@@ -213,7 +214,8 @@
   - bytes #[]
   - bytearray
   - memoryview
-&lt;/code&gt;&lt;/pr</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;mutable-and-imutable&#34;&gt;Mutable and Imutable&lt;/h2&gt;
+&lt;p&gt;Mutable data types are those whose contents can be changed after creation, while immutable data types cannot be changed once they are created.&lt;/p&gt;</description>
       
     </item>
     
@@ -227,7 +229,7 @@
       <description>&lt;p&gt;As the sun set on a typical Saturday evening, I found myself engrossed in a blog titled &amp;ldquo;&lt;a href=&#34;https://romeov.github.io/malicious_ip_addresses/malicious_ip_analysis.html&#34;&gt;Visualizing Malicious IP Addresses.&lt;/a&gt;&amp;rdquo; The author shared clever ways to detect unauthorized attempts to access virtual machines via SSH, using commands like:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ journalctl --since &lt;span class=&#34;s2&#34;&gt;&amp;#34;-1d&amp;#34;&lt;/span&gt; -u sshd &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep &lt;span class=&#34;s2&#34;&gt;&amp;#34;Failed password&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; wc -l
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ journalctl --since &lt;span class=&#34;s2&#34;&gt;&amp;#34;-1d&amp;#34;&lt;/span&gt; -u sshd &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep &lt;span class=&#34;s2&#34;&gt;&amp;#34;Failed publickey&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; wc -l
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Curious, I decided to try these commands on our own VM. To my relief, the output was zero—no unauthorized login attempts. But my curiosity was piqued. I delved deeper into journalctl, discovering a command to display all Systemd logs with process IDs:&lt;/p&gt;</description>
       
     </item>
     
@@ -261,8 +263,8 @@
       <guid>https://programmerraja.github.io/blog/notes/2024/elastic-search/</guid>
       
       <description>&lt;h2 id=&#34;indexing&#34;&gt;Indexing&lt;/h2&gt;
-&lt;p&gt;it is like collection name in databse&lt;/p&gt;
-&lt;h4 id=&#34;index-level-shard-allocation-filtering&#34;&gt;&lt;strong&gt;Index-level shard allocation filtering&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;It is like a collection name in a database.&lt;/p&gt;
+&lt;h3 id=&#34;index-level-shard-allocation-filtering&#34;&gt;&lt;strong&gt;Index-level shard allocation filtering&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices. This feature gives you fine-grained control over shard placement based on node attributes and conditions, helping you optimize data distribution, resource utilization, and cluster stability.&lt;/p&gt;</description>
       
     </item>
@@ -345,7 +347,43 @@ Use the following graph to reason about the task and determine the shortest poss
 `1Mix batter (10 min) ----&amp;gt; Bake cake (30 min) ----&amp;gt; Frost cake (5 min) ----&amp;gt; Decorate cake (15 min)`
 
 By providing the LLM with a graph representation of the task, we can help it reason more effectively about the constraints and time durations involved, leading to more accurate predictions about the shortest possible time needed to complete the task.
-&lt;/code&gt;&lt;/pr</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Pattern Category&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Prompt Pattern&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Input Semantics&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Meta Language Creation&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Output  Customization&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Output Automater  &lt;br&gt;Persona Visualization &lt;br&gt;Generator Recipe Template&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Error Identification&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Fact Check List&lt;br&gt;Reflection&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Prompt  Improvement&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Question Refinement &lt;br&gt;Alternative Approaches&lt;br&gt;Cognitive Verifier &lt;br&gt;Refusal Breaker&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Interaction&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Flipped Interaction&lt;br&gt; Game Play &lt;br&gt;Infinite Generation&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Context Control&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Context Manager&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;claude-meta-prompt&#34;&gt;Claude Meta Prompt&lt;/h2&gt;
+&lt;p&gt;Claude have written a prompt that will help to get perfect prompt in XML
+check &lt;a href=&#34;https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-generator&#34;&gt;here&lt;/a&gt;&lt;/p&gt;</description>
       
     </item>
     
@@ -437,7 +475,7 @@ By providing the LLM with a graph representation of the task, we can help it rea
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useMobile&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;MobileContext&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Don&amp;rsquo;t have single context for width and mobile beacuse when ever the width change the component that only using mobile (&lt;code&gt;child2&lt;/code&gt;) will also get re-render. this will applicable only if &lt;code&gt;Child2&lt;/code&gt; is Mounted to DOM&lt;/p&gt;</description>
       
     </item>
     
@@ -598,7 +636,18 @@ and its descendant libmdbx, Sophia, HaloDB,&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;func&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nx&#34;&gt;fmt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Println&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;data-types&#34;&gt;Data types&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;string, bool, int, byte , float32 ,float64, arrays&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;using var keyword and const → to not reassign&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;var name string = “d” (if directly assing vaule we don’t need to mention the data type)&lt;/p&gt;</description>
       
     </item>
     
@@ -804,7 +853,7 @@ and its descendant libmdbx, Sophia, HaloDB,&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nt&#34;&gt;&amp;#34;files&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;%%&lt;/p&gt;</description>
       
     </item>
     
@@ -929,7 +978,7 @@ and its descendant libmdbx, Sophia, HaloDB,&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nt&#34;&gt;&amp;#34;files&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;%%&lt;/p&gt;</description>
       
     </item>
     
@@ -1031,7 +1080,7 @@ and its descendant libmdbx, Sophia, HaloDB,&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nt&#34;&gt;&amp;#34;files&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;%%&lt;/p&gt;</description>
       
     </item>
     
@@ -1748,7 +1797,28 @@ and its descendant libmdbx, Sophia, HaloDB,&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nt&#34;&gt;&amp;#34;files&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;%%&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/notes/2024/freelancing-and-saas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/freelancing-and-saas/</guid>
+      
+      <description>&lt;p&gt;Here the collection Notes and resources to get started in freelancing and build SASS&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key Strategies for SASS&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Identify profitable niches&lt;/strong&gt;: Focus on finding underserved niches with a clear need for software solutions.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Build simple solutions&lt;/strong&gt;: Create simple, easy-to-use software that solves a specific problem.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Validate ideas quickly&lt;/strong&gt;: Use online communities, social media, and landing pages to validate ideas before building.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Outsource development&lt;/strong&gt;: Hire freelancers or development agencies to build the software, keeping costs low.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sell to existing customers&lt;/strong&gt;: Offer additional features or services to existing customers to increase revenue.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flip companies&lt;/strong&gt;: Sell the software companies to other entrepreneurs or investors, generating a profit.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Resources&lt;/p&gt;</description>
       
     </item>
     

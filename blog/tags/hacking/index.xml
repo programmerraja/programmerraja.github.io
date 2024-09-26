@@ -52,7 +52,7 @@
       <description>&lt;p&gt;As the sun set on a typical Saturday evening, I found myself engrossed in a blog titled &amp;ldquo;&lt;a href=&#34;https://romeov.github.io/malicious_ip_addresses/malicious_ip_analysis.html&#34;&gt;Visualizing Malicious IP Addresses.&lt;/a&gt;&amp;rdquo; The author shared clever ways to detect unauthorized attempts to access virtual machines via SSH, using commands like:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ journalctl --since &lt;span class=&#34;s2&#34;&gt;&amp;#34;-1d&amp;#34;&lt;/span&gt; -u sshd &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep &lt;span class=&#34;s2&#34;&gt;&amp;#34;Failed password&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; wc -l
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ journalctl --since &lt;span class=&#34;s2&#34;&gt;&amp;#34;-1d&amp;#34;&lt;/span&gt; -u sshd &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; grep &lt;span class=&#34;s2&#34;&gt;&amp;#34;Failed publickey&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; wc -l
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pr</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Curious, I decided to try these commands on our own VM. To my relief, the output was zero—no unauthorized login attempts. But my curiosity was piqued. I delved deeper into journalctl, discovering a command to display all Systemd logs with process IDs:&lt;/p&gt;</description>
       
     </item>
     

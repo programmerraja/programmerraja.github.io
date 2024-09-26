@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.134.1">
+<meta name="generator" content="Hugo 0.134.3">
 
     
 
@@ -165,6 +165,8 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#what-are-the-best-practice-regarding-channel-and-connection" aria-label="What are the best practice regarding channel and connection">What are the best practice regarding channel and connection</a></li>
                 <li>
                     <a href="#how-to-handle-failures" aria-label="How to Handle failures">How to Handle failures</a></li>
+                <li>
+                    <a href="#unack-msg" aria-label="Unack msg">Unack msg</a></li>
                 <li>
                     <a href="#internal" aria-label="Internal">Internal</a></li>
                 <li>
@@ -314,6 +316,8 @@ stroke-linejoin="round" class="feather feather-home">
 </ol>
 <p>In summary, nack provides more flexibility by allowing you to explicitly control requeuing behavior (requeue or discard), whereas reject gives you the option to requeue the message based on the requeue parameter. Both methods can be used to handle message rejection and retry scenarios in RabbitMQ, depending on your specific requirements.</p>
 <p>Rabbitmq simulator tool to playaround with it</p>
+<h2 id="unack-msg">Unack msg</h2>
+<p>In RabbitMQ, messages are marked as <strong>unacknowledged (unack)</strong> when a consumer receives a message but hasn&rsquo;t sent an acknowledgment back to RabbitMQ yet. Unacknowledged messages remain in the queue and are not re-delivered to other consumers until they are either acknowledged or the connection with the consumer is closed.</p>
 <h2 id="internal">Internal</h2>
 <p>Protocol : AMQP</p>
 <p>Blog</p>

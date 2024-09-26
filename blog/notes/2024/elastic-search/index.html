@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.134.1">
+<meta name="generator" content="Hugo 0.134.3">
 
     
 
@@ -149,12 +149,14 @@ stroke-linejoin="round" class="feather feather-home">
         <div class="inner"><ul>
                 <li>
                     <a href="#indexing" aria-label="Indexing">Indexing</a><ul>
-                        <ul>
                         
                 <li>
-                    <a href="#index-level-shard-allocation-filtering" aria-label="Index-level shard allocation filtering">Index-level shard allocation filtering</a></li>
+                    <a href="#index-level-shard-allocation-filtering" aria-label="Index-level shard allocation filtering">Index-level shard allocation filtering</a><ul>
+                        
                 <li>
-                    <a href="#index-level-shard-allocation-filtering-1" aria-label="Index-Level Shard Allocation Filtering:">Index-Level Shard Allocation Filtering:</a></li>
+                    <a href="#node-attributes" aria-label="Node Attributes:">Node Attributes:</a></li>
+                <li>
+                    <a href="#index-settings" aria-label="Index Settings:">Index Settings:</a></li>
                 <li>
                     <a href="#array-of-objects-are-stored-as-seprate" aria-label="Array of objects are stored as seprate">Array of objects are stored as seprate</a></li>
                 <li>
@@ -167,7 +169,7 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#reindexing" aria-label="Reindexing">Reindexing</a></li>
                 <li>
                     <a href="#concurrent-updates-on-documents" aria-label="Concurrent updates on documents">Concurrent updates on documents</a></li></ul>
-                    </ul>
+                </li></ul>
                 </li>
                 <li>
                     <a href="#shard" aria-label="Shard">Shard</a></li>
@@ -195,14 +197,15 @@ stroke-linejoin="round" class="feather feather-home">
     </details>
 </div><div class="page-content">
                 <h2 id="indexing">Indexing</h2>
-<p>it is like collection name in databse</p>
-<h4 id="index-level-shard-allocation-filtering"><strong>Index-level shard allocation filtering</strong></h4>
+<p>It is like a collection name in a database.</p>
+<h3 id="index-level-shard-allocation-filtering"><strong>Index-level shard allocation filtering</strong></h3>
 <p>Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices. This feature gives you fine-grained control over shard placement based on node attributes and conditions, helping you optimize data distribution, resource utilization, and cluster stability.</p>
 <p>Here&rsquo;s an explanation of index-level shard allocation filtering:</p>
 <p><strong>Scenario:</strong> Consider a multi-node Elasticsearch cluster where each node has different hardware specifications or specific roles, such as hot, warm, or cold data nodes. You want to ensure that certain indices are allocated only to nodes that meet specific criteria.</p>
-<h4 id="index-level-shard-allocation-filtering-1"><strong>Index-Level Shard Allocation Filtering:</strong></h4>
-<p><strong>Node Attributes:</strong> Elasticsearch allows you to assign custom attributes to nodes in your cluster. These attributes can describe node characteristics such as hardware capabilities, roles, geographic location, or any other relevant information.</p>
-<p><strong>Index Settings:</strong> You can define shard allocation rules at the index level using index settings. Specifically, you can use the <code>index.routing.allocation.include</code> and <code>index.routing.allocation.exclude</code> settings to specify conditions that nodes must meet or avoid in order to be eligible for storing the shards of a particular index.</p>
+<h4 id="node-attributes"><strong>Node Attributes:</strong></h4>
+<p>Elasticsearch allows you to assign custom attributes to nodes in your cluster. These attributes can describe node characteristics such as hardware capabilities, roles, geographic location, or any other relevant information.</p>
+<h4 id="index-settings"><strong>Index Settings:</strong></h4>
+<p>You can define shard allocation rules at the index level using index settings. Specifically, you can use the <code>index.routing.allocation.include</code> and <code>index.routing.allocation.exclude</code> settings to specify conditions that nodes must meet or avoid in order to be eligible for storing the shards of a particular index.</p>
 <ul>
 <li><code>index.routing.allocation.include</code>: This setting specifies conditions that nodes must meet to be eligible for shard allocation. For example, you can include nodes with specific attributes, roles, or other criteria.</li>
 <li><code>index.routing.allocation.exclude</code>: This setting specifies conditions that nodes must avoid to be eligible for shard allocation. It allows you to exclude nodes based on attributes, roles, or other criteria.</li>
