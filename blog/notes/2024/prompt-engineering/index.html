@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.135.0">
 
     
 
@@ -199,9 +199,35 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#frugalgpt" aria-label="FrugalGPT">FrugalGPT</a><ul>
                         
                 <li>
-                    <a href="#prompt-optimization" aria-label="Prompt Optimization">Prompt Optimization</a></li>
+                    <a href="#prompt-optimization" aria-label="Prompt Optimization">Prompt Optimization</a></li></ul>
+                </li>
                 <li>
-                    <a href="#llm-approximation" aria-label=" LLM Approximation"> LLM Approximation</a></li>
+                    <a href="#co-star-framework" aria-label="CO-STAR framework">CO-STAR framework</a><ul>
+                        <ul>
+                        
+                <li>
+                    <a href="#c-context-provide-background-information-on-the-task" aria-label="(C) Context: Provide background information on the task">(C) Context: Provide background information on the task</a></li>
+                <li>
+                    <a href="#o-objective-define-what-the-task-is-that-you-want-the-llm-to-perform" aria-label="(O) Objective: Define what the task is that you want the LLM to perform">(O) Objective: Define what the task is that you want the LLM to perform</a></li>
+                <li>
+                    <a href="#s-style-specify-the-writing-style-you-want-the-llm-to-use" aria-label="(S) Style: Specify the writing style you want the LLM to use">(S) Style: Specify the writing style you want the LLM to use</a></li>
+                <li>
+                    <a href="#t-tone-set-the-attitude-of-the-response" aria-label="(T) Tone: Set the attitude of the response">(T) Tone: Set the attitude of the response</a></li>
+                <li>
+                    <a href="#a-audience-identify-who-the-response-is-intended-for" aria-label="(A) Audience: Identify who the response is intended for">(A) Audience: Identify who the response is intended for</a></li>
+                <li>
+                    <a href="#r-response-provide-the-response-format" aria-label="(R) Response: Provide the response format">(R) Response: Provide the response format</a></li></ul>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#instance-adaptive-prompting-strategy" aria-label="Instance-Adaptive prompting strategy">Instance-Adaptive prompting strategy</a><ul>
+                        
+                <li>
+                    <a href="#llm-approximation" aria-label=" LLM Approximation"> LLM Approximation</a></li></ul>
+                </li>
+                <li>
+                    <a href="#meta-prompting" aria-label="Meta Prompting">Meta Prompting</a><ul>
+                        
                 <li>
                     <a href="#llm-cascade" aria-label="LLM Cascade">LLM Cascade</a></li></ul>
                 </li>
@@ -565,7 +591,16 @@ Let’s think step by step.
 <pre tabindex="0"><code>I need to write a blog post on the topic of [integrating enterprise data with an LLM] for my AI solutions company, AI Disruptor.
 
 Begin in &lt;scratchpad&gt; tags and write out and brainstorm in a couple paragraphs your plan for how you will create an informative and engaging blog. Also brainstorm how you will create a CTA at the end for our company, AI Disruptor.
-</code></pre><h2 id="prompt-hacking">Prompt Hacking</h2>
+</code></pre><ul>
+<li>To get json response start the conversion for assistant with <code>{</code> like below</li>
+</ul>
+<pre tabindex="0"><code>
+user : &#34;prompt&#34;
+asssistant: &#34;{&#34; -&gt; which tell the model to start with { need to return as json 
+</code></pre><ul>
+<li>if claude saying text after json we can use stop_sequences ask the model to wrap a json with json tag like <code>&lt;json&gt;&lt;/json&gt;</code> and we can give stop_sequences as <code>&lt;/json&gt;</code></li>
+</ul>
+<h2 id="prompt-hacking">Prompt Hacking</h2>
 <h3 id="output2prompt">output2prompt</h3>
 <p>The core idea behind output2prompt is clever in its simplicity. By analyzing patterns in the AI’s responses, another AI can infer the instructions that produced those responses.</p>
 <h2 id="my-thoughts">My Thoughts</h2>
@@ -607,10 +642,159 @@ FrugalGPT suggests identifying the best examples to be used instead of all of th
 </li>
 </ol>
 <p>check out <a href="https://github.com/microsoft/LLMLingua">here</a></p>
+<h2 id="co-star-framework">CO-STAR framework</h2>
+<h4 id="c-context-provide-background-information-on-the-task"><strong>(C) Context: Provide background information on the task</strong></h4>
+<p>This helps the LLM understand the specific scenario being discussed, ensuring its response is relevant.</p>
+<h4 id="o-objective-define-what-the-task-is-that-you-want-the-llm-to-perform"><strong>(O) Objective: Define what the task is that you want the LLM to perform</strong></h4>
+<p>Being clear about your objective helps the LLM to focus its response on meeting that specific goal.</p>
+<h4 id="s-style-specify-the-writing-style-you-want-the-llm-to-use"><strong>(S) Style: Specify the writing style you want the LLM to use</strong></h4>
+<p>This could be a particular famous person&rsquo;s style of writing, or a particular expert in a profession, like a business analyst expert or CEO. This <strong>g</strong>uides the LLM to respond with the manner and choice of words aligned with your needs.</p>
+<h4 id="t-tone-set-the-attitude-of-the-response"><strong>(T) Tone: Set the attitude of the response</strong></h4>
+<p>This ensures the LLM&rsquo;s response resonates with the intended sentiment or emotional context required. Examples are formal, humorous, empathetic, among others.</p>
+<h4 id="a-audience-identify-who-the-response-is-intended-for"><strong>(A) Audience: Identify who the response is intended for</strong></h4>
+<p>Tailoring the LLM&rsquo;s response to an audience, such as experts in a field, beginners, children, and so on, ensures that it is appropriate and understandable in your required context.</p>
+<h4 id="r-response-provide-the-response-format"><strong>(R) Response: Provide the response format</strong></h4>
+<p>This ensures that the LLM outputs in the exact format that you require for downstream tasks. Examples include a list, a JSON, a professional report, and so on. For most LLM applications which work on the LLM responses programmatically for downstream manipulations, a JSON output format would be ideal.</p>
+<pre tabindex="0"><code>&gt; # CONTEXT # I want to advertise my company&#39;s new product. My company&#39;s name is Alpha and the product is called Beta, which is a new ultra-fast hairdryer.
+
+&gt; # OBJECTIVE # Create a Facebook post for me, which aims to get people to click on the product link to purchase it.
+
+&gt; # STYLE # Follow the writing style of successful companies that advertise similar products, such as Dyson.
+
+&gt; # TONE # Persuasive
+
+&gt; # AUDIENCE # My company&#39;s audience profile on Facebook is typically the older generation. Tailor your post to target what this audience typically looks out for in hair products.
+
+&gt; # RESPONSE # The Facebook post, kept concise yet impactful.
+</code></pre><h2 id="instance-adaptive-prompting-strategy">Instance-Adaptive prompting strategy</h2>
+<p>A prompt can vary depending on the specific instance we cannot use a same prompt for all use case</p>
+<p>To overcome this limitation,  Instance-Adaptive Prompting (IAP), was suggest which aims to select the most suitable prompt for each individual question, rather than relying on a single prompt for an entire task</p>
+<p><strong>How IAP Works:</strong></p>
+<p>The IAP strategy uses these insights to select an appropriate prompt for each question from a pool of candidate prompts. They propose two methods</p>
+<ul>
+<li>
+<p>Sequential Substitution (IAP-ss): The system tries prompts one by one, stopping when a prompt leads to good reasoning or all prompts are exhausted. for that they use <strong>Saliency Score</strong></p>
+</li>
+<li>
+<p>Majority Vote (IAP-mv): The system evaluates all candidate prompts and selects the one that consistently produces the best reasoning</p>
+</li>
+</ul>
 <h3 id="llm-approximation"> LLM Approximation</h3>
 <p><strong>Cache LLM Requests</strong> : When the prompt is exactly the same, we can save the inference time and cost by serving the request from cache.</p>
 <p><strong>Fine-tune a smaller model in parallel</strong> : In a production environment, it can be massively beneficial to keep serving requests through a bigger model while continuously logging and fine-tuning a smaller model on those responses. We can then evaluate the results from the fine-tuned model and the larger model to determine when it make sense to switch.</p>
-<h3 id="llm-cascade">LLM Cascade</h3>
+<h2 id="meta-prompting">Meta Prompting</h2>
+<p>It involves constructing a high-level “meta” prompt that instructs an LLM</p>
+<p>prompt</p>
+<pre tabindex="0"><code>You are Meta-Expert, an extremely clever expert with the unique ability to collaborate with multiple experts (such as Expert
+
+Problem Solver, Expert Mathematician, Expert Essayist, etc.) to tackle any task and solve any complex problems. Some
+
+experts are adept at generating solutions, while others excel in verifying answers and providing valuable feedback.
+
+Note that you also have special access to Expert Python, which has the unique ability to generate and execute Python code
+
+given natural-language instructions. Expert Python is highly capable of crafting code to perform complex calculations when
+
+given clear and precise directions. You might therefore want to use it especially for computational tasks.
+
+As Meta-Expert, your role is to oversee the communication between the experts, effectively using their skills to answer a
+
+given question while applying your own critical thinking and verification abilities.
+
+To communicate with a expert, type its name (e.g., &#34;Expert Linguist&#34; or &#34;Expert Puzzle Solver&#34;), followed by a colon &#34;:&#34;, and
+
+then provide a detailed instruction enclosed within triple quotes. For example:
+
+Expert Mathematician:
+
+&#34;&#34;&#34;
+
+You are a mathematics expert, specializing in the fields of geometry and algebra.
+
+Compute the Euclidean distance between the points (-2, 5) and (3, 7).
+
+&#34;&#34;&#34;
+
+Ensure that your instructions are clear and unambiguous, and include all necessary information within the triple quotes. You
+
+can also assign personas to the experts (e.g., &#34;You are a physicist specialized in...&#34;).
+
+Interact with only one expert at a time, and break complex problems into smaller, solvable tasks if needed. Each interaction
+
+is treated as an isolated event, so include all relevant details in every call.
+
+If you or an expert finds a mistake in another expert&#39;s solution, ask a new expert to review the details, compare both
+
+solutions, and give feedback. You can request an expert to redo their calculations or work, using input from other experts.
+
+Keep in mind that all experts, except yourself, have no memory! Therefore, always provide complete information in your
+
+instructions when contacting them. Since experts can sometimes make errors, seek multiple opinions or independently
+
+verify the solution if uncertain. Before providing a final answer, always consult an expert for confirmation. Ideally, obtain or
+
+verify the final solution with two independent experts. However, aim to present your final answer within 15 rounds or fewer.
+
+Refrain from repeating the very same questions to experts. Examine their responses carefully and seek clarification if
+
+required, keeping in mind they don&#39;t recall past interactions.
+
+Present the final answer as follows:
+
+&gt;&gt; FINAL ANSWER:
+
+&#34;&#34;&#34;
+
+[final answer]
+
+&#34;&#34;&#34;
+
+For multiple-choice questions, select only one option. Each question has a unique answer, so analyze the provided
+
+information carefully to determine the most accurate and appropriate response. Please present only one solution if you
+
+come across multiple options.
+</code></pre><p>Prompt for generating system prompts</p>
+<pre tabindex="0"><code>Understand the Task: Grasp the main objective, goals, requirements, constraints, and expected output.
+- Minimal Changes: If an existing prompt is provided, improve it only if it&#39;s simple. For complex prompts, enhance clarity and add missing elements without altering the original structure.
+- Reasoning Before Conclusions: Encourage reasoning steps before any conclusions are reached. ATTENTION! If the user provides examples where the reasoning happens afterward, REVERSE the order! NEVER START EXAMPLES WITH CONCLUSIONS!
+    - Reasoning Order: Call out reasoning portions of the prompt and conclusion parts (specific fields by name). For each, determine the ORDER in which this is done, and whether it needs to be reversed.
+    - Conclusion, classifications, or results should ALWAYS appear last.
+- Examples: Include high-quality examples if helpful, using placeholders [in brackets] for complex elements.
+   - What kinds of examples may need to be included, how many, and whether they are complex enough to benefit from placeholders.
+- Clarity and Conciseness: Use clear, specific language. Avoid unnecessary instructions or bland statements.
+- Formatting: Use markdown features for readability. DO NOT USE ``` CODE BLOCKS UNLESS SPECIFICALLY REQUESTED.
+- Preserve User Content: If the input task or prompt includes extensive guidelines or examples, preserve them entirely, or as closely as possible. If they are vague, consider breaking down into sub-steps. Keep any details, guidelines, examples, variables, or placeholders provided by the user.
+- Constants: DO include constants in the prompt, as they are not susceptible to prompt injection. Such as guides, rubrics, and examples.
+- Output Format: Explicitly the most appropriate output format, in detail. This should include length and syntax (e.g. short sentence, paragraph, JSON, etc.)
+    - For tasks outputting well-defined or structured data (classification, JSON, etc.) bias toward outputting a JSON.
+    - JSON should never be wrapped in code blocks (```) unless explicitly requested.
+
+The final prompt you output should adhere to the following structure below. Do not include any additional commentary, only output the completed system prompt. SPECIFICALLY, do not include any additional messages at the start or end of the prompt. (e.g. no &#34;---&#34;)
+
+[Concise instruction describing the task - this should be the first line in the prompt, no section header]
+
+[Additional details as needed.]
+
+[Optional sections with headings or bullet points for detailed steps.]
+
+# Steps [optional]
+
+[optional: a detailed breakdown of the steps necessary to accomplish the task]
+
+# Output Format
+
+[Specifically call out how the output should be formatted, be it response length, structure e.g. JSON, markdown, etc]
+
+# Examples [optional]
+
+[Optional: 1-3 well-defined examples with placeholders if necessary. Clearly mark where examples start and end, and what the input and output are. User placeholders as necessary.]
+[If the examples are shorter than what a realistic example is expected to be, make a reference with () explaining how real examples should be longer / shorter / different. AND USE PLACEHOLDERS! ]
+
+# Notes [optional]
+
+[optional: edge cases, details, and an area to call or repeat out specific important considerations]
+</code></pre><h3 id="llm-cascade">LLM Cascade</h3>
 <p>The key idea is to sequentially query different LLMs based on the confidence of the previous LLM&rsquo;s response. If a cheaper LLM can provide a satisfactory answer, there&rsquo;s no need to query the more expensive models, thus saving costs.</p>
 <p>In essence, the LLM cascade makes a request to the smallest model first, evaluates the response, and returns it if it&rsquo;s good enough. Otherwise, it requests the next larger model and so on until a satisfactory response is obtained or the largest model is reached.</p>
 <p>Here are 5 papers you want to read to understand better how <a href="https://www.linkedin.com/company/openai/">OpenAI</a> o1 might work. Focusing on Improving LLM reasoning capabilities for complex tasks via training/RLHF, not prompting. 👀</p>
@@ -635,6 +819,7 @@ FrugalGPT suggests identifying the best examples to be used instead of all of th
 <li><a href="https://github.com/linexjlin/GPTs?tab=readme-ov-file">Leaked Prompts of GPTs on GitHub</a></li>
 <li><a href="https://substack.com/@cwolferesearch/p-143156742">https://substack.com/@cwolferesearch/p-143156742</a></li>
 <li><a href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/">https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/</a></li>
+<li><a href="https://github.com/0xeb/TheBigPromptLibrary">A collection of prompts, system prompts and LLM instructions</a></li>
 </ol>
 <h2 id="tools">Tools</h2>
 <ol>

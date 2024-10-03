@@ -31,7 +31,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.134.3">
+<meta name="generator" content="Hugo 0.135.0">
 
     
 
@@ -266,7 +266,11 @@ stroke-linejoin="round" class="feather feather-home">
                         
                 <li>
                     <a href="#dynamic-admission-control-for-customized-governance" aria-label="Dynamic Admission Control for Customized Governance">Dynamic Admission Control for Customized Governance</a></li></ul>
-                    
+                    </ul>
+                </li>
+                <li>
+                    <a href="#helm" aria-label="Helm">Helm</a><ul>
+                        
                 <li>
                     <a href="#resources" aria-label="Resources">Resources</a></li></ul>
                 </li>
@@ -574,7 +578,7 @@ stroke-linejoin="round" class="feather feather-home">
 </li>
 </ul>
 <h2 id="affinity-and-anti-affinity">Affinity and Anti-Affinity</h2>
-<p>Affinity and Anti-Affinity are concepts used to control how pods are scheduled onto nodes in a cluster. They help define rules for pod placement based on characteristics of the nodes or other pods in the cluster.</p>
+<p>Affinity and Anti-Affinity are concepts used to control how pods are scheduled on to nodes in a cluster. They help define rules for pod placement based on characteristics of the nodes or other pods in the cluster.</p>
 <p><strong>Affinity</strong>: Affinity rules specify conditions that pods prefer for their placement. Pods with affinity rules tend to be scheduled onto nodes that meet those conditions</p>
 <p><strong>Anti-Affinity</strong>: Anti-affinity rules, on the other hand, specify conditions that pods should avoid for their placement. Pods with anti-affinity rules tend to be scheduled away from nodes or pods that meet those conditions</p>
 <p>It is use full when we need high avaliblity of the server in different node</p>
@@ -849,9 +853,8 @@ spec:
 <p><strong>Headless service:</strong></p>
 <ul>
 <li>Sometimes you don&rsquo;t need load-balancing and a single Service IP. In this case, you can create what are termed <em>headless Services</em>, by explicitly specifying <code>&quot;None&quot;</code> for the  cluster IP address</li>
-</ul>
-<p><strong>NodePort service:</strong></p>
-<ul>
+<li>This also help us if we want to pod to pod communication
+<strong>NodePort service:</strong></li>
 <li>This builds on top of ClusterIP and enables access from outside of the cluster (static ip). Port range can be only between 30000 to 32767</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
@@ -1431,7 +1434,15 @@ webhooks:
     admissionReviewVersions:
       - v1
     sideEffects: None
-</code></pre><p>Need to study</p>
+</code></pre><h2 id="helm">Helm</h2>
+<p>Helm is a package manager for Kubernetes, which helps you define, install, and upgrade applications running in a Kubernetes cluster. Helm uses charts, which are packages of pre-configured Kubernetes resources, to deploy and manage complex applications easily.</p>
+<p>Key components of Helm include:</p>
+<ol>
+<li><strong>Charts</strong>: Helm packages, which contain all the configuration files and templates required to set up a Kubernetes application.</li>
+<li><strong>Releases</strong>: A deployed instance of a chart. Each time you install a chart into your Kubernetes cluster, it creates a release.</li>
+<li><strong>Repositories</strong>: Places where charts are stored and shared.</li>
+</ol>
+<p>Need to study</p>
 <ul>
 <li>job</li>
 <li>cronjob</li>
