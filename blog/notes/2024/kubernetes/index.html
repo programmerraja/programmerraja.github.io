@@ -1487,6 +1487,8 @@ webhooks:
 <li><a href="https://docs.stakater.com/reloader/">Reloader</a> can watch changes in <code>ConfigMap</code> and <code>Secret</code> and do rolling upgrades on Pods</li>
 <li><a href="https://karpenter.sh/">karpenter</a> Just-in-time Nodes for Any Kubernetes Cluster</li>
 <li><strong><a href="https://cdk8s.io/">cdk8s</a></strong> is an open-source software development framework for defining Kubernetes applications and reusable abstractions using familiar programming languages and rich object-oriented APIs</li>
+<li>Inspect all internal and external cluster communications, API transactions, and data in transit with cluster-wide monitoring of all traffic going in, out, and across containers, pods, namespaces, nodes, and clusters. <a href="https://www.kubeshark.co/">https://www.kubeshark.co/</a></li>
+<li>A simple <a href="https://github.com/ofirc/k8s-sniff-https?tab=readme-ov-file">mitmproxy</a> blueprint to intercept HTTPS traffic from app running on Kubernetes</li>
 </ol>
 <p><code>kubectl get deployments --selector=app.kubernetes.io/instance=kubesense,app.kubernetes.io/name=api -n kubesense</code></p>
 <p>to get the deployment file that match the selector</p>

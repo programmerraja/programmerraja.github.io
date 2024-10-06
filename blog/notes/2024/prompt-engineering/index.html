@@ -188,6 +188,8 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#claude" aria-label="Claude">Claude</a></li>
                 <li>
+                    <a href="#prompt-compression" aria-label="Prompt compression">Prompt compression</a></li>
+                <li>
                     <a href="#prompt-hacking" aria-label="Prompt Hacking">Prompt Hacking</a><ul>
                         
                 <li>
@@ -497,7 +499,30 @@ correct yourself inside &lt;reflection&gt; tags.
 <h2 id="chain-of-thought-cot">Chain-of-thought (CoT)</h2>
 <p> By leveraging in-context learning abilities, CoT prompting encourages a language model to more effectively solve complex problems by outputting along with its solution a corresponding “chain of thought” (i.e., a step-by-step explanation for how the problem was solved). The model can be prompted to generate a chain of thought via a few-shot learning approach that provides several chain of thought exemplars; see above. The CoT technique is most effective when the map from input to output is highly non-trivial; e.g., math or multi-step reasoning problems.</p>
 <p>Note: use COT for mathematical and reasoning where the perform good check out <a href="https://arxiv.org/pdf/2409.12183">here</a> for more</p>
-<h2 id="auto-cot">Auto COT</h2>
+<p>Prompt</p>
+<pre tabindex="0"><code> You are an AI assistant that uses a Chain of Thought (CoT) approach with reflection to answer queries. Follow these steps:
+
+        1. Think through the problem step by step within the &lt;thinking&gt; tags.
+        2. Reflect on your thinking to check for any errors or improvements within the &lt;reflection&gt; tags.
+        3. Make any necessary adjustments based on your reflection.
+        4. Provide your final, concise answer within the &lt;output&gt; tags.
+
+        Important: The &lt;thinking&gt; and &lt;reflection&gt; sections are for your internal reasoning process only. 
+        Do not include any part of the final answer in these sections. 
+        The actual response to the query must be entirely contained within the &lt;output&gt; tags.
+
+        Use the following format for your response:
+        &lt;thinking&gt;
+        [Your step-by-step reasoning goes here. This is your internal thought process, not the final answer.]
+        &lt;reflection&gt;
+        [Your reflection on your reasoning, checking for errors or improvements]
+        &lt;/reflection&gt;
+        [Any adjustments to your thinking based on your reflection]
+        &lt;/thinking&gt;
+        &lt;output&gt;
+        [Your final, concise answer to the query. This is the only part that will be shown to the user.]
+        &lt;/output&gt;
+</code></pre><h2 id="auto-cot">Auto COT</h2>
 <p>Auto-CoT paradigm to automatically construct demonstrations with questions and reasoning chains. Specifically, Auto-CoT leverages LLMs with the “Let’s think step by step” prompt to generate reasoning chains for demonstrations one by one, and sending that COT with question to LLM as few shot prompting</p>
 <h2 id="self-consistency-with-cot">Self-consistency with (CoT)</h2>
 <h2 id="react">ReAct</h2>
@@ -599,6 +624,12 @@ user : &#34;prompt&#34;
 asssistant: &#34;{&#34; -&gt; which tell the model to start with { need to return as json 
 </code></pre><ul>
 <li>if claude saying text after json we can use stop_sequences ask the model to wrap a json with json tag like <code>&lt;json&gt;&lt;/json&gt;</code> and we can give stop_sequences as <code>&lt;/json&gt;</code></li>
+</ul>
+<h2 id="prompt-compression">Prompt compression</h2>
+<p>Prompt compression is a technique used in natural language processing (NLP) to optimize the inputs given to LLMs by reducing their length without significantly altering the quality and relevance of the output.</p>
+<ul>
+<li>gpttrim (By tokenizing, stemming, and removing spaces)</li>
+<li>LLMLingua (A LLM developed by microsoft open source which will help to reduce the prompt)</li>
 </ul>
 <h2 id="prompt-hacking">Prompt Hacking</h2>
 <h3 id="output2prompt">output2prompt</h3>
