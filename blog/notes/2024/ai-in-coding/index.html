@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">AI in Coding | programmerraja blog</title>
+<meta property="og:title" content="AI in Coding | programmerraja blog" />
+<meta name="twitter:title" content="AI in Coding | programmerraja blog" />
+<meta itemprop="name" content="AI in Coding | programmerraja blog" />
+<meta name="application-name" content="AI in Coding | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/ai-in-coding/" title="" />
+
+
+
+  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/ai-in-coding/">
+    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">AI in Coding</h1>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-09-19T06:32:53&#43;05:30" itemprop="datePublished"> Sep 19, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#agents-in-software-engineering" aria-label="Agents in Software Engineering">Agents in Software Engineering</a><ul>
+                        
+                <li>
+                    <a href="#repo-coder" aria-label="Repo Coder">Repo Coder</a></li>
+                <li>
+                    <a href="#repocoder-framework" aria-label="RepoCoder Framework">RepoCoder Framework</a></li>
+                <li>
+                    <a href="#1-github-copilot" aria-label="1. GitHub Copilot">1. GitHub Copilot</a></li>
+                <li>
+                    <a href="#2-tabnine" aria-label="2. Tabnine">2. Tabnine</a></li>
+                <li>
+                    <a href="#3-amazon-codewhisperer" aria-label="3. Amazon CodeWhisperer">3. Amazon CodeWhisperer</a></li>
+                <li>
+                    <a href="#4-general-research-on-neural-code-completion" aria-label="4. General Research on Neural Code Completion">4. General Research on Neural Code Completion</a></li></ul>
+                </li>
+                <li>
+                    <a href="#tools" aria-label="Tools">Tools</a><ul>
+                        
+                <li>
+                    <a href="#testpilothttpsgithubnextcomprojectstestpilot" aria-label="TestPilot">TestPilot</a></li></ul>
+                </li>
+                <li>
+                    <a href="#llm" aria-label="LLM">LLM</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <p>Discover vulnerabilities across a codebase with CodeQL, our industry-leading semantic code analysis engine. CodeQL lets you query code as though it were data. Write a query to find all variants of a vulnerability, eradicating it forever. Then share your query to help others do the same.
+<a href="https://codeql.github.com/">https://codeql.github.com/</a></p>
+<h2 id="agents-in-software-engineering">Agents in Software Engineering</h2>
+<p>LLM-based agents comprising three key components: perception, memory, action.</p>
+<ul>
+<li>
+<p>Perception: . It can process inputs of different modalities such as textual, visual, and auditory input, and convert them into an embedding format that LLM-based agents can understand and process, laying the foundation for reasoning and decision-making actions of LLM-based agents.</p>
+</li>
+<li>
+<p>Memory: The memory modules include semantic, episodic, and procedural memory, which can provide additional useful information to help LLM make reasoning decisions</p>
+<ul>
+<li>
+<p>Semantic Memory: Semantic memory stores acknowledged world knowledge of LLM-based agents, usually in the form of external knowledge retrieval bases which include documents, libraries, APIs,</p>
+</li>
+<li>
+<p>Episodic Memory: Episodic memory records content related to the current case and experience information from previous decision-making processes. Content related to the current case (such as relevant information found in the search database, samples provided by In-context learning (ICL) technology, etc.)</p>
+</li>
+<li>
+<p>Procedural Memory: The procedural memory of Agents in software engineering contains the implicit knowledge stored in the LLM weights and the explicit knowledge written in the agent’s code.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Action : The action module includes two types: internal and external actions. The external actions interact with the external environment to obtain feedback information, including Dialogue with humans/agents and interaction with the digital environment, while the internal actions reason and make decisions based on the input of the LLM and refine the decision based on the obtained feedback, including reasoning, retrieval, and learning actions.</p>
+<ul>
+<li>Internal Action: can be classified as
+<ul>
+<li>
+<p>Reasoning Action (COT,AutoCOT,Brainstorm framework,tree-shaped CoT),</p>
+</li>
+<li>
+<p>Retrieval Action</p>
+<ul>
+<li>Text-code (APIRetriever,De-Hallucinator)</li>
+<li>Text-Text (DocPrompting,CodeAgent)</li>
+<li>Code-Code (RepoCoder,RepoFusion)</li>
+<li>Hybrid-Code (ToolCoder,Query Expansion)</li>
+<li>Code-Hybrid (CEDAR,Multi-intent)</li>
+<li>Text-Hybrid (LAIL,AceCoder)</li>
+</ul>
+</li>
+<li>
+<p>Learning Action: Learning actions are continuously learning and updating knowledge by learning and updating semantic and procedural memories, thereby improving the quality and efficiency of reasoning and decision-making (CodGen)</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>External Action: Agents can interact with humans or other agents, and get rich information in the interaction process as feedback, expanding the knowledge of the agent and refining the answers of LLM more corrector (REFINER,PPOCoder,RLTF)</p>
+</li>
+</ul>
+<p>Check out more research paper about SE Agent <a href="https://github.com/DeepSoftwareAnalytics/Awesome-Agent4SE">here</a></p>
+<h3 id="repo-coder">Repo Coder</h3>
+<p>RepoCoder: Repository-Level Code Completion Through Iterative Retrieval and Generation</p>
+<h3 id="repocoder-framework"><strong>RepoCoder Framework</strong></h3>
+<ul>
+<li>
+<p><strong>Core Idea</strong>: RepoCoder improves upon traditional In-File and Retrieval-Augmented Generation (RAG) methods by iterating between retrieval and code generation. It continuously refines its retrieval process using the generated code from prior iterations to narrow down more relevant context from the repository.</p>
+</li>
+<li>
+<p><strong>Components</strong>:</p>
+<ul>
+<li><strong>Retriever</strong>: Searches for relevant code snippets from the repository based on the incomplete code.</li>
+<li><strong>Generator</strong>: Uses a pre-trained language model (such as GPT-3.5) to generate the completed code based on the retrieved snippets.</li>
+<li><strong>Iterative Process</strong>: By iterating between retrieval and generation, RepoCoder refines the search query and retrieves more accurate code snippets with each iteration.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Challenges and Limitations</strong></p>
+<ul>
+<li><strong>Low Code Duplication</strong>: RepoCoder&rsquo;s performance might not significantly improve in repositories with minimal code duplication</li>
+<li><strong>Iteration Optimization</strong>: Determining the optimal number of iterations for retrieval-generation is a challenge, as performance gains might not always be consistent with more iterations.</li>
+<li><strong>Real-Time Deployment</strong>: While effective, RepoCoder&rsquo;s iterative nature can introduce latency, which might not be suitable for real-time applications without optimizations like caching or model acceleration.</li>
+</ul>
+<p>Check out code <a href="https://github.com/microsoft/CodeT/blob/main/RepoCoder/search_code.py">here</a></p>
+<p>To understand how GitHub Copilot, Tabnine, and Amazon CodeWhisperer work, you can explore several research papers and technical reports that discuss the underlying models and techniques used in these tools. Here’s a guide to some relevant areas and papers that can help you learn about their functionality:</p>
+<h3 id="1-github-copilot">1. <strong>GitHub Copilot</strong></h3>
+<p>GitHub Copilot is based on OpenAI Codex, a language model derived from GPT-3. It is fine-tuned specifically for code completion tasks. Below are relevant papers to understand its underlying architecture:</p>
+<ul>
+<li>
+<p><strong>&ldquo;Language Models are Few-Shot Learners&rdquo;</strong><br>
+By: Tom Brown et al. (2020)<br>
+<a href="https://arxiv.org/abs/2005.14165">Paper Link</a><br>
+This paper discusses GPT-3, the foundation for OpenAI Codex, the model behind GitHub Copilot. It covers the architecture, training, and performance of GPT-3 in various language tasks, including code generation.</p>
+</li>
+<li>
+<p><strong>&ldquo;Evaluating Large Language Models Trained on Code&rdquo;</strong><br>
+By: Mark Chen et al. (2021)<br>
+<a href="https://arxiv.org/abs/2107.03374">Paper Link</a><br>
+This paper specifically describes OpenAI Codex, the model that powers GitHub Copilot. It evaluates the performance of Codex in code generation tasks and outlines the challenges of training language models on code.</p>
+</li>
+</ul>
+<h3 id="2-tabnine">2. <strong>Tabnine</strong></h3>
+<p>Tabnine is a code completion tool that started as a model based on GPT-2 and later expanded to use more sophisticated models, including large pre-trained models.</p>
+<ul>
+<li>
+<p><strong>&ldquo;TabNine: Using GPT-2 for Code Completion&rdquo;</strong><br>
+This is not an official research paper but an informative blog post or whitepaper by Tabnine on how they use GPT-2 for code completion. Check Tabnine&rsquo;s official blog for technical insights.</p>
+</li>
+<li>
+<p><strong>&ldquo;Code Generation with Pre-trained Language Models&rdquo;</strong><br>
+By: Loubna Ben Allal et al. (2021)<br>
+<a href="https://arxiv.org/abs/2102.04664">Paper Link</a><br>
+This paper provides insights into how pre-trained language models like GPT-2 (which Tabnine used in earlier versions) can be adapted for code generation tasks. It explores transfer learning for software development.</p>
+</li>
+</ul>
+<h3 id="3-amazon-codewhisperer">3. <strong>Amazon CodeWhisperer</strong></h3>
+<p>Amazon CodeWhisperer uses machine learning models to assist developers by suggesting code snippets based on the developer&rsquo;s coding context.</p>
+<ul>
+<li>
+<p><strong>&ldquo;CodeWhisperer: Neural Code Autocompletion in the IDE&rdquo;</strong><br>
+While no specific research paper is available for CodeWhisperer, you can look at related works in neural code completion for IDEs. CodeWhisperer likely leverages models similar to those used in GitHub Copilot and Tabnine.</p>
+</li>
+<li>
+<p><strong>&ldquo;IntelliCode Compose: Code Generation Using Transformer&rdquo;</strong><br>
+By: Alexey Svyatkovskiy et al. (2020)<br>
+<a href="https://arxiv.org/abs/2005.08025">Paper Link</a><br>
+This paper details how transformer-based models are used for code generation and autocompletion in IDEs. While focused on IntelliCode, the methods are similar to those Amazon CodeWhisperer likely employs.</p>
+</li>
+</ul>
+<h3 id="4-general-research-on-neural-code-completion">4. <strong>General Research on Neural Code Completion</strong></h3>
+<p>To gain a broader understanding of how these tools work, you should also explore more general papers on neural code completion and machine learning models for programming tasks:</p>
+<ul>
+<li>
+<p><strong>&ldquo;CoNaLa: Code/Natural Language Challenge&rdquo;</strong><br>
+By: Pengcheng Yin et al. (2018)<br>
+<a href="https://arxiv.org/abs/1805.09819">Paper Link</a><br>
+This paper presents a dataset and challenge that bridges natural language processing and code generation, providing insights into how code models are trained to generate code from natural language inputs.</p>
+</li>
+<li>
+<p><strong>&ldquo;A Survey of Machine Learning for Big Code and Naturalness&rdquo;</strong><br>
+By: Miltiadis Allamanis et al. (2018)<br>
+<a href="https://arxiv.org/abs/1709.06182">Paper Link</a><br>
+This survey offers a comprehensive overview of machine learning techniques for programming, covering code completion, generation, and code search.</p>
+</li>
+<li>
+<p><strong>&ldquo;BERT2Code: Can Pretrained Code Models Understand Programs?&rdquo;</strong><br>
+By: Ferdian Thung et al. (2021)<br>
+<a href="https://arxiv.org/abs/2109.00401">Paper Link</a><br>
+This paper explores whether models like BERT can be applied to code understanding, a precursor to code completion tasks, and can help you understand the use of pre-trained models like BERT in programming tasks.</p>
+</li>
+</ul>
+<h2 id="tools">Tools</h2>
+<h3 id="testpilothttpsgithubnextcomprojectstestpilot"><a href="https://githubnext.com/projects/testpilot/">TestPilot</a></h3>
+<p>TestPilot takes the pain out of writing unit tests. It uses GitHub Copilot&rsquo;s AI technology to suggest tests based on your existing code and documentation</p>
+<p><a href="https://github.com/Storia-AI/repo2vec">https://github.com/Storia-AI/repo2vec</a></p>
+<h2 id="llm">LLM</h2>
+<ul>
+<li><a href="https://www.deepseek.com/">DeepSeek</a> Coder comprises a series of code language models trained from scratch on both 87% code and 13% natural language in English and Chinese Open sources and free to use</li>
+<li><a href="https://github.com/huybery/Awesome-Code-LLM">https://github.com/huybery/Awesome-Code-LLM</a></li>
+</ul>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</main>
+    </body>
+</html>

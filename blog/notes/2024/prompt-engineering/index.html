@@ -148,9 +148,11 @@ stroke-linejoin="round" class="feather feather-home">
 
         <div class="inner"><ul>
                 <li>
+                    <a href="#prompt-classification" aria-label="Prompt classification">Prompt classification</a></li>
+                <li>
                     <a href="#plan-like-a-graph" aria-label="Plan Like a Graph">Plan Like a Graph</a></li>
                 <li>
-                    <a href="#claude-meta-prompt" aria-label="Claude Meta Prompt">Claude Meta Prompt</a></li>
+                    <a href="#prompt-pattern" aria-label="Prompt Pattern">Prompt Pattern</a></li>
                 <li>
                     <a href="#dspy" aria-label="Dspy">Dspy</a><ul>
                         
@@ -163,10 +165,6 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#internal-of-dspy" aria-label="Internal of DSPY">Internal of DSPY</a></li></ul>
                 </li>
-                <li>
-                    <a href="#zenbase" aria-label="Zenbase">Zenbase</a></li>
-                <li>
-                    <a href="#evallm" aria-label="EvalLM">EvalLM</a></li>
                 <li>
                     <a href="#reflection-fine-tuning" aria-label="Reflection Fine-Tuning">Reflection Fine-Tuning</a></li>
                 <li>
@@ -184,24 +182,20 @@ stroke-linejoin="round" class="feather feather-home">
                 <li>
                     <a href="#summarization" aria-label="Summarization">Summarization</a></li>
                 <li>
-                    <a href="#chatml" aria-label="ChatML">ChatML</a></li>
+                    <a href="#claude-meta-prompt" aria-label="Claude Meta Prompt">Claude Meta Prompt</a></li>
                 <li>
-                    <a href="#claude" aria-label="Claude">Claude</a></li>
+                    <a href="#claude-prompt-tips" aria-label="Claude Prompt Tips">Claude Prompt Tips</a></li>
                 <li>
                     <a href="#prompt-compression" aria-label="Prompt compression">Prompt compression</a></li>
-                <li>
-                    <a href="#prompt-hacking" aria-label="Prompt Hacking">Prompt Hacking</a><ul>
-                        
-                <li>
-                    <a href="#output2prompt" aria-label="output2prompt">output2prompt</a></li></ul>
-                </li>
-                <li>
-                    <a href="#my-thoughts" aria-label="My Thoughts">My Thoughts</a></li>
                 <li>
                     <a href="#frugalgpt" aria-label="FrugalGPT">FrugalGPT</a><ul>
                         
                 <li>
-                    <a href="#prompt-optimization" aria-label="Prompt Optimization">Prompt Optimization</a></li></ul>
+                    <a href="#prompt-optimization" aria-label="Prompt Optimization">Prompt Optimization</a></li>
+                <li>
+                    <a href="#llm-approximation" aria-label=" LLM Approximation"> LLM Approximation</a></li>
+                <li>
+                    <a href="#llm-cascade" aria-label="LLM Cascade">LLM Cascade</a></li></ul>
                 </li>
                 <li>
                     <a href="#co-star-framework" aria-label="CO-STAR framework">CO-STAR framework</a><ul>
@@ -222,27 +216,40 @@ stroke-linejoin="round" class="feather feather-home">
                     </ul>
                 </li>
                 <li>
-                    <a href="#instance-adaptive-prompting-strategy" aria-label="Instance-Adaptive prompting strategy">Instance-Adaptive prompting strategy</a><ul>
+                    <a href="#instance-adaptive-prompting-strategy" aria-label="Instance-Adaptive prompting strategy">Instance-Adaptive prompting strategy</a></li>
+                <li>
+                    <a href="#meta-prompting" aria-label="Meta Prompting">Meta Prompting</a></li>
+                <li>
+                    <a href="#prompt-for-generate-system-prompt" aria-label="Prompt for generate System Prompt">Prompt for generate System Prompt</a></li>
+                <li>
+                    <a href="#chatml" aria-label="ChatML">ChatML</a></li>
+                <li>
+                    <a href="#tools" aria-label="Tools">Tools</a><ul>
                         
                 <li>
-                    <a href="#llm-approximation" aria-label=" LLM Approximation"> LLM Approximation</a></li></ul>
+                    <a href="#zenbase" aria-label="Zenbase">Zenbase</a></li>
+                <li>
+                    <a href="#evallm" aria-label="EvalLM">EvalLM</a></li></ul>
                 </li>
                 <li>
-                    <a href="#meta-prompting" aria-label="Meta Prompting">Meta Prompting</a><ul>
+                    <a href="#prompt-hacking" aria-label="Prompt Hacking">Prompt Hacking</a><ul>
                         
                 <li>
-                    <a href="#llm-cascade" aria-label="LLM Cascade">LLM Cascade</a></li></ul>
+                    <a href="#output2prompt" aria-label="output2prompt">output2prompt</a></li></ul>
                 </li>
+                <li>
+                    <a href="#my-thoughts" aria-label="My Thoughts">My Thoughts</a></li>
                 <li>
                     <a href="#resources" aria-label="Resources">Resources</a></li>
                 <li>
-                    <a href="#tools" aria-label="Tools">Tools</a>
+                    <a href="#tools-1" aria-label="Tools">Tools</a>
                 </li>
             </ul>
         </div>
     </details>
 </div><div class="page-content">
-                <p>![[Pasted image 20240720193516.png]]</p>
+                <h2 id="prompt-classification">Prompt classification</h2>
+<p>![[Pasted image 20240720193516.png]]</p>
 <h2 id="plan-like-a-graph">Plan Like a Graph</h2>
 <p>Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance of LLMs in asynchronous planning tasks.</p>
 <pre tabindex="0"><code>Let&#39;s say we have an asynchronous planning task where we need to bake a cake, frost it, and then decorate it, and we have the following time durations and constraints:
@@ -280,7 +287,16 @@ Use the following graph to reason about the task and determine the shortest poss
 `1Mix batter (10 min) ----&gt; Bake cake (30 min) ----&gt; Frost cake (5 min) ----&gt; Decorate cake (15 min)`
 
 By providing the LLM with a graph representation of the task, we can help it reason more effectively about the constraints and time durations involved, leading to more accurate predictions about the shortest possible time needed to complete the task.
-</code></pre><table>
+</code></pre><h2 id="prompt-pattern">Prompt Pattern</h2>
+<p>A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT</p>
+<ul>
+<li><strong>Input Semantics:</strong> Changing how the LLM understands input.</li>
+<li><strong>Output Customization:</strong> Controlling the format, structure, or other aspects of the LLM&rsquo;s output.</li>
+<li><strong>Error Identification:</strong> Helping users identify and correct errors in the LLM&rsquo;s output.</li>
+<li><strong>Prompt Improvement:</strong> Enhancing the quality of both the user&rsquo;s prompts and the LLM&rsquo;s responses.</li>
+<li><strong>Interaction:</strong> Changing how the user interacts with the LLM.</li>
+</ul>
+<table>
   <thead>
       <tr>
           <th style="text-align: left">Pattern Category</th>
@@ -314,9 +330,6 @@ By providing the LLM with a graph representation of the task, we can help it rea
       </tr>
   </tbody>
 </table>
-<h2 id="claude-meta-prompt">Claude Meta Prompt</h2>
-<p>Claude have written a prompt that will help to get perfect prompt in XML
-check <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-generator">here</a></p>
 <h2 id="dspy">Dspy</h2>
 <p>Dspy(Declarative Self-improving Language Programs) make it easy to follow the data science process when building LM apps</p>
 <p>Workflow</p>
@@ -479,11 +492,9 @@ check <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engin
 <li><strong><code>KNNFewShot</code></strong></li>
 </ul>
 <h3 id="internal-of-dspy">Internal of DSPY</h3>
-<p>Dspy uses pydantic [[Python#Pydantic]]  for <code>dspy.InputField</code> and other things</p>
-<h2 id="zenbase">Zenbase</h2>
-<p>Developer tools and cloud infrastructure for perfectionists using LLMs. <a href="https://zenbase.ai">Zenbase</a> takes care of the hassle of prompt engineering and model selection.</p>
-<h2 id="evallm">EvalLM</h2>
-<p>Interactive Evaluation of Large Language Model Prompts on User-Defined Criteria</p>
+<ul>
+<li>Dspy uses pydantic [[Python#Pydantic]]  for <code>dspy.InputField</code> and other things</li>
+</ul>
 <h2 id="reflection-fine-tuning">Reflection Fine-Tuning</h2>
 <p>Reflection is the new fine-tuning technique where the fine-tuning prompt is changed a bit to incorporate self reflection while training the LLM, improving the results by a big margin.
 Prompt</p>
@@ -498,7 +509,8 @@ correct yourself inside &lt;reflection&gt; tags.
 </ul>
 <h2 id="chain-of-thought-cot">Chain-of-thought (CoT)</h2>
 <p> By leveraging in-context learning abilities, CoT prompting encourages a language model to more effectively solve complex problems by outputting along with its solution a corresponding “chain of thought” (i.e., a step-by-step explanation for how the problem was solved). The model can be prompted to generate a chain of thought via a few-shot learning approach that provides several chain of thought exemplars; see above. The CoT technique is most effective when the map from input to output is highly non-trivial; e.g., math or multi-step reasoning problems.</p>
-<p>Note: use COT for mathematical and reasoning where the perform good check out <a href="https://arxiv.org/pdf/2409.12183">here</a> for more</p>
+<p>Note: use COT for mathematical and reasoning where the perform good.
+check out <a href="https://arxiv.org/pdf/2409.12183">here</a> for more</p>
 <p>Prompt</p>
 <pre tabindex="0"><code> You are an AI assistant that uses a Chain of Thought (CoT) approach with reflection to answer queries. Follow these steps:
 
@@ -525,6 +537,9 @@ correct yourself inside &lt;reflection&gt; tags.
 </code></pre><h2 id="auto-cot">Auto COT</h2>
 <p>Auto-CoT paradigm to automatically construct demonstrations with questions and reasoning chains. Specifically, Auto-CoT leverages LLMs with the “Let’s think step by step” prompt to generate reasoning chains for demonstrations one by one, and sending that COT with question to LLM as few shot prompting</p>
 <h2 id="self-consistency-with-cot">Self-consistency with (CoT)</h2>
+<ul>
+<li>Need to add notes</li>
+</ul>
 <h2 id="react">ReAct</h2>
 <p>ReAct is a general paradigm that combines reasoning and acting with LLMs. ReAct prompts LLMs to generate verbal reasoning traces and actions for a task.</p>
 <p>it to be better than chain-of-thought prompting</p>
@@ -550,35 +565,38 @@ correct yourself inside &lt;reflection&gt; tags.
 - Action 5: Finish [1,800 to 7,000 ft]
 </code></pre><h2 id="tree-of-thoughts">Tree of Thoughts</h2>
 <p>Tree of Thoughts is an innovative approach to AI reasoning that expands upon the Chain of Thought (CoT) methodology. While CoT prompts an AI to explain its thinking in a linear fashion, ToT takes this a step further by encouraging the AI to explore multiple paths of reasoning simultaneously, much like a tree branching out in various directions.</p>
-<p>check out implementation <a href="https://github.com/kyegomez/tree-of-thoughts">here</a>
-Prompt</p>
+<p>check out implementation <a href="https://github.com/kyegomez/tree-of-thoughts">here</a></p>
+<p>Prompt</p>
 <pre tabindex="0"><code>
-Imagine three different experts are answering this question. All experts will write down 1 step of their thinking, then share it with the group. Then all experts will go on to the next step, etc. If any expert realises they&#39;re wrong at any point then they leave. The question is...
+**You are an expert problem-solving agent** designed to not only solve complex problems but also critically evaluate the quality of your thought process and final answers. 
 
+Your task is to follow a structured approach to generate solutions, assess your thoughts, and provide a rating for each on a scale of 0.1 to 1.0. This rating should reflect the accuracy and quality of your reasoning and final answer.
 
+### Instructions:
 
-################ 2nd ################
+1. **Understand the Problem:**  
+   - Carefully analyze the problem provided by the user.  
+   - Break down the problem into smaller, manageable parts if necessary.  
+   - Formulate a clear understanding of the problem before proceeding.
 
-Simulate three brilliant, logical experts collaboratively answering a question. Each one verbosely explains their thought process in real-time, considering the prior explanations of others and openly acknowledging mistakes. At each step, whenever possible, each expert refines and builds upon the thoughts of others, acknowledging their contributions. They continue until there is a definitive answer to the question. For clarity, your entire response should be in a markdown table. The question is...
+2. **Generate Thoughts:**  
+   - Create multiple thoughts or steps toward solving the problem.  
+   - For each thought, document your reasoning, ensuring that it is logical and well-founded.
 
+3. **Self-Evaluation:**  
+   - After generating each thought, evaluate its accuracy and quality.  
+   - Assign an evaluation score between 0.1 and 1.0. Use the following guidelines:  
+     - **0.1 to 0.4:** The thought is flawed, inaccurate, or incomplete.  
+     - **0.5 to 0.7:** The thought is partially correct but may lack detail or full accuracy.  
+     - **0.8 to 1.0:** The thought is accurate, complete, and well-reasoned.
 
-################ ################
+4. **Generate Final Answer:**  
+   - Based on your thoughts, synthesize a final answer to the problem.  
+   - Ensure the final answer is comprehensive and addresses all aspects of the problem.
 
-Imagine three highly intelligent experts working together to answer a question. They will follow a tree of thoughts approach, where each expert shares their thought process step by step. They will consider the input from others, refine their thoughts, and build upon the group&#39;s collective knowledge. If an expert realizes their thought is incorrect, they will acknowledge it and withdraw from the discussion. Continue this process until a definitive answer is reached. Present the entire response in a markdown table. The question is...
-
-
-################ 2nd ################
-
-Three experts with exceptional logical thinking skills are collaboratively answering a question using a tree of thoughts method. Each expert will share their thought process in detail, taking into account the previous thoughts of others and admitting any errors. They will iteratively refine and expand upon each other&#39;s ideas, giving credit where it&#39;s due. The process continues until a conclusive answer is found. Organize the entire response in a markdown table format. The question is...
-################ 2nd ################
-
-
-Envision a group of three experts working in unison to tackle a question by employing a tree of thoughts strategy. Each expert will thoroughly explain their line of thinking at every step, while also considering the insights provided by their peers. They will openly recognize any mistakes and build upon the group&#39;s shared understanding. This iterative process will continue until a definitive solution is reached. Structure the entire response as a markdown table. The question is...
-
-
-################ 2nd ################
-
-&#34;Three experts with exceptional logical thinking skills are collaboratively answering a question using the tree of thoughts method. Each expert will share their thought process in detail, taking into account the previous thoughts of others and admitting any errors. They will iteratively refine and expand upon each other&#39;s ideas, giving credit where it&#39;s due. The process continues until a conclusive answer is found. Organize the entire response in a markdown table format. The task is:
+5. **Final Evaluation:**  
+   - Evaluate the overall quality and accuracy of your final answer.  
+   - Provide a final evaluation score based on the same 0.1 to 1.0 scale.
 </code></pre><h2 id="re-reading-improves-reasoning-in-large-language-models">Re-Reading Improves Reasoning in Large Language Models</h2>
 <p>The core concept of the paper &ldquo;Re-Reading Improves Reasoning in Large Language Models&rdquo; is that repeating the input question can enhance the reasoning capabilities of Large Language Models (LLMs),</p>
 <p>Unlike many thought-eliciting prompting methods (e.g., Chain-of-Thought) that focus on structuring the output, RE2 focuses on improving how the LLM processes the input This is analogous to how understanding the question is paramount to solving a problem for humans.</p>
@@ -595,17 +613,10 @@ Let’s think step by step.
 <ul>
 <li><a href="https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb">https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb</a></li>
 </ul>
-<h2 id="chatml">ChatML</h2>
-<p>ChatML (Chat Markup Language) is a lightweight markup format used by OpenAI to structure conversations between users and models, especially in chatbot-like environments. It is designed to define roles and organize the flow of conversation between different participants, such as system instructions, user inputs, and model responses.</p>
-<p>In a typical ChatML format, the message blocks are defined by tags such as:</p>
-<ul>
-<li><code>&lt;|system|&gt;</code>: Instructions or setup given to the model (usually hidden from the user).</li>
-<li><code>&lt;|user|&gt;</code>: Represents what the user says.</li>
-<li><code>&lt;|assistant|&gt;</code>: Represents the assistant’s responses.</li>
-<li><code>&lt;im_start|&gt;</code> : the start of an interactive mode where messages will alternate between participants. It’s generally used to transition into the back-and-forth of a conversation.</li>
-<li><code>&lt;im_end|&gt;</code></li>
-</ul>
-<h2 id="claude">Claude</h2>
+<h2 id="claude-meta-prompt">Claude Meta Prompt</h2>
+<p>Claude have written a prompt that will help to get perfect prompt in XML
+check <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-generator">here</a></p>
+<h2 id="claude-prompt-tips">Claude Prompt Tips</h2>
 <p>Some takeaways you can use for writing your long-context Q&amp;A prompts:</p>
 <ul>
 <li>Use many examples and the scratchpad for best performance on both context lengths.</li>
@@ -630,19 +641,6 @@ asssistant: &#34;{&#34; -&gt; which tell the model to start with { need to retur
 <ul>
 <li>gpttrim (By tokenizing, stemming, and removing spaces)</li>
 <li>LLMLingua (A LLM developed by microsoft open source which will help to reduce the prompt)</li>
-</ul>
-<h2 id="prompt-hacking">Prompt Hacking</h2>
-<h3 id="output2prompt">output2prompt</h3>
-<p>The core idea behind output2prompt is clever in its simplicity. By analyzing patterns in the AI’s responses, another AI can infer the instructions that produced those responses.</p>
-<h2 id="my-thoughts">My Thoughts</h2>
-<ul>
-<li>When you write a prompt think how it process and response by yourself it will give you a idea how your prompt will work and where to improve</li>
-<li>Provide important thing at start of the prompt</li>
-<li>Think as it just next word predictor not more then that so think in the way when writing prompt</li>
-<li>Visulize attention mechnaism on the prompt</li>
-<li>Tell how to handle negative else it will hallucinate</li>
-<li>If you using too much example the response will be more genric based on the example so keep that in mind</li>
-<li>use stop sequence if you want avoid unwanted text</li>
 </ul>
 <h2 id="frugalgpt">FrugalGPT</h2>
 <p><strong>FrugalGPT</strong> is a framework proposed by Lingjiao Chen, Matei Zaharia and James Zou from Stanford University in their 2023 <a href="https://portkey.ai/blog/frugalgpt-how-to-use-large-language-models-while-reducing-cost-and-improving-performance-summary/">paper</a> &ldquo;<em>FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance</em>&rdquo;. The paper outlines strategies for more cost-effective and performant usage of large language model (LLM) APIs.</p>
@@ -673,6 +671,12 @@ FrugalGPT suggests identifying the best examples to be used instead of all of th
 </li>
 </ol>
 <p>check out <a href="https://github.com/microsoft/LLMLingua">here</a></p>
+<h3 id="llm-approximation"> LLM Approximation</h3>
+<p><strong>Cache LLM Requests</strong> : When the prompt is exactly the same, we can save the inference time and cost by serving the request from cache.</p>
+<p><strong>Fine-tune a smaller model in parallel</strong> : In a production environment, it can be massively beneficial to keep serving requests through a bigger model while continuously logging and fine-tuning a smaller model on those responses. We can then evaluate the results from the fine-tuned model and the larger model to determine when it make sense to switch.</p>
+<h3 id="llm-cascade">LLM Cascade</h3>
+<p>The key idea is to sequentially query different LLMs based on the confidence of the previous LLM&rsquo;s response. If a cheaper LLM can provide a satisfactory answer, there&rsquo;s no need to query the more expensive models, thus saving costs.</p>
+<p>In essence, the LLM cascade makes a request to the smallest model first, evaluates the response, and returns it if it&rsquo;s good enough. Otherwise, it requests the next larger model and so on until a satisfactory response is obtained or the largest model is reached.</p>
 <h2 id="co-star-framework">CO-STAR framework</h2>
 <h4 id="c-context-provide-background-information-on-the-task"><strong>(C) Context: Provide background information on the task</strong></h4>
 <p>This helps the LLM understand the specific scenario being discussed, ensuring its response is relevant.</p>
@@ -710,9 +714,6 @@ FrugalGPT suggests identifying the best examples to be used instead of all of th
 <p>Majority Vote (IAP-mv): The system evaluates all candidate prompts and selects the one that consistently produces the best reasoning</p>
 </li>
 </ul>
-<h3 id="llm-approximation"> LLM Approximation</h3>
-<p><strong>Cache LLM Requests</strong> : When the prompt is exactly the same, we can save the inference time and cost by serving the request from cache.</p>
-<p><strong>Fine-tune a smaller model in parallel</strong> : In a production environment, it can be massively beneficial to keep serving requests through a bigger model while continuously logging and fine-tuning a smaller model on those responses. We can then evaluate the results from the fine-tuned model and the larger model to determine when it make sense to switch.</p>
 <h2 id="meta-prompting">Meta Prompting</h2>
 <p>It involves constructing a high-level “meta” prompt that instructs an LLM</p>
 <p>prompt</p>
@@ -785,7 +786,7 @@ For multiple-choice questions, select only one option. Each question has a uniqu
 information carefully to determine the most accurate and appropriate response. Please present only one solution if you
 
 come across multiple options.
-</code></pre><p>Prompt for generating system prompts</p>
+</code></pre><h2 id="prompt-for-generate-system-prompt">Prompt for generate System Prompt</h2>
 <pre tabindex="0"><code>Understand the Task: Grasp the main objective, goals, requirements, constraints, and expected output.
 - Minimal Changes: If an existing prompt is provided, improve it only if it&#39;s simple. For complex prompts, enhance clarity and add missing elements without altering the original structure.
 - Reasoning Before Conclusions: Encourage reasoning steps before any conclusions are reached. ATTENTION! If the user provides examples where the reasoning happens afterward, REVERSE the order! NEVER START EXAMPLES WITH CONCLUSIONS!
@@ -825,9 +826,34 @@ The final prompt you output should adhere to the following structure below. Do n
 # Notes [optional]
 
 [optional: edge cases, details, and an area to call or repeat out specific important considerations]
-</code></pre><h3 id="llm-cascade">LLM Cascade</h3>
-<p>The key idea is to sequentially query different LLMs based on the confidence of the previous LLM&rsquo;s response. If a cheaper LLM can provide a satisfactory answer, there&rsquo;s no need to query the more expensive models, thus saving costs.</p>
-<p>In essence, the LLM cascade makes a request to the smallest model first, evaluates the response, and returns it if it&rsquo;s good enough. Otherwise, it requests the next larger model and so on until a satisfactory response is obtained or the largest model is reached.</p>
+</code></pre><h2 id="chatml">ChatML</h2>
+<p>ChatML (Chat Markup Language) is a lightweight markup format used by OpenAI to structure conversations between users and models, especially in chatbot-like environments. It is designed to define roles and organize the flow of conversation between different participants, such as system instructions, user inputs, and model responses.</p>
+<p>In a typical ChatML format, the message blocks are defined by tags such as:</p>
+<ul>
+<li><code>&lt;|system|&gt;</code>: Instructions or setup given to the model (usually hidden from the user).</li>
+<li><code>&lt;|user|&gt;</code>: Represents what the user says.</li>
+<li><code>&lt;|assistant|&gt;</code>: Represents the assistant’s responses.</li>
+<li><code>&lt;im_start|&gt;</code> : the start of an interactive mode where messages will alternate between participants. It’s generally used to transition into the back-and-forth of a conversation.</li>
+<li><code>&lt;im_end|&gt;</code></li>
+</ul>
+<h2 id="tools">Tools</h2>
+<h3 id="zenbase">Zenbase</h3>
+<p>Developer tools and cloud infrastructure for perfectionists using LLMs. <a href="https://zenbase.ai">Zenbase</a> takes care of the hassle of prompt engineering and model selection.</p>
+<h3 id="evallm">EvalLM</h3>
+<p>Interactive Evaluation of Large Language Model Prompts on User-Defined Criteria</p>
+<h2 id="prompt-hacking">Prompt Hacking</h2>
+<h3 id="output2prompt">output2prompt</h3>
+<p>The core idea behind output2prompt is clever in its simplicity. By analyzing patterns in the AI’s responses, another AI can infer the instructions that produced those responses.</p>
+<h2 id="my-thoughts">My Thoughts</h2>
+<ul>
+<li>When you write a prompt think how it process and response by yourself it will give you a idea how your prompt will work and where to improve</li>
+<li>Provide important thing at start of the prompt</li>
+<li>Think as it just next word predictor not more then that so think in the way when writing prompt</li>
+<li>Visulize attention mechnaism on the prompt</li>
+<li>Tell how to handle negative else it will hallucinate</li>
+<li>If you using too much example the response will be more genric based on the example so keep that in mind</li>
+<li>use stop sequence if you want avoid unwanted text</li>
+</ul>
 <p>Here are 5 papers you want to read to understand better how <a href="https://www.linkedin.com/company/openai/">OpenAI</a> o1 might work. Focusing on Improving LLM reasoning capabilities for complex tasks via training/RLHF, not prompting. 👀</p>
 <blockquote>
 <p>Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking (<a href="https://lnkd.in/eCPaa-wc">https://lnkd.in/eCPaa-wc</a>) from Stanford</p>
@@ -852,7 +878,7 @@ The final prompt you output should adhere to the following structure below. Do n
 <li><a href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/">https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/</a></li>
 <li><a href="https://github.com/0xeb/TheBigPromptLibrary">A collection of prompts, system prompts and LLM instructions</a></li>
 </ol>
-<h2 id="tools">Tools</h2>
+<h2 id="tools-1">Tools</h2>
 <ol>
 <li><a href="https://promptperfect.jina.ai/">AI Prompt Optimizer</a></li>
 <li><a href="https://www.octiai.com/">Start Generating Prompts with OctiAI</a></li>

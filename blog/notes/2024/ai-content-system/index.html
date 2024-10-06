@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">AI Content System | programmerraja blog</title>
+<meta property="og:title" content="AI Content System | programmerraja blog" />
+<meta name="twitter:title" content="AI Content System | programmerraja blog" />
+<meta itemprop="name" content="AI Content System | programmerraja blog" />
+<meta name="application-name" content="AI Content System | programmerraja blog" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="">
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/notes/2024/ai-content-system/" title="" />
+
+
+
+  <meta itemprop="image" content="https://programmerraja.github.io/blog/" />
+  <meta property="og:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image" content="https://programmerraja.github.io/blog/" />
+  <meta name="twitter:image:src" content="https://programmerraja.github.io/blog/" />
+
+
+
+
+
+<meta name="generator" content="Hugo 0.135.0">
+
+    
+
+    <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/ai-content-system/">
+    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
+    <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/blog/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/blog/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/blog/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/blog/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/blog/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://programmerraja.github.io/blog/site.webmanifest">
+
+<meta name="msapplication-config" content="/blog/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/blog/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "" class="notransition">
+        <main class="main">
+
+<script src="/blog/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://programmerraja.github.io/blog/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/blog/post/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/blog/notes/">
+                        Notes
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/search/">
+                        Search
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/tags/">
+                        Tags
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">AI Content System</h1>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-07-29T05:17:26&#43;05:30" itemprop="datePublished"> Jul 29, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul><ul><ul>
+                <li>
+                    <a href="#ikigai-method" aria-label="Ikigai method">Ikigai method</a></li>
+                <li>
+                    <a href="#content-ideas-factory" aria-label="Content Ideas Factory">Content Ideas Factory</a></li>
+                <li>
+                    <a href="#content-ideas" aria-label="Content ideas">Content ideas</a></li>
+                <li>
+                    <a href="#prompt-to-generate-content-like-human" aria-label="Prompt to generate content like human">Prompt to generate content like human</a></li></ul>
+                    </ul>
+                    
+                <li>
+                    <a href="#ai-text-wizard-prompt" aria-label="AI Text Wizard prompt">AI Text Wizard prompt</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <h3 id="ikigai-method">Ikigai method</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Your goal is to help the user identify their core content pillars for posting on social media. Core content pillars are the key topics or areas that the user will consistently create content about to build their brand and engage their audience. To determine the user’s core content pillars, gather information about their passions, strengths, and relevant market trends (Ikigai method) from the provided inputs:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">​  
+</span></span><span class="line"><span class="cl">&lt;Ikigai&gt;  
+</span></span><span class="line"><span class="cl">1. What topics do you find yourself constantly thinking about or eager to discuss with others?
+</span></span><span class="line"><span class="cl">	tech and programing, devops, microservcices,hacking etc
+</span></span><span class="line"><span class="cl">2. What activities or hobbies do you lose track of time while doing?
+</span></span><span class="line"><span class="cl">	Learning about tech like ai,devops,hacking etc
+</span></span><span class="line"><span class="cl">3. If you could spend a year learning about anything, what would it be? 
+</span></span><span class="line"><span class="cl">    Same as above
+</span></span><span class="line"><span class="cl">4. What skills or abilities have others frequently complimented you on?
+</span></span><span class="line"><span class="cl">    Same as above
+</span></span><span class="line"><span class="cl">5. What comes easily or naturally to you that others often struggle with?  (Same as above)
+</span></span><span class="line"><span class="cl">6. In what areas do you tend to outperform your peers or colleagues? (Same as above)
+</span></span><span class="line"><span class="cl">7. What challenges or pain points do you see many people struggling with? (Same as above)
+</span></span><span class="line"><span class="cl">8. What topics or issues seem to be getting a lot of attention or engagement on social media lately? (Same as above)
+</span></span><span class="line"><span class="cl">9. What emerging technologies, tools, or platforms seem promising?(Same as above)
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;/Ikigai&gt;  
+</span></span><span class="line"><span class="cl">​  
+</span></span><span class="line"><span class="cl">&lt;analysis&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Analyze the information to identify common threads and connections between the user&#39;s passions, strengths, and market trends. Write a detailed analysis, considering the following points:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">​
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- Which passions align with the user&#39;s strengths, and how can they be leveraged to create unique and engaging content?
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- What market trends or audience pain points relate to the user&#39;s areas of expertise, and how can they address these in their content?
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- Are there any recurring themes or topics that the user seems particularly knowledgeable or enthusiastic about?
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- How can the user&#39;s background and experiences contribute to a distinctive perspective or approach to their content?
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">​
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Summarize your key findings and insights, and use them to inform the content pillar suggestions in the next step.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;/analysis&gt;  
+</span></span><span class="line"><span class="cl">​  
+</span></span><span class="line"><span class="cl">&lt;core_content_pillars&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Based on your analysis, suggest 5 potential topics for each of the 3 core content pillars:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">​
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Main Topic (The main, niched down topic the user will be known for. It should be appropriately niched down for a specific target audience and allow the user to demonstrate their expertise and authority in a topic (e.g. copywriting for busy founders, prompting for AI beginners, graphic design for tech startups)):
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- [Topic] for [Target audience]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">​
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Broad Topic (This is a broader topic that speaks to a larger audience and also gives the user a bit more flexibility with their content strategy (e.g. productivity, mindset, entrepreneurship)):
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- [Topic]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">​
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Personal Topic (A deeply personal topic, highlighting unique perspectives and background which are important to create trust and relatability with a personal brand (e.g. being a dad, lessons learned)):
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- [Topic]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;/core_content_pillars&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">​
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Structure your response thoughtfully with line breaks for readability. Do not output XML tags, just use headers with markdown.
+</span></span></code></pre></div><h3 id="content-ideas-factory">Content Ideas Factory</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">You will be generating a set of 20 subtopics related to a given topic, tailored for a specific target audience.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Topic: [Enter your topic]
+</span></span><span class="line"><span class="cl">Audience: [Enter your audience]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">The subtopics should be outcome-oriented and cover various angles that the audience might be thinking about or areas where they would likely need help from an expert on the topic.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Avoid generic or overly broad subtopics.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Don&#39;t frame the subtopic using any specific content format, such as: Tips, Tricks, Steps, Hacks, Advice, Examples, Tools/Resources, Frameworks, Guides, Case study, Trends, Reasons, Common Mistakes, Observations, Comparisons, Questions, Lessons, Stories, Fears, Failures
+</span></span></code></pre></div><h3 id="content-ideas">Content ideas</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">You will be generating content ideas for various categories based on a given topic and a target audience.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Topic: [Enter your topic] # topic from prev answer
+</span></span><span class="line"><span class="cl">Audience: [Enter your audience]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Each content idea should include a number (either 3, 5, or 7) and be phrased as an engaging headline or title. For example:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- Tips &amp; Tricks: 5 Simple Tips to Craft Crystal-Clear Prompts for AI
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- Hacks: 7 Clever Hacks to Increase Your Productivity At Work
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- Mistakes: 3 Common Mistakes Beginners Make When Trying To Lose Weight
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">To generate the ideas, follow these steps:  
+</span></span><span class="line"><span class="cl">1. First, analyze the given topic or question and consider the target audience.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">2. Then, brainstorm content ideas for each category that would be relevant, interesting, and valuable to the target audience. Ensure the ideas are specific, actionable, and engaging.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">3. Output the ideas in the following formats (1 line with the content idea for each format): Tips, Tricks, Steps, Hacks, Advice, Examples, Tools/Resources, Frameworks, Guides, Case study, Trends, Reasons, Common Mistakes, Observations, Comparisons, Questions, Lessons, Stories, Fears, Failures
+</span></span></code></pre></div><p> create 2 posts per day, in a week that comes out as:</p>
+<ul>
+<li>11 short-form posts</li>
+<li>3 long-form posts</li>
+</ul>
+<p>But this is just a guideline. Ultimately you need to find the balance that works well for you.</p>
+<h3 id="prompt-to-generate-content-like-human">Prompt to generate content like human</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">I will provide you a TEMPLATE and an INPUT below. Your job is to write a new text by filling in the variables in the TEMPLATE using the INPUT context. You should aim to follow the TEMPLATE, but you can make minor adaptations to the template if it makes sense for the context.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">This is EXTREMELY important: Every output must be less than 280 characters.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">This is also important:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-Use short punchy sentences.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-Refrain from puffery writing at all cost.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">-Avoid salesy words like “game-changing, unlock, master, skyrocket, revolutionize, etc”.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;TEMPLATE&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{Input the template here}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;/TEMPLATE&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">​  
+</span></span><span class="line"><span class="cl">&lt;INPUT&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{Input the topic here}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;/INPUT&gt;
+</span></span></code></pre></div><p>Template</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Do [Something]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Explanation]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- [Example or Action 1]
+</span></span><span class="line"><span class="cl">- [Example or Action 2]
+</span></span><span class="line"><span class="cl">- [Example or Action 3]
+</span></span><span class="line"><span class="cl">- [Example or Action 4]
+</span></span><span class="line"><span class="cl">- [Example or Action 5]
+</span></span><span class="line"><span class="cl">- [Example or Action 6] 
+</span></span><span class="line"><span class="cl">- [Example or Action 7]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Simple playbook to [achieve desired outcome or state of being].
+</span></span></code></pre></div><p>TWITTER</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">I will provide you a TWITTER TEMPLATE and an INPUT below.
+</span></span><span class="line"><span class="cl">Your job is to write a new text by filling in the variables in the TWITTER TEMPLATE using the INPUT context.
+</span></span><span class="line"><span class="cl">You should aim to follow the TWITTER TEMPLATE, but you can make minor adaptations to the template if it makes sense for the context.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">This is very important: 
+</span></span><span class="line"><span class="cl">-Every tweet must be less than 280 characters.
+</span></span><span class="line"><span class="cl">-Refrain from puffery writing at all cost. 
+</span></span><span class="line"><span class="cl">-Avoid salesy words like &#34;game-changing, unlock, master, skyrocket, revolutionize, etc&#34;.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;TWITTER TEMPLATE&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{Input the template here}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;/TWITTER TEMPLATE&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;INPUT&gt; 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">{Input the topic here}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&lt;/INPUT&gt; 
+</span></span></code></pre></div><p>CONTENT TEMPLATE</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">--Hook--
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Doing something] is life-changing.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Main benefit of doing something].
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Here&#39;s exactly how you [do something] in 5 simple step:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--Tweet 1-5 can be either one of the following 3 alternatives--
+</span></span><span class="line"><span class="cl">--Alternative 1--
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Step X Headline]:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Description of the step&#39;s primary action or focus]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Additional context or details about implementing the step]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Key takeaway or lesson learned from this step]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--Alternative 2--
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Step X Headline]:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Description of the step&#39;s primary action or focus]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Some examples that illustrate the action]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- [Example 1]
+</span></span><span class="line"><span class="cl">- [Example 2]
+</span></span><span class="line"><span class="cl">- [Example 3]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Conclude with a concise, impactful statement that reinforces the step&#39;s importance.]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--Alternative 3--
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Step X Headline]:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">[Description of the step&#39;s primary action or focus]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1. [Step 1 to do the action]
+</span></span><span class="line"><span class="cl">2. [Step 2 to do the action]
+</span></span><span class="line"><span class="cl">3. [Step 3 to do the action]
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">--Tweet 6--
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">TL;DR:
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">1: [Step 1 Title]
+</span></span><span class="line"><span class="cl">2: [Step 2 Title]
+</span></span><span class="line"><span class="cl">3: [Step 3 Title]
+</span></span><span class="line"><span class="cl">4: [Step 4 Title]
+</span></span><span class="line"><span class="cl">5: [Step 5 Title]
+</span></span></code></pre></div><p><a href="https://moritzkremb.notion.site/The-AI-Content-System-Worksheet-71c34857d7374cec9f7a9ac65e99547c">https://moritzkremb.notion.site/The-AI-Content-System-Worksheet-71c34857d7374cec9f7a9ac65e99547c</a></p>
+<p>Subject</p>
+<pre tabindex="0"><code>I need help generating compelling email subject lines and preview text for my newsletter.
+
+Here is my newsletter:
+
+[INSERT ENTIRE NEWSLETTER]
+
+Please generate:
+
+10 attention-grabbing subject lines (40 characters or less) that spark curiosity and make people want to open the email immediately. 
+Use power words, numbers, open psychological loops, or create a sense of urgency/scarcity where appropriate.
+For each subject line, provide a corresponding preview text (50 characters or less) that complements and expands on the subject line, giving just enough additional info to further entice the reader to open.
+Aim to be clear, not clever.
+Really emphasize the benefit and main topic of the newsletter.
+
+The subject lines and preview text should:
+
+Be relevant to the newsletter topic and audience
+Highlight the value or benefit to the reader
+Use language that resonates with the target audience
+Avoid clickbait or misleading tactics
+Vary in style (e.g. questions, statements, numbers, How-to&#39;s)
+</code></pre><h1 id="ai-text-wizard-prompt">AI Text Wizard prompt</h1>
+<p>You&rsquo;re the best human-like AI writer in the world, specialized in transforming complex or mundane texts into engaging, easy-to-read, and relatable content. Your goal is to rewrite the provided text so that it captivates the audience, conveys the intended message clearly, and feels authentic and approachable.</p>
+<p>Context: Understanding the audience&rsquo;s needs and preferences is crucial, as it will shape the language, tone, and style of the rewritten content. The content should be tailored to resonate with them in a way that feels natural and engaging.</p>
+<p>Your Goal:</p>
+<ol>
+<li>Simplify complex ideas into clear, accessible language.</li>
+<li>Engage the audience through storytelling, questions, and relatable examples.</li>
+<li>Maintain an authentic and conversational tone that matches the desired style.</li>
+</ol>
+<p>Input Details:</p>
+<ol>
+<li>Intended Audience: <strong>[Insert audience type here, e.g., “business professionals,” “college students”]</strong></li>
+<li>Desired Tone: <strong>[Insert desired tone here, e.g., “professional and motivating,” “casual and friendly”]</strong></li>
+<li>Key Message or Objective: <strong>[Insert the primary message or goal of the text, e.g., “to inform about a new product feature,” “to inspire action towards a cause”]</strong></li>
+<li>Text to Transform: <strong>[Insert your text here]</strong></li>
+</ol>
+<p>Rules to Follow:</p>
+<ol>
+<li>Language and Style:</li>
+</ol>
+<ul>
+<li>Use simple, clear language and short sentences.</li>
+<li>Avoid jargon, technical terms, and overly formal expressions unless specified.</li>
+<li>Prefer active voice over passive voice.</li>
+<li>Incorporate personal pronouns like &lsquo;you,&rsquo; &lsquo;we,&rsquo; and &lsquo;our&rsquo; to create a direct connection.</li>
+</ul>
+<ol>
+<li>Tone and Voice:</li>
+</ol>
+<ul>
+<li><em>Adapting the tone and voice accurately is crucial. Prioritize matching the desired tone and voice over other guidelines if there&rsquo;s any conflict.</em></li>
+<li>Audience: Write as if you’re addressing my audience (specified above).</li>
+</ul>
+<ol>
+<li>Structure:</li>
+</ol>
+<ul>
+<li>Use headings and subheadings to break up the text.</li>
+<li>Employ bullet points and numbered lists for key information.</li>
+<li>Add a brief introduction to hook the reader and a conclusion to summarize the main points or call to action.</li>
+</ul>
+<ol>
+<li>Engagement Techniques:</li>
+</ol>
+<ul>
+<li>Ask questions or use conversational phrases to make the reader feel involved.</li>
+<li>Include relevant examples or short anecdotes to illustrate key points.</li>
+<li>Use transition words and phrases to ensure the text flows smoothly from one idea to the next.</li>
+</ul>
+<ol>
+<li>Formatting:</li>
+</ol>
+<ul>
+<li>Use short paragraphs (2-3 sentences) to enhance readability.</li>
+<li>Bold or italicize key terms or phrases to emphasize important points.</li>
+</ul>
+<ol>
+<li>Human Touch:</li>
+</ol>
+<ul>
+<li>Avoid robotic patterns and repetitive phrasing.</li>
+<li>Show empathy by addressing potential reader concerns or questions directly.</li>
+<li>Where appropriate, use humor, rhetorical questions, or relatable scenarios to create a connection.</li>
+<li>Example: Instead of “This is important,” say “You might wonder why this matters, and here’s why…”</li>
+</ul>
+<p>Output Format: Rewrite the provided text according to the instructions above. Maintain the original message but reframe it to be more engaging and accessible.</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://twitter.com/programmerraja" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+<a href="https://www.linkedin.com/in/programmerraja/" target="_blank" rel="noopener noreferrer me"
+    title="Linkedin">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2024 K.Boopathi.
+        
+    </small>
+</footer><a href="#" title="" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+
+
+    
+    <script src="https://programmerraja.github.io/blog/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</main>
+    </body>
+</html>

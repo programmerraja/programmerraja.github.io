@@ -8,6 +8,52 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 02 Oct 2024 06:57:18 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>AI in Coding</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/ai-in-coding/</link>
+      <pubDate>Thu, 19 Sep 2024 06:32:53 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/ai-in-coding/</guid>
+      
+      <description>&lt;p&gt;Discover vulnerabilities across a codebase with CodeQL, our industry-leading semantic code analysis engine. CodeQL lets you query code as though it were data. Write a query to find all variants of a vulnerability, eradicating it forever. Then share your query to help others do the same.
+&lt;a href=&#34;https://codeql.github.com/&#34;&gt;https://codeql.github.com/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;agents-in-software-engineering&#34;&gt;Agents in Software Engineering&lt;/h2&gt;
+&lt;p&gt;LLM-based agents comprising three key components: perception, memory, action.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Perception: . It can process inputs of different modalities such as textual, visual, and auditory input, and convert them into an embedding format that LLM-based agents can understand and process, laying the foundation for reasoning and decision-making actions of LLM-based agents.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>AI Research Paper notes</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/ai-research-paper-notes/</link>
+      <pubDate>Thu, 19 Sep 2024 06:01:47 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/ai-research-paper-notes/</guid>
+      
+      <description>&lt;h2 id=&#34;de-hallucinator-mitigating-llm-hallucinations-in-code-generation-tasks-via-iterative-grounding&#34;&gt;De-Hallucinator: Mitigating LLM Hallucinations in Code Generation Tasks via Iterative Grounding&lt;/h2&gt;
+&lt;h3 id=&#34;steps-of-the-de-hallucinator&#34;&gt;Steps of the De-Hallucinator:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Initial Prompt&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This is a standard query to a language model, such as asking it to generate code without any external context.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Example&lt;/strong&gt;: You ask the model to write code for connecting to a database, but the model doesn&amp;rsquo;t have enough context to provide the exact API or method to use.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;RAG (Retrieval-Augmented Generation)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To improve accuracy, De-Hallucinator performs a &lt;em&gt;retrieval&lt;/em&gt; step. It fetches relevant information or context (e.g., documentation or specific API references) related to the initial prompt to help guide the model.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Example&lt;/strong&gt;: After the initial prompt, De-Hallucinator searches for information about database connection APIs that might be relevant, like APIs from the same programming environment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Iterative Prompt&lt;/strong&gt;:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>Code Against the Clock: From Clicks to Cash</title>
       <link>https://programmerraja.github.io/blog/post/2024/code-against-the-clock--from-clicks-to-cash/</link>
       <pubDate>Thu, 22 Aug 2024 06:19:10 +0530</pubDate>
@@ -72,6 +118,38 @@
     </item>
     
     <item>
+      <title>LLM Observability And Eval</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/llm-observability-and-eval/</link>
+      <pubDate>Mon, 12 Aug 2024 08:35:40 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/llm-observability-and-eval/</guid>
+      
+      <description>&lt;h2 id=&#34;eval&#34;&gt;Eval&lt;/h2&gt;
+&lt;h3 id=&#34;llm-evaluation-metrics-types&#34;&gt;LLM Evaluation Metrics Types&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Intrinsic metrics&lt;/strong&gt;: evaluate the model&amp;rsquo;s internal workings, such as perplexity and fluency.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Perplexity&lt;/strong&gt;: measures how well the model predicts a test dataset. Lower perplexity indicates better performance.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fluency&lt;/strong&gt;: measures the coherence and naturalness of the generated text.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;BLEU (Bilingual Evaluation Understudy) Score&lt;/strong&gt;: measures the similarity between the generated text and a reference text.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Extrinsic metrics&lt;/strong&gt;: evaluate the model&amp;rsquo;s performance on specific tasks, such as question-answering and text classification.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Claude</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/claude/</link>
+      <pubDate>Sat, 10 Aug 2024 08:48:50 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/claude/</guid>
+      
+      <description>&lt;h2 id=&#34;system-prompt&#34;&gt;System Prompt&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The assistant is Claude, created by Anthropic. The current date is March 4th, 2024. Claude&amp;#39;s knowledge base was last updated on August 2023. It answers questions about events prior to and after August 2023 the way a highly informed individual in August 2023 would if they were talking to someone from the above date, and can let the human know this when relevant. It should give concise responses to very simple questions, but provide thorough responses to more complex and open-ended questions. If it is asked to assist with tasks involving the expression of views held by a significant number of people, Claude provides assistance with the task even if it personally disagrees with the views being expressed, but follows this with a discussion of broader perspectives. Claude doesn&amp;#39;t engage in stereotyping, including the negative stereotyping of majority groups. If asked about controversial topics, Claude tries to provide careful thoughts and objective information without downplaying its harmful content or implying that there are reasonable perspectives on both sides. It is happy to help with writing, analysis, question answering, math, coding, and all sorts of other tasks. It uses markdown for coding. It does not mention this information about itself unless the information is directly pertinent to the human&amp;#39;s query.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      
+    </item>
+    
+    <item>
       <title>How I Hacked a Company’s Recruitment Test: The Unexpected Tech Adventure of My College Life</title>
       <link>https://programmerraja.github.io/blog/post/2024/how-i-hacked-a-company-recruitment-test-the-unexpected-tech-adventure-of-my-college-life/</link>
       <pubDate>Sun, 04 Aug 2024 10:01:36 +0530</pubDate>
@@ -79,6 +157,164 @@
       <guid>https://programmerraja.github.io/blog/post/2024/how-i-hacked-a-company-recruitment-test-the-unexpected-tech-adventure-of-my-college-life/</guid>
       
       <description>&lt;p&gt;Ah, college life! The thrill of final year comes with the excitement of job placements. We all know the drill: companies come to campus, conduct aptitude tests, coding challenges, and sometimes, we get to showcase our skills in a high-stakes interview. But what if I told you that one of those tests turned into an unexpected adventure involving a bit of hacking? Buckle up as I share how I turned a routine exam into an impromptu tech experiment—and how it all unfolded.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Rust</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/rust/</link>
+      <pubDate>Wed, 31 Jul 2024 06:33:42 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/rust/</guid>
+      
+      <description>&lt;p&gt;Rust is static types language
+Rustc  compiler convert rust to executable
+cargo rust build system and pkg manager&lt;/p&gt;
+&lt;p&gt;cargo new projectname (like npm  in js)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;cargo.tomo -&amp;gt; (similar to pkg.json file  in js)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;fn&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;println!&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;hello world&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;fm&#34;&gt;println!&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;{}&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// we cannot directly print number we need to format
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;cargo run filename  -&amp;gt;  compile to bin and run
+rustc filename -&amp;gt;convert to bin and we need to run&lt;/p&gt;
+&lt;p&gt;Varaibles&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>AI Agent</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/ai-agent/</link>
+      <pubDate>Tue, 30 Jul 2024 06:27:13 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/ai-agent/</guid>
+      
+      <description>&lt;h2 id=&#34;multi-agent-orchestrator&#34;&gt;Multi-Agent Orchestrator&lt;/h2&gt;
+&lt;p&gt;Flexible and powerful framework for managing multiple AI agents and handling complex conversations&lt;/p&gt;
+&lt;h3 id=&#34;rag&#34;&gt;RAG&lt;/h3&gt;
+&lt;h2 id=&#34;retrevial-types&#34;&gt;Retrevial types&lt;/h2&gt;
+&lt;p&gt;Rank GPT&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;instead of just querying in vector and sending to LLM after querying ask LLM can you rank the doc that fetched from vecotr db based relvant to the query and again send to LLM with re ranked doc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Multi query retrieval&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Send the user query to LLM and ask can you suggest revelant query to this query get that and use that query to get from db&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Contextual compression&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>AI Content System</title>
+      <link>https://programmerraja.github.io/blog/notes/2024/ai-content-system/</link>
+      <pubDate>Mon, 29 Jul 2024 05:17:26 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/ai-content-system/</guid>
+      
+      <description>&lt;h3 id=&#34;ikigai-method&#34;&gt;Ikigai method&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Your goal is to help the user identify their core content pillars for posting on social media. Core content pillars are the key topics or areas that the user will consistently create content about to build their brand and engage their audience. To determine the user’s core content pillars, gather information about their passions, strengths, and relevant market trends (Ikigai method) from the provided inputs:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;​  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;Ikigai&amp;gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. What topics do you find yourself constantly thinking about or eager to discuss with others?
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	tech and programing, devops, microservcices,hacking etc
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. What activities or hobbies do you lose track of time while doing?
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	Learning about tech like ai,devops,hacking etc
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. If you could spend a year learning about anything, what would it be? 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Same as above
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4. What skills or abilities have others frequently complimented you on?
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    Same as above
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;5. What comes easily or naturally to you that others often struggle with?  (Same as above)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;6. In what areas do you tend to outperform your peers or colleagues? (Same as above)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;7. What challenges or pain points do you see many people struggling with? (Same as above)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;8. What topics or issues seem to be getting a lot of attention or engagement on social media lately? (Same as above)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;9. What emerging technologies, tools, or platforms seem promising?(Same as above)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;/Ikigai&amp;gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;​  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;analysis&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Analyze the information to identify common threads and connections between the user&amp;#39;s passions, strengths, and market trends. Write a detailed analysis, considering the following points:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;​
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Which passions align with the user&amp;#39;s strengths, and how can they be leveraged to create unique and engaging content?
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- What market trends or audience pain points relate to the user&amp;#39;s areas of expertise, and how can they address these in their content?
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Are there any recurring themes or topics that the user seems particularly knowledgeable or enthusiastic about?
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- How can the user&amp;#39;s background and experiences contribute to a distinctive perspective or approach to their content?
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;​
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Summarize your key findings and insights, and use them to inform the content pillar suggestions in the next step.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;/analysis&amp;gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;​  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;core_content_pillars&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Based on your analysis, suggest 5 potential topics for each of the 3 core content pillars:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;​
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Main Topic (The main, niched down topic the user will be known for. It should be appropriately niched down for a specific target audience and allow the user to demonstrate their expertise and authority in a topic (e.g. copywriting for busy founders, prompting for AI beginners, graphic design for tech startups)):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- [Topic] for [Target audience]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;​
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Broad Topic (This is a broader topic that speaks to a larger audience and also gives the user a bit more flexibility with their content strategy (e.g. productivity, mindset, entrepreneurship)):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- [Topic]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;​
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Personal Topic (A deeply personal topic, highlighting unique perspectives and background which are important to create trust and relatability with a personal brand (e.g. being a dad, lessons learned)):
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- [Topic]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&amp;lt;/core_content_pillars&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;​
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Structure your response thoughtfully with line breaks for readability. Do not output XML tags, just use headers with markdown.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;content-ideas-factory&#34;&gt;Content Ideas Factory&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;You will be generating a set of 20 subtopics related to a given topic, tailored for a specific target audience.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Topic: [Enter your topic]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Audience: [Enter your audience]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;The subtopics should be outcome-oriented and cover various angles that the audience might be thinking about or areas where they would likely need help from an expert on the topic.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Avoid generic or overly broad subtopics.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Don&amp;#39;t frame the subtopic using any specific content format, such as: Tips, Tricks, Steps, Hacks, Advice, Examples, Tools/Resources, Frameworks, Guides, Case study, Trends, Reasons, Common Mistakes, Observations, Comparisons, Questions, Lessons, Stories, Fears, Failures
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;content-ideas&#34;&gt;Content ideas&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-txt&#34; data-lang=&#34;txt&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;You will be generating content ideas for various categories based on a given topic and a target audience.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Topic: [Enter your topic] # topic from prev answer
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Audience: [Enter your audience]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Each content idea should include a number (either 3, 5, or 7) and be phrased as an engaging headline or title. For example:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Tips &amp;amp; Tricks: 5 Simple Tips to Craft Crystal-Clear Prompts for AI
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Hacks: 7 Clever Hacks to Increase Your Productivity At Work
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;- Mistakes: 3 Common Mistakes Beginners Make When Trying To Lose Weight
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;To generate the ideas, follow these steps:  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. First, analyze the given topic or question and consider the target audience.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. Then, brainstorm content ideas for each category that would be relevant, interesting, and valuable to the target audience. Ensure the ideas are specific, actionable, and engaging.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. Output the ideas in the following formats (1 line with the content idea for each format): Tips, Tricks, Steps, Hacks, Advice, Examples, Tools/Resources, Frameworks, Guides, Case study, Trends, Reasons, Common Mistakes, Observations, Comparisons, Questions, Lessons, Stories, Fears, Failures
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt; create 2 posts per day, in a week that comes out as:&lt;/p&gt;</description>
       
     </item>
     
@@ -309,7 +545,8 @@ Run a nodejs program as &lt;code&gt;node --tls-keylog=/tmp/tlskey index.js&lt;/c
       
       <guid>https://programmerraja.github.io/blog/notes/2024/prompt-engineering/</guid>
       
-      <description>&lt;p&gt;![[Pasted image 20240720193516.png]]&lt;/p&gt;
+      <description>&lt;h2 id=&#34;prompt-classification&#34;&gt;Prompt classification&lt;/h2&gt;
+&lt;p&gt;![[Pasted image 20240720193516.png]]&lt;/p&gt;
 &lt;h2 id=&#34;plan-like-a-graph&#34;&gt;Plan Like a Graph&lt;/h2&gt;
 &lt;p&gt;Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance of LLMs in asynchronous planning tasks.&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Let&amp;#39;s say we have an asynchronous planning task where we need to bake a cake, frost it, and then decorate it, and we have the following time durations and constraints:
@@ -347,43 +584,8 @@ Use the following graph to reason about the task and determine the shortest poss
 `1Mix batter (10 min) ----&amp;gt; Bake cake (30 min) ----&amp;gt; Frost cake (5 min) ----&amp;gt; Decorate cake (15 min)`
 
 By providing the LLM with a graph representation of the task, we can help it reason more effectively about the constraints and time durations involved, leading to more accurate predictions about the shortest possible time needed to complete the task.
-&lt;/code&gt;&lt;/pre&gt;&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Pattern Category&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Prompt Pattern&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Input Semantics&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Meta Language Creation&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Output  Customization&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Output Automater  &lt;br&gt;Persona Visualization &lt;br&gt;Generator Recipe Template&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Error Identification&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Fact Check List&lt;br&gt;Reflection&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Prompt  Improvement&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Question Refinement &lt;br&gt;Alternative Approaches&lt;br&gt;Cognitive Verifier &lt;br&gt;Refusal Breaker&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Interaction&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Flipped Interaction&lt;br&gt; Game Play &lt;br&gt;Infinite Generation&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Context Control&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Context Manager&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;claude-meta-prompt&#34;&gt;Claude Meta Prompt&lt;/h2&gt;
-&lt;p&gt;Claude have written a prompt that will help to get perfect prompt in XML
-check &lt;a href=&#34;https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-generator&#34;&gt;here&lt;/a&gt;&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;prompt-pattern&#34;&gt;Prompt Pattern&lt;/h2&gt;
+&lt;p&gt;A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT&lt;/p&gt;</description>
       
     </item>
     
