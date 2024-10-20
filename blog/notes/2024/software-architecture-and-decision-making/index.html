@@ -31,12 +31,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.136.2">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/software-architecture-and-decision-making/">
-    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
+    <link href="/blog/style.min.88c2eae34c7456e51e3d92bae2469b6a0a6580dcda60746f99ef1d32c87a2d43.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -343,101 +343,101 @@ stroke-linejoin="round" class="feather feather-home">
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Operation</th>
-          <th style="text-align: left">Time/Speed (Example)</th>
-          <th style="text-align: left">Description</th>
+          <th>Operation</th>
+          <th>Time/Speed (Example)</th>
+          <th>Description</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">L1 Cache Reference</td>
-          <td style="text-align: left">0.5 ns</td>
-          <td style="text-align: left">Accessing data from Level 1 cache in the CPU.</td>
+          <td>L1 Cache Reference</td>
+          <td>0.5 ns</td>
+          <td>Accessing data from Level 1 cache in the CPU.</td>
       </tr>
       <tr>
-          <td style="text-align: left">L2 Cache Reference</td>
-          <td style="text-align: left">7 ns</td>
-          <td style="text-align: left">Accessing data from Level 2 cache in the CPU.</td>
+          <td>L2 Cache Reference</td>
+          <td>7 ns</td>
+          <td>Accessing data from Level 2 cache in the CPU.</td>
       </tr>
       <tr>
-          <td style="text-align: left">L3 Cache Reference</td>
-          <td style="text-align: left">20 ns</td>
-          <td style="text-align: left">Accessing data from Level 3 cache in the CPU.</td>
+          <td>L3 Cache Reference</td>
+          <td>20 ns</td>
+          <td>Accessing data from Level 3 cache in the CPU.</td>
       </tr>
       <tr>
-          <td style="text-align: left">Main Memory (RAM) Access</td>
-          <td style="text-align: left">100 ns</td>
-          <td style="text-align: left">Retrieving data from the system&rsquo;s RAM.</td>
+          <td>Main Memory (RAM) Access</td>
+          <td>100 ns</td>
+          <td>Retrieving data from the system&rsquo;s RAM.</td>
       </tr>
       <tr>
-          <td style="text-align: left">SSD Storage Access</td>
-          <td style="text-align: left">1,000,000 ns (1 ms)</td>
-          <td style="text-align: left">Accessing data from Solid State Drive (SSD).</td>
+          <td>SSD Storage Access</td>
+          <td>1,000,000 ns (1 ms)</td>
+          <td>Accessing data from Solid State Drive (SSD).</td>
       </tr>
       <tr>
-          <td style="text-align: left">HDD Storage Access</td>
-          <td style="text-align: left">10,000,000 ns (10 ms)</td>
-          <td style="text-align: left">Accessing data from Hard Disk Drive (HDD).</td>
+          <td>HDD Storage Access</td>
+          <td>10,000,000 ns (10 ms)</td>
+          <td>Accessing data from Hard Disk Drive (HDD).</td>
       </tr>
       <tr>
-          <td style="text-align: left">Network Packet Round Trip (US to India)</td>
-          <td style="text-align: left">150,000,000 ns (150 ms)</td>
-          <td style="text-align: left">Sending a packet from the US to India and receiving the acknowledgment.</td>
+          <td>Network Packet Round Trip (US to India)</td>
+          <td>150,000,000 ns (150 ms)</td>
+          <td>Sending a packet from the US to India and receiving the acknowledgment.</td>
       </tr>
       <tr>
-          <td style="text-align: left">CPU Processing (Instruction)</td>
-          <td style="text-align: left">0.2 ns per instruction</td>
-          <td style="text-align: left">Executing a single CPU instruction.</td>
+          <td>CPU Processing (Instruction)</td>
+          <td>0.2 ns per instruction</td>
+          <td>Executing a single CPU instruction.</td>
       </tr>
       <tr>
-          <td style="text-align: left">GPU Processing (Parallel)</td>
-          <td style="text-align: left">50 ns per parallel task</td>
-          <td style="text-align: left">Executing parallel tasks on a Graphics Processing Unit (GPU).</td>
+          <td>GPU Processing (Parallel)</td>
+          <td>50 ns per parallel task</td>
+          <td>Executing parallel tasks on a Graphics Processing Unit (GPU).</td>
       </tr>
       <tr>
-          <td style="text-align: left">PCIe Data Transfer (Device to CPU)</td>
-          <td style="text-align: left">2,000 ns (2 us)</td>
-          <td style="text-align: left">Transferring data between a peripheral device and the CPU via PCIe.</td>
+          <td>PCIe Data Transfer (Device to CPU)</td>
+          <td>2,000 ns (2 us)</td>
+          <td>Transferring data between a peripheral device and the CPU via PCIe.</td>
       </tr>
       <tr>
-          <td style="text-align: left">Context Switch (Kernel)</td>
-          <td style="text-align: left">1,000 ns (1 us)</td>
-          <td style="text-align: left">Switching between different processes in the kernel.</td>
+          <td>Context Switch (Kernel)</td>
+          <td>1,000 ns (1 us)</td>
+          <td>Switching between different processes in the kernel.</td>
       </tr>
       <tr>
-          <td style="text-align: left">RAM-to-Cache Transfer</td>
-          <td style="text-align: left">20 ns</td>
-          <td style="text-align: left">Copying data from RAM to cache in the CPU.</td>
+          <td>RAM-to-Cache Transfer</td>
+          <td>20 ns</td>
+          <td>Copying data from RAM to cache in the CPU.</td>
       </tr>
       <tr>
-          <td style="text-align: left">Database Query (Local)</td>
-          <td style="text-align: left">10,000,000 ns (10 ms)</td>
-          <td style="text-align: left">Executing a database query on a local server.</td>
+          <td>Database Query (Local)</td>
+          <td>10,000,000 ns (10 ms)</td>
+          <td>Executing a database query on a local server.</td>
       </tr>
       <tr>
-          <td style="text-align: left">Database Query (Remote)</td>
-          <td style="text-align: left">50,000,000 ns (50 ms)</td>
-          <td style="text-align: left">Executing a database query on a remote server.</td>
+          <td>Database Query (Remote)</td>
+          <td>50,000,000 ns (50 ms)</td>
+          <td>Executing a database query on a remote server.</td>
       </tr>
       <tr>
-          <td style="text-align: left">System Call (Linux)</td>
-          <td style="text-align: left">1,000 ns (1 us)</td>
-          <td style="text-align: left">Initiating a system call in a Linux environment.</td>
+          <td>System Call (Linux)</td>
+          <td>1,000 ns (1 us)</td>
+          <td>Initiating a system call in a Linux environment.</td>
       </tr>
       <tr>
-          <td style="text-align: left">I/O Operation (Disk Write)</td>
-          <td style="text-align: left">10,000 ns (10 us)</td>
-          <td style="text-align: left">Writing data to a disk.</td>
+          <td>I/O Operation (Disk Write)</td>
+          <td>10,000 ns (10 us)</td>
+          <td>Writing data to a disk.</td>
       </tr>
       <tr>
-          <td style="text-align: left">I/O Operation (Network Send)</td>
-          <td style="text-align: left">1,000,000 ns (1 ms)</td>
-          <td style="text-align: left">Sending data over a network.</td>
+          <td>I/O Operation (Network Send)</td>
+          <td>1,000,000 ns (1 ms)</td>
+          <td>Sending data over a network.</td>
       </tr>
       <tr>
-          <td style="text-align: left">I/O Operation (Network Receive)</td>
-          <td style="text-align: left">1,000,000 ns (1 ms)</td>
-          <td style="text-align: left">Receiving data over a network.</td>
+          <td>I/O Operation (Network Receive)</td>
+          <td>1,000,000 ns (1 ms)</td>
+          <td>Receiving data over a network.</td>
       </tr>
   </tbody>
 </table>

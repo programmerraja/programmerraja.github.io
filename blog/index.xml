@@ -6,7 +6,20 @@
     <description>Recent content on programmerraja blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Oct 2024 06:57:18 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 19 Oct 2024 19:01:59 +0530</lastBuildDate><atom:link href="https://programmerraja.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Curious Case of the $15,000 Spam: My Unexpected Investigation</title>
+      <link>https://programmerraja.github.io/blog/post/2024/the-curious-case-of-the-15000-spam-my-unexpected-investigation/</link>
+      <pubDate>Sat, 19 Oct 2024 19:01:59 +0530</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/post/2024/the-curious-case-of-the-15000-spam-my-unexpected-investigation/</guid>
+      
+      <description>&lt;p&gt;Last Friday started off like any typical day—I was busy with my work in my office when I stumbled upon a suspicious message. My instincts told me it was spam, but my curiosity got the best of me. I clicked the link, and that’s when the adventure began!&lt;/p&gt;
+&lt;h3 id=&#34;the-bait-a-tempting-offer&#34;&gt;The Bait: A Tempting Offer&lt;/h3&gt;
+&lt;p&gt;The link led me to a flashy website claiming, “Register and Get Up to $15,000 Free Cash Prize Bonus.” It even auto-filled my mobile number, which immediately raised my suspicions, but I decided to keep going. I clicked &amp;ldquo;Confirm&amp;rdquo; and soon received an OTP (One-Time Password).&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>AI in Coding</title>
       <link>https://programmerraja.github.io/blog/notes/2024/ai-in-coding/</link>
@@ -21,35 +34,6 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Perception: . It can process inputs of different modalities such as textual, visual, and auditory input, and convert them into an embedding format that LLM-based agents can understand and process, laying the foundation for reasoning and decision-making actions of LLM-based agents.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>AI Research Paper notes</title>
-      <link>https://programmerraja.github.io/blog/notes/2024/ai-research-paper-notes/</link>
-      <pubDate>Thu, 19 Sep 2024 06:01:47 +0530</pubDate>
-      
-      <guid>https://programmerraja.github.io/blog/notes/2024/ai-research-paper-notes/</guid>
-      
-      <description>&lt;h2 id=&#34;de-hallucinator-mitigating-llm-hallucinations-in-code-generation-tasks-via-iterative-grounding&#34;&gt;De-Hallucinator: Mitigating LLM Hallucinations in Code Generation Tasks via Iterative Grounding&lt;/h2&gt;
-&lt;h3 id=&#34;steps-of-the-de-hallucinator&#34;&gt;Steps of the De-Hallucinator:&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Initial Prompt&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;This is a standard query to a language model, such as asking it to generate code without any external context.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Example&lt;/strong&gt;: You ask the model to write code for connecting to a database, but the model doesn&amp;rsquo;t have enough context to provide the exact API or method to use.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;RAG (Retrieval-Augmented Generation)&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;To improve accuracy, De-Hallucinator performs a &lt;em&gt;retrieval&lt;/em&gt; step. It fetches relevant information or context (e.g., documentation or specific API references) related to the initial prompt to help guide the model.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Example&lt;/strong&gt;: After the initial prompt, De-Hallucinator searches for information about database connection APIs that might be relevant, like APIs from the same programming environment.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Iterative Prompt&lt;/strong&gt;:&lt;/p&gt;</description>
       
     </item>
     
@@ -193,8 +177,8 @@ rustc filename -&amp;gt;convert to bin and we need to run&lt;/p&gt;
       
       <description>&lt;h2 id=&#34;multi-agent-orchestrator&#34;&gt;Multi-Agent Orchestrator&lt;/h2&gt;
 &lt;p&gt;Flexible and powerful framework for managing multiple AI agents and handling complex conversations&lt;/p&gt;
-&lt;h3 id=&#34;rag&#34;&gt;RAG&lt;/h3&gt;
-&lt;h2 id=&#34;retrevial-types&#34;&gt;Retrevial types&lt;/h2&gt;
+&lt;h2 id=&#34;rag&#34;&gt;RAG&lt;/h2&gt;
+&lt;h3 id=&#34;retrevial-types&#34;&gt;Retrevial types&lt;/h3&gt;
 &lt;p&gt;Rank GPT&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;instead of just querying in vector and sending to LLM after querying ask LLM can you rank the doc that fetched from vecotr db based relvant to the query and again send to LLM with re ranked doc&lt;/li&gt;
@@ -2000,6 +1984,34 @@ and its descendant libmdbx, Sophia, HaloDB,&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nt&#34;&gt;&amp;#34;files&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;%%&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://programmerraja.github.io/blog/notes/2024/ai-research-paper-notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://programmerraja.github.io/blog/notes/2024/ai-research-paper-notes/</guid>
+      
+      <description>&lt;p&gt;&lt;a href=&#34;&#34;&gt;&lt;/a&gt;+++
+title = &amp;lsquo;AI Research Paper notes&amp;rsquo;
+date = 2024-09-19T06:01:47.4747+05:30
+draft = false
+tags =[]
++++&lt;/p&gt;
+&lt;h2 id=&#34;de-hallucinator-mitigating-llm-hallucinations-in-code-generation-tasks-via-iterative-grounding&#34;&gt;De-Hallucinator: Mitigating LLM Hallucinations in Code Generation Tasks via Iterative Grounding&lt;/h2&gt;
+&lt;h3 id=&#34;steps-of-the-de-hallucinator&#34;&gt;Steps of the De-Hallucinator:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Initial Prompt&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;This is a standard query to a language model, such as asking it to generate code without any external context.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Example&lt;/strong&gt;: You ask the model to write code for connecting to a database, but the model doesn&amp;rsquo;t have enough context to provide the exact API or method to use.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;RAG (Retrieval-Augmented Generation)&lt;/strong&gt;:&lt;/p&gt;</description>
       
     </item>
     

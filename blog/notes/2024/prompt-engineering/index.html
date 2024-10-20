@@ -31,12 +31,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.136.2">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/prompt-engineering/">
-    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
+    <link href="/blog/style.min.88c2eae34c7456e51e3d92bae2469b6a0a6580dcda60746f99ef1d32c87a2d43.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -198,23 +198,7 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#llm-cascade" aria-label="LLM Cascade">LLM Cascade</a></li></ul>
                 </li>
                 <li>
-                    <a href="#co-star-framework" aria-label="CO-STAR framework">CO-STAR framework</a><ul>
-                        <ul>
-                        
-                <li>
-                    <a href="#c-context-provide-background-information-on-the-task" aria-label="(C) Context: Provide background information on the task">(C) Context: Provide background information on the task</a></li>
-                <li>
-                    <a href="#o-objective-define-what-the-task-is-that-you-want-the-llm-to-perform" aria-label="(O) Objective: Define what the task is that you want the LLM to perform">(O) Objective: Define what the task is that you want the LLM to perform</a></li>
-                <li>
-                    <a href="#s-style-specify-the-writing-style-you-want-the-llm-to-use" aria-label="(S) Style: Specify the writing style you want the LLM to use">(S) Style: Specify the writing style you want the LLM to use</a></li>
-                <li>
-                    <a href="#t-tone-set-the-attitude-of-the-response" aria-label="(T) Tone: Set the attitude of the response">(T) Tone: Set the attitude of the response</a></li>
-                <li>
-                    <a href="#a-audience-identify-who-the-response-is-intended-for" aria-label="(A) Audience: Identify who the response is intended for">(A) Audience: Identify who the response is intended for</a></li>
-                <li>
-                    <a href="#r-response-provide-the-response-format" aria-label="(R) Response: Provide the response format">(R) Response: Provide the response format</a></li></ul>
-                    </ul>
-                </li>
+                    <a href="#co-star-framework" aria-label="CO-STAR framework">CO-STAR framework</a></li>
                 <li>
                     <a href="#instance-adaptive-prompting-strategy" aria-label="Instance-Adaptive prompting strategy">Instance-Adaptive prompting strategy</a></li>
                 <li>
@@ -299,34 +283,34 @@ By providing the LLM with a graph representation of the task, we can help it rea
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Pattern Category</th>
-          <th style="text-align: left">Prompt Pattern</th>
+          <th>Pattern Category</th>
+          <th>Prompt Pattern</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">Input Semantics</td>
-          <td style="text-align: left">Meta Language Creation</td>
+          <td>Input Semantics</td>
+          <td>Meta Language Creation</td>
       </tr>
       <tr>
-          <td style="text-align: left">Output  Customization</td>
-          <td style="text-align: left">Output Automater  <br>Persona Visualization <br>Generator Recipe Template</td>
+          <td>Output  Customization</td>
+          <td>Output Automater  <br>Persona Visualization <br>Generator Recipe Template</td>
       </tr>
       <tr>
-          <td style="text-align: left">Error Identification</td>
-          <td style="text-align: left">Fact Check List<br>Reflection</td>
+          <td>Error Identification</td>
+          <td>Fact Check List<br>Reflection</td>
       </tr>
       <tr>
-          <td style="text-align: left">Prompt  Improvement</td>
-          <td style="text-align: left">Question Refinement <br>Alternative Approaches<br>Cognitive Verifier <br>Refusal Breaker</td>
+          <td>Prompt  Improvement</td>
+          <td>Question Refinement <br>Alternative Approaches<br>Cognitive Verifier <br>Refusal Breaker</td>
       </tr>
       <tr>
-          <td style="text-align: left">Interaction</td>
-          <td style="text-align: left">Flipped Interaction<br> Game Play <br>Infinite Generation</td>
+          <td>Interaction</td>
+          <td>Flipped Interaction<br> Game Play <br>Infinite Generation</td>
       </tr>
       <tr>
-          <td style="text-align: left">Context Control</td>
-          <td style="text-align: left">Context Manager</td>
+          <td>Context Control</td>
+          <td>Context Manager</td>
       </tr>
   </tbody>
 </table>
@@ -678,17 +662,17 @@ FrugalGPT suggests identifying the best examples to be used instead of all of th
 <p>The key idea is to sequentially query different LLMs based on the confidence of the previous LLM&rsquo;s response. If a cheaper LLM can provide a satisfactory answer, there&rsquo;s no need to query the more expensive models, thus saving costs.</p>
 <p>In essence, the LLM cascade makes a request to the smallest model first, evaluates the response, and returns it if it&rsquo;s good enough. Otherwise, it requests the next larger model and so on until a satisfactory response is obtained or the largest model is reached.</p>
 <h2 id="co-star-framework">CO-STAR framework</h2>
-<h4 id="c-context-provide-background-information-on-the-task"><strong>(C) Context: Provide background information on the task</strong></h4>
+<p><strong>(C) Context: Provide background information on the task</strong></p>
 <p>This helps the LLM understand the specific scenario being discussed, ensuring its response is relevant.</p>
-<h4 id="o-objective-define-what-the-task-is-that-you-want-the-llm-to-perform"><strong>(O) Objective: Define what the task is that you want the LLM to perform</strong></h4>
+<p><strong>(O) Objective: Define what the task is that you want the LLM to perform</strong></p>
 <p>Being clear about your objective helps the LLM to focus its response on meeting that specific goal.</p>
-<h4 id="s-style-specify-the-writing-style-you-want-the-llm-to-use"><strong>(S) Style: Specify the writing style you want the LLM to use</strong></h4>
+<p><strong>(S) Style: Specify the writing style you want the LLM to use</strong></p>
 <p>This could be a particular famous person&rsquo;s style of writing, or a particular expert in a profession, like a business analyst expert or CEO. This <strong>g</strong>uides the LLM to respond with the manner and choice of words aligned with your needs.</p>
-<h4 id="t-tone-set-the-attitude-of-the-response"><strong>(T) Tone: Set the attitude of the response</strong></h4>
+<p><strong>(T) Tone: Set the attitude of the response</strong></p>
 <p>This ensures the LLM&rsquo;s response resonates with the intended sentiment or emotional context required. Examples are formal, humorous, empathetic, among others.</p>
-<h4 id="a-audience-identify-who-the-response-is-intended-for"><strong>(A) Audience: Identify who the response is intended for</strong></h4>
+<p><strong>(A) Audience: Identify who the response is intended for</strong></p>
 <p>Tailoring the LLM&rsquo;s response to an audience, such as experts in a field, beginners, children, and so on, ensures that it is appropriate and understandable in your required context.</p>
-<h4 id="r-response-provide-the-response-format"><strong>(R) Response: Provide the response format</strong></h4>
+<p><strong>(R) Response: Provide the response format</strong></p>
 <p>This ensures that the LLM outputs in the exact format that you require for downstream tasks. Examples include a list, a JSON, a professional report, and so on. For most LLM applications which work on the LLM responses programmatically for downstream manipulations, a JSON output format would be ideal.</p>
 <pre tabindex="0"><code>&gt; # CONTEXT # I want to advertise my company&#39;s new product. My company&#39;s name is Alpha and the product is called Beta, which is a new ultra-fast hairdryer.
 

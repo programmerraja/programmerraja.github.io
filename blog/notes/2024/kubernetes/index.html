@@ -31,12 +31,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.136.2">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/kubernetes/">
-    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
+    <link href="/blog/style.min.88c2eae34c7456e51e3d92bae2469b6a0a6580dcda60746f99ef1d32c87a2d43.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -281,12 +281,12 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#products" aria-label="Products">Products</a><ul>
                         
                 <li>
-                    <a href="#tools" aria-label="Tools">Tools</a>
+                    <a href="#tools" aria-label="Tools">Tools</a></li></ul>
+                </li></ul>
                 </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
+                <li>
+                    <a href="#resources-mangement" aria-label="Resources Mangement">Resources Mangement</a>
+                </li>
             </ul>
         </div>
     </details>
@@ -1489,10 +1489,55 @@ webhooks:
 <li><strong><a href="https://cdk8s.io/">cdk8s</a></strong> is an open-source software development framework for defining Kubernetes applications and reusable abstractions using familiar programming languages and rich object-oriented APIs</li>
 <li>Inspect all internal and external cluster communications, API transactions, and data in transit with cluster-wide monitoring of all traffic going in, out, and across containers, pods, namespaces, nodes, and clusters. <a href="https://www.kubeshark.co/">https://www.kubeshark.co/</a></li>
 <li>A simple <a href="https://github.com/ofirc/k8s-sniff-https?tab=readme-ov-file">mitmproxy</a> blueprint to intercept HTTPS traffic from app running on Kubernetes</li>
+<li><a href="https://github.com/edgelesssys/constellation">Always Encrypted Kubernetes</a></li>
+<li></li>
 </ol>
 <p><code>kubectl get deployments --selector=app.kubernetes.io/instance=kubesense,app.kubernetes.io/name=api -n kubesense</code></p>
 <p>to get the deployment file that match the selector</p>
 <p>network namespace are stored in /var/run/nets</p>
+<h2 id="resources-mangement">Resources Mangement</h2>
+<p>The lifecycle of resource management in Kubernetes begins with defining resource requests and limits in the pod specification, which are then subjected to admission control checks by the API server to ensure adherence to resource quotas and limit ranges set by cluster administrators. Next, the Kubernetes scheduler evaluates node resources and schedules the pod to a suitable node based on its resource requests, ensuring it has sufficient allocatable resources. Finally, the kubelet on the designated node enforces resource requests and limits using Linux cgroups, controlling CPU and memory allocation, and potentially evicting pods if resource contention occurs.</p>
+<p>While Kubernetes effectively manages resources like CPU and memory, other resources like open file descriptors, TCP connections, and process IDs (PIDs) are not directly managed by Kubernetes</p>
+<ul>
+<li>Allocating more is bad it will use other who required may not get the required resources</li>
+<li>vertical pod auto scaller</li>
+</ul>
+<p><a href="https://karpenter.sh/">https://karpenter.sh/</a>
+<a href="https://github.com/kubernetes/autoscaler">https://github.com/kubernetes/autoscaler</a>
+<a href="https://stormforge.io/pricing/">https://stormforge.io/pricing/</a></p>
+<p>In Kubernetes, QoS classes help manage resources and ensure predictable application behavior. These classes provide a way to isolate, prioritize, and apply resource quotas to different workloads within a cluster.
+There are three main QoS classes in Kubernetes:</p>
+<p>1.Guaranteed: This class offers the highest level of resource assurance. Pods in this class have their CPU and memory requests equal to their limits. Kubernetes guarantees these pods will receive the requested resources.35</p>
+<p>2.Burstable: Pods in this class have their CPU and memory requests lower than their limits. These pods are guaranteed to receive the resources specified in their requests but can burst up to their limits if resources are available.35</p>
+<p>3.BestEffort: Pods in this class do not specify any resource requests or limits. They run with the lowest priority and utilize leftover resources.</p>
+<p>node reserver some cpu for himslef</p>
+<ul>
+<li>
+<p><strong>1 CPU</strong> = 1 core.</p>
+</li>
+<li>
+<p><strong>1 CPU</strong> = <strong>1,000,000 micro-CPUs (μCPU)</strong>.</p>
+</li>
+<li>
+<p><code>1</code> CPU means 1 whole CPU core.</p>
+</li>
+<li>
+<p><code>500m</code> CPU means 0.5 of a CPU core (500 millicores).</p>
+</li>
+<li>
+<p>restart policy</p>
+</li>
+<li>
+<p>when pod uses more memory we allocated it will will killed but for cpu it will throtled</p>
+</li>
+</ul>
+<p>we have  a node with 8Gb two pod with 3Gb and 2Gb using but we set request as 3 for both if new pod we put 3GB kube dont allocate eventhough it is free because it look for unscheduled memory</p>
+<p>now if we put 6Gi and 6G for both request resour pod it will allow becuase it will look for request size</p>
+<ul>
+<li>How pod killed when memory fulled?</li>
+</ul>
+<p>if ten containers are set to use one CPU each (&ndash;cpus=1) on a machine with only one CPU, they will all share that single CPU. None of the containers are guaranteed a full CPU. They each get a share of it.</p>
+<p>Similarly, setting a memory limit doesn&rsquo;t reserve a specific amount of memory. Instead, it acts as a cap, preventing the container from exceeding the defined limit.</p>
 
             </div>
         </article></main>

@@ -3,11 +3,11 @@
 <meta http-equiv="content-type" content="text/html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title itemprop="name">Book | programmerraja blog</title>
-<meta property="og:title" content="Book | programmerraja blog" />
-<meta name="twitter:title" content="Book | programmerraja blog" />
-<meta itemprop="name" content="Book | programmerraja blog" />
-<meta name="application-name" content="Book | programmerraja blog" />
+<title itemprop="name">The Curious Case of the $15,000 Spam: My Unexpected Investigation | programmerraja blog</title>
+<meta property="og:title" content="The Curious Case of the $15,000 Spam: My Unexpected Investigation | programmerraja blog" />
+<meta name="twitter:title" content="The Curious Case of the $15,000 Spam: My Unexpected Investigation | programmerraja blog" />
+<meta itemprop="name" content="The Curious Case of the $15,000 Spam: My Unexpected Investigation | programmerraja blog" />
+<meta name="application-name" content="The Curious Case of the $15,000 Spam: My Unexpected Investigation | programmerraja blog" />
 <meta property="og:site_name" content="" />
 
 <meta name="description" content="">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en-us" />
 <meta name="language" content="en-us" />
 
-  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/tags/book/" title="" />
+  <link rel="alternate" hreflang="en" href="https://programmerraja.github.io/blog/post/2024/the-curious-case-of-the-15000-spam-my-unexpected-investigation/" title="" />
 
 
 
@@ -35,9 +35,7 @@
 
     
 
-    <link rel="canonical" href="https://programmerraja.github.io/blog/tags/book/">
-    <link href="/blog/tags/book/index.xml" rel="alternate" type="application/rss+xml" title="programmerraja blog">
-    <link href="/blog/tags/book/index.xml" rel="feed" type="application/rss+xml" title="programmerraja blog">
+    <link rel="canonical" href="https://programmerraja.github.io/blog/post/2024/the-curious-case-of-the-15000-spam-my-unexpected-investigation/">
     <link href="/blog/style.min.88c2eae34c7456e51e3d92bae2469b6a0a6580dcda60746f99ef1d32c87a2d43.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
@@ -129,71 +127,79 @@ stroke-linejoin="round" class="feather feather-home">
         </div>
     </nav>
 </div>
-<div class="wrapper list-page">
-    <header class="header">
-        <h1 class="header-title center">Book</h1>
-    </header>
+
+<div class="wrapper post">
     <main class="page-content" aria-label="Content">
-        
-        
-        <h2 class="post-year">2024</h2>
+        <article>
+            <header class="header">
+                <h1 class="header-title">The Curious Case of the $15,000 Spam: My Unexpected Investigation</h1>
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2024-10-19T19:01:59&#43;05:30" itemprop="datePublished"> Oct 19, 2024 </time>
+                </div>
+                
+            </header><div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-        
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-bait-a-tempting-offer" aria-label="The Bait: A Tempting Offer">The Bait: A Tempting Offer</a></li>
+                <li>
+                    <a href="#time-to-investigate" aria-label="Time to Investigate">Time to Investigate</a></li>
+                <li>
+                    <a href="#behind-the-curtain" aria-label="Behind the Curtain">Behind the Curtain</a></li>
+                <li>
+                    <a href="#chasing-the-money-trail" aria-label="Chasing the Money Trail">Chasing the Money Trail</a></li>
+                <li>
+                    <a href="#a-bit-of-payback" aria-label="A Bit of Payback">A Bit of Payback</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div><div class="page-content">
+                <p>Last Friday started off like any typical day—I was busy with my work in my office when I stumbled upon a suspicious message. My instincts told me it was spam, but my curiosity got the best of me. I clicked the link, and that’s when the adventure began!</p>
+<h3 id="the-bait-a-tempting-offer">The Bait: A Tempting Offer</h3>
+<p>The link led me to a flashy website claiming, “Register and Get Up to $15,000 Free Cash Prize Bonus.” It even auto-filled my mobile number, which immediately raised my suspicions, but I decided to keep going. I clicked &ldquo;Confirm&rdquo; and soon received an OTP (One-Time Password).</p>
+<p>After entering the OTP, I was greeted with a bunch of gift boxes, prompting me to pick one. When I clicked &ldquo;Activate Now,&rdquo; I was redirected to a well-known Indian gambling app&rsquo;s installation page. The scam was starting to come together.</p>
+<h3 id="time-to-investigate">Time to Investigate</h3>
+<p>With my developer hat on, I knew I had to dig deeper. I revisited the website and inspected the code, and here’s where it got interesting: the code looked like it was generated by ChatGPT! They hadn’t even removed the comments. Even more shocking? The OTP was hardcoded as <code>456398</code>, which was the exact number I received. They were sending the same OTP to everyone!</p>
+<h3 id="behind-the-curtain">Behind the Curtain</h3>
+<p>Next, I checked where the site was hosted and found it was on AWS. Then, I took a look at the network requests to see how they were triggering the OTP. The request payload looked like this:</p>
+<pre tabindex="0"><code> {
+	&#34;number&#34;: mobile number,
+	&#34;sms&#34;: &#34;1&#34;
+}
+</code></pre><h3 id="chasing-the-money-trail">Chasing the Money Trail</h3>
+<p>Curious about how they planned to make money, I researched the gambling app I was redirected to and discovered they had an affiliate program. This means the scammers earn money every time someone installs and plays the game using their referral link. A classic exploitation tactic!</p>
+<h3 id="a-bit-of-payback">A Bit of Payback</h3>
+<p>With all this information in hand, I couldn’t just let it go. I noticed they had an endpoint that allowed sending OTP to any phone number, which sparked an idea. I figured I could send random valid phone numbers to their service—maybe even overload their system a bit. which defently going to cause some amount of money for them</p>
+<p>So, I opened up ChatGPT (not my code editor!) and asked it to help me write a script that would send requests with randomly generated phone numbers. I capped it at around 5,000 requests to keep things manageable. It felt like just the right amount of payback without going overboard.</p>
+<p>It was fine firday where i fixing our user issue and i got a below message</p>
+<p>which trigger my attention and i know it will defentiely a spam message but my curosity tell me let see how they try to spam us so i clicked the link and it take be the below website where it asking Register and get upto 15K free cash prize bouns and where they passed by mobile number and auto fill and then i clicked  click confirm  and i recevied the OTP</p>
+<p>I entered the OTP and where they have lot of gift box and where i need to press any one after press i get the below message</p>
+<p>when i clicked the activate now i get redirect to playstore webapp page and it the page famous indian gammling game app installation page</p>
+<p>So now i have clarity of what they doing so now it time bring my developer brain to invsitigate how they doing this and why they doing this so get ready for invistigation</p>
+<p>i revisted the website again and inspecte the code and find this funny thing</p>
+<p>You may guessed the code was genrated by chatGPT :joy   and who doing this scam who even not removed the comments  and if you noticed they have hardcoded value of OTP as <code>456398</code> and that same number i recieved so they sending same OTP to everyone</p>
+<p>Next i checked the hosting details and i find out that it was hosted on AWS,
+Next i inspected the network tab to check the endpoint that calling to trigger the OTP where they sending the number and sms count 1 as form data like below</p>
+<pre tabindex="0"><code> {
+	&#34;number&#34;: mobile number,
+	&#34;sms&#34;: &#34;1&#34;
+}
+</code></pre><p>Next i started invistgate of how they will going get money. i did some research about the famous gabbling app where it redirected me and i find out they providing the affliate program where they give some amount of money if the user have installed and played the game by using the referal link</p>
+<p>Ok the invistigation is over now it time to take revenge if you noticied one thing they have endpoint where we can send any phone number  where they defentlye using some service to send SMS so i do DDOS with random valid phone numbers defenlty there bill going to raise and defently it teach them a good leason. so i opened the chatgpt (not code editor) and asked to write a script that will post request with random genreated phone numbers and start hitting the website</p>
+<p>basically i dont want to do more damage to them so i stop among 5k request may be less but i feel like to stop</p>
 
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/software-architecture-and-decision-making/">Software Architecture and Decision-Making</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-22T08:19:32&#43;0530">
-        22 Jan 2024
-        
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/a-philosophy-of-software-design-book-notes/">A Philosophy of Software Design Book Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-18T08:19:32&#43;0530">
-        18 Jan 2024
-        
-    </time>
-</article>
-
-
-        
-
-        <article class="post-item">
-    <h4 class="post-item-title">
-        <a href="/blog/notes/2024/database-internal/">Database internal book Notes</a>
-    </h4>
-    
-    
-    
-    <time class="post-item-meta" datetime="2024-01-12T08:19:32&#43;0530">
-        12 Jan 2024
-        
-    </time>
-</article>
-
-
-         
-
-         
-
-    </main>
-</div><footer class="footer">
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
     <span class="footer_item"> </span>
     &nbsp;
 

@@ -31,12 +31,12 @@
 
 
 
-<meta name="generator" content="Hugo 0.135.0">
+<meta name="generator" content="Hugo 0.136.2">
 
     
 
     <link rel="canonical" href="https://programmerraja.github.io/blog/notes/2024/ai-agent/">
-    <link href="/blog/style.min.13ff53e3b19eb94d9ec5ed09fbad3b58eddfacacc9808a6f6c01f853c2a53614.css" rel="stylesheet">
+    <link href="/blog/style.min.88c2eae34c7456e51e3d92bae2469b6a0a6580dcda60746f99ef1d32c87a2d43.css" rel="stylesheet">
     <link href="/blog/code-highlight.min.47ce138cfb8b509effd5f72a43ad97ac4b22d0d64f67b76dac5d84abbb77a414.css" rel="stylesheet">
 
     
@@ -148,14 +148,12 @@ stroke-linejoin="round" class="feather feather-home">
 
         <div class="inner"><ul>
                 <li>
-                    <a href="#multi-agent-orchestrator" aria-label="Multi-Agent Orchestrator">Multi-Agent Orchestrator</a><ul>
+                    <a href="#multi-agent-orchestrator" aria-label="Multi-Agent Orchestrator">Multi-Agent Orchestrator</a></li>
+                <li>
+                    <a href="#rag" aria-label="RAG">RAG</a><ul>
                         
                 <li>
-                    <a href="#rag" aria-label="RAG">RAG</a></li></ul>
-                </li>
-                <li>
-                    <a href="#retrevial-types" aria-label="Retrevial types">Retrevial types</a><ul>
-                        
+                    <a href="#retrevial-types" aria-label="Retrevial types">Retrevial types</a></li>
                 <li>
                     <a href="#rag-fusion" aria-label="RAG Fusion">RAG Fusion</a></li>
                 <li>
@@ -167,8 +165,12 @@ stroke-linejoin="round" class="feather feather-home">
                     <a href="#retrieval-interleaved-generation-rig" aria-label="Retrieval Interleaved Generation (RIG)">Retrieval Interleaved Generation (RIG)</a><ul>
                         
                 <li>
+                    <a href="#late-chunking" aria-label="Late Chunking">Late Chunking</a></li>
+                <li>
                     <a href="#resources" aria-label="Resources">Resources</a></li></ul>
                 </li>
+                <li>
+                    <a href="#generative-representational-instruction-tuning" aria-label="Generative Representational Instruction Tuning">Generative Representational Instruction Tuning</a></li>
                 <li>
                     <a href="#micro-agent" aria-label="Micro Agent">Micro Agent</a></li>
                 <li>
@@ -184,8 +186,8 @@ stroke-linejoin="round" class="feather feather-home">
 </div><div class="page-content">
                 <h2 id="multi-agent-orchestrator">Multi-Agent Orchestrator</h2>
 <p>Flexible and powerful framework for managing multiple AI agents and handling complex conversations</p>
-<h3 id="rag">RAG</h3>
-<h2 id="retrevial-types">Retrevial types</h2>
+<h2 id="rag">RAG</h2>
+<h3 id="retrevial-types">Retrevial types</h3>
 <p>Rank GPT</p>
 <ul>
 <li>instead of just querying in vector and sending to LLM after querying ask LLM can you rank the doc that fetched from vecotr db based relvant to the query and again send to LLM with re ranked doc</li>
@@ -225,11 +227,43 @@ stroke-linejoin="round" class="feather feather-home">
 </ul>
 <h3 id="crag">CRAG</h3>
 <p>Corrective Retrieval Augmented Generation.The strategy we followed for this let’s say for each topic, we consult the book and identify relevant sections. Before forming an opinion, categorize the gathered information into three groups: <code>**Correct**</code>, <code>**Incorrect**</code>, and <code>**Ambiguous**</code>. Process each type of information separately. Then, based on this processed information, compile and summarize it mentally</p>
+<p><strong>How it works</strong></p>
+<ul>
+<li><strong>Retrieval Evaluator:</strong> A lightweight model assesses the relevance of retrieved documents to the input query, assigning a confidence score to each document. This evaluator is fine-tuned on datasets with relevance signals, allowing it to distinguish relevant documents from irrelevant ones, even if they share surface-level similarities with the query.</li>
+<li><strong>Action Trigger:</strong> Based on the confidence scores, CRAG triggers one of three actions:
+<ul>
+<li><strong>Correct:</strong> If at least one document has a high confidence score, CRAG assumes the retrieval is correct and refines the retrieved documents to extract the most relevant knowledge strips.
+<ul>
+<li><strong>Example:</strong> If the query is &ldquo;What is Henry Feilden&rsquo;s occupation?&rdquo; and a retrieved document mentions Henry Feilden&rsquo;s political affiliation, CRAG would identify this as relevant and refine the document to focus on the information about his occupation.</li>
+</ul>
+</li>
+<li><strong>Incorrect:</strong> If all documents have low confidence scores, CRAG assumes the retrieval is incorrect and resorts to web search for additional knowledge sources.
+<ul>
+<li><strong>Example:</strong> If the query is &ldquo;Who was the screenwriter for Death of a Batman?&rdquo; and the retrieved documents do not contain the correct information, CRAG would initiate a web search using keywords like &ldquo;Death of a Batman, screenwriter, Wikipedia&rdquo; to find more reliable sources.</li>
+</ul>
+</li>
+<li><strong>Ambiguous:</strong> If the confidence scores are neither high nor low, CRAG combines both refined retrieved knowledge and web search results.</li>
+</ul>
+</li>
+<li><strong>Knowledge Refinement:</strong> For relevant documents, CRAG employs a decompose-then-recompose approach:
+<ul>
+<li>It breaks documents into smaller knowledge strips, filters out irrelevant strips based on their relevance scores, and then recomposes the remaining relevant strips into a concise knowledge representation.</li>
+</ul>
+</li>
+<li><strong>Web Search:</strong> When the initial retrieval fails, CRAG utilizes web search to find complementary information.
+<ul>
+<li>It rewrites the input query into keyword-based search queries and prioritizes results from authoritative sources like Wikipedia to mitigate the risk of biases and unreliable information from the open web.</li>
+<li>The retrieved web content is then refined using the same knowledge refinement method.</li>
+</ul>
+</li>
+</ul>
+<p>Check out implementation from langchain <a href="https://langchain-ai.github.io/langgraph/tutorials/rag/langgraph_crag/#use-the-graph">here</a></p>
 <h3 id="contextual-retrieval">Contextual Retrieval</h3>
 <p>Contextual Retrieval is a technique that enhances the accuracy of retrieving relevant information from a knowledge base, especially when used in Retrieval-Augmented Generation (RAG) systems. It addresses the limitations of traditional RAG, which often disregards context, by adding relevant context to the individual chunks of information before they are embedded and indexed. This process significantly improves the system&rsquo;s ability to locate the most pertinent information.</p>
 <ul>
 <li>This technique applies the BM25 ranking function, which relies on lexical matching for finding specific terms or phrases, to the contextualized chunks.</li>
 <li>Contextual Retrieval leverages AI models like Claude to generate the contextual text for each chunk</li>
+<li>It required more window context model and space</li>
 </ul>
 <h2 id="retrieval-interleaved-generation-rig">Retrieval Interleaved Generation (RIG)</h2>
 <p>A technique devloped by google that enhances the factual accuracy of large language models (LLMs) by integrating structured external data into their responses.Unlike standard LLMs that rely solely on their internal knowledge, RIG dynamically retrieves data from a trusted repository like Data Commons.This allows <a href="https://research.google/blog/grounding-ai-in-reality-with-a-little-help-from-data-commons/">RIG</a> to provide more accurate and reliable information by leveraging real-time data.</p>
@@ -248,16 +282,25 @@ stroke-linejoin="round" class="feather feather-home">
 <p><strong>Providing a Verified Answer</strong>: The LLM uses the retrieved data to give a reliable, data-backed answer, reducing the risk of hallucinations and improving the trustworthiness of its output.</p>
 </li>
 </ol>
+<h3 id="late-chunking">Late Chunking</h3>
+<ul>
+<li>Let say we have doc as <code>Berin is captial of germany it is more then 3M population</code> if we chunk as <code>Berin is captial of germany</code> and <code>it is more then 3M population</code> in second chunk we loose the context to avoid that</li>
+<li>We first applies the transformer layer of the embedding model to <em>the entire text</em> or as much of it as possible. This generates a sequence of vector representations for each token that encompasses textual information from the entire text. Subsequently, mean pooling is applied to each chunk of this sequence of token vectors, yielding embeddings for each chunk that consider the entire text&rsquo;s contex</li>
+<li>It required large context window model</li>
+</ul>
+<p><code>The process of converting a sequence of embeddings into a sentence embedding is called pooling</code></p>
+<p>Mean pooling in Natural Language Processing (NLP) is a technique used to create a fixed-size vector representation from a variable-length input sequence, such as a sentence or document. It works by averaging the vectors of all tokens (words or subwords) in the sequence</p>
+<ol>
+<li><strong>Tokenization</strong>: The input text is split into tokens (words, subwords, or characters).</li>
+<li><strong>Embedding</strong>: Each token is mapped to a corresponding vector using an embedding layer (e.g., pre-trained embeddings like Word2Vec, GloVe, or BERT embeddings).</li>
+<li><strong>Mean Pooling</strong>: The vectors of all the tokens in the sequence are averaged to produce a single vector. This can be done by summing the vectors and then dividing by the total number of tokens.</li>
+</ol>
 <h3 id="resources">Resources</h3>
 <p><strong>Frameworks and Toolkits for RAG (Retrieval-Augmented Generation)</strong>:</p>
 <ol>
 <li><strong><a href="https://github.dev/pinecone-io/canopy">Pinecone Canopy</a></strong>: A framework built by Pinecone for developing vector-based applications.</li>
 <li><strong><a href="https://github.com/ruc-nlpir/flashrag">FlashRAG</a></strong>: A Python toolkit for efficient RAG research, designed to support retrieval-augmented generation use cases.</li>
 <li><strong><a href="https://ragflow.io/">RAGFlow</a></strong>: An open-source RAG engine focusing on deep document understanding for more advanced RAG applications.</li>
-</ol>
-<p><strong>Evaluation and Experimentation for LLMs</strong>:</p>
-<ol>
-<li><strong><a href="https://github.com/truera/trulens">Trulens</a></strong>: A tool for evaluating and tracking LLM experiments. Useful for monitoring and analyzing the performance of your RAG or LLM models.</li>
 </ol>
 <p><strong>Courses and Learning Resources</strong>:</p>
 <ol>
@@ -272,6 +315,7 @@ stroke-linejoin="round" class="feather feather-home">
 </ol>
 <hr>
 <p>This structure groups similar resources together and will help streamline your workflow when referencing frameworks, tools, or educational content for RAG-based development.</p>
+<h2 id="generative-representational-instruction-tuning">Generative Representational Instruction Tuning</h2>
 <h2 id="micro-agent">Micro Agent</h2>
 <p>The idea of a micro agent is to</p>
 <ol>
@@ -299,6 +343,11 @@ stroke-linejoin="round" class="feather feather-home">
 <ul>
 <li><a href="https://github.com/langgenius/dify">dify</a></li>
 <li><a href="https://mindpal.space/">https://mindpal.space/</a></li>
+</ul>
+<p>Agent flow</p>
+<ul>
+<li>graph based</li>
+<li>event based</li>
 </ul>
 
             </div>
