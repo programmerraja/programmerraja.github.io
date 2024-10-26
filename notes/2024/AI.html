@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>AI</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="AI"/><meta property="og:description" content="LLM contain Parameters code that run parameters Parameters Neural network predict the next word Pretraining,finetunning GPU are good at matrix multiplication so only they need ..."/><meta property="og:image" content="https://programmerraja.github.io/blog/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="LLM contain Parameters code that run parameters Parameters Neural network predict the next word Pretraining,finetunning GPU are good at matrix multiplication so only they need ..."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="notes/2024/AI"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">programmerraja blog</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/2024/">2024</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>AI</a></div></nav><h1 class="article-title">AI</h1><p show-comma="true" class="content-meta"><span>May 18, 2024</span><span>17 min read</span></p></div></div><article class="popover-hint"><p>LLM contain</p>
+<ul>
+<li>Parameters</li>
+<li>code that run parameters</li>
+</ul>
+<p>Parameters</p>
+<p>Neural network</p>
+<ul>
+<li>predict the next word</li>
+</ul>
+<p>Pretraining,finetunning</p>
+<p>GPU are good at matrix multiplication so only they need for AI beacause all AI are matrix multiplication</p>
+<p>Deep learning models</p>
+<ul>
+<li>Discriminative  <span>→</span> classify or predict trainned on labeled data</li>
+<li>Generative <span>→</span> predict next word in sequenece,understand distribution of data</li>
+</ul>
+<p>Computational linguistics: strudy of language grammer,syntax and phonetics</p>
+<h2 id="embedding">Embedding<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#embedding" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><a href="https://huggingface.co/blog/how-to-generate" class="external">https://huggingface.co/blog/how-to-generate<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>
+Word embedding algo</p>
+<ol>
+<li>Wrord2Vec (CBOW and Skip grammer)</li>
+<li>Glove (Global vector for word representation)</li>
+<li>ELMOC</li>
+<li>BERT</li>
+<li>Transformer based models (generative pretrained transformer and text to text transformer)</li>
+</ol>
+<h4 id="word2vec">Word2vec<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#word2vec" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>There are two main models in Word2Vec: Continuous Bag of Words (CBOW) and Skip-gram</p>
+<h3 id="continuous-bag-of-words-cbow">Continuous Bag of Words (CBOW)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#continuous-bag-of-words-cbow" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The CBOW model predicts the current word based on the context (surrounding words). For instance, in the sentence:</p>
+<p><em>“The quick brown fox jumps over the lazy dog”</em></p>
+<p>If we want to predict the word “fox” (target word), the context words might be “The”, “quick”, “brown”, “jumps”, “over”.</p>
+<h4 id="example-process-for-cbow">Example Process for CBOW:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#example-process-for-cbow" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li><strong>Input Context Words</strong>: Let’s consider a simplified version where we use a window of size 2 (two words on each side of the target word).
+<ul>
+<li>Context words for “fox” would be [“quick”, “brown”, “jumps”, “over”].</li>
+</ul>
+</li>
+<li><strong>One-Hot Encoding</strong>: Each context word is converted into a one-hot vector. If our vocabulary consists of the words [“The”, “quick”, “brown”, “fox”, “jumps”, “over”, “the”, “lazy”, “dog”], the one-hot vector for “quick” might look like: “quick” → [0, 1, 0, 0, 0, 0, 0, 0, 0]</li>
+<li><strong>Hidden Layer</strong>: These one-hot vectors are fed into a neural network with a single hidden layer. The hidden layer typically has fewer neurons than the vocabulary size, capturing the dense representations.</li>
+<li><strong>Output Layer</strong>: The network then combines the hidden layer’s outputs to predict the target word. The output is a probability distribution over the vocabulary.</li>
+<li><strong>Training</strong>: The network is trained using backpropagation to minimize the prediction error, adjusting weights to improve accuracy.</li>
+</ol>
+<h3 id="skip-gram">Skip-gram<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#skip-gram" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The Skip-gram model works oppositely to CBOW. It predicts context words from the target word. This model is particularly effective for larger datasets.</p>
+<h4 id="example-process-for-skip-gram">Example Process for Skip-gram:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#example-process-for-skip-gram" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Using the same sentence, “The quick brown fox jumps over the lazy dog”:</p>
+<ol>
+<li><strong>Target Word</strong>: Let’s choose “fox” as our target word.</li>
+<li><strong>Context Words</strong>: For “fox”, the context words could be [“quick”, “brown”, “jumps”, “over”] using a window size of 2.</li>
+<li><strong>One-Hot Encoding</strong>: Convert the target word “fox” into a one-hot vector.
+<ul>
+<li>“fox” → [0, 0, 0, 1, 0, 0, 0, 0, 0]</li>
+</ul>
+</li>
+<li><strong>Hidden Layer</strong>: This one-hot vector is fed into the hidden layer, producing a dense vector representation of the target word.</li>
+<li><strong>Output Layer</strong>: The dense vector is then used to predict the context words. The network outputs a probability distribution over the vocabulary for each context word.</li>
+<li><strong>Training</strong>: The network is trained by adjusting the weights to maximize the probability of the correct context words given the target word.</li>
+</ol>
+<p><strong>Cosine similarity</strong> is a metric used to measure how similar two vectors</p>
+<p><strong>Euclidean Distance:</strong> It measures the straight-line distance between two vectors in the multidimensional space</p>
+<p><strong>Manhattan Distance (L1 Distance):</strong> This calculates the sum of the absolute differences between corresponding elements of two vectors.</p>
+<p><strong>One-hot encoding</strong> is a technique used to represent categorical data as binary vectors. Each category is converted into a vector where one element is “hot” (1) and all other elements are “cold” (0).
+<strong>Example:</strong> Let say we take fruits and consider it only having 5 varites such as apple,orange,mango,grapes and banana the one hot encoding will be</p>
+<ul>
+<li>“apple” → [1, 0, 0, 0, 0]</li>
+<li>“orange” → [0, 1, 0, 0, 0]</li>
+<li>“mango” → [0, 0, 1, 0, 0]</li>
+<li>“grapes” → [0, 0, 0, 1, 0]</li>
+<li>“banana” → [0, 0, 0, 0, 1]</li>
+</ul>
+<p>The main disadvantage is If the number of unique categories is very large, the resulting one-hot encoded data can become very high-dimensional and sparse.</p>
+<p><strong>Stemming</strong> is the process of reducing words to their root or base form by removing suffixes, such as converting “running” to “run” and “happily” to “happi”.</p>
+<p><strong>Lemmatization</strong> is the process of reducing words to their base or dictionary form (lemma) by considering the context and morphological analysis, such as converting “running” to “run” and “better” to “good”.</p>
+<p>lib that used for above nltk, spacy in python</p>
+<p><a href="https://www.tensorflow.org/text/tutorials/word2vec" class="external">https://www.tensorflow.org/text/tutorials/word2vec<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h3 id="glove">GloVe<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#glove" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Global Vectors for Word Representation.Unlike other word embedding methods like Word2Vec, which rely on local context information (e.g., predicting a word based on its neighbors), GloVe leverages global word co-occurrence statistics from a corpus to capture the meanings of words.</p>
+<p>GloVe constructs a word-word co-occurrence matrix using the entire corpus. Each element of this matrix represents how often a pair of words appears together in a context window like below let say we have a “<strong>The cat is fluffy. The dog is fluffy. The cat and the dog are friends.</strong>”</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Word</th><th>the</th><th>cat</th><th>is</th><th>fluffy</th><th>dog</th><th>and</th><th>are</th><th>friends</th></tr></thead><tbody><tr><td>the</td><td>0</td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td>1</td><td>1</td></tr><tr><td>cat</td><td>2</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr><tr><td>is</td><td>2</td><td>1</td><td>0</td><td>2</td><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><td>fluffy</td><td>2</td><td>1</td><td>2</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td></tr><tr><td>dog</td><td>2</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr><tr><td>and</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td></tr><tr><td>are</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr><tr><td>friends</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr></tbody></table></div>
+<p>We create vectors (magic numbers) for each word. Here’s an example of what the vectors might look like after training</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Word</th><th>Vector</th></tr></thead><tbody><tr><td>the</td><td>[0.8, 0.6]</td></tr><tr><td>cat</td><td>[0.3, 0.7]</td></tr><tr><td>is</td><td>[0.5, 0.5]</td></tr><tr><td>fluffy</td><td>[0.3, 0.8]</td></tr><tr><td>dog</td><td>[0.4, 0.7]</td></tr><tr><td>and</td><td>[0.6, 0.4]</td></tr><tr><td>are</td><td>[0.6, 0.3]</td></tr><tr><td>friends</td><td>[0.7, 0.2]</td></tr></tbody></table></div>
+<h4 id="dimension">Dimension<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dimension" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>The dimensionality of word embedding refers to the number of dimensions in which the vector representation of a word is defined.</li>
+<li>This is typically a fixed value determined while creating the word embedding. </li>
+<li>The dimensionality of the word embedding represents the total number of features that are encoded in the vector representation.</li>
+<li>Larger datasets can support higher-dimensional embeddings as they provide more training data to inform the model. As a rule of thumb, a dataset with less than 100,000 sentences may benefit from a lower-dimensional embedding</li>
+</ul>
+<p>Two paths for custom data LLM</p>
+<ol>
+<li>Fine tune it with custom data to answer</li>
+<li>Retrieve text related to question at runtime (vector search) and feed relevant text with question to LLM to answer. example (chroma and langchanin)</li>
+</ol>
+<p>Modern LLM stack</p>
+<ul>
+<li>Data bricks <span>→</span> data pipelines preprocessing and summary analytics</li>
+<li>hugging face <span>→</span> datasets ,models,tokenizers and inference tools</li>
+<li>mosaic ML <span>→</span> model traning ,LLM config and manged GPU</li>
+</ul>
+<h3 id="keras-embedding-layer">Keras embedding layer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#keras-embedding-layer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Keras offers an embedding layer that can be used for neural networks, such as RNN’s (recurrent neural networks) for text data. This layer is defined as the first layer of a more complex architecture. The embedding layer needs at least three input values:</p>
+<ul>
+<li><strong>input_dim:</strong> Integer. Size of the vocabulary, i.e. maximum integer index+1.</li>
+<li><strong>output_dim:</strong> Integer. Dimension of the dense embedding.</li>
+<li><strong>input_length:</strong> Length of input sequences, when it is constant. This argument is required if you are going to connect Flatten then Dense layers upstream (without it, the shape of the dense outputs cannot be computed).</li>
+</ul>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">import</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> numpy </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">as</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> np</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> keras.preprocessing.text </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">import</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> Tokenizer</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> keras.preprocessing.sequence </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">import</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> pad_sequences</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> keras.models </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">import</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> Sequential</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">from</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> keras.layers </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">import</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> Embedding, Flatten, Dense</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Sample training data</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">texts </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;I love this movie, it is fantastic!&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;The movie was okay, not great.&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;I did not like the movie, it was boring.&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;Fantastic film, I enjoyed every moment!&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;Terrible movie, I won't watch it again.&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">labels </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]  </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 1 for positive, 0 for negative</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Tokenize the text</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">tokenizer </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> Tokenizer(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">num_words</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">10000</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">tokenizer.fit_on_texts(texts)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">sequences </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> tokenizer.texts_to_sequences(texts)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Pad sequences to ensure uniform length</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">max_length </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 10</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">data </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> pad_sequences(sequences, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">maxlen</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">max_length)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Convert labels to a numpy array</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">labels </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> np.array(labels)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Define vocabulary size and embedding dimensions</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">vocab_size </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 10000</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">embedding_dim </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 50</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Create the model</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">model </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> Sequential()</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">model.add(Embedding(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">input_dim</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">vocab_size, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">output_dim</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">embedding_dim, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">input_length</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">max_length))</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">model.add(Flatten())</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">model.add(Dense(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">activation</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">'sigmoid'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">))  </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># For binary classification</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Compile the model</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">model.compile(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">optimizer</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">'adam'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">loss</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">'binary_crossentropy'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">metrics</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">'accuracy'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">])</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Print the model summary</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">model.summary()</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Train the model</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">model.fit(data, labels, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">epochs</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">10</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">batch_size</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">validation_split</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0.2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Sample test data</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">test_texts </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;I really enjoyed this film, it was excellent!&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;The film was not good, I did not enjoy it.&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">test_labels </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]  </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># 1 for positive, 0 for negative</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Tokenize the test text</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">test_sequences </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> tokenizer.texts_to_sequences(test_texts)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Pad sequences to ensure uniform length</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">test_data </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> pad_sequences(test_sequences, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">maxlen</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">max_length)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Convert test labels to a numpy array</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">test_labels </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> np.array(test_labels)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Evaluate the model on the test data</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">loss, accuracy </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> model.evaluate(test_data, test_labels, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">batch_size</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Test Loss: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">loss</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Test Accuracy: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">accuracy</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Make predictions on the test data</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">predictions </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> model.predict(test_data)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Print the predictions and corresponding test labels</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">for</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> i, prediction </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">in</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> enumerate</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(predictions):</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">    print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Text: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">test_texts[i]</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">    print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Predicted: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">{</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">'Positive'</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> prediction </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">></span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 0.5</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> else</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 'Negative'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">    print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Actual: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">{</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">'Positive'</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> test_labels[i] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">==</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 1</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> else</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 'Negative'</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">}\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line> </span></code></pre></figure>
+<h2 id="open-source-embedding-models">Open Source Embedding models<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#open-source-embedding-models" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Two key resources for open-source embeddings:</p>
+<ul>
+<li><strong>Sentence Transformers (expert.net):</strong> This Python framework simplifies loading and using various embedding models, including the popular “all-mpnet-base-v2” and “all-MiniLM-L6-v2”.</li>
+<li><strong>Hugging Face (huggingface.co):</strong> This platform hosts a vast collection of machine learning models and datasets, including the “Massive Text Embedding Benchmark” (MTEB) project, which ranks and evaluates embedding models.</li>
+</ul>
+<p><strong>Choosing the Right Embedding Model</strong></p>
+<ul>
+<li><strong>Task:</strong> Different models specialize in different tasks, like semantic search, clustering, or bitext mining.</li>
+<li><strong>Performance:</strong> The MTEB leaderboard offers a valuable resource for comparing model performance across various tasks.</li>
+<li><strong>Dimension Size:</strong> Smaller dimensions generally result in faster computation and lower memory requirements, especially for similarity searches.</li>
+<li><strong>Sequence Length:</strong> Models have limitations on the input length (measured in tokens), impacting how you process longer documents.</li>
+</ul>
+<p><strong>Optimizing Embedding Generation</strong></p>
+<ul>
+<li>
+<p><strong>Mean Pooling:</strong> This aggregation method combines multiple embeddings into a single representative embedding, essential for sentence-level comparisons.</p>
+<p>Example:
+Text embedding model will return text the probablity of passed text with the no of vocabulary it has let say we have a text embedding model with dimension of 468 then it have 468 voc so it will return the probablity of passed text with all 468 word but if we want a single probablity we need to use meanpooling</p>
+</li>
+<li>
+<p><strong>Normalization:</strong> Normalizing embeddings (creating unit vectors) enables accurate comparisons using methods like dot product.</p>
+</li>
+<li>
+<p><strong>Quantization:</strong> This technique reduces the precision of model weights, shrinking the model size and potentially improving inference speed.</p>
+</li>
+<li>
+<p><strong>Caching:</strong> Transformers.js automatically caches models in the browser, significantly speeding up subsequent inference operations.</p>
+</li>
+</ul>
+<h3 id="byte-pair-encoding-bpe-a-tokenization-technique">Byte Pair Encoding (BPE): A Tokenization Technique<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#byte-pair-encoding-bpe-a-tokenization-technique" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>BPE is a data compression algorithm that has been adapted for tokenization. It’s a bottom-up approach that starts by treating each character in the training data as a separate token. Then, it iteratively merges the most frequently occurring pairs of tokens into a single new token. This process continues until a predefined vocabulary size or a merging criteria is met.</p>
+<p>Let’s illustrate with a simplified example. Suppose our training data contains the words “lower,” “lowest,” “newer,” and “newest.”</p>
+<ul>
+<li>
+<p>Initial Tokens: Start with individual characters as tokens: ‘l’, ‘o’, ‘w’, ‘e’, ‘r’, ‘s’, ‘t’, ‘n’, ‘ew’.</p>
+</li>
+<li>
+<p>Merging: The pair ‘e’ and ‘r’ might occur most frequently, so they are merged into a new token ‘er’.</p>
+</li>
+</ul>
+<h3 id="wordpiece">WordPiece<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#wordpiece" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>WordPiece tokenization is a subword tokenization algorithm developed by Google,</p>
+<h3 id="massive-text-embedding-benchmark">Massive Text Embedding Benchmark<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#massive-text-embedding-benchmark" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>MTEB, is a project developed by Hugging Face to address the challenge of evaluating and comparing the performance of different text embedding models</p>
+<p>MTEB goes beyond a single metric and instead evaluates models across a wide spectrum of tasks1. This ensures a more holistic understanding of a model’s capabilities. Some of the tasks covered by MTEB include2:</p>
+<p>Bitext Mining: Identifying pairs of sentences in different languages that convey the same meaning.</p>
+<p>Classification: Assigning predefined categories to text snippets.</p>
+<p>Clustering: Grouping text snippets based on their semantic similarity.</p>
+<p>Pair Classification: Determining the relationship between two text snippets (e.g., paraphrase, contradiction).</p>
+<p>Re-ranking: Ordering search results based on their relevance to a given query.</p>
+<p>Retrieval: Finding the most relevant documents for a specific query (often used in semantic search).</p>
+<p>Semantic Textual Similarity (STS): Measuring the degree of semantic overlap between two text snippets.</p>
+<p>Summarization: Evaluating how well a short text summarizes a longer document.</p>
+<h3 id="resources">Resources<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#resources" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><a href="https://medium.com/@RobinVetsch/nlp-from-word-embedding-to-transformers-76ae124e6281" class="external">https://medium.com/@RobinVetsch/nlp-from-word-embedding-to-transformers-76ae124e6281<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://towardsdatascience.com/text-embeddings-comprehensive-guide-afd97fce8fb5" class="external">Text Embeddings: Comprehensive Guide<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="transformer">Transformer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#transformer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Types</p>
+<ol>
+<li>Encode only model <span>→</span> translate tokens in to semantically meaningful rep (text classfication)</li>
+<li>Decode only model <span>→</span> predict next text (Text genereation)  GPT family and LLAMA</li>
+<li>Both encode and decode model <span>→</span> BART (translation)</li>
+</ol>
+<p><strong>Encoder:</strong> Encodes input with context val understanding and produces one vector per token</p>
+<p><strong>Decoder:</strong> Accept input token and generate new token</p>
+<p><strong>Max new tokens:</strong> No of tokens that will generate</p>
+<p>Natural language model</p>
+<p>LoRA (Low-Rank Adaptation) and PEFT (Parameter-Efficient Fine-Tuning) are techniques used in the field of natural language processing and machine learning to fine-tune large pre-trained models in a more computationally and memory-efficient manner.</p>
+<h2 id="ollama-notes">ollama Notes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ollama-notes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>uses docker to run all model</li>
+<li>Model stored in  /user/share/ollama/.ollama/models</li>
+<li>which has blobs and manifests/registry.ollama.ai</li>
+<li>blobs contain actula model code</li>
+</ul>
+<h2 id="vector-database">Vector database<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#vector-database" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A dataset of three sentences, each has 3 words (or tokens)</p>
+<ul>
+<li>In practice, a dataset may contain millions or billions of sentences.</li>
+<li>The max number of tokens may be tens of thousands (e.g., 32,768 mistral-7b).</li>
+</ul>
+<p>Process “how are you”</p>
+<p><strong>Word Embeddings</strong></p>
+<ul>
+<li>For each word, look up corresponding word embedding vector from a table of 22 vectors, where 22 is the vocabulary size.</li>
+<li>In practice, the vocabulary size can be tens of thousands. The word embedding dimensions are in the thousands (e.g., 1024, 4096)</li>
+</ul>
+<p><strong>Encoding</strong></p>
+<ul>
+<li>Feed the sequence of word embeddings to an encoder to obtain a sequence of feature vectors, one per word.</li>
+<li>Here, the encoder is a simple one layer perceptron (linear layer + ReLU)</li>
+<li>In practice, the encoder is a transformer or one of its many variants.</li>
+</ul>
+<p><strong>Mean Pooling</strong></p>
+<ul>
+<li>Merge the sequence of feature vectors into a single vector using “mean pooling” which is to average across the columns.</li>
+<li>The result is a single vector. We often call it “text embeddings” or “sentence embeddings.”</li>
+<li>Other pooling techniques are possible, such as CLS. But mean pooling is the most common.</li>
+</ul>
+<p><strong>Indexing</strong></p>
+<ul>
+<li>Reduce the dimensions of the text embedding vector by a projection matrix. The reduction rate is 50% (4<span>→</span>2).</li>
+<li>In practice, the values in this projection matrix is much more random.  The purpose is similar to that of hashing, which is to obtain a short representation to allow faster comparison and retrieval.</li>
+<li>The resulting dimension-reduced index vector is saved in the vector storage.</li>
+</ul>
+<p><strong>Process “who are you”</strong></p>
+<ul>
+<li>Repeat Word Embeddings to indexing</li>
+</ul>
+<p><strong>Query: “am I you”</strong></p>
+<ul>
+<li>Repeat Word Embeddings to indexing</li>
+<li>The result is a 2-d query vector.</li>
+</ul>
+<p><strong>Dot Products</strong></p>
+<ul>
+<li>Take dot product between the query vector and database vectors. They are all 2-d.</li>
+<li>The purpose is to use dot product to estimate similarity.</li>
+<li>By transposing the query vector, this step becomes a matrix multiplication.</li>
+</ul>
+<p><strong>Nearest Neighbor</strong></p>
+<ul>
+<li>Find the largest dot product by linear scan.</li>
+<li>The sentence with the highest dot product is “who am I”</li>
+<li>In practice, because scanning billions of vectors is slow, we use an Approximate Nearest Neighbor (ANN) algorithm like the Hierarchical Navigable Small Worlds (HNSW).</li>
+</ul>
+<p><img src="../../Screenshot-from-2024-05-28-06-45-42.png" width="auto" height="auto" alt/></p>
+<p>algorithms commonly used for similarity search indexing</p>
+<ul>
+<li>Product quantization (PQ)</li>
+<li>Locality sensitive hashing</li>
+<li>Hierarchical navigable small world (HNSW</li>
+</ul>
+<p><a href="https://aibyhand.substack.com/" class="external">https://aibyhand.substack.com/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> <span>→</span> AI by hand</p>
+<p>Neural network</p>
+<ul>
+<li><a href="https://nnfs.io/" class="external">https://nnfs.io/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> Neural Networks From Scratch</li>
+</ul>
+<p>Resources</p>
+<ul>
+<li><strong><a href="https://arxiv.org/abs/2010.06467" class="external">Pretrained Transformers for Text Ranking: BERT and Beyond<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Principal_component_analysis" class="external">Principal Component Analysis<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://www.deeplearning.ai/short-courses/" class="external">Deep Learning AI Short Courses<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://www.datacamp.com/tutorial/chromadb-tutorial-step-by-step-guide" class="external">ChromaDB Tutorial on DataCamp<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://medium.com/@sarmadafzalj/visualize-vector-embeddings-in-a-rag-system-89d0c44a3be4" class="external">Visualize Vector Embeddings in a RAG System<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://www.coursera.org/specializations/natural-language-processing#courses" class="external">Natural Language Processing Specialization on Coursera<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://arxiv.org/abs/1405.4053" class="external">Distributed Representations of Sentences and Documents<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://medium.com/wisio/a-gentle-introduction-to-doc2vec-db3e8c0cce5e" class="external">A Gentle Introduction to Doc2Vec<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://code.google.com/archive/p/word2vec/" class="external">Word2Vec Archive<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://developer.nvidia.com/blog/mastering-llm-techniques-inference-optimization/" class="external">Mastering LLM Techniques: Inference and Optimization<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://docs.likejazz.com/llama3.np/" class="external">LLAMA3 Documentation<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://radimrehurek.com/gensim/auto_examples/core/run_core_concepts.html#sphx-glr-auto-examples-core-run-core-concepts-py" class="external">Gensim Documentation and Examples<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://www.tensorflow.org/tensorboard" class="external">TensorBoard Documentation<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://weaviate.io/blog/rag-evaluation" class="external">Evaluation of RAG Systems<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://www.sbert.net/docs/quickstart.html" class="external">Sentence Transformers on Hugging Face<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://weaviate.io/blog/local-rag-with-ollama-and-weaviate" class="external">Local RAG with Ollama and Weaviate<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><strong><a href="https://videolectures.net/eswc2016_fortuna_machine_learning/" class="external">Video Lectures from ESWC 2016 on Machine Learning<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong></li>
+<li><a href="https://huyenchip.com/2023/04/11/llm-engineering.html" class="external">https://huyenchip.com/2023/04/11/llm-engineering.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://github.com/rasbt/LLMs-from-scratch" class="external">https://github.com/rasbt/LLMs-from-scratch<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://gist.github.com/veekaybee/be375ab33085102f9027853128dc5f0e" class="external"> reasonable and good explanations of how stuff works. No hype and no vendor content <svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<p>emdeding</p>
+<ul>
+<li><a href="https://arxiv.org/pdf/1411.2738" class="external">https://arxiv.org/pdf/1411.2738<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>  need ot read</li>
+<li><a href="https://ronxin.github.io/wevi/#" class="external">https://ronxin.github.io/wevi/#<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> word embedding visual inspector</li>
+</ul>
+<p>books</p>
+<ul>
+<li><a href="https://shepherd.com/best-books/machine-learning-and-deep-neural-networks" class="external">https://shepherd.com/best-books/machine-learning-and-deep-neural-networks<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="automl">AutoML<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#automl" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Frameworks represent a noteworthy leap in the evolution of machine learning. By streamlining the complete model development cycle, including tasks such as data cleaning, feature selection, model training, and hyperparameter tuning, AutoML frameworks significantly economize on the time and effort customarily expended by data scientists.</p>
+<h3 id="finetune">Finetune<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#finetune" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>LoRA</strong>:</p>
+<ul>
+<li>Introduce two low-rank matrices, A and B, to work alongside the weight matrix W.</li>
+<li>Adjust these matrices instead of the behemoth W, making updates manageable.</li>
+</ul>
+<p><strong>LoRA-FA (Frozen-A):</strong></p>
+<ul>
+<li>Takes LoRA a step further by freezing matrix A.</li>
+<li>Only matrix B is tweaked, reducing the activation memory needed.</li>
+</ul>
+<p><strong>VeRA:</strong></p>
+<ul>
+<li>All about efficiency: matrices A and B are fixed and shared across all layers.</li>
+<li>Focuses on tiny, trainable scaling vectors in each layer, making it super memory-friendly.</li>
+</ul>
+<p><strong>Delta-LoRA:</strong></p>
+<ul>
+<li>A twist on LoRA: adds the difference (delta) between products of matrices A and B across training steps to the main weight matrix W.</li>
+<li>Offers a dynamic yet controlled approach to parameter updates.</li>
+</ul>
+<p><strong>LoRA+:</strong></p>
+<ul>
+<li>An optimized variant of LoRA where matrix B gets a higher learning rate.
+This tweak leads to faster and more effective learning.</li>
+</ul>
+<h4 id="resources-1">Resources<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#resources-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><a href="https://lightning.ai/lightning-ai/studios/code-lora-from-scratch" class="external">LLORA  for finetuning<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.philschmid.de/fine-tune-llms-in-2024-with-trl" class="external">Fine tune LLMs 2024<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="model-merging">Model Merging<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#model-merging" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Model merging is an efficient alternative to fine-tuning that leverages the work of the open-source community. It involves combining the weights of different fine-tuned models to create a new model with enhanced capabilities. This technique has proven highly effective, as demonstrated by the dominance of merged models in performance benchmarks.</p>
+<h4 id="merging-techniques">Merging Techniques<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#merging-techniques" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>SLURP (Spherical Linear Interpolation):</strong> Interpolates the weights of two models using spherical linear interpolation. Different interpolation factors can be applied to various layers, allowing for fine-grained control.</li>
+<li><strong>Decomposed Redundancy Addition (DeRA):</strong> Reduces redundancy in model parameters through pruning and rescaling of weights. This technique allows merging multiple models simultaneously.</li>
+<li><strong>Pass-Through:</strong> Concatenates layers from different LLMs, including the possibility of concatenating layers from the same model (self-merging).</li>
+<li><strong>Mixture of Experts (MoE):</strong> Combines feed-forward network layers from different fine-tuned models, using a router to select the appropriate layer for each token and layer. This technique can be implemented without fine-tuning by initializing the router using embeddings calculated from positive prompts.</li>
+</ul>
+<p><strong>Advantages of Model Merging:</strong></p>
+<ul>
+<li>No GPU requirement, making it highly efficient.</li>
+<li>Ability to leverage existing fine-tuned models from the open-source community.</li>
+<li>Proven effectiveness in producing high-quality models.</li>
+</ul>
+<h2 id="1-bit-llm">1 Bit LLM<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-bit-llm" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p> BitNet b1.58 where every weight in a Transformer can be represented as a {-1, 0, 1} instead of a floating point number.</p>
+<h2 id="lama-notes">LAMA Notes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#lama-notes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>LAMA 2 All are instruction tunned model</p>
+<ul>
+<li>lama2 7B instruction</li>
+<li>lama2 13B instruction</li>
+<li>lama2 70B instruction</li>
+<li>lama2 7B Chat</li>
+<li>lama2 13B Chat</li>
+<li>lama2 70B Chat</li>
+</ul>
+<p>Code lama</p>
+<ul>
+<li>7B/13B/34B has both base model and instruct model</li>
+</ul>
+<p>Purpel lama</p>
+<ul>
+<li>Generative AI safety model wil take care of check does the genreated code is safe</li>
+<li>CybersecEval dataset to test</li>
+<li>lama Gaurd <span>→</span> check input and output</li>
+</ul>
+<pre><code>[INST] -> addd by lama to identify the inst tag base model dont undertstand
+&lt;/s> -> ending tag
+</code></pre>
+<ul>
+<li>
+<p>Lama we need to manully add INST and end tag with</p>
+</li>
+<li>
+<p><strong>Llama Stack</strong> was introduced to address the challenges of integrating Llama models into existing workflows.10 It provides a stable API and CLI, simplifying tasks like downloading models, inspecting their properties, and deploying them.11 Llama Stack also incorporates features like memory, RAG, and safety orchestration using multiple models. <a href="https://github.com/meta-llama/llama-stack" class="external">https://github.com/meta-llama/llama-stack<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+</li>
+</ul>
+<h2 id="gemini-notes">GEMINI Notes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#gemini-notes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>ultra</li>
+<li>pro <span>→</span> performance and speed</li>
+<li>flash <span>→</span> fastest and low cost</li>
+<li>nano <span>→</span></li>
+</ul>
+<p>Large multimodal model <span>→</span> can handel both image and other input type</p>
+<h2 id="fine-tune">fine tune<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#fine-tune" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="llm-traning-methods">LLM traning methods<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#llm-traning-methods" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Causal Language Modeling (CLM)</strong></p>
+<p>CLM is an autoregressive method where the model is trained to predict the next token in a sequence given the previous tokens. CLM is used in models like GPT-2 and GPT-3 and is well-suited for tasks such as text generation and summarization. However, CLM models have unidirectional context, meaning they only consider the past and not the future context when generating predictions.</p>
+<p><strong>Masked Language Modeling (MLM)</strong></p>
+<p>MLM is a training method used in models like BERT, where some tokens in the input sequence are masked, and the model learns to predict the masked tokens based on the surrounding context. MLM has the advantage of bidirectional context, allowing the model to consider both past and future tokens when making predictions. This approach is especially useful for tasks like text classification, sentiment analysis, and named entity recognition.</p>
+<p><strong>Sequence-to-Sequence (Seq2Seq)</strong></p>
+<p>Seq2Seq models consist of an encoder-decoder architecture, where the encoder processes the input sequence and the decoder generates the output sequence. This approach is commonly used in tasks like machine translation, summarization, and question-answering. Seq2Seq models can handle more complex tasks that involve input-output transformations, making them versatile for a wide range of NLP tasks.</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#embedding" data-for="embedding">Embedding</a></li><li class="depth-1"><a href="#continuous-bag-of-words-cbow" data-for="continuous-bag-of-words-cbow">Continuous Bag of Words (CBOW)</a></li><li class="depth-1"><a href="#skip-gram" data-for="skip-gram">Skip-gram</a></li><li class="depth-1"><a href="#glove" data-for="glove">GloVe</a></li><li class="depth-1"><a href="#keras-embedding-layer" data-for="keras-embedding-layer">Keras embedding layer</a></li><li class="depth-0"><a href="#open-source-embedding-models" data-for="open-source-embedding-models">Open Source Embedding models</a></li><li class="depth-1"><a href="#byte-pair-encoding-bpe-a-tokenization-technique" data-for="byte-pair-encoding-bpe-a-tokenization-technique">Byte Pair Encoding (BPE): A Tokenization Technique</a></li><li class="depth-1"><a href="#wordpiece" data-for="wordpiece">WordPiece</a></li><li class="depth-1"><a href="#massive-text-embedding-benchmark" data-for="massive-text-embedding-benchmark">Massive Text Embedding Benchmark</a></li><li class="depth-1"><a href="#resources" data-for="resources">Resources</a></li><li class="depth-0"><a href="#transformer" data-for="transformer">Transformer</a></li><li class="depth-0"><a href="#ollama-notes" data-for="ollama-notes">ollama Notes</a></li><li class="depth-0"><a href="#vector-database" data-for="vector-database">Vector database</a></li><li class="depth-0"><a href="#automl" data-for="automl">AutoML</a></li><li class="depth-1"><a href="#finetune" data-for="finetune">Finetune</a></li><li class="depth-0"><a href="#model-merging" data-for="model-merging">Model Merging</a></li><li class="depth-0"><a href="#1-bit-llm" data-for="1-bit-llm">1 Bit LLM</a></li><li class="depth-0"><a href="#lama-notes" data-for="lama-notes">LAMA Notes</a></li><li class="depth-0"><a href="#gemini-notes" data-for="gemini-notes">GEMINI Notes</a></li><li class="depth-0"><a href="#fine-tune" data-for="fine-tune">fine tune</a></li><li class="depth-1"><a href="#llm-traning-methods" data-for="llm-traning-methods">LLM traning methods</a></li></ul></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script type="application/javascript">
+        const socket = new WebSocket('ws://localhost:3001')
+        // reload(true) ensures resources like images and scripts are fetched again in firefox
+        socket.addEventListener('message', () => document.location.reload(true))
+      </script><script src="../../postscript.js" type="module"></script></html>

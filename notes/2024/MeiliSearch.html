@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>MeiliSearch</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="MeiliSearch"/><meta property="og:description" content="Documents in Meilisearch are loosely typed one field can have multiple data type indexing index scheduler responsible for managing the indexes of a Meilisearch Indexation is a memory-intensive ..."/><meta property="og:image" content="https://programmerraja.github.io/blog/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Documents in Meilisearch are loosely typed one field can have multiple data type indexing index scheduler responsible for managing the indexes of a Meilisearch Indexation is a memory-intensive ..."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="notes/2024/MeiliSearch"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">programmerraja blog</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/2024/">2024</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>MeiliSearch</a></div></nav><h1 class="article-title">MeiliSearch</h1><p show-comma="true" class="content-meta"><span>Feb 20, 2024</span><span>16 min read</span></p></div></div><article class="popover-hint"><p>Documents in Meilisearch are loosely typed one field can have multiple data type</p>
+<h2 id="indexing">indexing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#indexing" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p> index scheduler responsible for managing the indexes of a Meilisearch</p>
+<p>Indexation is a memory-intensive and multi-threaded operation. This means that <strong>the more memory and processor cores available, the faster MeiliSearch will index new documents</strong>. In general, using a machine with many processor cores will be more effective than increasing RAM.By default, all the fields of your documents are considered as “searchable”.</p>
+<p>In Meilisearch, document storage involves creating specialized inverted indices to facilitate fast responses to search queries. These indices map words or prefixes to the document IDs containing them. While storing documents in raw form is simple, building these indices takes time, especially since some depend on others (e.g., prefix indices depend on word indices).</p>
+<p>Suppose we have a collection of documents:</p>
+<ol>
+<li>Document 1: “The quick brown fox jumps over the lazy dog.”</li>
+<li>Document 2: “A quick brown dog jumps over the lazy cat.”</li>
+<li>Document 3: “The lazy dog sleeps all day.”</li>
+</ol>
+<p>To respond quickly to search queries, we create inverted indices. For simplicity, let’s focus on word-based indices:</p>
+<p>Word <span>→</span> Document IDs containing the word</p>
+<p>For the above documents, the word indices would look something like this:</p>
+<ul>
+<li>“The” <span>→</span> [1, 3]</li>
+<li>“quick” <span>→</span> [1, 2]</li>
+<li>“brown” <span>→</span> [1, 2]</li>
+<li>“fox” <span>→</span> [1]</li>
+<li>“jumps” <span>→</span> [1, 2]</li>
+<li>“over” <span>→</span> [1, 2]</li>
+<li>“lazy” <span>→</span> [1, 2, 3]</li>
+<li>“dog” <span>→</span> [1, 3]</li>
+<li>“A” <span>→</span> [2]</li>
+<li>“cat” <span>→</span> [2]</li>
+<li>“sleeps” <span>→</span> [3]</li>
+<li>“all” <span>→</span> [3]</li>
+<li>“day” <span>→</span> [3]</li>
+</ul>
+<p>Now, let’s say we want to create prefix indices:</p>
+<p>These depend on the word indices. For example, if we want to create the prefix index for “qu”, we need to know which documents contain words starting with “qu”, which we can get from the word index.</p>
+<ul>
+<li>“q” <span>→</span> [1, 2]</li>
+<li>“qu” <span>→</span> [1, 2]</li>
+<li>“qui” <span>→</span> [1]</li>
+<li>“quic” <span>→</span> [1, 2]</li>
+</ul>
+<p>Building the prefix index for “quic” requires knowing the document IDs containing words starting with “qu”, which means we need the word index to be built first.</p>
+<p>Additionally, LMDB’s single-writing-thread limitation means we can’t parallelize updates to these indices without auto-batching, which further complicates the process.</p>
+<p>Meilisearch creates approximately 20 inverted indexes per document index,
+Below</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="rust" data-theme="github-light github-dark"><code data-language="rust" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">  pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> word_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Str</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">RoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// A word and all the documents ids containing the word, from attributes for which typos are not allowed.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> exact_word_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Str</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">RoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// A prefix of word and all the documents ids containing this prefix.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> word_prefix_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Str</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">RoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// A prefix of word and all the documents ids containing this prefix, from attributes for which typos are not allowed.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> exact_word_prefix_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Str</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">RoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps a word and a document id (u32) to all the positions where the given word appears.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> docid_word_positions</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">BEU32StrCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">BoRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the proximity between a pair of words with all the docids where this relation appears.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> word_pair_proximity_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">U8StrStrCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the proximity between a pair of word and prefix with all the docids where this relation appears.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> word_prefix_pair_proximity_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">U8StrStrCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the proximity between a pair of prefix and word with all the docids where this relation appears.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> prefix_word_pair_proximity_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">U8StrStrCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the word and the position with the docids that corresponds to it.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> word_position_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">StrBEU16Codec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the word and the field id with the docids that corresponds to it.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> word_fid_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">StrBEU16Codec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the field id and the word count with the docids that corresponds to it.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> field_id_word_count_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FieldIdWordCountCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the word prefix and a position with all the docids where the prefix appears at the position.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> word_prefix_position_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">StrBEU16Codec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the word prefix and a field id with all the docids where the prefix appears inside the field</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> word_prefix_fid_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">StrBEU16Codec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the script and language with all the docids that corresponds to it.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> script_language_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">ScriptLanguageCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">RoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the facet field id and the docids for which this field exists</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> facet_id_exists_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FieldIdCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the facet field id and the docids for which this field is set as null</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> facet_id_is_null_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FieldIdCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the facet field id and the docids for which this field is considered empty</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> facet_id_is_empty_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FieldIdCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">CboRoaringBitmapCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the facet field id and ranges of numbers with the docids that corresponds to them.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> facet_id_f64_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FacetGroupKeyCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">OrderedF64Codec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FacetGroupValueCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the facet field id and ranges of strings with the docids that corresponds to them.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> facet_id_string_docids</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FacetGroupKeyCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">StrRefCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FacetGroupValueCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the document id, the facet field id and the numbers.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> field_id_docid_facet_f64s</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FieldDocIdFacetF64Codec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Unit</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the document id, the facet field id and the strings.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> field_id_docid_facet_strings</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">FieldDocIdFacetStringCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Str</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">    /// Maps the document id to the document as an obkv store.</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">    pub</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">crate</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) documents</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">:</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> Database</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">OwnedType</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">&lt;</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">BEU32</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">ObkvCodec</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">>,</span></span></code></pre></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Inverted Index Name</th><th>What it Stores</th><th>Example</th></tr></thead><tbody><tr><td><code>word_docids</code></td><td>A word and all the document IDs containing the word</td><td><code>{&quot;hello&quot;: [1, 2, 3]}</code></td></tr><tr><td><code>exact_word_docids</code></td><td>A word and all the document IDs containing the word, from attributes for which typos are not allowed</td><td><code>{&quot;hello&quot;: [1, 2]}</code></td></tr><tr><td><code>word_prefix_docids</code></td><td>A prefix of a word and all the document IDs containing this prefix</td><td><code>{&quot;hel&quot;: [1, 2, 3]}</code></td></tr><tr><td><code>exact_word_prefix_docids</code></td><td>A prefix of a word and all the document IDs containing this prefix, from attributes for which typos are not allowed</td><td><code>{&quot;hel&quot;: [1, 2]}</code></td></tr><tr><td><code>docid_word_positions</code></td><td>Maps a word and a document ID (u32) to all the positions where the given word appears</td><td><code>{(1, &quot;hello&quot;): [0, 5]}</code></td></tr><tr><td><code>word_pair_proximity_docids</code></td><td>Maps the proximity between a pair of words with all the document IDs where this relation appears</td><td><code>{(&quot;hello&quot;, &quot;world&quot;): [1, 2]}</code></td></tr><tr><td><code>word_prefix_pair_proximity_docids</code></td><td>Maps the proximity between a pair of word and prefix with all the document IDs where this relation appears</td><td><code>{(&quot;hello&quot;, &quot;wor&quot;): [1, 2]}</code></td></tr><tr><td><code>prefix_word_pair_proximity_docids</code></td><td>Maps the proximity between a pair of prefix and word with all the document IDs where this relation appears</td><td><code>{(&quot;hel&quot;, &quot;world&quot;): [1, 2]}</code></td></tr><tr><td><code>word_position_docids</code></td><td>Maps the word and the position with the document IDs that corresponds to it</td><td><code>{(&quot;hello&quot;, 0): [1, 2]}</code></td></tr><tr><td><code>word_fid_docids</code></td><td>Maps the word and the field ID with the document IDs that corresponds to it</td><td><code>{(&quot;hello&quot;, 1): [1, 2]}</code></td></tr><tr><td><code>field_id_word_count_docids</code></td><td>Maps the field ID and the word count with the document IDs that corresponds to it</td><td><code>{(1, 2): [1, 2]}</code></td></tr><tr><td><code>word_prefix_position_docids</code></td><td>Maps the word prefix and a position with all the document IDs where the prefix appears at the position</td><td><code>{(&quot;hel&quot;, 0): [1, 2]}</code></td></tr><tr><td><code>word_prefix_fid_docids</code></td><td>Maps the word prefix and a field ID with all the document IDs where the prefix appears inside the field</td><td><code>{(&quot;hel&quot;, 1): [1, 2]}</code></td></tr><tr><td><code>script_language_docids</code></td><td>Maps the script and language with all the document IDs that corresponds to it</td><td><code>{(&quot;en&quot;, &quot;US&quot;): [1, 2]}</code></td></tr><tr><td><code>facet_id_exists_docids</code></td><td>Maps the facet field ID and the document IDs for which this field exists</td><td><code>{1: [1, 2]}</code></td></tr><tr><td><code>facet_id_is_null_docids</code></td><td>Maps the facet field ID and the document IDs for which this field is set as null</td><td><code>{1: [1, 2]}</code></td></tr><tr><td><code>facet_id_is_empty_docids</code></td><td>Maps the facet field ID and the document IDs for which this field is considered empty</td><td><code>{1: [1, 2]}</code></td></tr><tr><td><code>facet_id_f64_docids</code></td><td>Maps the facet field ID and ranges of numbers with the document IDs that corresponds to them</td><td><code>{1: [(0, 10), (20, 30)]}</code></td></tr><tr><td><code>facet_id_string_docids</code></td><td>Maps the facet field ID and ranges of strings with the document IDs that corresponds to them</td><td><code>{1: [(&quot;a&quot;, &quot;z&quot;), (&quot;x&quot;, &quot;y&quot;)]}</code></td></tr><tr><td><code>field_id_docid_facet_f64s</code></td><td>Maps the document ID, the facet field ID and the numbers</td><td><code>{(1, 1): [1.0, 2.0]}</code></td></tr><tr><td><code>field_id_docid_facet_strings</code></td><td>Maps the document ID, the facet field ID and the strings</td><td><code>{(1, 1): [&quot;hello&quot;, &quot;world&quot;]}</code></td></tr><tr><td><code>documents</code></td><td>Maps the document ID to the document as an obkv store</td><td><code>{1: {&quot;title&quot;: &quot;Hello World&quot;, &quot;content&quot;: &quot;This is a sample document&quot;}}</code></td></tr></tbody></table></div>
+<p>there are three that take the longest time to build: <code>WORD_DOCIDS</code>, <code>WORD_POSITION_DOCID</code>, and <code>WORD_PAIR_PROXIMITY_DOCIDS</code>.</p>
+<p>Meilisearch indexes documents in two main phases</p>
+<ul>
+<li>the first phase is about calculating for filtering for example <span>→</span> this phase is multi-threaded</li>
+<li>the second phase is about writing the information on disk <span>→</span> this phase is NOT multi-threaded, only one thread does the job, since LMDB (internal DB) does not allow concurrent writings</li>
+</ul>
+<p>Meilisearch uses roaring bitmaps widely throughout its inverted indexes to represent document IDs. Roaring bitmaps offer a space-efficient way to store large sets of integers and perform set operations like <a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws?ref=blog.meilisearch.com" class="external">union, intersection, and difference<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>. These operations play a crucial role in refining search results by allowing the inclusion or exclusion of specific documents based on their relationship with others.</p>
+<h3 id="finite-state-transducer">Finite-state transducer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#finite-state-transducer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>A finite-state transducer is also called a <em>word dictionary</em> because it contains all words present in an index. Meilisearch relies on the utilization of two FSTs: one for storing all words of the dataset, and one for storing the most recurrent prefixes.</p>
+<p>FSTs are useful because they support compression and lazy decompression techniques, optimizing memory usage and storage. Additionally, by using automata such as regular expressions, they can retrieve subsets of words that match specific rules or patterns. Moreover, this enables the retrieval of all words that begin with a specific prefix, empowering fast, comprehensive search capabilities.</p>
+<h3 id="r-tree">R-tree<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#r-tree" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>R-trees are a type of <a href="https://en.wikipedia.org/wiki/Tree_(data_structure)?ref=blog.meilisearch.com" class="external">tree<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> used for indexing multi-dimensional or spatial information. Meilisearch leverages R-trees to power its geo search functionality.</p>
+<h3 id="tokenziation">Tokenziation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tokenziation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Tokenization</strong> involves two main processes: segmentation and normalization.</p>
+<p><strong>Segmentation</strong> consists in splitting a sentence or phrase into smaller units called tokens.</p>
+<p>Meilisearch uses (and maintains) the open-source tokenizer named <a href="https://github.com/meilisearch/charabia?ref=blog.meilisearch.com" class="external">Charabia<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>. The tokenizer is responsible for retrieving all the words (or tokens) from document fields.</p>
+<h3 id="query-graph">Query graph<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#query-graph" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Each time it receives a search query, Meilisearch creates a query graph representing the query and its possible variations.</p>
+<p>To compute these variations, Meilisearch applies <a href="https://www.meilisearch.com/docs/learn/advanced/concat?ref=blog.meilisearch.com#concatenated-queries" class="external">concatenation<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> and <a href="https://www.meilisearch.com/docs/learn/advanced/concat?ref=blog.meilisearch.com#split-queries" class="external">splitting<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> algorithms to the query terms. The variations considered also include potential typos and synonyms–if the user set them. As an example, let’s examine the query: <code>the sun flower</code>. Meilisearch will also search for the following queries:</p>
+<ul>
+<li><code>the sunflower</code>: concatenation</li>
+<li><code>the sun flowe**d**</code>: substitution</li>
+<li><code>the sun flower**s**</code>: addition</li>
+</ul>
+<p>Note:  When doing indexing first create setting then do indexing because by default all fileds are searchable which consume more time on indexing
+Send payload in ndjson or CSV format for faster indexing</p>
+<h2 id="ranking-rules">Ranking rules<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ranking-rules" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Ranking rules are built-in rules that ensure relevancy in search results. MeiliSearch applies ranking rules in a default order which can be changed in the settings. You can add or remove rules and change their order of importance.</p>
+<p>MeiliSearch employs the following order for ranking rules:</p>
+<ol>
+<li>typo</li>
+<li>words</li>
+<li>proximity</li>
+<li>attribute</li>
+<li>wordsPosition</li>
+<li>exactness</li>
+</ol>
+<p>Update setting give priority to wordsPosition</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="js" data-theme="github-light github-dark"><code data-language="js" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">const</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> index</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> client.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">getIndex</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">'blogs'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">await</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> index.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">updateSettings</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">({</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    rankingRules:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        [</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;wordsPosition&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;typo&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;words&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;proximity&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;attribute&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;exactness&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        ]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">})</span></span></code></pre></figure>
+<p>Note:Modifying <a href="https://www.meilisearch.com/docs/learn/core_concepts/relevancy?ref=blog.meilisearch.com#ranking-rules" class="external">ranking rules<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> may trigger a reindexing process. Consider the impact and plan accordingly. and we can get the ranking score on search API by passing<code>showRankingScoreDetails</code></p>
+<h3 id="filterable-attributes">filterable attributes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#filterable-attributes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>filterable are stroed in <strong>Lightning Memory-Mapped Database</strong> LMDB uses a B+ tree data structure, which is stored in a single-level store, meaning it doesn’t require additional layers or caching mechanisms to manage the data.</p>
+<h3 id="storing-facetedfiltered-values">Storing Faceted/Filtered Values:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#storing-facetedfiltered-values" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Key-Value Structure:</strong></p>
+<ul>
+<li><strong>Key:</strong> Faceted/filtered value.</li>
+<li><strong>Value:</strong> Internal document ID stored in a <code>RoaringBitmap</code>, forming an inverted index.</li>
+</ul>
+<p><strong>Example:</strong> For a document with a field <code>color</code> and value <code>blue</code>, the key is the field ID followed by the string <code>blue</code>, and the value is the document ID.</p>
+<h2 id="roaring-bitmap"> Roaring bitmap<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#roaring-bitmap" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Inverted index need to store the index Id of the document if we have 5 id for each integer 5 * 32 = 160 bytes of space need to optimize this meili using Roaring bitmap for storing the doc id.</p>
+<p>Roaring bitmaps breaks up all integers in buckets of 2¹⁶ integers(65535). These buckets are called container. It stores individual container data in 3 different formats based on heuristics. Hence its hybrid compression.</p>
+<p>Three different type of storage containers used:</p>
+<blockquote>
+<p><strong>Array container</strong></p>
+</blockquote>
+<p>Store as simple sorted array of integers, no bitmaps used at all, [1,13,45,100]. However it will not store common prefix, hence saving space. Searches are done through binary search. This sorted array grows dynamically based on heuristics. If number of elements in array container exceeds 4096, then its converted to bitmap container.</p>
+<blockquote>
+<p><strong>Bitmap container</strong></p>
+</blockquote>
+<p>Stored as 1024 * Word of 64bit , no compression on bitmap. Its fixed size on allocation and does not dynamically grow. It uses 64 bit instructions on processor, hence fast.</p>
+<ul>
+<li><strong>Range:</strong> [1, 1024]</li>
+<li><strong>Bitmap:</strong> A 1024-bit long bitmap where each bit represents the presence of a number.</li>
+<li><strong>Stored As:</strong> Bitmap of 1024 bits, e.g., 000000…1111…00000 (with 1s indicating presence of numbers)</li>
+</ul>
+<blockquote>
+<p><strong>Run container</strong></p>
+</blockquote>
+<p>It is made of a packed array of pairs of 16-bit integers. The first value of each pair represents a starting value, whereas the second value is the length of a run</p>
+<ul>
+<li><strong>Integers:</strong> [11, 12, 13, 14, 15]</li>
+<li><strong>Stored As:</strong> (11, 4) (start value 11 and length 4 indicating the run so we can increament +1 4 times for each)</li>
+</ul>
+<p>Since 2¹⁶ integers are stored in containers, when index operations are performed, it only need to do against 2 containers at a time. Hence never running out of space.</p>
+<h3 id="auto-batching">Auto Batching<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#auto-batching" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Auto-batching is a feature that will batch together consecutive document additions and perform them together to improve indexing speed. For document addition to being added to the same batch, they need to:</p>
+<ul>
+<li>target the same index</li>
+<li>have the same update method (<code>POST /documents</code> or <code>PUT /documents</code>, i.e update or replace documents)</li>
+<li>be immediately consecutive</li>
+</ul>
+<p>Auto-batching can be enabled by passing the <code>--enable-auto-batching</code> flag to MeiliSearch. This, in turn, gives you access to three new parameters:</p>
+<ul>
+<li><code>--max-batch-size &lt;NUM></code>: set the maximum number of tasks that can be processed in a batch to NUM. This is set to 1 if NUM is 0, since such a value would prevent any task from ever being processed. If not specified, this is unlimited.</li>
+<li><code>--max-documents-per-batch &lt;NUM></code>: Set a limit to the maximum number of documents that can be indexed together in a single batch. Since the batch must contain at least one update, this value can be exceeded. If not specified, this is unlimited.</li>
+<li><code>--debounce-duration-sec &lt;SECS></code>: When about to prepare a batch, wait at least <code>SECS</code> seconds before processing it. defaults to 0secs (process immediately). This feature may be useful when you want to send large payloads, but don’t want to increase the maximum payload size for the server, you can instead split the payload, send each chunk, and given that you have a debounce duration set high enough, all the chunks will be processed together.</li>
+<li><code>--max-indexing-threads</code> CLI option that would permit you to limit the number of threads the indexing process is using.</li>
+</ul>
+<h2 id="how-the-avoided-the-reindexing-whole-on-update-or-delete">How the avoided the reindexing whole on update or delete<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-the-avoided-the-reindexing-whole-on-update-or-delete" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The indexing in Meilisearch is split into 3 main phases:</p>
+<ol>
+<li>The computing or the extraction of the data (Multi-threaded)</li>
+<li>The writing of the data in LMDB (Mono-threaded)</li>
+<li>The processing of the prefix databases (Mono-threaded)</li>
+</ol>
+<p>Because the writing is mono-threaded, it represents a bottleneck in the indexing, reducing the number of writes in LMDB will reduce the pressure on the main thread and should reduce the global time spent on the indexing.</p>
+<p>Differential indexing (“diff indexing”) is a new way of indexing that can selectively re-index the parts of documents that were modified when updating documents.</p>
+<h2 id="api">API<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#api" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Index settings
+<code>/indexes/indexName/settings</code>  To get the setting for the index</p>
+<h2 id="resources">Resources<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#resources" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li><a href="https://blog.meilisearch.com/how-full-text-search-engines-work/" class="external">https://blog.meilisearch.com/how-full-text-search-engines-work/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.symas.com/post/understanding-lmdb-database-file-sizes-and-memory-utilization" class="external">https://www.symas.com/post/understanding-lmdb-database-file-sizes-and-memory-utilization<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ol>
+<p>MISC</p>
+<p><strong>Index Scheduler</strong></p>
+<p>The Index Scheduler is a system that manages tasks related to indexing data in a database. It’s responsible for scheduling, prioritizing, and executing tasks such as adding, deleting, or updating documents, as well as managing index metadata.</p>
+<p><strong>Task Scheduler Struct</strong></p>
+<p>The <code>TaskScheduler</code> struct is a singleton that manages the scheduling of tasks. It has several methods:</p>
+<ul>
+<li><code>register</code>: registers a new task with the scheduler</li>
+<li><code>get_next_batch</code>: returns the next batch of tasks to be executed</li>
+<li><code>abort_processing_tasks</code>: aborts the current task being processed if it’s in the list of tasks to be aborted</li>
+<li><code>scheduler_worker</code>: a worker function that runs in a separate thread and executes the tasks in the scheduler</li>
+</ul>
+<p><strong>Task Types</strong></p>
+<p>There are several types of tasks that can be scheduled:</p>
+<ul>
+<li><code>DumpImport</code>: imports data from a file</li>
+<li><code>DumpExport</code>: exports data to a file</li>
+<li><code>DocumentAddition</code>: adds a new document to the index</li>
+<li><code>DocumentDeletion</code>: deletes a document from the index</li>
+<li><code>ClearAllDocuments</code>: clears all documents from the index</li>
+<li><code>Settings</code>: updates the settings of an index</li>
+<li><code>RenameIndex</code>: renames an index</li>
+<li><code>CreateIndex</code>: creates a new index</li>
+<li><code>DeleteIndex</code>: deletes an index</li>
+<li><code>SwapIndex</code>: swaps two indexes</li>
+<li><code>CancelTask</code>: cancels a task</li>
+</ul>
+<p><strong>Internal Task</strong></p>
+<p>An <code>InternalTask</code> is a representation of a task that’s stored in the database. It contains additional metadata such as the task’s status, enqueued time, processed time, and error messages.</p>
+<p><strong>Task View</strong></p>
+<p>A <code>TaskView</code> is a representation of a task that’s returned to the user. It contains a subset of the information in the <code>InternalTask</code>, such as the task ID, status, enqueued time, and processed time.</p>
+<p><strong>Index Task Store</strong></p>
+<p>The <code>IndexTaskStore</code> is a database that stores information about tasks and indexes. It has several databases:</p>
+<ul>
+<li><code>all_tasks</code>: stores all tasks</li>
+<li><code>enqueued_tasks</code>: stores tasks that are currently enqueued</li>
+<li><code>finished_tasks</code>: stores tasks that have been completed</li>
+<li><code>index_name_mapper</code>: maps index names to index UUIDs</li>
+<li><code>index_tasks</code>: stores tasks associated with each index</li>
+</ul>
+<p><strong>Prioritizer and Auto-Batcher</strong></p>
+<p>The prioritizer and auto-batcher is a system that determines which tasks to execute next. It takes into account the task type, priority, and dependencies between tasks. It returns a <code>BatchOperation</code> that contains the tasks to be executed.</p>
+<p><strong>Batch Operation</strong></p>
+<p>A <code>BatchOperation</code> is a representation of a batch of tasks to be executed. It can contain multiple tasks, and each task can have additional metadata such as content files or document IDs.</p>
+<p><strong>Index Access</strong></p>
+<p>The <code>IndexScheduler</code> struct is responsible for managing access to indexes. It uses a <code>RwLock</code> to protect a <code>HashMap</code> that maps <code>IndexUuid</code> to <code>Index</code> objects. The <code>index</code> method allows retrieving an <code>Index</code> object by its name, and the <code>swap_indexes</code> method swaps the names of two indexes.</p>
+<p><strong>Task Prioritization</strong></p>
+<p>The system uses two types of prioritizers: a global one and an index-level one. The global prioritizer retrieves important tasks to do first, such as cancel tasks and dumps. The index-level prioritizer manages tasks for a single index and auto-batches them. Task cancelation is processed one by one in reverse order of enqueuing, ensuring a correct and logical way of processing cancelation.</p>
+<p><strong>Prioritized Task Types</strong></p>
+<p>There are two enums: <code>PrioritizedTaskType</code> and <code>IndexTaskType</code>. <code>PrioritizedTaskType</code> represents global operations, while <code>IndexTaskType</code> represents index-level operations.</p>
+<p><strong>Global Prioritizer</strong></p>
+<p>The <code>global_prioritizer</code> function takes a list of tasks with their types and returns a <code>BatchOperation</code> that the scheduler must process.</p>
+<p><strong>Index Prioritizer and Auto-Batcher</strong></p>
+<p>The <code>index_prioritizer_auto_batcher</code> function takes a list of tasks with their types and tries to auto-batch tasks to speed up processing.</p>
+<p><strong>Cron Tasks</strong></p>
+<p>The system plans to implement a mechanism to remove old tasks by creating a loop in a thread that enqueues a new <code>CleanOldTasks</code> task into the task queue. This task will be processed by the scheduler, and users can also request clearing the queue.</p>
+<p>This is the definition of the <code>IndexScheduler</code> struct in Rust. It’s a complex struct with many fields, which I’ll break down into categories:</p>
+<p><strong>Databases</strong></p>
+<ul>
+<li><code>env</code>: an LMDB environment</li>
+<li><code>all_tasks</code>: a database of all tasks, keyed by their IDs</li>
+<li><code>status</code>: a database of task IDs grouped by their status</li>
+<li><code>kind</code>: a database of task IDs grouped by their kind</li>
+<li><code>index_tasks</code>: a database of tasks associated with an index</li>
+<li><code>canceled_by</code>: a database of tasks canceled by a task UID</li>
+<li><code>enqueued_at</code>, <code>started_at</code>, <code>finished_at</code>: databases of task IDs grouped by their enqueue, start, and finish dates</li>
+</ul>
+<p><strong>Task Management</strong></p>
+<ul>
+<li><code>must_stop_processing</code>: a boolean to stop processing tasks</li>
+<li><code>processing_tasks</code>: a list of tasks currently being processed</li>
+<li><code>file_store</code>: a store of files referenced by tasks</li>
+</ul>
+<p><strong>Index Management</strong></p>
+<ul>
+<li><code>index_mapper</code>: an <code>IndexMapper</code> responsible for creating, opening, storing, and returning indexes</li>
+</ul>
+<p><strong>Features and Configuration</strong></p>
+<ul>
+<li><code>features</code>: a <code>FeatureData</code> instance for managing experimental features</li>
+<li><code>autobatching_enabled</code>, <code>cleanup_enabled</code>: booleans for auto-batching and cleanup</li>
+<li><code>max_number_of_tasks</code>, <code>max_number_of_batched_tasks</code>: configuration for task limits</li>
+<li><code>webhook_url</code>, <code>webhook_authorization_header</code>: webhook configuration</li>
+<li><code>dumps_path</code>, <code>snapshots_path</code>, <code>auth_path</code>, <code>version_file_path</code>: paths for dumps, snapshots, auth, and version files</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#indexing" data-for="indexing">indexing</a></li><li class="depth-1"><a href="#finite-state-transducer" data-for="finite-state-transducer">Finite-state transducer</a></li><li class="depth-1"><a href="#r-tree" data-for="r-tree">R-tree</a></li><li class="depth-1"><a href="#tokenziation" data-for="tokenziation">Tokenziation</a></li><li class="depth-1"><a href="#query-graph" data-for="query-graph">Query graph</a></li><li class="depth-0"><a href="#ranking-rules" data-for="ranking-rules">Ranking rules</a></li><li class="depth-1"><a href="#filterable-attributes" data-for="filterable-attributes">filterable attributes</a></li><li class="depth-1"><a href="#storing-facetedfiltered-values" data-for="storing-facetedfiltered-values">Storing Faceted/Filtered Values:</a></li><li class="depth-0"><a href="#roaring-bitmap" data-for="roaring-bitmap"> Roaring bitmap</a></li><li class="depth-1"><a href="#auto-batching" data-for="auto-batching">Auto Batching</a></li><li class="depth-0"><a href="#how-the-avoided-the-reindexing-whole-on-update-or-delete" data-for="how-the-avoided-the-reindexing-whole-on-update-or-delete">How the avoided the reindexing whole on update or delete</a></li><li class="depth-0"><a href="#api" data-for="api">API</a></li><li class="depth-0"><a href="#resources" data-for="resources">Resources</a></li></ul></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script type="application/javascript">
+        const socket = new WebSocket('ws://localhost:3001')
+        // reload(true) ensures resources like images and scripts are fetched again in firefox
+        socket.addEventListener('message', () => document.location.reload(true))
+      </script><script src="../../postscript.js" type="module"></script></html>

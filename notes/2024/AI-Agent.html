@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>AI Agent</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="AI Agent"/><meta property="og:description" content="Multi-Agent Orchestrator Flexible and powerful framework for managing multiple AI agents and handling complex conversations RAG Chunking Methods Naive chunking: A simple method ..."/><meta property="og:image" content="https://programmerraja.github.io/blog/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Multi-Agent Orchestrator Flexible and powerful framework for managing multiple AI agents and handling complex conversations RAG Chunking Methods Naive chunking: A simple method ..."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="notes/2024/AI-Agent"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">programmerraja blog</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/2024/">2024</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>AI Agent</a></div></nav><h1 class="article-title">AI Agent</h1><p show-comma="true" class="content-meta"><span>Jul 30, 2024</span><span>10 min read</span></p></div></div><article class="popover-hint"><h2 id="multi-agent-orchestrator">Multi-Agent Orchestrator<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#multi-agent-orchestrator" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Flexible and powerful framework for managing multiple AI agents and handling complex conversations</p>
+<h2 id="rag">RAG<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rag" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="chunking-methods">Chunking Methods<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#chunking-methods" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Naive chunking</strong>: A simple method that divides text based on a fixed number of characters, often using the <code>CharacterTextSplitter</code> in Langchain. It is fast and efficient but may not be the most intelligent approach as it does not account for document structure.</li>
+<li><strong>Sentence splitting</strong>: This method uses natural language processing (NLP) frameworks like NLTK or SpaCy to split text into sentence-sized chunks. It is more accurate than naive chunking and can handle edge cases.</li>
+<li><strong>Recursive character text splitting</strong>: This method, implemented using the <code>RecursiveCharacterTextSplitter</code> in Langchain, combines character-based splitting with consideration for document structure. It recursively splits chunks based on paragraphs, sentences, and characters, maximizing the information contained within each chunk while adhering to the specified chunk size.</li>
+<li><strong>Structural chunkers</strong>: Langchain provides structural chunkers for HTML and Markdown documents that split text based on the document’s schema, such as headers and subsections. This method is particularly useful for structured documents and allows for the addition of metadata to each chunk, indicating its source and location within the document.</li>
+<li>Semantic Chunking: This strategy uses embedding models to analyze the meaning of sentences and group together sentences that are semantically similar. It results in chunks that are more likely to represent coherent concepts, but it requires more computational resources than other methods. check out the nice article to visulize the chunking <a href="https://towardsdatascience.com/a-visual-exploration-of-semantic-text-chunking-6bb46f728e30" class="external">here<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<p>Evaluating Chunking Strategies
+Recall is a crucial metric for evaluating the effectiveness of a chunking strategy. It measures the proportion of relevant chunks retrieved in response to a query.</p>
+<p>A high recall rate indicates that the chunking strategy is effectively capturing and representing the information in a way that allows for accurate retrieval.</p>
+<p>Example:
+Imagine a document has been chunked, and a query results in three relevant chunks. The retriever returns five chunks, but only two of those are the relevant ones. In this case:</p>
+<ul>
+<li>Relevant elements = 3</li>
+<li>Retrieved elements that are also relevant = 2</li>
+<li>Therefore, Recall = (2/3) * 100% = 66%</li>
+</ul>
+<h3 id="retrevial-types">Retrevial types<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#retrevial-types" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Rank GPT</p>
+<ul>
+<li>instead of just querying in vector and sending to LLM after querying ask LLM can you rank the doc that fetched from vecotr db based relvant to the query and again send to LLM with re ranked doc</li>
+</ul>
+<p>Multi query retrieval</p>
+<ul>
+<li>Send the user query to LLM and ask can you suggest revelant query to this query get that and use that query to get from db</li>
+</ul>
+<p>Contextual compression</p>
+<ul>
+<li>Ask the LLM can you give relavant part that required for the doc by asking this we reducing the context then again send to LLM</li>
+</ul>
+<p>Hypothetical document embedding</p>
+<ul>
+<li>ask LLM to suggest Hypothetical document for query and use that to fetch from DB</li>
+</ul>
+<p>BM25,ADA-002</p>
+<h3 id="rag-evaluation">RAG Evaluation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rag-evaluation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>RAG Triad of metrics</p>
+<ul>
+<li>Context Relevance <span>→</span> is retervied context relvant to the query?</li>
+<li>Answer Relevance <span>→</span> is the response relvant to the query?</li>
+<li>Groundedness <span>→</span> is response supported by the context?</li>
+</ul>
+<p>Framework for eval <code>trulens_eval</code></p>
+<h3 id="rag-fusion">RAG Fusion<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#rag-fusion" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>How it works</p>
+<ol>
+<li>
+<p><strong>Multi-Query Generation:</strong> RAG-Fusion generates multiple versions of the user’s original query. As we’ve discussed above, this is different to single query generation, which traditional RAG does. This allows the system to explore different interpretations and perspectives, which significantly broadens the search’s scope and improvs the relevance of the retrieved information.</p>
+<ul>
+<li>Use AI to generate the multiple version of the user query</li>
+</ul>
+</li>
+<li>
+<p><strong>Reciprocal Rank Fusion (RRF):</strong> In this technique, we combine and re-rank search results based on relevance. By merging scores from various retrieval strategies, RAG-Fusion ensures that documents consistently appearing in top positions are prioritized, which makes the response more accurate.</p>
+</li>
+<li>
+<p><strong>Improved Contextual Relevance:</strong> Because we consider multiple interpretations of the user’s query and re-ranking results, RAG-Fusion generates responses that are more closely aligned with user intent, which makes the answers more accurate and contextually relevant.</p>
+</li>
+</ol>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://pub.towardsai.net/not-rag-but-rag-fusion-understanding-next-gen-info-retrieval-477788da02e2" class="external"> Not RAG, but RAG Fusion?<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://github.com/Raudaschl/rag-fusion" class="external">https://github.com/Raudaschl/rag-fusion<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h3 id="crag">CRAG<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#crag" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Corrective Retrieval Augmented Generation.The strategy we followed for this let’s say for each topic, we consult the book and identify relevant sections. Before forming an opinion, categorize the gathered information into three groups: <code>**Correct**</code>, <code>**Incorrect**</code>, and <code>**Ambiguous**</code>. Process each type of information separately. Then, based on this processed information, compile and summarize it mentally</p>
+<p><strong>How it works</strong></p>
+<ul>
+<li><strong>Retrieval Evaluator:</strong> A lightweight model assesses the relevance of retrieved documents to the input query, assigning a confidence score to each document. This evaluator is fine-tuned on datasets with relevance signals, allowing it to distinguish relevant documents from irrelevant ones, even if they share surface-level similarities with the query.</li>
+<li><strong>Action Trigger:</strong> Based on the confidence scores, CRAG triggers one of three actions:
+<ul>
+<li><strong>Correct:</strong> If at least one document has a high confidence score, CRAG assumes the retrieval is correct and refines the retrieved documents to extract the most relevant knowledge strips.
+<ul>
+<li><strong>Example:</strong> If the query is “What is Henry Feilden’s occupation?” and a retrieved document mentions Henry Feilden’s political affiliation, CRAG would identify this as relevant and refine the document to focus on the information about his occupation.</li>
+</ul>
+</li>
+<li><strong>Incorrect:</strong> If all documents have low confidence scores, CRAG assumes the retrieval is incorrect and resorts to web search for additional knowledge sources.
+<ul>
+<li><strong>Example:</strong> If the query is “Who was the screenwriter for Death of a Batman?” and the retrieved documents do not contain the correct information, CRAG would initiate a web search using keywords like “Death of a Batman, screenwriter, Wikipedia” to find more reliable sources.</li>
+</ul>
+</li>
+<li><strong>Ambiguous:</strong> If the confidence scores are neither high nor low, CRAG combines both refined retrieved knowledge and web search results.</li>
+</ul>
+</li>
+<li><strong>Knowledge Refinement:</strong> For relevant documents, CRAG employs a decompose-then-recompose approach:
+<ul>
+<li>It breaks documents into smaller knowledge strips, filters out irrelevant strips based on their relevance scores, and then recomposes the remaining relevant strips into a concise knowledge representation.</li>
+</ul>
+</li>
+<li><strong>Web Search:</strong> When the initial retrieval fails, CRAG utilizes web search to find complementary information.
+<ul>
+<li>It rewrites the input query into keyword-based search queries and prioritizes results from authoritative sources like Wikipedia to mitigate the risk of biases and unreliable information from the open web.</li>
+<li>The retrieved web content is then refined using the same knowledge refinement method.</li>
+</ul>
+</li>
+</ul>
+<p>Check out implementation from langchain <a href="https://langchain-ai.github.io/langgraph/tutorials/rag/langgraph_crag/#use-the-graph" class="external">here<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h3 id="contextual-retrieval">Contextual Retrieval<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#contextual-retrieval" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Contextual Retrieval is a technique that enhances the accuracy of retrieving relevant information from a knowledge base, especially when used in Retrieval-Augmented Generation (RAG) systems. It addresses the limitations of traditional RAG, which often disregards context, by adding relevant context to the individual chunks of information before they are embedded and indexed. This process significantly improves the system’s ability to locate the most pertinent information.</p>
+<ul>
+<li>This technique applies the BM25 ranking function, which relies on lexical matching for finding specific terms or phrases, to the contextualized chunks.</li>
+<li>Contextual Retrieval leverages AI models like Claude to generate the contextual text for each chunk</li>
+<li>It required more window context model and space</li>
+</ul>
+<h2 id="retrieval-interleaved-generation-rig">Retrieval Interleaved Generation (RIG)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#retrieval-interleaved-generation-rig" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A technique devloped by google that enhances the factual accuracy of large language models (LLMs) by integrating structured external data into their responses.Unlike standard LLMs that rely solely on their internal knowledge, RIG dynamically retrieves data from a trusted repository like Data Commons.This allows <a href="https://research.google/blog/grounding-ai-in-reality-with-a-little-help-from-data-commons/" class="external">RIG<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> to provide more accurate and reliable information by leveraging real-time data.</p>
+<p><strong>How it works</strong></p>
+<ol>
+<li>
+<p><strong>Identifying the Need for External Data</strong>: The LLM recognizes when a query requires external information beyond its internal knowledge, distinguishing between general knowledge and specific data-driven facts.</p>
+</li>
+<li>
+<p><strong>Generating a Natural Language Query</strong>: Once external data is needed, the model generates a natural language query, designed to interact with a data repository like Data Commons, for example, “What was the unemployment rate in California in 2020?”</p>
+</li>
+<li>
+<p><strong>Fetching and Integrating Data</strong>: The model sends the query to Data Commons through an API, retrieves relevant data from diverse datasets, and seamlessly incorporates it into its response.</p>
+</li>
+<li>
+<p><strong>Providing a Verified Answer</strong>: The LLM uses the retrieved data to give a reliable, data-backed answer, reducing the risk of hallucinations and improving the trustworthiness of its output.</p>
+</li>
+</ol>
+<h3 id="late-chunking">Late Chunking<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#late-chunking" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Let say we have doc as <code>Berin is captial of germany it is more then 3M population</code> if we chunk as <code>Berin is captial of germany</code> and <code>it is more then 3M population</code> in second chunk we loose the context to avoid that</li>
+<li>We first applies the transformer layer of the embedding model to <em>the entire text</em> or as much of it as possible. This generates a sequence of vector representations for each token that encompasses textual information from the entire text. Subsequently, mean pooling is applied to each chunk of this sequence of token vectors, yielding embeddings for each chunk that consider the entire text’s contex</li>
+<li>It required large context window model</li>
+</ul>
+<p><code>The process of converting a sequence of embeddings into a sentence embedding is called pooling</code></p>
+<p>Mean pooling in Natural Language Processing (NLP) is a technique used to create a fixed-size vector representation from a variable-length input sequence, such as a sentence or document. It works by averaging the vectors of all tokens (words or subwords) in the sequence</p>
+<ol>
+<li><strong>Tokenization</strong>: The input text is split into tokens (words, subwords, or characters).</li>
+<li><strong>Embedding</strong>: Each token is mapped to a corresponding vector using an embedding layer (e.g., pre-trained embeddings like Word2Vec, GloVe, or BERT embeddings).</li>
+<li><strong>Mean Pooling</strong>: The vectors of all the tokens in the sequence are averaged to produce a single vector. This can be done by summing the vectors and then dividing by the total number of tokens.</li>
+</ol>
+<h3 id="resources">Resources<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#resources" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Frameworks and Toolkits for RAG (Retrieval-Augmented Generation)</strong>:</p>
+<ol>
+<li><strong><a href="https://github.dev/pinecone-io/canopy" class="external">Pinecone Canopy<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong>: A framework built by Pinecone for developing vector-based applications.</li>
+<li><strong><a href="https://github.com/ruc-nlpir/flashrag" class="external">FlashRAG<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong>: A Python toolkit for efficient RAG research, designed to support retrieval-augmented generation use cases.</li>
+<li><strong><a href="https://ragflow.io/" class="external">RAGFlow<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong>: An open-source RAG engine focusing on deep document understanding for more advanced RAG applications.</li>
+</ol>
+<p><strong>Courses and Learning Resources</strong>:</p>
+<ol>
+<li><strong><a href="https://parlance-labs.com/education/rag/ben.html" class="external">Introduction to RAG by Ben<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong>: Educational material to help understand the fundamentals and implementation of Retrieval-Augmented Generation (RAG).</li>
+<li><strong><a href="https://github.com/decodingml/llm-twin-course" class="external">LLM Twin Course<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong>: A course focused on using twin architectures for RAG-based research and projects.</li>
+</ol>
+<p><strong>Research Repositories and Articles</strong>:</p>
+<ol>
+<li><strong><a href="https://github.com/NirDiamant/RAG_Techniques" class="external">RAG Techniques<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong>: A GitHub repository that compiles techniques, methods, and best practices for working with RAG systems.</li>
+<li><strong><a href="https://github.com/ruc-nlpir/flashrag" class="external">Beyond the Basics of RAG<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong>: Advanced topics and concepts for pushing the limits of RAG technology.</li>
+<li><a href="https://microsoft.github.io/autogen/" class="external">Microsoft AutoGen<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>**: A toolkit provided by Microsoft to automate the process of generating language models and leveraging RAG workflows.</li>
+</ol>
+<hr/>
+<h2 id="generative-representational-instruction-tuning">Generative Representational Instruction Tuning<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#generative-representational-instruction-tuning" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h2 id="micro-agent">Micro Agent<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#micro-agent" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The idea of a micro agent is to</p>
+<ol>
+<li>Create a definitive test case that can give clear feedback if the code works as intended or not, and</li>
+<li>Iterate on code until all test cases pass</li>
+</ol>
+<p><a href="https://github.com/BuilderIO/micro-agent" class="external">https://github.com/BuilderIO/micro-agent<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h2 id="crew-ai">Crew AI<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#crew-ai" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Alternative to auto gen</p>
+<ul>
+<li>Shorterm memory</li>
+<li>long term memory</li>
+<li>enitiy memory</li>
+</ul>
+<p>Tools</p>
+<ul>
+<li>Agent Level: The Agent can use the Tool(s) on any Task it performs.</li>
+<li>Task Level: The Agent will only use the Tool(s) when performing that specific Task.</li>
+</ul>
+<p><strong>Note</strong>: Task Tools override the Agent Tools.</p>
+<h2 id="nerve">Nerve<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#nerve" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Red team with AI
+<strong><a href="https://github.com/evilsocket/nerve" class="external">Nerve<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> is a tool that creates stateful agents with any LLM — without writing a single line of code.</strong> Agents created with Nerve are capable of both planning and enacting step-by-step whatever actions are required to complete a user-defined task.</p>
+<h2 id="agent-with-no-code">Agent with no code<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#agent-with-no-code" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://github.com/langgenius/dify" class="external">dify<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://mindpal.space/" class="external">https://mindpal.space/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<p>Agent flow</p>
+<ul>
+<li>graph based</li>
+<li>event based</li>
+</ul>
+<p>Unstructured Data for LLM</p>
+<ul>
+<li><a href="https://unstructured.io/" class="external">https://unstructured.io/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<p><a href="https://github.com/WooooDyy/LLM-Agent-Paper-List" class="external">https://github.com/WooooDyy/LLM-Agent-Paper-List<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#multi-agent-orchestrator" data-for="multi-agent-orchestrator">Multi-Agent Orchestrator</a></li><li class="depth-0"><a href="#rag" data-for="rag">RAG</a></li><li class="depth-1"><a href="#chunking-methods" data-for="chunking-methods">Chunking Methods</a></li><li class="depth-1"><a href="#retrevial-types" data-for="retrevial-types">Retrevial types</a></li><li class="depth-1"><a href="#rag-evaluation" data-for="rag-evaluation">RAG Evaluation</a></li><li class="depth-1"><a href="#rag-fusion" data-for="rag-fusion">RAG Fusion</a></li><li class="depth-1"><a href="#crag" data-for="crag">CRAG</a></li><li class="depth-1"><a href="#contextual-retrieval" data-for="contextual-retrieval">Contextual Retrieval</a></li><li class="depth-0"><a href="#retrieval-interleaved-generation-rig" data-for="retrieval-interleaved-generation-rig">Retrieval Interleaved Generation (RIG)</a></li><li class="depth-1"><a href="#late-chunking" data-for="late-chunking">Late Chunking</a></li><li class="depth-1"><a href="#resources" data-for="resources">Resources</a></li><li class="depth-0"><a href="#generative-representational-instruction-tuning" data-for="generative-representational-instruction-tuning">Generative Representational Instruction Tuning</a></li><li class="depth-0"><a href="#micro-agent" data-for="micro-agent">Micro Agent</a></li><li class="depth-0"><a href="#crew-ai" data-for="crew-ai">Crew AI</a></li><li class="depth-0"><a href="#nerve" data-for="nerve">Nerve</a></li><li class="depth-0"><a href="#agent-with-no-code" data-for="agent-with-no-code">Agent with no code</a></li></ul></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script type="application/javascript">
+        const socket = new WebSocket('ws://localhost:3001')
+        // reload(true) ensures resources like images and scripts are fetched again in firefox
+        socket.addEventListener('message', () => document.location.reload(true))
+      </script><script src="../../postscript.js" type="module"></script></html>

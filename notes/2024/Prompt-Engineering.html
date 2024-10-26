@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Prompt Engineering</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="Prompt Engineering"/><meta property="og:description" content="Prompt classification Plan Like a Graph Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance ..."/><meta property="og:image" content="https://programmerraja.github.io/blog/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Prompt classification Plan Like a Graph Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance ..."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="notes/2024/Prompt-Engineering"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">programmerraja blog</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/2024/">2024</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Prompt Engineering</a></div></nav><h1 class="article-title">Prompt Engineering</h1><p show-comma="true" class="content-meta"><span>Jan 22, 2024</span><span>26 min read</span></p></div></div><article class="popover-hint"><h2 id="prompt-classification">Prompt classification<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#prompt-classification" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><img src="../../Pasted-image-20240720193516.png" width="auto" height="auto" alt/></p>
+<h2 id="plan-like-a-graph">Plan Like a Graph<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#plan-like-a-graph" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Plan Like a Graph (PLaG) that converts naturalistic questions to equivalent graph problems, which significantly improves the performance of LLMs in asynchronous planning tasks.</p>
+<pre><code>Let's say we have an asynchronous planning task where we need to bake a cake, frost it, and then decorate it, and we have the following time durations and constraints:
+
+- Mixing the cake batter takes 10 minutes
+- Baking the cake takes 30 minutes
+- Frosting the cake takes 5 minutes
+- Decorating the cake takes 15 minutes
+- Baking the cake must be done after mixing the batter
+- Frosting the cake must be done after baking the cake
+- Decorating the cake must be done after frosting it
+
+To use the PLaG technique, we would first convert this task into a graph representation, where the nodes represent the steps in the task and the edges represent the constraints between them. The resulting graph would look like this:
+
+
+`1Mix batter (10 min) ----> Bake cake (30 min) ----> Frost cake (5 min) ----> Decorate cake (15 min)`
+
+Next, we would prompt the LLM with the task description and the graph representation, instructing it to reason based on the graph. For example, the prompt might look like this:
+
+&quot;Consider the following task: Bake a cake, frost it, and then decorate it. The steps and time durations are as follows:
+
+- Mixing the cake batter takes 10 minutes
+- Baking the cake takes 30 minutes
+- Frosting the cake takes 5 minutes
+- Decorating the cake takes 15 minutes
+
+The constraints between the steps are as follows:
+
+- Baking the cake must be done after mixing the batter
+- Frosting the cake must be done after baking the cake
+- Decorating the cake must be done after frosting it
+
+Use the following graph to reason about the task and determine the shortest possible time needed to complete it:
+
+`1Mix batter (10 min) ----> Bake cake (30 min) ----> Frost cake (5 min) ----> Decorate cake (15 min)`
+
+By providing the LLM with a graph representation of the task, we can help it reason more effectively about the constraints and time durations involved, leading to more accurate predictions about the shortest possible time needed to complete the task.
+</code></pre>
+<h2 id="prompt-pattern">Prompt Pattern<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#prompt-pattern" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A Prompt Pattern Catalog to Enhance Prompt Engineering with ChatGPT</p>
+<ul>
+<li><strong>Input Semantics:</strong> Changing how the LLM understands input.</li>
+<li><strong>Output Customization:</strong> Controlling the format, structure, or other aspects of the LLM’s output.</li>
+<li><strong>Error Identification:</strong> Helping users identify and correct errors in the LLM’s output.</li>
+<li><strong>Prompt Improvement:</strong> Enhancing the quality of both the user’s prompts and the LLM’s responses.</li>
+<li><strong>Interaction:</strong> Changing how the user interacts with the LLM.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Pattern Category</th><th>Prompt Pattern</th></tr></thead><tbody><tr><td>Input Semantics</td><td>Meta Language Creation</td></tr><tr><td>Output  Customization</td><td>Output Automater  <br/>Persona Visualization <br/>Generator Recipe Template</td></tr><tr><td>Error Identification</td><td>Fact Check List<br/>Reflection</td></tr><tr><td>Prompt  Improvement</td><td>Question Refinement <br/>Alternative Approaches<br/>Cognitive Verifier <br/>Refusal Breaker</td></tr><tr><td>Interaction</td><td>Flipped Interaction<br/> Game Play <br/>Infinite Generation</td></tr><tr><td>Context Control</td><td>Context Manager</td></tr></tbody></table></div>
+<h2 id="dspy">Dspy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dspy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Dspy(Declarative Self-improving Language Programs) make it easy to follow the data science process when building LM apps</p>
+<p>Workflow</p>
+<ul>
+<li>define your task</li>
+<li>collect some data and LM/RM connection</li>
+<li>Define your metrics</li>
+<li>setup a pipeline</li>
+<li>compile/optimize the program</li>
+<li>Save your experiment and iterate</li>
+</ul>
+<p>Components of Dspy</p>
+<ul>
+<li>
+<p>Signatures: Define the input-output structure for model interactions, ensuring clarity and consistency across different modules. (question <span>→</span> answer , doc<span>→</span> summary)</p>
+</li>
+<li>
+<p>Modules: Encapsulate specific tasks or operations as reusable components. This modular design enhances the flexibility and scalability of applications built with DSPy.</p>
+</li>
+<li>
+<p>Teleprompters: Manage the execution flow of modules, allowing for sophisticated sequencing and optimization of interactions with language models.</p>
+</li>
+<li>
+<p>Hand-written prompts and fine-tuning are abstracted and replaced by <strong>signatures</strong></p>
+</li>
+<li>
+<p>Prompting techniques, such as <strong>Chain of Thought</strong> or <strong>ReAct</strong>, are abstracted and replaced by <strong>modules</strong></p>
+</li>
+<li>
+<p>Manual prompt engineering is automated with optimizers <strong>teleprompters</strong> and a DSPy <strong>Compiler</strong></p>
+</li>
+</ul>
+<h3 id="singature">Singature<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#singature" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p> signature is a short function that specifies <strong>what</strong> a transformation does rather than <strong>how</strong> to prompt the LM to do it (e.g., “consume questions and context and return answers”).</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="txt" data-theme="github-light github-dark"><code data-language="txt" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>&quot;context, question&quot;    -> &quot;answer&quot;</span></span>
+<span data-line><span>Input seprated by comma | output</span></span>
+<span data-line> </span>
+<span data-line><span>&quot;question -> answer&quot; </span></span>
+<span data-line> </span>
+<span data-line><span>&quot;long-document -> summary&quot; </span></span>
+<span data-line> </span>
+<span data-line><span>&quot;context, question -> answer&quot;</span></span></code></pre></figure>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> GenerateAnswer</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">dspy</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Signature</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">): </span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">	&quot;&quot;&quot;Answer questions with short factoid answers.&quot;&quot;&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	context </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> dspy.InputField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">desc</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;may contain relevant facts&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	question </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> dspy.InputField() </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	answer </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> dspy.OutputField(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">desc</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;often between 1 and 5 words&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">predict </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> dspy.predict(GenerateAnswer)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">prediction </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> predict(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">question</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;how many hydrogent present in water&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">context</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(predict.answer)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">turbo.inspect_history(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">n</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">10</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">#&quot;Prints the last n prompts and their completions</span></span></code></pre></figure>
+<p>below data will send to LLM and context,question and answer to get by using <code>pydantic</code></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="txt" data-theme="github-light github-dark"><code data-language="txt" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Answer questions with short factoid answers. </span></span>
+<span data-line> </span>
+<span data-line><span>---</span></span>
+<span data-line> </span>
+<span data-line><span>Follow the following format.</span></span>
+<span data-line> </span>
+<span data-line><span>Context: may contain relevant facts</span></span>
+<span data-line><span>Question: ${question}</span></span>
+<span data-line><span>Answer: often between 1 and 5 words</span></span>
+<span data-line> </span>
+<span data-line><span>---</span></span>
+<span data-line> </span>
+<span data-line><span>Context: </span></span>
+<span data-line><span>Question: how many hydrogent present in water</span></span>
+<span data-line><span>Answer:Context: </span></span>
+<span data-line><span>Question: how many hydrogent present in water</span></span>
+<span data-line><span>Answer: Two  #answer from chat gpt</span></span>
+<span data-line> </span></code></pre></figure>
+<h3 id="modules-abstracting-prompting-techniques">Modules: Abstracting prompting techniques<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#modules-abstracting-prompting-techniques" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Modules in DSPy are templated and parameterized to abstract these prompting techniques. This means that they are used to adapt DSPy signatures to a task by applying prompting, fine-tuning, augmentation, and reasoning techniques.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Option 1: Pass minimal signature to ChainOfThought module </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">generate_answer </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> dspy.ChainOfThought(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;context, question -> answer&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">) </span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Option 2: Or pass full notation signature to ChainOfThought module </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">generate_answer </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> dspy.ChainOfThought(GenerateAnswer) </span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Call the module on a particular input. </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">pred </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> generate_answer(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">context</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;Which meant learning Lisp, since in those days Lisp was regarded as the language of AI.&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">question</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;What programming language did the author learn in college?&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(pred.answer)</span></span></code></pre></figure>
+<p>Below prompt will send to LLM for above code</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="txt" data-theme="github-light github-dark"><code data-language="txt" data-theme="github-light github-dark" style="display:grid;"><span data-line><span>Given the fields `context`, `question`, produce the fields `answer`.</span></span>
+<span data-line> </span>
+<span data-line><span>---</span></span>
+<span data-line> </span>
+<span data-line><span>Follow the following format.</span></span>
+<span data-line> </span>
+<span data-line><span>Context: ${context}</span></span>
+<span data-line> </span>
+<span data-line><span>Question: ${question}</span></span>
+<span data-line> </span>
+<span data-line><span>Reasoning: Let's think step by step in order to ${produce the answer}. We ...</span></span>
+<span data-line> </span>
+<span data-line><span>Answer: ${answer}</span></span>
+<span data-line> </span>
+<span data-line><span>---</span></span>
+<span data-line> </span>
+<span data-line><span>Context: Which meant learning Lisp, since in those days Lisp was regarded as the language of AI.</span></span>
+<span data-line> </span>
+<span data-line><span>Question: What programming language did the author learn in college?</span></span>
+<span data-line> </span>
+<span data-line><span>Reasoning: Let's think step by step in order to</span></span>
+<span data-line> </span>
+<span data-line><span>Context: Which meant learning Lisp, since in those days Lisp was regarded as the language of AI.</span></span>
+<span data-line> </span>
+<span data-line><span>Question: What programming language did the author learn in college?</span></span>
+<span data-line> </span>
+<span data-line><span>Reasoning: Let's think step by step in order to find the answer to the question. The context states that the author learned Lisp in college. </span></span>
+<span data-line> </span>
+<span data-line><span>Answer: Lisp </span></span></code></pre></figure>
+<ul>
+<li>
+<p><code>dspy.Predict</code>: Processes the input and output fields, generates instructions, and creates a template for the specified <code>signature</code>.</p>
+</li>
+<li>
+<p><code>dspy.ChainOfThought</code>: Inherits from the <code>Predict</code> module and adds functionality for “Chain of Thought” processing.</p>
+</li>
+<li>
+<p><code>dspy.ChainOfThoughtWithHint</code>: Inherits from the <code>Predict</code> module and enhances the <code>ChainOfThought</code> module with the option to provide hints for reasoning.</p>
+</li>
+<li>
+<p><code>dspy.MultiChainComparison</code>: Inherits from the <code>Predict</code> module and adds functionality for multiple chain comparisons.</p>
+</li>
+<li>
+<p><code>dspy.Retrieve</code>: Retrieves passages from a retriever module.</p>
+</li>
+<li>
+<p><code>dspy.ReAct</code>: Designed to compose the interleaved steps of Thought, Action, and Observation.</p>
+</li>
+</ul>
+<p>You can chain these modules together in classes that are inherited from <code>dspy.Module</code> and take two methods. You might already notice a syntactic similarity to PyTorch</p>
+<ul>
+<li><code>__init__()</code>: Declares the used submodules.</li>
+<li><code>forward()</code>: Describes the control flow among the defined sub-modules.</li>
+</ul>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="python" data-theme="github-light github-dark"><code data-language="python" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">class</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> RAG</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">dspy</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">Module</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">): </span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> def</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> __init__</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(self, num_passages</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">3</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">): </span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">	super</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">().</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">__init__</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">() </span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">	self</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.retrieve </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> dspy.Retrieve(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">k</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">num_passages) </span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">	self</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.generate_answer </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> dspy.ChainOfThought(GenerateAnswer)</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">def</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> forward</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">(self, question): </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	  context </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> self</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.retrieve(question).passages </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	  prediction </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> self</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.generate_answer(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">context</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">context, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">question</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">question) </span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">	  return</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> dspy.Prediction(</span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">context</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">context, </span><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">answer</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">prediction.answer)</span></span></code></pre></figure>
+<h3 id="optimizer">Optimizer<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#optimizer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>A <strong>DSPy optimizer</strong> is an algorithm that can tune the parameters of a DSPy program (i.e., the prompts and/or the LM weights) to maximize the metrics you specify, like accuracy.</p>
+<p>DSPy programs consist of multiple calls to LMs, stacked together as [DSPy modules]. Each DSPy module has internal parameters of three kinds: (1) the LM weights, (2) the instructions, and (3) demonstrations of the input/output behavior.</p>
+<p>Given a metric, DSPy can optimize all of these three with multi-stage optimization algorithms. These can combine gradient descent (for LM weights) and discrete LM-driven optimization, i.e. for crafting/updating instructions and for creating/validating demonstrations. DSPy Demonstrations are like few-shot examples, but they’re far more powerful. They can be created from scratch, given your program, and their creation and selection can be optimized in many effective ways.</p>
+<p>Automatic Few-Shot Learning</p>
+<ul>
+<li><strong><code>LabeledFewShot</code></strong></li>
+<li><strong><code>BootstrapFewShot</code></strong></li>
+<li><strong><code>BootstrapFewShotWithRandomSearch</code></strong></li>
+<li><strong><code>BootstrapFewShotWithOptuna</code></strong></li>
+<li><strong><code>KNNFewShot</code></strong></li>
+</ul>
+<h3 id="internal-of-dspy">Internal of DSPY<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#internal-of-dspy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Dspy uses pydantic <a href="../../notes/2024/Python#pydantic" class="internal alias" data-slug="notes/2024/Python">Pydantic</a>  for <code>dspy.InputField</code> and other things</li>
+</ul>
+<h2 id="reflection-fine-tuning">Reflection Fine-Tuning<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#reflection-fine-tuning" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Reflection is the new fine-tuning technique where the fine-tuning prompt is changed a bit to incorporate self reflection while training the LLM, improving the results by a big margin.
+Prompt</p>
+<pre><code>You are a world-class AI system, capable of complex reasoning and reflection.  
+Reason through the query inside &lt;thinking> tags, and  
+then provide your final response inside &lt;output> tags.  
+If you detect that you made a mistake in your reasoning at any point,  
+correct yourself inside &lt;reflection> tags.
+</code></pre>
+<ul>
+<li>The model begins by generating its reasoning within <code>&lt;thinking></code> tags. This section contains the model’s internal thought process as it analyzes the input query.</li>
+<li>Within the <code>&lt;thinking></code> section, the model may include <code>&lt;reflection></code> tags if it identifies any mistakes in its reasoning. This indicates that the model is capable of recognizing errors and will attempt to correct them before finalizing its answer.</li>
+</ul>
+<h2 id="chain-of-thought-cot">Chain-of-thought (CoT)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#chain-of-thought-cot" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p> By leveraging in-context learning abilities, CoT prompting encourages a language model to more effectively solve complex problems by outputting along with its solution a corresponding “chain of thought” (i.e., a step-by-step explanation for how the problem was solved). The model can be prompted to generate a chain of thought via a few-shot learning approach that provides several chain of thought exemplars; see above. The CoT technique is most effective when the map from input to output is highly non-trivial; e.g., math or multi-step reasoning problems.</p>
+<p>Note: use COT for mathematical and reasoning where the perform good.
+check out <a href="https://arxiv.org/pdf/2409.12183" class="external">here<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> for more</p>
+<p>Prompt</p>
+<pre><code> You are an AI assistant that uses a Chain of Thought (CoT) approach with reflection to answer queries. Follow these steps:
+
+        1. Think through the problem step by step within the &lt;thinking> tags.
+        2. Reflect on your thinking to check for any errors or improvements within the &lt;reflection> tags.
+        3. Make any necessary adjustments based on your reflection.
+        4. Provide your final, concise answer within the &lt;output> tags.
+
+        Important: The &lt;thinking> and &lt;reflection> sections are for your internal reasoning process only. 
+        Do not include any part of the final answer in these sections. 
+        The actual response to the query must be entirely contained within the &lt;output> tags.
+
+        Use the following format for your response:
+        &lt;thinking>
+        [Your step-by-step reasoning goes here. This is your internal thought process, not the final answer.]
+        &lt;reflection>
+        [Your reflection on your reasoning, checking for errors or improvements]
+        &lt;/reflection>
+        [Any adjustments to your thinking based on your reflection]
+        &lt;/thinking>
+        &lt;output>
+        [Your final, concise answer to the query. This is the only part that will be shown to the user.]
+        &lt;/output>
+</code></pre>
+<h2 id="auto-cot">Auto COT<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#auto-cot" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Auto-CoT paradigm to automatically construct demonstrations with questions and reasoning chains. Specifically, Auto-CoT leverages LLMs with the “Let’s think step by step” prompt to generate reasoning chains for demonstrations one by one, and sending that COT with question to LLM as few shot prompting</p>
+<h2 id="self-consistency-with-cot">Self-consistency with (CoT)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#self-consistency-with-cot" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>Need to add notes</li>
+</ul>
+<h2 id="react">ReAct<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#react" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>ReAct is a general paradigm that combines reasoning and acting with LLMs. ReAct prompts LLMs to generate verbal reasoning traces and actions for a task.</p>
+<p>it to be better than chain-of-thought prompting</p>
+<pre><code>- Thought 1: I need to search for “Colorado orogeny,” identify the area covered by the eastern sector, and then determine the elevation range of that area.
+- 
+- Action 1: Search [Colorado orogeny]
+- Observation 1: The Colorado orogeny refers to a phase of mountain formation in Colorado and nearby regions.
+- 
+- Thought 2: The eastern sector isn’t mentioned here. I should look up “eastern sector.”
+- Action 2: Lookup [eastern sector]
+- Observation 2: The eastern sector extends into the High Plains and is known as the Central Plains orogeny.
+
+- Thought 3: The eastern sector of the Colorado orogeny reaches into the High Plains. I should search for the High Plains and find its elevation range.
+- Action 3: Search [High Plains]
+- Observation 3: High Plains refers to one of two distinct land regions.
+
+- Thought 4: I should search specifically for “High Plains (United States).”
+
+- Action 4: Search [High Plains (United States)]
+- Observation 4: The High Plains are a part of the Great Plains, with elevations rising from around 1,800 to 7,000 ft (550 to 2,130 m).
+
+- Thought 5: The elevation range of the High Plains is 1,800 to 7,000 ft, so that’s the answer.
+- Action 5: Finish [1,800 to 7,000 ft]
+</code></pre>
+<h2 id="tree-of-thoughts">Tree of Thoughts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tree-of-thoughts" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Tree of Thoughts is an innovative approach to AI reasoning that expands upon the Chain of Thought (CoT) methodology. While CoT prompts an AI to explain its thinking in a linear fashion, ToT takes this a step further by encouraging the AI to explore multiple paths of reasoning simultaneously, much like a tree branching out in various directions.</p>
+<p>check out implementation <a href="https://github.com/kyegomez/tree-of-thoughts" class="external">here<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>Prompt</p>
+<pre><code>
+**You are an expert problem-solving agent** designed to not only solve complex problems but also critically evaluate the quality of your thought process and final answers. 
+
+Your task is to follow a structured approach to generate solutions, assess your thoughts, and provide a rating for each on a scale of 0.1 to 1.0. This rating should reflect the accuracy and quality of your reasoning and final answer.
+
+### Instructions:
+
+1. **Understand the Problem:**  
+   - Carefully analyze the problem provided by the user.  
+   - Break down the problem into smaller, manageable parts if necessary.  
+   - Formulate a clear understanding of the problem before proceeding.
+
+2. **Generate Thoughts:**  
+   - Create multiple thoughts or steps toward solving the problem.  
+   - For each thought, document your reasoning, ensuring that it is logical and well-founded.
+
+3. **Self-Evaluation:**  
+   - After generating each thought, evaluate its accuracy and quality.  
+   - Assign an evaluation score between 0.1 and 1.0. Use the following guidelines:  
+     - **0.1 to 0.4:** The thought is flawed, inaccurate, or incomplete.  
+     - **0.5 to 0.7:** The thought is partially correct but may lack detail or full accuracy.  
+     - **0.8 to 1.0:** The thought is accurate, complete, and well-reasoned.
+
+4. **Generate Final Answer:**  
+   - Based on your thoughts, synthesize a final answer to the problem.  
+   - Ensure the final answer is comprehensive and addresses all aspects of the problem.
+
+5. **Final Evaluation:**  
+   - Evaluate the overall quality and accuracy of your final answer.  
+   - Provide a final evaluation score based on the same 0.1 to 1.0 scale.
+</code></pre>
+<h2 id="re-reading-improves-reasoning-in-large-language-models">Re-Reading Improves Reasoning in Large Language Models<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#re-reading-improves-reasoning-in-large-language-models" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The core concept of the paper “Re-Reading Improves Reasoning in Large Language Models” is that repeating the input question can enhance the reasoning capabilities of Large Language Models (LLMs),</p>
+<p>Unlike many thought-eliciting prompting methods (e.g., Chain-of-Thought) that focus on structuring the output, RE2 focuses on improving how the LLM processes the input This is analogous to how understanding the question is paramount to solving a problem for humans.</p>
+<p>Re-Reading + COT</p>
+<pre><code>Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each can has 3 tennis balls. How many tennis balls does he have now? 
+
+Read the question again: Roger has 5 tennis balls. He buys 2 more cans of tennis balls. Each can has 3 tennis balls. How many tennis balls does he have now? A:
+
+Let’s think step by step.
+</code></pre>
+<ul>
+<li>potentially improve the reasoning performance of Large Language Models (LLMs).</li>
+</ul>
+<h2 id="summarization">Summarization<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#summarization" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><a href="https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb" class="external">https://towardsdatascience.com/summarize-podcast-transcripts-and-long-texts-better-with-nlp-and-ai-e04c89d3b2cb<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="claude-meta-prompt">Claude Meta Prompt<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#claude-meta-prompt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Claude have written a prompt that will help to get perfect prompt in XML
+check <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prompt-generator" class="external">here<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h2 id="claude-prompt-tips">Claude Prompt Tips<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#claude-prompt-tips" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Some takeaways you can use for writing your long-context Q&amp;A prompts:</p>
+<ul>
+<li>Use many examples and the scratchpad for best performance on both context lengths.</li>
+<li>Pulling relevant quotes into the scratchpad is helpful in all head-to-head comparisons. It comes at a small cost to latency, but improves accuracy. In Claude Instant’s case, the latency is already so low that this shouldn’t be a concern.</li>
+<li>Contextual examples help on both 70K and 95K, and more examples is better.</li>
+<li>Generic examples on general/external knowledge do not seem to help performance.</li>
+</ul>
+<pre><code>I need to write a blog post on the topic of [integrating enterprise data with an LLM] for my AI solutions company, AI Disruptor.
+
+Begin in &lt;scratchpad> tags and write out and brainstorm in a couple paragraphs your plan for how you will create an informative and engaging blog. Also brainstorm how you will create a CTA at the end for our company, AI Disruptor.
+</code></pre>
+<ul>
+<li>To get json response start the conversion for assistant with <code>{</code> like below</li>
+</ul>
+<pre><code>
+user : &quot;prompt&quot;
+asssistant: &quot;{&quot; -> which tell the model to start with { need to return as json 
+</code></pre>
+<ul>
+<li>if claude saying text after json we can use stop_sequences ask the model to wrap a json with json tag like <code>&lt;json>&lt;/json></code> and we can give stop_sequences as <code>&lt;/json></code></li>
+</ul>
+<h2 id="prompt-compression">Prompt compression<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#prompt-compression" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Prompt compression is a technique used in natural language processing (NLP) to optimize the inputs given to LLMs by reducing their length without significantly altering the quality and relevance of the output.</p>
+<ul>
+<li>gpttrim (By tokenizing, stemming, and removing spaces)</li>
+<li>LLMLingua (A LLM developed by microsoft open source which will help to reduce the prompt)</li>
+</ul>
+<h2 id="frugalgpt">FrugalGPT<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#frugalgpt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>FrugalGPT</strong> is a framework proposed by Lingjiao Chen, Matei Zaharia and James Zou from Stanford University in their 2023 <a href="https://portkey.ai/blog/frugalgpt-how-to-use-large-language-models-while-reducing-cost-and-improving-performance-summary/" class="external">paper<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> “<em>FrugalGPT: How to Use Large Language Models While Reducing Cost and Improving Performance</em>”. The paper outlines strategies for more cost-effective and performant usage of large language model (LLM) APIs.</p>
+<p>The core of FrugalGPT revolves around three key techniques for reducing LLM inference costs:</p>
+<h3 id="prompt-optimization">Prompt Optimization<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#prompt-optimization" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Prompt Adaptation</strong>:  FrugalGPT wants us to either reduce the size of the prompt OR combine similar prompts together. Core idea is to minimise tokens and thus reduce LLM costs
+<strong>Example</strong> for email classification task we can only pick the <strong>top k</strong> similar examples. using similarity .
+FrugalGPT suggests identifying the best examples to be used instead of all of them.</p>
+<p><strong>Combine similar requests together</strong> : LLMs have been found to retain context for multiple tasks together and FrugalGPT proposes to use this to group multiple requests together thus decreasing the redundant prompt examples in each request.</p>
+<p><strong>Better utilize a smaller model with a more optimized prompt</strong> :</p>
+<p>Example: <a href="https://github.dev/mshumer/gpt-prompt-engineer" class="external">from Claude 3.5 Sonnet to GPT-4o-mini — reducing costs massively while keeping quality high<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</p>
+<p><strong>Compress the prompt</strong> : The compression process happens in three main steps:</p>
+<ol>
+<li><strong>Token Classification</strong>:
+<ul>
+<li>The trained model processes each token in the original prompt and assigns a <strong>preserve</strong> or <strong>discard</strong> probability based on the token’s importance for preserving the meaning of the text.</li>
+</ul>
+</li>
+<li><strong>Selection of Tokens</strong>:
+<ul>
+<li>The target <strong>compression ratio</strong> is used to decide how many tokens to retain. For example, if a 2x compression ratio is desired, 50% of the original tokens will be retained. The model sorts the tokens based on their <strong>preserve probability</strong> and selects the top tokens to keep in the compressed prompt.</li>
+</ul>
+</li>
+<li><strong>Preserve Token Order</strong>:
+<ul>
+<li>After selecting the tokens to preserve, the original order of the tokens is maintained to ensure that the compressed prompt remains coherent and grammatically correct.</li>
+</ul>
+</li>
+</ol>
+<p>check out <a href="https://github.com/microsoft/LLMLingua" class="external">here<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h3 id="llm-approximation"> LLM Approximation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#llm-approximation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Cache LLM Requests</strong> : When the prompt is exactly the same, we can save the inference time and cost by serving the request from cache.</p>
+<p><strong>Fine-tune a smaller model in parallel</strong> : In a production environment, it can be massively beneficial to keep serving requests through a bigger model while continuously logging and fine-tuning a smaller model on those responses. We can then evaluate the results from the fine-tuned model and the larger model to determine when it make sense to switch.</p>
+<h3 id="llm-cascade">LLM Cascade<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#llm-cascade" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The key idea is to sequentially query different LLMs based on the confidence of the previous LLM’s response. If a cheaper LLM can provide a satisfactory answer, there’s no need to query the more expensive models, thus saving costs.</p>
+<p>In essence, the LLM cascade makes a request to the smallest model first, evaluates the response, and returns it if it’s good enough. Otherwise, it requests the next larger model and so on until a satisfactory response is obtained or the largest model is reached.</p>
+<h2 id="co-star-framework">CO-STAR framework<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#co-star-framework" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>(C) Context: Provide background information on the task</strong></p>
+<p>This helps the LLM understand the specific scenario being discussed, ensuring its response is relevant.</p>
+<p><strong>(O) Objective: Define what the task is that you want the LLM to perform</strong></p>
+<p>Being clear about your objective helps the LLM to focus its response on meeting that specific goal.</p>
+<p><strong>(S) Style: Specify the writing style you want the LLM to use</strong></p>
+<p>This could be a particular famous person’s style of writing, or a particular expert in a profession, like a business analyst expert or CEO. This <strong>g</strong>uides the LLM to respond with the manner and choice of words aligned with your needs.</p>
+<p><strong>(T) Tone: Set the attitude of the response</strong></p>
+<p>This ensures the LLM’s response resonates with the intended sentiment or emotional context required. Examples are formal, humorous, empathetic, among others.</p>
+<p><strong>(A) Audience: Identify who the response is intended for</strong></p>
+<p>Tailoring the LLM’s response to an audience, such as experts in a field, beginners, children, and so on, ensures that it is appropriate and understandable in your required context.</p>
+<p><strong>(R) Response: Provide the response format</strong></p>
+<p>This ensures that the LLM outputs in the exact format that you require for downstream tasks. Examples include a list, a JSON, a professional report, and so on. For most LLM applications which work on the LLM responses programmatically for downstream manipulations, a JSON output format would be ideal.</p>
+<pre><code>> # CONTEXT # I want to advertise my company's new product. My company's name is Alpha and the product is called Beta, which is a new ultra-fast hairdryer.
+
+> # OBJECTIVE # Create a Facebook post for me, which aims to get people to click on the product link to purchase it.
+
+> # STYLE # Follow the writing style of successful companies that advertise similar products, such as Dyson.
+
+> # TONE # Persuasive
+
+> # AUDIENCE # My company's audience profile on Facebook is typically the older generation. Tailor your post to target what this audience typically looks out for in hair products.
+
+> # RESPONSE # The Facebook post, kept concise yet impactful.
+</code></pre>
+<h2 id="instance-adaptive-prompting-strategy">Instance-Adaptive prompting strategy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#instance-adaptive-prompting-strategy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A prompt can vary depending on the specific instance we cannot use a same prompt for all use case</p>
+<p>To overcome this limitation,  Instance-Adaptive Prompting (IAP), was suggest which aims to select the most suitable prompt for each individual question, rather than relying on a single prompt for an entire task</p>
+<p><strong>How IAP Works:</strong></p>
+<p>The IAP strategy uses these insights to select an appropriate prompt for each question from a pool of candidate prompts. They propose two methods</p>
+<ul>
+<li>
+<p>Sequential Substitution (IAP-ss): The system tries prompts one by one, stopping when a prompt leads to good reasoning or all prompts are exhausted. for that they use <strong>Saliency Score</strong></p>
+</li>
+<li>
+<p>Majority Vote (IAP-mv): The system evaluates all candidate prompts and selects the one that consistently produces the best reasoning</p>
+</li>
+</ul>
+<h2 id="prompt-decomposition">Prompt Decomposition<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#prompt-decomposition" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Prompt Decomposition is the process of taking a complicated prompt and breaking it into multiple smaller parts. This is the same idea that is found in design theory and sometimes called task decomposition. Simply put, when we have a large complicated task, we break it down into multiple steps and each step is individually much easier.</p>
+<h2 id="meta-prompting">Meta Prompting<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#meta-prompting" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>It involves constructing a high-level “meta” prompt that instructs an LLM</p>
+<p>prompt</p>
+<pre><code>You are Meta-Expert, an extremely clever expert with the unique ability to collaborate with multiple experts (such as Expert
+
+Problem Solver, Expert Mathematician, Expert Essayist, etc.) to tackle any task and solve any complex problems. Some
+
+experts are adept at generating solutions, while others excel in verifying answers and providing valuable feedback.
+
+Note that you also have special access to Expert Python, which has the unique ability to generate and execute Python code
+
+given natural-language instructions. Expert Python is highly capable of crafting code to perform complex calculations when
+
+given clear and precise directions. You might therefore want to use it especially for computational tasks.
+
+As Meta-Expert, your role is to oversee the communication between the experts, effectively using their skills to answer a
+
+given question while applying your own critical thinking and verification abilities.
+
+To communicate with a expert, type its name (e.g., &quot;Expert Linguist&quot; or &quot;Expert Puzzle Solver&quot;), followed by a colon &quot;:&quot;, and
+
+then provide a detailed instruction enclosed within triple quotes. For example:
+
+Expert Mathematician:
+
+&quot;&quot;&quot;
+
+You are a mathematics expert, specializing in the fields of geometry and algebra.
+
+Compute the Euclidean distance between the points (-2, 5) and (3, 7).
+
+&quot;&quot;&quot;
+
+Ensure that your instructions are clear and unambiguous, and include all necessary information within the triple quotes. You
+
+can also assign personas to the experts (e.g., &quot;You are a physicist specialized in...&quot;).
+
+Interact with only one expert at a time, and break complex problems into smaller, solvable tasks if needed. Each interaction
+
+is treated as an isolated event, so include all relevant details in every call.
+
+If you or an expert finds a mistake in another expert's solution, ask a new expert to review the details, compare both
+
+solutions, and give feedback. You can request an expert to redo their calculations or work, using input from other experts.
+
+Keep in mind that all experts, except yourself, have no memory! Therefore, always provide complete information in your
+
+instructions when contacting them. Since experts can sometimes make errors, seek multiple opinions or independently
+
+verify the solution if uncertain. Before providing a final answer, always consult an expert for confirmation. Ideally, obtain or
+
+verify the final solution with two independent experts. However, aim to present your final answer within 15 rounds or fewer.
+
+Refrain from repeating the very same questions to experts. Examine their responses carefully and seek clarification if
+
+required, keeping in mind they don't recall past interactions.
+
+Present the final answer as follows:
+
+>> FINAL ANSWER:
+
+&quot;&quot;&quot;
+
+[final answer]
+
+&quot;&quot;&quot;
+
+For multiple-choice questions, select only one option. Each question has a unique answer, so analyze the provided
+
+information carefully to determine the most accurate and appropriate response. Please present only one solution if you
+
+come across multiple options.
+</code></pre>
+<h2 id="prompt-for-generate-system-prompt">Prompt for generate System Prompt<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#prompt-for-generate-system-prompt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<pre><code>Understand the Task: Grasp the main objective, goals, requirements, constraints, and expected output.
+- Minimal Changes: If an existing prompt is provided, improve it only if it's simple. For complex prompts, enhance clarity and add missing elements without altering the original structure.
+- Reasoning Before Conclusions: Encourage reasoning steps before any conclusions are reached. ATTENTION! If the user provides examples where the reasoning happens afterward, REVERSE the order! NEVER START EXAMPLES WITH CONCLUSIONS!
+    - Reasoning Order: Call out reasoning portions of the prompt and conclusion parts (specific fields by name). For each, determine the ORDER in which this is done, and whether it needs to be reversed.
+    - Conclusion, classifications, or results should ALWAYS appear last.
+- Examples: Include high-quality examples if helpful, using placeholders [in brackets] for complex elements.
+   - What kinds of examples may need to be included, how many, and whether they are complex enough to benefit from placeholders.
+- Clarity and Conciseness: Use clear, specific language. Avoid unnecessary instructions or bland statements.
+- Formatting: Use markdown features for readability. DO NOT USE ``` CODE BLOCKS UNLESS SPECIFICALLY REQUESTED.
+- Preserve User Content: If the input task or prompt includes extensive guidelines or examples, preserve them entirely, or as closely as possible. If they are vague, consider breaking down into sub-steps. Keep any details, guidelines, examples, variables, or placeholders provided by the user.
+- Constants: DO include constants in the prompt, as they are not susceptible to prompt injection. Such as guides, rubrics, and examples.
+- Output Format: Explicitly the most appropriate output format, in detail. This should include length and syntax (e.g. short sentence, paragraph, JSON, etc.)
+    - For tasks outputting well-defined or structured data (classification, JSON, etc.) bias toward outputting a JSON.
+    - JSON should never be wrapped in code blocks (```) unless explicitly requested.
+
+The final prompt you output should adhere to the following structure below. Do not include any additional commentary, only output the completed system prompt. SPECIFICALLY, do not include any additional messages at the start or end of the prompt. (e.g. no &quot;---&quot;)
+
+[Concise instruction describing the task - this should be the first line in the prompt, no section header]
+
+[Additional details as needed.]
+
+[Optional sections with headings or bullet points for detailed steps.]
+
+# Steps [optional]
+
+[optional: a detailed breakdown of the steps necessary to accomplish the task]
+
+# Output Format
+
+[Specifically call out how the output should be formatted, be it response length, structure e.g. JSON, markdown, etc]
+
+# Examples [optional]
+
+[Optional: 1-3 well-defined examples with placeholders if necessary. Clearly mark where examples start and end, and what the input and output are. User placeholders as necessary.]
+[If the examples are shorter than what a realistic example is expected to be, make a reference with () explaining how real examples should be longer / shorter / different. AND USE PLACEHOLDERS! ]
+
+# Notes [optional]
+
+[optional: edge cases, details, and an area to call or repeat out specific important considerations]
+</code></pre>
+<h2 id="chatml">ChatML<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#chatml" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>ChatML (Chat Markup Language) is a lightweight markup format used by OpenAI to structure conversations between users and models, especially in chatbot-like environments. It is designed to define roles and organize the flow of conversation between different participants, such as system instructions, user inputs, and model responses.</p>
+<p>In a typical ChatML format, the message blocks are defined by tags such as:</p>
+<ul>
+<li><code>&lt;|system|></code>: Instructions or setup given to the model (usually hidden from the user).</li>
+<li><code>&lt;|user|></code>: Represents what the user says.</li>
+<li><code>&lt;|assistant|></code>: Represents the assistant’s responses.</li>
+<li><code>&lt;im_start|></code> : the start of an interactive mode where messages will alternate between participants. It’s generally used to transition into the back-and-forth of a conversation.</li>
+<li><code>&lt;im_end|></code></li>
+</ul>
+<h2 id="tools">Tools<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tools" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="zenbase">Zenbase<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#zenbase" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Developer tools and cloud infrastructure for perfectionists using LLMs. <a href="https://zenbase.ai" class="external">Zenbase<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> takes care of the hassle of prompt engineering and model selection.</p>
+<h3 id="evallm">EvalLM<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#evallm" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Interactive Evaluation of Large Language Model Prompts on User-Defined Criteria</p>
+<h2 id="prompt-hacking">Prompt Hacking<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#prompt-hacking" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="output2prompt">output2prompt<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#output2prompt" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The core idea behind output2prompt is clever in its simplicity. By analyzing patterns in the AI’s responses, another AI can infer the instructions that produced those responses.</p>
+<h2 id="my-thoughts">My Thoughts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#my-thoughts" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>When you write a prompt think how it process and response by yourself it will give you a idea how your prompt will work and where to improve</li>
+<li>Provide important thing at start of the prompt</li>
+<li>Think as it just next word predictor not more then that so think in the way when writing prompt</li>
+<li>Visulize attention mechnaism on the prompt</li>
+<li>Tell how to handle negative else it will hallucinate</li>
+<li>If you using too much example the response will be more genric based on the example so keep that in mind</li>
+<li>use stop sequence if you want avoid unwanted text</li>
+</ul>
+<p>Here are 5 papers you want to read to understand better how <a href="https://www.linkedin.com/company/openai/" class="external">OpenAI<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> o1 might work. Focusing on Improving LLM reasoning capabilities for complex tasks via training/RLHF, not prompting. 👀</p>
+<blockquote>
+<p>Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking (<a href="https://lnkd.in/eCPaa-wc" class="external">https://lnkd.in/eCPaa-wc<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>) from Stanford</p>
+</blockquote>
+<blockquote>
+<p>Agent Q: Advanced Reasoning and Learning for Autonomous AI Agents (<a href="https://lnkd.in/eebwEkPi" class="external">https://lnkd.in/eebwEkPi<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>) from MultiOn/Stanford</p>
+</blockquote>
+<blockquote>
+<p>Let’s Verify Step by Step (<a href="https://lnkd.in/egf6EpMd" class="external">https://lnkd.in/egf6EpMd<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>) from OpenAI</p>
+</blockquote>
+<blockquote>
+<p>V-STaR: Training Verifiers for Self-Taught Reasoners (<a href="https://lnkd.in/ebRcEKBn" class="external">https://lnkd.in/ebRcEKBn<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>) from Microsoft, Mila**</p>
+</blockquote>
+<blockquote>
+<p>Learn Beyond The Answer: Training Language Models with Reflection for Mathematical Reasoning (<a href="https://lnkd.in/eeeaqm6x" class="external">https://lnkd.in/eeeaqm6x<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>) from Notre Dam, Tencent</p>
+</blockquote>
+<h2 id="resources">Resources<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#resources" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li><a href="https://eugeneyan.com/writing/prompting/" class="external">Eugene Yan’s Prompting Guide<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://github.com/linexjlin/GPTs?tab=readme-ov-file" class="external">Leaked Prompts of GPTs on GitHub<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://substack.com/@cwolferesearch/p-143156742" class="external">https://substack.com/@cwolferesearch/p-143156742<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/" class="external">https://lilianweng.github.io/posts/2023-03-15-prompt-engineering/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://github.com/0xeb/TheBigPromptLibrary" class="external">A collection of prompts, system prompts and LLM instructions<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ol>
+<h2 id="tools-1">Tools<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tools-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li><a href="https://promptperfect.jina.ai/" class="external">AI Prompt Optimizer<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.octiai.com/" class="external">Start Generating Prompts with OctiAI<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ol></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#prompt-classification" data-for="prompt-classification">Prompt classification</a></li><li class="depth-0"><a href="#plan-like-a-graph" data-for="plan-like-a-graph">Plan Like a Graph</a></li><li class="depth-0"><a href="#prompt-pattern" data-for="prompt-pattern">Prompt Pattern</a></li><li class="depth-0"><a href="#dspy" data-for="dspy">Dspy</a></li><li class="depth-1"><a href="#singature" data-for="singature">Singature</a></li><li class="depth-1"><a href="#modules-abstracting-prompting-techniques" data-for="modules-abstracting-prompting-techniques">Modules: Abstracting prompting techniques</a></li><li class="depth-1"><a href="#optimizer" data-for="optimizer">Optimizer</a></li><li class="depth-1"><a href="#internal-of-dspy" data-for="internal-of-dspy">Internal of DSPY</a></li><li class="depth-0"><a href="#reflection-fine-tuning" data-for="reflection-fine-tuning">Reflection Fine-Tuning</a></li><li class="depth-0"><a href="#chain-of-thought-cot" data-for="chain-of-thought-cot">Chain-of-thought (CoT)</a></li><li class="depth-0"><a href="#auto-cot" data-for="auto-cot">Auto COT</a></li><li class="depth-0"><a href="#self-consistency-with-cot" data-for="self-consistency-with-cot">Self-consistency with (CoT)</a></li><li class="depth-0"><a href="#react" data-for="react">ReAct</a></li><li class="depth-0"><a href="#tree-of-thoughts" data-for="tree-of-thoughts">Tree of Thoughts</a></li><li class="depth-0"><a href="#re-reading-improves-reasoning-in-large-language-models" data-for="re-reading-improves-reasoning-in-large-language-models">Re-Reading Improves Reasoning in Large Language Models</a></li><li class="depth-0"><a href="#summarization" data-for="summarization">Summarization</a></li><li class="depth-0"><a href="#claude-meta-prompt" data-for="claude-meta-prompt">Claude Meta Prompt</a></li><li class="depth-0"><a href="#claude-prompt-tips" data-for="claude-prompt-tips">Claude Prompt Tips</a></li><li class="depth-0"><a href="#prompt-compression" data-for="prompt-compression">Prompt compression</a></li><li class="depth-0"><a href="#frugalgpt" data-for="frugalgpt">FrugalGPT</a></li><li class="depth-1"><a href="#prompt-optimization" data-for="prompt-optimization">Prompt Optimization</a></li><li class="depth-1"><a href="#llm-approximation" data-for="llm-approximation"> LLM Approximation</a></li><li class="depth-1"><a href="#llm-cascade" data-for="llm-cascade">LLM Cascade</a></li><li class="depth-0"><a href="#co-star-framework" data-for="co-star-framework">CO-STAR framework</a></li><li class="depth-0"><a href="#instance-adaptive-prompting-strategy" data-for="instance-adaptive-prompting-strategy">Instance-Adaptive prompting strategy</a></li><li class="depth-0"><a href="#prompt-decomposition" data-for="prompt-decomposition">Prompt Decomposition</a></li><li class="depth-0"><a href="#meta-prompting" data-for="meta-prompting">Meta Prompting</a></li><li class="depth-0"><a href="#prompt-for-generate-system-prompt" data-for="prompt-for-generate-system-prompt">Prompt for generate System Prompt</a></li><li class="depth-0"><a href="#chatml" data-for="chatml">ChatML</a></li><li class="depth-0"><a href="#tools" data-for="tools">Tools</a></li><li class="depth-1"><a href="#zenbase" data-for="zenbase">Zenbase</a></li><li class="depth-1"><a href="#evallm" data-for="evallm">EvalLM</a></li><li class="depth-0"><a href="#prompt-hacking" data-for="prompt-hacking">Prompt Hacking</a></li><li class="depth-1"><a href="#output2prompt" data-for="output2prompt">output2prompt</a></li><li class="depth-0"><a href="#my-thoughts" data-for="my-thoughts">My Thoughts</a></li><li class="depth-0"><a href="#resources" data-for="resources">Resources</a></li><li class="depth-0"><a href="#tools-1" data-for="tools-1">Tools</a></li></ul></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script type="application/javascript">
+        const socket = new WebSocket('ws://localhost:3001')
+        // reload(true) ensures resources like images and scripts are fetched again in firefox
+        socket.addEventListener('message', () => document.location.reload(true))
+      </script><script src="../../postscript.js" type="module"></script></html>

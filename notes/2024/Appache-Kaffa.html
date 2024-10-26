@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Appache Kaffa</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="Appache Kaffa"/><meta property="og:description" content="internal archi course developer.confluent.io/courses/architecture/get-started/ Kafka’s Zero-Copy Optimization: Simplified If you’ve come across Kafka, you might have ..."/><meta property="og:image" content="https://programmerraja.github.io/blog/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="internal archi course developer.confluent.io/courses/architecture/get-started/ Kafka’s Zero-Copy Optimization: Simplified If you’ve come across Kafka, you might have ..."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="notes/2024/Appache-Kaffa"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">programmerraja blog</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/2024/">2024</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Appache Kaffa</a></div></nav><h1 class="article-title">Appache Kaffa</h1><p show-comma="true" class="content-meta"><span>Feb 25, 2024</span><span>9 min read</span></p></div></div><article class="popover-hint"><p>internal archi course
+<a href="https://developer.confluent.io/courses/architecture/get-started/" class="external">https://developer.confluent.io/courses/architecture/get-started/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h3 id="kafkas-zero-copy-optimization-simplified">Kafka’s Zero-Copy Optimization: Simplified<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#kafkas-zero-copy-optimization-simplified" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>If you’ve come across Kafka, you might have heard about its zero-copy optimization, a technique aimed at reducing unnecessary data copies. Let’s break it down:</p>
+<p><strong>What is Zero-Copy?</strong>
+Zero-copy operations minimize unnecessary data duplication, although they don’t literally make zero copies.</p>
+<p><strong>Kafka’s Use of Zero-Copy</strong>
+Kafka leverages the OS’s zero-copy optimization to bypass the Kafka broker Java program entirely when data is transferred from the page cache to the socket buffer.</p>
+<h3 id="traditional-data-transfer-without-zero-copy">Traditional Data Transfer (Without Zero-Copy)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#traditional-data-transfer-without-zero-copy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Read buffer (OS page cache)</strong> - Stores data for quick access.</li>
+<li><strong>Socket buffer</strong> - Manages data packets.</li>
+<li><strong>NIC buffer</strong> - Network card’s byte buffer.</li>
+<li><strong>DMA (Direct Memory Access)</strong> - Allows hardware to access memory without the CPU.</li>
+</ol>
+<h4 id="steps">Steps:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#steps" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>Disk to OS buffer (DMA copy, user to kernel mode).</li>
+<li>OS buffer to app buffer (kernel to user mode).</li>
+<li>App buffer to socket buffer (user to kernel mode).</li>
+<li>Socket buffer to NIC buffer (DMA copy, kernel to user mode).</li>
+</ol>
+<h3 id="optimized-data-transfer-with-zero-copy">Optimized Data Transfer (With Zero-Copy)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#optimized-data-transfer-with-zero-copy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Kafka stores data in a binary format compatible with its responses, skipping unnecessary steps:</p>
+<ul>
+<li>The read buffer copies data directly to the NIC buffer.</li>
+<li>The socket buffer stores read buffer pointers, enabling the DMA engine to read directly from memory.</li>
+</ul>
+<h3 id="benefits-of-zero-copy">Benefits of Zero-Copy<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#benefits-of-zero-copy" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>Fewer user/kernel mode switches (reduced from 4 to 2).</li>
+<li>Same number of DMA copies (2).</li>
+<li>One minimal CPU copy of pointers (2 fewer CPU copies).</li>
+</ul>
+<h3 id="the-reality-check">The Reality Check<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-reality-check" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Despite the efficiency gains, zero-copy might not significantly impact most Kafka deployments:</p>
+<ul>
+<li>The network often saturates before CPU becomes a bottleneck.</li>
+<li>Encryption and SSL/TLS prevent zero-copy use.</li>
+</ul>
+<p><strong>Kafka remains performant even without zero-copy optimization.</strong></p>
+<ol>
+<li>
+<p>What is Kafka?<br/>
+Kafka is a distributed event store and a streaming platform. It began as an internal project at LinkedIn and now powers some of the largest data pipelines in the world in orgs like Netflix, Uber, etc.</p>
+</li>
+<li>
+<p>Kafka Messages<br/>
+Message is the basic unit of data in Kafka. It’s like a record in a table consisting of headers, key, and value.</p>
+</li>
+<li>
+<p>Kafka Topics and Partitions<br/>
+Every message goes to a particular Topic. Think of the topic as a folder on your computer. Topics also have multiple partitions.</p>
+</li>
+<li>
+<p>Advantages of Kafka<br/>
+Kafka can handle multiple producers and consumers, while providing disk-based data retention and high scalability.</p>
+</li>
+<li>
+<p>Kafka Producer<br/>
+Producers in Kafka create new messages, batch them, and send them to a Kafka topic. They also take care of balancing messages across different partitions.</p>
+</li>
+<li>
+<p>Kafka Consumer<br/>
+Kafka consumers work together as a consumer group to read messages from the broker.</p>
+</li>
+<li>
+<p>Kafka Cluster<br/>
+A Kafka cluster consists of several brokers where each partition is replicated across multiple brokers to ensure high availability and redundancy.</p>
+</li>
+<li>
+<p>Use Cases of Kafka<br/>
+Kafka can be used for log analysis, data streaming, change data capture, and system monitoring.</p>
+</li>
+</ol>
+<p>sheet2 | DVOP3-Location | DVOP3-Qty | DVOP3-option Elected | DVOP3-INX Status | DVOP1-Location | DVOP1-Qty | DVOP1-option Elected | DVOP1-INX Status | | -------------- | --------- | -------------------- | ---------------- | -------------- | --------- | -------------------- | ---------------- | | 1MMIC | 1245 | Cash | Accepted | 1MMIC | 1478 | Secu | Accepted | | 5GHTY | 8975 | Secu | TBD | 5GHTY | 8888 | Secu | Accepted | | 5GHTY | 23 | Secu | TBD | 1V3CH | 54 | Secu | TBD | | 1V3CH | 123 | Cash | Accepted | 1V3CH | 123 | Cash | Accepted | | 1V3CH | 22 | Secu | TBD | 1V3CH | 22 | Secu | TBD | | 1V3CH | 44 | Secu | TBD | 1V3CH | 44 | Secu | TBD | sheet1 | Eligiblelocation | Name | Address | Foreign Non-induvidual or Foreign Fund | Legal Status | TIN(IF 0 %) | Tax Rate | DVOP3-Location | DVOP3-Qty | DVOP3-option Elected | DVOP3-INX Status | DVOP1-Location | DVOP1-Qty | DVOP1-option Elected | DVOP1-INX Status | DVOP3-Location | DVOP1-Location | | ---------------- | ---- | ------- | -------------------------------------- | ------------ | ----------- | -------- | -------------- | --------- | -------------------- | ---------------- | -------------- | --------- | -------------------- | ---------------- | -------------- | -------------- | | 1MCGH | | | | | | | | | | | | | | | | | | 1MMIC | | | | | | | | | | | | | | | | | | 1V3CH | | | | | | | | | | | | | | | | | | 1V3CH | | | | | | | | | | | | | | | | | | 1V3CH | | | | | | | | | | | | | | | | | | 1V3CH | | | | | | | | | | | | | | | | | | 5GHTY | | | | | | | | | | | | | | | | | | 5GHTY | | | | | | | | | | | | | | | | | after merge | Eligiblelocation | Name | Address | Foreign Non-induvidual or Foreign Fund | Legal Status | TIN(IF 0 %) | Tax Rate | DVOP3-Location | DVOP3-Qty_x | DVOP3-option Elected_x | DVOP3-INX Status_x | DVOP1-Location _x | DVOP1-Qty_x | DVOP1-option Elected_x | DVOP1-INX Status_x | DVOP3-Location | DVOP1-Location | DVOP3-Qty_y | DVOP3-option Elected_y | DVOP3-INX Status_y | DVOP1-Location _y | DVOP1-Qty_y | DVOP1-option Elected_y | DVOP1-INX Status_y | | ---------------- | ---- | ------- | -------------------------------------- | ------------ | ----------- | -------- | -------------- | ----------- | ---------------------- | ------------------ | ----------------- | ----------- | ---------------------- | ------------------ | -------------- | -------------- | ----------- | ---------------------- | ------------------ | ----------------- | ----------- | ---------------------- | ------------------ | | 1MCGH | | | | | | | | | | | | | | | | | | | | | | | | | 1MMIC | | | | | | | | | | | | | | | | | 1245 | Cash | Accepted | 1MMIC | 1478 | Secu | Accepted | | 1V3CH | | | | | | | | | | | | | | | | | 123 | Cash | Accepted | 1V3CH | 123 | Cash | Accepted | | 1V3CH | | | | | | | | | | | | | | | | | 22 | Secu | TBD | 1V3CH | 22 | Secu | TBD | | 1V3CH | | | | | | | | | | | | | | | | | 44 | Secu | TBD | 1V3CH | 44 | Secu | TBD | | 1V3CH | | | | | | | | | | | | | | | | | 123 | Cash | Accepted | 1V3CH | 123 | Cash | Accepted | | 1V3CH | | | | | | | | | | | | | | | | | 22 | Secu | TBD | 1V3CH | 22 | Secu | TBD | | 1V3CH | | | | | | | | | | | | | | | | | 44 | Secu | TBD | 1V3CH | 44 | Secu | TBD | | 1V3CH | | | | | | | | | | | | | | | | | 123 | Cash | Accepted | 1V3CH | 123 | Cash | Accepted | | 1V3CH | | | | | | | | | | | | | | | | | 22 | Secu | TBD | 1V3CH | 22 | Secu | TBD | | 1V3CH | | | | | | | | | | | | | | | | | 44 | Secu | TBD | 1V3CH | 44 | Secu | TBD | | 1V3CH | | | | | | | | | | | | | | | | | 123 | Cash | Accepted | 1V3CH | 123 | Cash | Accepted | | 1V3CH | | | | | | | | | | | | | | | | | 22 | Secu | TBD | 1V3CH | 22 | Secu | TBD | | 1V3CH | | | | | | | | | | | | | | | | | 44 | Secu | TBD | 1V3CH | 44 | Secu | TBD | | 5GHTY | | | | | | | | | | | | | | | | | 8975 | Secu | TBD | 5GHTY | 8888 | Secu | Accepted | | 5GHTY | | | | | | | | | | | | | | | | | 23 | Secu | TBD | 1V3CH | 54 | Secu | TBD | | 5GHTY | | | | | | | | | | | | | | | | | | | | | | | | but it merege wrong fix the bug</p>
+<p>Sure! Let’s walk through an example to illustrate what the final output would look like.</p>
+<h3 id="example-data">Example Data<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#example-data" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Assume the initial data in <code>Sheet1</code> and <code>Sheet2</code> are as follows:</p>
+<p><strong>Sheet1:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>thing</th><th>petrol</th><th>price</th><th>state</th><th>brand</th><th>country</th></tr></thead><tbody><tr><td>bike</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>car</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<p><strong>Sheet2:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>name</th><th>petrol</th><th>price</th><th>brand</th></tr></thead><tbody><tr><td>bike</td><td>200l</td><td>3000k</td><td>pulser</td></tr><tr><td>car</td><td>1l</td><td>200k</td><td>BMW</td></tr><tr><td>car</td><td>400</td><td>4000k</td><td>ferrari</td></tr></tbody></table></div>
+<h3 id="after-running-the-script">After Running the Script<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#after-running-the-script" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>The script will merge data from <code>Sheet2</code> into <code>Sheet1</code> based on the <code>thing</code> column. The final content of <code>Sheet1</code> will be:</p>
+<p><strong>Sheet1 (Updated):</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>thing</th><th>petrol</th><th>price</th><th>state</th><th>brand</th><th>country</th></tr></thead><tbody><tr><td>bike</td><td>200l</td><td>3000k</td><td></td><td>pulser</td><td></td></tr><tr><td>car</td><td>1l</td><td>200k</td><td></td><td>BMW</td><td></td></tr><tr><td>car</td><td>400</td><td>4000k</td><td></td><td>ferrari</td><td></td></tr></tbody></table></div>
+<p>write a python script that will do copy work from sheet 2 to sheet 1 but it need to do follow blelow instruction to copy let say sheet2 have thing pertrol price brand bike 200l 3000k pulser car 1l 200k BMW car 400 4000k ferrari sheet 1 thing pertrol price state brand country bike car after copying data from sheet 2 to sheet1 thing pertrol price state brand country bike 200l 3000k pulser car 1l 200k BMW car 400 4000k ferrari only copy the shee2 data to sheet1 if sheet1 name in sheet2 in name other wise dont and move the correspoding column and note the sheet name column thing name can be any and that user can use where to lookup on merege and sheet1 have the column that don’t have vaule in sheet2 leave it as it is NOTE common_column = ‘thing’ it can be common but also uncommon let say in sheet1 it will in thing and sheet2 it will in name so adujeuct the code if you have any question feel free to ask and use pandas</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#kafkas-zero-copy-optimization-simplified" data-for="kafkas-zero-copy-optimization-simplified">Kafka’s Zero-Copy Optimization: Simplified</a></li><li class="depth-0"><a href="#traditional-data-transfer-without-zero-copy" data-for="traditional-data-transfer-without-zero-copy">Traditional Data Transfer (Without Zero-Copy)</a></li><li class="depth-0"><a href="#optimized-data-transfer-with-zero-copy" data-for="optimized-data-transfer-with-zero-copy">Optimized Data Transfer (With Zero-Copy)</a></li><li class="depth-0"><a href="#benefits-of-zero-copy" data-for="benefits-of-zero-copy">Benefits of Zero-Copy</a></li><li class="depth-0"><a href="#the-reality-check" data-for="the-reality-check">The Reality Check</a></li><li class="depth-0"><a href="#example-data" data-for="example-data">Example Data</a></li><li class="depth-0"><a href="#after-running-the-script" data-for="after-running-the-script">After Running the Script</a></li></ul></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script type="application/javascript">
+        const socket = new WebSocket('ws://localhost:3001')
+        // reload(true) ensures resources like images and scripts are fetched again in firefox
+        socket.addEventListener('message', () => document.location.reload(true))
+      </script><script src="../../postscript.js" type="module"></script></html>

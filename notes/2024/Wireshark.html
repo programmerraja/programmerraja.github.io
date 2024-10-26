@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Wireshark</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="Wireshark"/><meta property="og:description" content="Wireshark Overview Help Documentation: Access comprehensive documentation for all features via Help in Wireshark. TCP Analysis Stream Index Purpose: Wireshark calculates this to track individual streams."/><meta property="og:image" content="https://programmerraja.github.io/blog/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Wireshark Overview Help Documentation: Access comprehensive documentation for all features via Help in Wireshark. TCP Analysis Stream Index Purpose: Wireshark calculates this to track individual streams."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="notes/2024/Wireshark"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">programmerraja blog</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/2024/">2024</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Wireshark</a></div></nav><h1 class="article-title">Wireshark</h1><p show-comma="true" class="content-meta"><span>Jan 17, 2024</span><span>8 min read</span></p></div></div><article class="popover-hint"><h2 id="wireshark-overview">Wireshark Overview<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#wireshark-overview" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Help Documentation</strong>: Access comprehensive documentation for all features via <code>Help</code> in Wireshark.</li>
+</ul>
+<h2 id="tcp-analysis">TCP Analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tcp-analysis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="stream-index">Stream Index<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#stream-index" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Purpose</strong>: Wireshark calculates this to track individual streams.</li>
+<li><strong>Adjustments</strong>: To view the original sequence numbers instead of relative ones, right-click <span>→</span> Protocol Preferences <span>→</span> uncheck “Relative Sequence Numbers”.</li>
+</ul>
+<h3 id="flags">Flags<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#flags" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Common Flags</strong>: ACK, RST, etc.</li>
+</ul>
+<h3 id="window-size">Window Size<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#window-size" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Displayed Value</strong>: Shows the host window size.</li>
+<li><strong>Calculated Window Size</strong>: Represents the effective window size.</li>
+</ul>
+<h3 id="checksum">Checksum<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#checksum" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Validation</strong>: Wireshark does not automatically validate checksums. To enable, right-click <span>→</span> Protocol Preferences <span>→</span> check “Validate TCP Checksum if Possible”.</li>
+</ul>
+<h3 id="options">Options<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#options" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Max Segment Size (MSS)</strong>: Configurable TCP option.</li>
+</ul>
+<h3 id="syncack-flow-graph">Sync/Ack Flow Graph<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#syncack-flow-graph" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>View</strong>: Navigate to <code>Statistics</code> <span>→</span> <code>Flow Graph</code>.</li>
+</ul>
+<h3 id="tcp-options">TCP Options<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tcp-options" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li>
+<p><strong>Common Options</strong>:</p>
+<ul>
+<li>Timestamps</li>
+<li>Maximum Segment Size (MSS)</li>
+<li>Selective Acknowledgment (SACK)</li>
+<li>No-Operation (NOP)</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Wrap</strong>: Data added by Wireshark is enclosed in brackets <code>[]</code>.</p>
+</li>
+</ul>
+<h3 id="handling-missing-segments">Handling Missing Segments<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#handling-missing-segments" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Initial Transmission</strong>: Example segments sent: 1-2, 4-6, 6-8, 8-10.</li>
+<li><strong>Missing Segment</strong>: Missing segment 2-4 results in duplicate ACK for the last received segment.</li>
+<li><strong>Retransmission</strong>: Sender retransmits the missing segment upon receiving a duplicate ACK.</li>
+<li><strong>Acknowledgment</strong>: Receiver acknowledges the retransmitted segment.</li>
+</ul>
+<h2 id="udp-analysis">UDP Analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#udp-analysis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Display</strong>: Shown in a format diagram.</li>
+</ul>
+<h2 id="ipv6">IPv6<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ipv6" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Differences</strong>:
+<ul>
+<li>No broadcast support.</li>
+<li>No fragmentation.</li>
+<li>TTL (Time to Live) is known as Hop Limit.</li>
+</ul>
+</li>
+</ul>
+<h2 id="icmp">ICMP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#icmp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Usage</strong>: Primarily for error reporting and querying.</li>
+</ul>
+<h2 id="dns">DNS<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dns" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="query">Query<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#query" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Transaction ID</strong>: Unique identifier for each query.</li>
+<li><strong>Flags</strong>: Various DNS flags.</li>
+<li><strong>Questions</strong>: Number of questions in the query.</li>
+<li><strong>Queries</strong>: Contains the DNS queries made.</li>
+</ul>
+<h3 id="response">Response<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#response" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Answer PRS</strong>: Number of answers.</li>
+<li><strong>Answers</strong>: Contains answers to the questions.</li>
+</ul>
+<h2 id="dhcp">DHCP<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#dhcp" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>DORA Process</strong>:
+<ul>
+<li><strong>Discover</strong>: Client sends a discover message.</li>
+<li><strong>Offer</strong>: Server sends an offer message.</li>
+<li><strong>Request</strong>: Client requests an IP.</li>
+<li><strong>ACK</strong>: Server acknowledges the request.</li>
+</ul>
+</li>
+</ul>
+<h2 id="expert-system">Expert System<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#expert-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Alerts</strong>: Provides color-coded alerts:
+<ul>
+<li><strong>Red</strong>: Error</li>
+<li><strong>Yellow</strong>: Possible problem</li>
+<li><strong>Green</strong>: Note-worthy</li>
+<li><strong>Blue</strong>: Typical workflow</li>
+</ul>
+</li>
+<li><strong>Issues</strong>:
+<ul>
+<li><strong>Zero Window</strong>: Indicates the buffer is full.</li>
+<li><strong>Duplicate ACK</strong>: Identifies duplicate acknowledgments.</li>
+</ul>
+</li>
+</ul>
+<h2 id="wi-fi-frames">Wi-Fi Frames<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#wi-fi-frames" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Types of Frames</strong>:
+<ol>
+<li><strong>Management Frame</strong>: e.g., Beacon</li>
+<li><strong>Control Frame</strong></li>
+<li><strong>Data Frame</strong></li>
+</ol>
+</li>
+</ul>
+<h2 id="command-line-tools-windows">Command Line Tools (Windows)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#command-line-tools-windows" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li><strong>Netsh Trace</strong></li>
+<li><strong>Dumpcap</strong></li>
+<li><strong>Tshark</strong></li>
+</ol>
+<h2 id="io-graph">IO Graph<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#io-graph" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>View</strong>: Go to <code>Statistics</code> <span>→</span> <code>IO Graphs</code>. Customize filters, x-axis, and y-axis for visual representation.</li>
+</ul>
+<h2 id="conversation-analysis">Conversation Analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#conversation-analysis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Endpoints</strong>: Analyze conversations between two IP addresses.</li>
+<li><strong>Graph Options</strong>: View metrics like round-trip time, throughput, and window scaling.</li>
+</ul>
+<h2 id="voice-over-ip-voip">Voice Over IP (VoIP)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#voice-over-ip-voip" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Protocol</strong>: Real-Time Transport Protocol (RTP) is used for media streaming.</li>
+</ul>
+<h2 id="filters">Filters<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#filters" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Retransmissions and Duplicates</strong>: <code>tcp.analysis.flags &amp;&amp; !tcp.analysis.window_update</code></li>
+<li><strong>Reset Packets</strong>: <code>tcp.flags.reset</code></li>
+<li><strong>HTTP Response Time</strong>: <code>http.time > 0.25</code></li>
+</ul>
+<h2 id="tcp-sack-selective-acknowledgment">TCP SACK (Selective Acknowledgment)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tcp-sack-selective-acknowledgment" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Scenario</strong>: If segments 1-100, 100-200, and 200-300 are sent, and 100-200 is missing, the client sends an ACK for 100 with SACK indicating the missing range.</li>
+</ul>
+<h2 id="mtu-maximum-transmission-unit">MTU (Maximum Transmission Unit)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mtu-maximum-transmission-unit" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Definition</strong>: Maximum size of an IP packet that can be sent over a network link.</li>
+<li><strong>Fragmentation</strong>: If a packet exceeds the MTU, it is split into smaller fragments.</li>
+</ul>
+<h2 id="mss-maximum-segment-size">MSS (Maximum Segment Size)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mss-maximum-segment-size" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Definition</strong>: Maximum amount of data that can be sent in a single TCP segment.</li>
+<li><strong>Negotiation</strong>: Reported in TCP SYN segments but not negotiated.</li>
+</ul>
+<h2 id="delta-time">Delta Time<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#delta-time" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>Setting</strong>: Add <code>Delta Time</code> to columns to show the time difference between packets.</li>
+</ul>
+<h3 id="io-graph-1">IO Graph<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#io-graph-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Access</strong>: Go to <code>Statistics</code> <span>→</span> <code>IO Graphs</code>.</li>
+<li><strong>Customization</strong>:
+<ul>
+<li><strong>Filters</strong>: Choose filters to apply to the graph.</li>
+<li><strong>Axes</strong>: Set the x-axis and y-axis parameters.</li>
+<li><strong>Visualization</strong>: View traffic data visually. Customize filters and axis settings to tailor the graph to your needs.</li>
+</ul>
+</li>
+</ol>
+<h3 id="conversation-analysis-1">Conversation Analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#conversation-analysis-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Endpoints</strong>: Analyze conversations between two specific IP addresses.</li>
+<li><strong>Graph Metrics</strong>: Choose graphs to view:
+<ul>
+<li><strong>Round-Trip Time (RTT)</strong></li>
+<li><strong>Throughput</strong></li>
+<li><strong>Window Scaling</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="tcp-stream-graph">TCP Stream Graph<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tcp-stream-graph" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Stevens Graph</strong>: Displays TCP sequence numbers over time.</li>
+<li><strong>Tcptrace</strong>: Visualizes TCP metrics.</li>
+<li><strong>Throughput</strong>: Shows average throughput.</li>
+<li><strong>Round-Trip Time (RTT)</strong>: Measures the time taken for packets to travel to the destination and back.</li>
+<li><strong>Window Scaling</strong>: Visualizes window size and outstanding bytes.</li>
+</ol>
+<p>Time to live <span>→</span>  (when server or client sent it start with 64 or 128 or255 ) so on reveceive pakcet check what is the TTL to find how may routes it taked.</p>
+<p>In TCP, when there’s a gap in the received sequence numbers, the receiver uses several mechanisms to handle the situation and ensure reliable data transfer. Let’s use your example to illustrate how TCP handles a missing segment:</p>
+<ol>
+<li>
+<p><strong>Initial Transmission:</strong></p>
+<ul>
+<li>Sender (Host A) sends TCP segments with sequence numbers 1 to 2, 4 to 6, 6 to 8, and 8 to 10.</li>
+<li>Receiver (Host B) successfully receives and acknowledges segments 1 to 2, 4 to 6, 6 to 8, and 8 to 10.</li>
+</ul>
+<pre><code>Host A        ----->   Host B
+SEQ: 1-2              ACK: 3
+SEQ: 4-6              ACK: 7
+SEQ: 6-8              ACK: 9
+SEQ: 8-10             ACK: 11
+</code></pre>
+</li>
+<li>
+<p><strong>Missing Segment (2 to 4):</strong></p>
+<ul>
+<li>Segment with sequence numbers 2 to 4 is not received by Host B.</li>
+</ul>
+</li>
+<li>
+<p><strong>Receiver’s Perspective:</strong></p>
+<ul>
+<li>Host B detects the missing segment and sends a Duplicate ACK for the last correctly received segment (ACK: 3 in this case).</li>
+</ul>
+<pre><code>Host A        &lt;-----   Host B
+SEQ: 1-2              ACK: 3 (DUP ACK)
+SEQ: 4-6
+SEQ: 6-8
+SEQ: 8-10
+</code></pre>
+</li>
+<li>
+<p><strong>Retransmission Triggered:</strong></p>
+<ul>
+<li>Host A, upon receiving the Duplicate ACK, realizes that Host B is missing segment 2 to 4.</li>
+<li>Host A retransmits the missing segment (2 to 4).</li>
+</ul>
+<pre><code>Host A        ----->   Host B
+SEQ: 2-4              ACK: 7
+</code></pre>
+</li>
+<li>
+<p><strong>Subsequent Acknowledgments:</strong></p>
+<ul>
+<li>Host B acknowledges the retransmitted segment (ACK: 5).</li>
+</ul>
+<pre><code>Host A        &lt;-----   Host B
+SEQ: 2-4              ACK: 5
+</code></pre>
+</li>
+</ol>
+<p>Now, the TCP sender and receiver have cooperatively resolved the issue caused by the missing segment. This process demonstrates how TCP uses acknowledgments, duplicate acknowledgments, and retransmissions to recover from packet loss and ensure the reliable delivery of data.</p>
+<p>MTU link layer <span>→</span> Maximum Transmission Unit  maximum size of an IP packet that can be sent over a link
+Fragmentation is allowed by MTU. If a packet is larger than the MTU, it is split up into smaller parts.</p>
+<p>MTU is set on each router when the packet come big then that it will do fragmentation</p>
+<p>MSS stands for Maximum Segment Size. It is the maximum amount of data that can be sent in a single TCP segment.</p>
+<p>The Transmission Control Protocol (TCP) Maximum Segment Size (MSS) defines the maximum amount of data that a host accepts in a single TCP/IPv4 datagram.</p>
+<p>This TCP/IPv4 datagram is possibly fragmented at the IPv4 layer. The MSS value is sent as a TCP header option only in TCP SYN segments.</p>
+<p>Each side of a TCP connection reports its MSS value to the other side. The MSS value is <em>not</em> negotiated between hosts.</p>
+<p>A TCP option called MSS is negotiated as part of the handshake. The IP header and the TCP header are not included.</p>
+<p>Max can be 1460</p>
+<h2 id="tcp-sack-selective-acknowledgment-1">TCP SACK (Selective Acknowledgment)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tcp-sack-selective-acknowledgment-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Selective Acknowledgment (SACK) allows a receiver to acknowledge non-contiguous blocks of data. This helps in efficiently managing data loss and retransmissions.</p>
+<h3 id="example-scenario">Example Scenario<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#example-scenario" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li>
+<p><strong>Initial Transmission</strong>:</p>
+<ul>
+<li><strong>Data Sent</strong>:
+<ul>
+<li>Segment 1-100</li>
+<li>Segment 100-200</li>
+<li>Segment 200-300</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Issue</strong>:</p>
+<ul>
+<li>Assume the client did not receive Segment 100-200.</li>
+</ul>
+</li>
+<li>
+<p><strong>Client Behavior</strong>:</p>
+<ul>
+<li><strong>Acknowledgment (ACK)</strong>: The client sends an ACK for the last successfully received segment, which is 100.</li>
+<li><strong>SACK Option</strong>: The SACK option will indicate that the client received data up to 100 and is missing data in the range 100-200.</li>
+<li><strong>SACK Block</strong>: The SACK block specifies:
+<ul>
+<li><strong>Left Edge</strong>: 100 (starting point of the missing data)</li>
+<li><strong>Right Edge</strong>: 200 (end point of the missing data)</li>
+</ul>
+</li>
+</ul>
+<pre><code>Client's ACK: 100
+SACK Block: [100, 200)
+</code></pre>
+</li>
+<li>
+<p><strong>Server Action</strong>:</p>
+<ul>
+<li>Upon receiving the SACK block, the server understands that Segment 100-200 is missing and needs retransmission.</li>
+</ul>
+</li>
+</ol>
+<hr/>
+<h2 id="filters-1">Filters<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#filters-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Filters in Wireshark help isolate and analyze specific packets or types of traffic. Here are some useful filters:</p>
+<ol>
+<li>
+<p><strong>Retransmissions, Duplicates, and Window Updates</strong>:</p>
+<ul>
+<li><strong>Filter</strong>: <code>tcp.analysis.flags &amp;&amp; !tcp.analysis.window_update</code></li>
+<li><strong>Purpose</strong>: Lists all retransmitted TCP packets, duplicate acknowledgments, and window update packets.</li>
+</ul>
+</li>
+<li>
+<p><strong>TCP Reset Packets</strong>:</p>
+<ul>
+<li><strong>Filter</strong>: <code>tcp.flags.reset</code></li>
+<li><strong>Purpose</strong>: Shows packets where the server has reset the connection, indicating that the server is not listening on the port.</li>
+</ul>
+</li>
+<li>
+<p><strong>HTTP Response Time</strong>:</p>
+<ul>
+<li><strong>Filter</strong>: <code>http.time > 0.25</code></li>
+<li><strong>Purpose</strong>: Lists HTTP responses that take longer than 25 milliseconds to process.</li>
+</ul>
+</li>
+</ol>
+<h1 id="tls-12-handshake">TLS 1.2 Handshake<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tls-12-handshake" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h1>
+<p>It takes 4 steps to complete the handshake before sending the first encrypted request from a browser:</p>
+<ol>
+<li>Client Hello</li>
+<li>Server Hello</li>
+<li>Client key exchange and generate the master secret</li>
+<li>Finished</li>
+</ol>
+<p><a href="https://cabulous.medium.com/tls-1-2-andtls-1-3-handshake-walkthrough-4cfd0a798164" class="external">https://cabulous.medium.com/tls-1-2-andtls-1-3-handshake-walkthrough-4cfd0a798164<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p><img src="../../Pasted-image-20240303190219.png" width="auto" height="auto" alt/></p>
+<p>HTPP2</p>
+<p><a href="https://cabulous.medium.com/http-2-and-how-it-works-9f645458e4b2" class="external">https://cabulous.medium.com/http-2-and-how-it-works-9f645458e4b2<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>SSL/TLS session keys and the server’s private key serve different purposes in the context of secure communication over the internet.</p>
+<p>1</p>
+<p>SS0</p>
+<p><code>tshark -r 'el (1).cap' -Y &quot;tcp.flags.syn == 1 &amp;&amp; tcp.flags.ack == 0&quot; -T fields -e ip.dst | sort | uniq -c | sort -nr </code></p>
+<p><code>tshark -r 'el (1).cap' -Y &quot;tcp.flags.syn == 1 &amp;&amp; tcp.flags.ack == 0&quot; -T fields -e eth.dst | sort | uniq -c | sort -nr</code></p>
+<h2 id="finding-syn-packets-not-followed-by-synack">Finding SYN Packets Not Followed by SYN+ACK<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#finding-syn-packets-not-followed-by-synack" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="1-apply-display-filter">1. Apply Display Filter<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-apply-display-filter" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Filter</strong>: Use the display filter <code>tcp.flags eq 0x02</code> to show only packets where the SYN flag is set.
+<ul>
+<li>This filter isolates SYN packets, which are the initial packets in the TCP handshake.</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-analyze-conversations">2. Analyze Conversations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#2-analyze-conversations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Navigate to Conversations</strong>:
+<ul>
+<li>Go to <code>Statistics</code> <span>→</span> <code>Conversations</code> in the Wireshark menu.</li>
+</ul>
+</li>
+<li><strong>Apply Filter to Conversations</strong>:
+<ul>
+<li>At the bottom of the Conversations window, check the option <strong>“Limit to display filter”</strong>. This ensures that only the filtered packets (SYN packets) are considered in the analysis.</li>
+</ul>
+</li>
+<li><strong>Select the TCP Tab</strong>:
+<ul>
+<li>Click on the <strong>TCP</strong> tab to view only TCP conversations.</li>
+</ul>
+</li>
+<li><strong>Sort by Packet Count</strong>:
+<ul>
+<li>Click on the <strong>“Packets”</strong> column header to sort the conversations by the number of packets.</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-identify-connection-types">3. Identify Connection Types<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#3-identify-connection-types" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Connections with 1 Packet</strong>:
+<ul>
+<li>These are likely “good” connections where only a single SYN packet was sent. This could indicate that the connection was successfully established or that no response was received but no retries were made.</li>
+</ul>
+</li>
+<li><strong>Connections with More Than 1 Packet</strong>:
+<ul>
+<li>These are most likely “unanswered” connections where the SYN packet was retried multiple times due to no SYN+ACK response. The presence of multiple packets typically indicates retries.</li>
+</ul>
+</li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-1"><a href="#wireshark-overview" data-for="wireshark-overview">Wireshark Overview</a></li><li class="depth-1"><a href="#tcp-analysis" data-for="tcp-analysis">TCP Analysis</a></li><li class="depth-2"><a href="#stream-index" data-for="stream-index">Stream Index</a></li><li class="depth-2"><a href="#flags" data-for="flags">Flags</a></li><li class="depth-2"><a href="#window-size" data-for="window-size">Window Size</a></li><li class="depth-2"><a href="#checksum" data-for="checksum">Checksum</a></li><li class="depth-2"><a href="#options" data-for="options">Options</a></li><li class="depth-2"><a href="#syncack-flow-graph" data-for="syncack-flow-graph">Sync/Ack Flow Graph</a></li><li class="depth-2"><a href="#tcp-options" data-for="tcp-options">TCP Options</a></li><li class="depth-2"><a href="#handling-missing-segments" data-for="handling-missing-segments">Handling Missing Segments</a></li><li class="depth-1"><a href="#udp-analysis" data-for="udp-analysis">UDP Analysis</a></li><li class="depth-1"><a href="#ipv6" data-for="ipv6">IPv6</a></li><li class="depth-1"><a href="#icmp" data-for="icmp">ICMP</a></li><li class="depth-1"><a href="#dns" data-for="dns">DNS</a></li><li class="depth-2"><a href="#query" data-for="query">Query</a></li><li class="depth-2"><a href="#response" data-for="response">Response</a></li><li class="depth-1"><a href="#dhcp" data-for="dhcp">DHCP</a></li><li class="depth-1"><a href="#expert-system" data-for="expert-system">Expert System</a></li><li class="depth-1"><a href="#wi-fi-frames" data-for="wi-fi-frames">Wi-Fi Frames</a></li><li class="depth-1"><a href="#command-line-tools-windows" data-for="command-line-tools-windows">Command Line Tools (Windows)</a></li><li class="depth-1"><a href="#io-graph" data-for="io-graph">IO Graph</a></li><li class="depth-1"><a href="#conversation-analysis" data-for="conversation-analysis">Conversation Analysis</a></li><li class="depth-1"><a href="#voice-over-ip-voip" data-for="voice-over-ip-voip">Voice Over IP (VoIP)</a></li><li class="depth-1"><a href="#filters" data-for="filters">Filters</a></li><li class="depth-1"><a href="#tcp-sack-selective-acknowledgment" data-for="tcp-sack-selective-acknowledgment">TCP SACK (Selective Acknowledgment)</a></li><li class="depth-1"><a href="#mtu-maximum-transmission-unit" data-for="mtu-maximum-transmission-unit">MTU (Maximum Transmission Unit)</a></li><li class="depth-1"><a href="#mss-maximum-segment-size" data-for="mss-maximum-segment-size">MSS (Maximum Segment Size)</a></li><li class="depth-1"><a href="#delta-time" data-for="delta-time">Delta Time</a></li><li class="depth-2"><a href="#io-graph-1" data-for="io-graph-1">IO Graph</a></li><li class="depth-2"><a href="#conversation-analysis-1" data-for="conversation-analysis-1">Conversation Analysis</a></li><li class="depth-2"><a href="#tcp-stream-graph" data-for="tcp-stream-graph">TCP Stream Graph</a></li><li class="depth-1"><a href="#tcp-sack-selective-acknowledgment-1" data-for="tcp-sack-selective-acknowledgment-1">TCP SACK (Selective Acknowledgment)</a></li><li class="depth-2"><a href="#example-scenario" data-for="example-scenario">Example Scenario</a></li><li class="depth-1"><a href="#filters-1" data-for="filters-1">Filters</a></li><li class="depth-0"><a href="#tls-12-handshake" data-for="tls-12-handshake">TLS 1.2 Handshake</a></li><li class="depth-1"><a href="#finding-syn-packets-not-followed-by-synack" data-for="finding-syn-packets-not-followed-by-synack">Finding SYN Packets Not Followed by SYN+ACK</a></li><li class="depth-2"><a href="#1-apply-display-filter" data-for="1-apply-display-filter">1. Apply Display Filter</a></li><li class="depth-2"><a href="#2-analyze-conversations" data-for="2-analyze-conversations">2. Analyze Conversations</a></li><li class="depth-2"><a href="#3-identify-connection-types" data-for="3-identify-connection-types">3. Identify Connection Types</a></li></ul></div></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script type="application/javascript">
+        const socket = new WebSocket('ws://localhost:3001')
+        // reload(true) ensures resources like images and scripts are fetched again in firefox
+        socket.addEventListener('message', () => document.location.reload(true))
+      </script><script src="../../postscript.js" type="module"></script></html>
