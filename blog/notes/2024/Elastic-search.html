@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Elastic search</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="Elastic search"/><meta property="og:description" content="Indexing It is like a collection name in a database. Index-level shard allocation filtering Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices."/><meta property="og:image" content="https://programmerraja.github.io/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Indexing It is like a collection name in a database. Index-level shard allocation filtering Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="notes/2024/Elastic-search"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">programmerraja blog</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button><div class="explorer desktop-only"><button type="button" id="explorer" data-behavior="collapse" data-collapsed="collapsed" data-savestate="true" data-tree="[{&quot;path&quot;:&quot;notes&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;notes/2023&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;notes/2024&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post/2023&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post/2024&quot;,&quot;collapsed&quot;:true}]" aria-controls="explorer-content" aria-expanded="false"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-content"><ul class="overflow" id="explorer-ul"><li><div class="folder-outer open"><ul style="padding-left:0;" class="content" data-folderul><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes"><button class="folder-button"><span class="folder-title">notes</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes/2023"><button class="folder-button"><span class="folder-title">2023</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes/2023"><li><a href="../../notes/2023/MongoDB-Performance-Tuning" data-for="notes/2023/MongoDB-Performance-Tuning">MongoDB Performance Tuning</a></li><li><a href="../../notes/2023/RabbitMQ" data-for="notes/2023/RabbitMQ">RabbitMQ</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes/2024"><button class="folder-button"><span class="folder-title">2024</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes/2024"><li><a href="../../notes/2024/A-Philosophy-of-Software-Design-Book-Notes" data-for="notes/2024/A-Philosophy-of-Software-Design-Book-Notes">A Philosophy of Software Design Book Notes</a></li><li><a href="../../notes/2024/Abstract-syntax-tree" data-for="notes/2024/Abstract-syntax-tree">Abstract syntax tree</a></li><li><a href="../../notes/2024/AI" data-for="notes/2024/AI">AI</a></li><li><a href="../../notes/2024/AI-Agent" data-for="notes/2024/AI-Agent">AI Agent</a></li><li><a href="../../notes/2024/AI-Content-System" data-for="notes/2024/AI-Content-System">AI Content System</a></li><li><a href="../../notes/2024/AI-in-Coding" data-for="notes/2024/AI-in-Coding">AI in Coding</a></li><li><a href="../../notes/2024/AI-Paper" data-for="notes/2024/AI-Paper">AI Paper</a></li><li><a href="../../notes/2024/AI-Research-Paper-notes" data-for="notes/2024/AI-Research-Paper-notes">AI Research Paper notes</a></li><li><a href="../../notes/2024/Android-internal" data-for="notes/2024/Android-internal">Android internal</a></li><li><a href="../../notes/2024/Appache-Kaffa" data-for="notes/2024/Appache-Kaffa">Appache Kaffa</a></li><li><a href="../../notes/2024/AWS" data-for="notes/2024/AWS">AWS</a></li><li><a href="../../notes/2024/Basic-Maths" data-for="notes/2024/Basic-Maths">Basic Maths</a></li><li><a href="../../notes/2024/Big-Data" data-for="notes/2024/Big-Data">Big Data</a></li><li><a href="../../notes/2024/Building-Microservices" data-for="notes/2024/Building-Microservices">Building Microservices</a></li><li><a href="../../notes/2024/Claude" data-for="notes/2024/Claude">Claude</a></li><li><a href="../../notes/2024/Cloud-Design-Patterns" data-for="notes/2024/Cloud-Design-Patterns">Cloud Design Patterns</a></li><li><a href="../../notes/2024/Css" data-for="notes/2024/Css">Css</a></li><li><a href="../../notes/2024/Dart-Cheet-sheat" data-for="notes/2024/Dart-Cheet-sheat">Dart Cheet sheat</a></li><li><a href="../../notes/2024/Data-Science-from-Scratch" data-for="notes/2024/Data-Science-from-Scratch">Data Science from Scratch</a></li><li><a href="../../notes/2024/Data-structure" data-for="notes/2024/Data-structure">Data structure</a></li><li><a href="../../notes/2024/Database-internal" data-for="notes/2024/Database-internal">Database internal</a></li><li><a href="../../notes/2024/Database-Performance-at-Scale" data-for="notes/2024/Database-Performance-at-Scale">Database Performance at Scale</a></li><li><a href="../../notes/2024/Databases" data-for="notes/2024/Databases">Databases</a></li><li><a href="../../notes/2024/Deep-learning" data-for="notes/2024/Deep-learning">Deep learning</a></li><li><a href="../../notes/2024/Design-pattern" data-for="notes/2024/Design-pattern">Design pattern</a></li><li><a href="../../notes/2024/Distributed-System" data-for="notes/2024/Distributed-System">Distributed System</a></li><li><a href="../../notes/2024/Distributed-tracing" data-for="notes/2024/Distributed-tracing">Distributed tracing</a></li><li><a href="../../notes/2024/Docker" data-for="notes/2024/Docker">Docker</a></li><li><a href="../../notes/2024/Docker--and--Kubernetes-hacking" data-for="notes/2024/Docker--and--Kubernetes-hacking">Docker &amp; Kubernetes hacking</a></li><li><a href="../../notes/2024/Documentation" data-for="notes/2024/Documentation">Documentation</a></li><li><a href="../../notes/2024/Domain-driven-design" data-for="notes/2024/Domain-driven-design">Domain driven design</a></li><li><a href="../../notes/2024/Elastic-search" data-for="notes/2024/Elastic-search">Elastic search</a></li><li><a href="../../notes/2024/Free-LLM-API" data-for="notes/2024/Free-LLM-API">Free LLM API</a></li><li><a href="../../notes/2024/Freelancing-And-Saas" data-for="notes/2024/Freelancing-And-Saas">Freelancing And Saas</a></li><li><a href="../../notes/2024/Genric" data-for="notes/2024/Genric">Genric</a></li><li><a href="../../notes/2024/Go" data-for="notes/2024/Go">Go</a></li><li><a href="../../notes/2024/Google-vertex-AI" data-for="notes/2024/Google-vertex-AI">Google vertex AI</a></li><li><a href="../../notes/2024/Grafana" data-for="notes/2024/Grafana">Grafana</a></li><li><a href="../../notes/2024/Graph-database" data-for="notes/2024/Graph-database">Graph database</a></li><li><a href="../../notes/2024/Hacking" data-for="notes/2024/Hacking">Hacking</a></li><li><a href="../../notes/2024/Hands-On-Machine-Learningwith-Scikit-Learn,-Keras,-andTensorFlow" data-for="notes/2024/Hands-On-Machine-Learningwith-Scikit-Learn,-Keras,-andTensorFlow">Hands-On Machine Learningwith Scikit-Learn, Keras, andTensorFlow</a></li><li><a href="../../notes/2024/Haystack-Notes" data-for="notes/2024/Haystack-Notes">Haystack Notes</a></li><li><a href="../../notes/2024/Hugging-face" data-for="notes/2024/Hugging-face">Hugging face</a></li><li><a href="../../notes/2024/Influx-db" data-for="notes/2024/Influx-db">Influx db</a></li><li><a href="../../notes/2024/Kubernetes" data-for="notes/2024/Kubernetes">Kubernetes</a></li><li><a href="../../notes/2024/LamaIndex" data-for="notes/2024/LamaIndex">LamaIndex</a></li><li><a href="../../notes/2024/Langchain" data-for="notes/2024/Langchain">Langchain</a></li><li><a href="../../notes/2024/Leadership" data-for="notes/2024/Leadership">Leadership</a></li><li><a href="../../notes/2024/Leading-EffectiveEngineering-Teams" data-for="notes/2024/Leading-EffectiveEngineering-Teams">Leading EffectiveEngineering Teams</a></li><li><a href="../../notes/2024/Learning-Domain-Driven-Design" data-for="notes/2024/Learning-Domain-Driven-Design">Learning Domain-Driven Design</a></li><li><a href="../../notes/2024/Learning-from-blog" data-for="notes/2024/Learning-from-blog">Learning from blog</a></li><li><a href="../../notes/2024/Linux" data-for="notes/2024/Linux">Linux</a></li><li><a href="../../notes/2024/Linux-swiss-knife" data-for="notes/2024/Linux-swiss-knife">Linux swiss knife</a></li><li><a href="../../notes/2024/LLM-Hacking" data-for="notes/2024/LLM-Hacking">LLM Hacking</a></li><li><a href="../../notes/2024/LLM-Observability-And-Eval" data-for="notes/2024/LLM-Observability-And-Eval">LLM Observability And Eval</a></li><li><a href="../../notes/2024/LLM-strucuted-output-and-Parser" data-for="notes/2024/LLM-strucuted-output-and-Parser">LLM strucuted output and Parser</a></li><li><a href="../../notes/2024/LMDB-Database" data-for="notes/2024/LMDB-Database">LMDB Database</a></li><li><a href="../../notes/2024/Low-level-Tech" data-for="notes/2024/Low-level-Tech">Low level Tech</a></li><li><a href="../../notes/2024/Machine-learning" data-for="notes/2024/Machine-learning">Machine learning</a></li><li><a href="../../notes/2024/MeiliSearch" data-for="notes/2024/MeiliSearch">MeiliSearch</a></li><li><a href="../../notes/2024/Memory-profiling-Nodejs" data-for="notes/2024/Memory-profiling-Nodejs">Memory profiling Nodejs</a></li><li><a href="../../notes/2024/Microservice-Patterns-and-Best-Practices" data-for="notes/2024/Microservice-Patterns-and-Best-Practices">Microservice Patterns and Best Practices</a></li><li><a href="../../notes/2024/MicroServices" data-for="notes/2024/MicroServices">MicroServices</a></li><li><a href="../../notes/2024/Money-Earning" data-for="notes/2024/Money-Earning">Money Earning</a></li><li><a href="../../notes/2024/Mongodb-Notes" data-for="notes/2024/Mongodb-Notes">Mongodb Notes</a></li><li><a href="../../notes/2024/Napkin-maths" data-for="notes/2024/Napkin-maths">Napkin maths</a></li><li><a href="../../notes/2024/Natural-Language-Processing-with-Transformers--Notes" data-for="notes/2024/Natural-Language-Processing-with-Transformers--Notes">Natural Language Processing with Transformers  Notes</a></li><li><a href="../../notes/2024/Networking" data-for="notes/2024/Networking">Networking</a></li><li><a href="../../notes/2024/Nginx" data-for="notes/2024/Nginx">Nginx</a></li><li><a href="../../notes/2024/OS" data-for="notes/2024/OS">OS</a></li><li><a href="../../notes/2024/PostgreSQL" data-for="notes/2024/PostgreSQL">PostgreSQL</a></li><li><a href="../../notes/2024/Prompt-Engineering" data-for="notes/2024/Prompt-Engineering">Prompt Engineering</a></li><li><a href="../../notes/2024/Python" data-for="notes/2024/Python">Python</a></li><li><a href="../../notes/2024/Python-AI" data-for="notes/2024/Python-AI">Python AI</a></li><li><a href="../../notes/2024/React" data-for="notes/2024/React">React</a></li><li><a href="../../notes/2024/Rust" data-for="notes/2024/Rust">Rust</a></li><li><a href="../../notes/2024/ScyllaDB" data-for="notes/2024/ScyllaDB">ScyllaDB</a></li><li><a href="../../notes/2024/Software-Architecture" data-for="notes/2024/Software-Architecture">Software Architecture</a></li><li><a href="../../notes/2024/Software-Architecture-and-Decision-Making" data-for="notes/2024/Software-Architecture-and-Decision-Making">Software Architecture and Decision-Making</a></li><li><a href="../../notes/2024/Software-principles" data-for="notes/2024/Software-principles">Software principles</a></li><li><a href="../../notes/2024/Static-code-analysis" data-for="notes/2024/Static-code-analysis">Static code analysis</a></li><li><a href="../../notes/2024/STrace" data-for="notes/2024/STrace">STrace</a></li><li><a href="../../notes/2024/System-Design" data-for="notes/2024/System-Design">System Design</a></li><li><a href="../../notes/2024/System-Design-Case-study" data-for="notes/2024/System-Design-Case-study">System Design Case study</a></li><li><a href="../../notes/2024/Tech-stack-of-popular-companies" data-for="notes/2024/Tech-stack-of-popular-companies">Tech stack of popular companies</a></li><li><a href="../../notes/2024/Tensorflow" data-for="notes/2024/Tensorflow">Tensorflow</a></li><li><a href="../../notes/2024/Terraform" data-for="notes/2024/Terraform">Terraform</a></li><li><a href="../../notes/2024/Tmux" data-for="notes/2024/Tmux">Tmux</a></li><li><a href="../../notes/2024/Top-tech-peoples" data-for="notes/2024/Top-tech-peoples">Top tech peoples</a></li><li><a href="../../notes/2024/Transformer" data-for="notes/2024/Transformer">Transformer</a></li><li><a href="../../notes/2024/Typescript" data-for="notes/2024/Typescript">Typescript</a></li><li><a href="../../notes/2024/V8-Engine" data-for="notes/2024/V8-Engine">V8 Engine</a></li><li><a href="../../notes/2024/Vector-DB" data-for="notes/2024/Vector-DB">Vector DB</a></li><li><a href="../../notes/2024/Web-security" data-for="notes/2024/Web-security">Web security</a></li><li><a href="../../notes/2024/Weekend-Learning" data-for="notes/2024/Weekend-Learning">Weekend Learning</a></li><li><a href="../../notes/2024/Wireshark" data-for="notes/2024/Wireshark">Wireshark</a></li></ul></div></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post"><button class="folder-button"><span class="folder-title">post</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post/2023"><button class="folder-button"><span class="folder-title">2023</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post/2023"><li><a href="../../post/2023/helloworld" data-for="post/2023/helloworld">helloworld</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post/2024"><button class="folder-button"><span class="folder-title">2024</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post/2024"><li><a href="../../post/2024/A-Journey-into-Unseen-Threats-on-our-VM" data-for="post/2024/A-Journey-into-Unseen-Threats-on-our-VM">A Journey into Unseen Threats on our VM</a></li><li><a href="../../post/2024/C-razy-Facebook-Hack-How-I-Pranked-My-Friend" data-for="post/2024/C-razy-Facebook-Hack-How-I-Pranked-My-Friend">C-razy Facebook Hack How I Pranked My Friend</a></li><li><a href="../../post/2024/Code-Against-the-Clock--From-Clicks-to-Cash" data-for="post/2024/Code-Against-the-Clock--From-Clicks-to-Cash">Code Against the Clock  From Clicks to Cash</a></li><li><a href="../../post/2024/Code-Against-the-Clock--How-I-Cut-Our-Marketing-Team’s-Daily-Chores-with-Automation" data-for="post/2024/Code-Against-the-Clock--How-I-Cut-Our-Marketing-Team’s-Daily-Chores-with-Automation">Code Against the Clock  How I Cut Our Marketing Team’s Daily Chores with Automation</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Automating-Attendance-Management" data-for="post/2024/Code-Against-the-Clock-Automating-Attendance-Management">Code Against the Clock Automating Attendance Management</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Automating-the-youtube-shorts" data-for="post/2024/Code-Against-the-Clock-Automating-the-youtube-shorts">Code Against the Clock Automating the youtube shorts</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Creating-class-hunter" data-for="post/2024/Code-Against-the-Clock-Creating-class-hunter">Code Against the Clock Creating class hunter</a></li><li><a href="../../post/2024/Code-Against-the-Clock-How-I-Enhanced-My-PM-Productivity" data-for="post/2024/Code-Against-the-Clock-How-I-Enhanced-My-PM-Productivity">Code Against the Clock How I Enhanced My PM Productivity</a></li><li><a href="../../post/2024/Code-Against-the-Clock-How-I-Enhanced-My-Scrum-Master-Productivity" data-for="post/2024/Code-Against-the-Clock-How-I-Enhanced-My-Scrum-Master-Productivity">Code Against the Clock How I Enhanced My Scrum Master Productivity</a></li><li><a href="../../post/2024/Crafting-Code-Essential-Best-Practices" data-for="post/2024/Crafting-Code-Essential-Best-Practices">Crafting Code Essential Best Practices</a></li><li><a href="../../post/2024/From-Side-Hustle-to-Payday-How-I-Earned-My-First-$100" data-for="post/2024/From-Side-Hustle-to-Payday-How-I-Earned-My-First-$100">From Side Hustle to Payday How I Earned My First $100</a></li><li><a href="../../post/2024/How-I-Hacked-a-Company-Recruitment-Test-The-Unexpected-Tech-Adventure-of-My-College-Life" data-for="post/2024/How-I-Hacked-a-Company-Recruitment-Test-The-Unexpected-Tech-Adventure-of-My-College-Life">How I Hacked a Company Recruitment Test The Unexpected Tech Adventure of My College Life</a></li><li><a href="../../post/2024/How-to-capture-mongodb-protocol-in--wireshark" data-for="post/2024/How-to-capture-mongodb-protocol-in--wireshark">How to capture mongodb protocol in  wireshark</a></li><li><a href="../../post/2024/Hunting-the-Hacker-A-Deep-Dive-into-Courier-Fraud" data-for="post/2024/Hunting-the-Hacker-A-Deep-Dive-into-Courier-Fraud">Hunting the Hacker A Deep Dive into Courier Fraud</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found" data-for="post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found">Sherlock Holmes and The Case of the App Not Found</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-the-Case-of-the-Broken-Website" data-for="post/2024/Sherlock-Holmes-and-the-Case-of-the-Broken-Website">Sherlock Holmes and the Case of the Broken Website</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery" data-for="post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery">Sherlock Holmes and The Case of the Cloudflare Timeout Mystery</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack" data-for="post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack">Sherlock Holmes and The Case Redis Overload During a DDoS Attack</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash" data-for="post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash">Sherlock Holmes and The Mystery of the Erratic Logstash</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies" data-for="post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies">Sherlock Holmes and the Mystery of the Missing Cookies</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Case-of-the-Content-Length-Mismatch" data-for="post/2024/Sherlock-Holmes-The-Case-of-the-Content-Length-Mismatch">Sherlock Holmes The Case of the Content Length Mismatch</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Case-of-the-Missing-User-IPs" data-for="post/2024/Sherlock-Holmes-The-Case-of-the-Missing-User-IPs">Sherlock Holmes The Case of the Missing User IPs</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery" data-for="post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery">Sherlock Holmes The Great Lambda Mystery</a></li><li><a href="../../post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation" data-for="post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation">The Curious Case of the 15000 Spam My Unexpected Investigation</a></li><li><a href="../../post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World" data-for="post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World">The Day a DDOS Attack Led to the Most Awkward Hello World</a></li><li><a href="../../post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours" data-for="post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours">The Joy of Debugging How One Tiny Typo Kept Us Busy for Hours</a></li></ul></div></li></ul></div></li></ul></div></li><li id="explorer-end"></li></ul></div></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/2024/">2024</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Elastic search</a></div></nav><h1 class="article-title">Elastic search</h1><p show-comma="true" class="content-meta"><span>Mar 30, 2024</span><span>39 min read</span></p></div></div><article class="popover-hint"><h2 id="indexing">Indexing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#indexing" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>It is like a collection name in a database.</p>
+<h3 id="index-level-shard-allocation-filtering"><strong>Index-level shard allocation filtering</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#index-level-shard-allocation-filtering" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Index-level shard allocation filtering in Elasticsearch is a feature that allows you to control which nodes in your Elasticsearch cluster are eligible to store the primary and replica shards of specific indices. This feature gives you fine-grained control over shard placement based on node attributes and conditions, helping you optimize data distribution, resource utilization, and cluster stability.</p>
+<p>Here’s an explanation of index-level shard allocation filtering:</p>
+<p><strong>Scenario:</strong> Consider a multi-node Elasticsearch cluster where each node has different hardware specifications or specific roles, such as hot, warm, or cold data nodes. You want to ensure that certain indices are allocated only to nodes that meet specific criteria.</p>
+<h4 id="node-attributes"><strong>Node Attributes:</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#node-attributes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Elasticsearch allows you to assign custom attributes to nodes in your cluster. These attributes can describe node characteristics such as hardware capabilities, roles, geographic location, or any other relevant information.</p>
+<h4 id="index-settings"><strong>Index Settings:</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#index-settings" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>You can define shard allocation rules at the index level using index settings. Specifically, you can use the <code>index.routing.allocation.include</code> and <code>index.routing.allocation.exclude</code> settings to specify conditions that nodes must meet or avoid in order to be eligible for storing the shards of a particular index.</p>
+<ul>
+<li><code>index.routing.allocation.include</code>: This setting specifies conditions that nodes must meet to be eligible for shard allocation. For example, you can include nodes with specific attributes, roles, or other criteria.</li>
+<li><code>index.routing.allocation.exclude</code>: This setting specifies conditions that nodes must avoid to be eligible for shard allocation. It allows you to exclude nodes based on attributes, roles, or other criteria.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>Let’s say you have an Elasticsearch cluster with nodes tagged with attributes like “datacenter” and “node_type,” and you want to ensure that a particular index, “logs,” is only allocated to nodes in the “us-west” datacenter with the “hot” node type.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">PUT /logs/_settings</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">  &quot;settings&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">    &quot;index.routing.allocation.include.datacenter&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;us-west&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">    &quot;index.routing.allocation.include.node_type&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;hot&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span>
+<span data-line> </span></code></pre></figure>
+<p>In this example:</p>
+<ul>
+<li>The <code>index.routing.allocation.include.datacenter</code> setting ensures that shards of the “logs” index will be allocated only to nodes in the “us-west” datacenter.</li>
+<li>The <code>index.routing.allocation.include.node_type</code> setting further restricts allocation to nodes with the “hot” node type.</li>
+</ul>
+<p>By applying these index-level shard allocation filtering settings, you can control where your data is stored based on your cluster’s node attributes and criteria. This helps you optimize resource utilization, balance workloads, and ensure that data is placed on nodes that meet specific requirements for your use case.</p>
+<h4 id="array-of-objects-are-stored-as-seprate"><strong>Array of objects are stored as seprate</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#array-of-objects-are-stored-as-seprate" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>In Lucene, arrays of objects are stored by flattening them into a sequence of individual terms. Lucene doesn’t natively support complex nested structures like arrays of objects or nested arrays as you would find in some other document-oriented databases. Instead, Lucene is designed to work with flat fields, and it treats arrays of objects as a collection of separate terms.</p>
+<pre><code>{
+      &quot;title&quot;: &quot;The Great Book&quot;,
+      &quot;authors&quot;: [
+        {&quot;name&quot;: &quot;Author 1&quot;, &quot;country&quot;: &quot;USA&quot;},
+        {&quot;name&quot;: &quot;Author 2&quot;, &quot;country&quot;: &quot;UK&quot;}
+      ]
+}
+</code></pre>
+<p>The “authors” field would be indexed as multiple terms, with each term representing one author object. For example:</p>
+<ul>
+<li>[authors.name]: [“Author 1”, “Author 2”]</li>
+<li>authors.country: [“USA”, “UK”]</li>
+</ul>
+<h4 id="index-patterns"><strong>Index patterns</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#index-patterns" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Index patterns are a fundamental concept when working with Kibana, as they allow you to search, analyze, and visualize data stored in Elasticsearch.</p>
+<p>An index pattern specifies a wildcard pattern that matches one or more Elasticsearch indices. Indices are where your data is stored in Elasticsearch. By defining an index pattern, you determine the scope of data that Kibana will work with.</p>
+<h4 id="index-life-cycle-mangement"><strong>Index life cycle mangement</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#index-life-cycle-mangement" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><code>GET /my-index-000001/_ilm/explain</code> → to get llm</p>
+<p><code>POST /my-index-000001/_ilm/retry</code> → to retry the index</p>
+<p><strong><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/aliases.html" class="external">Aliases<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> →</strong>An alias is a secondary name for a group of data streams or indices. Most Elasticsearch APIs accept an alias in place of a data stream or index name. it used when the index is rollover it write the old data in this index name and new data will come to the old name.</p>
+<h4 id="index-templates"><strong>Index templates</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#index-templates" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>that defines settings, mappings, and other index-related configurations for newly created indices that match a specified pattern or criteria. Index templates are useful when you want to ensure consistent settings and mappings for indices created dynamically or periodically, such as daily or monthly time-based indices.</p>
+<p>How to Create templates</p>
+<pre><code>PUT /_template/my_template
+    {
+     // Match indices starting with &quot;log-&quot; then apply this template
+      &quot;index_patterns&quot;: [&quot;log-*&quot;], 
+    
+      &quot;settings&quot;: {
+        &quot;number_of_shards&quot;: 1,
+        &quot;number_of_replicas&quot;: 1
+      },
+      &quot;mappings&quot;: {
+        &quot;properties&quot;: {
+          &quot;timestamp&quot;: {
+            &quot;type&quot;: &quot;date&quot;
+          },
+          &quot;message&quot;: {
+            &quot;type&quot;: &quot;text&quot;
+          },
+          // Other field mappings
+        }
+      }
+    }
+</code></pre>
+<h4 id="reindexing">Reindexing<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#reindexing" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><a href="https://blog.stackademic.com/optimizing-elasticsearch-reindex-without-downtime-0f70cb4949d6" class="external">https://blog.stackademic.com/optimizing-elasticsearch-reindex-without-downtime-0f70cb4949d6<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h4 id="concurrent-updates-on-documents"><strong>Concurrent updates on documents</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#concurrent-updates-on-documents" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Elasticsearch uses a versioning mechanism to handle concurrent updates to the same document. When a document is updated, its version is incremented. If two parallel queries attempt to update the same document simultaneously, the following general sequence of events occurs:</p>
+<ol>
+<li><strong>Read and Retrieve the Document:</strong>
+<ul>
+<li>Both queries read the document with its current version.</li>
+</ul>
+</li>
+<li><strong>Update Operation:</strong>
+<ul>
+<li>Both queries attempt to update the document simultaneously.</li>
+<li>Elasticsearch uses the version number to determine the order of updates.</li>
+<li>Only one of the updates is accepted based on the version number.</li>
+</ul>
+</li>
+<li><strong>Version Conflict:</strong>
+<ul>
+<li>If the second update arrives with an outdated version number, Elasticsearch detects a version conflict.</li>
+<li>The update with the outdated version is rejected, and the client needs to retry the update with the correct version.</li>
+</ul>
+</li>
+</ol>
+<h2 id="shard">Shard<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#shard" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>“shard” is the basic unit of data storage and distribution. It’s essentially a smaller, manageable piece of an index it contain lucene index.</p>
+<p><strong>what is Lucence ?</strong></p>
+<p><strong>Lucene.</strong></p>
+<p>Lucene is the base of ElasticSearch, but you don’t interract directly with him, as you drive your car, but you don’t ask direct to your engine to start. But what if your car break, don’t you think is a good idea to know how your engine works?</p>
+<blockquote>
+<p>Lucene Indexing</p>
+</blockquote>
+<p>You have a big a mount of files, and you need to find a specificy file, wich contais a certain word, how to be quickly to do this? how to be scalable? Here’s where indexing comes in: to search large amounts of text quickly, you must first index that text and convert it into a format that will let you search it rapidly. This conversion process is called indexing, and its output is called an index.</p>
+<blockquote>
+<p>Lucene Index.</p>
+</blockquote>
+<p>The index is composed of one or more segments, and each segment is composed of several indexes, confusing, right? When it is created, it is separated into smaller segments, or you can see it as sub-indices, where each index is not completely independent.</p>
+<blockquote>
+<p>Lucene Segments.</p>
+</blockquote>
+<p>Segments are immutable .Each segment contains one or more Lucene Documents</p>
+<p>At some point, on your journey through ES, you have been in the situation of having to delete a document. And apparently that was no problem, but what is going on behind the scenes?</p>
+<p>When you delete a document, it is only “marked” as deleted and a new version of the document is added to the segment. Its real execution is only carried out from time to time when a “joining” of larger segments occurs.</p>
+<p>In the meantime, documents continue to take up disk space.</p>
+<blockquote>
+<p>Lucene Merge.</p>
+</blockquote>
+<p>Over time the index will accumulate many segments. Periodically, segments are merged into a single new segment and removing the old segments.</p>
+<p>But wait, whats it the benefits Merge my segments?</p>
+<p>Basically, because two important things, discard old documents and as result reduce our index space on disk, and the second one is the old segments are remove, and a new bigger segment are create, incresing your search speed.</p>
+<p>From elastic search &lt; 7.0 we have default 5 shard will be created now 1</p>
+<p>The core structure of a Lucene index is the <code>inverted index.</code> It’s like a dictionary where terms (words or tokens) are mapped to the documents that contain them. In your example, the terms come from the “title” and “content” fields. “Document 1 Title”  “This is the content of Document 1.will be indexed as</p>
+<pre><code>&quot;This&quot; -> [doc2]
+&quot;Title&quot; -> [doc1]
+&quot;is&quot; -> [doc2]
+&quot;the&quot; -> [doc2]
+&quot;content&quot; -> [doc2]
+&quot;of&quot; -> [doc2]
+&quot;Document&quot; -> [doc1,doc2]
+&quot;1&quot; -> [doc1,doc2]
+</code></pre>
+<p>There are 2 shard <code>primary</code> and <code>replica</code> shards both are fixed at index creation. replica of primary shard won’t store on the same node where primary exists
+To find no of shards</p>
+<pre><code>GET /your_index_name/_settings
+GET _/_cat/_shard/?v 
+</code></pre>
+<h2 id="segments">Segments<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#segments" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Elastic search buffers the documents for some time, and then creates one inverted index for all those documents. <em><strong>This “inverted index” is called Segment and this “sometimes” is called Refresh Time.</strong></em> This refreshing time is usually 1 second. Since every document takes the minimum of refresh time to get indexed, that’s why Elastic Search is called <em><strong>near-real-time analytics</strong>.</em> The above optimization might save us some cost, but again, will it be scalable?</p>
+<h3 id="nodes"><strong>Nodes</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#nodes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>Node is a single instance of the Elasticsearch server. Nodes are responsible for various tasks such as data storage,      indexing, searching, and responding to client requests. There are two main types of nodes in Elasticsearch:</p>
+<ul>
+<li>
+<p><strong>Data Node:</strong> A data node stores data and performs tasks related to data indexing and searching. It holds a portion of the index data and is responsible for the distributed storage and retrieval of documents.</p>
+</li>
+<li>
+<p><strong>Master Node:</strong> A master node is responsible for cluster coordination and management tasks. It maintains the cluster state, controls index creation and deletion, and manages the allocation of shards (the smallest unit of data storage in Elasticsearch) across data nodes.</p>
+</li>
+<li>
+<p><strong>coordination Node →</strong> distribute the query for the data node (The API sends a search or a get query to any of these nodes. The node it sends the query to becomes the “coordinator” node.)</p>
+</li>
+<li>
+<p><strong>Ingest Node →</strong> The Ingest Node Pipeline is a sequence of predefined or custom processors that operate on the incoming documents. These processors allow you to manipulate, enrich, or modify the data before it is indexed. Common tasks performed by processors include: After the data has been processed by the Ingest Node Pipeline, the transformed documents are indexed in Elasticsearch. The indexing process includes storing the documents in a suitable format and creating inverted indexes for efficient searching.</p>
+<ul>
+<li><strong>Grok Processor:</strong> Parsing unstructured log data into structured fields.</li>
+<li><strong>Date Processor:</strong> Parsing and formatting date fields.</li>
+<li><strong>Remove Processor:</strong> Removing unwanted fields from documents.</li>
+<li><strong>Set Processor:</strong> Setting values for specific fields.</li>
+<li><strong>GeoIP Processor:</strong> Adding geo-location information based on IP addresses.</li>
+</ul>
+</li>
+</ul>
+<p>To define node type we need to give in elasticsearc.yml file when startingnode</p>
+<h2 id="cluster"><strong>Cluster:</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cluster" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>In Elasticsearch, one or more nodes can form a cluster. A cluster is a group of interconnected Elasticsearch nodes that work together to store and manage data. It provides redundancy, fault tolerance, and the ability to distribute workloads across multiple nodes. create nodes with same cluster name in elasticsearch.yml on each node elastic search will take care to communicate with them using discovery.seed_hosts</p>
+<pre><code>  cluster.name: your-cluster-name
+    node.name: Node1
+    network.host: 0.0.0.0
+    discovery.seed_hosts: [&quot;Node1_IP:9300&quot;, &quot;Node2_IP:9300&quot;, &quot;Node3_IP:9300&quot;]
+    cluster.initial_master_nodes: [&quot;Node1&quot;, &quot;Node2&quot;, &quot;Node3&quot;]
+</code></pre>
+<h2 id="mapping"><strong>Mapping</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mapping" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>It defines the structure of the database schema, including tables, columns, data types, constraints, and indexes. This ensures that your application’s data aligns with the database’s expectations.Proper mapping can optimize data retrieval and storage. For example, mapping may dictate the use of indexing or the choice of data types, which can impact query performance. <code>GET /my-index-000001/_mapping</code> → to see mapping of the index</p>
+<p>Explict → defining mapping on creating index with filed and types and <code>we can add &quot;index&quot;: false to avoid indexing the document which we will not used for search which saves the memory</code></p>
+<p><strong>Data types</strong></p>
+<ol>
+<li><strong>Text Data Types</strong>:
+<ul>
+<li><strong>Text:</strong> Use the <strong><code>text</code></strong> data type for <strong>full-text search fields</strong>. This data type tokenizes text into terms, making it suitable for free-text search queries. It’s commonly used for fields like article content, product descriptions, and user comments.</li>
+<li><strong>Keyword:</strong> Use the <strong><code>keyword</code></strong> data type for exact matching or sorting fields. Keywords are not tokenized and are typically used for fields like tags, categories, or IDs. They are excellent for filtering and aggregating.</li>
+</ul>
+</li>
+<li><strong>Numeric Data Types</strong>:
+<ul>
+<li><strong>Integer:</strong> Use the <strong><code>integer</code></strong> data type for whole numbers. It’s suitable for fields like age, price, and quantity when you need to perform mathematical operations or range queries.</li>
+<li><strong>Long:</strong> Use the <strong><code>long</code></strong> data type for large integer values. It’s suitable for fields like timestamps, unique IDs, and counters.</li>
+<li><strong>Float/Double:</strong> Use the <strong><code>float</code></strong> or <strong><code>double</code></strong> data types for decimal numbers. Use <strong><code>float</code></strong> for less precision and storage, and <strong><code>double</code></strong> for higher precision. These are appropriate for fields like product prices, scores, and coordinates.</li>
+</ul>
+</li>
+<li><strong>Date Data Type</strong>:
+<ul>
+<li><strong>Date:</strong> Use the <strong><code>date</code></strong> data type for fields representing dates or timestamps. Elasticsearch can parse and store dates in a specific format, making it efficient for date range queries, date-based aggregations, and date math operations.</li>
+</ul>
+</li>
+<li><strong>Boolean Data Type</strong>:
+<ul>
+<li><strong>Boolean:</strong> Use the <strong><code>boolean</code></strong> data type for fields with true/false values, such as flags or checkboxes.</li>
+</ul>
+</li>
+<li><strong>Geo Data Types</strong>:
+<ul>
+<li><strong>Geo-point:</strong> Use the <strong><code>geo_point</code></strong> data type for storing latitude and longitude coordinates. It’s essential for location-based searches, such as finding nearby stores or places.</li>
+</ul>
+</li>
+<li><strong>Binary Data Type</strong>:
+<ul>
+<li><strong>Binary:</strong> Use the <strong><code>binary</code></strong> data type for fields containing binary data, such as images, documents, or multimedia files. Elasticsearch can store and retrieve binary data, but it doesn’t index the content for full-text searches.</li>
+</ul>
+</li>
+<li><strong>IP Data Type</strong>:
+<ul>
+<li><strong>IP:</strong> Use the <strong><code>ip</code></strong> data type for fields containing IP addresses. It allows efficient searching for IP ranges and aggregations based on IP addresses.</li>
+</ul>
+</li>
+<li><strong>Other Data Types</strong>:
+<ul>
+<li><strong>Nested:</strong> Use the <strong><code>nested</code></strong> data type to work with arrays of objects or complex data structures where individual elements need to be indexed and searched independently.</li>
+<li><strong>Object:</strong> Use the <strong><code>object</code></strong> data type for JSON-like objects that don’t require structured searching within the object fields.</li>
+</ul>
+</li>
+</ol>
+<p>Choosing the right data type depends on your specific use case and how you intend to query and aggregate the data. Consider the following factors:</p>
+<ul>
+<li><strong>Search Requirements:</strong> Determine whether you need full-text search, exact matching, filtering, sorting, or aggregations for a particular field.</li>
+<li><strong>Data Volume:</strong> Consider the volume of data and the potential impact on storage and indexing performance, especially for large fields.</li>
+<li><strong>Analyzers:</strong> Choose appropriate analyzers and tokenization for text fields to ensure effective full-text searching.</li>
+<li><strong>Sorting and Aggregations:</strong> Use <strong><code>keyword</code></strong> fields for fields you need to sort or aggregate on.</li>
+<li><strong>Numeric Precision:</strong> Choose the appropriate numeric data type (e.g., <strong><code>float</code></strong> vs. <strong><code>double</code></strong>) based on precision requirements.</li>
+</ul>
+<p><strong>Dynamic option in mapping</strong></p>
+<p>if you set <code>false</code> then If there’s a mismatch (e.g., a field is of the wrong data type or has a different analyzer), Elasticsearch will reject the document.</p>
+<p><strong>Dynamic option in mapping</strong></p>
+<p>if you set <code>runtime</code> then New fields are added to the mapping as <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/runtime.html" class="external">runtime fields<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>. These fields are not indexed, and are loaded from <code>_source</code> at query time.</p>
+<p>Because runtime fields aren’t indexed, adding a runtime field doesn’t increase the index size. You define runtime fields directly in the index mapping, saving storage costs and increasing ingestion speed. You can more quickly ingest data into the Elastic Stack and access it right away. When you define a runtime field, you can immediately use it in search requests, aggregations, filtering, and sorting.</p>
+<p>The “freshness_score” field is defined as a <strong><code>double</code></strong> data type and is a runtime field. It calculates the freshness score on-the-fly using a script that considers the timestamp of the review.</p>
+<pre><code></code></pre>
+<p><strong>Mapping parameters</strong></p>
+<ol>
+<li><strong><code>type</code></strong>:
+<ul>
+<li><strong>Description:</strong> Specifies the data type of the field. Common types include <strong><code>text</code></strong>, <strong><code>keyword</code></strong>, <strong><code>integer</code></strong>, <strong><code>date</code></strong>, and more.</li>
+<li><strong>Example:</strong> <strong><code>&quot;type&quot;: &quot;text&quot;</code></strong></li>
+</ul>
+</li>
+<li><strong><code>analyzer</code></strong>:
+<ul>
+<li><strong>Description:</strong> Specifies the text analysis process (analyzer) to use for tokenization and text processing. Applicable to text fields.</li>
+<li><strong>Example:</strong> <strong><code>&quot;analyzer&quot;: &quot;standard&quot;</code></strong></li>
+</ul>
+</li>
+<li><strong><code>index</code></strong>:
+<ul>
+<li><strong>Description:</strong> Controls whether and how a field is indexed. Options include <strong><code>&quot;true&quot;</code></strong> (default), <strong><code>&quot;false&quot;</code></strong> (not indexed), and <strong><code>&quot;false&quot;</code></strong> with <strong><code>&quot;doc_values&quot;</code></strong> (indexed for sorting and aggregations, but not full-text search).</li>
+<li><strong>Example:</strong> <strong><code>&quot;index&quot;: &quot;true&quot;</code></strong></li>
+</ul>
+</li>
+<li><strong><code>norms</code></strong>:
+<ul>
+<li>
+<p><strong>Description:</strong> Determines whether field length normalization is enabled. Norms are used for scoring and relevance calculations. if we set false for the filed that we not going to use for search to save space</p>
+</li>
+<li>
+<p><strong>Example:</strong> <strong><code>&quot;norms&quot;: false</code></strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<p>Relevance calculations.
+Relevance calculation, often referred to as scoring or relevance scoring, is a fundamental concept in information retrieval and search engines, including Elasticsearch. It refers to the process of determining how well a document matches a user’s query based on various factors and assigning a numerical score to each document. This score reflects the document’s relevance to the query, allowing search engines to rank and return the most relevant documents to users.</p>
+<p>In Elasticsearch, relevance calculations are primarily driven by the following key components:</p>
+<ol>
+<li><strong>Term Frequency (TF):</strong> This measures how often a term appears in a document. Documents that contain the query terms multiple times are considered more relevant.</li>
+<li><strong>Inverse Document Frequency (IDF):</strong> IDF assesses the importance of a term within a corpus of documents. Terms that appear in many documents are considered less important, while terms that appear in a smaller number of documents are considered more important.</li>
+<li><strong>Field Length Normalization:</strong> Longer documents tend to have more terms than shorter ones. Field length normalization adjusts the relevance score to account for the document’s length, ensuring that longer documents are not unfairly favored.</li>
+<li>. <strong>Coordination Factor:</strong> This factor accounts for how many of the query terms are present in a document. Documents that contain more query terms are typically more relevant.</li>
+<li><strong>Term Boosting:</strong> Elasticsearch allows you to assign different levels of importance (boosts) to individual query terms or fields, which can influence the relevance score.</li>
+<li>. <strong>BM25 Algorithm:</strong> Elasticsearch uses the BM25 ranking algorithm, which is a variation of TF-IDF with term frequency saturation and term weighting. BM25 is designed to be effective for full-text search and is the default scoring algorithm in Elasticsearch.</li>
+<li><strong>Scripting:</strong> Custom scripts can be used to calculate relevance scores based on complex criteria, such as business rules, personalization, or dynamic factors. This is particularly useful when standard scoring mechanisms are insufficient.</li>
+</ol>
+<p><strong>Metadata fields of the documents</strong></p>
+<p>Each document has metadata associated with it, such as the <code>_index</code> [The index to which the document belongs.] and <code>_id</code> metadata fields. The behavior of some of these metadata fields can be customized when a mapping is created.</p>
+<p><code>_Source</code> →The original JSON representing the body of the document. when passing on creating of doc</p>
+<p><code>_field_names</code> field used to index the names of every field in a document that contains any value other than <code>null</code>.</p>
+<p><code>_routing</code> →A document is routed to a particular shard in an index using the following formulas: The default <code>_routing</code> value is the document’s <code>[_id](&lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-id-field.html>)</code></p>
+<p>When you index a document into an Elasticsearch index, the document is first routed to a primary shard. The calculation for routing a document is performed as follows:</p>
+<p>Elasticsearch calculates a hash of the routing value (in your example, the “product_id”). This hash value is typically a number.</p>
+<p>The hash value is then divided by the total number of primary shards (the shard count you configured when creating the index). The result of this division determines which primary shard the document should be routed to.</p>
+<p>we can user routing key on search to search on only specfic shard</p>
+<pre><code>GET my-index-000001/_search
+        {
+          &quot;query&quot;: {
+            &quot;terms&quot;: {
+              &quot;_routing&quot;: [ &quot;key&quot; ] 
+            }
+          }
+        }
+</code></pre>
+<p>For example, if you have an index with 5 primary shards and the hash value of your routing field is 123, Elasticsearch might route the document to the primary shard with an ID of 123 % 5 = 3.</p>
+<p><code>routing_factor = num_routing_shards / num_primary_shards shard_num = (hash(_routing) % num_routing_shards) / routing_factor</code></p>
+<p>M<strong>apping types</strong></p>
+<p>Certainly, let’s walk through an example to help you understand mapping types in Elasticsearch before they were deprecated in version 7.0. In this example, we’ll use an index for storing information about books, and we’ll define multiple mapping types within that index.</p>
+<p>However, it’s essential to note that, as of Elasticsearch 7.0, the above approach is no longer supported. In recent versions, you’d define your data structures within a single mapping type within an index. Mapping types have been deprecated in favor of a simpler data model.</p>
+<p><code>Dynamic</code> →allows you to experiment with and explore data when you’re just getting started. Elasticsearch adds new fields automatically, just by indexing a document. it add mapping by the first document you inserted</p>
+<p><code>Type coresion</code> → on first document if we passed age as float then we pass string it will be converted to float but if we send that can’t be converted it will throw error</p>
+<h2 id="analyzer"><strong>Analyzer</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#analyzer" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>It is responsible for breaking down, or tokenizing, a text into individual terms or tokens, applying various transformations to these tokens, and preparing them for efficient storage and retrieval. Analyzers are essential for full-text search engines like Elasticsearch and Lucene, and they greatly influence the accuracy and relevance of search results.</p>
+<p>Here are the key components and functions of an analyzer:</p>
+<ol>
+<li><strong>Tokenization:</strong> The analyzer tokenizes the input text, which means it splits the text into individual words, phrases, or terms. For example, the sentence “The quick brown fox” might be tokenized into individual terms like “The,” “quick,” “brown,” and “fox.”</li>
+<li><strong>Lowercasing:</strong> In many analyzers, text is converted to lowercase to ensure case-insensitive searching. This means that “Quick” and “quick” would be treated as the same term.</li>
+<li><strong>Filtering:</strong> Analyzers often apply filters to remove or modify tokens. Common filters include:
+<ul>
+<li><strong>Stopword Removal:</strong> Removing common words (e.g., “a,” “an,” “the”) that do not carry significant meaning.</li>
+<li><strong>Stemming:</strong> Reducing words to their root or base form (e.g., “running” becomes “run”).</li>
+<li><strong>Synonym Expansion:</strong> Expanding tokens to include synonyms (e.g., “car” and “automobile”).</li>
+<li><strong>Character Filtering:</strong> Removing or replacing specific characters (e.g., punctuation marks).</li>
+</ul>
+</li>
+<li><strong>Token Type Assignments:</strong> Analyzers may assign token types or attributes to each token. This information can be used for advanced searching and filtering.</li>
+<li><strong>Normalization:</strong> Some analyzers perform normalization, ensuring that different forms of a word (e.g., singular and plural) are treated as equivalent.</li>
+<li><strong>Customization:</strong> Analyzers can be customized to suit specific requirements. In Elasticsearch, you can define your own custom analyzers, combining various tokenizers and filters.</li>
+</ol>
+<pre><code>    POST /_analyze {text:&quot;hai&quot;,analyzer:standard}
+</code></pre>
+<p><strong>ADMIN</strong></p>
+<p>To get full detail about elastic search <code>GET _cluster/state</code> will return</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;cluster_name&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;elasticsearch&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;cluster_uuid&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;HazzKHDGSA2hmmsKGVDCeA&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;version&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">33584</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;state_uuid&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;LEl8OGf2S9iVh73NovnQVQ&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;master_node&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;TtayhcCMTmqa020lB-3k4A&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;blocks&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : { },</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">        &quot;nodes&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {  </span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">            &quot;cp1SAtq2SIKWjJwfm2pqGg&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;name&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;elasticsearch-data&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;ephemeral_id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;jhqJvC_PS2a0KvoZV6zSWg&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;transport_address&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;10.244.2.25:9300&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;attributes&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;ml.machine_memory&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;6442450944&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;ml.max_open_jobs&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;512&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;xpack.installed&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;true&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;ml.max_jvm_size&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;4294967296&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;transform.node&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;true&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">              },</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;roles&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : [</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;data&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;data_cold&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;data_content&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;data_frozen&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;data_hot&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;data_warm&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;ml&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;remote_cluster_client&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;transform&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">              ]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">            },</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">            &quot;hXF1BAkKT6eaFlcqqE5_6Q&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;name&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;elasticsearch-client&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;ephemeral_id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;tQpQ2OldR3G6k6IL1B5a7w&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;transport_address&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;10.244.2.20:9300&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;attributes&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;ml.machine_memory&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;4294967296&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;ml.max_open_jobs&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;512&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;xpack.installed&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;true&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;ml.max_jvm_size&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;3221225472&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;transform.node&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;false&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">              },</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;roles&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : [</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;ingest&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;ml&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;remote_cluster_client&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">              ]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">            },</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">            &quot;TtayhcCMTmqa020lB-3k4A&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;name&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;elasticsearch-master&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;ephemeral_id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;LDfJRzqtQ8m9VsdD07XGdA&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;transport_address&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;10.244.2.23:9300&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;attributes&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;ml.machine_memory&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;4294967296&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;ml.max_open_jobs&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;512&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;xpack.installed&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;true&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;ml.max_jvm_size&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;3221225472&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">                &quot;transform.node&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;false&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">              },</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">              &quot;roles&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : [</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;master&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;ml&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">                &quot;remote_cluster_client&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">              ]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">            }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">          },</span></span>
+<span data-line><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic;">        metadata</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        }</span></span></code></pre></figure>
+<ul>
+<li>nodes → all nodes with details</li>
+<li>metadata → contain all indices and template and all details</li>
+</ul>
+<p><strong>logstash</strong></p>
+<p>ilm_rollover_alias</p>
+<p>Certainly! Let’s illustrate the concept of <code>ilm_rollover_alias</code> using an example scenario:</p>
+<pre><code> elasticsearch {
+        hosts => &quot;&lt;https://localhost:9243>&quot;
+        user => &quot;elastic&quot;
+        password => &quot;1234567&quot;
+        ilm_rollover_alias => 'klenty-consumers'
+        ilm_pattern => &quot;{now/d}-00001&quot;
+        template => '/etc/logstash/templates/index_template.json'
+        ilm_policy => &quot;klenty-rollover-1-day&quot;
+        ilm_enabled => true
+    }
+    
+</code></pre>
+<p><strong>Scenario</strong>: Imagine you have a system that generates log data, and you want to store this data in Elasticsearch. To efficiently manage the data and make it easier to query, you decide to use Elasticsearch’s Index Lifecycle Management (ILM) feature and Logstash to send the data to Elasticsearch.
+<strong>Logstash Configuration</strong>:</p>
+<p>Here’s your Logstash configuration with the <code>ilm_rollover_alias</code> setting:</p>
+<p><strong>Explanation with an Example</strong>:</p>
+<ol>
+<li><strong>Initialization</strong>:
+<ul>
+<li>You start Logstash, and it begins sending log data to Elasticsearch.</li>
+<li>Logstash creates an initial Elasticsearch index with a name based on the <code>ilm_pattern</code> and the current date. For example, if the current date is September 17, 2023, it might create an index named “2023.09.17-00001.”</li>
+<li>The alias ‘klenty-consumers’ is associated with this initial index because of the <code>ilm_rollover_alias</code> setting.</li>
+</ul>
+</li>
+<li><strong>Data Ingestion</strong>:
+<ul>
+<li>Logstash continues to send log data to the active index, which is “2023.09.17-00001” in this example.</li>
+<li>Elasticsearch stores the data in this index.</li>
+</ul>
+</li>
+<li><strong>Rollover Trigger</strong>:
+<ul>
+<li>Your ILM policy, “klenty-rollover-1-day,” is configured to perform a rollover based on a time condition, such as daily.</li>
+<li>When the new day begins (e.g., on September 18, 2023), the ILM policy triggers a rollover operation.</li>
+</ul>
+</li>
+<li><strong>Rollover Operation</strong>:
+<ul>
+<li>The ILM policy orchestrates the rollover. It closes the current active index, which is “2023.09.17-00001,” and creates a new index for the new day, let’s say “2023.09.18-00001.”</li>
+</ul>
+</li>
+<li><strong>Alias Update</strong>:
+<ul>
+<li>After the rollover operation, the alias ‘klenty-consumers’ is automatically updated by Elasticsearch to point to the newly created index, which is now “2023.09.18-00001.”</li>
+</ul>
+</li>
+<li><strong>Continued Data Ingestion</strong>:
+<ul>
+<li>Logstash continues to send log data, and Elasticsearch stores it in the newly active index, “2023.09.18-00001.”</li>
+</ul>
+</li>
+<li><strong>Querying Data</strong>:
+<ul>
+<li>Applications can consistently query data using the ‘klenty-consumers’ alias. They don’t need to be aware of the specific index names because the alias always points to the active index.</li>
+</ul>
+</li>
+<li><strong>Lifecycle Management</strong>:
+<ul>
+<li>The process repeats daily as per the ILM policy, creating new indices for each day, automatically updating the alias, and ensuring that data is efficiently organized and managed.</li>
+</ul>
+</li>
+</ol>
+<p>In summary, <code>ilm_rollover_alias</code> allows you to create a consistent entry point (‘klenty-consumers’ alias) for your data, making it easy to query and manage, even as Elasticsearch automatically rolls over to new indices based on your defined criteria, such as time or size. This ensures efficient storage and retrieval of time-series data while abstracting the complexity of index management.</p>
+<ul>
+<li>
+<p>iim_rollover_alias → used when we want to send data with same index name to handle rollover</p>
+<p>Certainly, let’s break down the concept of aliases in Elasticsearch and how they are used in conjunction with index rollovers with a practical example.</p>
+<p><strong>Alias in Elasticsearch</strong>: An alias is like a virtual pointer or nickname that you give to one or more indices. Instead of referring to a specific index directly, your applications, including Logstash, interact with the alias. This provides a level of abstraction that allows you to change which index the alias points to without needing to modify your application code.</p>
+<p><strong>Index Rollover with Aliases</strong>: When working with time-series data, like logs, you often want to create new indices at regular intervals (e.g., daily or monthly) to efficiently manage and store your data. Index rollover is a technique used to automate this process.</p>
+<p>Here’s a step-by-step explanation with an example:</p>
+<p><strong>Step 1: Set Up Initial Index and Alias</strong>:</p>
+<ol>
+<li>You create an initial index, let’s call it <code>logs-2023-09-26</code>, where the date is part of the index name.</li>
+<li>You also create an alias, say <code>logs-alias</code>, and initially, you point it to the initial index <code>logs-2023-09-26</code>. Logstash is configured to send data to <code>logs-alias</code>.</li>
+</ol>
+<p><strong>Step 2: Index Rollover Conditions</strong>:</p>
+<p>You define conditions in Elasticsearch, typically using an ILM policy, for when a rollover should occur. These conditions might include criteria like the index reaching a certain size, age, or number of documents.</p>
+<p><strong>Step 3: Elasticsearch Monitoring</strong>:</p>
+<p>Elasticsearch constantly monitors the index associated with the alias, which, in this case, is <code>logs-2023-09-26</code>. It checks whether the rollover conditions defined in the ILM policy are met.</p>
+<p><strong>Step 4: Rollover Triggered</strong>:</p>
+<p>Let’s say your ILM policy specifies that a rollover should occur when an index reaches a size of 5GB. When the data ingested into <code>logs-2023-09-26</code> exceeds 5GB, Elasticsearch triggers the rollover automatically, without any direct action from Logstash.</p>
+<p><strong>Step 5: New Index Created</strong>:</p>
+<p>Elasticsearch creates a new index, such as <code>logs-2023-09-27</code>, based on the template and settings you’ve defined. This new index is empty and ready to receive data.</p>
+<p><strong>Step 6: Alias Update</strong>:</p>
+<p>Elasticsearch updates the alias <code>logs-alias</code> to point to the new index, <code>logs-2023-09-27</code>. Now, any new data sent by Logstash is directed to the newly created index without Logstash needing to be aware of this change. Logstash continues to send data to <code>logs-alias</code>.</p>
+<p><strong>Step 7: Repeat</strong>:</p>
+<p>The process repeats as data continues to be ingested. When the rollover conditions are met again, another new index is created, and the alias is updated. This cycle continues, and Logstash sends data to the alias without interruption.</p>
+<p><strong>Example</strong>: Let’s assume you have an ILM policy with a rollover condition of reaching 5GB in index size. When <code>logs-2023-09-26</code> reaches 5GB, Elasticsearch creates <code>logs-2023-09-27</code> and updates <code>logs-alias</code> to point to it. Logstash, which has been sending data to <code>logs-alias</code>, seamlessly starts sending data to the new index.</p>
+<p>This process ensures that your data is efficiently managed, and you can query it across multiple indices using the same alias (<code>logs-alias</code>), regardless of how many indices have been created through rollovers. It abstracts the complexity of index management from your applications, making it easier to scale and maintain your Elasticsearch setup.</p>
+</li>
+<li>
+<p>Alias vs index patterns</p>
+<p>You’re correct that both aliases and index patterns can be used to facilitate querying in Elasticsearch. However, they serve slightly different purposes, and their use cases can overlap. Let’s explore the differences between aliases and index patterns:</p>
+<p><strong>1. Aliases:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: Aliases are primarily used to abstract the physical index names and provide a consistent, user-friendly name for querying. They act as pointers to one or more indices.</li>
+<li><strong>Use Case</strong>: Aliases are useful when you want to ensure that your application or users always interact with a specific index or a group of indices, regardless of the underlying index names. They are often used for managing data lifecycle, providing a stable entry point for querying, and for tasks like index swapping during rollovers.</li>
+<li><strong>Dynamic</strong>: Aliases can be updated dynamically by Elasticsearch to point to different indices based on conditions, such as rollover events or data aging.</li>
+<li>Aliases only accessed through code</li>
+</ul>
+<p><strong>2. Index Patterns:</strong></p>
+<ul>
+<li><strong>Purpose</strong>: Index patterns are used to define patterns for matching multiple indices based on their names. They are typically used for querying or applying actions across multiple indices that match a specific naming pattern.</li>
+<li><strong>Use Case</strong>: Index patterns are useful when you want to perform actions or queries across a set of indices that share a common naming convention. For example, you might use an index pattern like “logstash-*” to match all indices with names starting with “logstash-” regardless of the date or version in the index name.</li>
+<li><strong>Static</strong>: Index patterns are defined in advance and are not updated dynamically like aliases. They rely on consistent naming conventions.</li>
+<li>Acessed through discover page in kibana</li>
+</ul>
+<p><strong>Key Differences:</strong></p>
+<ol>
+<li><strong>Dynamic vs. Static</strong>: Aliases can be updated dynamically by Elasticsearch, making them suitable for scenarios where the active index changes due to rollovers or other events. Index patterns are defined statically and do not change automatically.</li>
+<li><strong>Stability vs. Flexibility</strong>: Aliases provide stability by always pointing to a specific index or the most recent index in a sequence. Index patterns offer flexibility for querying across multiple indices with similar names.</li>
+<li><strong>Use Cases</strong>: Aliases are commonly used for index lifecycle management, ensuring consistent querying, and providing a stable entry point. Index patterns are more suitable for querying and performing actions across sets of indices with similar names.</li>
+</ol>
+<p><strong>Use Both When Needed:</strong></p>
+<p>In practice, you can use both aliases and index patterns in combination to achieve different objectives. For instance, you can use an alias like ‘klenty-consumers’ for stable querying and use an index pattern like ‘logstash-*’ for broader operational tasks across multiple log indices.</p>
+<p>In summary, aliases and index patterns are complementary tools in Elasticsearch, and their effectiveness depends on the specific requirements of your use case. Aliases provide stability and dynamic management, while index patterns are helpful for querying and performing actions across groups of indices with similar names.</p>
+</li>
+</ul>
+<p>Need to check how</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> elasticsearch {</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">      hosts</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;&lt;https://klenty-kibana-pipeline.es.us-east4.gcp.elastic-cloud.com:9243>&quot;</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">    user</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;elastic&quot;</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">    password</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;zQb0V7ZssNF7oygnLfz5SetO&quot;</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">      ilm_rollover_alias</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> 'klenty-email-validation-logs'</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">      ilm_pattern</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;{now/d}-00001&quot;</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">      template</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> '/etc/logstash/templates/index_template.json'</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">      ilm_policy</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =></span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;"> &quot;klenty-rollover-1-day&quot;</span></span>
+<span data-line><span style="--shiki-light:#E36209;--shiki-dark:#FFAB70;">      ilm_enabled</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> =></span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> true</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span></code></pre></figure>
+<p>this make created as klenty-email-validation-logs-data-0001</p>
+<ul>
+<li>
+<p>Why</p>
+<p>The Logstash configuration you provided is used to create an Elasticsearch index with specific settings and configurations. Let’s break down the configuration and explain how the index will be created on a daily basis with examples and in-depth details.</p>
+<ol>
+<li>
+<p><strong>Elasticsearch Output Configuration</strong>:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">elasticsearch {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  hosts => &quot;&lt;https://localhost:9243>&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  user => &quot;elastic&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  password => &quot;123456789&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  ilm_rollover_alias => 'klenty-email-validation-logs'</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  ilm_pattern => &quot;{now/d}-00001&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  template => '/etc/logstash/templates/index_template.json'</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  ilm_policy => &quot;klenty-rollover-1-day&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  ilm_enabled => true</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span>
+<span data-line> </span></code></pre></figure>
+<ul>
+<li><code>hosts</code>: This specifies the Elasticsearch cluster’s address where Logstash will send data. In your case, it’s “<a href="https://localhost:9243/" class="external"><svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a><a href="https://localhost:9243" class="external">https://localhost:9243<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>,” assuming Elasticsearch is running on localhost on port 9243.</li>
+<li><code>user</code> and <code>password</code>: These are the credentials used for authentication when sending data to Elasticsearch.</li>
+<li><code>ilm_rollover_alias</code>: This is the alias that will be associated with the index. It’s set to ‘klenty-email-validation-logs.’</li>
+<li><code>ilm_pattern</code>: This pattern is used to generate the index name. <code>{now/d}</code> represents the current date in the format ‘YYYY.MM.dd,’ and ‘-00001’ is added to create a unique index name. This will result in an index name like ‘klenty-email-validation-logs-2023.09.17-00001’ for today’s date (assuming today is September 17, 2023).</li>
+<li><code>template</code>: Specifies the path to an index template. The template contains predefined settings and mappings for the index. You provided a JSON template located at ‘/etc/logstash/templates/index_template.json.’</li>
+<li><code>ilm_policy</code>: This is the name of the Index Lifecycle Management (ILM) policy associated with the index. In your case, it’s “klenty-rollover-1-day.” ILM policies define how indices are managed, including when they should be rolled over and deleted.</li>
+<li><code>ilm_enabled</code>: This flag is set to true, indicating that ILM is enabled for this index.</li>
+<li>DOCS
+<ol>
+<li><a href="https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html" class="external">https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Index Template</strong> (From ‘/etc/logstash/templates/index_template.json’):</p>
+<p>The index template provided in your configuration contains various settings for the index. Let’s break down some key settings:</p>
+<ul>
+<li><code>lifecycle</code>: Specifies the ILM settings for the index, including the ILM policy name (“klenty-rollover-1-day”) and the rollover alias (“klenty-email-validation-logs”).</li>
+<li><code>routing</code>: Defines how documents are allocated across nodes in the Elasticsearch cluster. In your configuration, it includes <code>_tier_preference: &quot;data_content&quot;</code> for routing.</li>
+<li><code>mapping</code>: Sets the total fields limit to 10,000 for this index. This limit restricts the number of fields that can be indexed in a single document.</li>
+<li><code>refresh_interval</code>: Specifies that the index will be refreshed every 5 seconds. This controls how often changes become visible to search.</li>
+</ul>
+</li>
+<li>
+<p><strong>Index Creation on a Daily Basis</strong>:</p>
+<p>With this configuration, an index will be created in Elasticsearch daily. Here’s how it works with an example:</p>
+<ul>
+<li>Today is September 17, 2023.</li>
+<li>Logstash processes and sends data to Elasticsearch.</li>
+<li>Elasticsearch uses the ILM pattern “{now/d}-00001” to create the index name: “klenty-email-validation-logs-2023.09.17-00001.”</li>
+<li>The index inherits settings and mappings from the provided template ‘/etc/logstash/templates/index_template.json.’</li>
+<li>The ILM policy “klenty-rollover-1-day” is associated with the index, which defines when the index should roll over (in this case, likely after one day) and how data retention is managed.</li>
+</ul>
+<p>The next day (September 18, 2023), a new index will be created with the name “klenty-email-validation-logs-2023.09.18-00001,” and this process repeats daily.</p>
+</li>
+</ol>
+<p>This setup ensures that your Elasticsearch indices are created with the specified settings, follow a daily naming pattern, and are managed according to the ILM policy you’ve defined, allowing for efficient data retention and maintenance.</p>
+</li>
+</ul>
+<h2 id="query"><strong>Query</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#query" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>
+<p>Elasticsearch sorts matching search results by <strong>relevance score</strong>,</p>
+</li>
+<li>
+<p>The relevance score is a positive floating point number, returned in the <code>_score</code> metadata field of the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-search.html" class="external">search<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> API. The higher the <code>_score</code>, the more relevant the document. While each query type can calculate relevance scores differently, score calculation also depends on whether the query clause is run in a <strong>query</strong> or <strong>filter</strong> context.</p>
+</li>
+<li>
+<p><strong>Query context → a</strong>nswers the question “<em>How well does this document match this query clause?</em>” Besides deciding whether or not the document matches, the query clause also calculates a relevance score in the <code>_score</code> metadata field.</p>
+<ol>
+<li>Query context is in effect whenever a query clause is passed to a <code>query</code> parameter</li>
+</ol>
+</li>
+<li>
+<p><strong>Filter context →</strong>answers the question “<em>Does this document match this query clause?</em>” The answer is a simple Yes or No — no scores are calculated</p>
+<ol>
+<li>Frequently used filters will be cached automatically by Elasticsearch, to speed up performance</li>
+<li>Filter context is in effect whenever a query clause is passed to a <code>filter</code> parameter</li>
+</ol>
+</li>
+<li>
+<p><strong>Relevance Score</strong></p>
+<p>The relevance score, also known as the “_score” in Elasticsearch, represents how well a document matches a given query. It’s a numerical value assigned to each document returned by a search, indicating the degree of relevance to the search criteria. The higher the score, the more relevant the document is considered.</p>
+<p><strong>How Relevance Score is Calculated:</strong></p>
+<ul>
+<li>Elasticsearch uses a scoring algorithm, typically the TF-IDF (Term Frequency-Inverse Document Frequency) algorithm or its variations, to calculate the relevance score.</li>
+<li>The score takes into account factors such as the frequency of query terms in the document, the length of the document, and the overall frequency of terms in the entire index.</li>
+</ul>
+<p><strong>Example:</strong> Let’s consider a simple example. Assume you have an index of articles and you perform a search for the query “machine learning.”</p>
+<ul>
+<li>Document 1: “Introduction to Machine Learning”
+<ul>
+<li>Contains the exact phrase “machine learning” multiple times.</li>
+<li>Medium-length document.</li>
+</ul>
+</li>
+<li>Document 2: “The History of Artificial Intelligence”
+<ul>
+<li>Mentions “machine learning” once.</li>
+<li>Long document.</li>
+</ul>
+</li>
+<li>Document 3: “Cooking Recipes for Beginners”
+<ul>
+<li>Doesn’t contain the phrase “machine learning.”</li>
+<li>Short document.</li>
+</ul>
+</li>
+</ul>
+<p>In this scenario, Elasticsearch would calculate a relevance score for each document based on factors like term frequency and document length. Let’s say the scores are as follows:</p>
+<ul>
+<li>Document 1: Relevance Score = 8.2</li>
+<li>Document 2: Relevance Score = 4.5</li>
+<li>Document 3: Relevance Score = 1.1</li>
+</ul>
+<p>When presenting the search results, Elasticsearch would order them by relevance score in descending order, so Document 1 would be listed first, followed by Document 2, and then Document 3.</p>
+<p>This scoring mechanism allows Elasticsearch to provide more relevant search results to users by considering not only the presence of query terms but also their frequency and importance in the documents.</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Example [basic cannot use complex]</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">GET</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> _search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;match&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;FIELD&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;TEXT&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+<li>
+<p>Example with aggregation</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">GET</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> /</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;bool&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;must&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;match&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;title&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;smith&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">          }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      ],</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;must_not&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;match_phrase&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;title&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;granny smith&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">          }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      ],</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;filter&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;exists&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;field&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;title&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">          }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      ]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  },</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;aggs&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;my_agg&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;terms&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;field&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;user&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;size&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">10</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  },</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;highlight&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;pre_tags&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;&lt;em>&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    ],</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;post_tags&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;&lt;/em>&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    ],</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;fields&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;body&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;number_of_fragments&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;fragment_size&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">20</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;title&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  },</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;size&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">20</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;from&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">100</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;_source&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;title&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;id&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  ],</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;sort&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;_id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;order&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;desc&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  ]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+<li>
+<p>Query Result with explanation</p>
+<ul>
+<li>
+<p>Output</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;took&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">5</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;timed_out&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">false</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;_shards&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;total&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;successful&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;skipped&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;failed&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  },</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;hits&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;total&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;value&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;relation&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;eq&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    },</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;max_score&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">29.626675</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;hits&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : [</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;_index&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;news&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;_id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;RzrouIsBC1dvdsZHf2cP&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;_score&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">29.626675</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;_source&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;link&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;&lt;https://www.huffpost.com/entry/guard-cat-hailed-as-hero_n_62e9a515e4b00f4cf2352a6f>&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;headline&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Bandit The 'Guard Cat' Hailed As Hero After Thwarting Would-Be Robbery&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;short_description&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;When at least two people tried to break into a Tupelo, Mississippi, home last week, the cat did everything she could to alert its owner.&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;category&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;WEIRD NEWS&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;authors&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;country&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;US&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;timestamp&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1693070640</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">      ...</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">..</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    ]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+<li>
+<p>The <code>_shards</code> field tells how many shards were involved in this search operation, how many of them returned successfully, how many failed, and how many skipped.</p>
+</li>
+<li>
+<p>The <code>hits</code> field contains the documents returned from the search. Each document is given a score based on how relevant it is to our search. The hits field also contains a field <code>total</code> mentioning the total number of documents returned, and the max score of the documents.</p>
+</li>
+<li>
+<p>Finally, in the nested field, <code>hits</code> we get all the relevant documents, along with their <code>_id</code>, and their <code>score</code>. The documents are sorted by their scores.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Qurries</p>
+<ol>
+<li><strong>leaf queries →Leaf queries look for specific values in certain field/fields. These queries can be used independently. Some of these queries include match, term, range queries.</strong>
+<ol>
+<li>ex full text,term query,span query,joining queries,</li>
+</ol>
+</li>
+<li><strong>compound queries →Compound queries uses the combination of leaf/compound queries. Basically, they combine multiple queries together to achieve their target results.</strong>
+<ol>
+<li>ex → bool,boosting,function score,constant socre</li>
+</ol>
+</li>
+</ol>
+<p>Boolean query</p>
+<ul>
+<li>
+<p>Basic syntax</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">	query</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">		bool</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">			&quot;must/should/filter&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">				&quot;term&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{conditon}	</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">				&quot;range&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;age&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;gte&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">10</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;lte&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">10</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">			}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">		}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+<li>
+<p>must → The clause (query) must appear in matching documents and will contribute to the score.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">POST</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> /</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">indexName</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;bool&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;must&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;term&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;user.id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;kimchy&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">		}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+<li>
+<p>should →should appear in the matching document.where documents meeting these conditions get a boost in their <code>relevance scores</code>. but same as filter</p>
+</li>
+<li>
+<p>filter → ingore for the score calculation,clauses are considered for caching.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">POST</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> _search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;bool&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;must&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;term&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;user.id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;kimchy&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;filter&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;term&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;tags&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;production&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+<li>
+<p>must_not →ingore the score calculation,clauses are considered for caching.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">	&quot;must_not&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;range&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;age&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;gte&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">10</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;lte&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">20</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+</ul>
+<p>Params</p>
+<ul>
+<li>
+<p><strong><code>minimum_should_match</code> →</strong> to specify the number or percentage of <code>should</code> clauses returned documents <em>must</em> match.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">POST</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> _search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;bool&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;must&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;term&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;user.id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;kimchy&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;filter&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;term&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;tags&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;production&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;must_not&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;range&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">          &quot;age&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;gte&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">10</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;lte&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">20</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      },</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;should&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : [</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;term&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;tags&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;env1&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> } },</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;term&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : { </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;tags&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;deployed&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> } }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      ],</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;minimum_should_match&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;boost&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1.0</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+</ul>
+<p>Math query</p>
+<ul>
+<li>
+<p>sample →this would return documents matching either “confidence” <strong>OR</strong> “buildings” . The default behavior of the <strong>match</strong> query is of <strong>OR</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">POST</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> fb</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">post</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;match&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;description&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;confidence buildings&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">Or</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">POST</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> fb</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">post</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;match&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;description&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;confidence buildings&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+<li>
+<p>And</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">POST</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> fb</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">post</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;match&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;description&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;confidence buildings&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;operator&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;AND&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+<li>
+<p><strong>multi-match</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">POST</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> fb</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">post</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;multi_match&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:    </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Giffords family&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;fields&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [ </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;name&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;description&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> ] </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+</ul>
+<p>We can also give custom scoring against the specific fields. In the below query, a boost of 5 is given to all the documents which match the keywords against the field “name”</p>
+<ul>
+<li>
+<p><strong>multi-match</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">POST</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> fb</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">post</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;multi_match&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:    </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Giffords family&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;fields&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: [ </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;name^5&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;description&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> ] </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+<li>
+<p><strong>query_string</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">POST</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> fb</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">post</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;query_string&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;(step down) OR (official act)&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;fields&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;description&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;name&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;status:active&quot;</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> -></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> staus is active</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;book.</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">\\</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">*:(quick OR brown)&quot;</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> -></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> book.any work has qucik or brown</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">_exists_</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:title </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-></span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> has exists </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">true</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">count</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">1</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> TO</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 5</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-></span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> to </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">4</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">date</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">*</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> TO</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 2012</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">01</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">01</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">} </span></span>
+<span data-line> </span></code></pre></figure>
+</li>
+<li>
+<p><strong>match_phrase →Match_phrase query is a particularly useful piece of query which looks for matching the phrase rather than individual words.</strong></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">POST</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> fb</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">post</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;match_phrase&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">            &quot;description&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;deeply concerned&quot;</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">							&quot;slop&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [optional]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">        }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">The slop value defaults to </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> and ranges to a maximum </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">of</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;"> 50.</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">In the above example, the slop value </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> indicates, </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">how far the terms can be allowed to consider </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">as</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> a</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> match</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.</span></span>
+<span data-line> </span></code></pre></figure>
+</li>
+</ul>
+<p><strong>Term query</strong></p>
+<p>Returns documents that contain an <strong>exact</strong> term in a provided field. Dont user for text field because analyzer will remove the puncation and other special character so if search with specail char it wont match but you can use match query that will work.</p>
+<ul>
+<li>
+<p>Query</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;term&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;full_text&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;Quick Brown Foxes!&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">			case_insensitive:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">true</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> /</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> from </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">7.0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">eventhough </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">if</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> you have </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">`Quick Brown Foxes!`</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> in</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> index it wont work beacause it</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">stored </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">as</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">quick</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">brown</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">fox</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">] </span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">during</span><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;"> analysis</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">.</span></span></code></pre></figure>
+</li>
+</ul>
+<p><strong>Fuzzy query</strong></p>
+<p>Returns documents that contain terms similar to the search term,</p>
+<ul>
+<li>
+<p>query</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">GET</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> /</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;fuzzy&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;user.id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;value&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;ki&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">				&quot;fuzziness&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;AUTO&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;max_expansions&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">50</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;prefix_length&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;transpositions&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">true</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;rewrite&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;constant_score_blended&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+</ul>
+<p><strong>IDs quey</strong></p>
+<ul>
+<li>
+<p>query</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">GET</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> /</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;ids&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;values&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> : [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;1&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;4&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;100&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+</ul>
+<p><strong>Regexp query</strong></p>
+<ul>
+<li>
+<p>Query</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">GET</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;"> /</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">_search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;query&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;regexp&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;user.id&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;value&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;k.*y&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;flags&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;ALL&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;case_insensitive&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">true</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;max_determinized_states&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">10000</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">        &quot;rewrite&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;constant_score_blended&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+</li>
+</ul>
+<p>Aggregation</p>
+<p>The structure of an aggregation query is as follows:</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">GET</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> _search</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;size&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">  &quot;aggs&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">    &quot;NAME&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">      &quot;AGG_TYPE&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  }</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<h2 id="types-of-aggregations"><strong>Types of aggregations</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#types-of-aggregations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>There are three main types of aggregations:</p>
+<ul>
+<li>Metric aggregations - Calculate metrics such as <code>sum</code>, <code>min</code>, <code>max</code>, and <code>avg</code> on numeric fields.</li>
+<li>Bucket aggregations - Sort query results into groups based on some criteria.</li>
+<li>Pipeline aggregations - Pipe the output of one aggregation as an input to another.</li>
+</ul>
+<p>Query resources</p>
+<ol>
+<li><a href="https://medium.com/elasticsearch/introduction-to-elasticsearch-queries-b5ea254bf455" class="external">https://medium.com/elasticsearch/introduction-to-elasticsearch-queries-b5ea254bf455<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://medium.com/elasticsearch/elasticsearch-queries-part-02-full-text-queries-e5ffe8fb3110" class="external">https://medium.com/elasticsearch/elasticsearch-queries-part-02-full-text-queries-e5ffe8fb3110<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ol>
+<p>Advanced</p>
+<ol>
+<li>
+<p>How many request can be handled by ELK</p>
+<ol>
+<li>The queue size (how many requests ES can accept before starting to reject</li>
+</ol>
+<p>them) defaults to 1000.</p>
+<p>b. This queue size is per thread in the threadpool.</p>
+<ol>
+<li>
+<p><strong>Calculating Request Impact on Threadpool:</strong></p>
+<ul>
+<li>The number of requests that can be handled simultaneously depends on the number of processors (cores) and shards hit by each search.</li>
+<li>For instance, if a search runs on 3 indices, each having 2 shards, there would be 6 requests in the threadpool per search.</li>
+<li>Example: Let’s say you have two servers, each with 8 cores. That totals to 16 cores in total, resulting in 16 threads available for processing.</li>
+<li>Considering the earlier scenario of 6 requests per search, the cluster can handle 8 requests at once with the available threads.</li>
+</ul>
+</li>
+<li>
+<p><strong>Queueing and Rejection:</strong></p>
+<ul>
+<li>The cluster can still queue additional searches. It can queue roughly <strong><code>nodes * queue size / requests per search</code></strong> searches before starting to reject them.</li>
+<li>In this case: <strong><code>2 nodes * 1000 queue size / 6 requests per search = 333 searches</code></strong> can be queued before rejecting them.</li>
+</ul>
+<p>a single node for single cluster</p>
+<p>quorm system</p>
+<p>how to scale write → increase shard for index</p>
+<p>to scale the read → increase the replica</p>
+<p>when write come it will write to buffer then it will taken and written to segements (immutable) written for every 1s</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="jsx" data-theme="github-light github-dark"><code data-language="jsx" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">put indexname </span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">  settings</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:{</span></span>
+<span data-line><span style="--shiki-light:#6F42C1;--shiki-dark:#B392F0;">		refresh_interval</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">:</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;30s&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<p>and when write op come it put on trans log the trans log will we wipe out when the data written to segement and disk</p>
+<p>from 7.0 if we not doing any search they won’t create the segements if we do search they explictly create the segements.</p>
+<p>every update the old segement mark for deletion and it create new</p>
+<p>Storage compression</p>
+<ul>
+<li>LZ4 , Deflate</li>
+</ul>
+<p>BKD tress → to store the numbers</p>
+<p>half and scaled floats</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">POST /indexname/_doc/0/_expalin</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">	query</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">will explain why the first doc match for query</span></span></code></pre></figure>
+<p>look for</p>
+<ol>
+<li>rollup</li>
+<li>fuzziness</li>
+</ol>
+<p>Full text search</p>
+<ol>
+<li>Tokenizer → remove white space , lowercase the word, remove stop word (the,a,etc) because we not going search using this word</li>
+</ol>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">GET /analyzer</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">{</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">	analyzer:&quot;english&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">	text:&quot;hai hello how are u&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">}</span></span></code></pre></figure>
+<ol>
+<li>Steming the word</li>
+<li>Create inverted index the tokenzied word are stored in alphabetical order with ID (it uses linked list)
+<ol>
+<li>it contain how many time it occur and position</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><a href="https://engineering.zalando.com/posts/2023/11/migrating-from-elasticsearch-7-to-8-learnings.html" class="external">https://engineering.zalando.com/posts/2023/11/migrating-from-elasticsearch-7-to-8-learnings.html<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/size-your-shards.html#size-your-shards" class="external">https://www.elastic.co/guide/en/elasticsearch/reference/current/size-your-shards.html#size-your-shards<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<ol>
+<li><strong><a href="https://www.youtube.com/watch?v=b7tCjZSvOno" class="external">How Does Full-Text Search Work under the Hood by Philipp Krenn<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></strong>
+<ol>
+<li>Talks abount lucene (how sentence get stored using tokenizer)</li>
+<li>How revelence score calculated</li>
+</ol>
+</li>
+</ol>
+<p>Searching 52 indices with 1 shard each is exactly equivalent to searching one index with 52 shards. The search happens at shard level</p>
+<p><a href="https://www.elastic.co/blog/why-am-i-seeing-bulk-rejections-in-my-elasticsearch-cluster" class="external">https://www.elastic.co/blog/why-am-i-seeing-bulk-rejections-in-my-elasticsearch-cluster<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p><a href="https://www.elastic.co/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster" class="external">https://www.elastic.co/blog/how-many-shards-should-i-have-in-my-elasticsearch-cluster<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<h2 id="tool">Tool<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tool" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>[<a href="https://github.com/elastic/rally" class="external">https://github.com/elastic/rally<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>](Macrobenchmarking framework for Elasticsearch</li>
+</ol>
+</li>
+</ol></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#indexing" data-for="indexing">Indexing</a></li><li class="depth-1"><a href="#index-level-shard-allocation-filtering" data-for="index-level-shard-allocation-filtering">Index-level shard allocation filtering</a></li><li class="depth-0"><a href="#shard" data-for="shard">Shard</a></li><li class="depth-0"><a href="#segments" data-for="segments">Segments</a></li><li class="depth-1"><a href="#nodes" data-for="nodes">Nodes</a></li><li class="depth-0"><a href="#cluster" data-for="cluster">Cluster:</a></li><li class="depth-0"><a href="#mapping" data-for="mapping">Mapping</a></li><li class="depth-0"><a href="#analyzer" data-for="analyzer">Analyzer</a></li><li class="depth-0"><a href="#query" data-for="query">Query</a></li><li class="depth-0"><a href="#types-of-aggregations" data-for="types-of-aggregations">Types of aggregations</a></li><li class="depth-0"><a href="#tool" data-for="tool">Tool</a></li></ul></div></div><div class="backlinks"><h3>Backlinks</h3><ul class="overflow"><li>No backlinks found</li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../postscript.js" type="module"></script></html>

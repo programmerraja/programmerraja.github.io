@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Linux</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="Linux"/><meta property="og:description" content="Linux Filesystem Getting Help Every command, application, or utility has a dedicated help file in Linux by typing --help in front of all linux cmd or we can refer Manual Pages with man ..."/><meta property="og:image" content="https://programmerraja.github.io/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Linux Filesystem Getting Help Every command, application, or utility has a dedicated help file in Linux by typing --help in front of all linux cmd or we can refer Manual Pages with man ..."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="notes/2024/Linux"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">programmerraja blog</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button><div class="explorer desktop-only"><button type="button" id="explorer" data-behavior="collapse" data-collapsed="collapsed" data-savestate="true" data-tree="[{&quot;path&quot;:&quot;notes&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;notes/2023&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;notes/2024&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post/2023&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post/2024&quot;,&quot;collapsed&quot;:true}]" aria-controls="explorer-content" aria-expanded="false"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-content"><ul class="overflow" id="explorer-ul"><li><div class="folder-outer open"><ul style="padding-left:0;" class="content" data-folderul><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes"><button class="folder-button"><span class="folder-title">notes</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes/2023"><button class="folder-button"><span class="folder-title">2023</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes/2023"><li><a href="../../notes/2023/MongoDB-Performance-Tuning" data-for="notes/2023/MongoDB-Performance-Tuning">MongoDB Performance Tuning</a></li><li><a href="../../notes/2023/RabbitMQ" data-for="notes/2023/RabbitMQ">RabbitMQ</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes/2024"><button class="folder-button"><span class="folder-title">2024</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes/2024"><li><a href="../../notes/2024/A-Philosophy-of-Software-Design-Book-Notes" data-for="notes/2024/A-Philosophy-of-Software-Design-Book-Notes">A Philosophy of Software Design Book Notes</a></li><li><a href="../../notes/2024/Abstract-syntax-tree" data-for="notes/2024/Abstract-syntax-tree">Abstract syntax tree</a></li><li><a href="../../notes/2024/AI" data-for="notes/2024/AI">AI</a></li><li><a href="../../notes/2024/AI-Agent" data-for="notes/2024/AI-Agent">AI Agent</a></li><li><a href="../../notes/2024/AI-Content-System" data-for="notes/2024/AI-Content-System">AI Content System</a></li><li><a href="../../notes/2024/AI-in-Coding" data-for="notes/2024/AI-in-Coding">AI in Coding</a></li><li><a href="../../notes/2024/AI-Paper" data-for="notes/2024/AI-Paper">AI Paper</a></li><li><a href="../../notes/2024/AI-Research-Paper-notes" data-for="notes/2024/AI-Research-Paper-notes">AI Research Paper notes</a></li><li><a href="../../notes/2024/Android-internal" data-for="notes/2024/Android-internal">Android internal</a></li><li><a href="../../notes/2024/Appache-Kaffa" data-for="notes/2024/Appache-Kaffa">Appache Kaffa</a></li><li><a href="../../notes/2024/AWS" data-for="notes/2024/AWS">AWS</a></li><li><a href="../../notes/2024/Basic-Maths" data-for="notes/2024/Basic-Maths">Basic Maths</a></li><li><a href="../../notes/2024/Big-Data" data-for="notes/2024/Big-Data">Big Data</a></li><li><a href="../../notes/2024/Building-Microservices" data-for="notes/2024/Building-Microservices">Building Microservices</a></li><li><a href="../../notes/2024/Claude" data-for="notes/2024/Claude">Claude</a></li><li><a href="../../notes/2024/Cloud-Design-Patterns" data-for="notes/2024/Cloud-Design-Patterns">Cloud Design Patterns</a></li><li><a href="../../notes/2024/Css" data-for="notes/2024/Css">Css</a></li><li><a href="../../notes/2024/Dart-Cheet-sheat" data-for="notes/2024/Dart-Cheet-sheat">Dart Cheet sheat</a></li><li><a href="../../notes/2024/Data-Science-from-Scratch" data-for="notes/2024/Data-Science-from-Scratch">Data Science from Scratch</a></li><li><a href="../../notes/2024/Data-structure" data-for="notes/2024/Data-structure">Data structure</a></li><li><a href="../../notes/2024/Database-internal" data-for="notes/2024/Database-internal">Database internal</a></li><li><a href="../../notes/2024/Database-Performance-at-Scale" data-for="notes/2024/Database-Performance-at-Scale">Database Performance at Scale</a></li><li><a href="../../notes/2024/Databases" data-for="notes/2024/Databases">Databases</a></li><li><a href="../../notes/2024/Deep-learning" data-for="notes/2024/Deep-learning">Deep learning</a></li><li><a href="../../notes/2024/Design-pattern" data-for="notes/2024/Design-pattern">Design pattern</a></li><li><a href="../../notes/2024/Distributed-System" data-for="notes/2024/Distributed-System">Distributed System</a></li><li><a href="../../notes/2024/Distributed-tracing" data-for="notes/2024/Distributed-tracing">Distributed tracing</a></li><li><a href="../../notes/2024/Docker" data-for="notes/2024/Docker">Docker</a></li><li><a href="../../notes/2024/Docker--and--Kubernetes-hacking" data-for="notes/2024/Docker--and--Kubernetes-hacking">Docker &amp; Kubernetes hacking</a></li><li><a href="../../notes/2024/Documentation" data-for="notes/2024/Documentation">Documentation</a></li><li><a href="../../notes/2024/Domain-driven-design" data-for="notes/2024/Domain-driven-design">Domain driven design</a></li><li><a href="../../notes/2024/Elastic-search" data-for="notes/2024/Elastic-search">Elastic search</a></li><li><a href="../../notes/2024/Free-LLM-API" data-for="notes/2024/Free-LLM-API">Free LLM API</a></li><li><a href="../../notes/2024/Freelancing-And-Saas" data-for="notes/2024/Freelancing-And-Saas">Freelancing And Saas</a></li><li><a href="../../notes/2024/Genric" data-for="notes/2024/Genric">Genric</a></li><li><a href="../../notes/2024/Go" data-for="notes/2024/Go">Go</a></li><li><a href="../../notes/2024/Google-vertex-AI" data-for="notes/2024/Google-vertex-AI">Google vertex AI</a></li><li><a href="../../notes/2024/Grafana" data-for="notes/2024/Grafana">Grafana</a></li><li><a href="../../notes/2024/Graph-database" data-for="notes/2024/Graph-database">Graph database</a></li><li><a href="../../notes/2024/Hacking" data-for="notes/2024/Hacking">Hacking</a></li><li><a href="../../notes/2024/Hands-On-Machine-Learningwith-Scikit-Learn,-Keras,-andTensorFlow" data-for="notes/2024/Hands-On-Machine-Learningwith-Scikit-Learn,-Keras,-andTensorFlow">Hands-On Machine Learningwith Scikit-Learn, Keras, andTensorFlow</a></li><li><a href="../../notes/2024/Haystack-Notes" data-for="notes/2024/Haystack-Notes">Haystack Notes</a></li><li><a href="../../notes/2024/Hugging-face" data-for="notes/2024/Hugging-face">Hugging face</a></li><li><a href="../../notes/2024/Influx-db" data-for="notes/2024/Influx-db">Influx db</a></li><li><a href="../../notes/2024/Kubernetes" data-for="notes/2024/Kubernetes">Kubernetes</a></li><li><a href="../../notes/2024/LamaIndex" data-for="notes/2024/LamaIndex">LamaIndex</a></li><li><a href="../../notes/2024/Langchain" data-for="notes/2024/Langchain">Langchain</a></li><li><a href="../../notes/2024/Leadership" data-for="notes/2024/Leadership">Leadership</a></li><li><a href="../../notes/2024/Leading-EffectiveEngineering-Teams" data-for="notes/2024/Leading-EffectiveEngineering-Teams">Leading EffectiveEngineering Teams</a></li><li><a href="../../notes/2024/Learning-Domain-Driven-Design" data-for="notes/2024/Learning-Domain-Driven-Design">Learning Domain-Driven Design</a></li><li><a href="../../notes/2024/Learning-from-blog" data-for="notes/2024/Learning-from-blog">Learning from blog</a></li><li><a href="../../notes/2024/Linux" data-for="notes/2024/Linux">Linux</a></li><li><a href="../../notes/2024/Linux-swiss-knife" data-for="notes/2024/Linux-swiss-knife">Linux swiss knife</a></li><li><a href="../../notes/2024/LLM-Hacking" data-for="notes/2024/LLM-Hacking">LLM Hacking</a></li><li><a href="../../notes/2024/LLM-Observability-And-Eval" data-for="notes/2024/LLM-Observability-And-Eval">LLM Observability And Eval</a></li><li><a href="../../notes/2024/LLM-strucuted-output-and-Parser" data-for="notes/2024/LLM-strucuted-output-and-Parser">LLM strucuted output and Parser</a></li><li><a href="../../notes/2024/LMDB-Database" data-for="notes/2024/LMDB-Database">LMDB Database</a></li><li><a href="../../notes/2024/Low-level-Tech" data-for="notes/2024/Low-level-Tech">Low level Tech</a></li><li><a href="../../notes/2024/Machine-learning" data-for="notes/2024/Machine-learning">Machine learning</a></li><li><a href="../../notes/2024/MeiliSearch" data-for="notes/2024/MeiliSearch">MeiliSearch</a></li><li><a href="../../notes/2024/Memory-profiling-Nodejs" data-for="notes/2024/Memory-profiling-Nodejs">Memory profiling Nodejs</a></li><li><a href="../../notes/2024/Microservice-Patterns-and-Best-Practices" data-for="notes/2024/Microservice-Patterns-and-Best-Practices">Microservice Patterns and Best Practices</a></li><li><a href="../../notes/2024/MicroServices" data-for="notes/2024/MicroServices">MicroServices</a></li><li><a href="../../notes/2024/Money-Earning" data-for="notes/2024/Money-Earning">Money Earning</a></li><li><a href="../../notes/2024/Mongodb-Notes" data-for="notes/2024/Mongodb-Notes">Mongodb Notes</a></li><li><a href="../../notes/2024/Napkin-maths" data-for="notes/2024/Napkin-maths">Napkin maths</a></li><li><a href="../../notes/2024/Natural-Language-Processing-with-Transformers--Notes" data-for="notes/2024/Natural-Language-Processing-with-Transformers--Notes">Natural Language Processing with Transformers  Notes</a></li><li><a href="../../notes/2024/Networking" data-for="notes/2024/Networking">Networking</a></li><li><a href="../../notes/2024/Nginx" data-for="notes/2024/Nginx">Nginx</a></li><li><a href="../../notes/2024/OS" data-for="notes/2024/OS">OS</a></li><li><a href="../../notes/2024/PostgreSQL" data-for="notes/2024/PostgreSQL">PostgreSQL</a></li><li><a href="../../notes/2024/Prompt-Engineering" data-for="notes/2024/Prompt-Engineering">Prompt Engineering</a></li><li><a href="../../notes/2024/Python" data-for="notes/2024/Python">Python</a></li><li><a href="../../notes/2024/Python-AI" data-for="notes/2024/Python-AI">Python AI</a></li><li><a href="../../notes/2024/React" data-for="notes/2024/React">React</a></li><li><a href="../../notes/2024/Rust" data-for="notes/2024/Rust">Rust</a></li><li><a href="../../notes/2024/ScyllaDB" data-for="notes/2024/ScyllaDB">ScyllaDB</a></li><li><a href="../../notes/2024/Software-Architecture" data-for="notes/2024/Software-Architecture">Software Architecture</a></li><li><a href="../../notes/2024/Software-Architecture-and-Decision-Making" data-for="notes/2024/Software-Architecture-and-Decision-Making">Software Architecture and Decision-Making</a></li><li><a href="../../notes/2024/Software-principles" data-for="notes/2024/Software-principles">Software principles</a></li><li><a href="../../notes/2024/Static-code-analysis" data-for="notes/2024/Static-code-analysis">Static code analysis</a></li><li><a href="../../notes/2024/STrace" data-for="notes/2024/STrace">STrace</a></li><li><a href="../../notes/2024/System-Design" data-for="notes/2024/System-Design">System Design</a></li><li><a href="../../notes/2024/System-Design-Case-study" data-for="notes/2024/System-Design-Case-study">System Design Case study</a></li><li><a href="../../notes/2024/Tech-stack-of-popular-companies" data-for="notes/2024/Tech-stack-of-popular-companies">Tech stack of popular companies</a></li><li><a href="../../notes/2024/Tensorflow" data-for="notes/2024/Tensorflow">Tensorflow</a></li><li><a href="../../notes/2024/Terraform" data-for="notes/2024/Terraform">Terraform</a></li><li><a href="../../notes/2024/Tmux" data-for="notes/2024/Tmux">Tmux</a></li><li><a href="../../notes/2024/Top-tech-peoples" data-for="notes/2024/Top-tech-peoples">Top tech peoples</a></li><li><a href="../../notes/2024/Transformer" data-for="notes/2024/Transformer">Transformer</a></li><li><a href="../../notes/2024/Typescript" data-for="notes/2024/Typescript">Typescript</a></li><li><a href="../../notes/2024/V8-Engine" data-for="notes/2024/V8-Engine">V8 Engine</a></li><li><a href="../../notes/2024/Vector-DB" data-for="notes/2024/Vector-DB">Vector DB</a></li><li><a href="../../notes/2024/Web-security" data-for="notes/2024/Web-security">Web security</a></li><li><a href="../../notes/2024/Weekend-Learning" data-for="notes/2024/Weekend-Learning">Weekend Learning</a></li><li><a href="../../notes/2024/Wireshark" data-for="notes/2024/Wireshark">Wireshark</a></li></ul></div></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post"><button class="folder-button"><span class="folder-title">post</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post/2023"><button class="folder-button"><span class="folder-title">2023</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post/2023"><li><a href="../../post/2023/helloworld" data-for="post/2023/helloworld">helloworld</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post/2024"><button class="folder-button"><span class="folder-title">2024</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post/2024"><li><a href="../../post/2024/A-Journey-into-Unseen-Threats-on-our-VM" data-for="post/2024/A-Journey-into-Unseen-Threats-on-our-VM">A Journey into Unseen Threats on our VM</a></li><li><a href="../../post/2024/C-razy-Facebook-Hack-How-I-Pranked-My-Friend" data-for="post/2024/C-razy-Facebook-Hack-How-I-Pranked-My-Friend">C-razy Facebook Hack How I Pranked My Friend</a></li><li><a href="../../post/2024/Code-Against-the-Clock--From-Clicks-to-Cash" data-for="post/2024/Code-Against-the-Clock--From-Clicks-to-Cash">Code Against the Clock  From Clicks to Cash</a></li><li><a href="../../post/2024/Code-Against-the-Clock--How-I-Cut-Our-Marketing-Team’s-Daily-Chores-with-Automation" data-for="post/2024/Code-Against-the-Clock--How-I-Cut-Our-Marketing-Team’s-Daily-Chores-with-Automation">Code Against the Clock  How I Cut Our Marketing Team’s Daily Chores with Automation</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Automating-Attendance-Management" data-for="post/2024/Code-Against-the-Clock-Automating-Attendance-Management">Code Against the Clock Automating Attendance Management</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Automating-the-youtube-shorts" data-for="post/2024/Code-Against-the-Clock-Automating-the-youtube-shorts">Code Against the Clock Automating the youtube shorts</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Creating-class-hunter" data-for="post/2024/Code-Against-the-Clock-Creating-class-hunter">Code Against the Clock Creating class hunter</a></li><li><a href="../../post/2024/Code-Against-the-Clock-How-I-Enhanced-My-PM-Productivity" data-for="post/2024/Code-Against-the-Clock-How-I-Enhanced-My-PM-Productivity">Code Against the Clock How I Enhanced My PM Productivity</a></li><li><a href="../../post/2024/Code-Against-the-Clock-How-I-Enhanced-My-Scrum-Master-Productivity" data-for="post/2024/Code-Against-the-Clock-How-I-Enhanced-My-Scrum-Master-Productivity">Code Against the Clock How I Enhanced My Scrum Master Productivity</a></li><li><a href="../../post/2024/Crafting-Code-Essential-Best-Practices" data-for="post/2024/Crafting-Code-Essential-Best-Practices">Crafting Code Essential Best Practices</a></li><li><a href="../../post/2024/From-Side-Hustle-to-Payday-How-I-Earned-My-First-$100" data-for="post/2024/From-Side-Hustle-to-Payday-How-I-Earned-My-First-$100">From Side Hustle to Payday How I Earned My First $100</a></li><li><a href="../../post/2024/How-I-Hacked-a-Company-Recruitment-Test-The-Unexpected-Tech-Adventure-of-My-College-Life" data-for="post/2024/How-I-Hacked-a-Company-Recruitment-Test-The-Unexpected-Tech-Adventure-of-My-College-Life">How I Hacked a Company Recruitment Test The Unexpected Tech Adventure of My College Life</a></li><li><a href="../../post/2024/How-to-capture-mongodb-protocol-in--wireshark" data-for="post/2024/How-to-capture-mongodb-protocol-in--wireshark">How to capture mongodb protocol in  wireshark</a></li><li><a href="../../post/2024/Hunting-the-Hacker-A-Deep-Dive-into-Courier-Fraud" data-for="post/2024/Hunting-the-Hacker-A-Deep-Dive-into-Courier-Fraud">Hunting the Hacker A Deep Dive into Courier Fraud</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found" data-for="post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found">Sherlock Holmes and The Case of the App Not Found</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-the-Case-of-the-Broken-Website" data-for="post/2024/Sherlock-Holmes-and-the-Case-of-the-Broken-Website">Sherlock Holmes and the Case of the Broken Website</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery" data-for="post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery">Sherlock Holmes and The Case of the Cloudflare Timeout Mystery</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack" data-for="post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack">Sherlock Holmes and The Case Redis Overload During a DDoS Attack</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash" data-for="post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash">Sherlock Holmes and The Mystery of the Erratic Logstash</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies" data-for="post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies">Sherlock Holmes and the Mystery of the Missing Cookies</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Case-of-the-Content-Length-Mismatch" data-for="post/2024/Sherlock-Holmes-The-Case-of-the-Content-Length-Mismatch">Sherlock Holmes The Case of the Content Length Mismatch</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Case-of-the-Missing-User-IPs" data-for="post/2024/Sherlock-Holmes-The-Case-of-the-Missing-User-IPs">Sherlock Holmes The Case of the Missing User IPs</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery" data-for="post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery">Sherlock Holmes The Great Lambda Mystery</a></li><li><a href="../../post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation" data-for="post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation">The Curious Case of the 15000 Spam My Unexpected Investigation</a></li><li><a href="../../post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World" data-for="post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World">The Day a DDOS Attack Led to the Most Awkward Hello World</a></li><li><a href="../../post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours" data-for="post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours">The Joy of Debugging How One Tiny Typo Kept Us Busy for Hours</a></li></ul></div></li></ul></div></li></ul></div></li><li id="explorer-end"></li></ul></div></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/2024/">2024</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Linux</a></div></nav><h1 class="article-title">Linux</h1><p show-comma="true" class="content-meta"><span>Jan 20, 2024</span><span>16 min read</span></p></div></div><article class="popover-hint"><h2 id="linux-filesystem">Linux Filesystem<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#linux-filesystem" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h2 id="getting-help">Getting Help<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#getting-help" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Every command, application, or utility has a dedicated help file in Linux by typing <code>--help</code> in front of all linux cmd or we can refer Manual Pages with man <code>man cmd</code></p>
+<h2 id="cmd">CMD<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cmd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li><strong>whereis:</strong>  locate bin file <code>whereis filename</code></li>
+<li><strong>which:</strong> Return current <strong>PATH</strong> var for the bin <code>whihc node</code></li>
+<li><strong>find:</strong> search for file name ,date of creation or modification, etc <code>find path -type f -name filename</code></li>
+</ul>
+<h4 id="files-and-directories-cmd">Files and Directories CMD<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#files-and-directories-cmd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<pre><code>get from chatgpt
+</code></pre>
+<h4 id="text-manipulation">Text Manipulation<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#text-manipulation" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>cat</li>
+<li>head</li>
+<li>tail</li>
+<li>nl</li>
+<li>sed</li>
+<li>more</li>
+<li>less</li>
+</ul>
+<h4 id="networks">Networks<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#networks" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>ifconfig (Changing Your IP Address.Spoofing Your MAC Address)</li>
+<li>iwconfig  wireless</li>
+</ul>
+<p>Linux has a Dynamic Host Configuration Protocol (DHCP) server that runs a daemon a process that runs in the background called dhcpd,</p>
+<ul>
+<li>dhclient eth0 (The dhclient command sends a DHCPDISCOVER request from the network interface specified (here, eth0 ). It then receives an offer ( DHCPOFFER ) from the DHCP server)</li>
+</ul>
+<p>Changing Your DNS Server</p>
+<ul>
+<li>/etc/resolv.conf <span>→</span> change content here</li>
+</ul>
+<p>If you’re using a DHCP address and the DHCP server provides a DNS setting, the DHCP server will replace the contents of the file when it renews the DHCP address.</p>
+<p>The hosts file is located at /etc/hosts, and kind of as with
+DNS, you can use it to specify your own IP address–domain name mapping.
+In other words, you can determine which IP address your browser goes to
+when you enter <a href="http://www.microsoft.com" class="external">www.microsoft.com<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> (or any other domain) into the browser,
+rather than let the DNS server decide. As a hacker, this can be useful for
+hijacking a TCP connection on your local area network to direct traffic to a
+malicious web server with a tool such as dnsspoof .</p>
+<p><code>ip -s link show dev interfaceaname</code>
+display detailed information about the network interface</p>
+<ul>
+<li>
+<p><strong>mtu 1500</strong>: The Maximum Transmission Unit, which is the largest size of a packet that can be transmitted over the network (1500 bytes in this case).</p>
+</li>
+<li>
+<p><strong>qdisc noqueue</strong>: The queuing discipline used for packet scheduling. <code>noqueue</code> means there’s no queueing discipline applied.</p>
+</li>
+<li>
+<p><strong>state UP</strong>: The operational state of the interface is “UP,” indicating it is active and ready to transmit and receive data.</p>
+</li>
+<li></li>
+<li>
+<p><strong>RX (Receive) Statistics</strong>: Information about packets received by the interface, such as the number of packets, bytes received, and any errors.</p>
+</li>
+<li>
+<p><strong>TX (Transmit) Statistics</strong>: Information about packets transmitted by the interface, including the number of packets, bytes sent, and any error</p>
+</li>
+</ul>
+<h4 id="ss">SS<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#ss" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>The <code>ss</code> command is a powerful utility for investigating and debugging network connections in Linux</p>
+<ul>
+<li>
+<p>ss -a  (View All Connections)</p>
+</li>
+<li>
+<p>ss -t state established</p>
+</li>
+<li>
+<p>ss -l (see all the listening ports on the system)</p>
+</li>
+<li>
+<p>ss -s  (show stats)</p>
+</li>
+</ul>
+<pre><code>ss -s
+Total: 2050            &lt;-- Total number of sockets (across all protocols)
+TCP:   142 (estab 114, closed 12, orphaned 0, timewait 8)  &lt;-- TCP breakdown
+
+Transport Total     IP        IPv6
+RAW	  1         0         1        &lt;-- 1 RAW socket (only 1 on IPv6)
+UDP	  15        12        3        &lt;-- 15 UDP sockets (12 IPv4, 3 IPv6)
+TCP	  130       124       6        &lt;-- 130 TCP sockets (124 IPv4, 6 IPv6)
+INET	  146       136       10       &lt;-- 146 INET sockets (136 IPv4, 10 IPv6) `INET` refers to both **TCP** and **UDP** sockets
+FRAG	  0         0         0        &lt;-- 0 IP fragments being reassembled FRAG refers to fragmented packets. It shows the number of IP fragments currently being reassembled.
+
+</code></pre>
+<ul>
+<li>
+<p>ss -p (connection with pid)</p>
+</li>
+<li>
+<p>somaxconn is a kernel parameter in Linux that determines the maximum number of connections that can be queued in the TCP/IP stack backlog per socket.</p>
+</li>
+</ul>
+<p>apt install net-tools <span>→</span> to install netstat
+apt install iproute2 to <span>→</span> to install ss</p>
+<p>netstat -s
+Ip:
+Forwarding: 1
+12425641 total packets received
+0 forwarded
+0 incoming packets discarded
+12425641 incoming packets delivered
+13180851 requests sent out
+Icmp:
+11 ICMP messages received
+0 input ICMP message failed
+ICMP input histogram:
+destination unreachable: 11
+0 ICMP messages sent
+0 ICMP messages failed
+ICMP output histogram:
+IcmpMsg:
+InType3: 11
+Tcp:
+87122 active connection openings (This indicates the system has sent a SYN to initiate a TCP connection with a remote system. T)
+277692 passive connection openings
+291 failed connection attempts (This occurs when a socket in SYN_RECV or SYN_SENT states enters an unexpected or error path due to traffic received or sent. The most common reason for this is a TCP Reset was received into a SYN_SENT socket, indicating the other end was not listening on the destination port.)
+7328 connection resets received
+1432 connections established
+11678121 segments received
+14512365 segments sent out
+2154 segments retransmitted
+0 bad segments received
+14311 resets sent
+Udp:
+747509 packets received
+0 packets to unknown port received
+0 packet receive errors
+747509 packets sent
+0 receive buffer errors
+0 send buffer errors
+UdpLite:
+TcpExt:
+271 resets received for embryonic SYN_RECV sockets
+11 ICMP packets dropped because socket was locked
+135101 TCP sockets finished time wait in fast timer
+3 packetes rejected in established connections because of timestamp
+451984 delayed acks sent
+157 delayed acks further delayed because of locked socket
+Quick ack mode was activated 3261 times
+3723294 packet headers predicted
+3734390 acknowledgments not containing data payload received
+2758313 predicted acknowledgments
+TCPSackRecovery: 23
+Detected reordering 140 times using SACK
+Detected reordering 9 times using reno fast retransmit
+Detected reordering 6 times using time stamp
+3 congestion windows partially recovered using Hoe heuristic
+TCPDSACKUndo: 3
+3 congestion windows recovered without slow start after partial ack
+TCPLostRetransmit: 862
+3 timeouts after reno fast retransmit
+9 timeouts in loss state
+139 fast retransmits
+46 retransmits in slow start
+TCPTimeouts: 1882
+TCPLossProbes: 403
+TCPLossProbeRecovery: 11
+TCPSackRecoveryFail: 2
+TCPBacklogCoalesce: 35388
+TCPDSACKOldSent: 3261
+TCPDSACKOfoSent: 4
+TCPDSACKRecv: 64
+7137 connections reset due to unexpected data
+1 connections reset due to early user close
+80 connections aborted due to timeout
+TCPSACKDiscard: 2
+TCPDSACKIgnoredNoUndo: 44
+TCPSackShifted: 51
+TCPSackMerged: 21
+TCPSackShiftFallback: 127
+TCPRcvCoalesce: 937376
+TCPOFOQueue: 1243
+TCPOFOMerge: 4
+TCPChallengeACK: 28
+TCPSpuriousRtxHostQueues: 2
+TCPAutoCorking: 314
+TCPFromZeroWindowAdv: 1
+TCPToZeroWindowAdv: 1
+TCPSynRetrans: 1299
+TCPOrigDataSent: 7043735
+TCPHystartTrainDetect: 1434
+TCPHystartTrainCwnd: 35371
+TCPHystartDelayDetect: 9
+TCPHystartDelayCwnd: 315
+TCPACKSkippedSynRecv: 1
+TCPKeepAlive: 2203135
+TCPDelivered: 7110864
+TCPAckCompressed: 95
+TcpTimeoutRehash: 1119
+TcpDuplicateDataRehash: 3
+TCPDSACKRecvSegs: 147
+TCPDSACKIgnoredDubious: 2
+IpExt:
+InOctets: 23121472147
+OutOctets: 6418635527
+InNoECTPkts: 25347197
+InECT0Pkts: 35807
+MPTcpExt:</p>
+<ul>
+<li><strong>ECONNREFUSED</strong>: Connection was not accepted (server not available).</li>
+<li><strong>ECONNRESET</strong>: Connection was reset (server dropped the connection).</li>
+</ul>
+<p>Advanced Packaging Tool</p>
+<ul>
+<li>apt-cache search pkg-name</li>
+<li>apt-get install packagename</li>
+<li>apt-get remove snort</li>
+<li>apt-get purge snort :remove config file</li>
+</ul>
+<p>The servers that hold the software for particular distributions of Linux are
+known as repositories</p>
+<p>The repositories your system will search for software are stored in the
+<strong>/etc/apt/sources.list</strong> file</p>
+<p>Types of Users</p>
+<p>Permission</p>
+<ul>
+<li>chown username file</li>
+<li>Octal and Binary Representations of Permissions (chatgpt)</li>
+<li>Setting More Secure Default Permissions with Masks</li>
+</ul>
+<p>process</p>
+<ul>
+<li>ps</li>
+<li>top</li>
+<li>Changing Process Priority with nice</li>
+<li>kill</li>
+<li>Running Processes in the Background</li>
+<li>Scheduling Processes</li>
+</ul>
+<p>Managing User Environment  Variables</p>
+<ul>
+<li>env</li>
+<li>set</li>
+<li>export <span>→</span> to refelct every shell</li>
+</ul>
+<p>Filesystem and Storage Device Management</p>
+<h2 id="proc-file-system">Proc file system<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#proc-file-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>in kuberntes the process id of the running is 1</p>
+<p>ls -l
+cwd
+exec <span>→</span> entry point
+io <span>→</span> the io used by the process
+task <span>→</span> if it has multi thread it will be listed here what each thread doing</p>
+<p>all the content in proc file not generated they were pulled from current running process linux shows like us it is file</p>
+<p>iotop <span>→</span> show who using most io in porcess</p>
+<p><code>/proc/net</code> directory in Linux contains various files and subdirectories that provide information related to networking</p>
+<ul>
+<li><strong>tcp</strong>, <strong>udp</strong>, <strong>udp6</strong>, <strong>tcp6</strong>: These directories contain information about active TCP and UDP connections. in hexdecimal format</li>
+<li><code>cat /proc/net/ip/ip_forward</code> <span>→</span> has 0 or 1. Zero mean it won’t forward the packet 1 mean it act as router turn off when it not need to increase the performance.</li>
+</ul>
+<p><code>PID/fd</code>  <span>→</span> tell how many files are opened by the files</p>
+<p><code>cat PID/status</code> - have the current status of the process and
+<code>voluntary_ctxt_switches</code> and <code>nonvoluntary_ctxt_switches</code> – this tells you how many times the process was taken off CPU (or put back).</p>
+<p>cmd to print ip of process</p>
+<pre><code>cat /proc/$(pidof java)/net/tcp \ | awk -v DPORT=$(printf &quot;:%x&quot; 9042) '$3 ~ DPORT { print $3}' \ | sort -u \ | cut -f1 -d':' \ | awk '{gsub(/../,&quot;0x&amp; &quot;)} OFS=&quot;.&quot; {for(i=NF;i>0;i--) printf &quot;%d%s&quot;, $i, (i == 1 ? ORS : OFS)}'
+</code></pre>
+<pre><code>This document describes the interfaces /proc/net/tcp and /proc/net/tcp6.
+Note that these interfaces are deprecated in favor of tcp_diag.
+
+These /proc interfaces provide information about currently active TCP
+connections, and are implemented by tcp4_seq_show() in net/ipv4/tcp_ipv4.c
+and tcp6_seq_show() in net/ipv6/tcp_ipv6.c, respectively.
+
+It will first list all listening TCP sockets, and next list all established
+TCP connections. A typical entry of /proc/net/tcp would look like this (split
+up into 3 parts because of the length of the line):
+
+   46: 010310AC:9C4C 030310AC:1770 01
+   |      |      |      |      |   |--> connection state
+   |      |      |      |      |------> remote TCP port number
+   |      |      |      |-------------> remote IPv4 address
+   |      |      |--------------------> local TCP port number
+   |      |---------------------------> local IPv4 address
+   |----------------------------------> number of entry
+
+   00000150:00000000 01:00000019 00000000
+      |        |     |     |       |--> number of unrecovered RTO timeouts
+      |        |     |     |----------> number of jiffies until timer expires
+      |        |     |----------------> timer_active (see below)
+      |        |----------------------> receive-queue
+      |-------------------------------> transmit-queue
+
+   1000        0 54165785 4 cd1e6040 25 4 27 3 -1
+    |          |    |     |    |     |  | |  | |--> slow start size threshold,
+    |          |    |     |    |     |  | |  |      or -1 if the threshold
+    |          |    |     |    |     |  | |  |      is >= 0xFFFF
+    |          |    |     |    |     |  | |  |----> sending congestion window
+    |          |    |     |    |     |  | |-------> (ack.quick&lt;&lt;1)|ack.pingpong
+    |          |    |     |    |     |  |---------> Predicted tick of soft clock
+    |          |    |     |    |     |              (delayed ACK control data)
+    |          |    |     |    |     |------------> retransmit timeout
+    |          |    |     |    |------------------> location of socket in memory
+    |          |    |     |-----------------------> socket reference count
+    |          |    |-----------------------------> inode
+    |          |----------------------------------> unanswered 0-window probes
+    |---------------------------------------------> uid
+
+timer_active:
+  0  no timer is pending
+  1  retransmit-timer is pending
+  2  another timer (e.g. delayed ack or keepalive) is pending
+  3  this is a socket in TIME_WAIT state. Not all fields will contain
+     data (or even exist)
+  4  zero window probe timer is pending
+</code></pre>
+<p>Mem file</p>
+<p>Maps file</p>
+<p><code>55c58ca07000-55c58ca0c000 r--p 00000000 fd:01 6815950  /usr/bin/dash</code></p>
+<ul>
+<li>
+<p><strong>Address Range (<code>55c58ca07000-55c58ca0c000</code>)</strong>: This shows the range of virtual memory addresses that this mapping covers. The first address (<code>55c58ca07000</code>) is the starting address, and the second address (<code>55c58ca0c000</code>) is the ending address. The memory in this range is accessible to the process.</p>
+</li>
+<li>
+<p><strong>Permissions (<code>r--p</code>)</strong>: Indicates the permissions for this memory region:</p>
+<ul>
+<li><code>r</code>: Readable</li>
+<li><code>-</code>: Not writable</li>
+<li><code>p</code>: Private (not shared with other processes)</li>
+</ul>
+</li>
+<li>
+<p><strong>Offset (<code>00000000</code>)</strong>: This is the offset within the file or device that the mapping is backed by. For executable files, this typically represents the offset within the file where this section resides.</p>
+</li>
+<li>
+<p><strong>Device (<code>fd:01</code>)</strong>: This specifies the device (file descriptor) that backs this mapping. In this case, <code>fd:01</code> suggests a file descriptor associated with a file.</p>
+</li>
+<li>
+<p><strong>Inode (<code>6815950</code>)</strong>: The inode number of the file that backs this mapping. This uniquely identifies the file within the filesystem.</p>
+</li>
+<li>
+<p><strong>File Path (<code>/usr/bin/dash</code>)</strong>: The path to the file or device that backs this memory mapping. In this case, it’s <code>/usr/bin/dash</code>, which is the executable file of the <code>dash</code> shell.</p>
+</li>
+</ul>
+<h3 id="common-types-of-memory-regions">Common Types of Memory Regions:<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#common-types-of-memory-regions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Code (<code>r-xp</code>)</strong>: Executable code of the program.</li>
+<li><strong>Data (<code>rw-p</code>)</strong>: Read-write data.</li>
+<li><strong>Read-only data (<code>r--p</code>)</strong>: Read-only data such as constants or strings.</li>
+<li><strong>Heap (<code>rw-p</code>)</strong>: Dynamically allocated memory.</li>
+<li><strong>Stack (<code>rw-p</code>)</strong>: The process’s stack, where local variables and function call information are stored.</li>
+<li><strong>Shared libraries (<code>r-xp</code> or <code>r--p</code>)</strong>: Memory regions mapped from shared libraries.</li>
+</ul>
+<p>EBPF</p>
+<p><code>man bpf</code> <span>→</span> The  bpf()  system  call  performs a range of operations related to ex‐
+tended Berkeley Packet Filters.  Extended BPF (or eBPF) is  similar  to the  original  (“classic”)  BPF  (cBPF) used to filter network packets. For both cBPF and eBPF programs, the  kernel  statically  analyzes  the programs  before loading them, in order to ensure that they cannot harm the running system.</p>
+<p>eBPF extends cBPF in multiple ways, including the  ability  to  call  a
+fixed set of in-kernel helper functions (via the BPF_CALL opcode extension provided by eBPF) and access shared data structures such  as  eBPF maps.</p>
+<p>BCC make bpf program easier to write</p>
+<p>iotop <span>→</span> tell which process doing more io</p>
+<p>EBF  <span>→</span> take a system call</p>
+<p>EBF projects</p>
+<ol>
+<li>Katran by facebook (l4 loadbalancer)</li>
+<li>cillium (networking sercurity and load balancing for k8)</li>
+<li>bcc,bpftrace (netflix perf troubleshooting)</li>
+<li>android security (google andrioid bpf)</li>
+<li>traffice optimizaiton cloudfare</li>
+<li>falco container runtime security</li>
+</ol>
+<p><a href="https://tanelpoder.com/psnapper/" class="external">https://tanelpoder.com/psnapper/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>BCC allow python to write epbf</p>
+<p>CMDs</p>
+<ol>
+<li>ps -eLf | awk ‘{print $8}’ | sort | uniq -c | sort -nr</li>
+<li>ps -eLo state,user | sort | uniq -c | sort -nr</li>
+<li><strong>ps -eo s,user | grep ^[RD] | sort | uniq -c | sort -nbr | head -20</strong> <span>→</span> Runnable state and <strong>Uninterruptible</strong> sleep</li>
+<li><strong>ps -eo s,user,cmd | grep ^[RD] | sort | uniq -c | sort -nbr | head -20</strong></li>
+</ol>
+<ul>
+<li>Check how many threads are in R state</li>
+</ul>
+<p>Tool</p>
+<ul>
+<li><a href="https://github.com/tanelpoder/0xtools" class="external">https://github.com/tanelpoder/0xtools<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> (do profile on proc file for 5 sec and show the top result)</li>
+<li><a href="https://github.com/iovisor/bcc" class="external">https://github.com/iovisor/bcc<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<p>pchar -measures  the  characteristics/speed  of  the network path between two Internet hosts, on either IPv4 or IPv6 networks it use tracrroute. it tell bandwidth between each router</p>
+<h2 id="lsof">lSOF<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#lsof" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>list open files</p>
+<ul>
+<li>lsof -i tcp:80 <span>→</span> the process used port 80 -i <span>→</span> internet</li>
+<li>lsof -P processid <span>→</span> give all open files by the process</li>
+</ul>
+<p> ## USE method
+ Use mehod are used to find bottel necks in the system
+ - <em>Utilization</em> is the percentage of time that the resource is busy servicing work during a specific time interval
+ - Saturation refers to the degree to which a resource is being overused.disk saturation measures the length of the disk queue, indicating how many I/O requests are waiting to be serviced.
+ - <em>Errors</em> in terms of the USE method refer to the count of error events</p>
+<p>The first step in the USE method is to create a list of resources. in the system like cpu,memory, etc
+<a href="https://queue.acm.org/detail.cfm?id=2413037" class="external">https://queue.acm.org/detail.cfm?id=2413037<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></p>
+<p>The command <code>sync; echo 1 > /proc/sys/vm/drop_caches</code> is used to clear the cache in Linux.</p>
+<p>Here’s a breakdown of what each part of the command does:</p>
+<ul>
+<li><code>sync</code>: This command flushes the file system buffer, ensuring that all data is written to disk.</li>
+<li><code>echo 1 > /proc/sys/vm/drop_caches</code>: This command writes the value <code>1</code> to the file <code>/proc/sys/vm/drop_caches</code>, which is a special file in Linux that controls the cache behavior.</li>
+</ul>
+<h2 id="storage">Storage<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#storage" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Linux makes it easy to see the actual storage disks by representing them as files in the <strong>/dev</strong> directory. Each disk is identified by a series of letters.</p>
+<ul>
+<li>sd = storage disk</li>
+<li>a or b = first or second disk (it also counts c, d, etc.)</li>
+<li>1 or 2 = partitions on the disk (it also counts higher)</li>
+</ul>
+<p>The result is that /dev/sdb1 is storage device ( sd), second device ( b), first partition ( 1), or the first partition on the second storage device.</p>
+<p>Use the ls command to display the contents of the /dev/disk directory. In Ubuntu, you can view storage devices by-id, by-path, etc. You should see at least one entry that reads sda. That’s the first storage disk in the system. When you add a second disk, it will be labeled as sdb. Other identifiers include the disk’s Universally Unique ID (UUID).</p>
+<p>Partition
+A partition is a defined storage area on a hard drive. Essentially, it’s a way of dividing a physical disk into separate, distinct sections. Each partition can be treated as an <strong>independent disk by the operating system.</strong></p>
+<h3 id="isstat">isstat<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#isstat" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<h2 id="system-performance-steps">System performance steps<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#system-performance-steps" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="uptime">Uptime<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#uptime" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p>look for the load average field.  It represents the average number of processes that are waiting to be executed by the CPU over a certain period.</p>
+<pre><code>>uptime
+09:37:45 up 13:09,  1 user,  load average: 0.13, 0.40, 0.50
+</code></pre>
+<ol>
+<li><strong>First number (0.13)</strong>: The load average over the last 1 minute.</li>
+<li><strong>Second number (0.40)</strong>: The load average over the last 5 minutes.</li>
+<li><strong>Third number (0.50)</strong>: The load average over the last 15 minutes.</li>
+</ol>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li><strong>0.0-0.5</strong>: The system is idle or lightly loaded.</li>
+<li><strong>0.5-1.0</strong>: The system is moderately loaded, with some processes waiting for CPU time.</li>
+<li><strong>1.0-2.0</strong>: The system is heavily loaded, with many processes waiting for CPU time.</li>
+<li><strong>Above 2.0</strong>: The system is extremely loaded, with a high risk of performance issues or crashes.</li>
+</ul>
+<h3 id="vmstat">vmstat<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#vmstat" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p> provides a snapshot of the system’s memory, swap, I/O, and CPU usage.</p>
+<pre><code>>vmstat
+procs -----memory---------- ---swap-- -----io---- -system----cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 1  0      0 20291856 747012 5818664    0    0    36    50  234  224  7  2 91  0  0
+
+CMD to print in proper table format
+vmstat  | tail -n 1 | awk '{print &quot;| procs | r (run queue) | &quot;$1&quot; |\n| procs | b (uninterruptible sleep) | &quot;$2&quot; |\n| memory | swpd (swap used) | &quot;$3&quot; |\n| memory | free (free memory) | &quot;$4&quot; |\n| memory | buff (buffer memory) | &quot;$5&quot; |\n| memory | cache (cache memory) | &quot;$6&quot; |\n| swap | si (swap in) | &quot;$7&quot; |\n| swap | so (swap out) | &quot;$8&quot; |\n| io | bi (blocks read) | &quot;$9&quot; |\n| io | bo (blocks written) | &quot;$10&quot; |\n| system | in (interrupts) | &quot;$11&quot; |\n| system | cs (context switches) | &quot;$12&quot; |\n| cpu | us (user mode) | &quot;$13&quot;% |\n| cpu | sy (system mode) | &quot;$14&quot;% |\n| cpu | id (idle) | &quot;$15&quot;% |\n| cpu | wa (waiting for I/O) | &quot;$16&quot;% |\n| cpu | st (steal mode) | &quot;$17&quot;% |&quot;}'
+
+</code></pre>
+<p><strong>procs</strong></p>
+<ul>
+<li><code>r</code>: The number of processes waiting for CPU time (run queue).</li>
+<li><code>b</code>: The number of processes in uninterruptible sleep (usually waiting for I/O).
+<strong>memory</strong></li>
+<li><code>swpd</code>: The amount of swap space used (in kilobytes).</li>
+<li><code>free</code>: The amount of free memory available (in kilobytes).</li>
+<li><code>buff</code>: The amount of memory used for buffers (in kilobytes).</li>
+<li><code>cache</code>: The amount of memory used for caching (in kilobytes).
+<strong>swap</strong></li>
+<li><code>si</code>: The number of kilobytes swapped in from disk per second.</li>
+<li><code>so</code>: The number of kilobytes swapped out to disk per second.
+<strong>io</strong></li>
+<li><code>bi</code>: The number of blocks read from disk per second.</li>
+<li><code>bo</code>: The number of blocks written to disk per second.
+<strong>system</strong></li>
+<li><code>in</code>: The number of interrupts per second.</li>
+<li><code>cs</code>: The number of context switches per second.
+<strong>cpu</strong></li>
+<li><code>us</code>: The percentage of CPU time spent in user mode.</li>
+<li><code>sy</code>: The percentage of CPU time spent in system mode.</li>
+<li><code>id</code>: The percentage of CPU time spent idle.</li>
+<li><code>wa</code>: The percentage of CPU time spent waiting for I/O.</li>
+<li><code>st</code>: The percentage of CPU time spent in steal mode (usually due to virtualization).</li>
+</ul>
+<p>TO get no of system call used by the program</p>
+<p><code>sudo strace  -c  node filename.js</code> <span>→</span> will print all sys call and time it take</p></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#linux-filesystem" data-for="linux-filesystem">Linux Filesystem</a></li><li class="depth-0"><a href="#getting-help" data-for="getting-help">Getting Help</a></li><li class="depth-0"><a href="#cmd" data-for="cmd">CMD</a></li><li class="depth-0"><a href="#proc-file-system" data-for="proc-file-system">Proc file system</a></li><li class="depth-1"><a href="#common-types-of-memory-regions" data-for="common-types-of-memory-regions">Common Types of Memory Regions:</a></li><li class="depth-0"><a href="#lsof" data-for="lsof">lSOF</a></li><li class="depth-0"><a href="#storage" data-for="storage">Storage</a></li><li class="depth-1"><a href="#isstat" data-for="isstat">isstat</a></li><li class="depth-0"><a href="#system-performance-steps" data-for="system-performance-steps">System performance steps</a></li><li class="depth-1"><a href="#uptime" data-for="uptime">Uptime</a></li><li class="depth-1"><a href="#vmstat" data-for="vmstat">vmstat</a></li></ul></div></div><div class="backlinks"><h3>Backlinks</h3><ul class="overflow"><li>No backlinks found</li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../postscript.js" type="module"></script></html>

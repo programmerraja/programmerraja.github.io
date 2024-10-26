@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Docker</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="Docker"/><meta property="og:description" content="Docker Engine When you install Docker, you get two major components: Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called ..."/><meta property="og:image" content="https://programmerraja.github.io/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Docker Engine When you install Docker, you get two major components: Docker client →is a command-line tool used to interact with the Docker Engine, Docker daemon (sometimes called ..."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="notes/2024/Docker"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">programmerraja blog</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button><div class="explorer desktop-only"><button type="button" id="explorer" data-behavior="collapse" data-collapsed="collapsed" data-savestate="true" data-tree="[{&quot;path&quot;:&quot;notes&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;notes/2023&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;notes/2024&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post/2023&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post/2024&quot;,&quot;collapsed&quot;:true}]" aria-controls="explorer-content" aria-expanded="false"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-content"><ul class="overflow" id="explorer-ul"><li><div class="folder-outer open"><ul style="padding-left:0;" class="content" data-folderul><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes"><button class="folder-button"><span class="folder-title">notes</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes/2023"><button class="folder-button"><span class="folder-title">2023</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes/2023"><li><a href="../../notes/2023/MongoDB-Performance-Tuning" data-for="notes/2023/MongoDB-Performance-Tuning">MongoDB Performance Tuning</a></li><li><a href="../../notes/2023/RabbitMQ" data-for="notes/2023/RabbitMQ">RabbitMQ</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes/2024"><button class="folder-button"><span class="folder-title">2024</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes/2024"><li><a href="../../notes/2024/A-Philosophy-of-Software-Design-Book-Notes" data-for="notes/2024/A-Philosophy-of-Software-Design-Book-Notes">A Philosophy of Software Design Book Notes</a></li><li><a href="../../notes/2024/Abstract-syntax-tree" data-for="notes/2024/Abstract-syntax-tree">Abstract syntax tree</a></li><li><a href="../../notes/2024/AI" data-for="notes/2024/AI">AI</a></li><li><a href="../../notes/2024/AI-Agent" data-for="notes/2024/AI-Agent">AI Agent</a></li><li><a href="../../notes/2024/AI-Content-System" data-for="notes/2024/AI-Content-System">AI Content System</a></li><li><a href="../../notes/2024/AI-in-Coding" data-for="notes/2024/AI-in-Coding">AI in Coding</a></li><li><a href="../../notes/2024/AI-Paper" data-for="notes/2024/AI-Paper">AI Paper</a></li><li><a href="../../notes/2024/AI-Research-Paper-notes" data-for="notes/2024/AI-Research-Paper-notes">AI Research Paper notes</a></li><li><a href="../../notes/2024/Android-internal" data-for="notes/2024/Android-internal">Android internal</a></li><li><a href="../../notes/2024/Appache-Kaffa" data-for="notes/2024/Appache-Kaffa">Appache Kaffa</a></li><li><a href="../../notes/2024/AWS" data-for="notes/2024/AWS">AWS</a></li><li><a href="../../notes/2024/Basic-Maths" data-for="notes/2024/Basic-Maths">Basic Maths</a></li><li><a href="../../notes/2024/Big-Data" data-for="notes/2024/Big-Data">Big Data</a></li><li><a href="../../notes/2024/Building-Microservices" data-for="notes/2024/Building-Microservices">Building Microservices</a></li><li><a href="../../notes/2024/Claude" data-for="notes/2024/Claude">Claude</a></li><li><a href="../../notes/2024/Cloud-Design-Patterns" data-for="notes/2024/Cloud-Design-Patterns">Cloud Design Patterns</a></li><li><a href="../../notes/2024/Css" data-for="notes/2024/Css">Css</a></li><li><a href="../../notes/2024/Dart-Cheet-sheat" data-for="notes/2024/Dart-Cheet-sheat">Dart Cheet sheat</a></li><li><a href="../../notes/2024/Data-Science-from-Scratch" data-for="notes/2024/Data-Science-from-Scratch">Data Science from Scratch</a></li><li><a href="../../notes/2024/Data-structure" data-for="notes/2024/Data-structure">Data structure</a></li><li><a href="../../notes/2024/Database-internal" data-for="notes/2024/Database-internal">Database internal</a></li><li><a href="../../notes/2024/Database-Performance-at-Scale" data-for="notes/2024/Database-Performance-at-Scale">Database Performance at Scale</a></li><li><a href="../../notes/2024/Databases" data-for="notes/2024/Databases">Databases</a></li><li><a href="../../notes/2024/Deep-learning" data-for="notes/2024/Deep-learning">Deep learning</a></li><li><a href="../../notes/2024/Design-pattern" data-for="notes/2024/Design-pattern">Design pattern</a></li><li><a href="../../notes/2024/Distributed-System" data-for="notes/2024/Distributed-System">Distributed System</a></li><li><a href="../../notes/2024/Distributed-tracing" data-for="notes/2024/Distributed-tracing">Distributed tracing</a></li><li><a href="../../notes/2024/Docker" data-for="notes/2024/Docker">Docker</a></li><li><a href="../../notes/2024/Docker--and--Kubernetes-hacking" data-for="notes/2024/Docker--and--Kubernetes-hacking">Docker &amp; Kubernetes hacking</a></li><li><a href="../../notes/2024/Documentation" data-for="notes/2024/Documentation">Documentation</a></li><li><a href="../../notes/2024/Domain-driven-design" data-for="notes/2024/Domain-driven-design">Domain driven design</a></li><li><a href="../../notes/2024/Elastic-search" data-for="notes/2024/Elastic-search">Elastic search</a></li><li><a href="../../notes/2024/Free-LLM-API" data-for="notes/2024/Free-LLM-API">Free LLM API</a></li><li><a href="../../notes/2024/Freelancing-And-Saas" data-for="notes/2024/Freelancing-And-Saas">Freelancing And Saas</a></li><li><a href="../../notes/2024/Genric" data-for="notes/2024/Genric">Genric</a></li><li><a href="../../notes/2024/Go" data-for="notes/2024/Go">Go</a></li><li><a href="../../notes/2024/Google-vertex-AI" data-for="notes/2024/Google-vertex-AI">Google vertex AI</a></li><li><a href="../../notes/2024/Grafana" data-for="notes/2024/Grafana">Grafana</a></li><li><a href="../../notes/2024/Graph-database" data-for="notes/2024/Graph-database">Graph database</a></li><li><a href="../../notes/2024/Hacking" data-for="notes/2024/Hacking">Hacking</a></li><li><a href="../../notes/2024/Hands-On-Machine-Learningwith-Scikit-Learn,-Keras,-andTensorFlow" data-for="notes/2024/Hands-On-Machine-Learningwith-Scikit-Learn,-Keras,-andTensorFlow">Hands-On Machine Learningwith Scikit-Learn, Keras, andTensorFlow</a></li><li><a href="../../notes/2024/Haystack-Notes" data-for="notes/2024/Haystack-Notes">Haystack Notes</a></li><li><a href="../../notes/2024/Hugging-face" data-for="notes/2024/Hugging-face">Hugging face</a></li><li><a href="../../notes/2024/Influx-db" data-for="notes/2024/Influx-db">Influx db</a></li><li><a href="../../notes/2024/Kubernetes" data-for="notes/2024/Kubernetes">Kubernetes</a></li><li><a href="../../notes/2024/LamaIndex" data-for="notes/2024/LamaIndex">LamaIndex</a></li><li><a href="../../notes/2024/Langchain" data-for="notes/2024/Langchain">Langchain</a></li><li><a href="../../notes/2024/Leadership" data-for="notes/2024/Leadership">Leadership</a></li><li><a href="../../notes/2024/Leading-EffectiveEngineering-Teams" data-for="notes/2024/Leading-EffectiveEngineering-Teams">Leading EffectiveEngineering Teams</a></li><li><a href="../../notes/2024/Learning-Domain-Driven-Design" data-for="notes/2024/Learning-Domain-Driven-Design">Learning Domain-Driven Design</a></li><li><a href="../../notes/2024/Learning-from-blog" data-for="notes/2024/Learning-from-blog">Learning from blog</a></li><li><a href="../../notes/2024/Linux" data-for="notes/2024/Linux">Linux</a></li><li><a href="../../notes/2024/Linux-swiss-knife" data-for="notes/2024/Linux-swiss-knife">Linux swiss knife</a></li><li><a href="../../notes/2024/LLM-Hacking" data-for="notes/2024/LLM-Hacking">LLM Hacking</a></li><li><a href="../../notes/2024/LLM-Observability-And-Eval" data-for="notes/2024/LLM-Observability-And-Eval">LLM Observability And Eval</a></li><li><a href="../../notes/2024/LLM-strucuted-output-and-Parser" data-for="notes/2024/LLM-strucuted-output-and-Parser">LLM strucuted output and Parser</a></li><li><a href="../../notes/2024/LMDB-Database" data-for="notes/2024/LMDB-Database">LMDB Database</a></li><li><a href="../../notes/2024/Low-level-Tech" data-for="notes/2024/Low-level-Tech">Low level Tech</a></li><li><a href="../../notes/2024/Machine-learning" data-for="notes/2024/Machine-learning">Machine learning</a></li><li><a href="../../notes/2024/MeiliSearch" data-for="notes/2024/MeiliSearch">MeiliSearch</a></li><li><a href="../../notes/2024/Memory-profiling-Nodejs" data-for="notes/2024/Memory-profiling-Nodejs">Memory profiling Nodejs</a></li><li><a href="../../notes/2024/Microservice-Patterns-and-Best-Practices" data-for="notes/2024/Microservice-Patterns-and-Best-Practices">Microservice Patterns and Best Practices</a></li><li><a href="../../notes/2024/MicroServices" data-for="notes/2024/MicroServices">MicroServices</a></li><li><a href="../../notes/2024/Money-Earning" data-for="notes/2024/Money-Earning">Money Earning</a></li><li><a href="../../notes/2024/Mongodb-Notes" data-for="notes/2024/Mongodb-Notes">Mongodb Notes</a></li><li><a href="../../notes/2024/Napkin-maths" data-for="notes/2024/Napkin-maths">Napkin maths</a></li><li><a href="../../notes/2024/Natural-Language-Processing-with-Transformers--Notes" data-for="notes/2024/Natural-Language-Processing-with-Transformers--Notes">Natural Language Processing with Transformers  Notes</a></li><li><a href="../../notes/2024/Networking" data-for="notes/2024/Networking">Networking</a></li><li><a href="../../notes/2024/Nginx" data-for="notes/2024/Nginx">Nginx</a></li><li><a href="../../notes/2024/OS" data-for="notes/2024/OS">OS</a></li><li><a href="../../notes/2024/PostgreSQL" data-for="notes/2024/PostgreSQL">PostgreSQL</a></li><li><a href="../../notes/2024/Prompt-Engineering" data-for="notes/2024/Prompt-Engineering">Prompt Engineering</a></li><li><a href="../../notes/2024/Python" data-for="notes/2024/Python">Python</a></li><li><a href="../../notes/2024/Python-AI" data-for="notes/2024/Python-AI">Python AI</a></li><li><a href="../../notes/2024/React" data-for="notes/2024/React">React</a></li><li><a href="../../notes/2024/Rust" data-for="notes/2024/Rust">Rust</a></li><li><a href="../../notes/2024/ScyllaDB" data-for="notes/2024/ScyllaDB">ScyllaDB</a></li><li><a href="../../notes/2024/Software-Architecture" data-for="notes/2024/Software-Architecture">Software Architecture</a></li><li><a href="../../notes/2024/Software-Architecture-and-Decision-Making" data-for="notes/2024/Software-Architecture-and-Decision-Making">Software Architecture and Decision-Making</a></li><li><a href="../../notes/2024/Software-principles" data-for="notes/2024/Software-principles">Software principles</a></li><li><a href="../../notes/2024/Static-code-analysis" data-for="notes/2024/Static-code-analysis">Static code analysis</a></li><li><a href="../../notes/2024/STrace" data-for="notes/2024/STrace">STrace</a></li><li><a href="../../notes/2024/System-Design" data-for="notes/2024/System-Design">System Design</a></li><li><a href="../../notes/2024/System-Design-Case-study" data-for="notes/2024/System-Design-Case-study">System Design Case study</a></li><li><a href="../../notes/2024/Tech-stack-of-popular-companies" data-for="notes/2024/Tech-stack-of-popular-companies">Tech stack of popular companies</a></li><li><a href="../../notes/2024/Tensorflow" data-for="notes/2024/Tensorflow">Tensorflow</a></li><li><a href="../../notes/2024/Terraform" data-for="notes/2024/Terraform">Terraform</a></li><li><a href="../../notes/2024/Tmux" data-for="notes/2024/Tmux">Tmux</a></li><li><a href="../../notes/2024/Top-tech-peoples" data-for="notes/2024/Top-tech-peoples">Top tech peoples</a></li><li><a href="../../notes/2024/Transformer" data-for="notes/2024/Transformer">Transformer</a></li><li><a href="../../notes/2024/Typescript" data-for="notes/2024/Typescript">Typescript</a></li><li><a href="../../notes/2024/V8-Engine" data-for="notes/2024/V8-Engine">V8 Engine</a></li><li><a href="../../notes/2024/Vector-DB" data-for="notes/2024/Vector-DB">Vector DB</a></li><li><a href="../../notes/2024/Web-security" data-for="notes/2024/Web-security">Web security</a></li><li><a href="../../notes/2024/Weekend-Learning" data-for="notes/2024/Weekend-Learning">Weekend Learning</a></li><li><a href="../../notes/2024/Wireshark" data-for="notes/2024/Wireshark">Wireshark</a></li></ul></div></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post"><button class="folder-button"><span class="folder-title">post</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post/2023"><button class="folder-button"><span class="folder-title">2023</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post/2023"><li><a href="../../post/2023/helloworld" data-for="post/2023/helloworld">helloworld</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post/2024"><button class="folder-button"><span class="folder-title">2024</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post/2024"><li><a href="../../post/2024/A-Journey-into-Unseen-Threats-on-our-VM" data-for="post/2024/A-Journey-into-Unseen-Threats-on-our-VM">A Journey into Unseen Threats on our VM</a></li><li><a href="../../post/2024/C-razy-Facebook-Hack-How-I-Pranked-My-Friend" data-for="post/2024/C-razy-Facebook-Hack-How-I-Pranked-My-Friend">C-razy Facebook Hack How I Pranked My Friend</a></li><li><a href="../../post/2024/Code-Against-the-Clock--From-Clicks-to-Cash" data-for="post/2024/Code-Against-the-Clock--From-Clicks-to-Cash">Code Against the Clock  From Clicks to Cash</a></li><li><a href="../../post/2024/Code-Against-the-Clock--How-I-Cut-Our-Marketing-Team’s-Daily-Chores-with-Automation" data-for="post/2024/Code-Against-the-Clock--How-I-Cut-Our-Marketing-Team’s-Daily-Chores-with-Automation">Code Against the Clock  How I Cut Our Marketing Team’s Daily Chores with Automation</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Automating-Attendance-Management" data-for="post/2024/Code-Against-the-Clock-Automating-Attendance-Management">Code Against the Clock Automating Attendance Management</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Automating-the-youtube-shorts" data-for="post/2024/Code-Against-the-Clock-Automating-the-youtube-shorts">Code Against the Clock Automating the youtube shorts</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Creating-class-hunter" data-for="post/2024/Code-Against-the-Clock-Creating-class-hunter">Code Against the Clock Creating class hunter</a></li><li><a href="../../post/2024/Code-Against-the-Clock-How-I-Enhanced-My-PM-Productivity" data-for="post/2024/Code-Against-the-Clock-How-I-Enhanced-My-PM-Productivity">Code Against the Clock How I Enhanced My PM Productivity</a></li><li><a href="../../post/2024/Code-Against-the-Clock-How-I-Enhanced-My-Scrum-Master-Productivity" data-for="post/2024/Code-Against-the-Clock-How-I-Enhanced-My-Scrum-Master-Productivity">Code Against the Clock How I Enhanced My Scrum Master Productivity</a></li><li><a href="../../post/2024/Crafting-Code-Essential-Best-Practices" data-for="post/2024/Crafting-Code-Essential-Best-Practices">Crafting Code Essential Best Practices</a></li><li><a href="../../post/2024/From-Side-Hustle-to-Payday-How-I-Earned-My-First-$100" data-for="post/2024/From-Side-Hustle-to-Payday-How-I-Earned-My-First-$100">From Side Hustle to Payday How I Earned My First $100</a></li><li><a href="../../post/2024/How-I-Hacked-a-Company-Recruitment-Test-The-Unexpected-Tech-Adventure-of-My-College-Life" data-for="post/2024/How-I-Hacked-a-Company-Recruitment-Test-The-Unexpected-Tech-Adventure-of-My-College-Life">How I Hacked a Company Recruitment Test The Unexpected Tech Adventure of My College Life</a></li><li><a href="../../post/2024/How-to-capture-mongodb-protocol-in--wireshark" data-for="post/2024/How-to-capture-mongodb-protocol-in--wireshark">How to capture mongodb protocol in  wireshark</a></li><li><a href="../../post/2024/Hunting-the-Hacker-A-Deep-Dive-into-Courier-Fraud" data-for="post/2024/Hunting-the-Hacker-A-Deep-Dive-into-Courier-Fraud">Hunting the Hacker A Deep Dive into Courier Fraud</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found" data-for="post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found">Sherlock Holmes and The Case of the App Not Found</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-the-Case-of-the-Broken-Website" data-for="post/2024/Sherlock-Holmes-and-the-Case-of-the-Broken-Website">Sherlock Holmes and the Case of the Broken Website</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery" data-for="post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery">Sherlock Holmes and The Case of the Cloudflare Timeout Mystery</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack" data-for="post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack">Sherlock Holmes and The Case Redis Overload During a DDoS Attack</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash" data-for="post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash">Sherlock Holmes and The Mystery of the Erratic Logstash</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies" data-for="post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies">Sherlock Holmes and the Mystery of the Missing Cookies</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Case-of-the-Content-Length-Mismatch" data-for="post/2024/Sherlock-Holmes-The-Case-of-the-Content-Length-Mismatch">Sherlock Holmes The Case of the Content Length Mismatch</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Case-of-the-Missing-User-IPs" data-for="post/2024/Sherlock-Holmes-The-Case-of-the-Missing-User-IPs">Sherlock Holmes The Case of the Missing User IPs</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery" data-for="post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery">Sherlock Holmes The Great Lambda Mystery</a></li><li><a href="../../post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation" data-for="post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation">The Curious Case of the 15000 Spam My Unexpected Investigation</a></li><li><a href="../../post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World" data-for="post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World">The Day a DDOS Attack Led to the Most Awkward Hello World</a></li><li><a href="../../post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours" data-for="post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours">The Joy of Debugging How One Tiny Typo Kept Us Busy for Hours</a></li></ul></div></li></ul></div></li></ul></div></li><li id="explorer-end"></li></ul></div></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/2024/">2024</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Docker</a></div></nav><h1 class="article-title">Docker</h1><p show-comma="true" class="content-meta"><span>Jan 16, 2024</span><span>19 min read</span></p></div></div><article class="popover-hint"><h2 id="docker-engine">Docker Engine<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#docker-engine" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>When you install Docker, you get two major components:</p>
+<ul>
+<li>Docker client →is a command-line tool used to interact with the Docker Engine,</li>
+<li>Docker daemon (sometimes called “server” or “engine”)
+In a default Linux installation, the client talks to the daemon via a local IPC/Unix socket at <code>/var/run/docker.sock</code></li>
+</ul>
+<p>The Docker engine is the core software that runs and manages containers.The Docker Engine is made from many specialized tools that work together to create and run containers APIs, execution driver, runtime (create containers) , shims, containerd <code>(to manage container lifecycle operations — start | stop | pause | rm.)</code></p>
+<h4 id="what-happen-when-run-a-cmd">What happen when run a cmd<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#what-happen-when-run-a-cmd" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><code>docker container run --name ctr1 -it alpine:latest sh</code></p>
+<ul>
+<li>
+<p>When you type commands like this into the Docker CLI, the Docker client converts them into the appropriate API payload and POSTs them to the correct API endpoint.</p>
+</li>
+<li>
+<p>The API is implemented in the daemon. The <strong>daemon</strong> communicates with <strong>containerd</strong> via a CRUD-style API over gRPC to create container</p>
+</li>
+<li>
+<p>containerd cannot actually create containers. It uses <strong>runc</strong> to do that. It converts the required Docker image into an OCI bundle and tells runc to use this to create a new container.<strong>(it forks a new instance of runc for every container it creates.)</strong></p>
+</li>
+<li>
+<p><strong>How it’s implemented on Linux</strong></p>
+<ul>
+<li>dockerd (the Docker daemon)</li>
+<li>docker-containerd (containerd)</li>
+<li>docker-containerd-shim (shim)</li>
+<li>docker-runc (runc)</li>
+</ul>
+</li>
+</ul>
+<h2 id="builders">Builders<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#builders" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A builder is a BuildKit daemon that you can use to run your builds. BuildKit is the build engine that solves the build steps in a Dockerfile to produce a container image or other artifacts.</p>
+<p>Starting from Docker 18.09, BuildKit is included</p>
+<p><strong>BuildKit</strong> is an advanced and modular container image building tool that is part of the Docker ecosystem. It is designed to improve the performance, flexibility, and security of building container images. BuildKit introduces features like <strong>parallelization, caching improvements</strong>, and the ability to use custom frontends, which allows for more efficient and customizable image building processes.</p>
+<p>we need to enable it explicitly. You can do this by setting the <strong><code>DOCKER_BUILDKIT</code></strong> environment variable to <strong><code>1</code></strong>. <code>export DOCKER_BUILDKIT=1</code></p>
+<p><strong><code>DOCKER_BUILDKIT=1 docker build . —no-cache</code> → this cmd use the docker build kit and pull the layer parallely and faster then normal build. you can see the build output is running parallely</strong></p>
+<p>To create a multi-platform Docker image that can run on Windows, Linux, and macOS, you can use the <strong><code>buildx</code></strong> command,<code>**docker buildx build -t your-app-image --platform linux/amd64,windows/amd64,darwin/amd64 .**</code></p>
+<p>Before buildKit when we building docker image by setting <code>cwd .</code> the hole repo will send to docker engine expect docker ingore file but in buildkit the engine will request for the file it needed</p>
+<p>In docker desktop default it use builkit.</p>
+<h4 id="features-in-buildkit">Features in buildKit<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#features-in-buildkit" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li>Mount</li>
+<li>Custom front end where we can use go language and other supported language to write the docker file</li>
+</ol>
+<h2 id="images">Images<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#images" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Images are made up of multiple layers that get stacked on top of each other and represented as a single object.</p>
+<p>A Docker image is just a bunch of loosely-connected read-only layers. To inspect the image with the docker image inspect command</p>
+<p><code>docker image inspect ubuntu:latest</code></p>
+<ul>
+<li>Will print all layers in the image</li>
+</ul>
+<p>Docker employs a storage driver (snapshotter in newer versions) that is responsible for stacking layers and presenting them as a single unified filesystem. Examples of storage drivers on Linux include <strong>AUFS , overlay2 , devicemapper , btrfs and zfs</strong> . As their names suggest, each one is based on a Linux filesystem or block-device technology, and each has its own unique performance characteristics.</p>
+<p><strong>Sharing image layers:</strong>  If we downloading the image and that has base layer is unbuntu which we already have it will reuse it</p>
+<p><strong>digests of images:</strong> Every time you pull an image, the docker image pull command will include the image’s digest (cryptographic content hash) as part of the return code. You can also view the digests of images in your Docker host’s local repository by adding the —digests flag to the docker image ls command</p>
+<p><strong>distribution hash:</strong> When we pushing and pulling image to hub we send the layer in compressed manner. which cause the image digest to change so we use distribution hash. which is hash value of compressed image</p>
+<p><strong>dangling images:</strong> A dangling image is an image that is no longer tagged, and appears in listings as <code>none:none</code> to get <code>docker image ls --filter dangling=true</code></p>
+<p><strong>manifest list:</strong> User may have different architectures, such as Windows, ARM, and s390x. so when we pulling the image with tag we need to download the our architectures suitable image for that we use manifest list</p>
+<p>manifest list contain entries for each architecture the image supports with same tag.</p>
+<p>When we pull an image, your Docker client makes the relevant calls to the Docker Registry API running on Docker Hub. If a manifest list exists for the image, it will be parsed to see if an entry exists for Linux on ARM. If an ARM entry exists, the manifest for that image is retrieved and parsed for the crypto ID’s of the layers that make up the image. Each layer is then pulled from Docker Hub’s</p>
+<h4 id="args">Args<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#args" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h2 id="containers">Containers<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#containers" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>A container is the runtime instance of an image. <code>docker container run image --name</code></p>
+<p><strong>Stopping containers gracefully:</strong> Docker container stop sends a <strong>SIGTERM</strong> signal to the PID 1 process inside of the container. As we just said, this gives the process a chance to clean things up and gracefully shut itself down.If it doesn’t exit within 10 seconds, it will receive a <strong>SIGKILL.</strong></p>
+<p><strong>Self-healing containers with restart policies:</strong> The following restart policies exist</p>
+<ul>
+<li><strong>always</strong>  Will restart the container once docker is resarting (<strong>systemlctl restart docker)</strong></li>
+<li><strong>unless-stopped</strong></li>
+<li><strong>on-failed</strong> will restart a container if it exits with a non-zero exit code</li>
+</ul>
+<p>Containerizing an App</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="docker" data-theme="github-light github-dark"><code data-language="docker" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Use an official Node.js runtime as a base image</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">FROM</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> node:14</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Set the working directory in the container</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">WORKDIR</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> /usr/src/app</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Copy package.json and package-lock.json to the container</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">COPY</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> package*.json ./</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Install the application dependencies</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">RUN</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> npm install</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Copy the application code to the container</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">COPY</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> . .</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Expose the port the app runs on</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">EXPOSE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> 3000</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Define the command to run your application</span></span>
+<span data-line><span style="--shiki-light:#D73A49;--shiki-dark:#F97583;">CMD</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;node&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;app.js&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]</span></span></code></pre></figure>
+<ul>
+<li>docker build -t app-image .</li>
+<li>docker run -p 3000:3000 -d app-image</li>
+</ul>
+<h4 id="memory--cpu-constraints">Memory &amp; CPU Constraints<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#memory--cpu-constraints" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>By default it take the host cpu and memory as much it need</li>
+<li><code>docker run —-memory 60m my-image:tag</code> 60Mb limit</li>
+<li>Docker have OOM killer (out of memory killer) which is enabled by default what it do was when ever the container is getting out of memory it wil the process that consume more memory to disable the OOM <code>docker run -m 128m --oom-kill-disable my-image:tag</code></li>
+<li><strong>Swap:</strong> Swap is an extension of physical memory (RAM) that allows the operating system to use a portion of the disk as if it were additional RAM. <code>docker run --memory=512m --memory-swap=1g my_container</code></li>
+<li>swap space is typically enabled by default. This means that the operating system may use swap space to store less frequently accessed data when the physical memory (RAM) is fully utilized.</li>
+<li>If we set memory and swap same it won’t use swap</li>
+<li><code>Note:</code> Swap may downgrad the performance of the host</li>
+<li><code>docker run --cpus .5 my-image:tag</code> can use only 50% of the CPU</li>
+<li><code>docker run —-cpuset-cpus 1,2 my-image:tag</code> allocate the 2nd and 3rd CPU</li>
+</ul>
+<h4 id="enviroment-var">Enviroment Var<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#enviroment-var" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><code>docker run -e VARIABLE_NAME=variable_value my_container</code></li>
+<li><code>docker inspect --format='{{range .Config.Env}}{{println .}}{{end}}' container_id</code> to inspect the environment variables of a running container.</li>
+</ul>
+<h4 id="logs">Logs<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#logs" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><code>docker logs [container_name_or_id]</code></li>
+<li><code>docker events —-since ‘5m’</code></li>
+<li><code>docker logs -f my-container</code> follow logs</li>
+<li><code>docker run -D </code> Run in debugging mode</li>
+</ul>
+<h2 id="networking">Networking<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#networking" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Docker networking comprises three major components:</p>
+<ul>
+<li>The Container Network Model (CNM) →is a specification that defines how container runtimes like Docker should provide networking for containers.</li>
+<li>libnetwork →is the library that implements the CNM specifications. It’s written in Go, and implements the core components outlined in the CNM.</li>
+<li>Drivers →drivers are plugins that implement the CNM specifications through <strong><code>libnetwork</code></strong></li>
+</ul>
+<p><strong>The Container Network Model (CNM)</strong></p>
+<p>it defines three building blocks</p>
+<ul>
+<li><strong>Sandboxes</strong> →is an isolated network stack. It includes; Ethernet interfaces, ports, routing tables, and DNS config.</li>
+<li><strong>Endpoints</strong>→are virtual network interfaces (E.g. veth ). Like normal network interfaces, they’re responsible for making connections. In the case of the CNM, it’s the job of the endpoint to connect a sandbox to a network.</li>
+<li><strong>Networks</strong> →are a software implementation of an 802.1d bridge (more commonly known as a switch). As such, they group together, and isolate, a collection of endpoints that need to communicate.</li>
+</ul>
+<h3 id="drivers">Drivers<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#drivers" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Driver</th><th>Description</th></tr></thead><tbody><tr><td><code>bridge</code></td><td>The default network driver.</td></tr><tr><td><code>host</code></td><td>Remove network isolation between the container and the Docker host.</td></tr><tr><td><code>none</code></td><td>Completely isolate a container from the host and other containers.</td></tr><tr><td><code>overlay</code></td><td>Overlay networks connect multiple Docker daemons together.</td></tr><tr><td><code>ipvlan</code></td><td>IPvlan networks provide full control over both IPv4 and IPv6 addressing.</td></tr><tr><td><code>macvlan</code></td><td>Assign a MAC address to a container.</td></tr></tbody></table></div>
+<p>By default docker have bridge network(in windows it called NAT) which assign a unique ip address for each container from the range of <code>172.17.0.0/16</code></p>
+<p>The default “bridge” network, on all Linux-based Docker hosts, maps to an underlying Linux bridge in the kernel called <strong>“docker0”</strong>  <code>docker network inspect bridge | grep bridge.name </code></p>
+<p>to check the docker network inspect (<code>docker network inspect bridge</code>) the container.</p>
+<p>How to make two docker to communicate among them</p>
+<ol>
+<li>Create a network <code>docker network create -d nat localnet</code></li>
+<li>Run two container on same network <code>docker container run --network localnet name</code></li>
+<li>Communicate with docker name in container <code>ping containername1</code></li>
+</ol>
+<p><code>Note</code>: The default bridge network on Linux does not support name resolution via the Docker DNS service.</p>
+<h4 id="bridge-network">bridge Network<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#bridge-network" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>we can create a custom bridge using <code>docker create network name </code>which will create the new netowork bind with bridge and allocate the new Ip range and if you want the container to run on this network attach with <code>—network=name</code></p>
+<h4 id="host-network">Host Network<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#host-network" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>It directly bind the container to host and exposed to access publicly <code>docker run --network host name</code> we can access this by host IP.</p>
+<h4 id="macvlan">MACVLAN<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#macvlan" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>Connect the container interface through to the hosts interface.it requires the host NIC to be in promiscuous mode (isn’t allowed on most public cloud platforms)</p>
+<h4 id="communication-between-two-container-in-same-region">Communication between two container in same region<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#communication-between-two-container-in-same-region" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>When you send a packet to <code>172.23.2.1</code> on your local network, your operating system (Linux, for our purposes) looks up the MAC address for that IP address in a table it maintains (called the ARP table). Then it puts that MAC address on the packet and sends it off.</p>
+<p>So! What if I had a packet for the container <code>10.4.4.4</code> but I actually wanted it to go to the computer <code>172.23.1.1</code> where another container is running?. You just add an entry to another table. It’s all tables.</p>
+<p>Here’s command you could run to do this manually:</p>
+<pre><code>sudo ip route add 10.4.4.0/24 via 172.23.1.1 dev eth0
+</code></pre>
+<p><code>ip route add</code> adds an entry to the <strong>route table</strong> on your computer. This route table entry says “Linux, whenever you see a packet for <code>10.4.4.*</code>, just send it to the MAC address for <code>172.23.2.1</code>,</p>
+<h4 id="communication-between-two-container-in-different-region">Communication between two container in different region<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#communication-between-two-container-in-different-region" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p>route table trick will only work if the computers are connected directly. If the two computers are far apart (in different local networks) we’ll need to do something more complicated.</p>
+<p>We want to send a packet to the container IP 10.4.4.4, and it is on the computer 172.9.9.9. But because the computer is far away, we <strong>have</strong> to address the packet to the IP address 172.9.9.9. Woe is us! All is lost! Where are we going to put the IP address 10.4.4.4?</p>
+<p><strong>Encapsulation</strong></p>
+<p>All is not lost. We can do a thing called “encapsulation”. This is where you take a network packet and put it inside ANOTHER network packet.</p>
+<p>So instead of sending</p>
+<pre><code>IP: 10.4.4.4
+TCP stuff
+HTTP stuff
+</code></pre>
+<p>we will send</p>
+<pre><code>IP: 172.9.9.9
+(extra wrapper stuff)
+IP: 10.4.4.4
+TCP stuff
+HTTP stuff
+</code></pre>
+<p>There are at least 2 different ways of doing encapsulation: there’s “ip-in-ip” and “vxlan” encapsulation.</p>
+<p><strong>vxlan</strong> encapsulation takes your whole packet (including the MAC address) and wraps it inside a UDP packet. That looks like this:</p>
+<pre><code>MAC address: 11:11:11:11:11:11
+IP: 172.9.9.9
+UDP port 8472 (the &quot;vxlan port&quot;)
+MAC address: ab:cd:ef:12:34:56
+IP: 10.4.4.4
+TCP port 80
+HTTP stuff
+</code></pre>
+<p><strong>ip-in-ip</strong> encapsulation just slaps on an extra IP header on top of your old IP header. This means you don’t get to keep the MAC address you wanted to send it to but I’m not sure why you would care about that anyway.</p>
+<pre><code>MAC:  11:11:11:11:11:11
+IP: 172.9.9.9
+IP: 10.4.4.4
+TCP stuff
+HTTP stuff
+</code></pre>
+<h4 id="how-docker-networking-working-from-scratch">How docker networking working from scratch<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-docker-networking-working-from-scratch" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>In linux we can create a multiple namespace and ethernet with ip table</li>
+<li>refer <a href="https://github.dev/kristenjacobs/container-networking" class="external">https://github.dev/kristenjacobs/container-networking<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="volumes">Volumes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#volumes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>If you want your container’s data to stick around (persist), you need to put it on a volume. Volumes are decoupled from containers, meaning you create and manage them separately, and they’re not tied to the lifecycle of any container. Net result, you can delete a container with a volume, and the volume will not be deleted.</p>
+<p><code>docker volume create myvol</code></p>
+<p><code>docker volume inspect myvol</code></p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="json" data-theme="github-light github-dark"><code data-language="json" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">[</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	{</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">		&quot;CreatedAt&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;2018-01-12T12:12:10Z&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">		&quot;Driver&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;local&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">		&quot;Labels&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {},</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">		&quot;Mountpoint&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;/var/lib/docker/volumes/myvol/_data&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">		&quot;Name&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;myvol&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">,</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">		&quot;Options&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: {},</span></span>
+<span data-line><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF;">		&quot;Scope&quot;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;local&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">	}</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">]</span></span>
+<span data-line> </span></code></pre></figure>
+<ul>
+<li>Mountpoint → where the data will be stored</li>
+</ul>
+<p>By default, Docker creates new volumes with the built-in local driver. As the name suggests, local volumes are only available to containers on the node they’re created on. Use the -d flag to specify a different driver. Third-party drivers are available as plugins. These can provide advanced storage features, and integrate external storage systems with Docker</p>
+<h4 id="types">Types<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#types" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Host volume</strong> → we explicitly tell the host path and container path</li>
+<li><strong>Anonymous voulme</strong> → we only tell the container path it will automatically mount the data to <code>/var/lib/docker/volumes/random_hash/data</code></li>
+<li><strong>Named volume</strong> → Create volume using <code>docker volume create myvol</code> and attach it when running <code>docker run -v myvol:path_in_container</code></li>
+</ul>
+<p><code>docker run —name myapp -p 4000:4000 -v full_path_in_current_host:path_in_docker run imagename</code></p>
+<p>we can use this to avoid rebuiliding the images for each file change in our code we can directly mount the current code dir to docker container which will help to avoid building again and again. use this only for dev.</p>
+<h2 id="multistage-build">Multistage Build<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#multistage-build" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>This will be used to reduce the size of docker image by removing the unwanted things that no need for running the appliaction.let us assume you have program that can be compiled in to bin so we don’t need the things that we used during building the program.</p>
+<p>Example : In nodejs typescript code we no need the src code after compilling in to js so we can just copy the necessary file and remove other things.</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Stage 1: Build Stage</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">FROM node:latest AS build</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">WORKDIR /app</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Copy package.json and package-lock.json</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">COPY package*.json ./</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Install dependencies</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">RUN npm install</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Copy source code</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">COPY . .</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Build the application</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">RUN npm run build</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Stage 2: Production Stage (new base layer)</span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">#FROM will start a new base layer old will be ingored</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">FROM nginx:latest</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Copy built files from the build stage to the production image </span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">#(the above will be considered as seprate image and removed)</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">COPY --from=build /app/dist /usr/share/nginx/html</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Other configurations, if needed</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;"># Container startup command for the web server (nginx in this case)</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]</span></span></code></pre></figure>
+<p><code>docker image history image name </code>→ to print all layers and how it was builded</p>
+<h2 id="security">Security<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#security" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h4 id="scanning-for-vulernablity">Scanning for vulernablity<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#scanning-for-vulernablity" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li><strong>Trivy:</strong> Lightweight and easy to use.</li>
+<li><strong>Clair:</strong> Part of the CoreOS project, designed for container scanning.</li>
+<li><strong>Dagda:</strong> Extensive vulnerability scanner for Docker containers.</li>
+<li><strong>Anchore:</strong> Provides detailed analysis and policy enforcement.</li>
+<li><code>docker scan &lt;image_name>:&lt;tag></code> part of Docker Hub and is designed to analyze Docker images for security vulnerabilities.</li>
+</ul>
+<h2 id="docker-compose">Docker Compose<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#docker-compose" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>It was a Python tool (v1) that sat on top of Docker, and allowed you to define entire multi-container apps in a single YAML file. now v3 written in GO</p>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="docker" data-theme="github-light github-dark"><code data-language="docker" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">version:3</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">services:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  web: #name for the container</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    build: . </span></span>
+<span data-line><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D;">		#context if we have docker file give the path here and not give image</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">		image: imagename</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">		enviroment:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">				DB_URL: value</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    ports:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      - </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">&quot;8000:5000&quot;</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    volumes:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      - .:/code  #(map current dir (.) to the /code dir in container)</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    depends_on:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">      - redis #will wait for redis to spin up</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">		restart: always</span></span>
+<span data-line> </span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">  redis:</span></span>
+<span data-line><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">    image: redis</span></span>
+<span data-line> </span></code></pre></figure>
+<p><strong><strong>Compose file Structure</strong></strong></p>
+<ul>
+<li><strong><code>version</code></strong>: Specifies the version of the Docker Compose file syntax. It ensures compatibility and defines which features are available. ****</li>
+<li><strong><code>Services</code></strong> Describes the containers that make up the application, specifying their configuration, links, and other details.
+<ol>
+<li><strong><code>image</code></strong>: Specifies the Docker image to use for the service. It can be an official image from a registry or a custom image.</li>
+<li><strong><code>build</code></strong>: Defines the build context for the service, allowing you to build a custom image from a Dockerfile.</li>
+<li><strong><code>ports</code></strong>: Maps container ports to host ports, allowing external access to the service.</li>
+<li><strong><code>volumes</code></strong>: Mounts volumes from the host or other containers into the service, providing persistent storage.</li>
+<li><strong><code>environment</code></strong>: Sets environment variables for the service, influencing its runtime behavior.</li>
+<li><strong><code>depends_on</code></strong>: Specifies dependencies between services, ensuring one service starts only after its dependencies are up.</li>
+<li><strong><code>networks</code></strong>: Connects the service to specific networks, facilitating communication with other services.</li>
+<li><strong><code>command</code></strong>: Overrides the default command specified in the Docker image, allowing custom command execution.</li>
+<li><strong><code>entrypoint</code></strong>: Similar to <strong><code>command</code></strong>, but it specifies the entry point for the container.</li>
+<li><strong><code>restart</code></strong>: Defines the restart policy for the service, determining how the container behaves after it exits.</li>
+</ol>
+</li>
+<li><strong><code>networks</code></strong> Defines networks that containers can connect to. This allows you to isolate containers or facilitate communication between them.</li>
+<li><strong><code>volumes</code></strong>: Declares named volumes that can be mounted into containers. Volumes persist data beyond the lifetime of a container.</li>
+<li><strong><code>configs</code></strong>: Specifies configuration files for services. It allows you to manage configuration separately from the Compose file.</li>
+<li><strong><code>secrets</code></strong>: Defines secrets that can be used by services. It helps manage sensitive data securely.</li>
+<li><strong><code>extensions</code></strong>: Provides a way to extend the Compose file by referencing external Compose files.</li>
+</ul>
+<p><strong>Docker compose CMDs</strong></p>
+<ol>
+<li><strong><code>docker-compose up</code></strong>: Builds, (re)creates, starts, and attaches to containers as per the configuration defined in the <strong><code>docker-compose.yml</code></strong> file.</li>
+<li><strong><code>docker-compose down</code></strong>: Stops and removes containers, networks, volumes, and images created by <strong><code>docker-compose up</code></strong>.</li>
+<li><strong><code>docker-compose build</code></strong>: Builds or rebuilds services specified in the <strong><code>docker-compose.yml</code></strong> file. it will build all images with prefix with name of directory</li>
+<li><strong><code>docker-compose ps</code></strong>: Lists the running containers associated with the Docker Compose configuration.</li>
+<li><strong><code>docker-compose logs</code></strong>: Displays log output from services. You can specify the service name to view logs for a specific service.</li>
+<li><strong><code>docker-compose exec</code></strong>: Runs a command in a running service container. Useful for executing one-off commands or accessing a shell within a container.</li>
+<li><strong><code>docker-compose stop</code></strong>: Stops running services defined in the <strong><code>docker-compose.yml</code></strong> file without removing them.</li>
+<li><strong><code>docker-compose start</code></strong>: Starts stopped services defined in the <strong><code>docker-compose.yml</code></strong> file.</li>
+<li><strong><code>docker-compose restart</code></strong>: Restarts services. This is equivalent to stopping and then starting services.</li>
+<li><strong><code>docker-compose down -v</code></strong>: Stops and removes containers, networks, volumes, and images, including volumes. Useful for a complete cleanup.</li>
+</ol>
+<h2 id="best-practices">Best practices<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#best-practices" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h4 id="caching">caching<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#caching" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Make sure the order is correct such that it will do caching docker will not apply caching after one non caching stage</li>
+</ul>
+<figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">COPY ./app</span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">RUN apt-get install</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> </span></span>
+<span data-line><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">RUN apt-get install</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;"> </span></span></code></pre></figure>
+<ul>
+<li>In above example COPY will always change if we make a code change which cause the doker to not use cache for the upcoming layer so move that to last as possible</li>
+<li>Remove the pkg that no need</li>
+</ul>
+<h2 id="debugging">Debugging<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#debugging" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><code>docker debug</code> we can get a debug shell into any container or image, even if they don’t contain a shell. we don’t need to modify the image to use Docker Debug</p>
+<p>they have installed builtin tools like <code>vim</code>, <code>nano</code>, <code>htop</code>, and <code>curl</code></p>
+<pre><code>docker debug my-app
+</code></pre>
+<p>Here’s a formatted summary of the resources and tools related to Docker, containers, and related technologies:</p>
+<hr/>
+<h2 id="resources">Resources<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#resources" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>
+<p><strong>Reducing Docker Build Times</strong></p>
+<ul>
+<li>Article: <a href="https://medium.com/datamindedbe/how-we-reduced-our-docker-build-times-by-40-afea7b7f5fe7" class="external">How We Reduced Our Docker Build Times by 40%<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: This article discusses strategies and techniques to optimize Docker build times, achieving a 40% reduction in build duration.</li>
+</ul>
+</li>
+<li>
+<p><strong>Complete Intro to Containers</strong></p>
+<ul>
+<li>Guide: <a href="https://btholt.github.io/complete-intro-to-containers/" class="external">Complete Intro to Containers<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: A comprehensive guide on the basics of containers, their use cases, and practical applications.</li>
+</ul>
+</li>
+</ol>
+<h2 id="tools">Tools<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#tools" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>
+<p><strong>Network Troubleshooting Tool</strong></p>
+<ul>
+<li>Tool: <a href="https://github.com/nicolaka/netshoot" class="external">Netshoot<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Description: A versatile container for diagnosing network issues in Docker and Kubernetes environments.</li>
+</ul>
+</li>
+<li>
+<p><strong>Local Production Environment Replication</strong></p>
+<ul>
+<li>Tool: <a href="https://github.com/serversideup/spin" class="external">Spin<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Description: Tool for replicating production environments locally using Docker to ensure consistency and easier testing.</li>
+</ul>
+</li>
+</ol>
+<h2 id="internal">Internal<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#internal" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ol>
+<li>
+<p><strong>Containers and Cgroups</strong></p>
+<ul>
+<li>Video: <a href="https://youtube.com/watch?v=sK5i-N34im8" class="external">Cgroups, Namespaces, and Beyond: What Are Containers Made From?<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> by Jérôme Petazzoni</li>
+<li>Summary: An in-depth look at the components and mechanisms that form the basis of container technology.</li>
+</ul>
+</li>
+<li>
+<p><strong>Rootless Containers</strong></p>
+<ul>
+<li>Video: <a href="https://youtube.com/watch?v=oSlheqvaRso" class="external">Rootless Containers from Scratch<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: Explores the concept and implementation of rootless containers, which enhance security by running containers without root privileges.</li>
+</ul>
+</li>
+<li>
+<p><strong>Building Docker from Scratch</strong></p>
+<ul>
+<li>Video: <a href="https://youtube.com/watch?v=jeTKgAEyhsA" class="external">Build Your Own Docker<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: A tutorial on constructing a Docker-like container system from scratch.</li>
+</ul>
+</li>
+<li>
+<p><strong>Build Your Own Container Runtime</strong></p>
+<ul>
+<li>Video: <a href="https://app.codecrafters.io/join?via=JohnCrickett" class="external">Build Your Own Container Runtime with chroot<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: A guided approach to creating a basic container runtime using chroot.</li>
+</ul>
+</li>
+<li>
+<p><strong>Building Containers: Two Versions</strong></p>
+<ul>
+<li>Video: <a href="https://youtube.com/watch?v=GFUpXhft8zA" class="external">Building Containers From Scratch - Vinesh Agrawal<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Additional Video: <a href="https://youtube.com/watch?v=JOsWB50LmwQ" class="external">Another Version of the Same Presentation<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: Two presentations that delve into the process of building containers from the ground up.</li>
+</ul>
+</li>
+<li>
+<p><strong>Linux Namespace Golang Experiments</strong></p>
+<ul>
+<li>Code: <a href="https://github.com/songrgg/namespace-demo" class="external">Linux Namespace Golang Experiments<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: A collection of Golang experiments showcasing the use of Linux namespaces.</li>
+</ul>
+</li>
+<li>
+<p><strong>Building a Container in Go</strong></p>
+<ul>
+<li>Article: <a href="https://infoq.com/articles/build-a-container-golang/" class="external">Building a Container in Go<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: An informative article on creating a container implementation using the Go programming language.</li>
+</ul>
+</li>
+<li>
+<p><strong>Containers from Scratch - Eric Chiang</strong></p>
+<ul>
+<li>Video: <a href="https://www.youtube.com/watch?v=wyqoi52k5jM" class="external">Containers from Scratch - Eric Chiang<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: A detailed explanation of building containers from scratch by Eric Chiang.</li>
+</ul>
+</li>
+<li>
+<p><strong>Deep Dive into Docker Overlay Networks</strong></p>
+<ul>
+<li>Video: <a href="https://www.youtube.com/watch?v=b3XDl0YsVsg" class="external">Deep Dive in Docker Overlay Networks<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: An in-depth look at Docker overlay networks, exploring their architecture and functionality.</li>
+</ul>
+</li>
+<li>
+<p><strong>Container Networking</strong></p>
+<ul>
+<li>Blog: <a href="https://blog.mbrt.dev/posts/container-network/" class="external">Container Network Overview<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: A blog post covering various aspects of container networking.</li>
+</ul>
+</li>
+<li>
+<p><strong>Writing a Container in Rust</strong></p>
+<ul>
+<li>Article: <a href="https://litchipi.site/serie/containers_in_rust" class="external">Writing a Container in Rust<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li>Summary: An article on implementing a container using the Rust programming language.</li>
+</ul>
+</li>
+</ol>
+<h2 id="internal-1">Internal<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#internal-1" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="whats-an-oci-image">What’s An OCI Image?<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#whats-an-oci-image" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p> OCI is <a href="https://github.com/opencontainers/image-spec/blob/main/spec.md" class="external">the standardized container format used by Docker<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a> — are pretty simple. An OCI image is just a stack of tarballs. A OCI can run multiple different runtime</p>
+<p>A useful way to look at a Dockerfile is as a series of shell commands, each generating a tarball; we call these “layers”. To rehydrate a container from its image, we just start the the first layer and unpack one on top of the next.</p>
+<p>docker images are just tar file and json meta data</p>
+<p><code>docker save nginx:latest -o ngnix.tar</code> <span>→</span> will save image as tar file
+<code>tar -xvf ngnix.tar --one-top-level</code> <span>→</span> exctract the tar file which have tar and json for each layer <code>docker export containername -o mycontainer.tar</code></p>
+<p>if you create file inside container we can see inside proc file of the docker process id ls <code>/proc/procoid/root</code></p>
+<h2 id="performance-analysis">Performance analysis<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#performance-analysis" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#docker-engine" data-for="docker-engine">Docker Engine</a></li><li class="depth-0"><a href="#builders" data-for="builders">Builders</a></li><li class="depth-0"><a href="#images" data-for="images">Images</a></li><li class="depth-0"><a href="#containers" data-for="containers">Containers</a></li><li class="depth-0"><a href="#networking" data-for="networking">Networking</a></li><li class="depth-1"><a href="#drivers" data-for="drivers">Drivers</a></li><li class="depth-0"><a href="#volumes" data-for="volumes">Volumes</a></li><li class="depth-0"><a href="#multistage-build" data-for="multistage-build">Multistage Build</a></li><li class="depth-0"><a href="#security" data-for="security">Security</a></li><li class="depth-0"><a href="#docker-compose" data-for="docker-compose">Docker Compose</a></li><li class="depth-0"><a href="#best-practices" data-for="best-practices">Best practices</a></li><li class="depth-0"><a href="#debugging" data-for="debugging">Debugging</a></li><li class="depth-0"><a href="#resources" data-for="resources">Resources</a></li><li class="depth-0"><a href="#tools" data-for="tools">Tools</a></li><li class="depth-0"><a href="#internal" data-for="internal">Internal</a></li><li class="depth-0"><a href="#internal-1" data-for="internal-1">Internal</a></li><li class="depth-1"><a href="#whats-an-oci-image" data-for="whats-an-oci-image">What’s An OCI Image?</a></li><li class="depth-0"><a href="#performance-analysis" data-for="performance-analysis">Performance analysis</a></li></ul></div></div><div class="backlinks"><h3>Backlinks</h3><ul class="overflow"><li>No backlinks found</li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../postscript.js" type="module"></script></html>

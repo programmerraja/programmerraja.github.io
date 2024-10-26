@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en"><head><title>Software Architecture and Decision-Making</title><meta charset="utf-8"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM Plex Mono&amp;family=Schibsted Grotesk:wght@400;700&amp;family=Source Sans Pro:ital,wght@0,400;0,600;1,400;1,600&amp;display=swap"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta property="og:title" content="Software Architecture and Decision-Making"/><meta property="og:description" content="Book Core concepts It explains principles and concepts I believe a senior architect must understand deeply and discusses how to employ those principles to manage uncertainty Books ..."/><meta property="og:image" content="https://programmerraja.github.io/static/og-image.png"/><meta property="og:width" content="1200"/><meta property="og:height" content="675"/><link rel="icon" href="../../static/icon.png"/><meta name="description" content="Book Core concepts It explains principles and concepts I believe a senior architect must understand deeply and discusses how to employ those principles to manage uncertainty Books ..."/><meta name="generator" content="Quartz"/><link href="../../index.css" rel="stylesheet" type="text/css" spa-preserve/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve/><script src="../../prescript.js" type="application/javascript" spa-preserve></script><script type="application/javascript" spa-preserve>const fetchData = fetch("../../static/contentIndex.json").then(data => data.json())</script></head><body data-slug="notes/2024/Software-Architecture-and-Decision-Making"><div id="quartz-root" class="page"><div id="quartz-body"><div class="left sidebar"><h2 class="page-title"><a href="../..">programmerraja blog</a></h2><div class="spacer mobile-only"></div><div class="search"><button class="search-button" id="search-button"><p>Search</p><svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7"><title>Search</title><g class="search-path" fill="none"><path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path><circle cx="8" cy="8" r="7"></circle></g></svg></button><div id="search-container"><div id="search-space"><input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something"/><div id="search-layout" data-preview="true"></div></div></div></div><button class="darkmode" id="darkmode"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="dayIcon" x="0px" y="0px" viewBox="0 0 35 35" style="enable-background:new 0 0 35 35" xml:space="preserve" aria-label="Dark mode"><title>Dark mode</title><path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5    S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z M7.5,26c-0.414,0-0.789,0.168-1.061,0.439l-2,2C4.168,28.711,4,29.086,4,29.5    C4,30.328,4.671,31,5.5,31c0.414,0,0.789-0.168,1.06-0.44l2-2C8.832,28.289,9,27.914,9,27.5C9,26.672,8.329,26,7.5,26z M17.5,6    C18.329,6,19,5.328,19,4.5v-3C19,0.672,18.329,0,17.5,0S16,0.672,16,1.5v3C16,5.328,16.671,6,17.5,6z M27.5,9    c0.414,0,0.789-0.168,1.06-0.439l2-2C30.832,6.289,31,5.914,31,5.5C31,4.672,30.329,4,29.5,4c-0.414,0-0.789,0.168-1.061,0.44    l-2,2C26.168,6.711,26,7.086,26,7.5C26,8.328,26.671,9,27.5,9z M6.439,8.561C6.711,8.832,7.086,9,7.5,9C8.328,9,9,8.328,9,7.5    c0-0.414-0.168-0.789-0.439-1.061l-2-2C6.289,4.168,5.914,4,5.5,4C4.672,4,4,4.672,4,5.5c0,0.414,0.168,0.789,0.439,1.06    L6.439,8.561z M33.5,16h-3c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h3c0.828,0,1.5-0.672,1.5-1.5S34.328,16,33.5,16z     M28.561,26.439C28.289,26.168,27.914,26,27.5,26c-0.828,0-1.5,0.672-1.5,1.5c0,0.414,0.168,0.789,0.439,1.06l2,2    C28.711,30.832,29.086,31,29.5,31c0.828,0,1.5-0.672,1.5-1.5c0-0.414-0.168-0.789-0.439-1.061L28.561,26.439z M17.5,29    c-0.829,0-1.5,0.672-1.5,1.5v3c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5v-3C19,29.672,18.329,29,17.5,29z M17.5,7    C11.71,7,7,11.71,7,17.5S11.71,28,17.5,28S28,23.29,28,17.5S23.29,7,17.5,7z M17.5,25c-4.136,0-7.5-3.364-7.5-7.5    c0-4.136,3.364-7.5,7.5-7.5c4.136,0,7.5,3.364,7.5,7.5C25,21.636,21.636,25,17.5,25z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="nightIcon" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100" xml:space="preserve" aria-label="Light mode"><title>Light mode</title><path d="M96.76,66.458c-0.853-0.852-2.15-1.064-3.23-0.534c-6.063,2.991-12.858,4.571-19.655,4.571  C62.022,70.495,50.88,65.88,42.5,57.5C29.043,44.043,25.658,23.536,34.076,6.47c0.532-1.08,0.318-2.379-0.534-3.23  c-0.851-0.852-2.15-1.064-3.23-0.534c-4.918,2.427-9.375,5.619-13.246,9.491c-9.447,9.447-14.65,22.008-14.65,35.369  c0,13.36,5.203,25.921,14.65,35.368s22.008,14.65,35.368,14.65c13.361,0,25.921-5.203,35.369-14.65  c3.872-3.871,7.064-8.328,9.491-13.246C97.826,68.608,97.611,67.309,96.76,66.458z"></path></svg></button><div class="explorer desktop-only"><button type="button" id="explorer" data-behavior="collapse" data-collapsed="collapsed" data-savestate="true" data-tree="[{&quot;path&quot;:&quot;notes&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;notes/2023&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;notes/2024&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post/2023&quot;,&quot;collapsed&quot;:true},{&quot;path&quot;:&quot;post/2024&quot;,&quot;collapsed&quot;:true}]" aria-controls="explorer-content" aria-expanded="false"><h2>Explorer</h2><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="explorer-content"><ul class="overflow" id="explorer-ul"><li><div class="folder-outer open"><ul style="padding-left:0;" class="content" data-folderul><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes"><button class="folder-button"><span class="folder-title">notes</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes/2023"><button class="folder-button"><span class="folder-title">2023</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes/2023"><li><a href="../../notes/2023/MongoDB-Performance-Tuning" data-for="notes/2023/MongoDB-Performance-Tuning">MongoDB Performance Tuning</a></li><li><a href="../../notes/2023/RabbitMQ" data-for="notes/2023/RabbitMQ">RabbitMQ</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="notes/2024"><button class="folder-button"><span class="folder-title">2024</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="notes/2024"><li><a href="../../notes/2024/A-Philosophy-of-Software-Design-Book-Notes" data-for="notes/2024/A-Philosophy-of-Software-Design-Book-Notes">A Philosophy of Software Design Book Notes</a></li><li><a href="../../notes/2024/Abstract-syntax-tree" data-for="notes/2024/Abstract-syntax-tree">Abstract syntax tree</a></li><li><a href="../../notes/2024/AI" data-for="notes/2024/AI">AI</a></li><li><a href="../../notes/2024/AI-Agent" data-for="notes/2024/AI-Agent">AI Agent</a></li><li><a href="../../notes/2024/AI-Content-System" data-for="notes/2024/AI-Content-System">AI Content System</a></li><li><a href="../../notes/2024/AI-in-Coding" data-for="notes/2024/AI-in-Coding">AI in Coding</a></li><li><a href="../../notes/2024/AI-Paper" data-for="notes/2024/AI-Paper">AI Paper</a></li><li><a href="../../notes/2024/AI-Research-Paper-notes" data-for="notes/2024/AI-Research-Paper-notes">AI Research Paper notes</a></li><li><a href="../../notes/2024/Android-internal" data-for="notes/2024/Android-internal">Android internal</a></li><li><a href="../../notes/2024/Appache-Kaffa" data-for="notes/2024/Appache-Kaffa">Appache Kaffa</a></li><li><a href="../../notes/2024/AWS" data-for="notes/2024/AWS">AWS</a></li><li><a href="../../notes/2024/Basic-Maths" data-for="notes/2024/Basic-Maths">Basic Maths</a></li><li><a href="../../notes/2024/Big-Data" data-for="notes/2024/Big-Data">Big Data</a></li><li><a href="../../notes/2024/Building-Microservices" data-for="notes/2024/Building-Microservices">Building Microservices</a></li><li><a href="../../notes/2024/Claude" data-for="notes/2024/Claude">Claude</a></li><li><a href="../../notes/2024/Cloud-Design-Patterns" data-for="notes/2024/Cloud-Design-Patterns">Cloud Design Patterns</a></li><li><a href="../../notes/2024/Css" data-for="notes/2024/Css">Css</a></li><li><a href="../../notes/2024/Dart-Cheet-sheat" data-for="notes/2024/Dart-Cheet-sheat">Dart Cheet sheat</a></li><li><a href="../../notes/2024/Data-Science-from-Scratch" data-for="notes/2024/Data-Science-from-Scratch">Data Science from Scratch</a></li><li><a href="../../notes/2024/Data-structure" data-for="notes/2024/Data-structure">Data structure</a></li><li><a href="../../notes/2024/Database-internal" data-for="notes/2024/Database-internal">Database internal</a></li><li><a href="../../notes/2024/Database-Performance-at-Scale" data-for="notes/2024/Database-Performance-at-Scale">Database Performance at Scale</a></li><li><a href="../../notes/2024/Databases" data-for="notes/2024/Databases">Databases</a></li><li><a href="../../notes/2024/Deep-learning" data-for="notes/2024/Deep-learning">Deep learning</a></li><li><a href="../../notes/2024/Design-pattern" data-for="notes/2024/Design-pattern">Design pattern</a></li><li><a href="../../notes/2024/Distributed-System" data-for="notes/2024/Distributed-System">Distributed System</a></li><li><a href="../../notes/2024/Distributed-tracing" data-for="notes/2024/Distributed-tracing">Distributed tracing</a></li><li><a href="../../notes/2024/Docker" data-for="notes/2024/Docker">Docker</a></li><li><a href="../../notes/2024/Docker--and--Kubernetes-hacking" data-for="notes/2024/Docker--and--Kubernetes-hacking">Docker &amp; Kubernetes hacking</a></li><li><a href="../../notes/2024/Documentation" data-for="notes/2024/Documentation">Documentation</a></li><li><a href="../../notes/2024/Domain-driven-design" data-for="notes/2024/Domain-driven-design">Domain driven design</a></li><li><a href="../../notes/2024/Elastic-search" data-for="notes/2024/Elastic-search">Elastic search</a></li><li><a href="../../notes/2024/Free-LLM-API" data-for="notes/2024/Free-LLM-API">Free LLM API</a></li><li><a href="../../notes/2024/Freelancing-And-Saas" data-for="notes/2024/Freelancing-And-Saas">Freelancing And Saas</a></li><li><a href="../../notes/2024/Genric" data-for="notes/2024/Genric">Genric</a></li><li><a href="../../notes/2024/Go" data-for="notes/2024/Go">Go</a></li><li><a href="../../notes/2024/Google-vertex-AI" data-for="notes/2024/Google-vertex-AI">Google vertex AI</a></li><li><a href="../../notes/2024/Grafana" data-for="notes/2024/Grafana">Grafana</a></li><li><a href="../../notes/2024/Graph-database" data-for="notes/2024/Graph-database">Graph database</a></li><li><a href="../../notes/2024/Hacking" data-for="notes/2024/Hacking">Hacking</a></li><li><a href="../../notes/2024/Hands-On-Machine-Learningwith-Scikit-Learn,-Keras,-andTensorFlow" data-for="notes/2024/Hands-On-Machine-Learningwith-Scikit-Learn,-Keras,-andTensorFlow">Hands-On Machine Learningwith Scikit-Learn, Keras, andTensorFlow</a></li><li><a href="../../notes/2024/Haystack-Notes" data-for="notes/2024/Haystack-Notes">Haystack Notes</a></li><li><a href="../../notes/2024/Hugging-face" data-for="notes/2024/Hugging-face">Hugging face</a></li><li><a href="../../notes/2024/Influx-db" data-for="notes/2024/Influx-db">Influx db</a></li><li><a href="../../notes/2024/Kubernetes" data-for="notes/2024/Kubernetes">Kubernetes</a></li><li><a href="../../notes/2024/LamaIndex" data-for="notes/2024/LamaIndex">LamaIndex</a></li><li><a href="../../notes/2024/Langchain" data-for="notes/2024/Langchain">Langchain</a></li><li><a href="../../notes/2024/Leadership" data-for="notes/2024/Leadership">Leadership</a></li><li><a href="../../notes/2024/Leading-EffectiveEngineering-Teams" data-for="notes/2024/Leading-EffectiveEngineering-Teams">Leading EffectiveEngineering Teams</a></li><li><a href="../../notes/2024/Learning-Domain-Driven-Design" data-for="notes/2024/Learning-Domain-Driven-Design">Learning Domain-Driven Design</a></li><li><a href="../../notes/2024/Learning-from-blog" data-for="notes/2024/Learning-from-blog">Learning from blog</a></li><li><a href="../../notes/2024/Linux" data-for="notes/2024/Linux">Linux</a></li><li><a href="../../notes/2024/Linux-swiss-knife" data-for="notes/2024/Linux-swiss-knife">Linux swiss knife</a></li><li><a href="../../notes/2024/LLM-Hacking" data-for="notes/2024/LLM-Hacking">LLM Hacking</a></li><li><a href="../../notes/2024/LLM-Observability-And-Eval" data-for="notes/2024/LLM-Observability-And-Eval">LLM Observability And Eval</a></li><li><a href="../../notes/2024/LLM-strucuted-output-and-Parser" data-for="notes/2024/LLM-strucuted-output-and-Parser">LLM strucuted output and Parser</a></li><li><a href="../../notes/2024/LMDB-Database" data-for="notes/2024/LMDB-Database">LMDB Database</a></li><li><a href="../../notes/2024/Low-level-Tech" data-for="notes/2024/Low-level-Tech">Low level Tech</a></li><li><a href="../../notes/2024/Machine-learning" data-for="notes/2024/Machine-learning">Machine learning</a></li><li><a href="../../notes/2024/MeiliSearch" data-for="notes/2024/MeiliSearch">MeiliSearch</a></li><li><a href="../../notes/2024/Memory-profiling-Nodejs" data-for="notes/2024/Memory-profiling-Nodejs">Memory profiling Nodejs</a></li><li><a href="../../notes/2024/Microservice-Patterns-and-Best-Practices" data-for="notes/2024/Microservice-Patterns-and-Best-Practices">Microservice Patterns and Best Practices</a></li><li><a href="../../notes/2024/MicroServices" data-for="notes/2024/MicroServices">MicroServices</a></li><li><a href="../../notes/2024/Money-Earning" data-for="notes/2024/Money-Earning">Money Earning</a></li><li><a href="../../notes/2024/Mongodb-Notes" data-for="notes/2024/Mongodb-Notes">Mongodb Notes</a></li><li><a href="../../notes/2024/Napkin-maths" data-for="notes/2024/Napkin-maths">Napkin maths</a></li><li><a href="../../notes/2024/Natural-Language-Processing-with-Transformers--Notes" data-for="notes/2024/Natural-Language-Processing-with-Transformers--Notes">Natural Language Processing with Transformers  Notes</a></li><li><a href="../../notes/2024/Networking" data-for="notes/2024/Networking">Networking</a></li><li><a href="../../notes/2024/Nginx" data-for="notes/2024/Nginx">Nginx</a></li><li><a href="../../notes/2024/OS" data-for="notes/2024/OS">OS</a></li><li><a href="../../notes/2024/PostgreSQL" data-for="notes/2024/PostgreSQL">PostgreSQL</a></li><li><a href="../../notes/2024/Prompt-Engineering" data-for="notes/2024/Prompt-Engineering">Prompt Engineering</a></li><li><a href="../../notes/2024/Python" data-for="notes/2024/Python">Python</a></li><li><a href="../../notes/2024/Python-AI" data-for="notes/2024/Python-AI">Python AI</a></li><li><a href="../../notes/2024/React" data-for="notes/2024/React">React</a></li><li><a href="../../notes/2024/Rust" data-for="notes/2024/Rust">Rust</a></li><li><a href="../../notes/2024/ScyllaDB" data-for="notes/2024/ScyllaDB">ScyllaDB</a></li><li><a href="../../notes/2024/Software-Architecture" data-for="notes/2024/Software-Architecture">Software Architecture</a></li><li><a href="../../notes/2024/Software-Architecture-and-Decision-Making" data-for="notes/2024/Software-Architecture-and-Decision-Making">Software Architecture and Decision-Making</a></li><li><a href="../../notes/2024/Software-principles" data-for="notes/2024/Software-principles">Software principles</a></li><li><a href="../../notes/2024/Static-code-analysis" data-for="notes/2024/Static-code-analysis">Static code analysis</a></li><li><a href="../../notes/2024/STrace" data-for="notes/2024/STrace">STrace</a></li><li><a href="../../notes/2024/System-Design" data-for="notes/2024/System-Design">System Design</a></li><li><a href="../../notes/2024/System-Design-Case-study" data-for="notes/2024/System-Design-Case-study">System Design Case study</a></li><li><a href="../../notes/2024/Tech-stack-of-popular-companies" data-for="notes/2024/Tech-stack-of-popular-companies">Tech stack of popular companies</a></li><li><a href="../../notes/2024/Tensorflow" data-for="notes/2024/Tensorflow">Tensorflow</a></li><li><a href="../../notes/2024/Terraform" data-for="notes/2024/Terraform">Terraform</a></li><li><a href="../../notes/2024/Tmux" data-for="notes/2024/Tmux">Tmux</a></li><li><a href="../../notes/2024/Top-tech-peoples" data-for="notes/2024/Top-tech-peoples">Top tech peoples</a></li><li><a href="../../notes/2024/Transformer" data-for="notes/2024/Transformer">Transformer</a></li><li><a href="../../notes/2024/Typescript" data-for="notes/2024/Typescript">Typescript</a></li><li><a href="../../notes/2024/V8-Engine" data-for="notes/2024/V8-Engine">V8 Engine</a></li><li><a href="../../notes/2024/Vector-DB" data-for="notes/2024/Vector-DB">Vector DB</a></li><li><a href="../../notes/2024/Web-security" data-for="notes/2024/Web-security">Web security</a></li><li><a href="../../notes/2024/Weekend-Learning" data-for="notes/2024/Weekend-Learning">Weekend Learning</a></li><li><a href="../../notes/2024/Wireshark" data-for="notes/2024/Wireshark">Wireshark</a></li></ul></div></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post"><button class="folder-button"><span class="folder-title">post</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post"><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post/2023"><button class="folder-button"><span class="folder-title">2023</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post/2023"><li><a href="../../post/2023/helloworld" data-for="post/2023/helloworld">helloworld</a></li></ul></div></li><li><div class="folder-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="5 8 14 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="folder-icon"><polyline points="6 9 12 15 18 9"></polyline></svg><div data-folderpath="post/2024"><button class="folder-button"><span class="folder-title">2024</span></button></div></div><div class="folder-outer "><ul style="padding-left:1.4rem;" class="content" data-folderul="post/2024"><li><a href="../../post/2024/A-Journey-into-Unseen-Threats-on-our-VM" data-for="post/2024/A-Journey-into-Unseen-Threats-on-our-VM">A Journey into Unseen Threats on our VM</a></li><li><a href="../../post/2024/C-razy-Facebook-Hack-How-I-Pranked-My-Friend" data-for="post/2024/C-razy-Facebook-Hack-How-I-Pranked-My-Friend">C-razy Facebook Hack How I Pranked My Friend</a></li><li><a href="../../post/2024/Code-Against-the-Clock--From-Clicks-to-Cash" data-for="post/2024/Code-Against-the-Clock--From-Clicks-to-Cash">Code Against the Clock  From Clicks to Cash</a></li><li><a href="../../post/2024/Code-Against-the-Clock--How-I-Cut-Our-Marketing-Team’s-Daily-Chores-with-Automation" data-for="post/2024/Code-Against-the-Clock--How-I-Cut-Our-Marketing-Team’s-Daily-Chores-with-Automation">Code Against the Clock  How I Cut Our Marketing Team’s Daily Chores with Automation</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Automating-Attendance-Management" data-for="post/2024/Code-Against-the-Clock-Automating-Attendance-Management">Code Against the Clock Automating Attendance Management</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Automating-the-youtube-shorts" data-for="post/2024/Code-Against-the-Clock-Automating-the-youtube-shorts">Code Against the Clock Automating the youtube shorts</a></li><li><a href="../../post/2024/Code-Against-the-Clock-Creating-class-hunter" data-for="post/2024/Code-Against-the-Clock-Creating-class-hunter">Code Against the Clock Creating class hunter</a></li><li><a href="../../post/2024/Code-Against-the-Clock-How-I-Enhanced-My-PM-Productivity" data-for="post/2024/Code-Against-the-Clock-How-I-Enhanced-My-PM-Productivity">Code Against the Clock How I Enhanced My PM Productivity</a></li><li><a href="../../post/2024/Code-Against-the-Clock-How-I-Enhanced-My-Scrum-Master-Productivity" data-for="post/2024/Code-Against-the-Clock-How-I-Enhanced-My-Scrum-Master-Productivity">Code Against the Clock How I Enhanced My Scrum Master Productivity</a></li><li><a href="../../post/2024/Crafting-Code-Essential-Best-Practices" data-for="post/2024/Crafting-Code-Essential-Best-Practices">Crafting Code Essential Best Practices</a></li><li><a href="../../post/2024/From-Side-Hustle-to-Payday-How-I-Earned-My-First-$100" data-for="post/2024/From-Side-Hustle-to-Payday-How-I-Earned-My-First-$100">From Side Hustle to Payday How I Earned My First $100</a></li><li><a href="../../post/2024/How-I-Hacked-a-Company-Recruitment-Test-The-Unexpected-Tech-Adventure-of-My-College-Life" data-for="post/2024/How-I-Hacked-a-Company-Recruitment-Test-The-Unexpected-Tech-Adventure-of-My-College-Life">How I Hacked a Company Recruitment Test The Unexpected Tech Adventure of My College Life</a></li><li><a href="../../post/2024/How-to-capture-mongodb-protocol-in--wireshark" data-for="post/2024/How-to-capture-mongodb-protocol-in--wireshark">How to capture mongodb protocol in  wireshark</a></li><li><a href="../../post/2024/Hunting-the-Hacker-A-Deep-Dive-into-Courier-Fraud" data-for="post/2024/Hunting-the-Hacker-A-Deep-Dive-into-Courier-Fraud">Hunting the Hacker A Deep Dive into Courier Fraud</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found" data-for="post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found">Sherlock Holmes and The Case of the App Not Found</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-the-Case-of-the-Broken-Website" data-for="post/2024/Sherlock-Holmes-and-the-Case-of-the-Broken-Website">Sherlock Holmes and the Case of the Broken Website</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery" data-for="post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery">Sherlock Holmes and The Case of the Cloudflare Timeout Mystery</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack" data-for="post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack">Sherlock Holmes and The Case Redis Overload During a DDoS Attack</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash" data-for="post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash">Sherlock Holmes and The Mystery of the Erratic Logstash</a></li><li><a href="../../post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies" data-for="post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies">Sherlock Holmes and the Mystery of the Missing Cookies</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Case-of-the-Content-Length-Mismatch" data-for="post/2024/Sherlock-Holmes-The-Case-of-the-Content-Length-Mismatch">Sherlock Holmes The Case of the Content Length Mismatch</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Case-of-the-Missing-User-IPs" data-for="post/2024/Sherlock-Holmes-The-Case-of-the-Missing-User-IPs">Sherlock Holmes The Case of the Missing User IPs</a></li><li><a href="../../post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery" data-for="post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery">Sherlock Holmes The Great Lambda Mystery</a></li><li><a href="../../post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation" data-for="post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation">The Curious Case of the 15000 Spam My Unexpected Investigation</a></li><li><a href="../../post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World" data-for="post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World">The Day a DDOS Attack Led to the Most Awkward Hello World</a></li><li><a href="../../post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours" data-for="post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours">The Joy of Debugging How One Tiny Typo Kept Us Busy for Hours</a></li></ul></div></li></ul></div></li></ul></div></li><li id="explorer-end"></li></ul></div></div></div><div class="center"><div class="page-header"><div class="popover-hint"><nav class="breadcrumb-container" aria-label="breadcrumbs"><div class="breadcrumb-element"><a href="../../">Home</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/">notes</a><p> ❯ </p></div><div class="breadcrumb-element"><a href="../../notes/2024/">2024</a><p> ❯ </p></div><div class="breadcrumb-element"><a href>Software Architecture and Decision-Making</a></div></nav><h1 class="article-title">Software Architecture and Decision-Making</h1><p show-comma="true" class="content-meta"><span>Jan 18, 2024</span><span>11 min read</span></p></div></div><article class="popover-hint"><h2 id="book-core-concepts">Book Core concepts<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#book-core-concepts" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>It explains principles and concepts I believe a senior architect must understand deeply and discusses how to employ those principles to manage uncertainty</p>
+<p>Books for Leadership</p>
+<ol>
+<li><strong>The Hard Thing About Hard Things</strong> by Ben Horowitz</li>
+<li><strong>Trillion Dollar Coach</strong> by Eric Schmidt et al.</li>
+<li><strong>Team of Teams: New Rules of Engagement for a Complex World</strong> by Stanley McChrystal</li>
+<li><strong>Good Strategy, Bad Strategy</strong> by Richard Rumelt</li>
+</ol>
+<h2 id="system-architecture-approaches">System Architecture Approaches<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#system-architecture-approaches" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>Two Prominent Approaches</strong></p>
+<ol>
+<li><strong>Waterfall</strong>: Identify the system’s requirements in full detail beforehand and start building.</li>
+<li><strong>Agile</strong>: Iterative approach, collaborating with users to refine requirements and construct a system that genuinely benefits the user.</li>
+</ol>
+<h3 id="togaf-architecture-layers">TOGAF Architecture Layers<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#togaf-architecture-layers" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Three Layers of TOGAF Architecture</strong>:</p>
+<ul>
+<li><strong>Business Architecture</strong></li>
+<li><strong>Information Systems Architecture</strong></li>
+<li><strong>Technology Architecture</strong></li>
+</ul>
+<h2 id="understanding-systems-design-and-architecture">Understanding Systems, Design, and Architecture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#understanding-systems-design-and-architecture" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h3 id="cloud-app-design-choices">Cloud App Design Choices<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cloud-app-design-choices" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Single Cloud</strong>: Leverage the unique strengths of one cloud provider.</li>
+<li><strong>Multi-Cloud</strong>: Make the application portable across several cloud providers.</li>
+</ul>
+<h3 id="how-to-design-a-system">How to Design a System<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how-to-design-a-system" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<p><strong>Five Questions to Consider:</strong></p>
+<ol>
+<li><strong>When is the best time to market?</strong>
+<ul>
+<li>If a feature needs to go to market urgently, design it simply and quickly, with readiness to revise it later.</li>
+</ul>
+</li>
+<li><strong>What is the skill level of the team?</strong></li>
+<li><strong>What is our system’s performance sensitivity?</strong></li>
+<li><strong>When can we rewrite the system?</strong></li>
+<li><strong>What are the hard problems?</strong></li>
+</ol>
+<p><strong>Seven Principles of System Design:</strong></p>
+<ol>
+<li><strong>Drive Everything from the User’s Journey</strong>: Focus on the user experience.</li>
+<li><strong>Use an Iterative Thin Slice Strategy</strong>:
+<ul>
+<li>Start with simple architectural choices.</li>
+<li>Measure the system, find bottlenecks, and refine later.</li>
+</ul>
+</li>
+<li><strong>Add the Most Value for the Least Effort</strong>:
+<ul>
+<li>On each iteration, prioritize actions that offer the most value with minimal effort.</li>
+</ul>
+</li>
+<li><strong>Make Decisions and Absorb Risks</strong>: Be prepared to make informed decisions and accept associated risks.</li>
+<li><strong>Design Deeply for Hard-to-Change Aspects</strong>:
+<ul>
+<li>Implement slowly and carefully for components that are difficult to alter.</li>
+</ul>
+</li>
+<li><strong>Eliminate Unknowns and Learn from Evidence</strong>:
+<ul>
+<li>Tackle hard problems early and work in parallel to gain insights.</li>
+</ul>
+</li>
+<li><strong>Understand Trade-Offs</strong>:
+<ul>
+<li>Balance between cohesion and flexibility in software architecture.</li>
+</ul>
+</li>
+</ol>
+<h2 id="mental-models-for-understanding-and-explaining-system-performance">Mental Models for Understanding and Explaining System Performance<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#mental-models-for-understanding-and-explaining-system-performance" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Eight mental models that help us think about and understand performance</p>
+<ol>
+<li>Cost of Switching to the Kernel Mode from the User Mode
+<ul>
+<li>Every time anapplication enters kernel mode, a context switch occurs, which adds nonessential costs to the system, such as time to save the stack and to rest the cache. To improve performance, we need to reduce the number of system calls.</li>
+</ul>
+</li>
+<li>Operations Hierarchy</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Operation</th><th>Time/Speed (Example)</th><th>Description</th></tr></thead><tbody><tr><td>L1 Cache Reference</td><td>0.5 ns</td><td>Accessing data from Level 1 cache in the CPU.</td></tr><tr><td>L2 Cache Reference</td><td>7 ns</td><td>Accessing data from Level 2 cache in the CPU.</td></tr><tr><td>L3 Cache Reference</td><td>20 ns</td><td>Accessing data from Level 3 cache in the CPU.</td></tr><tr><td>Main Memory (RAM) Access</td><td>100 ns</td><td>Retrieving data from the system’s RAM.</td></tr><tr><td>SSD Storage Access</td><td>1,000,000 ns (1 ms)</td><td>Accessing data from Solid State Drive (SSD).</td></tr><tr><td>HDD Storage Access</td><td>10,000,000 ns (10 ms)</td><td>Accessing data from Hard Disk Drive (HDD).</td></tr><tr><td>Network Packet Round Trip (US to India)</td><td>150,000,000 ns (150 ms)</td><td>Sending a packet from the US to India and receiving the acknowledgment.</td></tr><tr><td>CPU Processing (Instruction)</td><td>0.2 ns per instruction</td><td>Executing a single CPU instruction.</td></tr><tr><td>GPU Processing (Parallel)</td><td>50 ns per parallel task</td><td>Executing parallel tasks on a Graphics Processing Unit (GPU).</td></tr><tr><td>PCIe Data Transfer (Device to CPU)</td><td>2,000 ns (2 us)</td><td>Transferring data between a peripheral device and the CPU via PCIe.</td></tr><tr><td>Context Switch (Kernel)</td><td>1,000 ns (1 us)</td><td>Switching between different processes in the kernel.</td></tr><tr><td>RAM-to-Cache Transfer</td><td>20 ns</td><td>Copying data from RAM to cache in the CPU.</td></tr><tr><td>Database Query (Local)</td><td>10,000,000 ns (10 ms)</td><td>Executing a database query on a local server.</td></tr><tr><td>Database Query (Remote)</td><td>50,000,000 ns (50 ms)</td><td>Executing a database query on a remote server.</td></tr><tr><td>System Call (Linux)</td><td>1,000 ns (1 us)</td><td>Initiating a system call in a Linux environment.</td></tr><tr><td>I/O Operation (Disk Write)</td><td>10,000 ns (10 us)</td><td>Writing data to a disk.</td></tr><tr><td>I/O Operation (Network Send)</td><td>1,000,000 ns (1 ms)</td><td>Sending data over a network.</td></tr><tr><td>I/O Operation (Network Receive)</td><td>1,000,000 ns (1 ms)</td><td>Receiving data over a network.</td></tr></tbody></table></div>
+<ol start="3">
+<li>Context Switching Overhead
+<ul>
+<li>Switching processes adds an overhead cost of about 5–7 microseconds</li>
+</ul>
+</li>
+<li>Amdahl’s Law
+<ul>
+<li>is used to predict speed up of a task execution time when it’s scaled to run on multiple processors. It simply states that the maximum speed up will be limited by the serial fraction of the task execution as it will create resource contention.</li>
+<li><code>one woman nine months to make one baby, “nine women can’t make a baby in one month</code></li>
+<li>Assume if have 3 thread that doing a single task  it take 2 sec but the most of the time will spend on maintining the 3 thread and resources sharing</li>
+<li>Parellel process are efficient when they are independt</li>
+</ul>
+</li>
+<li>Universal Scalability Law
+<ul>
+<li>says that actual speedup is even worse than Amdahl’s law due to shared variables. USL defines a new parameter coherency, which is the overhead added by communication between multiple processes, threads, or nodes.</li>
+</ul>
+</li>
+<li>Latency and Utilization Trade-offs
+<ul>
+<li>Only a single thread can use the most resources at a given time, which forces threads to wait and take turns</li>
+</ul>
+</li>
+<li>Designing for Throughput with the Maximal Useful  Utilization (MUU) Model</li>
+<li>Adding Latency Limits</li>
+</ol>
+<hr/>
+<h2 id="optimization-techniques">Optimization Techniques<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#optimization-techniques" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>To effectively optimize, it’s crucial to identify where the bottlenecks occur. Bottlenecks typically manifest in one of three forms:</p>
+<ol>
+<li><strong>Resource Bottleneck</strong>: One of the resources (e.g., CPU, I/O, or memory) is the limiting factor.</li>
+<li><strong>Thread Model Bottleneck</strong>: Thread models are causing critical resources to be idle.</li>
+<li><strong>Resource Waste</strong>: Resources are being wasted on nonessential tasks (e.g., context switches, garbage collection).</li>
+</ol>
+<h3 id="cpu-optimization-techniques">CPU Optimization Techniques<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cpu-optimization-techniques" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Optimize Individual Tasks</strong>: Improve the efficiency of specific tasks that use CPU resources.</li>
+<li><strong>Optimize Memory</strong>: Ensure that memory usage is efficient to reduce the CPU’s burden.</li>
+<li><strong>Maximize CPU Utilization</strong>: Ensure that the CPU is used to its fullest potential without unnecessary idling.</li>
+</ul>
+<h3 id="io-optimization-techniques">I/O Optimization Techniques<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#io-optimization-techniques" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Avoid I/O</strong>: Use caching to minimize direct I/O operations.</li>
+<li><strong>Buffering</strong>: Implement buffering to handle I/O operations more efficiently.</li>
+<li><strong>Send Early, Receive Late, Don’t Ask but Tell</strong>: Design systems to send data early and receive it late, and use push-based communication rather than pull-based.</li>
+<li><strong>Prefetching</strong>: Load data before it’s needed to reduce wait times.</li>
+<li><strong>Append-Only Processing</strong>: Use append-only structures (e.g., Kafka) to improve I/O performance.</li>
+</ul>
+<h3 id="memory-optimization-techniques">Memory Optimization Techniques<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#memory-optimization-techniques" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Reduce Cache Misses</strong>: Minimize the number of cache misses to improve memory access efficiency.</li>
+</ul>
+<h3 id="latency-optimization-techniques">Latency Optimization Techniques<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#latency-optimization-techniques" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ul>
+<li><strong>Do Work in Parallel</strong>: Utilize parallel processing to reduce overall latency.</li>
+<li><strong>Reduce I/O</strong>: Minimize I/O operations to lower latency.</li>
+</ul>
+<h4 id="cpu-utilization-is-wrong">CPU Utilization is Wrong<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#cpu-utilization-is-wrong" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>CPU utilization is a metric that measures the percentage of time the CPU spends executing non-idle tasks. It doesn’t necessarily mean the CPU is busy with computation; it’s more about the time the CPU is not running the idle thread.</li>
+<li>The idle thread is a special task that runs when the CPU has no other tasks to perform. The operating system kernel tracks CPU utilization during context switches.</li>
+<li>So  high %CPU to mean that the processing unit is the bottleneck, which is wrong because CPU is capable of doing the process it may wait for I/O or something .</li>
+<li><code>Source: https://opensource.com/article/18/4/cpu-utilization-wrong</code></li>
+</ul>
+<h2 id="the-use-method">The USE Method<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#the-use-method" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>The <strong>Utilization Saturation and Errors (USE) Method</strong> is a methodology for analyzing the performance of any system.</p>
+<p><strong>For every resource, check the following:</strong></p>
+<ul>
+<li><strong>Utilization</strong>: The average time that the resource was busy servicing work.</li>
+<li><strong>Saturation</strong>: The degree to which the resource has extra work it can’t service, often resulting in a queue.</li>
+<li><strong>Errors</strong>: The count of error events associated with the resource.</li>
+</ul>
+<p><strong>Resources</strong>: This includes all physical server functional components, such as CPUs, disks, buses, etc.</p>
+<h3 id="references">References<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#references" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><a href="https://fs.blog/mental-models/" class="external">Farnam Street: Mental Models<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="http://highscalability.com/blog/2012/5/16/big-list-of-20-common-bottlenecks.html" class="external">High Scalability: Big List of 20 Common Bottlenecks<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://opensource.com/article/18/4/cpu-utilization-wrong" class="external">OpenSource.com: CPU Utilization Misconceptions<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://en.wikipedia.org/wiki/Queueing_theory" class="external">Wikipedia: Queueing Theory<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.brendangregg.com/usemethod.html" class="external">Brendan Gregg: USE Method<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://medium.freecodecamp.org/what-makes-apache-kafka-so-fast-a8d4f94ab145" class="external">Medium: What Makes Apache Kafka So Fast<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://hal.inria.fr/hal-00674475/document" class="external">An Analysis of Web Servers Architectures Performances on Commodity Multicore<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://ocw.mit.edu/courses/6-851-advanced-data-structures-spring-2012/video_galleries/lecture-videos/" class="external">MIT OpenCourseWare: Advanced Data Structures<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ol>
+<h2 id="understanding-user-experience-ux">Understanding User Experience (UX)<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#understanding-user-experience-ux" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Few concepts or principles that help us to design a good UX:</p>
+<ul>
+<li>Understand the Users</li>
+<li>Do as Little as Possible</li>
+<li>Good Products Do Not Need a Manual: Its Use Is Self-Evident</li>
+<li>Think in Terms of Information Exchange
+<ul>
+<li>Users come to our system to get something done. The faster they can find what they need to do and do it, the happier they will be. If we can provide that UX without asking them anything, that’s even better.</li>
+</ul>
+</li>
+<li>Make Simple Things Simple</li>
+<li>Design UX Before Implementation</li>
+</ul>
+<p><code>Note:</code> Having UX expertise on the team is a must</p>
+<h2 id="macro-architecture">Macro Architecture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#macro-architecture" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Spliting for serivce is macro Architecture.</p>
+<p>Macro Architectural Building Blocks are</p>
+<ul>
+<li>Data Management  (DB,)</li>
+<li>Routers and Messaging (API Gateway,loadbalancer,message broker)</li>
+<li>Executors (Actual server)</li>
+<li>Security</li>
+<li>Communication (Distributed hash tables,Gossip architectures,Tree of responsibility patterns)</li>
+</ul>
+<h2 id="macro-architecture-coordination">Macro Architecture: Coordination<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#macro-architecture-coordination" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h4 id="drive-flow-from-the-client">Drive Flow from the Client<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#drive-flow-from-the-client" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Call all API calls to the service from the client.</li>
+</ul>
+<h4 id="another-service">Another Service<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#another-service" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Have a separate service that coordinates with others and returns the result.</li>
+</ul>
+<h4 id="implement-choreography">Implement Choreography<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#implement-choreography" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Event-driven system where each participant listens to different events and carries out their individual part. Each action generates asynchronous events, triggering participants downstream.</li>
+</ul>
+<p>Refer:</p>
+<ol>
+<li><a href="https://www.thoughtworks.com/insights/blog/scaling-microservices-event-stream" class="external">Scaling Microservices with Event Streams<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ol>
+<hr/>
+<h2 id="macro-architecture-preserving-consistency-of-state">Macro Architecture: Preserving Consistency of State<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#macro-architecture-preserving-consistency-of-state" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h4 id="two-phase-commit-protocol">Two-Phase Commit Protocol<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#two-phase-commit-protocol" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<h4 id="approaches-to-going-beyond-transactions">Approaches to Going Beyond Transactions<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#approaches-to-going-beyond-transactions" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ol>
+<li><strong>Redefining the Problem to Require Lesser Guarantees</strong>
+<ul>
+<li>Resolve complex situations with reduced guarantees.</li>
+<li>Provide a button for users to forcefully refresh the page if it appears outdated.</li>
+</ul>
+</li>
+<li><strong>Using Compensations</strong>
+<ul>
+<li>Starbucks <code>Does Not Use Two-Phase Commit</code></li>
+<li>The key idea is to compensate if an action fails.</li>
+<li>Use compensations if the following are satisfied:
+<ol>
+<li>Each individual operation can be verified.</li>
+<li>The operation is idempotent (repeating it with the same data has no additional side effects).</li>
+<li>Failure can be handled or compensatory actions can be taken.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Resources</strong></p>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/Consistency_model#Client-centric_consistency_models" class="external">Consistency Models<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="http://www.allthingsdistributed.com/2007/12/eventually_consistent.html" class="external">Eventually Consistent Systems<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.enterpriseintegrationpatterns.com/ramblings/18_starbucks.html" class="external">Starbucks and Two-Phase Commit<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://queue.acm.org/detail.cfm?id=3025012" class="external">Life Beyond Distributed Transactions: An Apostate’s Opinion<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://etcd.io/" class="external">etcd<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ol>
+<h2 id="macro-architecture-handling-security">Macro Architecture: Handling Security<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#macro-architecture-handling-security" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<h4 id="interaction-security">Interaction Security<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#interaction-security" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<p><strong>Authentication Techniques</strong></p>
+<ol>
+<li><a href="https://github.com/ory/keto" class="external">https://github.com/ory/keto<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>.</li>
+</ol>
+<h2 id="macro-architecture-handling-high-availability-and-scale">Macro Architecture: Handling High Availability and Scale<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#macro-architecture-handling-high-availability-and-scale" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Before going to scale the system to N Do the POC of single system capacity how much they can handle and if possible can tweak that to improve performance.</p>
+<p>There are four tactics (techniques) to keep communication low, and they help us scale.</p>
+<ol>
+<li>Share Nothing</li>
+<li>Distribution</li>
+<li>Caching</li>
+<li>Async Processing</li>
+</ol>
+<p><strong>Resources</strong></p>
+<ol>
+<li>Scalability! But at What COST? (<a href="https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf" class="external">https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a>)</li>
+</ol>
+<h2 id="macro-architecture-microservices-considerations">Macro Architecture: Microservices Considerations<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#macro-architecture-microservices-considerations" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Microservices allow us to split the structure into many loosely connected parts that can be developed, released, improved, and managed independently.</p>
+<h3 id="decisions-to-make-before-adopting-microservices">Decisions to Make Before Adopting Microservices<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#decisions-to-make-before-adopting-microservices" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
+<ol>
+<li><strong>Handling Shared Database(s)</strong>
+<ul>
+<li>Each microservice should have its own database; avoid sharing databases to reduce tight coupling between services.</li>
+<li>If sharing is necessary, ensure only one service performs updates to prevent data redundancy.</li>
+<li>Use transactions if both services need to perform updates.</li>
+</ul>
+</li>
+<li><strong>Securing Microservices</strong></li>
+<li><strong>Coordinating Microservices</strong></li>
+<li><strong>Avoiding Dependency Hell</strong>
+<ul>
+<li>Ensure that one service deployment does not break others. Use <strong>Backward Compatibility</strong> or <strong>Forward Compatibility</strong> to manage dependencies.
+<ul>
+<li><strong>Backward Compatibility</strong>: If updating the API to v2, it should still support the previous version’s functionality without query params.</li>
+<li><strong>Forward Compatibility</strong>: If V2 fails, fall back to V1 as a temporary solution.</li>
+</ul>
+</li>
+<li>Avoid dependency hell by being conservative in what you do and liberal in what you accept from others.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Resources</strong></p>
+<ol>
+<li><a href="http://martinfowler.com/articles/microservices.html" class="external">Microservices<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="http://martinfowler.com/articles/microservice-trade-offs.html" class="external">Microservice Trade-Offs<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="http://martinfowler.com/bliki/MicroservicePremium.html" class="external">Microservice Premium<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://cramonblog.wordpress.com/2014/02/25/micro-services-its-not-only-the-size-that-matters-its-also-how-you-use-them-part-1/" class="external">Microservices: Size and Use<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.infoq.com/news/2015/06/taming-dependency-hell/" class="external">Taming Dependency Hell<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://news.ycombinator.com/item?id=9705098" class="external">Hacker News Discussion<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ol>
+<h2 id="server-architectures">Server Architectures<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#server-architectures" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p>Some guidelines for writing efficient and simple services</p>
+<ul>
+<li>Do not reinvent the wheel</li>
+<li>Use pools to reuse complex objects (need to see how moongose have pool of connections what they doing)</li>
+<li>Make service operations idempotent whenever possible</li>
+</ul>
+<h4 id="service-architecture">Service Architecture<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#service-architecture" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Thread-per-Request Architecture</li>
+<li>Event-Driven (Nonblocking) Architecture</li>
+<li>Staged Event-Driven Architecture (SEDA)</li>
+</ul>
+<p>classification of applications based on their resource usage</p>
+<ul>
+<li>CPU-bound applications (CPU >> Memory and no I/O)</li>
+<li>Memory-bound applications (CPU + Bound Memory and no I/O)</li>
+<li>Balanced applications (CPU + Memory + I/O)</li>
+<li>I/O-bound applications (I/O > CPU)</li>
+</ul>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/3570610/what-is-seda-staged-event-driven-architecture" class="external">What is SEDA (Staged Event-Driven Architecture)?<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://berb.github.io/diploma-thesis/" class="external">Diploma Thesis by Berb<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://mechanical-sympathy.blogspot.com/2011/09/single-writer-principle.html" class="external">Single Writer Principle<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://mechanical-sympathy.blogspot.com/2011/07/memory-barriersfences.html" class="external">Memory Barriers/Fences<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://martinfowler.com/bliki/CQRS.html" class="external">CQRS (Command Query Responsibility Segregation)<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<h2 id="building-stable-systems">Building Stable Systems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#building-stable-systems" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<p><strong>scenarios that affect stability:</strong></p>
+<ul>
+<li>Unexpected workloads</li>
+<li>Resource and dependency failures, plus service-level agreement violations</li>
+<li>Software bugs in both ours and borrowed code</li>
+</ul>
+<h4 id="handling-unexpected-load">Handling Unexpected Load<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#handling-unexpected-load" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>understand the load and set up a system that can keep up with the load most of the time. This is called <strong>capacity planning</strong></li>
+<li><strong>Autoscaling</strong></li>
+<li><strong>Admission Control:</strong> set of policies, procedures, and checks that regulate the admission or acceptance of incoming entities or requests into a system example: Assume server is already overloaded instead of accepting new connection we through error.</li>
+<li><strong>Noncritical Functionality:</strong> Turn off the Noncritical Functionality</li>
+<li>Disaster recovery (have a plan for what to when X go down)</li>
+</ul>
+<h4 id="handling-human-changes">Handling Human Changes<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#handling-human-changes" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Blue and green Deployment  (Having two system one with new updated one and one with old one if new one fails redirect traffic to old one)</li>
+<li>Canary deployments (small percentage of users to the new system and gradually increase the load to that system)</li>
+</ul>
+<h4 id="handle-unknown-errors">Handle Unknown Errors<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#handle-unknown-errors" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
+<ul>
+<li>Observability (Application Performance Monitoring (APM) tool, Open telementry)</li>
+</ul>
+<h2 id="building-and-evolving-the-systems">Building and Evolving the Systems<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#building-and-evolving-the-systems" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li>Get the Basics Right</li>
+<li>Understand the Design Process</li>
+<li>Conway law: organizations design systems that mirror their own communication structure rather than fighting it</li>
+<li>Make Decisions and Absorb Risks</li>
+<li>Create checklists of questions that are useful for different situations and use them.</li>
+<li>Communicating the Design</li>
+<li>Growth hacking funnel (find where we stuck does in user side or in development are we not pusing not much feature etc..)</li>
+</ul>
+<p><strong>Resources</strong></p>
+<ul>
+<li><a href="https://blog.thinkst.com/2022/08/always-be-hacking.html" class="external">Always Be Hacking<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+</ul>
+<hr/>
+<p>Book</p>
+<ul>
+<li>The Coaching Habit: Say Less, Ask More &amp; Change the Way You Lead Forever</li>
+<li>Hacking Growth: How Today’s Fastest-Growing Companies Drive Breakout Success</li>
+<li>Design-Driven Growth: Strategy &amp; Case Studies for Product Shapers</li>
+</ul>
+<h2 id="my-learnings">My Learnings<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#my-learnings" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
+<ul>
+<li></li>
+</ul></article><hr/><div class="page-footer"></div></div><div class="right sidebar"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
+                s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
+                c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
+                C8.958,41.595,7.549,41,6,41c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6c0-1.035-0.263-2.009-0.726-2.86l12.829-12.829
+                c1.106,0.86,2.44,1.436,3.898,1.619v10.16c-2.833,0.478-5,2.942-5,5.91c0,3.309,2.691,6,6,6s6-2.691,6-6c0-2.967-2.167-5.431-5-5.91
+                v-10.16c1.458-0.183,2.792-0.759,3.898-1.619l7.669,7.669C41.215,39.576,41,40.26,41,41c0,2.206,1.794,4,4,4s4-1.794,4-4
+                s-1.794-4-4-4c-0.74,0-1.424,0.215-2.019,0.567l-7.669-7.669C36.366,28.542,37,26.846,37,25s-0.634-3.542-1.688-4.897l9.665-9.665
+                C46.042,11.405,47.451,12,49,12c3.309,0,6-2.691,6-6S52.309,0,49,0z M11,9c0-1.103,0.897-2,2-2s2,0.897,2,2s-0.897,2-2,2
+                S11,10.103,11,9z M6,51c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S8.206,51,6,51z M33,49c0,2.206-1.794,4-4,4s-4-1.794-4-4
+                s1.794-4,4-4S33,46.794,33,49z M29,31c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S32.309,31,29,31z M47,41c0,1.103-0.897,2-2,2
+                s-2-0.897-2-2s0.897-2,2-2S47,39.897,47,41z M49,10c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S51.206,10,49,10z"></path></svg></button></div><div id="global-graph-outer"><div id="global-graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:-1,&quot;scale&quot;:0.9,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:true}"></div></div></div><div class="toc desktop-only"><button type="button" id="toc" class aria-controls="toc-content" aria-expanded="true"><h3>Table of Contents</h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fold"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div id="toc-content" class><ul class="overflow"><li class="depth-0"><a href="#book-core-concepts" data-for="book-core-concepts">Book Core concepts</a></li><li class="depth-0"><a href="#system-architecture-approaches" data-for="system-architecture-approaches">System Architecture Approaches</a></li><li class="depth-1"><a href="#togaf-architecture-layers" data-for="togaf-architecture-layers">TOGAF Architecture Layers</a></li><li class="depth-0"><a href="#understanding-systems-design-and-architecture" data-for="understanding-systems-design-and-architecture">Understanding Systems, Design, and Architecture</a></li><li class="depth-1"><a href="#cloud-app-design-choices" data-for="cloud-app-design-choices">Cloud App Design Choices</a></li><li class="depth-1"><a href="#how-to-design-a-system" data-for="how-to-design-a-system">How to Design a System</a></li><li class="depth-0"><a href="#mental-models-for-understanding-and-explaining-system-performance" data-for="mental-models-for-understanding-and-explaining-system-performance">Mental Models for Understanding and Explaining System Performance</a></li><li class="depth-0"><a href="#optimization-techniques" data-for="optimization-techniques">Optimization Techniques</a></li><li class="depth-1"><a href="#cpu-optimization-techniques" data-for="cpu-optimization-techniques">CPU Optimization Techniques</a></li><li class="depth-1"><a href="#io-optimization-techniques" data-for="io-optimization-techniques">I/O Optimization Techniques</a></li><li class="depth-1"><a href="#memory-optimization-techniques" data-for="memory-optimization-techniques">Memory Optimization Techniques</a></li><li class="depth-1"><a href="#latency-optimization-techniques" data-for="latency-optimization-techniques">Latency Optimization Techniques</a></li><li class="depth-0"><a href="#the-use-method" data-for="the-use-method">The USE Method</a></li><li class="depth-1"><a href="#references" data-for="references">References</a></li><li class="depth-0"><a href="#understanding-user-experience-ux" data-for="understanding-user-experience-ux">Understanding User Experience (UX)</a></li><li class="depth-0"><a href="#macro-architecture" data-for="macro-architecture">Macro Architecture</a></li><li class="depth-0"><a href="#macro-architecture-coordination" data-for="macro-architecture-coordination">Macro Architecture: Coordination</a></li><li class="depth-0"><a href="#macro-architecture-preserving-consistency-of-state" data-for="macro-architecture-preserving-consistency-of-state">Macro Architecture: Preserving Consistency of State</a></li><li class="depth-0"><a href="#macro-architecture-handling-security" data-for="macro-architecture-handling-security">Macro Architecture: Handling Security</a></li><li class="depth-0"><a href="#macro-architecture-handling-high-availability-and-scale" data-for="macro-architecture-handling-high-availability-and-scale">Macro Architecture: Handling High Availability and Scale</a></li><li class="depth-0"><a href="#macro-architecture-microservices-considerations" data-for="macro-architecture-microservices-considerations">Macro Architecture: Microservices Considerations</a></li><li class="depth-1"><a href="#decisions-to-make-before-adopting-microservices" data-for="decisions-to-make-before-adopting-microservices">Decisions to Make Before Adopting Microservices</a></li><li class="depth-0"><a href="#server-architectures" data-for="server-architectures">Server Architectures</a></li><li class="depth-0"><a href="#building-stable-systems" data-for="building-stable-systems">Building Stable Systems</a></li><li class="depth-0"><a href="#building-and-evolving-the-systems" data-for="building-and-evolving-the-systems">Building and Evolving the Systems</a></li><li class="depth-0"><a href="#my-learnings" data-for="my-learnings">My Learnings</a></li></ul></div></div><div class="backlinks"><h3>Backlinks</h3><ul class="overflow"><li>No backlinks found</li></ul></div></div><footer class><p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.4.0</a> © 2024</p><ul><li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li><li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li></ul></footer></div></div></body><script type="application/javascript">function c(){let t=this.parentElement;t.classList.toggle("is-collapsed");let l=t.classList.contains("is-collapsed")?this.scrollHeight:t.scrollHeight;t.style.maxHeight=l+"px";let o=t,e=t.parentElement;for(;e;){if(!e.classList.contains("callout"))return;let n=e.classList.contains("is-collapsed")?e.scrollHeight:e.scrollHeight+o.scrollHeight;e.style.maxHeight=n+"px",o=e,e=e.parentElement}}function i(){let t=document.getElementsByClassName("callout is-collapsible");for(let s of t){let l=s.firstElementChild;if(l){l.addEventListener("click",c),window.addCleanup(()=>l.removeEventListener("click",c));let e=s.classList.contains("is-collapsed")?l.scrollHeight:s.scrollHeight;s.style.maxHeight=e+"px"}}}document.addEventListener("nav",i);window.addEventListener("resize",i);
+</script><script type="module">
+          let mermaidImport = undefined
+          document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+              mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs')
+              const mermaid = mermaidImport.default
+              const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark'
+              mermaid.initialize({
+                startOnLoad: false,
+                securityLevel: 'loose',
+                theme: darkMode ? 'dark' : 'default'
+              })
+
+              await mermaid.run({
+                querySelector: '.mermaid'
+              })
+            }
+          });
+          </script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script><script src="../../postscript.js" type="module"></script></html>
