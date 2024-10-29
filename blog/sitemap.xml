@@ -1,7 +1,4 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
-    <loc>https://programmerraja.github.io/blog/Code-Against-the-Clock--From-Clicks-to-Cash</loc>
-    <lastmod>2024-10-28T13:55:37.612Z</lastmod>
-  </url><url>
     <loc>https://programmerraja.github.io/blog/</loc>
     <lastmod>2024-10-26T10:18:30.224Z</lastmod>
   </url><url>
@@ -139,6 +136,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery</loc>
     <lastmod>2024-07-02T06:57:32.323Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</loc>
+    <lastmod>2024-10-08T01:12:19.191Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found</loc>
     <lastmod>2024-09-14T03:38:15.151Z</lastmod>
