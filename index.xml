@@ -2,67 +2,67 @@
 <rss version="2.0">
     <channel>
       <title>🧠 Second Brain</title>
-      <link>https://programmerraja.github.io/blog</link>
+      <link>https://programmerraja.github.io</link>
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
     <title>Welcome</title>
-    <link>https://programmerraja.github.io/blog/</link>
-    <guid>https://programmerraja.github.io/blog/</guid>
+    <link>https://programmerraja.github.io/</link>
+    <guid>https://programmerraja.github.io/</guid>
     <description>Welcome to My World! 🌍 Hey Hai I’m K.Boopathi passionate Full Stack Developer who thrives on solving problems and diving into the latest in web development, DevOps, Generative AI, ...</description>
     <pubDate>Sat, 26 Oct 2024 10:18:30 GMT</pubDate>
   </item><item>
     <title>The Curious Case of the $15,000 Spam My Unexpected Investigation</title>
-    <link>https://programmerraja.github.io/blog/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</link>
-    <guid>https://programmerraja.github.io/blog/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</guid>
+    <link>https://programmerraja.github.io/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</link>
+    <guid>https://programmerraja.github.io/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</guid>
     <description>Last Friday started off like any typical day—I was busy with my work in my office when I stumbled upon a suspicious message. My instincts told me it was spam, but my curiosity got the best of me.</description>
     <pubDate>Sat, 19 Oct 2024 13:31:59 GMT</pubDate>
   </item><item>
     <title>Sherlock Holmes: The Case Redis Overload During a DDoS Attack</title>
-    <link>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</link>
-    <guid>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
+    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</link>
+    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
     <description>Welcome to our Sherlock Holmes-inspired tech adventure series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Just like Sherlock, we’ll tackle these problems with sharp attention to detail.</description>
     <pubDate>Tue, 08 Oct 2024 01:12:19 GMT</pubDate>
   </item><item>
     <title>AI in Coding</title>
-    <link>https://programmerraja.github.io/blog/notes/2024/AI-in-Coding</link>
-    <guid>https://programmerraja.github.io/blog/notes/2024/AI-in-Coding</guid>
+    <link>https://programmerraja.github.io/notes/2024/AI-in-Coding</link>
+    <guid>https://programmerraja.github.io/notes/2024/AI-in-Coding</guid>
     <description>Discover vulnerabilities across a codebase with CodeQL, our industry-leading semantic code analysis engine. CodeQL lets you query code as though it were data.</description>
     <pubDate>Thu, 19 Sep 2024 01:02:53 GMT</pubDate>
   </item><item>
     <title>AI Research Paper notes</title>
-    <link>https://programmerraja.github.io/blog/notes/2024/AI-Research-Paper-notes</link>
-    <guid>https://programmerraja.github.io/blog/notes/2024/AI-Research-Paper-notes</guid>
+    <link>https://programmerraja.github.io/notes/2024/AI-Research-Paper-notes</link>
+    <guid>https://programmerraja.github.io/notes/2024/AI-Research-Paper-notes</guid>
     <description>De-Hallucinator: Mitigating LLM Hallucinations in Code Generation Tasks via Iterative Grounding Steps of the De-Hallucinator: Initial Prompt: This is a standard query to a language ...</description>
     <pubDate>Thu, 19 Sep 2024 00:31:47 GMT</pubDate>
   </item><item>
     <title>Freelancing And Saas</title>
-    <link>https://programmerraja.github.io/blog/notes/2024/Freelancing-And-Saas</link>
-    <guid>https://programmerraja.github.io/blog/notes/2024/Freelancing-And-Saas</guid>
+    <link>https://programmerraja.github.io/notes/2024/Freelancing-And-Saas</link>
+    <guid>https://programmerraja.github.io/notes/2024/Freelancing-And-Saas</guid>
     <description>Here the collection Notes and resources to get started in freelancing and build SASS Key Strategies for SASS Identify profitable niches: Focus on finding underserved niches with ...</description>
     <pubDate>Sun, 15 Sep 2024 12:00:10 GMT</pubDate>
   </item><item>
     <title>Sherlock Holmes : The Case of  Cloudflare Timeout Mystery</title>
-    <link>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery</link>
-    <guid>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery</guid>
+    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery</link>
+    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-of-the-Cloudflare-Timeout-Mystery</guid>
     <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I’ll tackle the problem with wit and precision.</description>
     <pubDate>Sat, 14 Sep 2024 13:27:23 GMT</pubDate>
   </item><item>
     <title>Sherlock Holmes : The Case of the App Not Found</title>
-    <link>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found</link>
-    <guid>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found</guid>
+    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found</link>
+    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found</guid>
     <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I’ll tackle the problem with wit and precision.</description>
     <pubDate>Sat, 14 Sep 2024 03:38:15 GMT</pubDate>
   </item><item>
     <title>Sherlock Holmes : The Mystery of the Erratic Logstash</title>
-    <link>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash</link>
-    <guid>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash</guid>
+    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash</link>
+    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash</guid>
     <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I’ll tackle the problem with wit and precision.</description>
     <pubDate>Tue, 03 Sep 2024 00:27:21 GMT</pubDate>
   </item><item>
     <title>Sherlock Holmes and the Mystery of the Missing Cookies</title>
-    <link>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies</link>
-    <guid>https://programmerraja.github.io/blog/post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies</guid>
+    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies</link>
+    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies</guid>
     <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I’ll tackle the problem with wit and precision.</description>
     <pubDate>Tue, 03 Sep 2024 00:27:21 GMT</pubDate>
   </item>
