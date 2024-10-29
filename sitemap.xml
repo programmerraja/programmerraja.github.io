@@ -23,8 +23,17 @@
     <loc>https://programmerraja.github.io/notes/2024/AI-in-Coding</loc>
     <lastmod>2024-09-19T01:02:53.535Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/AI</loc>
+    <lastmod>2024-05-18T12:59:19.191Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/AWS</loc>
+    <lastmod>2024-03-09T06:05:50.505Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Android-internal</loc>
     <lastmod>2024-01-17T02:49:32.323Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Building-Microservices</loc>
+    <lastmod>2024-01-23T13:20:07.077Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Claude</loc>
     <lastmod>2024-08-10T03:18:50.505Z</lastmod>
@@ -32,11 +41,20 @@
     <loc>https://programmerraja.github.io/notes/2024/Database-internal</loc>
     <lastmod>2024-01-12T02:49:32.323Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Databases</loc>
+    <lastmod>2024-03-03T02:04:21.212Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Design-pattern</loc>
     <lastmod>2024-02-12T01:39:05.055Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Docker--and--Kubernetes-hacking</loc>
+    <lastmod>2024-03-17T01:12:50.505Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Docker</loc>
     <lastmod>2024-01-15T02:49:32.323Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Domain-driven-design</loc>
+    <lastmod>2024-01-24T14:28:19.191Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Elastic-search</loc>
     <lastmod>2024-03-30T14:50:04.044Z</lastmod>
@@ -47,17 +65,38 @@
     <loc>https://programmerraja.github.io/notes/2024/Go</loc>
     <lastmod>2024-01-01T06:09:28.282Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Hacking</loc>
+    <lastmod>2024-01-25T02:11:37.373Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Haystack-Notes</loc>
+    <lastmod>2024-08-24T04:02:35.353Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Kubernetes</loc>
     <lastmod>2024-01-01T02:49:32.323Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/LLM-Hacking</loc>
+    <lastmod>2024-08-31T12:04:06.066Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/2024/LLM-Observability-And-Eval</loc>
     <lastmod>2024-08-12T03:05:40.404Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</loc>
+    <lastmod>2024-10-19T02:45:27.272Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Langchain</loc>
     <lastmod>2024-05-25T04:12:14.141Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Learning-from-blog</loc>
     <lastmod>2024-01-01T02:49:32.323Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Linux</loc>
+    <lastmod>2024-02-11T13:31:46.464Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/MeiliSearch</loc>
+    <lastmod>2024-02-20T01:47:12.121Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Mongodb-Notes</loc>
+    <lastmod>2024-07-07T03:36:30.303Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Networking</loc>
     <lastmod>2024-01-12T02:49:32.323Z</lastmod>
@@ -80,8 +119,17 @@
     <loc>https://programmerraja.github.io/notes/2024/Software-Architecture-and-Decision-Making</loc>
     <lastmod>2024-01-22T02:49:32.323Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Software-principles</loc>
+    <lastmod>2024-01-21T04:44:59.595Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/2024/System-Design-Case-study</loc>
     <lastmod>2024-04-20T11:15:15.151Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/System-Design</loc>
+    <lastmod>2024-01-12T02:49:32.323Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Tensorflow</loc>
+    <lastmod>2024-06-08T08:12:15.151Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2023/helloworld</loc>
     <lastmod>2023-12-03T04:14:50.000Z</lastmod>

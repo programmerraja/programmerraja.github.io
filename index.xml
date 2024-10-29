@@ -18,6 +18,12 @@
     <description>Last Friday started off like any typical day—I was busy with my work in my office when I stumbled upon a suspicious message. My instincts told me it was spam, but my curiosity got the best of me.</description>
     <pubDate>Sat, 19 Oct 2024 13:31:59 GMT</pubDate>
   </item><item>
+    <title>LLM strucuted output</title>
+    <link>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</link>
+    <guid>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</guid>
+    <description>Pydantic Pydantic, a popular Python library with over 70 million downloads per month, offers a robust and developer-friendly way to structure your prompts and validate LLM output ...</description>
+    <pubDate>Sat, 19 Oct 2024 02:45:27 GMT</pubDate>
+  </item><item>
     <title>Sherlock Holmes: The Case Redis Overload During a DDoS Attack</title>
     <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</link>
     <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
@@ -57,12 +63,6 @@
     <title>Sherlock Holmes : The Mystery of the Erratic Logstash</title>
     <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash</link>
     <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Mystery-of-the-Erratic-Logstash</guid>
-    <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I’ll tackle the problem with wit and precision.</description>
-    <pubDate>Tue, 03 Sep 2024 00:27:21 GMT</pubDate>
-  </item><item>
-    <title>Sherlock Holmes and the Mystery of the Missing Cookies</title>
-    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies</link>
-    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-the-Mystery-of-the-Missing-Cookies</guid>
     <description>Welcome to our Sherlock Holmes-inspired tech adventure Series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Like Sherlock Holmes with his sharp eye for detail, I’ll tackle the problem with wit and precision.</description>
     <pubDate>Tue, 03 Sep 2024 00:27:21 GMT</pubDate>
   </item>
