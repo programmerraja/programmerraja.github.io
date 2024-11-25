@@ -6,6 +6,18 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Sherlock Holmes  The Mystery of the Erratic Logstash</title>
+    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes--The-Mystery-of-the-Erratic-Logstash</link>
+    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes--The-Mystery-of-the-Erratic-Logstash</guid>
+    <description></description>
+    <pubDate>Sun, 24 Nov 2024 02:56:11 GMT</pubDate>
+  </item><item>
+    <title>Open source</title>
+    <link>https://programmerraja.github.io/notes/2024/Open-source</link>
+    <guid>https://programmerraja.github.io/notes/2024/Open-source</guid>
+    <description>docs.opire.dev/.</description>
+    <pubDate>Sat, 23 Nov 2024 12:18:09 GMT</pubDate>
+  </item><item>
     <title>A Flexible AI-Powered Chat App for Websites,Youtube, Files, and Dev.to Articles</title>
     <link>https://programmerraja.github.io/post/2024/A-Flexible-AI-Powered-Chat-App-for-Websites-Youtube-Files-and-Dev.to-Articles</link>
     <guid>https://programmerraja.github.io/post/2024/A-Flexible-AI-Powered-Chat-App-for-Websites-Youtube-Files-and-Dev.to-Articles</guid>
@@ -53,18 +65,6 @@
     <guid>https://programmerraja.github.io/post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours</guid>
     <description>Hey friends! 👋 Today, I want to share a little debugging adventure that started with what seemed like a small issue but turned into an hour-long hunt ...</description>
     <pubDate>Sun, 29 Sep 2024 08:55:53 GMT</pubDate>
-  </item><item>
-    <title>AI in Coding</title>
-    <link>https://programmerraja.github.io/notes/2024/AI-in-Coding</link>
-    <guid>https://programmerraja.github.io/notes/2024/AI-in-Coding</guid>
-    <description>Agents in Software Engineering LLM-based agents comprising three key components: perception, memory, action. Perception: . It can process inputs of different modalities such as textual, visual, and auditory input, and convert them into an embedding format that LLM-based agents can understand and process, laying the foundation for reasoning and decision-making actions of LLM-based agents.</description>
-    <pubDate>Thu, 19 Sep 2024 01:02:53 GMT</pubDate>
-  </item><item>
-    <title>AI Research Paper notes</title>
-    <link>https://programmerraja.github.io/notes/2024/AI-Research-Paper-notes</link>
-    <guid>https://programmerraja.github.io/notes/2024/AI-Research-Paper-notes</guid>
-    <description>De-Hallucinator: Mitigating LLM Hallucinations in Code Generation Tasks via Iterative Grounding Steps of the De-Hallucinator: Initial Prompt: This is a standard query to a language ...</description>
-    <pubDate>Thu, 19 Sep 2024 00:31:47 GMT</pubDate>
   </item>
     </channel>
   </rss>
