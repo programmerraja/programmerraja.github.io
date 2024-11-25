@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>🧠 Second Brain</title>
+      <link>https://programmerraja.github.io</link>
+      <description>Last 10 notes on 🧠 Second Brain</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>Sherlock Holmes  The Mystery of the Erratic Logstash</title>
+    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes--The-Mystery-of-the-Erratic-Logstash</link>
+    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes--The-Mystery-of-the-Erratic-Logstash</guid>
+    <description></description>
+    <pubDate>Sun, 24 Nov 2024 02:56:11 GMT</pubDate>
+  </item><item>
+    <title>Open source</title>
+    <link>https://programmerraja.github.io/notes/2024/Open-source</link>
+    <guid>https://programmerraja.github.io/notes/2024/Open-source</guid>
+    <description>docs.opire.dev/.</description>
+    <pubDate>Sat, 23 Nov 2024 12:18:09 GMT</pubDate>
+  </item><item>
+    <title>A Flexible AI-Powered Chat App for Websites,Youtube, Files, and Dev.to Articles</title>
+    <link>https://programmerraja.github.io/post/2024/A-Flexible-AI-Powered-Chat-App-for-Websites-Youtube-Files-and-Dev.to-Articles</link>
+    <guid>https://programmerraja.github.io/post/2024/A-Flexible-AI-Powered-Chat-App-for-Websites-Youtube-Files-and-Dev.to-Articles</guid>
+    <description>This is a submission for the Open Source AI Challenge with pgai and Ollama What I Built For this project, I created an AI-powered chat application designed to provide users with an engaging ...</description>
+    <pubDate>Sat, 09 Nov 2024 06:44:24 GMT</pubDate>
+  </item><item>
+    <title>K.Boopathi</title>
+    <link>https://programmerraja.github.io/</link>
+    <guid>https://programmerraja.github.io/</guid>
+    <description>Welcome to My World! 🌍 Hai I’m K.Boopathi passionate Full Stack Developer who thrives on solving problems and diving into the latest in web development, DevOps, Generative AI, etc. ...</description>
+    <pubDate>Sat, 26 Oct 2024 10:18:30 GMT</pubDate>
+  </item><item>
+    <title>The Curious Case of the $15,000 Spam My Unexpected Investigation</title>
+    <link>https://programmerraja.github.io/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</link>
+    <guid>https://programmerraja.github.io/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</guid>
+    <description>Last Friday started off like any typical day—I was busy with my work in my office when I stumbled upon a suspicious message. My instincts told me it was spam, but my curiosity got the best of me.</description>
+    <pubDate>Sat, 19 Oct 2024 13:31:59 GMT</pubDate>
+  </item><item>
+    <title>Vector DB</title>
+    <link>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</link>
+    <guid>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</guid>
+    <description>How it works A dataset of three sentences, each has 3 words (or tokens) In practice, a dataset may contain millions or billions of sentences. The max number of tokens may be tens of thousands (e.g., 32,768 mistral-7b).</description>
+    <pubDate>Sat, 19 Oct 2024 10:53:07 GMT</pubDate>
+  </item><item>
+    <title>LLM strucuted output</title>
+    <link>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</link>
+    <guid>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</guid>
+    <description>Pydantic Pydantic, a popular Python library with over 70 million downloads per month, offers a robust and developer-friendly way to structure your prompts and validate LLM output ...</description>
+    <pubDate>Sat, 19 Oct 2024 02:45:27 GMT</pubDate>
+  </item><item>
+    <title>Sherlock Holmes: The Case Redis Overload During a DDoS Attack</title>
+    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</link>
+    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
+    <description>Welcome to our Sherlock Holmes-inspired tech adventure series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Just like Sherlock, we’ll tackle these problems with sharp attention to detail.</description>
+    <pubDate>Tue, 08 Oct 2024 01:12:19 GMT</pubDate>
+  </item><item>
+    <title>The Day a DDOS Attack Led to the World&#039;s Most Awkward &#039;Hello World&#039;</title>
+    <link>https://programmerraja.github.io/post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World</link>
+    <guid>https://programmerraja.github.io/post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World</guid>
+    <description>Hey everyone, grab a coffee because I’ve got a funny (and slightly embarrassing) story to share! It’s all about how I turned our landing page and application into a personal “Hello ...</description>
+    <pubDate>Wed, 02 Oct 2024 01:27:18 GMT</pubDate>
+  </item><item>
+    <title>The Joy of Debugging:  How One Tiny Typo Kept Us Busy for Hours</title>
+    <link>https://programmerraja.github.io/post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours</link>
+    <guid>https://programmerraja.github.io/post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours</guid>
+    <description>Hey friends! 👋 Today, I want to share a little debugging adventure that started with what seemed like a small issue but turned into an hour-long hunt ...</description>
+    <pubDate>Sun, 29 Sep 2024 08:55:53 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
