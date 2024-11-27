@@ -182,9 +182,6 @@
     <loc>https://programmerraja.github.io/post/2024/Hunting-the-Hacker-A-Deep-Dive-into-Courier-Fraud</loc>
     <lastmod>2024-07-20T01:56:19.191Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes--The-Mystery-of-the-Erratic-Logstash</loc>
-    <lastmod>2024-11-24T02:56:11.729Z</lastmod>
-  </url><url>
     <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-Case-of--Broken-Website</loc>
     <lastmod>2024-07-10T23:45:01.011Z</lastmod>
   </url><url>
@@ -196,6 +193,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery</loc>
     <lastmod>2024-07-02T06:57:32.323Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-case-of-Debugging-ECONNREFUSED</loc>
+    <lastmod>2024-10-31T15:22:25.252Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</loc>
     <lastmod>2024-10-08T01:12:19.191Z</lastmod>

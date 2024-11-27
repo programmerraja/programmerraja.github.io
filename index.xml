@@ -6,12 +6,6 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>Sherlock Holmes  The Mystery of the Erratic Logstash</title>
-    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes--The-Mystery-of-the-Erratic-Logstash</link>
-    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes--The-Mystery-of-the-Erratic-Logstash</guid>
-    <description></description>
-    <pubDate>Sun, 24 Nov 2024 02:56:11 GMT</pubDate>
-  </item><item>
     <title>Open source</title>
     <link>https://programmerraja.github.io/notes/2024/Open-source</link>
     <guid>https://programmerraja.github.io/notes/2024/Open-source</guid>
@@ -23,6 +17,12 @@
     <guid>https://programmerraja.github.io/post/2024/A-Flexible-AI-Powered-Chat-App-for-Websites-Youtube-Files-and-Dev.to-Articles</guid>
     <description>This is a submission for the Open Source AI Challenge with pgai and Ollama What I Built For this project, I created an AI-powered chat application designed to provide users with an engaging ...</description>
     <pubDate>Sat, 09 Nov 2024 06:44:24 GMT</pubDate>
+  </item><item>
+    <title>Sherlock Holmes The case of Debugging ECONNRESET</title>
+    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-case-of-Debugging-ECONNREFUSED</link>
+    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-case-of-Debugging-ECONNREFUSED</guid>
+    <description>Migrating to Kubernetes can be a smooth process, but sometimes, unexpected challenges crop up. One issue we faced was the frequent ECONNREFUSED errors on our proxy server, which significantly impacted our users’ experience.</description>
+    <pubDate>Thu, 31 Oct 2024 15:22:25 GMT</pubDate>
   </item><item>
     <title>K.Boopathi</title>
     <link>https://programmerraja.github.io/</link>
