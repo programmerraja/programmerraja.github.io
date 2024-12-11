@@ -6,12 +6,6 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>Sher</title>
-    <link>https://programmerraja.github.io/post/2024/Sher</link>
-    <guid>https://programmerraja.github.io/post/2024/Sher</guid>
-    <description></description>
-    <pubDate>Sat, 07 Dec 2024 12:50:01 GMT</pubDate>
-  </item><item>
     <title>Open source</title>
     <link>https://programmerraja.github.io/notes/2024/Open-source</link>
     <guid>https://programmerraja.github.io/notes/2024/Open-source</guid>
@@ -65,6 +59,12 @@
     <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
     <description>Welcome to our Sherlock Holmes-inspired tech adventure series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Just like Sherlock, we’ll tackle these problems with sharp attention to detail.</description>
     <pubDate>Tue, 08 Oct 2024 01:12:19 GMT</pubDate>
+  </item><item>
+    <title>The Day a DDOS Attack Led to the World&#039;s Most Awkward &#039;Hello World&#039;</title>
+    <link>https://programmerraja.github.io/post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World</link>
+    <guid>https://programmerraja.github.io/post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World</guid>
+    <description>Hey everyone, grab a coffee because I’ve got a funny (and slightly embarrassing) story to share! It’s all about how I turned our landing page and application into a personal “Hello ...</description>
+    <pubDate>Wed, 02 Oct 2024 01:27:18 GMT</pubDate>
   </item>
     </channel>
   </rss>
