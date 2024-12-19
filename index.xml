@@ -24,10 +24,10 @@
     <description>Hey there! Welcome back! Today, I want to share a surprising story about how a simple ₹10 cashback offer from a biscuit packet led to a big security mistake ...</description>
     <pubDate>Sat, 02 Nov 2024 23:15:38 GMT</pubDate>
   </item><item>
-    <title>Sherlock Holmes The case of Debugging ECONNRESET</title>
-    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-case-of-Debugging-ECONNREFUSED</link>
-    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-case-of-Debugging-ECONNREFUSED</guid>
-    <description>Migrating to Kubernetes can be a smooth process, but sometimes, unexpected challenges crop up. One issue we faced was the frequent ECONNREFUSED errors on our proxy server, which significantly impacted our users’ experience.</description>
+    <title>Sherlock Holmes: The Case Of Debugging ECONNRESET</title>
+    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-Case-Of-Debugging-ECONNREFUSED</link>
+    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-Case-Of-Debugging-ECONNREFUSED</guid>
+    <description>When we migrated our application to Kubernetes, we encountered an unexpected issue that severely impacted user experience: frequent ECONNREFUSED errors ...</description>
     <pubDate>Thu, 31 Oct 2024 15:22:25 GMT</pubDate>
   </item><item>
     <title>K.Boopathi</title>
