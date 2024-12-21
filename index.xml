@@ -6,6 +6,18 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Generative AI: A Personal Deep Dive  My Notes and Insights Part -2</title>
+    <link>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</link>
+    <guid>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</guid>
+    <description>Welcome back to part 2 of my series, Personal Deep Dive: My Notes and Insights. If you found the first post useful, you’re in for more today. If you missed it, don’t worry — you can catch up here.</description>
+    <pubDate>Wed, 18 Dec 2024 00:57:31 GMT</pubDate>
+  </item><item>
+    <title>Generative AI: A Personal Deep Dive – My Notes and Insights</title>
+    <link>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights</link>
+    <guid>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights</guid>
+    <description>Hey Everyone! As the world increasingly moves toward AI-driven solutions, I, as a full-stack developer, became intrigued by the potential of generative AI ...</description>
+    <pubDate>Sun, 15 Dec 2024 06:15:10 GMT</pubDate>
+  </item><item>
     <title>Open source</title>
     <link>https://programmerraja.github.io/notes/2024/Open-source</link>
     <guid>https://programmerraja.github.io/notes/2024/Open-source</guid>
@@ -53,18 +65,6 @@
     <guid>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</guid>
     <description>Pydantic Pydantic, a popular Python library with over 70 million downloads per month, offers a robust and developer-friendly way to structure your prompts and validate LLM output ...</description>
     <pubDate>Sat, 19 Oct 2024 02:45:27 GMT</pubDate>
-  </item><item>
-    <title>Sherlock Holmes: The Case Redis Overload During a DDoS Attack</title>
-    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</link>
-    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
-    <description>Welcome to our Sherlock Holmes-inspired tech adventure series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Just like Sherlock, we’ll tackle these problems with sharp attention to detail.</description>
-    <pubDate>Tue, 08 Oct 2024 01:12:19 GMT</pubDate>
-  </item><item>
-    <title>The Day a DDOS Attack Led to the World&#039;s Most Awkward &#039;Hello World&#039;</title>
-    <link>https://programmerraja.github.io/post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World</link>
-    <guid>https://programmerraja.github.io/post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World</guid>
-    <description>Hey everyone, grab a coffee because I’ve got a funny (and slightly embarrassing) story to share! It’s all about how I turned our landing page and application into a personal “Hello ...</description>
-    <pubDate>Wed, 02 Oct 2024 01:27:18 GMT</pubDate>
   </item>
     </channel>
   </rss>
