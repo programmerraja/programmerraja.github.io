@@ -6,6 +6,12 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Untitled</title>
+    <link>https://programmerraja.github.io/Untitled</link>
+    <guid>https://programmerraja.github.io/Untitled</guid>
+    <description></description>
+    <pubDate>Sun, 22 Dec 2024 13:53:56 GMT</pubDate>
+  </item><item>
     <title>Generative AI: A Personal Deep Dive  My Notes and Insights Part -2</title>
     <link>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</link>
     <guid>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</guid>
@@ -59,12 +65,6 @@
     <guid>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</guid>
     <description>How it works A dataset of three sentences, each has 3 words (or tokens) In practice, a dataset may contain millions or billions of sentences. The max number of tokens may be tens of thousands (e.g., 32,768 mistral-7b).</description>
     <pubDate>Sat, 19 Oct 2024 10:53:07 GMT</pubDate>
-  </item><item>
-    <title>LLM strucuted output</title>
-    <link>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</link>
-    <guid>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</guid>
-    <description>Pydantic Pydantic, a popular Python library with over 70 million downloads per month, offers a robust and developer-friendly way to structure your prompts and validate LLM output ...</description>
-    <pubDate>Sat, 19 Oct 2024 02:45:27 GMT</pubDate>
   </item>
     </channel>
   </rss>
