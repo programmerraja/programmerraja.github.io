@@ -6,6 +6,24 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Sherlock Holmes The case of Invalid ELHO error</title>
+    <link>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-case-of-Invalid-ELHO-error</link>
+    <guid>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-case-of-Invalid-ELHO-error</guid>
+    <description></description>
+    <pubDate>Sun, 12 Jan 2025 12:47:29 GMT</pubDate>
+  </item><item>
+    <title>PR Nightmares: 5 Common Coding Mistakes I&#039;ve Seen in the Last 2 Years</title>
+    <link>https://programmerraja.github.io/post/2025/PR-Nightmares-8-Common-Coding-Mistakes-Ive-Seen-in-the-Last-2-Years</link>
+    <guid>https://programmerraja.github.io/post/2025/PR-Nightmares-8-Common-Coding-Mistakes-Ive-Seen-in-the-Last-2-Years</guid>
+    <description>Hey everyone! If you’re a regular follower, you might already know a bit about me. But if not, let me quickly introduce myself: I’m a full-stack developer, and I’ve been working at a startup for the past two years.</description>
+    <pubDate>Sun, 12 Jan 2025 12:09:14 GMT</pubDate>
+  </item><item>
+    <title>Sherlock Holmes: The Case Redis Overload During a DDoS Attack</title>
+    <link>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</link>
+    <guid>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
+    <description>It was a calm day until disaster struck. We received alerts about DDoS and brute-force attacks originating from random bot IPs. Our team quickly mobilized to mitigate the attacks.</description>
+    <pubDate>Sun, 05 Jan 2025 01:12:19 GMT</pubDate>
+  </item><item>
     <title>Untitled</title>
     <link>https://programmerraja.github.io/Untitled</link>
     <guid>https://programmerraja.github.io/Untitled</guid>
@@ -47,24 +65,6 @@
     <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-Case-Of-Debugging-ECONNREFUSED</guid>
     <description>When we migrated our application to Kubernetes, we encountered an unexpected issue that severely impacted user experience: frequent ECONNREFUSED errors ...</description>
     <pubDate>Thu, 31 Oct 2024 15:22:25 GMT</pubDate>
-  </item><item>
-    <title>K.Boopathi</title>
-    <link>https://programmerraja.github.io/</link>
-    <guid>https://programmerraja.github.io/</guid>
-    <description>Welcome to My World! 🌍 Hi! I’m K. Boopathi, a passionate Full Stack Developer with a love for tackling complex problems and staying ahead of the curve in the world of Web Development, DevOps, Generative AI, and beyond.</description>
-    <pubDate>Sat, 26 Oct 2024 10:18:30 GMT</pubDate>
-  </item><item>
-    <title>The Curious Case of the $15,000 Spam My Unexpected Investigation</title>
-    <link>https://programmerraja.github.io/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</link>
-    <guid>https://programmerraja.github.io/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</guid>
-    <description>Last Friday started off like any typical day—I was busy with my work in my office when I stumbled upon a suspicious message. My instincts told me it was spam, but my curiosity got the best of me.</description>
-    <pubDate>Sat, 19 Oct 2024 13:31:59 GMT</pubDate>
-  </item><item>
-    <title>Vector DB</title>
-    <link>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</link>
-    <guid>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</guid>
-    <description>How it works A dataset of three sentences, each has 3 words (or tokens) In practice, a dataset may contain millions or billions of sentences. The max number of tokens may be tens of thousands (e.g., 32,768 mistral-7b).</description>
-    <pubDate>Sat, 19 Oct 2024 10:53:07 GMT</pubDate>
   </item>
     </channel>
   </rss>
