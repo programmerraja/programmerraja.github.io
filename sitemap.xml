@@ -1,7 +1,4 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
-    <loc>https://programmerraja.github.io/Untitled</loc>
-    <lastmod>2024-12-22T13:53:56.970Z</lastmod>
-  </url><url>
     <loc>https://programmerraja.github.io/</loc>
     <lastmod>2024-10-26T10:18:30.224Z</lastmod>
   </url><url>
@@ -230,11 +227,8 @@
     <loc>https://programmerraja.github.io/post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours</loc>
     <lastmod>2024-09-29T08:55:53.535Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/post/2025/PR-Nightmares-8-Common-Coding-Mistakes-Ive-Seen-in-the-Last-2-Years</loc>
+    <loc>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews--9-Costly-Coding-Mistakes</loc>
     <lastmod>2025-01-12T12:09:14.141Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-case-of-Invalid-ELHO-error</loc>
-    <lastmod>2025-01-12T12:47:29.615Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</loc>
     <lastmod>2025-01-05T01:12:19.191Z</lastmod>
