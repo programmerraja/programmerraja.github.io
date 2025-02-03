@@ -6,6 +6,12 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Automating Conversations: Building a Smart Call Agent Using Twilio and ElevenLabs</title>
+    <link>https://programmerraja.github.io/post/2025/Automating-Conversations-Building-a-Smart-Call-Agent-Using-Twilio-and-ElevenLabs</link>
+    <guid>https://programmerraja.github.io/post/2025/Automating-Conversations-Building-a-Smart-Call-Agent-Using-Twilio-and-ElevenLabs</guid>
+    <description>We are living in the era of AI agents, where people are increasingly developing these tools to automate mundane tasks. Today, we’ll explore how to build our own call agent using Twilio and ElevenLabs.</description>
+    <pubDate>Sat, 01 Feb 2025 23:01:55 GMT</pubDate>
+  </item><item>
     <title>Lessons from 2 Years of PR Reviews: 9 Costly Coding Mistakes</title>
     <link>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews--9-Costly-Coding-Mistakes</link>
     <guid>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews--9-Costly-Coding-Mistakes</guid>
@@ -59,12 +65,6 @@
     <guid>https://programmerraja.github.io/</guid>
     <description>Welcome to My World! 🌍 Hi! I’m K. Boopathi, a passionate Full Stack Developer with a love for tackling complex problems and staying ahead of the curve in the world of Web Development, DevOps, Generative AI, and beyond.</description>
     <pubDate>Sat, 26 Oct 2024 10:18:30 GMT</pubDate>
-  </item><item>
-    <title>The Curious Case of the $15,000 Spam My Unexpected Investigation</title>
-    <link>https://programmerraja.github.io/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</link>
-    <guid>https://programmerraja.github.io/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</guid>
-    <description>Last Friday started off like any typical day—I was busy with my work in my office when I stumbled upon a suspicious message. My instincts told me it was spam, but my curiosity got the best of me.</description>
-    <pubDate>Sat, 19 Oct 2024 13:31:59 GMT</pubDate>
   </item>
     </channel>
   </rss>
