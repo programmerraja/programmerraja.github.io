@@ -6,6 +6,30 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>How we Accidentally delete the production elastic search</title>
+    <link>https://programmerraja.github.io/post/2025/How-we-Accidentally-delete-the-production-elastic-search</link>
+    <guid>https://programmerraja.github.io/post/2025/How-we-Accidentally-delete-the-production-elastic-search</guid>
+    <description>Hey Hai everyOne i am back with another interseting story and gli.</description>
+    <pubDate>Sat, 08 Mar 2025 13:16:34 GMT</pubDate>
+  </item><item>
+    <title>Sherlock Holmes: The Case of the Invalid HeloHost Error</title>
+    <link>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</link>
+    <guid>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</guid>
+    <description>This time, our debugging adventure takes us deep into the world of SMTP, where an elusive Invalid HELO error threatened to derail email sending. Let’s dive in! The Mystery Begins It was a Friday evening, and I was ready to log off and enjoy the weekend.</description>
+    <pubDate>Fri, 07 Mar 2025 23:02:00 GMT</pubDate>
+  </item><item>
+    <title>adv</title>
+    <link>https://programmerraja.github.io/adv</link>
+    <guid>https://programmerraja.github.io/adv</guid>
+    <description></description>
+    <pubDate>Fri, 28 Feb 2025 02:18:50 GMT</pubDate>
+  </item><item>
+    <title>Live Kit</title>
+    <link>https://programmerraja.github.io/notes/2025/Live-Kit</link>
+    <guid>https://programmerraja.github.io/notes/2025/Live-Kit</guid>
+    <description></description>
+    <pubDate>Sat, 22 Feb 2025 04:55:12 GMT</pubDate>
+  </item><item>
     <title>genrative_ai</title>
     <link>https://programmerraja.github.io/tags/genrative_ai</link>
     <guid>https://programmerraja.github.io/tags/genrative_ai</guid>
@@ -41,30 +65,6 @@
     <guid>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
     <description>It was a calm day until disaster struck. We received alerts about DDoS and brute-force attacks originating from random bot IPs. Our team quickly mobilized to mitigate the attacks.</description>
     <pubDate>Sun, 05 Jan 2025 01:12:19 GMT</pubDate>
-  </item><item>
-    <title>Generative AI: A Personal Deep Dive  My Notes and Insights Part -2</title>
-    <link>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</link>
-    <guid>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</guid>
-    <description>Welcome back to part 2 of my series, Personal Deep Dive: My Notes and Insights. If you found the first post useful, you’re in for more today. If you missed it, don’t worry — you can catch up here.</description>
-    <pubDate>Wed, 18 Dec 2024 00:57:31 GMT</pubDate>
-  </item><item>
-    <title>Generative AI: A Personal Deep Dive – My Notes and Insights</title>
-    <link>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights</link>
-    <guid>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights</guid>
-    <description>Hey Everyone! As the world increasingly moves toward AI-driven solutions, I, as a full-stack developer, became intrigued by the potential of generative AI ...</description>
-    <pubDate>Sun, 15 Dec 2024 06:15:10 GMT</pubDate>
-  </item><item>
-    <title>Open source</title>
-    <link>https://programmerraja.github.io/notes/2024/Open-source</link>
-    <guid>https://programmerraja.github.io/notes/2024/Open-source</guid>
-    <description>docs.opire.dev/.</description>
-    <pubDate>Sat, 23 Nov 2024 12:18:09 GMT</pubDate>
-  </item><item>
-    <title>A Flexible AI-Powered Chat App for Websites,Youtube, Files, and Dev.to Articles</title>
-    <link>https://programmerraja.github.io/post/2024/A-Flexible-AI-Powered-Chat-App-for-Websites-Youtube-Files-and-Dev.to-Articles</link>
-    <guid>https://programmerraja.github.io/post/2024/A-Flexible-AI-Powered-Chat-App-for-Websites-Youtube-Files-and-Dev.to-Articles</guid>
-    <description>This is a submission for the Open Source AI Challenge with pgai and Ollama What I Built For this project, I created an AI-powered chat application designed to provide users with an engaging ...</description>
-    <pubDate>Sat, 09 Nov 2024 06:44:24 GMT</pubDate>
   </item>
     </channel>
   </rss>
