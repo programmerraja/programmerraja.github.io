@@ -6,65 +6,65 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>Sherlock Holmes  The Mystery of the Erratic Logstash</title>
-    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes--The-Mystery-of-the-Erratic-Logstash</link>
-    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes--The-Mystery-of-the-Erratic-Logstash</guid>
+    <title>How we Accidentally delete the production elastic search</title>
+    <link>https://programmerraja.github.io/post/2025/How-we-Accidentally-delete-the-production-elastic-search</link>
+    <guid>https://programmerraja.github.io/post/2025/How-we-Accidentally-delete-the-production-elastic-search</guid>
+    <description>Hey Hai everyOne i am back with another interseting story and gli.</description>
+    <pubDate>Sat, 08 Mar 2025 13:16:34 GMT</pubDate>
+  </item><item>
+    <title>Sherlock Holmes: The Case of the Invalid HeloHost Error</title>
+    <link>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</link>
+    <guid>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</guid>
+    <description>This time, our debugging adventure takes us deep into the world of SMTP, where an elusive Invalid HELO error threatened to derail email sending. Let’s dive in! The Mystery Begins It was a Friday evening, and I was ready to log off and enjoy the weekend.</description>
+    <pubDate>Fri, 07 Mar 2025 23:02:00 GMT</pubDate>
+  </item><item>
+    <title>Live Kit</title>
+    <link>https://programmerraja.github.io/notes/2025/Live-Kit</link>
+    <guid>https://programmerraja.github.io/notes/2025/Live-Kit</guid>
     <description></description>
-    <pubDate>Sun, 24 Nov 2024 02:56:11 GMT</pubDate>
+    <pubDate>Sat, 22 Feb 2025 04:55:12 GMT</pubDate>
   </item><item>
-    <title>Open source</title>
-    <link>https://programmerraja.github.io/notes/2024/Open-source</link>
-    <guid>https://programmerraja.github.io/notes/2024/Open-source</guid>
-    <description>docs.opire.dev/.</description>
-    <pubDate>Sat, 23 Nov 2024 12:18:09 GMT</pubDate>
+    <title>genrative_ai</title>
+    <link>https://programmerraja.github.io/tags/genrative_ai</link>
+    <guid>https://programmerraja.github.io/tags/genrative_ai</guid>
+    <description></description>
+    <pubDate>Mon, 03 Feb 2025 03:07:17 GMT</pubDate>
   </item><item>
-    <title>A Flexible AI-Powered Chat App for Websites,Youtube, Files, and Dev.to Articles</title>
-    <link>https://programmerraja.github.io/post/2024/A-Flexible-AI-Powered-Chat-App-for-Websites-Youtube-Files-and-Dev.to-Articles</link>
-    <guid>https://programmerraja.github.io/post/2024/A-Flexible-AI-Powered-Chat-App-for-Websites-Youtube-Files-and-Dev.to-Articles</guid>
-    <description>This is a submission for the Open Source AI Challenge with pgai and Ollama What I Built For this project, I created an AI-powered chat application designed to provide users with an engaging ...</description>
-    <pubDate>Sat, 09 Nov 2024 06:44:24 GMT</pubDate>
+    <title>Automating Conversations: Building a Smart Call Agent Using Twilio and ElevenLabs</title>
+    <link>https://programmerraja.github.io/post/2025/Automating-Conversations-Building-a-Smart-Call-Agent-Using-Twilio-and-ElevenLabs</link>
+    <guid>https://programmerraja.github.io/post/2025/Automating-Conversations-Building-a-Smart-Call-Agent-Using-Twilio-and-ElevenLabs</guid>
+    <description>We are living in the era of AI agents, where people are increasingly developing these tools to automate mundane tasks. Today, we’ll explore how to build our own call agent using Twilio and ElevenLabs.</description>
+    <pubDate>Sat, 01 Feb 2025 23:01:55 GMT</pubDate>
   </item><item>
-    <title>K.Boopathi</title>
-    <link>https://programmerraja.github.io/</link>
-    <guid>https://programmerraja.github.io/</guid>
-    <description>Welcome to My World! 🌍 Hai I’m K.Boopathi passionate Full Stack Developer who thrives on solving problems and diving into the latest in web development, DevOps, Generative AI, etc. ...</description>
-    <pubDate>Sat, 26 Oct 2024 10:18:30 GMT</pubDate>
+    <title>How We Accidentally Declared War on Our Own Database</title>
+    <link>https://programmerraja.github.io/post/2025/How-We-Accidentally-Declared-War-on-Our-Own-Database</link>
+    <guid>https://programmerraja.github.io/post/2025/How-We-Accidentally-Declared-War-on-Our-Own-Database</guid>
+    <description>It all started with a simple task: “Hey, let’s check if two databases have the same data over time!” Sounds harmless, right? Oh, how young and foolish we were ...</description>
+    <pubDate>Sat, 01 Feb 2025 23:01:48 GMT</pubDate>
   </item><item>
-    <title>The Curious Case of the $15,000 Spam My Unexpected Investigation</title>
-    <link>https://programmerraja.github.io/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</link>
-    <guid>https://programmerraja.github.io/post/2024/The-Curious-Case-of-the-15000-Spam-My-Unexpected-Investigation</guid>
-    <description>Last Friday started off like any typical day—I was busy with my work in my office when I stumbled upon a suspicious message. My instincts told me it was spam, but my curiosity got the best of me.</description>
-    <pubDate>Sat, 19 Oct 2024 13:31:59 GMT</pubDate>
+    <title>Leading EffectiveEngineering Teams</title>
+    <link>https://programmerraja.github.io/notes/2025/Leading-EffectiveEngineering-Teams</link>
+    <guid>https://programmerraja.github.io/notes/2025/Leading-EffectiveEngineering-Teams</guid>
+    <description>PROJECT ARISTOTLE Google conducted one of the best-known studies on effective software engineer- ing teams, known as Project Aristotle. The project aimed to identify the factors that make some teams more successful than others.</description>
+    <pubDate>Mon, 13 Jan 2025 13:21:01 GMT</pubDate>
   </item><item>
-    <title>Vector DB</title>
-    <link>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</link>
-    <guid>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</guid>
-    <description>How it works A dataset of three sentences, each has 3 words (or tokens) In practice, a dataset may contain millions or billions of sentences. The max number of tokens may be tens of thousands (e.g., 32,768 mistral-7b).</description>
-    <pubDate>Sat, 19 Oct 2024 10:53:07 GMT</pubDate>
-  </item><item>
-    <title>LLM strucuted output</title>
-    <link>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</link>
-    <guid>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</guid>
-    <description>Pydantic Pydantic, a popular Python library with over 70 million downloads per month, offers a robust and developer-friendly way to structure your prompts and validate LLM output ...</description>
-    <pubDate>Sat, 19 Oct 2024 02:45:27 GMT</pubDate>
+    <title>Lessons from 2 Years of PR Reviews: 9 Costly Coding Mistakes</title>
+    <link>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews--9-Costly-Coding-Mistakes</link>
+    <guid>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews--9-Costly-Coding-Mistakes</guid>
+    <description>Hey everyone! If you’re a regular follower, you might already know a bit about me. But if not, let me quickly introduce myself: I’m a full-stack developer, and I’ve been working at a startup for the past two years.</description>
+    <pubDate>Sun, 12 Jan 2025 12:09:14 GMT</pubDate>
   </item><item>
     <title>Sherlock Holmes: The Case Redis Overload During a DDoS Attack</title>
-    <link>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</link>
-    <guid>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
-    <description>Welcome to our Sherlock Holmes-inspired tech adventure series! Imagine each technical challenge as a thrilling mystery waiting to be solved. Just like Sherlock, we’ll tackle these problems with sharp attention to detail.</description>
-    <pubDate>Tue, 08 Oct 2024 01:12:19 GMT</pubDate>
+    <link>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</link>
+    <guid>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
+    <description>It was a calm day until disaster struck. We received alerts about DDoS and brute-force attacks originating from random bot IPs. Our team quickly mobilized to mitigate the attacks.</description>
+    <pubDate>Sun, 05 Jan 2025 01:12:19 GMT</pubDate>
   </item><item>
-    <title>The Day a DDOS Attack Led to the World&#039;s Most Awkward &#039;Hello World&#039;</title>
-    <link>https://programmerraja.github.io/post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World</link>
-    <guid>https://programmerraja.github.io/post/2024/The-Day-a-DDOS-Attack-Led-to-the-Most-Awkward-Hello-World</guid>
-    <description>Hey everyone, grab a coffee because I’ve got a funny (and slightly embarrassing) story to share! It’s all about how I turned our landing page and application into a personal “Hello ...</description>
-    <pubDate>Wed, 02 Oct 2024 01:27:18 GMT</pubDate>
-  </item><item>
-    <title>The Joy of Debugging:  How One Tiny Typo Kept Us Busy for Hours</title>
-    <link>https://programmerraja.github.io/post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours</link>
-    <guid>https://programmerraja.github.io/post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours</guid>
-    <description>Hey friends! 👋 Today, I want to share a little debugging adventure that started with what seemed like a small issue but turned into an hour-long hunt ...</description>
-    <pubDate>Sun, 29 Sep 2024 08:55:53 GMT</pubDate>
+    <title>Generative AI: A Personal Deep Dive  My Notes and Insights Part -2</title>
+    <link>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</link>
+    <guid>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</guid>
+    <description>Welcome back to part 2 of my series, Personal Deep Dive: My Notes and Insights. If you found the first post useful, you’re in for more today. If you missed it, don’t worry — you can catch up here.</description>
+    <pubDate>Wed, 18 Dec 2024 00:57:31 GMT</pubDate>
   </item>
     </channel>
   </rss>

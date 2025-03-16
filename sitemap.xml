@@ -137,6 +137,12 @@
     <loc>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</loc>
     <lastmod>2024-10-19T10:53:07.077Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Leading-EffectiveEngineering-Teams</loc>
+    <lastmod>2025-01-13T13:21:01.011Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Live-Kit</loc>
+    <lastmod>2025-02-22T04:55:12.471Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/post/2023/helloworld</loc>
     <lastmod>2023-12-03T04:14:50.000Z</lastmod>
   </url><url>
@@ -148,6 +154,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/post/2024/C-razy-Facebook-Hack-How-I-Pranked-My-Friend</loc>
     <lastmod>2024-08-18T04:15:17.171Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2024/Caught-in-the-Crunch-My-Journey-from-Snacks-to-2-Million-Exposed-Users-Privacy</loc>
+    <lastmod>2024-11-02T23:15:38.383Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2024/Code-Against-the-Clock--From-Clicks-to-Cash</loc>
     <lastmod>2024-08-22T00:49:10.101Z</lastmod>
@@ -173,6 +182,12 @@
     <loc>https://programmerraja.github.io/post/2024/From-Side-Hustle-to-Payday-How-I-Earned-My-First-$100</loc>
     <lastmod>2024-08-21T01:10:04.044Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</loc>
+    <lastmod>2024-12-18T00:57:31.313Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights</loc>
+    <lastmod>2024-12-15T06:15:10.101Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/post/2024/How-I-Hacked-a-Company-Recruitment-Test-The-Unexpected-Tech-Adventure-of-My-College-Life</loc>
     <lastmod>2024-08-04T04:31:36.363Z</lastmod>
   </url><url>
@@ -182,8 +197,8 @@
     <loc>https://programmerraja.github.io/post/2024/Hunting-the-Hacker-A-Deep-Dive-into-Courier-Fraud</loc>
     <lastmod>2024-07-20T01:56:19.191Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes--The-Mystery-of-the-Erratic-Logstash</loc>
-    <lastmod>2024-11-24T02:56:11.729Z</lastmod>
+    <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-Case-Of-Debugging-ECONNREFUSED</loc>
+    <lastmod>2024-10-31T15:22:25.252Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-Case-of--Broken-Website</loc>
     <lastmod>2024-07-10T23:45:01.011Z</lastmod>
@@ -196,9 +211,6 @@
   </url><url>
     <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes-The-Great-Lambda-Mystery</loc>
     <lastmod>2024-07-02T06:57:32.323Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</loc>
-    <lastmod>2024-10-08T01:12:19.191Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2024/Sherlock-Holmes-and-The-Case-of-the-App-Not-Found</loc>
     <lastmod>2024-09-14T03:38:15.151Z</lastmod>
@@ -220,4 +232,25 @@
   </url><url>
     <loc>https://programmerraja.github.io/post/2024/The-Joy-of-Debugging-How-One-Tiny-Typo-Kept-Us-Busy-for-Hours</loc>
     <lastmod>2024-09-29T08:55:53.535Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2025/Automating-Conversations-Building-a-Smart-Call-Agent-Using-Twilio-and-ElevenLabs</loc>
+    <lastmod>2025-02-01T23:01:55.555Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2025/How-We-Accidentally-Declared-War-on-Our-Own-Database</loc>
+    <lastmod>2025-02-01T23:01:48.484Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2025/How-we-Accidentally-delete-the-production-elastic-search</loc>
+    <lastmod>2025-03-08T13:16:34.977Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews--9-Costly-Coding-Mistakes</loc>
+    <lastmod>2025-01-12T12:09:14.141Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</loc>
+    <lastmod>2025-03-07T23:02:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</loc>
+    <lastmod>2025-01-05T01:12:19.191Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/tags/genrative_ai</loc>
+    <lastmod>2025-02-03T03:07:17.298Z</lastmod>
   </url></urlset>
