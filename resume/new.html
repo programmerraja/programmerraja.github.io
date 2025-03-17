@@ -17,7 +17,6 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             font-family: "Ubuntu", sans-serif;
@@ -32,7 +31,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png");
             opacity: 0.1;
             z-index: -1;
         }
@@ -98,6 +96,7 @@
             border-radius: 8px;
         }
 
+
         .space {
             margin: 0.8rem 0;
         }
@@ -145,9 +144,14 @@
             font-size: 15px;
         }
 
+        .padding {
+            padding: 1rem;
+        }
+
         .hero_img {
             background-size: 100px 100px;
-            /* background-image: url("https://avatars.githubusercontent.com/u/44333589?v=4"); */
+            /* background-image: url("./profile2.jpg"); */
+            /* url("https://avatars.githubusercontent.com/u/44333589?v=4"); */
             width: 100px;
             height: 100px;
             margin: 0;
@@ -224,19 +228,28 @@
             </div>
         </div>
     </div>
-
+    <section class="summary padding">
+        <h2>SUMMARY</h2>
+        <p>
+            Infra Developer & Full-Stack Engineer specializing in Cloud, DevOps, and Full-Stack Development.
+            Passionate about system optimization and building scalable solutions
+            A tech blogger sharing insights on infrastructure, experiences, and lessons learned.
+            Currently exploring <span class="bold">Generative
+                AI</span> to build real-world applications.
+        </p>
+    </section>
     <div class="container">
         <div class="left-side">
-            <section class="summary">
+            <!-- <section class="summary">
                 <h2>SUMMARY</h2>
                 <p>
-                    Full Stack Developer with a track record of designing scalable
-                    applications and streamlining infrastructure. Skilled in
-                    problem-solving, performance enhancement, and workflow automation.
-                    Passionate about leveraging technology to build efficient and
-                    impactful solutions.
+                    Infra Developer & Full-Stack Engineer specializing in Cloud, DevOps, and Full-Stack Development.
+                    Passionate about system optimization and building scalable solutions
+                    A tech blogger sharing insights on infrastructure, experiences, and lessons learned.
+                    Currently exploring <span class="bold">Generative
+                        AI</span> to build real-world applications.
                 </p>
-            </section>
+            </section> -->
 
             <section class="work-experience">
                 <h2>WORK EXPERIENCE</h2>
@@ -246,21 +259,24 @@
                     </h3>
                     <ul>
                         <li>
-                            Led the migration from Heroku to Kubernetes, decreasing
-                            deployment failures by 40%.
+                            Automated code review processes by developing a PR review agent, streamlining reviews and
+                            ensuring code quality.
                         </li>
                         <li>
-                            Enhanced networking architecture, cutting domain resolution
-                            latency by 50%.
+                            Led the migration from Heroku to Kubernetes, reducing downtime by implementing health probes
+                            and deploying a zero-downtime strategy for code deployments. Optimized pod communication by
+                            using internal domains, enhancing security and improving speed.
                         </li>
+
+
                         <li>
-                            Automated code review processes, accelerating review cycles by
-                            30%.
+                            Optimized frontend build times by implementing a workaround, improving development speed by
+                            80%.
                         </li>
-                        <li>
-                            Streamlined frontend builds, reducing compilation times by 60%,
-                            significantly improving developer efficiency.
-                        </li>
+
+                        <li>Architected and scaled a new product from scratch, ensuring system reliability and
+                            performance as it grew.</li>
+
                     </ul>
                 </div>
 
@@ -326,13 +342,10 @@
                             Calling</a>
                         <ul>
                             <li>
-                                Engineered an AI-powered voice bot using Twilio & Eleven Labs
-                                to automate customer interactions.
+                                Developed an AI-powered voice bot using Twilio & Eleven Labs, automating customer
+                                interactions and reducing manual effort.
                             </li>
-                            <li>
-                                Minimized customer service response times by 40% through
-                                AI-driven automation.
-                            </li>
+
                         </ul>
                     </li>
                     <li>
@@ -340,17 +353,14 @@
                             Generation</a>
                         <ul>
                             <li>
-                                Designed a UI application to explore RAG model capabilities
-                                for the Dev.to hackathon.
+                                Developed a UI application showcasing RAG model capabilities for the Dev.to Hackathon
+                                (PGVector Challenge).
                             </li>
                             <li>
                                 Implemented chat interactions with website content, files, and
                                 Dev.to articles.
                             </li>
-                            <li>
-                                Integrated OpenAI and OLLAMA for diverse language model
-                                support.
-                            </li>
+
                             <li>
                                 Added customizable text chunking and PGVector with PostgreSQL
                                 for optimized data retrieval.
@@ -362,12 +372,13 @@
                             Platform</a>
                         <ul>
                             <li>
-                                Developed a platform for sharing interview experiences and
-                                company insights.
+                                Developed a community platform for students to share interview experiences and company
+                                insights, fostering peer learning.
                             </li>
                             <li>
-                                Helped college students gain hiring process knowledge,
-                                improving career preparedness.
+                                Helped my college students gain real-world hiring process knowledge, enhancing their
+                                career
+                                preparedness and job search confidence.
                             </li>
                         </ul>
                     </li>
@@ -385,10 +396,11 @@
                         C, C++
                     </li>
                     <li>
-                        <strong>Databases:</strong> MongoDB, Meilisearch, Elasticsearch
+                        <strong>Databases & Message Queues:</strong> MongoDB, Meilisearch, Elasticsearch,
+                        RabbitMQ
                     </li>
                     <li>
-                        <strong>Tools & Platforms:</strong> Git, GitHub, Docker,
+                        <strong>Tools & Platforms:</strong> Docker,
                         Kubernetes, Azure, AWS
                     </li>
                     <li>
