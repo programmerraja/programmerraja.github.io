@@ -91,14 +91,22 @@
 
         ul {
             list-style-type: disc;
+            margin: 0;
             margin-left: 20px;
             padding: 10px;
             border-radius: 8px;
         }
 
+        li {
+            margin: 0.4rem 0;
+        }
 
         .space {
             margin: 0.8rem 0;
+        }
+
+        .job {
+            padding-left: 10px;
         }
 
         .margin-0 {
@@ -120,6 +128,12 @@
         .color-blue {
             color: black;
         }
+
+        h3 {
+            margin: 0;
+            margin-bottom: 0.8rem;
+        }
+
 
 
         .top_container {
@@ -171,6 +185,16 @@
 
         .container-1 {
             border-radius: 8px;
+        }
+
+        .achievements li,
+        .skills li {
+            margin: 1rem 0;
+        }
+
+        .summary p {
+            padding-bottom: 0;
+            padding-left: 10px;
         }
     </style>
 </head>
@@ -230,7 +254,7 @@
     </div>
     <section class="summary padding">
         <h2>SUMMARY</h2>
-        <p>
+        <p style="line-height: 2;">
             Infra Developer & Full-Stack Engineer specializing in Cloud, DevOps, and Full-Stack Development.
             Passionate about system optimization and building scalable solutions
             A tech blogger sharing insights on infrastructure, experiences, and lessons learned.
@@ -259,23 +283,22 @@
                     </h3>
                     <ul>
                         <li>
-                            Automated code review processes by developing a PR review agent, streamlining reviews and
-                            ensuring code quality.
+                            Automated code reviews by developing a PR review agent, reducing manual effort and improving
+                            code quality.
                         </li>
                         <li>
-                            Led the migration from Heroku to Kubernetes, reducing downtime by implementing health probes
-                            and deploying a zero-downtime strategy for code deployments. Optimized pod communication by
-                            using internal domains, enhancing security and improving speed.
+                            Collaborated with DevOps to migrate from Heroku to Kubernetes, implementing health
+                            probes and a zero-downtime deployment strategy to minimize disruptions while optimizing pod
+                            communication using internal domains to enhance security and reduce latency.
+
                         </li>
-
-
                         <li>
                             Optimized frontend build times by implementing a workaround, improving development speed by
                             80%.
                         </li>
 
-                        <li>Architected and scaled a new product from scratch, ensuring system reliability and
-                            performance as it grew.</li>
+                        <li>Architected and scaled a new product from the ground up, ensuring system reliability and
+                            high performance as traffic grew.</li>
 
                     </ul>
                 </div>
@@ -286,8 +309,8 @@
                     </h3>
                     <ul>
                         <li>
-                            Share insights on debugging, infrastructure challenges, and
-                            automation in tech.
+                            Shared insights on debugging, infrastructure challenges, and automation through blogs and
+                            technical content.
                         </li>
                         <li>
                             Created
@@ -311,8 +334,7 @@
                             Refined database queries, decreasing response times by 45%.
                         </li>
                         <li>
-                            Ensured ACID compliance for critical transactions to maintain
-                            data integrity.
+                            Ensured ACID compliance for critical transactions, safeguarding data integrity.
                         </li>
                     </ul>
                 </div>
