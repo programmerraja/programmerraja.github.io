@@ -563,8 +563,11 @@ spec:
 <p><strong>Headless service:</strong></p>
 <ul>
 <li>Sometimes you don’t need load-balancing and a single Service IP. In this case, you can create what are termed <em>headless Services</em>, by explicitly specifying <code>&quot;None&quot;</code> for the  cluster IP address</li>
-<li>This also help us if we want to pod to pod communication
-<strong>NodePort service:</strong></li>
+<li>we can fetch the ip associate with headless service by dig on the headless service domain name and we can use that to communicate with other</li>
+<li>This also help us if we want to pod to pod communication</li>
+</ul>
+<p><strong>NodePort service:</strong></p>
+<ul>
 <li>This builds on top of ClusterIP and enables access from outside of the cluster (static ip). Port range can be only between 30000 to 32767</li>
 </ul>
 <figure data-rehype-pretty-code-figure><pre tabindex="0" data-language="yaml" data-theme="github-light github-dark"><code data-language="yaml" data-theme="github-light github-dark" style="display:grid;"><span data-line><span style="--shiki-light:#22863A;--shiki-dark:#85E89D;">apiVersion</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8;">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF;">v1</span></span>
@@ -1247,11 +1250,42 @@ There are three main QoS classes in Kubernetes:</p>
 <li>
 <p>when pod uses more memory we allocated it will will killed but for cpu it will throtled</p>
 </li>
-</ul>
-<p>we have  a node with 8Gb two pod with 3Gb and 2Gb using but we set request as 3 for both if new pod we put 3GB kube dont allocate eventhough it is free because it look for unscheduled memory</p>
-<p>now if we put 6Gi and 6G for both request resour pod it will allow becuase it will look for request size</p>
+<li>
+<p><strong>Node Capacity:</strong> 8GB</p>
+</li>
+<li>
+<p><strong>Pods Running:</strong></p>
 <ul>
-<li>How pod killed when memory fulled?</li>
+<li>Pod A: Requests <strong>3GB</strong>, Uses <strong>3GB</strong></li>
+<li>Pod B: Requests <strong>3GB</strong>, Uses <strong>2GB</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>New Pod Request:</strong> 3GB</p>
+</li>
+</ul>
+<p><strong>Why the New Pod is Not Scheduled?</strong></p>
+<p>Even though there is <strong>free memory (3GB unused)</strong>, Kubernetes <strong>doesn’t</strong> consider actual usage. It checks the total requested memory:</p>
+<ul>
+<li><strong>Total Requested Memory:</strong> 3GB (Pod A) + 3GB (Pod B) = <strong>6GB</strong></li>
+<li><strong>Remaining Allocatable Memory (for scheduling):</strong> 8GB - 6GB = <strong>2GB</strong></li>
+<li>Since the new pod requests <strong>3GB</strong>, but only <strong>2GB is allocatable</strong>, <strong>scheduling fails</strong>.</li>
+</ul>
+<p><strong>Now, If We Set Requests to 6GB Each?</strong></p>
+<ul>
+<li>
+<p><strong>Pod A Request:</strong> <strong>6GB</strong></p>
+</li>
+<li>
+<p><strong>Pod B Request:</strong> <strong>6GB</strong>
+<strong>Kubernetes Scheduler View:</strong></p>
+</li>
+<li>
+<p><strong>Total Requested:</strong> 6GB + 6GB = <strong>12GB</strong> → Exceeds node limit (8GB)</p>
+</li>
+<li>
+<p><strong>Pod Scheduling:</strong> <strong>One of the pods won’t schedule</strong> because the total requested memory is greater than available.</p>
+</li>
 </ul>
 <p>if ten containers are set to use one CPU each (—cpus=1) on a machine with only one CPU, they will all share that single CPU. None of the containers are guaranteed a full CPU. They each get a share of it.</p>
 <p>Similarly, setting a memory limit doesn’t reserve a specific amount of memory. Instead, it acts as a cap, preventing the container from exceeding the defined limit.</p></article><hr/><div class="page-footer"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
