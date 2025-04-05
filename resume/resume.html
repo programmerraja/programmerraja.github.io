@@ -1,497 +1,545 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Resume</title>
-	 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">  
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
-	<link href="https://fonts.googleapis.com/css2?family=Poppins@1&display=swap" rel="stylesheet">   
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+		integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+		crossorigin="anonymous" />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins@1&display=swap" rel="stylesheet">
 </head>
 <style type="text/css">
-	:root{
-		--primary-color:#437897;
-		--secondary-color:#59a9b5;
-
-		/*--primary-color:#ffdb35;
-		--secondary-color:#3f3b37;*/
-
-		/*--primary-color:#2b2741;
-		--secondary-color:#e7f7f4;
-
-		--primary-color:#f4d474;
-		--secondary-color:#ef5253;
-		*/
-		--font-color:white;
+	:root {
+		--primary-color: #437897;
+		--secondary-color: #59a9b5;
+		--font-color: white;
 
 	}
-	body
-	{
-		
+
+	body {
+
 		font-size: 19px;
 		margin: 0;
 		font-family: 'Ubuntu', sans-serif;
 
 	}
-	i{
-		margin-right:4px;
+
+	i {
+		margin-right: 4px;
 
 	}
-	a{
+
+	a {
 		color: black;
 
 	}
-	p,h3{
-		margin:0; 
+
+	p,
+	h3 {
+		margin: 0;
 	}
-	h2,h3{
-		margin:9px 0px;
+
+	h2,
+	h3 {
+		margin: 9px 0px;
 	}
-	h2{
+
+	h2 {
 		font-size: 25px;
-		text-decoration:underline;
+		text-decoration: underline;
 		color: red;
 	}
-	h3{
+
+	h3 {
 		font-size: 20px;
 	}
-	li{
+
+	li {
 		margin: 0.5rem;
 	}
-	.education_description p, 
-	.projects_description ,
+
+	.education_description p,
+	.projects_description,
 	.achievements_description p,
-	.experience_description p{ 
+	.experience_description p {
 		padding-left: 17px;
 		font-size: 17px;
 		margin: 5px 0;
 	}
-	.education_description p
-	{
+
+	.education_description p {
 		color: black;
 	}
-	.achievements_description p{
+
+	.achievements_description p {
 		margin-top: -10px;
 	}
+
 	/*	TOP 	*/
-	.top_container{
+	.top_container {
 		width: 100%;
 	}
 
-	.hero_container{
-    		 background:var(--primary-color);
-    		 display: flex;
-    		 justify-content: space-between;
-		    padding: 14px 18px;
+	.hero_container {
+		background: var(--primary-color);
+		display: flex;
+		justify-content: space-between;
+		padding: 14px 18px;
 	}
-	.hero_box{
+
+	.hero_box {
 		width: 84%;
-		color:var(--font-color);
+		color: var(--font-color);
 	}
-	.hero_role{
+
+	.hero_role {
 		display: block;
 		font-size: 15px;
 		padding-left: 10px;
 	}
-	.hero_img{
+
+	.hero_img {
 		background-size: 100px 100px;
-	    background-image: url("https://avatars.githubusercontent.com/u/44333589?v=4");
-	    width: 100px;
-	    height: 100px;
-	    margin: 0;
+		background-image: url("https://avatars.githubusercontent.com/u/44333589?v=4");
+		width: 100px;
+		height: 100px;
+		margin: 0;
 		border-radius: 50%;
 		align-self: center;
-	    background-repeat: no-repeat;
+		background-repeat: no-repeat;
 	}
-	.hero_text{
+
+	.hero_text {
 		padding-left: 20px;
 	}
+
+	.experience-item,
+	.achievements_item,
+	.projects_item {
+		margin: 1rem 0;
+	}
+
 	/*	CONTACT */
-	.contact_container{
-	    height: 46px;
-	    display: flex;
+	.contact_container {
+		height: 46px;
+		display: flex;
 		align-items: center;
-	    justify-content: space-around;
-    	background:var(--secondary-color);
+		justify-content: space-around;
+		background: var(--secondary-color);
 
 	}
 
 	/*	BOTTOM CONTAINER	*/
-	.bottom_container{
+	.bottom_container {
 		display: flex;
 	}
+
 	.bottom_container-left,
-	.bottom_container-right{
+	.bottom_container-right {
 		flex: 1;
 		justify-content: space-between;
 		border: 1px solid #e4e2e263;
 		padding: 0 20px;
 	}
+
+	.experience,
+	.skills_container,
 	.education_container,
 	.achievements_container,
 	.skills_container,
-	.soft_skills_container{
+	.soft_skills_container {
 		margin: 2.5rem 0;
 	}
-	
-	.education_list{
+
+	.education_list {
 		list-style: none;
 	}
+
 	.achievements_list,
-	.experience_list
-	{
+	.experience-list {
+		padding: 0 2rem;
 	}
 
-	.skills_list{}
-	.soft_skills_list{
+	.skills_list {}
+
+	.soft_skills_list {
 		padding-left: 35px;
 	}
 
-	
+
 	.programming_list span,
-	.database_list span ,
-	.framework_list span ,
-	.soft_skills_list span
-	{
-    	display: inline-block;
-    	background:var(--primary-color);
+	.database_list span,
+	.framework_list span,
+	.soft_skills_list span {
+		display: inline-block;
+		background: var(--primary-color);
 		border-radius: 3px;
-		padding:5px;
+		padding: 5px;
 		margin: 5px 0;
-		color:var(--font-color);
+		color: var(--font-color);
 	}
-	.hobby_list{
+
+	.hobby_list {
 		display: flex;
 		width: 300px;
 		justify-content: space-between;
 	}
-	.projects_item h3{
+
+	.projects_item h3 {
 		margin: 0;
 		margin-top: 16px;
 	}
+
 	/*  MOBILE  */
-@media (max-width:768px) {
-	.bottom_container{
-		flex-wrap: wrap;
+	@media (max-width:768px) {
+		.bottom_container {
+			flex-wrap: wrap;
+		}
+
+		.bottom_container-left {
+			flex: none;
+		}
 	}
-	.bottom_container-left{
-		flex: none;
-	}
-}
 </style>
+
 <body>
-  <div class="container">
-  	<div class="top_container">
-  	  <div class="hero_container">
-			<div class="hero_box">	
-				<h1 style="margin:10px 0;">K.Boopathi
-					<span class="hero_role" >&lt;/MERN Stack Developer&gt;</span>
-				</h1>
-				<div class="hero_text">
-					<p>Programmer with curiosity to learn different tech and develop the awesome product from that.</p>
-				</div>
-			</div>
-			<div class="hero_img">
-			</div>
-	  </div>
-  	</div>
-
-			<!-- CONTACT -->
-			<div class="contact_container">
-				<div class="contact_mail">
-					<p><i class="fas fa-envelope-open-text"></i>boooathis123@gmail.com</p>
-				</div>
-				<div class="contact_phoneno">
-					<p><i class="fas fa-mobile-alt"></i>8072638765</p>
-				</div>
-				<div class="contact_linkedin">
-					<p><a href="https://in.linkedin.com/in/k-boopathi-5b475a169"><i class="fab fa-linkedin"></i>Linkedin</a>
-					</p>
-				</div>
-				<div class="contact_github">
-					<p><a href="https://github.com/programmerraja"><i class="fab fa-github-square"></i>Github</a></p>
-				</div>
-				<div class="contact_github">
-					<p><a href="https://programmerraja.github.io"> <i class="fas fa-laptop-code"></i>Portfolio</a></p>
-				</div>
-                                             
-
-			</div>
-	<!-- BOTTOM CONTAINER -->
-	<div class="bottom_container">
-		<div class="bottom_container-left">
-			<!-- EDUCATION -->
-			<div class="education_container">
-					<div class="education_title">
-						<h2 >Education</h2>
-						<span class="line"></span>
-					</div>
-					<ol  class="education_list">
-						<li class="education_item">
-						<h3>Computer Science Engineering</h3>
-						<div class="education_description">
-						     <p>8.2 CGPA 2018-2022</p>
-						     <p>Einstein College Of Engineering</p>
-						     <p>Tirunelveli ,Tamil Nadu</p>
-						</div>
-						</li>
-						<li class="education_item">
-							<h3>Higher Secondary </h3>
-							<div class="education_description">
-							     <p>76% 2017-2018</p>
-							     <p>Tilak Vidyalaya Hr Sec School</p>
-							     <p>Kallidaikurichi ,Tirunelveli,Tamil Nadu</p>
-							</div>
-						</li>
-					</ol>
-			</div>
-		
-			<!-- TECH SKILLS -->
-			<div class="skills_container">
-					<div class="skills_title">
-						<h2 >Tech Skills</h2>
-						<span class="line"></span>
-					</div>
-				<ol  class="skills_list">
-					<li class="skills_item">
-						<h3>Programming Language</h3>
-						<p class="programming_list">
-							<span class="programming_lang">Html </span>
-							<span class="programming_lang">css</span>
-							<span class="programming_lang">Java Script</span>
-							<span class="programming_lang">Python</span>
-							<span class="programming_lang">Java</span>
-							<span class="programming_lang">C</span>
-							<span class="programming_lang">C++</span>				
+	<div class="container">
+		<div class="top_container">
+			<div class="hero_container">
+				<div class="hero_box">
+					<h1 style="margin:10px 0;">K.Boopathi
+						<span class="hero_role">&lt;/Full Stack Developer&gt;</span>
+					</h1>
+					<div class="hero_text">
+						<p>Programmer with curiosity to learn different tech and develop the awesome product from that.
 						</p>
-					</li>
-
-					<li class="skills_item">
-						<h3>Database<!-- <i class="fas fa-database"></i> --></h3>
-						<p class="database_list">
-							<span class="database_item">Mongodb</span>	
-							<span class="database_item">Firebase</span>
-							<span class="database_item">MySql</span>
-						</p>
-					</li>
-
-					<li class="skills_item">
-						<h3>Other's<!-- <img src="./framework.png"> --></h3>
-						<p class="framework_list">
-							<span class="framework_item">React js</span>
-							<span class="framework_item">Express js</span>
-						</p>
-					</li>
-
-
-					
-				</ol>
-			</div>
-			<!-- SOFT SKILLS -->
-			<div class="soft_skills_container">
-				<div class="soft_skills_title">
-						<h2 >Soft Skills</h2>
-						<span class="line"></span>
 					</div>
-				<p  class="soft_skills_list">
-					<span class="soft_skills_item">
-						Time Management
-					</span>
-					<span class="soft_skills_item">
-						Growth Mindset
-					</span>
-					<span class="soft_skills_item">
-						Communication
-					</span>	
+				</div>
+				<div class="hero_img">
+				</div>
+			</div>
+		</div>
+
+		<!-- CONTACT -->
+		<div class="contact_container">
+
+			<div class="contact_linkedin">
+				<p><a href="https://in.linkedin.com/in/k-boopathi-5b475a169"><i class="fab fa-linkedin"></i>Linkedin</a>
 				</p>
 			</div>
-			<!-- ACHIEVIEMENTS -->
+			<div class="contact_github">
+				<p><a href="https://github.com/programmerraja"><i class="fab fa-github-square"></i>Github</a></p>
+			</div>
+			<div class="contact_github">
+				<p><a href="https://programmerraja.github.io"> <i class="fas fa-laptop-code"></i>Portfolio</a></p>
+			</div>
+
+
+		</div>
+		<!-- BOTTOM CONTAINER -->
+		<div class="bottom_container">
+			<div class="bottom_container-left">
+				<!-- 	EXPERIENCE   -->
+				<section class="experience">
+					<div class="experience-header">
+						<h2>Experience</h2>
+						<span class="line"></span>
+					</div>
+					<ul class="experience-list">
+						<li class="experience-item">
+
+							<h3>Full Stack Developer</h3>
+							<p class="company">Klenty</p>
+							<time datetime="2022-03">March 2022</time> – <time datetime="present">Present</time>
+							<ul class="experience-description">
+								<li>
+									Assisted in migrating infrastructure from Heroku to Kubernetes, improving system
+									stability and scalability.
+								</li>
+								<li>Enhanced pod reliability by implementing health probes and optimized internal
+									networking by transitioning to internal Kubernetes domains, reducing latency in
+									domain resolution.
+								</li>
+								<li>Developed an internal Code Review Agent to automate first-level pull request
+									reviews, improving development workflow efficiency.
+								</li>
+								<li>Identified and resolved Webpack build inefficiencies, reducing frontend development
+									build times and enhancing developer productivity.
+								</li>
+							</ul>
+						</li>
+						<li class="experience-item">
+							<h3>Tech Blogger</h3>
+							<p class="company">
+								<a href="https://dev.to/programmerraja">Dev.to</a>,
+								<a href="https://medium.com/@programmerraja">Medium</a>,
+								<a href="https://programmerraja.is-a.dev">Personal Blog</a>
+							</p>
+							<time datetime="2021">2024</time> – <time datetime="present">Present</time>
+							<ul class="experience-description">
+								<li>Share insights on debugging, infrastructure challenges, and automation in tech.
+								</li>
+								<li>Created a Sherlock Holmes-inspired debugging series, making technical issues
+									engaging.</li>
+							</ul>
+						</li>
+
+						<li class="experience-item">
+							<h3>MERN Stack Developer</h3>
+							<p class="company">ChefAtHome FoodTech LLP</p>
+							<time datetime="2021-03">March 2021</time> – <time datetime="2021-09">September 2021</time>
+							<ul class="experience-description">
+								<li>Identified and remediated critical security vulnerabilities like Broken Access
+									Control and ID enumeration vulnerabilities.
+
+								</li>
+								<li>Optimized database performance by resolving N+1 query issues, consolidating multiple
+									queries into single efficient database calls, and reducing redundancy in schema
+									design.</li>
+								<li>Ensured ACID compliance for payments and critical operations.
+
+								</li>
+								<li>Enforced structured code documentation and best practices, enhancing code
+									maintainability and team collaboration.
+								</li>
+							</ul>
+						</li>
+
+						<!-- <li class="experience-item">
+							<h3>Blogger</h3>
+							<p class="company">Codespeedy Technology Private Limited</p>
+							<time datetime="2021-01">January 2021</time> – <time datetime="2021-03">March 2021</time>
+							<ul class="experience-description">
+								<li>Authored a series titled "Learn ReactJS Fundamentals in 10 Days by Building a Game,"
+									covering essential concepts for beginners.</li>
+								<li>Gained experience in effectively conveying technical knowledge through blogging.
+									<small>(<a href="https://www.codespeedy.com/author/boooathis123/"
+											target="_blank">View Articles</a>)</small>
+								</li>
+							</ul>
+						</li> -->
+
+
+					</ul>
+				</section>
+
+				<!-- TECH SKILLS -->
+				<div class="skills_container">
+					<div class="skills_title">
+						<h2>Tech Skills</h2>
+						<span class="line"></span>
+					</div>
+					<ol class="skills_list">
+						<li class="	">
+							<!-- <h3>Programming Language</h3> -->
+							<p class="programming_list">
+								<span>MERN Stack</span>
+								<span class="programming_lang">Python</span>
+								<span class="programming_lang">Java</span>
+								<span class="programming_lang">C</span>
+								<span class="programming_lang">C++</span>
+							</p>
+							<p class="database_list">
+								<span class="database_item">Mongodb</span>
+								<span class="database_item">Firebase</span>
+								<span class="database_item">MySql</span>
+								<span class="database_item">Meilisearch</span>
+								<span class="database_item">Elasticsearch</span>
+
+
+							</p>
+
+						</li>
+
+
+					</ol>
+				</div>
+				<!-- SOFT SKILLS -->
+				<!-- <div class="soft_skills_container">
+					<div class="soft_skills_title">
+						<h2>Soft Skills</h2>
+						<span class="line"></span>
+					</div>
+					<p class="soft_skills_list">
+						<span class="soft_skills_item">
+							Time Management
+						</span>
+						<span class="soft_skills_item">
+							Growth Mindset
+						</span>
+						<span class="soft_skills_item">
+							Communication
+						</span>
+					</p>
+				</div> -->
+
+
+
+
+			</div>
+			<div class="bottom_container-right">
+				<!-- ACHIEVIEMENTS -->
 				<div class="achievements_container">
 					<div class="achievements_title">
 						<h2>Achievements</h2>
 						<span class="line"></span>
 					</div>
-					<ol  class="achievements_list">
-						
+					<ul class="achievements_list">
 						<li class="achievements_item">
-							<h3>Star of the Month </h3>
+							<h3>Culture Champion (2024)</h3>
 							<div class="achievements_description">
-							     <p>During my internship at ChefAtHome I got this award for performing well in my internship</p>
-							</div>
-						</li>
-						<li class="achievements_item">
-							<h3>Completed Hacktoberfest 2020</h3>
-							<div class="achievements_description">
-							     <p>A open source contribution online event conducted by digital ocean</p>
+								<p>Recognized for outstanding contributions to team culture and collaboration in Klenty.
+								</p>
 							</div>
 						</li>
 
 						<li class="achievements_item">
-							<h3>1<sup>st</sup> Place in Tech Fist Quiz 2019</h3>
+							<h3>Star of the Month (2021)</h3>
 							<div class="achievements_description">
-							     <p>Vv College Of Engineering</p>
-							</div>
-						</li>
-						<li class="achievements_item">
-							<h3> 1<sup>st</sup> place in Code debugging 2018</h3>
-							<div class="achievements_description">
-							     <p>Einstein College Of Engineering</p>
-							</div>
-						</li>	
-						<li class="achievements_item">
-							<h3>1<sup>st</sup> Place in Techtonic 2019</h3>
-							<div class="achievements_description">
-							     <p>National  Engineering College</p>
+								<p>Awarded during my internship at ChefAtHome for exceptional performance and
+									contributions.</p>
 							</div>
 						</li>
 
 						<li class="achievements_item">
-							<h3>3<sup>rd</sup> Place in KIT Hackathon 2019</h3>
+							<h3>Hacktoberfest (2020/2021/2022/2024)</h3>
 							<div class="achievements_description">
-							     <p>Kalasalingam Institute Of Technology</p>
+								<p>Successfully contributed to open-source projects as part of DigitalOcean’s
+									Hacktoberfest event.</p>
 							</div>
 						</li>
-					</ol>
+
+						<li class="achievements_item">
+							<h3>1<sup>st</sup> Place - Tech Fest Quiz 2019</h3>
+							<div class="achievements_description">
+								<p>Winner of the Tech Fest Quiz held at VV College of Engineering.</p>
+							</div>
+						</li>
+
+						<li class="achievements_item">
+							<h3>1<sup>st</sup> Place - Code Debugging 2018</h3>
+							<div class="achievements_description">
+								<p>Secured the top position in the Code Debugging contest at Einstein College of
+									Engineering.</p>
+							</div>
+						</li>
+
+						<li class="achievements_item">
+							<h3>1<sup>st</sup> Place - TechTonic 2019</h3>
+							<div class="achievements_description">
+								<p>Won the TechTonic coding competition at National Engineering College.</p>
+							</div>
+						</li>
+
+						<li class="achievements_item">
+							<h3>3<sup>rd</sup> Place - KIT Hackathon 2019</h3>
+							<div class="achievements_description">
+								<p>Secured 3rd place in the Hackathon at Kalasalingam Institute of Technology.</p>
+							</div>
+						</li>
+					</ul>
 				</div>
-				
 
-			
-	    </div>
-     	<div class="bottom_container-right">
-     		<!-- 	EXPERIENCE   -->
-			<div class="experience_container">
-				<div class="experience_title">
-						<h2 >Expereience</h2>
+				<!-- EDUCATION -->
+				<div class="education_container">
+					<div class="education_title">
+						<h2>Education</h2>
 						<span class="line"></span>
 					</div>
-					<ol  class="experience_list">
-
-						<li class="experience_item">
-						<p style="font-weight: 600">MERN Stack Developer  </p>
-						<p style="font-weight: 500;padding-left:2px; ">ChefAtHome FoodTech LLP  </p>
-						<small>03/2021-9/2021</small>   
-						<div class="experience_description" style="padding-left: 10px;">
-							<ol  style="font-size: 18px;list-style:disc;" >
-							   	<li>Lead the admin and client team.</li>
-
-							   	<li>Fixed lot of security issues in the website.</li>
-							   	
-							   	<li>Optimized the front end.</li>
-
-							   	<li>Suggest them to documenting the project.</li>
-
-							</ol>
-
-						</div>
+					<ol class="education_list">
+						<li class="education_item">
+							<h3>Computer Science Engineering</h3>
+							<div class="education_description">
+								<p>8.2 CGPA 2018-2022</p>
+								<p>Einstein College Of Engineering</p>
+								<p>Tirunelveli ,Tamil Nadu</p>
+							</div>
 						</li>
-						
-						<li class="experience_item">
-						<p style="font-weight: 600">Blogger</p>
-						<p style="font-weight: 500;padding-left:2px;">Codespeedy Technology Private Limited.</p>
-						<small>01/2021-03/2021</small>
-						<div class="experience_description" style="padding-left: 10px;">
-							<ol style="font-size: 18px;list-style:disc;" >
-						     <li>I write a 10 blog for their website.</li>
 
-						     <li>The blog topic is "Learn Reactjs Fundamental in 10day's by building the game"  where I cover the fundamental topic that needs to get start with reactjs. </li>
-
-						     <li>During this internship, I learn how to convey what I know through a blog.<small>(<a href="https://www.codespeedy.com/author/boooathis123/">Link to article)</a></small> </li>
-						</div>
-						</li>
-						
 					</ol>
-			</div>
+				</div>
 				<!-- PROJECTS -->
-			<div class="projects_container">
-				<div class="projects_title">
+				<div class="projects_container">
+					<div class="projects_title">
 						<h2>Projects</h2>
 						<span class="line"></span>
 					</div>
-				<ol  class="projects_list">
-					<li class="projects_item">
-						<h3><a href="https://github.com/programmerraja/Yuki22">Yuki22 </a></h3>
-						<div class="projects_description">
-							<p>
-							Website for posting company interview process and reviews build for our college.
-							Stack used is MERN.
-							<p>
-						</div>
-					</li>
-					<li class="projects_item">
-						<h3><a href="https://github.com/programmerraja/ShareMyRide2.0">Share My Ride </a></h3>
-						<div class="projects_description">
-							<p>
-							It is  a carPooling website build with nodejs,ejs and mongodb.
-							<p>
-						</div>
-					</li>
-					
-					<li class="projects_item">
-						<h3><a href="https://github.com/programmerraja/InfoG">InfoG</a></h3>
-						<div class="projects_description">
-							<p>
-							A website for tracking the scammer by sending the link build with MERN stack.
-						</div>
-					</li>	
+					<ul class="projects_list">
+						<li class="projects_item">
+							<h3><a href="https://github.com/programmerraja/CallCoach"> CallCoach – AI-Powered Sales Call
+									Analyzer (AssemblyAI, React, Node.js) </a></h3>
+							<div class="projects_description">
+								<ul>
+									<li>Built an AI-driven coaching tool that transcribes and analyzes sales calls to
+										provide
+										real-time feedback.</li>
+									<li>Used AssemblyAI to evaluate tone, language, and pacing, helping salespeople
+										refine their
+										techniques.</li>
+									<li>Developed for the AssemblyAI Hackathon, showcasing AI-driven business
+										enablement.</li>
+									<ul>
+							</div>
+						</li>
+						<li class="projects_item">
+							<h3><a href="https://github.com/programmerraja/CallAgent">Call Agent – AI-Powered
+									Automated
+									Calling (Twilio, Eleven Labs, Node)</a></h3>
+							<div class="projects_description">
+								<ul>
+									<li>Created an AI-powered voice bot to automate calls using Twilio & Eleven Labs.
+									</li>
+									<li>Explored AI agent capabilities, enabling realistic voice interactions for
+										customer
+										engagement.
+								</ul>
+								<p>
+							</div>
+						</li>
 
-					<li class="projects_item">
-						<h3><a href="https://github.com/programmerraja/coronatracker2.0">Corona Tracker</a></h3>
-						<div class="projects_description">
-							<p>
-							Website for getting corona case details build in reactjs.
-							<p>
-						</div>
-					</li>
-					
-					
-					<li class="projects_item">
-						<h3><a href="https://github.com/programmerraja/TypoSpeed">Typo speed</a></h3>
-						<div class="projects_description">
-							<p>
-							I  learn touch typing to improve my typing speed for practice I build this website using ReactJS.
-							<p>
-						</div>
-					</li>	
-					
-					<li class="projects_item">
-						<h3><a href="https://github.com/programmerraja/RPS_Battel">Online Rock Paper Scissor Game</a></h3>
-						<div class="projects_description">
-							<p>
-							A dual player online game using python and firebase.
-							<p>
-						</div>
-					</li>	
+						<li class="projects_item">
+							<h3><a href="https://github.com/programmerraja/placestro">PlaceStro (MERN)</a></h3>
+							<div class="projects_description">
+								<ul>
 
-					<li class="projects_item">
-						<h3><a href="https://github.com/programmerraja/TechScrap">Tech Scraper</a></h3>
-						<div class="projects_description">
-							<p>
-							Web scraper for scraping various tech article for me in one place.
-							<p>
-						</div>
-					</li>		
-				</ol>
-			</div>
-			<!-- HOBBY -->
-				<div class="hobby_container">
+									<li>Built a community-driven website for sharing interview experiences and company
+										reviews for our college.
+									</li>
+									<li>Helped students make informed career decisions by providing insights into hiring
+										processes.
+									</li>
+								</ul>
+
+							</div>
+						</li>
+
+
+					</ul>
+				</div>
+				<!-- HOBBY -->
+				<!-- <div class="hobby_container">
 					<div class="hobby_title">
-						<h2 >Hobby</h2>
+						<h2>Hobby</h2>
 						<span class="line"></span>
 					</div>
-					
-					<ol  class="hobby_list">
+
+					<ol class="hobby_list">
 						<li class="hobby_item">
 							Reading Books
 						</li>
 						<li class="hobby_item">
 							<a href="https://www.youtube.com/programmerrajaa">
-							Youtuber</a>
-						</li>	
+								Youtuber</a>
+						</li>
 					</ol>
-				</div>
-				
-			</div>
+				</div> -->
+
 			</div>
 		</div>
-   </div>	
+	</div>
+	</div>
 
 </body>
+
 </html>

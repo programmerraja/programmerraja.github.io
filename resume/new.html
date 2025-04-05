@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins@1&display=swap" rel="stylesheet" />
+    <title>K.Boopathi</title>
+    <style>
+        :root {
+            --primary-color: #437897;
+            --secondary-color: #59a9b5;
+            --font-color: white;
+        }
+
+        body {
+            line-height: 1.6;
+            margin: 0;
+            font-family: "Ubuntu", sans-serif;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        a {
+            color: black;
+        }
+
+        .fas,
+        .fab {
+            margin: 0 0.3rem;
+        }
+
+        .container {
+            max-width: 100vw;
+            margin: 0;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .left-side {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+        }
+
+        .right-side {
+            flex: 0.8;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        h3 {
+            color: blue
+        }
+
+        ul {
+            list-style-type: disc;
+            margin: 0;
+            margin-left: 20px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        li {
+            margin: 0.4rem 0;
+        }
+
+        .space {
+            margin: 0.8rem 0;
+        }
+
+        .job {
+            padding-left: 10px;
+        }
+
+        .margin-0 {
+            margin: 0;
+        }
+
+        .bold {
+            font-weight: 500;
+        }
+
+        .small {
+            font-size: 0.9rem;
+        }
+
+        .pd {
+            padding: 0 0.8rem;
+        }
+
+        .color-blue {
+            color: black;
+        }
+
+        h3 {
+            margin: 0;
+            margin-bottom: 0.8rem;
+        }
+
+
+
+        .top_container {
+            width: 100vw;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .hero_container {
+            background: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            padding: 14px 18px;
+        }
+
+        .hero_box {
+            width: 84%;
+        }
+
+        .hero_role {
+            display: block;
+            font-size: 15px;
+        }
+
+        .padding {
+            padding: 1rem;
+        }
+
+        .hero_img {
+            background-size: 100px 100px;
+            /* background-image: url("./profile2.jpg"); */
+            /* url("https://avatars.githubusercontent.com/u/44333589?v=4"); */
+            width: 100px;
+            height: 100px;
+            margin: 0;
+            border-radius: 50%;
+            align-self: center;
+            background-repeat: no-repeat;
+        }
+
+
+        .contact_container {
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            background: var(--secondary-color);
+        }
+
+        .container-1 {
+            border-radius: 8px;
+        }
+
+        .achievements li,
+        .skills li {
+            margin: 1rem 0;
+        }
+
+        .summary p {
+            padding-bottom: 0;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <header>
+      <h3 class="margin-0">K.Boopathi</h3>
+      <p>
+        <a href="tel:+918072638765">+918072638765</a> |
+        <a href="mailto:boooathis123@gmail.com">boooathis123@gmail.com</a> |
+        <a href="https://in.linkedin.com/in/k-boopathi-5b475a169">LinkedIn</a>
+        | <a href="https://github.com/programmerraja">GitHub</a> |
+        <a href="https://programmerraja.github.io">Portfolio</a>
+      </p>
+    </header> -->
+    <div class="container-1">
+        <div class="top_container">
+            <div class="hero_container">
+                <div class="hero_box">
+                    <h1 style="margin: 10px 0">
+                        K.Boopathi
+                        <span class="hero_role">&lt;/Full Stack Developer&gt;</span>
+                    </h1>
+                </div>
+                <div class="hero_img"></div>
+            </div>
+        </div>
+        <div class="contact_container">
+            <div class="contact_github">
+                <p>
+                    <a href="tel:+918072638765"><i class="fas fa-phone"></i> +918072638765</a>
+                </p>
+            </div>
+            <div class="contact_github">
+                <p>
+                    <a href="mailto:boooathis123@gmail.com"><i class="fas fa-envelope"></i> boooathis123@gmail.com</a>
+                </p>
+            </div>
+            <div class="contact_linkedin">
+                <p>
+                    <a href="https://in.linkedin.com/in/k-boopathi-5b475a169"><i
+                            class="fab fa-linkedin"></i>Linkedin</a>
+                </p>
+            </div>
+            <div class="contact_github">
+                <p>
+                    <a href="https://github.com/programmerraja"><i class="fab fa-github-square"></i>Github</a>
+                </p>
+            </div>
+            <div class="contact_github">
+                <p>
+                    <a href="https://programmerraja.github.io">
+                        <i class="fas fa-laptop-code"></i>Portfolio</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <section class="summary padding">
+        <h2>SUMMARY</h2>
+        <p style="line-height: 2;">
+            Infra Developer & Full-Stack Engineer specializing in Cloud, DevOps, and Full-Stack Development.
+            Passionate about system optimization and building scalable solutions
+            A tech blogger sharing insights on infrastructure, experiences, and lessons learned.
+            Currently exploring <span class="bold">Generative
+                AI</span> to build real-world applications.
+        </p>
+    </section>
+    <div class="container">
+        <div class="left-side">
+            <!-- <section class="summary">
+                <h2>SUMMARY</h2>
+                <p>
+                    Infra Developer & Full-Stack Engineer specializing in Cloud, DevOps, and Full-Stack Development.
+                    Passionate about system optimization and building scalable solutions
+                    A tech blogger sharing insights on infrastructure, experiences, and lessons learned.
+                    Currently exploring <span class="bold">Generative
+                        AI</span> to build real-world applications.
+                </p>
+            </section> -->
+
+            <section class="work-experience">
+                <h2>WORK EXPERIENCE</h2>
+                <div class="job">
+                    <h3 class="color-blue">
+                        Full Stack Developer | Klenty | March 2022 – Present
+                    </h3>
+                    <ul>
+                        <li>
+                            Automated code reviews by developing a PR review agent, reducing manual effort and improving
+                            code quality.
+                        </li>
+                        <li>
+                            Collaborated with DevOps to migrate from Heroku to Kubernetes, implementing health
+                            probes and a zero-downtime deployment strategy to minimize disruptions while optimizing pod
+                            communication using internal domains to enhance security and reduce latency.
+
+                        </li>
+                        <li>
+                            Optimized frontend build times by implementing a workaround, improving development speed by
+                            80%.
+                        </li>
+
+                        <li>Architected and scaled a new product from the ground up, ensuring system reliability and
+                            high performance as traffic grew.</li>
+
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <h3 class="color-blue">
+                        Tech Blogger | Dev.to, Medium, Personal Blog | 2024 – Present
+                    </h3>
+                    <ul>
+                        <li>
+                            Shared insights on debugging, infrastructure challenges, and automation through blogs and
+                            technical content.
+                        </li>
+                        <li>
+                            Created
+                            <strong>a Sherlock Holmes-inspired debugging series</strong>,
+                            making technical issues engaging.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <h3 class="color-blue">
+                        MERN Stack Developer | ChefAtHome FoodTech LLP | March 2021 –
+                        September 2021
+                    </h3>
+                    <ul>
+                        <li>
+                            Strengthened platform security by addressing vulnerabilities,
+                            increasing security robustness by 80%.
+                        </li>
+                        <li>
+                            Refined database queries, decreasing response times by 45%.
+                        </li>
+                        <li>
+                            Ensured ACID compliance for critical transactions, safeguarding data integrity.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="projects">
+                <h2>PROJECTS</h2>
+                <ul>
+                    <li>
+                        <a href="https://github.com/programmerraja/CallCoach" class="bold">CallCoach – AI-Powered Sales
+                            Call
+                            Analyzer</a>
+                        <ul>
+                            <li>
+                                Developed an AI-driven coaching tool to transcribe and analyze
+                                sales calls for real-time feedback.
+                            </li>
+                            <li>
+                                Showcased at the AssemblyAI Hackathon, highlighting AI-driven
+                                business enablement.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="https://github.com/programmerraja/CallAgent" class="bold">Call Agent – AI-Powered
+                            Automated
+                            Calling</a>
+                        <ul>
+                            <li>
+                                Developed an AI-powered voice bot using Twilio & Eleven Labs, automating customer
+                                interactions and reducing manual effort.
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="https://github.com/programmerraja/RAG" class="bold">RAG – Retrieval-Augmented
+                            Generation</a>
+                        <ul>
+                            <li>
+                                Developed a UI application showcasing RAG model capabilities for the Dev.to Hackathon
+                                (PGVector Challenge).
+                            </li>
+                            <li>
+                                Implemented chat interactions with website content, files, and
+                                Dev.to articles.
+                            </li>
+
+                            <li>
+                                Added customizable text chunking and PGVector with PostgreSQL
+                                for optimized data retrieval.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="https://github.com/programmerraja/placestro" class="bold">PlaceStro – MERN Community
+                            Platform</a>
+                        <ul>
+                            <li>
+                                Developed a community platform for students to share interview experiences and company
+                                insights, fostering peer learning.
+                            </li>
+                            <li>
+                                Helped my college students gain real-world hiring process knowledge, enhancing their
+                                career
+                                preparedness and job search confidence.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <!-- <hr class="bold"> -->
+        <div class="right-side">
+
+            <section class="skills">
+                <h2>SKILLS</h2>
+                <ul>
+                    <li>
+                        <strong>Programming Languages:</strong> MERN Stack, Python, Java,
+                        C, C++
+                    </li>
+                    <li>
+                        <strong>Databases & Message Queues:</strong> MongoDB, Meilisearch, Elasticsearch,
+                        RabbitMQ
+                    </li>
+                    <li>
+                        <strong>Tools & Platforms:</strong> Docker,
+                        Kubernetes, Azure, AWS
+                    </li>
+                    <li>
+                        <strong>Generative AI & Machine Learning:</strong> LLMs,
+                        LangChain, OpenAI API, Vector Databases, Fine-tuning, RAG
+                    </li>
+                </ul>
+            </section>
+
+            <section class="achievements">
+                <h2>ACHIEVEMENTS</h2>
+                <ul>
+                    <li>
+                        <strong>Culture Champion (Klenty)</strong> - Recognized for
+                        fostering a high-performing team.
+                    </li>
+                    <li>
+                        <strong>Star of the Month (ChefAtHome)</strong> - Awarded for
+                        outstanding performance during the internship.
+                    </li>
+                    <li>
+                        <strong>Hacktoberfest 2020</strong> - Successfully contributed to
+                        open-source projects in an event by DigitalOcean.
+                    </li>
+                    <li>
+                        <strong>1st Place - Tech Fest Quiz (2019)</strong> - VV College of
+                        Engineering.
+                    </li>
+                    <li>
+                        <strong>1st Place - Code Debugging (2018)</strong> - Einstein
+                        College of Engineering.
+                    </li>
+                    <li>
+                        <strong>1st Place - TechTonic (2019)</strong> - National
+                        Engineering College.
+                    </li>
+                    <li>
+                        <strong>3rd Place - KIT Hackathon (2019)</strong> - Kalasalingam
+                        Institute of Technology.
+                    </li>
+                </ul>
+            </section>
+
+            <section class="education">
+                <h2>EDUCATION</h2>
+                <p class="bold margin-0">
+                    Computer Science Engineering | CGPA: 8.2 (2018–2022)
+                </p>
+                <span class="small pd">Einstein College of Engineering, Tirunelveli, Tamil Nadu</span>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
