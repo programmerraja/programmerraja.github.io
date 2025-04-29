@@ -137,6 +137,9 @@
     <loc>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</loc>
     <lastmod>2024-10-19T10:53:07.077Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/DSA</loc>
+    <lastmod>2025-03-17T14:54:19.525Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Leading-EffectiveEngineering-Teams</loc>
     <lastmod>2025-01-13T13:21:01.011Z</lastmod>
   </url><url>
@@ -236,17 +239,20 @@
     <loc>https://programmerraja.github.io/post/2025/Automating-Conversations-Building-a-Smart-Call-Agent-Using-Twilio-and-ElevenLabs</loc>
     <lastmod>2025-02-01T23:01:55.555Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/post/2025/From-Heroku-to-Kubernetes-Lessons-Learned-in-Our-Migration-Journey</loc>
+    <lastmod>2025-03-23T10:07:39.393Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/post/2025/How-We-Accidentally-Declared-War-on-Our-Own-Database</loc>
     <lastmod>2025-02-01T23:01:48.484Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/post/2025/How-we-Accidentally-delete-the-production-elastic-search</loc>
-    <lastmod>2025-03-08T13:16:34.977Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews--9-Costly-Coding-Mistakes</loc>
+    <loc>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews-8-Costly-Coding-Mistakes</loc>
     <lastmod>2025-01-12T12:09:14.141Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</loc>
     <lastmod>2025-03-07T23:02:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Million-NXDomain-Errors</loc>
+    <lastmod>2024-03-30T01:22:20.202Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</loc>
     <lastmod>2025-01-05T01:12:19.191Z</lastmod>

@@ -6,11 +6,17 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>How we Accidentally delete the production elastic search</title>
-    <link>https://programmerraja.github.io/post/2025/How-we-Accidentally-delete-the-production-elastic-search</link>
-    <guid>https://programmerraja.github.io/post/2025/How-we-Accidentally-delete-the-production-elastic-search</guid>
-    <description>Hey Hai everyOne i am back with another interseting story and gli.</description>
-    <pubDate>Sat, 08 Mar 2025 13:16:34 GMT</pubDate>
+    <title>From Heroku to Kubernetes Lessons Learned in Our Migration Journey</title>
+    <link>https://programmerraja.github.io/post/2025/From-Heroku-to-Kubernetes-Lessons-Learned-in-Our-Migration-Journey</link>
+    <guid>https://programmerraja.github.io/post/2025/From-Heroku-to-Kubernetes-Lessons-Learned-in-Our-Migration-Journey</guid>
+    <description>Migrating from Heroku to Kubernetes is no small feat. While Heroku provided a straightforward Platform-as-a-Service (PaaS) environment that handled many operational aspects for us, Kubernetes offers greater flexibility, scalability, and control.</description>
+    <pubDate>Sun, 23 Mar 2025 10:07:39 GMT</pubDate>
+  </item><item>
+    <title>DSA</title>
+    <link>https://programmerraja.github.io/notes/2025/DSA</link>
+    <guid>https://programmerraja.github.io/notes/2025/DSA</guid>
+    <description>Patterns sliding window pattern subset pattern → no reptttion and repetttion Modified binary search top k elements → use heap binary tree dfs toplogical sort two pointer two moving ...</description>
+    <pubDate>Mon, 17 Mar 2025 14:54:19 GMT</pubDate>
   </item><item>
     <title>Sherlock Holmes: The Case of the Invalid HeloHost Error</title>
     <link>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</link>
@@ -48,9 +54,9 @@
     <description>PROJECT ARISTOTLE Google conducted one of the best-known studies on effective software engineer- ing teams, known as Project Aristotle. The project aimed to identify the factors that make some teams more successful than others.</description>
     <pubDate>Mon, 13 Jan 2025 13:21:01 GMT</pubDate>
   </item><item>
-    <title>Lessons from 2 Years of PR Reviews: 9 Costly Coding Mistakes</title>
-    <link>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews--9-Costly-Coding-Mistakes</link>
-    <guid>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews--9-Costly-Coding-Mistakes</guid>
+    <title>Lessons from 2 Years of PR Reviews: 8 Costly Coding Mistakes</title>
+    <link>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews-8-Costly-Coding-Mistakes</link>
+    <guid>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews-8-Costly-Coding-Mistakes</guid>
     <description>Hey everyone! If you’re a regular follower, you might already know a bit about me. But if not, let me quickly introduce myself: I’m a full-stack developer, and I’ve been working at a startup for the past two years.</description>
     <pubDate>Sun, 12 Jan 2025 12:09:14 GMT</pubDate>
   </item><item>
@@ -59,12 +65,6 @@
     <guid>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</guid>
     <description>It was a calm day until disaster struck. We received alerts about DDoS and brute-force attacks originating from random bot IPs. Our team quickly mobilized to mitigate the attacks.</description>
     <pubDate>Sun, 05 Jan 2025 01:12:19 GMT</pubDate>
-  </item><item>
-    <title>Generative AI: A Personal Deep Dive  My Notes and Insights Part -2</title>
-    <link>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</link>
-    <guid>https://programmerraja.github.io/post/2024/Generative-AI--A-Personal-Deep-Dive--My-Notes-and-Insights-Part--2</guid>
-    <description>Welcome back to part 2 of my series, Personal Deep Dive: My Notes and Insights. If you found the first post useful, you’re in for more today. If you missed it, don’t worry — you can catch up here.</description>
-    <pubDate>Wed, 18 Dec 2024 00:57:31 GMT</pubDate>
   </item>
     </channel>
   </rss>
