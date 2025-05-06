@@ -83,6 +83,7 @@
 <li>Use Chain-of-Thought: Asking the LLM to explain its decision before giving a final answer can increase eval reliability. As a bonus, this lets you to use a weaker but faster LLM and still achieve similar results. Because this part of the pipeline is typically run in batch, the extra latency from CoT isn’t a problem.</li>
 <li>Control for response length: LLMs tend to bias toward longer responses. To mitigate this, ensure response pairs are similar in length.</li>
 </ul>
+<p>Model bias where when we give to judge one model have different data trained on for that it look correct but for another it may wrong so keep this in mind</p>
 <p>use YAML because it is less verbose, and hence consumes fewer tokens than JSON. when getting output from LLM</p>
 <p><strong>Metrics for N-Gram Matching</strong></p>
 <ul>
@@ -262,6 +263,9 @@ Steps</p>
 <li>
 <p>Use LLm as juduge for the review if the LLM give more score we can directly send to customer else send for human review</p>
 </li>
+<li>
+<p>A key recommendation is to decompose complex evaluation tasks into separate criteria, evaluating each aspect (e.g., length, tone, topic in summarization) individually for better performance</p>
+</li>
 </ul>
 <p><strong>Types of Evals:</strong>
 - <strong>Deterministic Checks:</strong> These include sanity checks and regular expression (regex) checks to ensure the AI output adheres to basic rules and constraints.
@@ -293,6 +297,8 @@ Steps</p>
 <li><a href="https://eugeneyan.com/writing/llm-evaluators/" class="external">https://eugeneyan.com/writing/llm-evaluators/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
 <li><a href="https://trilogyai.substack.com/p/llm-evaluation-frameworks" class="external">https://trilogyai.substack.com/p/llm-evaluation-frameworks<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
 <li><a href="https://www.comet.com/site/blog/llm-juries-for-evaluation/" class="external">https://www.comet.com/site/blog/llm-juries-for-evaluation/<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.propel.app/insights/building-a-snap-llm-eval-part-1/" class="external">Building a SNAP LLM eval: part 1 <svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
+<li><a href="https://www.qawolf.com/webinars/innovations-in-evaluating-ai-agent-performance" class="external">https://www.qawolf.com/webinars/innovations-in-evaluating-ai-agent-performance<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
 </ul></article><hr/><div class="page-footer"><div class="graph"><h3>Graph View</h3><div class="graph-outer"><div id="graph-container" data-cfg="{&quot;drag&quot;:true,&quot;zoom&quot;:true,&quot;depth&quot;:1,&quot;scale&quot;:1.1,&quot;repelForce&quot;:0.5,&quot;centerForce&quot;:0.3,&quot;linkDistance&quot;:30,&quot;fontSize&quot;:0.6,&quot;opacityScale&quot;:1,&quot;showTags&quot;:true,&quot;removeTags&quot;:[],&quot;focusOnHover&quot;:false}"></div><button id="global-graph-icon" aria-label="Global Graph"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 55 55" fill="currentColor" xml:space="preserve"><path d="M49,0c-3.309,0-6,2.691-6,6c0,1.035,0.263,2.009,0.726,2.86l-9.829,9.829C32.542,17.634,30.846,17,29,17
                 s-3.542,0.634-4.898,1.688l-7.669-7.669C16.785,10.424,17,9.74,17,9c0-2.206-1.794-4-4-4S9,6.794,9,9s1.794,4,4,4
                 c0.74,0,1.424-0.215,2.019-0.567l7.669,7.669C21.634,21.458,21,23.154,21,25s0.634,3.542,1.688,4.897L10.024,42.562
