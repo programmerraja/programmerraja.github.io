@@ -6,6 +6,12 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>index</title>
+    <link>https://programmerraja.github.io/hire/</link>
+    <guid>https://programmerraja.github.io/hire/</guid>
+    <description>👋 Hey there! I’m K. Boopathi, a passionate Full Stack Developer with a love for tackling complex problems and staying ahead of the curve in the world of Web Development, DevOps, Generative AI, and beyond By day, I explore the guts of infrastructure, and by night (and weekends), I build quirky, powerful AI side projects that solve real problems.</description>
+    <pubDate>Sun, 25 May 2025 13:05:16 GMT</pubDate>
+  </item><item>
     <title>AI product development</title>
     <link>https://programmerraja.github.io/notes/2025/AI-product-development</link>
     <guid>https://programmerraja.github.io/notes/2025/AI-product-development</guid>
@@ -59,12 +65,6 @@
     <guid>https://programmerraja.github.io/post/2025/From-Heroku-to-Kubernetes-Lessons-Learned-in-Our-Migration-Journey</guid>
     <description>Migrating from Heroku to Kubernetes is no small feat. While Heroku provided a straightforward Platform-as-a-Service (PaaS) environment that handled many operational aspects for us, Kubernetes offers greater flexibility, scalability, and control.</description>
     <pubDate>Sun, 23 Mar 2025 10:07:39 GMT</pubDate>
-  </item><item>
-    <title>Sherlock Holmes: The Case of the Invalid HeloHost Error</title>
-    <link>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</link>
-    <guid>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</guid>
-    <description>This time, our debugging adventure takes us deep into the world of SMTP, where an elusive Invalid HELO error threatened to derail email sending. Let’s dive in! The Mystery Begins It was a Friday evening, and I was ready to log off and enjoy the weekend.</description>
-    <pubDate>Fri, 07 Mar 2025 23:02:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
