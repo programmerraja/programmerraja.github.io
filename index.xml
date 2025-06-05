@@ -6,6 +6,54 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>index</title>
+    <link>https://programmerraja.github.io/hire/</link>
+    <guid>https://programmerraja.github.io/hire/</guid>
+    <description>👋 Hey there! I’m K. Boopathi, a passionate Full Stack Developer with a love for tackling complex problems and staying ahead of the curve in the world of Web Development, DevOps, Generative AI, and beyond By day, I explore the guts of infrastructure, and by night (and weekends), I build quirky, powerful AI side projects that solve real problems.</description>
+    <pubDate>Sun, 25 May 2025 13:05:16 GMT</pubDate>
+  </item><item>
+    <title>AI product development</title>
+    <link>https://programmerraja.github.io/notes/2025/AI-product-development</link>
+    <guid>https://programmerraja.github.io/notes/2025/AI-product-development</guid>
+    <description>Product Requirements Document feedbackwidget.co/#demo testit.so/ creatie.ai/ [figma] .</description>
+    <pubDate>Sat, 24 May 2025 11:54:10 GMT</pubDate>
+  </item><item>
+    <title>genrative_ai</title>
+    <link>https://programmerraja.github.io/tags/genrative_ai</link>
+    <guid>https://programmerraja.github.io/tags/genrative_ai</guid>
+    <description></description>
+    <pubDate>Wed, 21 May 2025 12:45:42 GMT</pubDate>
+  </item><item>
+    <title>Live Kit</title>
+    <link>https://programmerraja.github.io/notes/2025/Live-Kit</link>
+    <guid>https://programmerraja.github.io/notes/2025/Live-Kit</guid>
+    <description></description>
+    <pubDate>Wed, 21 May 2025 12:45:42 GMT</pubDate>
+  </item><item>
+    <title>DSA</title>
+    <link>https://programmerraja.github.io/notes/2025/DSA</link>
+    <guid>https://programmerraja.github.io/notes/2025/DSA</guid>
+    <description>Patterns sliding window pattern subset pattern → no reptttion and repetttion Modified binary search top k elements → use heap binary tree dfs toplogical sort two pointer two moving ...</description>
+    <pubDate>Wed, 21 May 2025 12:45:42 GMT</pubDate>
+  </item><item>
+    <title>Open source</title>
+    <link>https://programmerraja.github.io/notes/2024/Open-source</link>
+    <guid>https://programmerraja.github.io/notes/2024/Open-source</guid>
+    <description>docs.opire.dev/.</description>
+    <pubDate>Wed, 21 May 2025 12:45:42 GMT</pubDate>
+  </item><item>
+    <title>Freelancing And Saas</title>
+    <link>https://programmerraja.github.io/notes/2024/Freelancing-And-Saas</link>
+    <guid>https://programmerraja.github.io/notes/2024/Freelancing-And-Saas</guid>
+    <description>Here the collection Notes and resources to get started in freelancing and build SASS Key Strategies for SASS Identify profitable niches: Focus on finding underserved niches with ...</description>
+    <pubDate>Wed, 21 May 2025 12:45:42 GMT</pubDate>
+  </item><item>
+    <title>K.Boopathi</title>
+    <link>https://programmerraja.github.io/</link>
+    <guid>https://programmerraja.github.io/</guid>
+    <description>Welcome to My World! 🌍 Hi! I’m K. Boopathi, a passionate Full Stack Developer with a love for tackling complex problems and staying ahead of the curve in the world of Web Development, DevOps, Generative AI, and beyond.</description>
+    <pubDate>Wed, 21 May 2025 12:45:20 GMT</pubDate>
+  </item><item>
     <title>Projects</title>
     <link>https://programmerraja.github.io/projects/</link>
     <guid>https://programmerraja.github.io/projects/</guid>
@@ -17,54 +65,6 @@
     <guid>https://programmerraja.github.io/post/2025/From-Heroku-to-Kubernetes-Lessons-Learned-in-Our-Migration-Journey</guid>
     <description>Migrating from Heroku to Kubernetes is no small feat. While Heroku provided a straightforward Platform-as-a-Service (PaaS) environment that handled many operational aspects for us, Kubernetes offers greater flexibility, scalability, and control.</description>
     <pubDate>Sun, 23 Mar 2025 10:07:39 GMT</pubDate>
-  </item><item>
-    <title>DSA</title>
-    <link>https://programmerraja.github.io/notes/2025/DSA</link>
-    <guid>https://programmerraja.github.io/notes/2025/DSA</guid>
-    <description>Patterns sliding window pattern subset pattern → no reptttion and repetttion Modified binary search top k elements → use heap binary tree dfs toplogical sort two pointer two moving ...</description>
-    <pubDate>Mon, 17 Mar 2025 14:54:19 GMT</pubDate>
-  </item><item>
-    <title>Sherlock Holmes: The Case of the Invalid HeloHost Error</title>
-    <link>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</link>
-    <guid>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</guid>
-    <description>This time, our debugging adventure takes us deep into the world of SMTP, where an elusive Invalid HELO error threatened to derail email sending. Let’s dive in! The Mystery Begins It was a Friday evening, and I was ready to log off and enjoy the weekend.</description>
-    <pubDate>Fri, 07 Mar 2025 23:02:00 GMT</pubDate>
-  </item><item>
-    <title>Live Kit</title>
-    <link>https://programmerraja.github.io/notes/2025/Live-Kit</link>
-    <guid>https://programmerraja.github.io/notes/2025/Live-Kit</guid>
-    <description></description>
-    <pubDate>Sat, 22 Feb 2025 04:55:12 GMT</pubDate>
-  </item><item>
-    <title>genrative_ai</title>
-    <link>https://programmerraja.github.io/tags/genrative_ai</link>
-    <guid>https://programmerraja.github.io/tags/genrative_ai</guid>
-    <description></description>
-    <pubDate>Mon, 03 Feb 2025 03:07:17 GMT</pubDate>
-  </item><item>
-    <title>Automating Conversations: Building a Smart Call Agent Using Twilio and ElevenLabs</title>
-    <link>https://programmerraja.github.io/post/2025/Automating-Conversations-Building-a-Smart-Call-Agent-Using-Twilio-and-ElevenLabs</link>
-    <guid>https://programmerraja.github.io/post/2025/Automating-Conversations-Building-a-Smart-Call-Agent-Using-Twilio-and-ElevenLabs</guid>
-    <description>We are living in the era of AI agents, where people are increasingly developing these tools to automate mundane tasks. Today, we’ll explore how to build our own call agent using Twilio and ElevenLabs.</description>
-    <pubDate>Sat, 01 Feb 2025 23:01:55 GMT</pubDate>
-  </item><item>
-    <title>How We Accidentally Declared War on Our Own Database</title>
-    <link>https://programmerraja.github.io/post/2025/How-We-Accidentally-Declared-War-on-Our-Own-Database</link>
-    <guid>https://programmerraja.github.io/post/2025/How-We-Accidentally-Declared-War-on-Our-Own-Database</guid>
-    <description>It all started with a simple task: “Hey, let’s check if two databases have the same data over time!” Sounds harmless, right? Oh, how young and foolish we were ...</description>
-    <pubDate>Sat, 01 Feb 2025 23:01:48 GMT</pubDate>
-  </item><item>
-    <title>Leading EffectiveEngineering Teams</title>
-    <link>https://programmerraja.github.io/notes/2025/Leading-EffectiveEngineering-Teams</link>
-    <guid>https://programmerraja.github.io/notes/2025/Leading-EffectiveEngineering-Teams</guid>
-    <description>PROJECT ARISTOTLE Google conducted one of the best-known studies on effective software engineer- ing teams, known as Project Aristotle. The project aimed to identify the factors that make some teams more successful than others.</description>
-    <pubDate>Mon, 13 Jan 2025 13:21:01 GMT</pubDate>
-  </item><item>
-    <title>Lessons from 2 Years of PR Reviews: 8 Costly Coding Mistakes</title>
-    <link>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews-8-Costly-Coding-Mistakes</link>
-    <guid>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews-8-Costly-Coding-Mistakes</guid>
-    <description>Hey everyone! If you’re a regular follower, you might already know a bit about me. But if not, let me quickly introduce myself: I’m a full-stack developer, and I’ve been working at a startup for the past two years.</description>
-    <pubDate>Sun, 12 Jan 2025 12:09:14 GMT</pubDate>
   </item>
     </channel>
   </rss>
