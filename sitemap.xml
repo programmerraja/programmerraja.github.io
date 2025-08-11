@@ -1,9 +1,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
+    <loc>https://programmerraja.github.io/Untitled</loc>
+    <lastmod>2025-07-11T23:25:02.933Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/hire/</loc>
     <lastmod>2025-05-25T13:05:16.161Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/</loc>
-    <lastmod>2025-05-21T12:45:20.672Z</lastmod>
+    <lastmod>2025-07-07T10:03:06.730Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2023/MongoDB-Performance-Tuning</loc>
     <lastmod>2023-12-03T04:14:50.000Z</lastmod>
@@ -57,7 +60,7 @@
     <lastmod>2024-03-30T14:50:04.044Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Freelancing-And-Saas</loc>
-    <lastmod>2025-05-21T12:45:42.428Z</lastmod>
+    <lastmod>2025-07-07T10:03:10.646Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Generative-AI</loc>
     <lastmod>2024-07-30T00:57:13.131Z</lastmod>
@@ -65,11 +68,17 @@
     <loc>https://programmerraja.github.io/notes/2024/Go</loc>
     <lastmod>2024-01-01T06:09:28.282Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Graph-database</loc>
+    <lastmod>2024-06-15T02:22:04.044Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Hacking</loc>
     <lastmod>2024-01-25T02:11:37.373Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Haystack-Notes</loc>
     <lastmod>2024-08-24T04:02:35.353Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Hugging-face</loc>
+    <lastmod>2024-06-22T23:27:31.313Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Kubernetes</loc>
     <lastmod>2024-01-01T02:49:32.323Z</lastmod>
@@ -88,6 +97,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Large-Language-Model</loc>
     <lastmod>2024-05-18T12:59:19.191Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Leadership</loc>
+    <lastmod>2024-09-04T00:14:13.131Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Learning-from-blog</loc>
     <lastmod>2024-01-01T02:49:32.323Z</lastmod>
@@ -108,7 +120,7 @@
     <lastmod>2024-01-10T02:49:32.323Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Open-source</loc>
-    <lastmod>2025-05-21T12:45:42.804Z</lastmod>
+    <lastmod>2025-07-07T10:03:10.658Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Prompt-Engineering</loc>
     <lastmod>2024-01-22T04:21:27.272Z</lastmod>
@@ -140,17 +152,20 @@
     <loc>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</loc>
     <lastmod>2024-10-19T10:53:07.077Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/notes/2025/AI-product-development</loc>
-    <lastmod>2025-05-24T11:54:10.035Z</lastmod>
+    <loc>https://programmerraja.github.io/notes/2025/AI-conference</loc>
+    <lastmod>2025-07-07T10:03:10.662Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/notes/2025/DSA</loc>
-    <lastmod>2025-05-21T12:45:42.812Z</lastmod>
+    <loc>https://programmerraja.github.io/notes/2025/AI-product-development</loc>
+    <lastmod>2025-07-07T10:03:10.662Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Leading-EffectiveEngineering-Teams</loc>
     <lastmod>2025-01-13T13:21:01.011Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Live-Kit</loc>
-    <lastmod>2025-05-21T12:45:42.816Z</lastmod>
+    <lastmod>2025-07-07T10:03:10.674Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Neaural</loc>
+    <lastmod>2025-07-26T04:35:12.560Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2023/helloworld</loc>
     <lastmod>2023-12-03T04:14:50.000Z</lastmod>
@@ -254,6 +269,9 @@
     <loc>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews-8-Costly-Coding-Mistakes</loc>
     <lastmod>2025-01-12T12:09:14.141Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/post/2025/Rust-Tools-That-Made-Our-Dev-Team-Productive-Again</loc>
+    <lastmod>2025-08-05T04:53:12.121Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/post/2025/Sherlock-Holmes-The-Case-of-the-Invalid-HeloHost-Error</loc>
     <lastmod>2025-03-07T23:02:00.000Z</lastmod>
   </url><url>
@@ -263,9 +281,12 @@
     <loc>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</loc>
     <lastmod>2025-01-05T01:12:19.191Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/post/2025/The-ulimate-RAG-guide-that-you-need</loc>
+    <lastmod>2025-08-02T00:21:48.429Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/projects/</loc>
     <lastmod>2025-05-04T04:25:25.252Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/tags/genrative_ai</loc>
-    <lastmod>2025-05-21T12:45:42.824Z</lastmod>
+    <lastmod>2025-07-07T10:03:10.734Z</lastmod>
   </url></urlset>
