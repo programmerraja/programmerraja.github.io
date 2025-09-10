@@ -1,7 +1,4 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url>
-    <loc>https://programmerraja.github.io/Untitled</loc>
-    <lastmod>2025-07-11T23:25:02.933Z</lastmod>
-  </url><url>
     <loc>https://programmerraja.github.io/hire/</loc>
     <lastmod>2025-05-25T13:05:16.161Z</lastmod>
   </url><url>
@@ -266,6 +263,12 @@
     <loc>https://programmerraja.github.io/post/2025/How-We-Accidentally-Declared-War-on-Our-Own-Database</loc>
     <lastmod>2025-02-01T23:01:48.484Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/post/2025/How-first-principle-thinking-help-me-to-solve-the-call-problem</loc>
+    <lastmod>2025-09-03T10:44:59.835Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2025/I-Built-a-Chrome-Extension-That-Reads-Resumes-and-Generates-Interview-Questions-with-AI</loc>
+    <lastmod>2025-05-24T05:04:40.404Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/post/2025/Lessons-from-2-Years-of-PR-Reviews-8-Costly-Coding-Mistakes</loc>
     <lastmod>2025-01-12T12:09:14.141Z</lastmod>
   </url><url>
@@ -280,6 +283,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/post/2025/Sherlock-Holmes-and-The-Case-Redis-Overload-During-a-DDoS-Attack</loc>
     <lastmod>2025-01-05T01:12:19.191Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2025/The-Other-Side-of-OpenAI-12-Surprising-Stories-You-Haven%E2%80%99t-Heard</loc>
+    <lastmod>2025-09-09T15:11:33.333Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2025/The-ulimate-RAG-guide-that-you-need</loc>
     <lastmod>2025-08-02T00:21:48.429Z</lastmod>
