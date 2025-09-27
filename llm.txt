@@ -1,0 +1,29 @@
+# K. Boopathi - Full Stack Developer & AI Enthusiast
+
+> Passionate Full Stack Developer specializing in Web Development, DevOps, Generative AI, and modern technology solutions. Sharing technical insights, debugging adventures, and AI innovations through detailed blog posts and project documentation.
+
+## About
+
+K. Boopathi is a full stack developer with expertise in modern web technologies, artificial intelligence, and system optimization. This digital space serves as a comprehensive resource for technical insights, project showcases, and learning experiences in the rapidly evolving world of technology.
+
+## Technical Expertise
+
+- [Full Stack Development](https://programmerraja.github.io/): Complete web application development from frontend to backend
+- [DevOps & System Architecture](https://programmerraja.github.io/): Infrastructure automation and deployment strategies
+- [Generative AI & Machine Learning](https://programmerraja.github.io/): AI integration and implementation in modern applications
+- [Debugging & Problem Solving](https://programmerraja.github.io/): Systematic approaches to complex technical challenges
+
+## Blog Content
+
+- [Debugging Adventures: A Sherlock Holmes Mystery](https://programmerraja.github.io/): Deep dive into debugging methodologies and problem-solving techniques
+- [Coding Against the Clock: Automation Projects](https://programmerraja.github.io/): Time-sensitive automation solutions and efficiency optimization
+- [Reverse Engineering: Uncovering Hidden Gems](https://programmerraja.github.io/): System deconstruction and innovation through analysis
+- [Second Brain Knowledge Base](https://programmerraja.github.io/): Curated resources, notes, and learning materials
+
+## Technologies & Tools
+
+Modern web development stack including JavaScript frameworks, Python automation, cloud platforms, AI/ML tools, and DevOps technologies. Focus on practical implementation and real-world problem solving.
+
+## Connect & Collaborate
+
+Professional networking and knowledge sharing opportunities for developers, AI enthusiasts, and technology professionals interested in cutting-edge development practices and innovative solutions.
