@@ -6,6 +6,12 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>llm</title>
+    <link>https://programmerraja.github.io/llm</link>
+    <guid>https://programmerraja.github.io/llm</guid>
+    <description>K. Boopathi - Full Stack Developer &amp; AI Enthusiast Passionate Full Stack Developer specializing in Web Development, DevOps, Generative AI, and modern technology solutions.</description>
+    <pubDate>Sat, 27 Sep 2025 03:54:58 GMT</pubDate>
+  </item><item>
     <title>2025 Voice AI Guide: How to Make Your Own Real-Time Voice Agent (Part-1)</title>
     <link>https://programmerraja.github.io/post/2025/2025-Voice-AI-Guide-How-to-Make-Your-Own-Real-Time-Voice-Agent-(Part-1)</link>
     <guid>https://programmerraja.github.io/post/2025/2025-Voice-AI-Guide-How-to-Make-Your-Own-Real-Time-Voice-Agent-(Part-1)</guid>
@@ -18,23 +24,11 @@
     <description>While browsing YouTube, I stumbled across a video titled This Book Changed How I Think About AI. Curious, I clicked and it introduced me to Empire of AI by Karen Hao, a book that dives deep into the evolution of OpenAI.</description>
     <pubDate>Tue, 09 Sep 2025 15:11:33 GMT</pubDate>
   </item><item>
-    <title>How first principle thinking help me to solve the call problem</title>
-    <link>https://programmerraja.github.io/post/2025/How-first-principle-thinking-help-me-to-solve-the-call-problem</link>
-    <guid>https://programmerraja.github.io/post/2025/How-first-principle-thinking-help-me-to-solve-the-call-problem</guid>
-    <description></description>
-    <pubDate>Wed, 03 Sep 2025 10:44:59 GMT</pubDate>
-  </item><item>
     <title>Rust Tools That Made Our Dev Team Productive Again</title>
     <link>https://programmerraja.github.io/post/2025/Rust-Tools-That-Made-Our-Dev-Team-Productive-Again</link>
     <guid>https://programmerraja.github.io/post/2025/Rust-Tools-That-Made-Our-Dev-Team-Productive-Again</guid>
     <description>As regular readers of my blog may know, our primary technology stack is the MERN stack MongoDB, Express, React, and Node.js. On the frontend, we use React with TypeScript; on the backend, Node.js with TypeScript, and MongoDB serves as our database.</description>
     <pubDate>Tue, 05 Aug 2025 04:53:12 GMT</pubDate>
-  </item><item>
-    <title>The ulimate RAG guide that you need</title>
-    <link>https://programmerraja.github.io/post/2025/The-ulimate-RAG-guide-that-you-need</link>
-    <guid>https://programmerraja.github.io/post/2025/The-ulimate-RAG-guide-that-you-need</guid>
-    <description>Referecen pashpashpash.substack.com/p/why-does-my-rag-suck-and-how-do-i .</description>
-    <pubDate>Sat, 02 Aug 2025 00:21:48 GMT</pubDate>
   </item><item>
     <title>Neaural</title>
     <link>https://programmerraja.github.io/notes/2025/Neaural</link>
@@ -64,6 +58,12 @@
     <link>https://programmerraja.github.io/notes/2025/AI-product-development</link>
     <guid>https://programmerraja.github.io/notes/2025/AI-product-development</guid>
     <description>Product Requirements Document feedbackwidget.co/#demo testit.so/ creatie.ai/ [figma] www.magicpattern.design/dashboard [FIGMA] tally.so/ hunter.io/ anymailfinder.com/ ...</description>
+    <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
+  </item><item>
+    <title>Open source</title>
+    <link>https://programmerraja.github.io/notes/2024/Open-source</link>
+    <guid>https://programmerraja.github.io/notes/2024/Open-source</guid>
+    <description>docs.opire.dev/.</description>
     <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
   </item>
     </channel>
