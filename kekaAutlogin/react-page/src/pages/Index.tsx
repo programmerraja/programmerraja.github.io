@@ -457,7 +457,7 @@ const Index = () => {
           <Button
             size="lg"
             onClick={() =>
-              window.open("https://buymeacoffee.com/yourlink", "_blank")
+              window.open("https://buymeacoffee.com/programmerraja", "_blank")
             }
             className="text-lg px-8 py-6 bg-white text-primary hover:bg-gray-100 shadow-xl hover:shadow-2xl transition-all"
           >
