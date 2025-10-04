@@ -42,7 +42,7 @@ const Index = () => {
             <div className="flex items-center gap-2">
               <Clock className="h-6 w-6 text-primary" />
               <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Keka Auto Clock
+                KekaBuddy
               </span>
             </div>
             <div className="hidden md:flex gap-6">
@@ -179,10 +179,16 @@ const Index = () => {
       {/* How It Works Section */}
       <section
         id="how-it-works"
-        className="py-20 px-4 sm:px-6 lg:px-8"
+        className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
         aria-labelledby="how-it-works-heading"
       >
-        <div className="max-w-7xl mx-auto">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+        <div className="absolute top-0 left-0 w-full h-full opacity-5">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent rounded-full blur-3xl"></div>
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2
               id="how-it-works-heading"
@@ -194,6 +200,25 @@ const Index = () => {
               Set it up once, then forget about it forever
             </p>
           </div>
+          
+          {/* Visual How It Works Image */}
+          <div className="mb-16 flex flex-col items-center px-4 sm:px-0">
+            <div className="relative max-w-5xl w-full group">
+              <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl sm:rounded-3xl blur-lg sm:blur-xl group-hover:blur-xl sm:group-hover:blur-2xl transition-all duration-500"></div>
+              <img
+                src="/how_it_works.png"
+                alt="How KekaBuddy Works - Visual Guide"
+                className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl border-2 sm:border-4 border-primary/20 hover:shadow-2xl sm:hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] sm:hover:scale-[1.02] group-hover:border-primary/40"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-xl sm:rounded-2xl group-hover:from-black/5 transition-all duration-300"></div>
+            </div>
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-muted-foreground text-center max-w-2xl italic px-4">
+              See exactly how the extension automates your attendance with this visual walkthrough
+            </p>
+          </div>
+
+          {/* Step-by-Step Process */}
           <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
               {
@@ -344,7 +369,6 @@ const Index = () => {
                   "Lifetime access to source code",
                   "Step-by-step setup guide",
                   "Free updates forever",
-                  "Priority email support",
                   "Works with Keka platform",
                   "Secure browser-based solution",
                 ].map((item, i) => (
@@ -415,10 +439,6 @@ const Index = () => {
                 a: "It's a one-time lifetime access fee to support development and maintenance. No subscriptions, no hidden costs – just one payment for lifetime access and updates.",
               },
               {
-                q: "What if I need help setting it up?",
-                a: "You'll get priority email support with your purchase, plus a detailed setup guide. I'm here to help if you run into any issues.",
-              },
-              {
                 q: "Does this work with the Keka platform?",
                 a: "Yes! This extension is specifically built to work with Keka's attendance system. It automates the clock-in/out process directly on their platform.",
               },
@@ -475,7 +495,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto text-center text-muted-foreground">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Clock className="h-5 w-5 text-primary" />
-            <span className="font-bold text-foreground">Keka Auto Clock</span>
+            <span className="font-bold text-foreground">KekaBuddy</span>
           </div>
           <p className="text-sm">
             Built by a developer, for developers. Never miss a clock-in again.
