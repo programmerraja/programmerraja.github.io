@@ -6,6 +6,12 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>How Machines Learn: Understanding the Core Concepts of Neural Networks</title>
+    <link>https://programmerraja.github.io/post/2025/How-Machines-Learn-Understanding-the-Core-Concepts-of-Neural-Networks</link>
+    <guid>https://programmerraja.github.io/post/2025/How-Machines-Learn-Understanding-the-Core-Concepts-of-Neural-Networks</guid>
+    <description>Imagine trying to teach a child who’s never seen the world to recognize a face, feel that fire is hot, or sense when it might rain. How would you do it? For centuries, we thought intelligence required something mystical a soul, consciousness, divine spark.</description>
+    <pubDate>Fri, 03 Oct 2025 23:29:23 GMT</pubDate>
+  </item><item>
     <title>2025 Voice AI Guide: How to Make Your Own Real-Time Voice Agent (Part-1)</title>
     <link>https://programmerraja.github.io/post/2025/2025-Voice-AI-Guide-How-to-Make-Your-Own-Real-Time-Voice-Agent-(Part-1)</link>
     <guid>https://programmerraja.github.io/post/2025/2025-Voice-AI-Guide-How-to-Make-Your-Own-Real-Time-Voice-Agent-(Part-1)</guid>
@@ -24,12 +30,6 @@
     <description>As regular readers of my blog may know, our primary technology stack is the MERN stack MongoDB, Express, React, and Node.js. On the frontend, we use React with TypeScript; on the backend, Node.js with TypeScript, and MongoDB serves as our database.</description>
     <pubDate>Tue, 05 Aug 2025 04:53:12 GMT</pubDate>
   </item><item>
-    <title>Neaural</title>
-    <link>https://programmerraja.github.io/notes/2025/Neaural</link>
-    <guid>https://programmerraja.github.io/notes/2025/Neaural</guid>
-    <description></description>
-    <pubDate>Sat, 26 Jul 2025 04:35:12 GMT</pubDate>
-  </item><item>
     <title>genrative_ai</title>
     <link>https://programmerraja.github.io/tags/genrative_ai</link>
     <guid>https://programmerraja.github.io/tags/genrative_ai</guid>
@@ -42,16 +42,16 @@
     <description></description>
     <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
   </item><item>
-    <title>AI conference</title>
-    <link>https://programmerraja.github.io/notes/2025/AI-conference</link>
-    <guid>https://programmerraja.github.io/notes/2025/AI-conference</guid>
-    <description>AI primitives Instead of using AI framework we can use ai primitives like Memeory eval etc langbase.com/ chai.new/ .</description>
-    <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
-  </item><item>
     <title>AI product development</title>
     <link>https://programmerraja.github.io/notes/2025/AI-product-development</link>
     <guid>https://programmerraja.github.io/notes/2025/AI-product-development</guid>
     <description>Product Requirements Document feedbackwidget.co/#demo testit.so/ creatie.ai/ [figma] www.magicpattern.design/dashboard [FIGMA] tally.so/ hunter.io/ anymailfinder.com/ ...</description>
+    <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
+  </item><item>
+    <title>AI conference</title>
+    <link>https://programmerraja.github.io/notes/2025/Generative-AI/AI-conference</link>
+    <guid>https://programmerraja.github.io/notes/2025/Generative-AI/AI-conference</guid>
+    <description>AI primitives Instead of using AI framework we can use ai primitives like Memeory eval etc langbase.com/ chai.new/ .</description>
     <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
   </item><item>
     <title>Open source</title>
