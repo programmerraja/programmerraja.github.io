@@ -206,7 +206,7 @@ const Index = () => {
             <div className="relative max-w-5xl w-full group">
               <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl sm:rounded-3xl blur-lg sm:blur-xl group-hover:blur-xl sm:group-hover:blur-2xl transition-all duration-500"></div>
               <img
-                src="/how_it_works.png"
+                src="./how_it_works.png"
                 alt="How KekaBuddy Works - Visual Guide"
                 className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl border-2 sm:border-4 border-primary/20 hover:shadow-2xl sm:hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] sm:hover:scale-[1.02] group-hover:border-primary/40"
                 loading="lazy"
