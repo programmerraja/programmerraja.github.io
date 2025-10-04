@@ -41,9 +41,17 @@
             color: blue;
         }
 
+        h3 {
+            margin: 0.2rem;
+        }
+
+        li {
+            margin: 0.1rem 0;
+        }
+
         ul {
             list-style-type: disc;
-            margin-left: 20px;
+            /* margin-left: 20px; */
         }
 
         .space {
@@ -89,20 +97,28 @@
         <section class="summary">
             <h2>SUMMARY</h2>
             <p>
-                Full Stack Developer with a track record of designing scalable applications and streamlining
-                infrastructure. Skilled in problem-solving, performance enhancement, and workflow automation.
-                Passionate about leveraging technology to build efficient and impactful solutions.
+                <b>Full-Stack Engineer & Infra Developer</b> with hands-on experience in building scalable applications
+                and
+                optimizing cloud infrastructure. Skilled in DevOps, Cloud, and Full-Stack Development, with a strong
+                focus on
+                performance tuning and system reliability. Passionate about simplifying complex systems and sharing
+                real-world lessons as a tech blogger. Currently diving into Generative AI, applying it to build
+                practical, real-world
+                tools
             </p>
         </section>
 
         <section class="skills">
             <h2>SKILLS</h2>
             <ul>
-                <li><strong>Programming Languages:</strong> MERN Stack, Python, Java, C, C++</li>
-                <li><strong>Databases:</strong> MongoDB, Meilisearch, Elasticsearch</li>
+                <li><strong>Programming Languages & Frameworks:</strong> MERN Stack (MongoDB, Express.js, React,
+                    Node.js), Python, Java, C, C++</li>
+                <li><strong>Databases:</strong> MongoDB, Vector Databases</li>
+                <li><strong>Search Engines:</strong> Meilisearch, Elasticsearch</li>
                 <li><strong>Tools & Platforms:</strong> Git, GitHub, Docker, Kubernetes, Azure, AWS</li>
-                <li><strong>Generative AI & Machine Learning:</strong> LLMs, LangChain, OpenAI API, Vector
-                    Databases, Fine-tuning, RAG </li>
+                <li><strong>Generative AI:</strong> LLMs, LangChain, OpenAI API, Retrieval-Augmented Generation (RAG)
+                </li>
+
             </ul>
         </section>
 
@@ -112,18 +128,48 @@
             <div class="job">
                 <h3 class="color-blue">Full Stack Developer | Klenty | March 2022 – Present</h3>
                 <ul>
-                    <li>
-                        Led the migration from Heroku to Kubernetes, decreasing deployment failures by 40%.
+                    <li><strong>Generative AI</strong>
+                        <ul>
+                            <li>Designed a workflow builder enabling LLMs to perform complex multi-step voice
+                                workflows.</li>
+                            <li>Built an automated code review agent, reducing manual review effort and improving
+                                code quality.</li>
+                            <li>Developed a real-time AI voice agent using Pipecat and open-source models.</li>
+                            <li>Delivered a proof of concept for an AI-powered Smart Call Agent using Twilio and
+                                ElevenLabs.</li>
+                        </ul>
                     </li>
-                    <li>
-                        Enhanced networking architecture, cutting domain resolution latency by 50%.
+
+                    <li><strong>Cloud Infrastructure & DevOps</strong>
+                        <ul>
+                            <li>Collaborated with DevOps to migrate production from Heroku to Kubernetes,
+                                implementing zero-downtime deployments and health probes to prevent gateway
+                                timeouts.</li>
+                            <li>Collaborated with DevOps to migrate cloud-based solutions such as Redis,
+                                RabbitMQ,Meilisearch and Vault to self-hosted infrastructure.</li>
+                            <li>Designed and implemented a custom domain tracking system in Kubernetes for customer mail
+                                handling, SSL management, and domain orchestration..</li>
+                        </ul>
                     </li>
-                    <li>
-                        Automated code review processes, accelerating review cycles by 30%.
+
+                    <li><strong>Performance Optimization</strong>
+                        <ul>
+                            <li>Reduced frontend build times by 70% (Webpack → Rspack), boosting developer
+                                productivity by 80%.</li>
+                            <li>Cut TypeScript compilation from 2 minutes to 0.25 seconds using Rust-based SWC,
+                                accelerating backend testing and deployment.</li>
+                            <li>Resolved a frontend memory leak in the Twilio package, eliminating customer
+                                complaints about slowness during heavy call usage.</li>
+                        </ul>
                     </li>
-                    <li>
-                        Streamlined frontend builds, reducing compilation times by 60%, significantly improving
-                        developer efficiency.
+
+                    <li><strong>Incident Response & Debugging</strong>
+                        <ul>
+                            <li>Mitigated a Redis overload during a DDoS attack, optimizing session handling and
+                                reducing Redis load by 90%.</li>
+                            <li>Fixed critical production issues, including Kubernetes authentication cookie
+                                failures, AWS Lambda deployment crashes, and Nginx proxy misconfigurations..</li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -165,10 +211,10 @@
                     team.</li>
                 <li><strong>Star of the Month (ChefAtHome)</strong> - Awarded for outstanding performance during
                     the internship.</li>
-                <li><strong>Hacktoberfest 2020</strong> - Successfully contributed to open-source projects in an
+                <li><strong>Hacktoberfest (2020/2023/2024)</strong> - Successfully contributed to open-source projects in an
                     event by DigitalOcean.</li>
+                    <li><strong>1st Place - Code Debugging (2018)</strong> - Einstein College of Engineering.</li>
                 <li><strong>1st Place - Tech Fest Quiz (2019)</strong> - VV College of Engineering.</li>
-                <li><strong>1st Place - Code Debugging (2018)</strong> - Einstein College of Engineering.</li>
                 <li><strong>1st Place - TechTonic (2019)</strong> - National Engineering College.</li>
                 <li><strong>3rd Place - KIT Hackathon (2019)</strong> - Kalasalingam Institute of Technology.
                 </li>
@@ -215,12 +261,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="https://github.com/programmerraja/placestro">PlaceStro – MERN Community
-                        Platform</a>
+                    <a href="https://programmerraja.is-a.dev/hirezen/" class="bold">Hirezen</a>
                     <ul>
-                        <li>Developed a platform for sharing interview experiences and company insights.</li>
-                        <li>Helped college students gain hiring process knowledge, improving career
-                            preparedness.</li>
+                        <li>
+                            A Chrome Extension that assists interviewers by generating AI-based, role-specific
+                            questions, capturing feedback, and exporting it as a professional PDF report for HR.
+                        </li>
                     </ul>
                 </li>
             </ul>
