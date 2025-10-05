@@ -59,9 +59,6 @@
     <loc>https://programmerraja.github.io/notes/2024/Freelancing-And-Saas</loc>
     <lastmod>2025-07-07T10:03:10.646Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/notes/2024/Generative-AI</loc>
-    <lastmod>2024-07-30T00:57:13.131Z</lastmod>
-  </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Go</loc>
     <lastmod>2024-01-01T06:09:28.282Z</lastmod>
   </url><url>
@@ -80,20 +77,8 @@
     <loc>https://programmerraja.github.io/notes/2024/Kubernetes</loc>
     <lastmod>2024-01-01T02:49:32.323Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/notes/2024/LLM-Hacking</loc>
-    <lastmod>2024-08-31T12:04:06.066Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/2024/LLM-Observability-And-Eval</loc>
-    <lastmod>2024-08-12T03:05:40.404Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/2024/LLM-strucuted-output-and-Parser</loc>
-    <lastmod>2024-10-19T02:45:27.272Z</lastmod>
-  </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Langchain</loc>
     <lastmod>2024-05-25T04:12:14.141Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/2024/Large-Language-Model</loc>
-    <lastmod>2024-05-18T12:59:19.191Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Leadership</loc>
     <lastmod>2024-09-04T00:14:13.131Z</lastmod>
@@ -143,26 +128,38 @@
     <loc>https://programmerraja.github.io/notes/2024/System-Design</loc>
     <lastmod>2024-01-12T02:49:32.323Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/notes/2024/Tensorflow</loc>
-    <lastmod>2024-06-08T08:12:15.151Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/2024/Vector-DB-and-embedding</loc>
-    <lastmod>2024-10-19T10:53:07.077Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/2025/AI-conference</loc>
-    <lastmod>2025-07-07T10:03:10.662Z</lastmod>
-  </url><url>
     <loc>https://programmerraja.github.io/notes/2025/AI-product-development</loc>
     <lastmod>2025-07-07T10:03:10.662Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Deep-learning/Large-Language-Model</loc>
+    <lastmod>2024-05-18T12:59:19.191Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Deep-learning/Tensorflow</loc>
+    <lastmod>2024-06-08T08:12:15.151Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Generative-AI/AI-conference</loc>
+    <lastmod>2025-07-07T10:03:10.662Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Generative-AI/Generative-AI</loc>
+    <lastmod>2024-07-30T00:57:13.131Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Generative-AI/LLM-Hacking</loc>
+    <lastmod>2024-08-31T12:04:06.066Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Generative-AI/LLM-Observability-And-Eval</loc>
+    <lastmod>2024-08-12T03:05:40.404Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Generative-AI/LLM-strucuted-output-and-Parser</loc>
+    <lastmod>2024-10-19T02:45:27.272Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Generative-AI/Vector-DB-and-embedding</loc>
+    <lastmod>2024-10-19T10:53:07.077Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Leading-EffectiveEngineering-Teams</loc>
     <lastmod>2025-01-13T13:21:01.011Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Live-Kit</loc>
     <lastmod>2025-07-07T10:03:10.674Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/2025/Neaural</loc>
-    <lastmod>2025-07-26T04:35:12.560Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2023/helloworld</loc>
     <lastmod>2023-12-03T04:14:50.000Z</lastmod>
@@ -262,6 +259,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/post/2025/From-Heroku-to-Kubernetes-Lessons-Learned-in-Our-Migration-Journey</loc>
     <lastmod>2025-03-23T10:07:39.393Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2025/How-Machines-Learn-Understanding-the-Core-Concepts-of-Neural-Networks</loc>
+    <lastmod>2025-10-03T23:29:23.232Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/post/2025/How-We-Accidentally-Declared-War-on-Our-Own-Database</loc>
     <lastmod>2025-02-01T23:01:48.484Z</lastmod>
