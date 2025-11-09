@@ -6,6 +6,12 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>question</title>
+    <link>https://programmerraja.github.io/notes/Microservice/question</link>
+    <guid>https://programmerraja.github.io/notes/Microservice/question</guid>
+    <description> how to make auth in micorsrvices .</description>
+    <pubDate>Mon, 03 Nov 2025 02:07:49 GMT</pubDate>
+  </item><item>
     <title>How Your LLM Costs 5X More If You Don&#039;t Speak English</title>
     <link>https://programmerraja.github.io/post/2025/Why-Your-LLM-Costs-5X-More-If-You-Don't-Speak-English</link>
     <guid>https://programmerraja.github.io/post/2025/Why-Your-LLM-Costs-5X-More-If-You-Don't-Speak-English</guid>
@@ -58,12 +64,6 @@
     <link>https://programmerraja.github.io/notes/2025/AI-product-development</link>
     <guid>https://programmerraja.github.io/notes/2025/AI-product-development</guid>
     <description>Product Requirements Document feedbackwidget.co/#demo testit.so/ creatie.ai/ [figma] www.magicpattern.design/dashboard [FIGMA] tally.so/ hunter.io/ anymailfinder.com/ ...</description>
-    <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
-  </item><item>
-    <title>AI conference</title>
-    <link>https://programmerraja.github.io/notes/2025/Generative-AI/AI-conference</link>
-    <guid>https://programmerraja.github.io/notes/2025/Generative-AI/AI-conference</guid>
-    <description>AI primitives Instead of using AI framework we can use ai primitives like Memeory eval etc langbase.com/ chai.new/ .</description>
     <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
   </item>
     </channel>
