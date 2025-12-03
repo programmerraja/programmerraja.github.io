@@ -17,6 +17,9 @@
     <loc>https://programmerraja.github.io/notes/2024/Claude</loc>
     <lastmod>2024-08-10T03:18:50.505Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2024/Cyptography</loc>
+    <lastmod>2024-12-29T12:18:02.022Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/2024/Elastic-search</loc>
     <lastmod>2024-03-30T14:50:04.044Z</lastmod>
   </url><url>
@@ -53,8 +56,14 @@
     <loc>https://programmerraja.github.io/notes/2025/Deep-learning/Large-Language-Model</loc>
     <lastmod>2024-05-18T12:59:19.191Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Deep-learning/Model-Quantization</loc>
+    <lastmod>2025-07-16T02:56:34.343Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Deep-learning/Tensorflow</loc>
     <lastmod>2024-06-08T08:12:15.151Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Deep-learning/Transformer</loc>
+    <lastmod>2024-06-22T05:18:42.424Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Generative-AI/AI-Research-Paper-notes</loc>
     <lastmod>2024-09-19T00:31:47.474Z</lastmod>
@@ -70,6 +79,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Generative-AI/Haystack-Notes</loc>
     <lastmod>2024-08-24T04:02:35.353Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/2025/Generative-AI/How-to-pick-the-models</loc>
+    <lastmod>2025-12-02T10:35:47.474Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Generative-AI/Hugging-face</loc>
     <lastmod>2024-06-22T23:27:31.313Z</lastmod>
@@ -98,17 +110,11 @@
     <loc>https://programmerraja.github.io/notes/2025/Generative-AI/Prompt-Engineering</loc>
     <lastmod>2024-01-22T04:21:27.272Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/notes/2025/Generative-AI/RAG</loc>
-    <lastmod>2025-08-02T00:23:48.484Z</lastmod>
-  </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Generative-AI/Running-Model-locally</loc>
     <lastmod>2024-11-10T09:05:27.272Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Generative-AI/Vector-DB-and-embedding</loc>
     <lastmod>2024-10-19T10:53:07.077Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/2025/Generative-AI/voice-agent-deployment</loc>
-    <lastmod>2025-11-10T00:57:37.373Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/2025/Leading-EffectiveEngineering-Teams</loc>
     <lastmod>2025-01-13T13:21:01.011Z</lastmod>

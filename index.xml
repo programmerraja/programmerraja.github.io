@@ -6,11 +6,11 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>voice agent deployment</title>
-    <link>https://programmerraja.github.io/notes/2025/Generative-AI/voice-agent-deployment</link>
-    <guid>https://programmerraja.github.io/notes/2025/Generative-AI/voice-agent-deployment</guid>
-    <description>This document provides an organized comparison of GPU architectures, deployment platforms, LLMs, and speech models (TTS/STT) relevant for deploying a voice agent ...</description>
-    <pubDate>Mon, 10 Nov 2025 00:57:37 GMT</pubDate>
+    <title>How to pick the models</title>
+    <link>https://programmerraja.github.io/notes/2025/Generative-AI/How-to-pick-the-models</link>
+    <guid>https://programmerraja.github.io/notes/2025/Generative-AI/How-to-pick-the-models</guid>
+    <description> Thesis / motivation Picking the newest/biggest LLM is not always optimal. Different models have distinct tradeoffs (code, math, multimodal, deployability, cost, licensing).</description>
+    <pubDate>Tue, 02 Dec 2025 10:35:47 GMT</pubDate>
   </item><item>
     <title>question</title>
     <link>https://programmerraja.github.io/notes/Microservice/question</link>
@@ -54,11 +54,11 @@
     <description>As regular readers of my blog may know, our primary technology stack is the MERN stack MongoDB, Express, React, and Node.js. On the frontend, we use React with TypeScript; on the backend, Node.js with TypeScript, and MongoDB serves as our database.</description>
     <pubDate>Tue, 05 Aug 2025 04:53:12 GMT</pubDate>
   </item><item>
-    <title>RAG</title>
-    <link>https://programmerraja.github.io/notes/2025/Generative-AI/RAG</link>
-    <guid>https://programmerraja.github.io/notes/2025/Generative-AI/RAG</guid>
-    <description>RAG RAG stands for Retrieval Augmented Generation, which is a technique to enhance Large Language Models (LLMs) by connecting them to external knowledge bases or datasets ...</description>
-    <pubDate>Sat, 02 Aug 2025 00:23:48 GMT</pubDate>
+    <title>Model Quantization</title>
+    <link>https://programmerraja.github.io/notes/2025/Deep-learning/Model-Quantization</link>
+    <guid>https://programmerraja.github.io/notes/2025/Deep-learning/Model-Quantization</guid>
+    <description>Model Compression The process of making a model smaller is called model compression, and the process to make it do inference faster is called inference optimization ...</description>
+    <pubDate>Wed, 16 Jul 2025 02:56:34 GMT</pubDate>
   </item><item>
     <title>Context Engineering</title>
     <link>https://programmerraja.github.io/notes/2025/Generative-AI/Context-Engineering-and-Memory-in-LLM</link>
