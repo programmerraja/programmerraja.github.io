@@ -950,8 +950,8 @@
     <script>
 
         /**
-         * GitHub Wrapped - Client Side Logic
-         */
+        * GitHub Wrapped - Client Side Logic
+        */
 
         // Simple Vanilla Tilt Implementation (Embedded for reliability)
         class VanillaTilt {
@@ -985,7 +985,7 @@
                 this.inputSection = document.querySelector('.input-section');
                 this.resultsSection = document.getElementById('results-section');
                 this.form = document.getElementById('wrapped-form');
-                this.loader = document.querySelector('.loader');
+                // this.loader = document.querySelector('.loader');
                 this.btnText = document.querySelector('.btn-text');
                 this.errorMsg = document.getElementById('error-message');
                 this.content = document.getElementById('wrapped-content');
@@ -996,11 +996,28 @@
             initEvents() {
                 this.form.addEventListener('submit', async (e) => {
                     e.preventDefault();
+                    this.errorMsg.classList.add('hidden'); // Clear previous errors
+
                     const username = document.getElementById('username').value.trim();
                     const token = document.getElementById('token').value.trim();
                     const year = document.getElementById('year').value;
 
-                    if (!username || !token) return;
+                    // Basic Validation
+                    if (!username) {
+                        this.showError('Please enter a GitHub username.');
+                        return;
+                    }
+
+                    if (!token) {
+                        this.showError('Please enter a Personal Access Token.');
+                        return;
+                    }
+
+                    // Check for common token formats (ghp_, github_pat_, etc.)
+                    if (!token.startsWith('ghp_') && !token.startsWith('github_pat_') && !token.startsWith('gho_')) {
+                        // Warn but don't block strictly, as formats can change, but it's a good hint.
+                        console.warn('Token does not start with standard prefix (ghp_, github_pat_).');
+                    }
 
                     await this.generateWrapped(username, token, year);
                 });
@@ -1037,6 +1054,17 @@
                     mostCommittedRepo: 'torvalds/linux',
                     topLanguage: 'C++',
                     powerLevel: 'Legend',
+                    badges: [
+                        { icon: '&#128293;', label: 'On Fire', desc: '30+ day streak' },
+                        { icon: '&#11088;', label: 'Starstruck', desc: '100+ stars earned' },
+                        { icon: '&#128256;', label: 'Pull Shark', desc: '100+ PRs' },
+                        { icon: '&#127942;', label: 'Club 1k', desc: '1,000+ commits' }
+                    ],
+                    topReposList: [
+                        { name: 'linux', stars: 1200, desc: 'Linux kernel source tree', lang: 'C', langColor: '#555555' },
+                        { name: 'git', stars: 50, desc: 'A distributed version control system', lang: 'C', langColor: '#555555' },
+                        { name: 'subsurface', stars: 25, desc: 'Divelog program', lang: 'C++', langColor: '#f34b7d' }
+                    ],
                     calendar: { weeks: [], contributionDays: [] } // Mock if needed
                 };
 
@@ -1061,7 +1089,7 @@
 
             shareOnTwitter() {
                 if (!this.currentStats) return;
-                const text = `I generated ${this.currentStats.linesAdded.toLocaleString()} lines of code in ${this.currentStats.year}! \uD83D\uDE80\n\nMy Power Level is '${this.currentStats.powerLevel}'.\n\nGet your #GitHubWrapped at http://programmerraja.github.io/githubwrap/`;
+                const text = `I generated ${this.currentStats.linesAdded.toLocaleString()} lines of code in ${this.currentStats.year}! \uD83D\uDE80\n\nMy Power Level is '${this.currentStats.powerLevel}'.\n\nGet your #GitHubWrapped at git-wrapped.com`;
                 const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
                 window.open(url, '_blank');
             }
@@ -1592,7 +1620,7 @@
 
                     <!-- Footer -->
                     <div class="wrapped-footer">
-                        <p>http://programmerraja.github.io/githubwrap/</p>
+                        <p>git-wrapped.com</p>
                     </div>
                 </div>
             </div>
