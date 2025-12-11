@@ -245,7 +245,7 @@
 
             shareOnTwitter() {
                 if (!this.currentStats) return;
-                const text = `I generated ${this.currentStats.linesAdded.toLocaleString()} lines of code in ${this.currentStats.year}! \uD83D\uDE80\n\nMy Power Level is '${this.currentStats.powerLevel}'.\n\nGet your #GitHubWrapped at git-wrapped.com`;
+                const text = `I generated ${this.currentStats.linesAdded.toLocaleString()} lines of code in ${this.currentStats.year}! \uD83D\uDE80\n\nMy Power Level is '${this.currentStats.powerLevel}'.\n\nGet your #GitHubWrapped at http://programmerraja.github.io/githubwrap/`;
                 const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
                 window.open(url, '_blank');
             }
@@ -776,7 +776,7 @@
 
                     <!-- Footer -->
                     <div class="wrapped-footer">
-                        <p>git-wrapped.com</p>
+                        <p>http://programmerraja.github.io/githubwrap/</p>
                     </div>
                 </div>
             </div>
