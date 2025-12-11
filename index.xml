@@ -6,6 +6,30 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>How to pick the models</title>
+    <link>https://programmerraja.github.io/notes/2025/Generative-AI/How-to-pick-the-models</link>
+    <guid>https://programmerraja.github.io/notes/2025/Generative-AI/How-to-pick-the-models</guid>
+    <description> Thesis / motivation Picking the newest/biggest LLM is not always optimal. Different models have distinct tradeoffs (code, math, multimodal, deployability, cost, licensing).</description>
+    <pubDate>Tue, 02 Dec 2025 10:35:47 GMT</pubDate>
+  </item><item>
+    <title>question</title>
+    <link>https://programmerraja.github.io/notes/Microservice/question</link>
+    <guid>https://programmerraja.github.io/notes/Microservice/question</guid>
+    <description> how to make auth in micorsrvices .</description>
+    <pubDate>Mon, 03 Nov 2025 02:07:49 GMT</pubDate>
+  </item><item>
+    <title>How Your LLM Costs 5X More If You Don&#039;t Speak English</title>
+    <link>https://programmerraja.github.io/post/2025/Why-Your-LLM-Costs-5X-More-If-You-Don't-Speak-English</link>
+    <guid>https://programmerraja.github.io/post/2025/Why-Your-LLM-Costs-5X-More-If-You-Don't-Speak-English</guid>
+    <description>Are you overpaying for AI because of your language? If you’re building LLM applications in Spanish, Hindi, or Greek, you could be spending up to 6 times more than English users for the ...</description>
+    <pubDate>Sat, 25 Oct 2025 12:36:45 GMT</pubDate>
+  </item><item>
+    <title>2025 Voice AI Guide How to Make Your Own Real-Time Voice Agent (Part-2)</title>
+    <link>https://programmerraja.github.io/post/2025/2025-Voice-AI-Guide-How-to-Make-Your-Own-Real-Time-Voice-Agent-(Part-2)</link>
+    <guid>https://programmerraja.github.io/post/2025/2025-Voice-AI-Guide-How-to-Make-Your-Own-Real-Time-Voice-Agent-(Part-2)</guid>
+    <description>Welcome to Part 2 of the 2025 Voice AI Guide How to Build Your Own RealTime Voice Agent. In this section, we’ll dive deep into Pipecat and create a simple “Hello World” program to understand how real-time voice AI works in practice.</description>
+    <pubDate>Sat, 11 Oct 2025 14:34:21 GMT</pubDate>
+  </item><item>
     <title>How Machines Learn: Understanding the Core Concepts of Neural Networks</title>
     <link>https://programmerraja.github.io/post/2025/How-Machines-Learn-Understanding-the-Core-Concepts-of-Neural-Networks</link>
     <guid>https://programmerraja.github.io/post/2025/How-Machines-Learn-Understanding-the-Core-Concepts-of-Neural-Networks</guid>
@@ -30,41 +54,17 @@
     <description>As regular readers of my blog may know, our primary technology stack is the MERN stack MongoDB, Express, React, and Node.js. On the frontend, we use React with TypeScript; on the backend, Node.js with TypeScript, and MongoDB serves as our database.</description>
     <pubDate>Tue, 05 Aug 2025 04:53:12 GMT</pubDate>
   </item><item>
-    <title>genrative_ai</title>
-    <link>https://programmerraja.github.io/tags/genrative_ai</link>
-    <guid>https://programmerraja.github.io/tags/genrative_ai</guid>
-    <description></description>
-    <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
+    <title>Model Quantization</title>
+    <link>https://programmerraja.github.io/notes/2025/Deep-learning/Model-Quantization</link>
+    <guid>https://programmerraja.github.io/notes/2025/Deep-learning/Model-Quantization</guid>
+    <description>Model Compression The process of making a model smaller is called model compression, and the process to make it do inference faster is called inference optimization ...</description>
+    <pubDate>Wed, 16 Jul 2025 02:56:34 GMT</pubDate>
   </item><item>
-    <title>Live Kit</title>
-    <link>https://programmerraja.github.io/notes/2025/Live-Kit</link>
-    <guid>https://programmerraja.github.io/notes/2025/Live-Kit</guid>
-    <description></description>
-    <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
-  </item><item>
-    <title>AI product development</title>
-    <link>https://programmerraja.github.io/notes/2025/AI-product-development</link>
-    <guid>https://programmerraja.github.io/notes/2025/AI-product-development</guid>
-    <description>Product Requirements Document feedbackwidget.co/#demo testit.so/ creatie.ai/ [figma] www.magicpattern.design/dashboard [FIGMA] tally.so/ hunter.io/ anymailfinder.com/ ...</description>
-    <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
-  </item><item>
-    <title>AI conference</title>
-    <link>https://programmerraja.github.io/notes/2025/Generative-AI/AI-conference</link>
-    <guid>https://programmerraja.github.io/notes/2025/Generative-AI/AI-conference</guid>
-    <description>AI primitives Instead of using AI framework we can use ai primitives like Memeory eval etc langbase.com/ chai.new/ .</description>
-    <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
-  </item><item>
-    <title>Open source</title>
-    <link>https://programmerraja.github.io/notes/2024/Open-source</link>
-    <guid>https://programmerraja.github.io/notes/2024/Open-source</guid>
-    <description>docs.opire.dev/.</description>
-    <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
-  </item><item>
-    <title>Freelancing And Saas</title>
-    <link>https://programmerraja.github.io/notes/2024/Freelancing-And-Saas</link>
-    <guid>https://programmerraja.github.io/notes/2024/Freelancing-And-Saas</guid>
-    <description>Here the collection Notes and resources to get started in freelancing and build SASS Key Strategies for SASS Identify profitable niches: Focus on finding underserved niches with ...</description>
-    <pubDate>Mon, 07 Jul 2025 10:03:10 GMT</pubDate>
+    <title>Context Engineering</title>
+    <link>https://programmerraja.github.io/notes/2025/Generative-AI/Context-Engineering-and-Memory-in-LLM</link>
+    <guid>https://programmerraja.github.io/notes/2025/Generative-AI/Context-Engineering-and-Memory-in-LLM</guid>
+    <description>...</description>
+    <pubDate>Thu, 10 Jul 2025 15:50:45 GMT</pubDate>
   </item>
     </channel>
   </rss>
