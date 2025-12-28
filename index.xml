@@ -6,6 +6,24 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Prompt Engineering From First Principles: The Mechanics They Don&#039;t Teach You part-1</title>
+    <link>https://programmerraja.github.io/post/2025/Prompt-Engineering-From-First-Principles-The-Mechanics-They-Dont-Teach-You-Part--1</link>
+    <guid>https://programmerraja.github.io/post/2025/Prompt-Engineering-From-First-Principles-The-Mechanics-They-Dont-Teach-You-Part--1</guid>
+    <description>This is my new series on Prompt Engineering and it’s different from everything else out there. Most blogs give you templates: “Try this prompt!” or “Use these 10 techniques!” That’s not what we’re doing here.</description>
+    <pubDate>Sun, 28 Dec 2025 05:06:47 GMT</pubDate>
+  </item><item>
+    <title>Prompt Engineering From First Principles: The Mechanics They Don&#039;t Teach You - Part 2</title>
+    <link>https://programmerraja.github.io/post/2025/draft/Prompt-Engineering-From-First-Principles-The-Mechanics-They-Dont-Teach-You-Part--2</link>
+    <guid>https://programmerraja.github.io/post/2025/draft/Prompt-Engineering-From-First-Principles-The-Mechanics-They-Dont-Teach-You-Part--2</guid>
+    <description>In Part 1, we established a fundamental truth: LLMs are probability engines, not reasoning machines. They don’t “know” anything; they predict the next likely token based on patterns seen during training.</description>
+    <pubDate>Thu, 25 Dec 2025 05:06:47 GMT</pubDate>
+  </item><item>
+    <title>Spotify Wrapped, But for Developers: Introducing GitHub Wrapped 2025</title>
+    <link>https://programmerraja.github.io/post/2025/Spotify-Wrapped-But-for-Developers-Introducing-GitHub-Wrapped-2025</link>
+    <guid>https://programmerraja.github.io/post/2025/Spotify-Wrapped-But-for-Developers-Introducing-GitHub-Wrapped-2025</guid>
+    <description>GitHub Wrapped 2025 is LIVE! 🎉 Your year of code wrapped and ready to explore! Ever wondered what your year looked like in code? GitHub Wrapped turns your GitHub activity into a visual ...</description>
+    <pubDate>Sat, 20 Dec 2025 01:49:57 GMT</pubDate>
+  </item><item>
     <title>How to pick the models</title>
     <link>https://programmerraja.github.io/notes/2025/Generative-AI/How-to-pick-the-models</link>
     <guid>https://programmerraja.github.io/notes/2025/Generative-AI/How-to-pick-the-models</guid>
@@ -47,24 +65,6 @@
     <guid>https://programmerraja.github.io/post/2025/The-Other-Side-of-OpenAI-12-Surprising-Stories-You-Haven%E2%80%99t-Heard</guid>
     <description>While browsing YouTube, I stumbled across a video titled This Book Changed How I Think About AI. Curious, I clicked and it introduced me to Empire of AI by Karen Hao, a book that dives deep into the evolution of OpenAI.</description>
     <pubDate>Tue, 09 Sep 2025 15:11:33 GMT</pubDate>
-  </item><item>
-    <title>Rust Tools That Made Our Dev Team Productive Again</title>
-    <link>https://programmerraja.github.io/post/2025/Rust-Tools-That-Made-Our-Dev-Team-Productive-Again</link>
-    <guid>https://programmerraja.github.io/post/2025/Rust-Tools-That-Made-Our-Dev-Team-Productive-Again</guid>
-    <description>As regular readers of my blog may know, our primary technology stack is the MERN stack MongoDB, Express, React, and Node.js. On the frontend, we use React with TypeScript; on the backend, Node.js with TypeScript, and MongoDB serves as our database.</description>
-    <pubDate>Tue, 05 Aug 2025 04:53:12 GMT</pubDate>
-  </item><item>
-    <title>Model Quantization</title>
-    <link>https://programmerraja.github.io/notes/2025/Deep-learning/Model-Quantization</link>
-    <guid>https://programmerraja.github.io/notes/2025/Deep-learning/Model-Quantization</guid>
-    <description>Model Compression The process of making a model smaller is called model compression, and the process to make it do inference faster is called inference optimization ...</description>
-    <pubDate>Wed, 16 Jul 2025 02:56:34 GMT</pubDate>
-  </item><item>
-    <title>Context Engineering</title>
-    <link>https://programmerraja.github.io/notes/2025/Generative-AI/Context-Engineering-and-Memory-in-LLM</link>
-    <guid>https://programmerraja.github.io/notes/2025/Generative-AI/Context-Engineering-and-Memory-in-LLM</guid>
-    <description>...</description>
-    <pubDate>Thu, 10 Jul 2025 15:50:45 GMT</pubDate>
   </item>
     </channel>
   </rss>
