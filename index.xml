@@ -12,11 +12,11 @@
     <description>This is my new series on Prompt Engineering and it’s different from everything else out there. Most blogs give you templates: “Try this prompt!” or “Use these 10 techniques!” That’s not what we’re doing here.</description>
     <pubDate>Sun, 28 Dec 2025 05:06:47 GMT</pubDate>
   </item><item>
-    <title>Prompt Engineering From First Principles: The Mechanics They Don&#039;t Teach You - Part 2</title>
-    <link>https://programmerraja.github.io/post/2025/draft/Prompt-Engineering-From-First-Principles-The-Mechanics-They-Dont-Teach-You-Part--2</link>
-    <guid>https://programmerraja.github.io/post/2025/draft/Prompt-Engineering-From-First-Principles-The-Mechanics-They-Dont-Teach-You-Part--2</guid>
-    <description>In Part 1, we established a fundamental truth: LLMs are probability engines, not reasoning machines. They don’t “know” anything; they predict the next likely token based on patterns seen during training.</description>
-    <pubDate>Thu, 25 Dec 2025 05:06:47 GMT</pubDate>
+    <title>2025 Voice AI Guide: How to Make Your Own Real-Time Voice Agent (Part-3)</title>
+    <link>https://programmerraja.github.io/post/2025/2025-Voice-AI-Guide-How-to-Make-Your-Own-Real-Time-Voice-Agent-(Part-3)</link>
+    <guid>https://programmerraja.github.io/post/2025/2025-Voice-AI-Guide-How-to-Make-Your-Own-Real-Time-Voice-Agent-(Part-3)</guid>
+    <description>Welcome back! The waiting is over. In Part 3, we are going to see how to run the components of our voice agent locally, even on a CPU. Finally, you will have homework where you need to integrate all these into generic code to work it locally.</description>
+    <pubDate>Sun, 21 Dec 2025 05:06:47 GMT</pubDate>
   </item><item>
     <title>Spotify Wrapped, But for Developers: Introducing GitHub Wrapped 2025</title>
     <link>https://programmerraja.github.io/post/2025/Spotify-Wrapped-But-for-Developers-Introducing-GitHub-Wrapped-2025</link>
