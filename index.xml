@@ -6,65 +6,65 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Audio Processing - How ML Models Understand Sound</title>
+    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Audio-Processing</link>
+    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Audio-Processing</guid>
+    <description>Audio Processing &amp; Feature Extraction Overview Audio processing is the foundation of all voice-based AI models. Before any machine learning can happen, raw audio must be converted into representations that neural networks can understand and process efficiently.</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Voice LLM Fundamentals - Audio &amp; Core Concepts</title>
+    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Fundamentals</link>
+    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Fundamentals</guid>
+    <description>Voice LLM Fundamentals 1. Fourier Transform - Understanding Sound What is the Fourier Transform? The Fourier Transform is a mathematical operation that transforms a signal from the time domain to the frequency domain.</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Inference Optimization - Speed &amp; Cost Reduction</title>
+    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Inference-Optimization</link>
+    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Inference-Optimization</guid>
+    <description>Model Compression Techniques 1. Pruning Concept: Remove unnecessary weights from the model. Structured Pruning Remove entire neurons, filters, or layers Maintains model structure Easy to optimize on standard hardware Loss: 5-10% accuracy Original: 100 neurons Pruned (50%): 50 neurons Speed improvement: ~2x Accuracy loss: ~5-8% Unstructured Pruning Remove individual weights Better compression ratios Requires special hardware support Loss: 2-5% accuracy Original: 100 neurons × 100 weights = 10,000 weights Pruned (80%): 2,000 weights remaining Speed improvement: ~2-3x (with hardware support) Accuracy loss: ~2-4% Tools Neural Magic - Pruned model zoo PyTorch built-in pruning API 2.</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Voice LLM Resources - Tools, Libraries &amp; References</title>
+    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Resources</link>
+    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Resources</guid>
+    <description>Open-Source Text-to-Speech (TTS) Full-Featured TTS Libraries Glow-TTS - Fast, flow-based TTS Tacotron 2 - Sequence-to-sequence TTS Parler TTS - HuggingFace controllable TTS ...</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Speech Language Models - Voice LLM Architecture</title>
+    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Speech-Language-Models</link>
+    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Speech-Language-Models</guid>
+    <description>Voice LLM - Two Processing Methods Voice LLMs understand audio using two distinct approaches: Method 1: Raw Waveform (Time-Domain) Processing Direct processing of the original ...</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Speech-to-Speech Models - Real-Time Voice Interaction</title>
+    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Speech-to-Speech-Models</link>
+    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Speech-to-Speech-Models</guid>
+    <description>Moshi - Full-Duplex Voice Interaction Moshi is a state-of-the-art speech-to-speech model that enables natural, real-time conversations with AI. Architecture Overview [Your Voice] ↓ [Mimi Encoder] ↓ [Audio Tokens] ↓ [Helium LLM + RQ-Transformer] ↓ [Response Tokens + Inner Monologue] ↓ [Mimi Decoder] ↓ [Moshi&#039;s Voice] Component 1: Mimi Encoder (Audio Compression) Mimi is a neural audio codec, similar to an AI-powered MP3 converter, but instead of compressing for storage, it converts voice into digital tokens.</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Text-to-Speech (TTS) Models - Architecture &amp; Implementation</title>
+    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Text-to-Speech-Models</link>
+    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Text-to-Speech-Models</guid>
+    <description>Historical Evolution WaveNet (2016) - The Breakthrough WaveNet was a key breakthrough developed by Google DeepMind. It revolutionized TTS by directly modeling the raw waveform of an audio signal.</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Voice Agent Evaluation &amp; Testing</title>
+    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Voice-Evaluation</link>
+    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Voice-Evaluation</guid>
+    <description>Evaluation Frameworks aiewf-eval Purpose: Framework for evaluating multi-turn LLM conversations with support for text, realtime audio, and speech-to-speech models ...</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Voice Agents Deployment - Infrastructure &amp; Cost</title>
+    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Voice-Agents-Deployment</link>
+    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Voice-Agents-Deployment</guid>
+    <description>Voice Agents Deployment Overview Deploying voice agents requires selecting appropriate hardware, cloud platforms, models, and scaling strategies. This guide covers GPU architectures, cloud platforms, cost analysis, and deployment patterns.</description>
+    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+  </item><item>
     <title>AI product development</title>
     <link>https://programmerraja.github.io/notes/Business-Leadership/AI-product-development</link>
     <guid>https://programmerraja.github.io/notes/Business-Leadership/AI-product-development</guid>
     <description>Product Requirements Document feedbackwidget.co/#demo testit.so/ creatie.ai/ [figma] www.magicpattern.design/dashboard [FIGMA] tally.so/ hunter.io/ anymailfinder.com/ ...</description>
     <pubDate>Tue, 24 Feb 2026 02:16:04 GMT</pubDate>
-  </item><item>
-    <title>question</title>
-    <link>https://programmerraja.github.io/notes/Engineering/Microservices/question</link>
-    <guid>https://programmerraja.github.io/notes/Engineering/Microservices/question</guid>
-    <description> how to make auth in micorsrvices .</description>
-    <pubDate>Mon, 09 Feb 2026 02:50:03 GMT</pubDate>
-  </item><item>
-    <title>deck</title>
-    <link>https://programmerraja.github.io/SR/deck</link>
-    <guid>https://programmerraja.github.io/SR/deck</guid>
-    <description>{ “comment”: “WARNING: This file is generated by an algorithm. Manual edits are not recommended. If corrupted, the file cannot be recovered for spaced repetition.”, “decks”: [] }.</description>
-    <pubDate>Mon, 09 Feb 2026 02:50:03 GMT</pubDate>
-  </item><item>
-    <title>K.Boopathi</title>
-    <link>https://programmerraja.github.io/</link>
-    <guid>https://programmerraja.github.io/</guid>
-    <description>Welcome to My World! 🌍 Hi! I’m K. Boopathi, a passionate Full Stack Developer with a love for tackling complex problems and staying ahead of the curve in the world of Web Development, DevOps, Generative AI, and beyond.</description>
-    <pubDate>Mon, 09 Feb 2026 02:50:03 GMT</pubDate>
-  </item><item>
-    <title>Generative AI Memory</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Memory-Context/Generative-AI-Memory</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Memory-Context/Generative-AI-Memory</guid>
-    <description> Letta: Utilizes an in-context memory design, showing messages and system prompts within a configurable token limit. Also features core memory blocks that remain visible in the prompt window, and a recall memory for recently accessed data.</description>
-    <pubDate>Sat, 07 Feb 2026 14:31:21 GMT</pubDate>
-  </item><item>
-    <title>Reasoning in LLM</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Deep-Learning/Reasoning-in-LLM</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Deep-Learning/Reasoning-in-LLM</guid>
-    <description>Method to improve reasoning in LLM Inference-time compute scaling Inference-time compute scaling (also often called inference compute scaling, test-time scaling, or other variations) ...</description>
-    <pubDate>Mon, 12 Jan 2026 11:12:25 GMT</pubDate>
-  </item><item>
-    <title>Prompt Engineering From First Principles: The Mechanics They Don&#039;t Teach You part-1</title>
-    <link>https://programmerraja.github.io/post/2025/Prompt-Engineering-From-First-Principles-The-Mechanics-They-Dont-Teach-You-Part--1</link>
-    <guid>https://programmerraja.github.io/post/2025/Prompt-Engineering-From-First-Principles-The-Mechanics-They-Dont-Teach-You-Part--1</guid>
-    <description>This is my new series on Prompt Engineering and it’s different from everything else out there. Most blogs give you templates: “Try this prompt!” or “Use these 10 techniques!” That’s not what we’re doing here.</description>
-    <pubDate>Sun, 28 Dec 2025 05:06:47 GMT</pubDate>
-  </item><item>
-    <title>Prompt Engineering From First Principles: The Mechanics They Don&#039;t Teach You - Part 2</title>
-    <link>https://programmerraja.github.io/post/2025/Prompt-Engineering-From-First-Principles-The-Mechanics-They-Dont-Teach-You-Part--2</link>
-    <guid>https://programmerraja.github.io/post/2025/Prompt-Engineering-From-First-Principles-The-Mechanics-They-Dont-Teach-You-Part--2</guid>
-    <description>In Part 1, we established a fundamental truth: LLMs are probability engines, not reasoning machines. They don’t “know” anything; they predict the next likely token based on patterns seen during training.</description>
-    <pubDate>Thu, 25 Dec 2025 05:06:47 GMT</pubDate>
-  </item><item>
-    <title>2025 Voice AI Guide: How to Make Your Own Real-Time Voice Agent (Part-3)</title>
-    <link>https://programmerraja.github.io/post/2025/2025-Voice-AI-Guide-How-to-Make-Your-Own-Real-Time-Voice-Agent-(Part-3)</link>
-    <guid>https://programmerraja.github.io/post/2025/2025-Voice-AI-Guide-How-to-Make-Your-Own-Real-Time-Voice-Agent-(Part-3)</guid>
-    <description>Welcome back! The waiting is over. In Part 3, we are going to see how to run the components of our voice agent locally, even on a CPU. Finally, you will have homework where you need to integrate all these into generic code to work it locally.</description>
-    <pubDate>Sun, 21 Dec 2025 05:06:47 GMT</pubDate>
-  </item><item>
-    <title>Spotify Wrapped, But for Developers: Introducing GitHub Wrapped 2025</title>
-    <link>https://programmerraja.github.io/post/2025/Spotify-Wrapped-But-for-Developers-Introducing-GitHub-Wrapped-2025</link>
-    <guid>https://programmerraja.github.io/post/2025/Spotify-Wrapped-But-for-Developers-Introducing-GitHub-Wrapped-2025</guid>
-    <description>GitHub Wrapped 2025 is LIVE! 🎉 Your year of code wrapped and ready to explore! Ever wondered what your year looked like in code? GitHub Wrapped turns your GitHub activity into a visual ...</description>
-    <pubDate>Sat, 20 Dec 2025 01:49:57 GMT</pubDate>
   </item>
     </channel>
   </rss>
