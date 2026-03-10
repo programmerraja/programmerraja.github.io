@@ -83,6 +83,12 @@
     <loc>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Memory-Context/Generative-AI-Memory</loc>
     <lastmod>2026-02-07T14:31:21.212Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/AI-ML/Generative-AI/RAG-Vector-DB/Information-Retrieval</loc>
+    <lastmod>2025-12-01T02:40:59.595Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/AI-ML/Generative-AI/RAG-Vector-DB/RAG</loc>
+    <lastmod>2025-08-02T00:23:48.484Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/AI-ML/Generative-AI/RAG-Vector-DB/Vector-DB-and-embedding</loc>
     <lastmod>2024-10-19T10:53:07.077Z</lastmod>
   </url><url>
@@ -146,12 +152,6 @@
     <loc>https://programmerraja.github.io/notes/Business-Leadership/Leading-EffectiveEngineering-Teams</loc>
     <lastmod>2025-01-13T13:21:01.011Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/notes/Business-Leadership/Security</loc>
-    <lastmod>2024-12-29T12:18:02.022Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/Business-Leadership/Security/Hacking</loc>
-    <lastmod>2024-01-25T02:11:37.373Z</lastmod>
-  </url><url>
     <loc>https://programmerraja.github.io/notes/Engineering/Databases/Database-internal</loc>
     <lastmod>2024-01-12T02:49:32.323Z</lastmod>
   </url><url>
@@ -172,6 +172,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/notes/Engineering/Databases/Mongodb-Notes</loc>
     <lastmod>2024-07-07T03:36:30.303Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/Engineering/Databases/Redis-For-AI</loc>
+    <lastmod>2025-08-05T23:50:57.575Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/Engineering/DevOps/AWS</loc>
     <lastmod>2024-03-09T06:05:50.505Z</lastmod>
@@ -203,6 +206,12 @@
     <loc>https://programmerraja.github.io/notes/Engineering/Microservices/question</loc>
     <lastmod>2026-02-09T02:50:03.429Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/notes/Engineering/Security/Cryptography</loc>
+    <lastmod>2024-12-29T12:18:02.022Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/Engineering/Security/Hacking</loc>
+    <lastmod>2024-01-25T02:11:37.373Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/Engineering/Software-Architecture/A-Philosophy-of-Software-Design-Book-Notes</loc>
     <lastmod>2024-01-18T02:49:32.323Z</lastmod>
   </url><url>
@@ -223,21 +232,6 @@
   </url><url>
     <loc>https://programmerraja.github.io/notes/Engineering/Software-Architecture/System-Design</loc>
     <lastmod>2024-01-12T02:49:32.323Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/Learning/Interview-Prep/DSA-and-interview</loc>
-    <lastmod>2025-05-31T10:55:54.545Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/Learning/Interview-Prep/Infrastructure-Design</loc>
-    <lastmod>2025-11-09T12:22:27.272Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/Learning/Interview-Prep/Patterns-in-DSA</loc>
-    <lastmod>2025-11-27T03:24:29.292Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/Learning/Interview-Prep/System-design-Tips</loc>
-    <lastmod>2025-12-02T22:53:18.181Z</lastmod>
-  </url><url>
-    <loc>https://programmerraja.github.io/notes/Learning/Interview-Prep/System-desing-interview-check-list</loc>
-    <lastmod>2025-11-07T05:41:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/Programming/Languages/Go</loc>
     <lastmod>2024-01-01T06:09:28.282Z</lastmod>

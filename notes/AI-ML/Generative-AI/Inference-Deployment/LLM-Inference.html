@@ -56,7 +56,7 @@ Pruning redundant weights or exploiting sparsity in matrices.</p>
 <p>Ray Serve scales each model independently based on its traffic. This applies across multiple nodes and models.</p>
 <p>When traffic increases, Serve automatically adds replicas of models and can even start new instances to meet demand, scaling up models receiving traffic.</p>
 <p>Crucially, Serve does not scale models that are not receiving traffic, preventing wasted GPU resources.</p>
-<p>When traffic decreases, Serve automatically downscales models and removes extra nodes, saving GPU resources overnight8. This simple optimization can lead to a 50% cost saving compared to allocating a fixed number of GPUs for peak traffic</p>
+<p>When traffic decreases, Serve automatically downscales models and removes extra nodes, saving GPU resources overnight. This simple optimization can lead to a 50% cost saving compared to allocating a fixed number of GPUs for peak traffic</p>
 <p><strong>Model Layer Optimizations with Ray Serve</strong></p>
 <p>Imagine you have a language model that needs to generate completions for three different prompts. The prompts and their expected token lengths are as follows:</p>
 <ul>
@@ -72,8 +72,9 @@ Pruning redundant weights or exploiting sparsity in matrices.</p>
 <li>Finally, <strong>Prompt 2</strong> (100 tokens) finishes after a long time, and only then can the batch be considered complete.</li>
 </ul>
 <p><img src="../../../.././../../../Images/Pasted-image-20250706104621.png" alt/></p>
+<pre><code>- **Continuous Batching**: Instead of waiting for the entire batch to finish, in continuous batching, after each forward pass, the GPU processes one sequence and replaces it with a new sequence that’s waiting to be processed. So, after processing Prompt 1 (which finishes quickly), the GPU immediately starts processing Prompt 3.
+</code></pre>
 <ul>
-<li><strong>Continuous Batching</strong>: Instead of waiting for the entire batch to finish, in continuous batching, after each forward pass, the GPU processes one sequence and replaces it with a new sequence that’s waiting to be processed. So, after processing Prompt 1 (which finishes quickly), the GPU immediately starts processing Prompt 3.</li>
 <li><a href="https://huggingface.co/blog/continuous_batching" class="external">https://huggingface.co/blog/continuous_batching<svg aria-hidden="true" class="external-icon" style="max-width:0.8em;max-height:0.8em;" viewBox="0 0 512 512"><path d="M320 0H288V64h32 82.7L201.4 265.4 178.7 288 224 333.3l22.6-22.6L448 109.3V192v32h64V192 32 0H480 320zM32 32H0V64 480v32H32 456h32V480 352 320H424v32 96H64V96h96 32V32H160 32z"></path></svg></a></li>
 </ul>
 <p><img src="../../../.././../../../Images/Pasted-image-20250706105307.png" alt/></p>
