@@ -1,0 +1,197 @@
+{
+  "_comment": "Structured weekly analysis output. Generated every Sunday evening.",
+
+  "metadata": {
+    "week_number": 15,
+    "week_start_date": "2026-04-07",
+    "week_end_date": "2026-04-13",
+    "generated_date": "2026-04-13T18:00:00Z"
+  },
+
+  "metrics": {
+    "days_tracked": 7,
+    "total_tasks": 45,
+    "completed_tasks": 30,
+    "skipped_tasks": 15,
+    "completion_rate": "67%"
+  },
+
+  "alignment_analysis": {
+    "aligned_tasks": 30,
+    "misaligned_tasks": 12,
+    "negative_tasks": 3,
+    "alignment_ratio": "67%",
+    "alignment_category": "PARTIAL ALIGNMENT",
+    "week_points_earned": 215,
+    "streak_status": "Maintained (5 days)",
+    "streak_before": 4,
+    "streak_after": 5
+  },
+
+  "time_allocation": {
+    "career": {
+      "percentage": "45%",
+      "hours": "31.5",
+      "goal": "40%",
+      "status": "OVER"
+    },
+    "health": {
+      "percentage": "12%",
+      "hours": "8.4",
+      "goal": "15%",
+      "status": "UNDER"
+    },
+    "family": {
+      "percentage": "18%",
+      "hours": "12.6",
+      "goal": "20%",
+      "status": "UNDER"
+    },
+    "money": {
+      "percentage": "5%",
+      "hours": "3.5",
+      "goal": "10%",
+      "status": "UNDER"
+    },
+    "happiness": {
+      "percentage": "20%",
+      "hours": "14",
+      "goal": "15%",
+      "status": "OVER"
+    }
+  },
+
+  "goals_progress": {
+    "voice_agent": {
+      "goal": "Complete voice agent module X",
+      "area": "career",
+      "priority": 5,
+      "completed": 3,
+      "total": 4,
+      "progress": "75%",
+      "status": "ON TRACK"
+    },
+    "exercise": {
+      "goal": "7 gym sessions",
+      "area": "health",
+      "priority": 4,
+      "completed": 7,
+      "total": 7,
+      "progress": "100%",
+      "status": "COMPLETE"
+    },
+    "family_time": {
+      "goal": "3 family dinners",
+      "area": "family",
+      "priority": 4,
+      "completed": 2,
+      "total": 3,
+      "progress": "67%",
+      "status": "AT RISK"
+    },
+    "portfolio_review": {
+      "goal": "Portfolio review",
+      "area": "money",
+      "priority": 3,
+      "completed": 0,
+      "total": 1,
+      "progress": "0%",
+      "status": "NOT STARTED"
+    }
+  },
+
+  "wins": [
+    "Completed voice agent milestone (3/4 tasks)",
+    "Perfect gym adherence (7/7 sessions)",
+    "Maintained 5-day alignment streak",
+    "Quality family time when scheduled"
+  ],
+
+  "gaps": [
+    "Skipped finance review (0/1 tasks, overdue 27 days)",
+    "Missed one family commitment (2/3 dinners)",
+    "Health goals under target (12% vs 15%)",
+    "Recurring mistake: skip family time when work extends"
+  ],
+
+  "patterns": {
+    "neglected_areas": [
+      {
+        "area": "money",
+        "last_activity": "2026-03-15",
+        "days_neglected": 29,
+        "status": "CRITICAL"
+      }
+    ],
+    "recurring_mistakes": [
+      {
+        "mistake": "Skip family time when coding extends",
+        "count": 3,
+        "frequency": "Every 2-3 days",
+        "severity": "MEDIUM"
+      },
+      {
+        "mistake": "Underestimate task duration on career items",
+        "count": 4,
+        "frequency": "Consistent",
+        "severity": "LOW"
+      }
+    ],
+    "behavioral_insight": "Over-indexes on career (45% vs target 40%), neglects finance completely (5% vs target 10%). Pattern: deadline-driven, so finance needs external accountability."
+  },
+
+  "next_week_priorities": [
+    {
+      "priority": 1,
+      "action": "Schedule finance review (block 1 hour Monday 5pm)",
+      "reason": "27 days overdue, violates non-negotiable"
+    },
+    {
+      "priority": 2,
+      "action": "Add family time to calendar with phone reminder",
+      "reason": "Missed 1/3 dinners, recurring pattern"
+    },
+    {
+      "priority": 3,
+      "action": "Allocate 1 hour more health (gym + yoga)",
+      "reason": "Currently 12%, target is 15%"
+    },
+    {
+      "priority": 4,
+      "action": "Reduce career scope if possible",
+      "reason": "At 45%, trending higher, causing ripple effects"
+    }
+  ],
+
+  "recommendations": [
+    "Finance review is URGENT. Schedule now to prevent further drift.",
+    "Family dinner has recurring conflict with work extension. Set hard stop time.",
+    "You're good at accountability through external structure (calendar). Use more.",
+    "Health is on track but could be optimized. Yoga would help stress from career overload."
+  ],
+
+  "user_context_alignment": {
+    "goal_priorities": {
+      "career": 5,
+      "health": 4,
+      "family": 4,
+      "money": 3,
+      "happiness": 3
+    },
+    "actual_time_allocation": {
+      "career": 45,
+      "health": 12,
+      "family": 18,
+      "money": 5,
+      "happiness": 20
+    },
+    "gap_analysis": {
+      "career": "+5% (overinvested)",
+      "health": "-3% (underinvested)",
+      "family": "-2% (underinvested)",
+      "money": "-5% (severely neglected)",
+      "happiness": "+5% (slight overinvest)"
+    },
+    "insight": "You're overweighting career (high priority but also high time %) and completely neglecting money (same priority as happiness but 4x less time)."
+  }
+}

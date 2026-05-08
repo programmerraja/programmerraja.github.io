@@ -1,0 +1,43 @@
+{
+  "system_placeholders": {
+    "{{todayDate}}": "type: ISO date (YYYY-MM-DD) | Example: 2026-04-11",
+    "{{currentTime}}": "type: HH:MM (24h format) | Example: 14:30",
+    "{{dayOfWeek}}": "type: string | Example: Friday",
+    "{{weekNumber}}": "type: number (ISO week) | Example: 15",
+    "{{weekStartDate}}": "type: ISO date | Example: 2026-04-07",
+    "{{weekEndDate}}": "type: ISO date | Example: 2026-04-13",
+    "{{timeOfDay}}": "type: string | Example: morning, afternoon, evening"
+  },
+
+  "user_context": {
+    "{{userName}}": "User's name | Source: aboutme.md",
+    "{{userGoalPriorities}}": "Ranked priorities 1-5 | Source: aboutme.md",
+    "{{userConstraints}}": "Work hours, family obligations, etc. | Source: aboutme.md",
+    "{{userNonNegotiables}}": "Must-do activities | Source: aboutme.md",
+    "{{userKnownPatterns}}": "Behavioral patterns, habits, blockers | Source: memory.md"
+  },
+
+  "current_state": {
+    "{{todayTaskList}}": "Planned tasks for today | Source: daily/2026/04/{{todayDate}}.md or null",
+    "{{thisWeekGoals}}": "Goals for current week | Source: goals/index.json",
+    "{{thisWeekProgress}}": "Percentage progress on this week's goals | Source: computed from daily files",
+    "{{last7DaysSummary}}": "Summary of last 7 days activity | Source: daily/index.json",
+    "{{currentStreak}}": "Days in a row with alignment ≥ 50% | Source: system/score.json",
+    "{{currentPoints}}": "Cumulative points | Source: system/score.json",
+    "{{currentLevel}}": "User level (1+) | Source: system/score.json",
+    "{{currentStatus}}": "IN GAME or OUT OF GAME | Source: system/score.json"
+  },
+
+  "pattern_detection": {
+    "{{neglectedAreas}}": "List of areas not touched in 5+ days | Source: patterns/neglected-areas.json",
+    "{{recurringMistakes}}": "Same mistakes repeated 3+ times | Source: patterns/recurring-mistakes.md",
+    "{{daysSinceLastActivity}}": "Days since last activity per area | Source: computed"
+  },
+
+  "skip_day_logic": {
+    "{{daysSinceLastEntry}}": "Number of days without daily file | Source: computed (0 = today, 1+ = gap)",
+    "{{lastEntryDate}}": "Date of most recent daily file | Source: computed",
+    "{{skipDayFlag}}": "Boolean: true if daysSinceLastEntry > 1 | Source: computed",
+    "{{inProgressTasks}}": "Tasks that were in progress when user left | Source: system/checkpoints.json"
+  }
+}

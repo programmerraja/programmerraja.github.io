@@ -6,65 +6,65 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>Audio Processing - How ML Models Understand Sound</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Audio-Processing</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Audio-Processing</guid>
-    <description>Audio Processing &amp; Feature Extraction Overview Audio processing is the foundation of all voice-based AI models. Before any machine learning can happen, raw audio must be converted into representations that neural networks can understand and process efficiently.</description>
-    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <title>How ElevenLabs Conversation Agents Work Behind the Scenes – Part 1</title>
+    <link>https://programmerraja.github.io/post/2026/I-Reverse-Engineered-elvenlabs-conversation-agent-and-Here's-What-I-Found!</link>
+    <guid>https://programmerraja.github.io/post/2026/I-Reverse-Engineered-elvenlabs-conversation-agent-and-Here's-What-I-Found!</guid>
+    <description>I have been experimenting with voice agents for the past three months. During this time, I came across ElevenLabs and have already written an article about it, which you can read [here].</description>
+    <pubDate>Wed, 29 Apr 2026 23:40:26 GMT</pubDate>
   </item><item>
-    <title>Voice LLM Fundamentals - Audio &amp; Core Concepts</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Fundamentals</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Fundamentals</guid>
-    <description>Voice LLM Fundamentals 1. Fourier Transform - Understanding Sound What is the Fourier Transform? The Fourier Transform is a mathematical operation that transforms a signal from the time domain to the frequency domain.</description>
-    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <title>2026-04-16</title>
+    <link>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-16</link>
+    <guid>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-16</guid>
+    <description>Career Recall old notes building a personal assistant in that working on auto improve EVal Money Finance tracker build 10% more then Health Exercise Reflection (Night) What went ...</description>
+    <pubDate>Thu, 16 Apr 2026 03:48:07 GMT</pubDate>
   </item><item>
-    <title>Inference Optimization - Speed &amp; Cost Reduction</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Inference-Optimization</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Inference-Optimization</guid>
-    <description>Model Compression Techniques 1. Pruning Concept: Remove unnecessary weights from the model. Structured Pruning Remove entire neurons, filters, or layers Maintains model structure Easy to optimize on standard hardware Loss: 5-10% accuracy Original: 100 neurons Pruned (50%): 50 neurons Speed improvement: ~2x Accuracy loss: ~5-8% Unstructured Pruning Remove individual weights Better compression ratios Requires special hardware support Loss: 2-5% accuracy Original: 100 neurons × 100 weights = 10,000 weights Pruned (80%): 2,000 weights remaining Speed improvement: ~2-3x (with hardware support) Accuracy loss: ~2-4% Tools Neural Magic - Pruned model zoo PyTorch built-in pruning API 2.</description>
-    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <title>2026-04-15</title>
+    <link>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-15</link>
+    <guid>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-15</guid>
+    <description>Career Recall old notes building a personal assistant in that working on auto improve EVal Money Finance tracker build 10% more then Health Exercise Reflection (Night) What went ...</description>
+    <pubDate>Wed, 15 Apr 2026 04:12:27 GMT</pubDate>
   </item><item>
-    <title>Voice LLM Resources - Tools, Libraries &amp; References</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Resources</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Resources</guid>
-    <description>Open-Source Text-to-Speech (TTS) Full-Featured TTS Libraries Glow-TTS - Fast, flow-based TTS Tacotron 2 - Sequence-to-sequence TTS Parler TTS - HuggingFace controllable TTS ...</description>
-    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <title>2026-04-14</title>
+    <link>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-14</link>
+    <guid>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-14</guid>
+    <description>Career Recall old notes building a personal assistant in that working on auto improve EVal Money Finance tracker build 10% more then Health Exercise Reflection (Night) What went ...</description>
+    <pubDate>Tue, 14 Apr 2026 03:21:17 GMT</pubDate>
   </item><item>
-    <title>Speech Language Models - Voice LLM Architecture</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Speech-Language-Models</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Speech-Language-Models</guid>
-    <description>Voice LLM - Two Processing Methods Voice LLMs understand audio using two distinct approaches: Method 1: Raw Waveform (Time-Domain) Processing Direct processing of the original ...</description>
-    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <title>Learning notes</title>
+    <link>https://programmerraja.github.io/life-system/Learning-notes</link>
+    <guid>https://programmerraja.github.io/life-system/Learning-notes</guid>
+    <description>Question to ask when i given a task it need to asky why this does it aligin with my goal etc. like currently watching ai engieering video instead of building finance tracker but if i see i can watch those on weekday and build this now but i decide to that .</description>
+    <pubDate>Sun, 12 Apr 2026 04:38:42 GMT</pubDate>
   </item><item>
-    <title>Speech-to-Speech Models - Real-Time Voice Interaction</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Speech-to-Speech-Models</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Speech-to-Speech-Models</guid>
-    <description>Moshi - Full-Duplex Voice Interaction Moshi is a state-of-the-art speech-to-speech model that enables natural, real-time conversations with AI. Architecture Overview [Your Voice] ↓ [Mimi Encoder] ↓ [Audio Tokens] ↓ [Helium LLM + RQ-Transformer] ↓ [Response Tokens + Inner Monologue] ↓ [Mimi Decoder] ↓ [Moshi&#039;s Voice] Component 1: Mimi Encoder (Audio Compression) Mimi is a neural audio codec, similar to an AI-powered MP3 converter, but instead of compressing for storage, it converts voice into digital tokens.</description>
-    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <title>Backlog tasks</title>
+    <link>https://programmerraja.github.io/life-system/Backlog-tasks</link>
+    <guid>https://programmerraja.github.io/life-system/Backlog-tasks</guid>
+    <description> blog voice agent and other .</description>
+    <pubDate>Sun, 12 Apr 2026 02:17:50 GMT</pubDate>
   </item><item>
-    <title>Text-to-Speech (TTS) Models - Architecture &amp; Implementation</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Text-to-Speech-Models</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Text-to-Speech-Models</guid>
-    <description>Historical Evolution WaveNet (2016) - The Breakthrough WaveNet was a key breakthrough developed by Google DeepMind. It revolutionized TTS by directly modeling the raw waveform of an audio signal.</description>
-    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <title>memory</title>
+    <link>https://programmerraja.github.io/life-system/memory/memory</link>
+    <guid>https://programmerraja.github.io/life-system/memory/memory</guid>
+    <description></description>
+    <pubDate>Sat, 11 Apr 2026 23:30:16 GMT</pubDate>
   </item><item>
-    <title>Voice Agent Evaluation &amp; Testing</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Voice-Evaluation</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Voice-Evaluation</guid>
-    <description>Evaluation Frameworks aiewf-eval Purpose: Framework for evaluating multi-turn LLM conversations with support for text, realtime audio, and speech-to-speech models ...</description>
-    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <title>aboutme</title>
+    <link>https://programmerraja.github.io/life-system/personal/aboutme</link>
+    <guid>https://programmerraja.github.io/life-system/personal/aboutme</guid>
+    <description>About Me Hi, my name is Boopathi. I work as an AI Engineer and have a strong passion for technology. I enjoy learning new things, building interesting projects, and solving problems using tech.</description>
+    <pubDate>Sat, 11 Apr 2026 23:30:16 GMT</pubDate>
   </item><item>
-    <title>Voice Agents Deployment - Infrastructure &amp; Cost</title>
-    <link>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Voice-Agents-Deployment</link>
-    <guid>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Voice-Multimodal/Voice-Agents-Deployment</guid>
-    <description>Voice Agents Deployment Overview Deploying voice agents requires selecting appropriate hardware, cloud platforms, models, and scaling strategies. This guide covers GPU architectures, cloud platforms, cost analysis, and deployment patterns.</description>
-    <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+    <title>README</title>
+    <link>https://programmerraja.github.io/life-system/prompts/README</link>
+    <guid>https://programmerraja.github.io/life-system/prompts/README</guid>
+    <description>Prompts Directory AgentShiro Prompt Library v2.0 QUICK REFERENCE AgentFilePurposeTriggerDaily Agentagents/daily-agent-v2.mdDaily planning &amp; execution”Help with ...</description>
+    <pubDate>Sat, 11 Apr 2026 23:30:16 GMT</pubDate>
   </item><item>
-    <title>AI product development</title>
-    <link>https://programmerraja.github.io/notes/Business-Leadership/AI-product-development</link>
-    <guid>https://programmerraja.github.io/notes/Business-Leadership/AI-product-development</guid>
-    <description>Product Requirements Document feedbackwidget.co/#demo testit.so/ creatie.ai/ [figma] www.magicpattern.design/dashboard [FIGMA] tally.so/ hunter.io/ anymailfinder.com/ ...</description>
-    <pubDate>Tue, 24 Feb 2026 02:16:04 GMT</pubDate>
+    <title>alignment-rules</title>
+    <link>https://programmerraja.github.io/life-system/prompts/_shared/alignment-rules</link>
+    <guid>https://programmerraja.github.io/life-system/prompts/_shared/alignment-rules</guid>
+    <description>ALIGNMENT CLASSIFICATION RULES Purpose Every task must be classified as ALIGNED, MISALIGNED, or NEGATIVE to calculate points and track progress. CLASSIFICATION 1.</description>
+    <pubDate>Sat, 11 Apr 2026 23:30:16 GMT</pubDate>
   </item>
     </channel>
   </rss>

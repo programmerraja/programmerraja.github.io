@@ -8,6 +8,78 @@
     <loc>https://programmerraja.github.io/</loc>
     <lastmod>2026-02-09T02:50:03.389Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/life-system/Backlog-tasks</loc>
+    <lastmod>2026-04-12T02:17:50.696Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/Learning-notes</loc>
+    <lastmod>2026-04-12T04:38:42.903Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/areas/career</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/areas/family</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/areas/happiness</loc>
+    <lastmod>2026-04-11T23:30:16.908Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/areas/health</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/areas/money</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-13</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-14</loc>
+    <lastmod>2026-04-14T03:21:17.094Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-15</loc>
+    <lastmod>2026-04-15T04:12:27.096Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-16</loc>
+    <lastmod>2026-04-16T03:48:07.077Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/goals/6monthgoal</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/memory/memory</loc>
+    <lastmod>2026-04-11T23:30:16.916Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/mistakes/mistakes</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/personal/aboutme</loc>
+    <lastmod>2026-04-11T23:30:16.916Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/prompts/README</loc>
+    <lastmod>2026-04-11T23:30:16.916Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/prompts/_shared/alignment-rules</loc>
+    <lastmod>2026-04-11T23:30:16.916Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/prompts/_shared/error-handling</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/prompts/_shared/templates/daily-log-template</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/prompts/_shared/templates/memory-prompt-template</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/prompts/_shared/templates/mistake-log-template</loc>
+    <lastmod>2026-04-11T23:30:16.912Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/prompts/agents/daily-agent-v2</loc>
+    <lastmod>2026-04-11T23:30:16.916Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/prompts/agents/pattern-detector-v2</loc>
+    <lastmod>2026-04-11T23:30:16.916Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/life-system/prompts/agents/weekly-analyzer-v2</loc>
+    <lastmod>2026-04-11T23:30:16.916Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/notes/AI-ML/Deep-Learning/Convolutional-Neural-Network</loc>
     <lastmod>2025-08-24T03:32:03.033Z</lastmod>
   </url><url>
@@ -56,7 +128,7 @@
     <loc>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Frameworks/Haystack-Notes</loc>
     <lastmod>2024-08-24T04:02:35.353Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Frameworks/Hugging-face</loc>
+    <loc>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Frameworks/HuggingFace/Hugging-face</loc>
     <lastmod>2024-06-22T23:27:31.313Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/AI-ML/Generative-AI/Frameworks/LamaIndex</loc>
@@ -142,6 +214,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/notes/AI-ML/Machine-Learning/Optimization-and-Hyperparameter--in-ML</loc>
     <lastmod>2025-11-02T03:55:18.181Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/notes/AI-ML/podcast/Learning-from-Podcast</loc>
+    <lastmod>2024-06-22T23:27:31.313Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/Business-Leadership/AI-product-development</loc>
     <lastmod>2026-02-24T02:16:04.216Z</lastmod>
@@ -239,7 +314,7 @@
     <loc>https://programmerraja.github.io/notes/Programming/Languages/Python</loc>
     <lastmod>2024-05-09T06:46:34.343Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/notes/Programming/Languages/Rust</loc>
+    <loc>https://programmerraja.github.io/notes/Programming/Languages/Rust/Rust</loc>
     <lastmod>2024-07-31T01:03:42.424Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/notes/Programming/Mobile-Development/Android-internal</loc>
@@ -394,6 +469,15 @@
   </url><url>
     <loc>https://programmerraja.github.io/post/2025/Why-Your-LLM-Costs-5X-More-If-You-Don't-Speak-English</loc>
     <lastmod>2025-10-25T12:36:45.454Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2026/I-Reverse-Engineered-elvenlabs-conversation-agent-and-Here's-What-I-Found!</loc>
+    <lastmod>2026-04-29T23:40:26.262Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2026/Real-Startup-Engineering-Lessons-From-4+-Years-of-Experience</loc>
+    <lastmod>2024-05-08T13:41:16.161Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/post/2026/Sherlock-home-how-AI-make-our-day-worse</loc>
+    <lastmod>2025-11-14T02:57:13.131Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/projects/</loc>
     <lastmod>2025-05-04T04:25:25.252Z</lastmod>

@@ -1,0 +1,15 @@
+{
+    "{{todayDate}}": "2026-04-12",
+    "{{currentTime}}": "04:52:37",
+    "{{dayOfWeek}}": "Sunday",
+    "{{weekNumber}}": "15",
+    "{{weekStartDate}}": "2026-04-06",
+    "{{weekEndDate}}": "2026-04-12",
+    "{{timeOfDay}}": "morning",
+    "{{userName}}": "User (See aboutme.md)",
+    "{{todayTaskList}}": "# Date: 2026-04-12\n\n## Plan (Morning)\n\n### Family\n- [ ] \n\n### Career\n- [ ] Build personal AI agent (task + finance tracker) \u2014 core architecture\n\n### Money\n- [ ] \n\n### Health\n- [ ] \n\n### Happiness\n- [ ] \n\n### Self\n- [ ] \n\n---\n\n## Execution (What actually happened)\n\n### Done\n\n### Missed\n\n---\n\n## Alignment Check (Agent will fill)\n\nAligned Tasks: 0  \nMisaligned Tasks: 0  \nReason:\n- \n\n---\n\n## Reflection (Night)\n- What went well:\n- What went wrong:\n- Why:\n- What to improve tomorrow:\n\n---\n\n## Score\nPoints: 0  \nStreak: 0 days  \nStatus: IN GAME\n",
+    "{{currentStreak}}": "0",
+    "{{currentPoints}}": "0",
+    "{{currentLevel}}": "1",
+    "{{currentStatus}}": "IN GAME"
+}

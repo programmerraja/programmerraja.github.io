@@ -289,7 +289,28 @@
 <li>The standard library directories</li>
 </ul>
 <p>However, if <strong><code>path</code></strong> is not in the same directory as working, so Python doesn’t know where to find it unless you explicitly tell it to.</p>
-<hr/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-container"><table><thead><tr><th>Node.js</th><th>Python</th></tr></thead><tbody><tr><td>Resolves <code>require('./file.js')</code> relative to the current file.</td><td>Resolves <code>import module</code> by searching a list of folders in <code>sys.path</code>.</td></tr><tr><td><code>require('some-lib')</code> looks in <code>node_modules</code> folders up the tree.</td><td><code>import some_lib</code> looks in <code>sys.path</code> – includes the script’s directory, standard library, and <code>site-packages</code>.</td></tr><tr><td><strong>File‑based</strong> – the location of the file determines the resolution.</td><td><strong>Path‑based</strong> – the content of <code>sys.path</code> (a list of directories) determines where Python looks.</td></tr></tbody></table></div>
 <h3 id="how--m-works-module-mode"><strong>How <code>-m</code> Works (Module Mode):</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#how--m-works-module-mode" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h3>
 <h4 id="1-treats-python-files-as-part-of-a-package"><strong>1. Treats Python Files as Part of a Package</strong><a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-treats-python-files-as-part-of-a-package" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h4>
 <p>When you run Python with the <code>-m</code> flag (e.g., <code>python -m server.controller</code>), you’re running the module <strong><code>server.controller</code></strong> as part of the package structure starting from the <strong>root directory</strong> (which must be in <code>sys.path</code>).</p>
