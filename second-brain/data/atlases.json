@@ -1,0 +1,14 @@
+{
+  "atlases": [
+    {
+      "slug": "ai-engineering",
+      "title": "AI-Engineering",
+      "updated": "2026-08-19"
+    },
+    {
+      "slug": "voice-agent",
+      "title": "Voice Agent",
+      "updated": "2026-08-19"
+    }
+  ]
+}

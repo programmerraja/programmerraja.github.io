@@ -6,65 +6,65 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>How ElevenLabs Conversation Agents Work Behind the Scenes – Part 1</title>
-    <link>https://programmerraja.github.io/post/2026/I-Reverse-Engineered-elvenlabs-conversation-agent-and-Here's-What-I-Found!</link>
-    <guid>https://programmerraja.github.io/post/2026/I-Reverse-Engineered-elvenlabs-conversation-agent-and-Here's-What-I-Found!</guid>
-    <description>I have been experimenting with voice agents for the past three months. During this time, I came across ElevenLabs and have already written an article about it, which you can read [here].</description>
-    <pubDate>Wed, 29 Apr 2026 23:40:26 GMT</pubDate>
+    <title>Audio Realism Benchmark</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/audio-realism-benchmark</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/audio-realism-benchmark</guid>
+    <description>Blind listening comparisons measure how human text-to-speech output sounds across phone-agent, conversational, and explainer speech. benchlm.ai/voice-benchmarks/audio-realism-benchmark Connections No outgoing connections.</description>
+    <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>2026-04-16</title>
-    <link>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-16</link>
-    <guid>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-16</guid>
-    <description>Career Recall old notes building a personal assistant in that working on auto improve EVal Money Finance tracker build 10% more then Health Exercise Reflection (Night) What went ...</description>
-    <pubDate>Thu, 16 Apr 2026 03:48:07 GMT</pubDate>
+    <title>Prefix caching</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/prefix-caching</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/prefix-caching</guid>
+    <description>Prompt caching matters at scale Cache strategy and request distribution can dramatically affect cost; providers don’t necessarily optimize this for your application’s traffic ...</description>
+    <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>2026-04-15</title>
-    <link>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-15</link>
-    <guid>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-15</guid>
-    <description>Career Recall old notes building a personal assistant in that working on auto improve EVal Money Finance tracker build 10% more then Health Exercise Reflection (Night) What went ...</description>
-    <pubDate>Wed, 15 Apr 2026 04:12:27 GMT</pubDate>
+    <title>shadowlm</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/shadowlm</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/shadowlm</guid>
+    <description>Move one task off a rented frontier model and onto a small model you own — without touching the agent. It runs in the model’s shadow until it does the job as well, then takes over.</description>
+    <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>2026-04-14</title>
-    <link>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-14</link>
-    <guid>https://programmerraja.github.io/life-system/daily/2026/04/2026-04-14</guid>
-    <description>Career Recall old notes building a personal assistant in that working on auto improve EVal Money Finance tracker build 10% more then Health Exercise Reflection (Night) What went ...</description>
-    <pubDate>Tue, 14 Apr 2026 03:21:17 GMT</pubDate>
+    <title>Acoustic Model (TTS)</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/acoustic-model</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/acoustic-model</guid>
+    <description> Common TTS split: text → acoustic representation → waveform. This is the first half. Connections part_of Text-to-Speech .</description>
+    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Learning notes</title>
-    <link>https://programmerraja.github.io/life-system/Learning-notes</link>
-    <guid>https://programmerraja.github.io/life-system/Learning-notes</guid>
-    <description>Question to ask when i given a task it need to asky why this does it aligin with my goal etc. like currently watching ai engieering video instead of building finance tracker but if i see i can watch those on weekday and build this now but i decide to that .</description>
-    <pubDate>Sun, 12 Apr 2026 04:38:42 GMT</pubDate>
+    <title>Andromeda</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/andromeda</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/andromeda</guid>
+    <description> andromeda.ai/ Connections No outgoing connections.</description>
+    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Backlog tasks</title>
-    <link>https://programmerraja.github.io/life-system/Backlog-tasks</link>
-    <guid>https://programmerraja.github.io/life-system/Backlog-tasks</guid>
-    <description> blog voice agent and other .</description>
-    <pubDate>Sun, 12 Apr 2026 02:17:50 GMT</pubDate>
+    <title>AssemblyAI</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/assemblyai</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/assemblyai</guid>
+    <description> Connections alternative_to Deepgram — Common failover pair. part_of Speech-to-Text .</description>
+    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>memory</title>
-    <link>https://programmerraja.github.io/life-system/memory/memory</link>
-    <guid>https://programmerraja.github.io/life-system/memory/memory</guid>
-    <description></description>
-    <pubDate>Sat, 11 Apr 2026 23:30:16 GMT</pubDate>
+    <title>Audio Representation</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/audio-representation</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/audio-representation</guid>
+    <description> A waveform is the microphone signal in the time domain: amplitude changing over time. Working directly with it preserves the original signal, but produces a long input sequence.</description>
+    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>aboutme</title>
-    <link>https://programmerraja.github.io/life-system/personal/aboutme</link>
-    <guid>https://programmerraja.github.io/life-system/personal/aboutme</guid>
-    <description>About Me Hi, my name is Boopathi. I work as an AI Engineer and have a strong passion for technology. I enjoy learning new things, building interesting projects, and solving problems using tech.</description>
-    <pubDate>Sat, 11 Apr 2026 23:30:16 GMT</pubDate>
+    <title>Azure OpenAI / AI Foundry</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/azure-openai</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/azure-openai</guid>
+    <description>Not every model is in every region; TPM/RPM vary by model + region deploy region first. Provisioned throughput reserves capacity, but burst spillover is billed.</description>
+    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>README</title>
-    <link>https://programmerraja.github.io/life-system/prompts/README</link>
-    <guid>https://programmerraja.github.io/life-system/prompts/README</guid>
-    <description>Prompts Directory AgentShiro Prompt Library v2.0 QUICK REFERENCE AgentFilePurposeTriggerDaily Agentagents/daily-agent-v2.mdDaily planning &amp; execution”Help with ...</description>
-    <pubDate>Sat, 11 Apr 2026 23:30:16 GMT</pubDate>
+    <title>Baseten</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/baseten</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/baseten</guid>
+    <description> Connections uses GLM 5.x part_of Large Language Model .</description>
+    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>alignment-rules</title>
-    <link>https://programmerraja.github.io/life-system/prompts/_shared/alignment-rules</link>
-    <guid>https://programmerraja.github.io/life-system/prompts/_shared/alignment-rules</guid>
-    <description>ALIGNMENT CLASSIFICATION RULES Purpose Every task must be classified as ALIGNED, MISALIGNED, or NEGATIVE to calculate points and track progress. CLASSIFICATION 1.</description>
-    <pubDate>Sat, 11 Apr 2026 23:30:16 GMT</pubDate>
+    <title>Benchmark</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/benchmark</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/benchmark</guid>
+    <description> Connections related_to Audio Realism Benchmark related_to Livekit LLM benchmark related_to Voice Agent benchmarks .</description>
+    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>

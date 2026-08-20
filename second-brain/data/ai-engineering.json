@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "updated": "2026-08-19",
+  "nodeTypes": [
+    {
+      "id": "domain",
+      "label": "Domain",
+      "color": "#7c9cff"
+    },
+    {
+      "id": "concept",
+      "label": "Concept",
+      "color": "#59c2a4"
+    },
+    {
+      "id": "model",
+      "label": "Model",
+      "color": "#e0a33e"
+    },
+    {
+      "id": "provider",
+      "label": "Provider",
+      "color": "#d8709b"
+    },
+    {
+      "id": "tool",
+      "label": "Tool",
+      "color": "#9b8cf5"
+    },
+    {
+      "id": "metric",
+      "label": "Metric",
+      "color": "#6fb7e0"
+    },
+    {
+      "id": "pattern",
+      "label": "Pattern",
+      "color": "#c98b62"
+    },
+    {
+      "id": "cost-reduction",
+      "label": "Cost reduction",
+      "color": "#7c9cff"
+    },
+    {
+      "id": "finetune",
+      "label": "Finetune",
+      "color": "#59c2a4"
+    },
+    {
+      "id": "memory",
+      "label": "Memory",
+      "color": "#00ff88"
+    }
+  ],
+  "edgeTypes": [
+    {
+      "id": "part_of",
+      "label": "part of",
+      "inverse": "contains"
+    },
+    {
+      "id": "precedes",
+      "label": "precedes",
+      "inverse": "follows"
+    },
+    {
+      "id": "uses",
+      "label": "uses",
+      "inverse": "used by"
+    },
+    {
+      "id": "alternative_to",
+      "label": "alternative to",
+      "inverse": "alternative to"
+    },
+    {
+      "id": "tradeoff_vs",
+      "label": "tradeoff vs",
+      "inverse": "tradeoff vs"
+    },
+    {
+      "id": "measured_by",
+      "label": "measured by",
+      "inverse": "measures"
+    },
+    {
+      "id": "related_to",
+      "label": "related to",
+      "inverse": "related to"
+    }
+  ],
+  "nodes": [],
+  "edges": []
+}
