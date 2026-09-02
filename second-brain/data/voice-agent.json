@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-19",
+  "updated": "2026-09-01",
   "nodeTypes": [
     {
       "id": "domain",
@@ -51,6 +51,11 @@
       "id": "memory",
       "label": "Memory",
       "color": "#00ff88"
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "color": "#d8709b"
     }
   ],
   "edgeTypes": [
@@ -138,17 +143,16 @@
       "updated": "2026-08-19"
     },
     {
-      "id": "audio-representation",
-      "type": "concept",
-      "title": "Audio Representation",
-      "summary": "How raw microphone signal is turned into something a model can consume.",
+      "id": "audio8-tts",
+      "type": "model",
+      "title": "Audio8 TTS",
+      "summary": "",
       "tags": [
-        "audio",
-        "fundamentals"
+        "tts"
       ],
-      "notes": "- A waveform is the microphone signal in the time domain: amplitude changing over time.\n- Working directly with it preserves the original signal, but produces a long input sequence.\n- Most speech systems first turn the waveform into a time-frequency representation. That throws away some detail, but gives the model a much smaller and more useful input.",
-      "created": "2026-08-12",
-      "updated": "2026-08-12"
+      "notes": "- Audio8 TTS is a compact, open-source multilingual text-to-speech model family featuring zero-shot voice cloning capabilities\n- DualAR Architecture: Inspired by Fish Audio S2 Pro, using a slow autoregressive (AR) transformer for semantic tokens and a fast AR transformer for codec codebooks",
+      "created": "2026-08-31",
+      "updated": "2026-08-31"
     },
     {
       "id": "azure-openai",
@@ -187,6 +191,18 @@
       "notes": "",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "breezeblue",
+      "type": "model",
+      "title": "breezeblue",
+      "summary": "The most engaging voice AI for real-time interaction",
+      "tags": [
+        "tts"
+      ],
+      "notes": "breezeblue",
+      "created": "2026-09-01",
+      "updated": "2026-09-01"
     },
     {
       "id": "canary",
@@ -488,6 +504,30 @@
       "notes": "- Useful baseline to remember for waveform synthesis speed and quality.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "hindsight",
+      "type": "memory",
+      "title": "Hindsight",
+      "summary": "",
+      "tags": [
+        "memory"
+      ],
+      "notes": "- Hindsight is an agent memory system built to create smarter agents that learn over time. Most agent memory systems focus on recalling conversation history. Hindsight is focused on making agents that learn, not just remember.\n- Hindsight is the most accurate agent memory system ever tested according to benchmark performance. It has achieved state-of-the-art performance on the LongMemEval benchmark, widely used to assess memory system performance across a variety of conversational AI scenarios. The current reported performance of Hindsight and other agent memory solutions as of January 2026 is shown here:\n\n",
+      "created": "2026-08-25",
+      "updated": "2026-08-25"
+    },
+    {
+      "id": "humannessindex",
+      "type": "metric",
+      "title": "humannessindex",
+      "summary": "",
+      "tags": [
+        "TTS"
+      ],
+      "notes": "Which voice model sounds the most human?\n- https://humannessindex.vapi.ai/\n",
+      "created": "2026-08-24",
+      "updated": "2026-08-24"
     },
     {
       "id": "inference-optimization",
@@ -796,6 +836,18 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "openai-guardrails",
+      "type": "security",
+      "title": "OpenAI Guardrails ",
+      "summary": "",
+      "tags": [
+        "security"
+      ],
+      "notes": "-  Python library with a tripwire mechanism, native OpenAI Agents SDK integration, and built-in PII / jailbreak / hallucination checks. A fit when your stack is OpenAI-native.",
+      "created": "2026-08-25",
+      "updated": "2026-08-25"
+    },
+    {
       "id": "openai-realtime",
       "type": "provider",
       "title": "OpenAI Realtime API",
@@ -846,6 +898,18 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "palabra",
+      "type": "provider",
+      "title": "palabra",
+      "summary": "The world's fastest TTS.",
+      "tags": [
+        "tts"
+      ],
+      "notes": "- 35 ms to first audio  conversations flow without the awkward pause.\n- ",
+      "created": "2026-08-24",
+      "updated": "2026-08-24"
+    },
+    {
       "id": "pesq",
       "type": "metric",
       "title": "PESQ",
@@ -857,6 +921,18 @@
       "notes": "- Useful for comparing signal degradation across configs. Not a substitute for human MOS on synthetic speech.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "phonellm",
+      "type": "model",
+      "title": "PhoneLLM",
+      "summary": "Pipecat PhoneLLM Alpha 1",
+      "tags": [
+        "llm"
+      ],
+      "notes": "- PhoneLLM runs at a fraction of the cost and latency of larger, general-purpose models, while delivering comparable performance for specific use cases. For example, PhoneLLM performs on par with GPT 5.6 Terra, but 94% cheaper and with 1,300ms faster P95 time-to-first-token.\n\n- PhoneLLM Alpha 1 is a full-parameter fine-tune of NVIDIA’s Nemotron 3 Nano 30B-A3B model, trained using the NVIDIA NeMo framework.\n\n\n\n",
+      "created": "2026-08-27",
+      "updated": "2026-08-27"
     },
     {
       "id": "phoneme",
@@ -928,6 +1004,18 @@
       "notes": "- Reduces precision to shrink memory use and speed up inference on hardware that supports the chosen format.\n- The actual win depends on the runtime and GPU. A smaller checkpoint does not automatically mean lower latency.\n- Test quality per component. STT may lose rare words, an LLM may lose tool reliability, and TTS may introduce audible artefacts even when aggregate benchmarks barely move.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "quipus-0-6-speech",
+      "type": "model",
+      "title": "Quipus 0.6 Speech",
+      "summary": "low-latency for india",
+      "tags": [
+        "tts"
+      ],
+      "notes": "- Built on a 𝗤𝘄𝗲𝗻𝟯 𝗯𝗮𝗰𝗸𝗯𝗼𝗻𝗲 and designed for applications like conversational AI, voice assistants, AI calling, accessibility, IVR and customer support.\n- 𝗤𝘂𝗶𝗽𝘂𝘀 𝟬.𝟲 𝗦𝗽𝗲𝗲𝗰𝗵 𝘃𝟮 𝘀𝘂𝗽𝗽𝗼𝗿𝘁𝘀 𝗮𝗹𝗹 𝟮𝟮 𝘀𝗰𝗵𝗲𝗱𝘂𝗹𝗲𝗱 𝗜𝗻𝗱𝗶𝗮𝗻 𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲𝘀. 🇮🇳\n- 𝗥𝗧𝗙 𝟬.𝟮𝟯𝟯",
+      "created": "2026-08-31",
+      "updated": "2026-08-31"
     },
     {
       "id": "rtf",
@@ -1431,9 +1519,9 @@
       "type": "part_of"
     },
     {
-      "id": "e-audio-representation-part_of-voice-agent",
-      "from": "audio-representation",
-      "to": "voice-agent",
+      "id": "e-audio8-tts-part_of-tts",
+      "from": "audio8-tts",
+      "to": "tts",
       "type": "part_of"
     },
     {
@@ -1794,6 +1882,18 @@
       "type": "part_of"
     },
     {
+      "id": "e-hindsight-part_of-llm",
+      "from": "hindsight",
+      "to": "llm",
+      "type": "part_of"
+    },
+    {
+      "id": "e-humannessindex-measured_by-tts",
+      "from": "humannessindex",
+      "to": "tts",
+      "type": "measured_by"
+    },
+    {
       "id": "e-inference-optimization-part_of-voice-agent",
       "from": "inference-optimization",
       "to": "voice-agent",
@@ -1877,12 +1977,6 @@
       "id": "e-llm-va",
       "from": "llm",
       "to": "voice-agent",
-      "type": "part_of"
-    },
-    {
-      "id": "e-mel-spectrogram-part_of-audio-representation",
-      "from": "mel-spectrogram",
-      "to": "audio-representation",
       "type": "part_of"
     },
     {
@@ -2000,6 +2094,12 @@
       "type": "part_of"
     },
     {
+      "id": "e-openai-guardrails-part_of-llm",
+      "from": "openai-guardrails",
+      "to": "llm",
+      "type": "part_of"
+    },
+    {
       "id": "e-oai-s2s",
       "from": "openai-realtime",
       "to": "speech-to-speech",
@@ -2049,6 +2149,18 @@
       "type": "uses"
     },
     {
+      "id": "e-palabra-part_of-tts",
+      "from": "palabra",
+      "to": "tts",
+      "type": "part_of"
+    },
+    {
+      "id": "e-phonellm-part_of-llm",
+      "from": "phonellm",
+      "to": "llm",
+      "type": "part_of"
+    },
+    {
       "id": "e-phoneme-related_to-grapheme-to-phoneme",
       "from": "phoneme",
       "to": "grapheme-to-phoneme",
@@ -2089,6 +2201,12 @@
       "id": "e-quantization-part_of-inference-optimization",
       "from": "quantization",
       "to": "inference-optimization",
+      "type": "part_of"
+    },
+    {
+      "id": "e-quipus-0-6-speech-part_of-tts",
+      "from": "quipus-0-6-speech",
+      "to": "tts",
       "type": "part_of"
     },
     {
@@ -2203,12 +2321,6 @@
       "type": "measured_by"
     },
     {
-      "id": "e-stt-uses-audio-representation",
-      "from": "stt",
-      "to": "audio-representation",
-      "type": "uses"
-    },
-    {
       "id": "e-stt-va",
       "from": "stt",
       "to": "voice-agent",
@@ -2268,12 +2380,6 @@
       "from": "tts",
       "to": "transport",
       "type": "precedes"
-    },
-    {
-      "id": "e-tts-uses-audio-representation",
-      "from": "tts",
-      "to": "audio-representation",
-      "type": "uses"
     },
     {
       "id": "e-tts-va",

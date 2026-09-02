@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-08-19",
+  "updated": "2026-09-01",
   "nodeTypes": [
     {
       "id": "domain",
@@ -51,6 +51,26 @@
       "id": "memory",
       "label": "Memory",
       "color": "#00ff88"
+    },
+    {
+      "id": "llmscraper",
+      "label": "LLMScraper",
+      "color": "#d8709b"
+    },
+    {
+      "id": "local-inference",
+      "label": "Local Inference",
+      "color": "#9b8cf5"
+    },
+    {
+      "id": "dataset",
+      "label": "Dataset",
+      "color": "#6fb7e0"
+    },
+    {
+      "id": "eval",
+      "label": "Eval",
+      "color": "#c98b62"
     }
   ],
   "edgeTypes": [
@@ -90,6 +110,71 @@
       "inverse": "related to"
     }
   ],
-  "nodes": [],
-  "edges": []
+  "nodes": [
+    {
+      "id": "argilla-io",
+      "type": "dataset",
+      "title": "Argilla.io",
+      "summary": "Argilla is a collaboration tool for AI engineers and domain experts to build high-quality datasets",
+      "tags": [],
+      "notes": "- Domain experts focus on key data for language model fine-tuning, RLHF, and evaluation. AI automates the rest, quickly moving from prototype to ongoing production maintenance\n- where we can store and review data and Annotate dataset",
+      "created": "2026-09-01",
+      "updated": "2026-09-01"
+    },
+    {
+      "id": "atomic-chat",
+      "type": "local-inference",
+      "title": "Atomic chat ",
+      "summary": "Atomic is an open-source AI agent optimized for local models",
+      "tags": [],
+      "notes": "- Google TurboQuant built-in ",
+      "created": "2026-08-28",
+      "updated": "2026-08-28"
+    },
+    {
+      "id": "colibri",
+      "type": "local-inference",
+      "title": "colibri",
+      "summary": "Run frontier MoE models on hardware you already own — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. 🐦",
+      "tags": [
+        "local"
+      ],
+      "notes": "- Run frontier MoE models on hardware you already own — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. \n- https://github.com/JustVugg/colibri",
+      "created": "2026-08-28",
+      "updated": "2026-08-28"
+    },
+    {
+      "id": "evals-skills",
+      "type": "eval",
+      "title": "evals-skills",
+      "summary": "Skills that guide AI coding agents to help you build product-specific AI evals.",
+      "tags": [
+        "eval"
+      ],
+      "notes": "Skills that guide AI coding agents to help you build product-specific AI evals (not foundation model benchmarks).\n\nThese skills guard against common mistakes we've seen helping 50+ companies and teaching thousands of students in our AI Evals course. If you're new to evals, see Hamel's evals notes for free resources on the fundamentals.\n\n",
+      "created": "2026-09-01",
+      "updated": "2026-09-01"
+    },
+    {
+      "id": "tinyfish",
+      "type": "llmscraper",
+      "title": "tinyfish",
+      "summary": "Search & fetch the web. 100% free",
+      "tags": [
+        "scraper",
+        "free"
+      ],
+      "notes": "- Your agent gets live web search and clean page fetches, powered by TinyFish. No subscriptions, no API keys, no credit card.",
+      "created": "2026-08-27",
+      "updated": "2026-08-27"
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-colibri-alternative_to-atomic-chat",
+      "from": "colibri",
+      "to": "atomic-chat",
+      "type": "alternative_to"
+    }
+  ]
 }
