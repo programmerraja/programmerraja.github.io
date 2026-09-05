@@ -470,6 +470,9 @@
     <loc>https://programmerraja.github.io/post/2025/Why-Your-LLM-Costs-5X-More-If-You-Don't-Speak-English</loc>
     <lastmod>2025-10-25T12:36:45.454Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</loc>
+    <lastmod>2026-09-04T23:58:22.222Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/post/2026/I-Reverse-Engineered-elvenlabs-conversation-agent-and-Here's-What-I-Found!</loc>
     <lastmod>2026-04-29T23:40:26.262Z</lastmod>
   </url><url>
@@ -485,6 +488,21 @@
     <loc>https://programmerraja.github.io/projects/</loc>
     <lastmod>2025-05-04T04:25:25.252Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/second-brain/ai-engineering/argilla-io</loc>
+    <lastmod>2026-09-01T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/second-brain/ai-engineering/atomic-chat</loc>
+    <lastmod>2026-08-28T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/second-brain/ai-engineering/colibri</loc>
+    <lastmod>2026-08-28T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/second-brain/ai-engineering/evals-skills</loc>
+    <lastmod>2026-09-01T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/second-brain/ai-engineering/tinyfish</loc>
+    <lastmod>2026-08-27T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/acoustic-model</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
   </url><url>
@@ -497,8 +515,8 @@
     <loc>https://programmerraja.github.io/second-brain/voice-agent/audio-realism-benchmark</loc>
     <lastmod>2026-08-19T00:00:00.000Z</lastmod>
   </url><url>
-    <loc>https://programmerraja.github.io/second-brain/voice-agent/audio-representation</loc>
-    <lastmod>2026-08-12T00:00:00.000Z</lastmod>
+    <loc>https://programmerraja.github.io/second-brain/voice-agent/audio8-tts</loc>
+    <lastmod>2026-08-31T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/azure-openai</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
@@ -508,6 +526,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/benchmark</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/second-brain/voice-agent/breezeblue</loc>
+    <lastmod>2026-09-01T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/canary</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
@@ -580,6 +601,12 @@
   </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/hifi-gan</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/second-brain/voice-agent/hindsight</loc>
+    <lastmod>2026-08-25T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/second-brain/voice-agent/humannessindex</loc>
+    <lastmod>2026-08-24T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/inference-optimization</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
@@ -656,6 +683,9 @@
     <loc>https://programmerraja.github.io/second-brain/voice-agent/ollama</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/second-brain/voice-agent/openai-guardrails</loc>
+    <lastmod>2026-08-25T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/openai-realtime</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
   </url><url>
@@ -668,8 +698,14 @@
     <loc>https://programmerraja.github.io/second-brain/voice-agent/orpheus</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.github.io/second-brain/voice-agent/palabra</loc>
+    <lastmod>2026-08-24T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/pesq</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/second-brain/voice-agent/phonellm</loc>
+    <lastmod>2026-08-27T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/phoneme</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
@@ -688,6 +724,9 @@
   </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/quantization</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.github.io/second-brain/voice-agent/quipus-0-6-speech</loc>
+    <lastmod>2026-08-31T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.github.io/second-brain/voice-agent/rtf</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>

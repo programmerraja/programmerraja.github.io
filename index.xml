@@ -6,65 +6,65 @@
       <description>Last 10 notes on 🧠 Second Brain</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>Audio Realism Benchmark</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/audio-realism-benchmark</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/audio-realism-benchmark</guid>
-    <description>Blind listening comparisons measure how human text-to-speech output sounds across phone-agent, conversational, and explainer speech. benchlm.ai/voice-benchmarks/audio-realism-benchmark Connections No outgoing connections.</description>
-    <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
+    <title>How We Doubled Our Cache Hit Rate When Pre-Warming Wasn’t Enough</title>
+    <link>https://programmerraja.github.io/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</link>
+    <guid>https://programmerraja.github.io/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</guid>
+    <description>Quick question. If you run a voice agent, do you know your prompt cache hit rate on turn 1? Not the average across the call. Just turn 1, when the caller has said hello and is sitting in silence waiting for your agent to speak.</description>
+    <pubDate>Fri, 04 Sep 2026 23:58:22 GMT</pubDate>
   </item><item>
-    <title>Prefix caching</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/prefix-caching</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/prefix-caching</guid>
-    <description>Prompt caching matters at scale Cache strategy and request distribution can dramatically affect cost; providers don’t necessarily optimize this for your application’s traffic ...</description>
-    <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    <title>Argilla.io</title>
+    <link>https://programmerraja.github.io/second-brain/ai-engineering/argilla-io</link>
+    <guid>https://programmerraja.github.io/second-brain/ai-engineering/argilla-io</guid>
+    <description> Domain experts focus on key data for language model fine-tuning, RLHF, and evaluation. AI automates the rest, quickly moving from prototype to ongoing production maintenance where we can store and review data and Annotate dataset Connections No outgoing connections.</description>
+    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>shadowlm</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/shadowlm</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/shadowlm</guid>
-    <description>Move one task off a rented frontier model and onto a small model you own — without touching the agent. It runs in the model’s shadow until it does the job as well, then takes over.</description>
-    <pubDate>Sat, 15 Aug 2026 00:00:00 GMT</pubDate>
+    <title>evals-skills</title>
+    <link>https://programmerraja.github.io/second-brain/ai-engineering/evals-skills</link>
+    <guid>https://programmerraja.github.io/second-brain/ai-engineering/evals-skills</guid>
+    <description>Skills that guide AI coding agents to help you build product-specific AI evals (not foundation model benchmarks). These skills guard against common mistakes we’ve seen helping 50+ companies and teaching thousands of students in our AI Evals course.</description>
+    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Acoustic Model (TTS)</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/acoustic-model</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/acoustic-model</guid>
-    <description> Common TTS split: text → acoustic representation → waveform. This is the first half. Connections part_of Text-to-Speech .</description>
-    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+    <title>breezeblue</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/breezeblue</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/breezeblue</guid>
+    <description>breezeblue Connections No outgoing connections.</description>
+    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Andromeda</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/andromeda</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/andromeda</guid>
-    <description> andromeda.ai/ Connections No outgoing connections.</description>
-    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+    <title>Audio8 TTS</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/audio8-tts</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/audio8-tts</guid>
+    <description>...</description>
+    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>AssemblyAI</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/assemblyai</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/assemblyai</guid>
-    <description> Connections alternative_to Deepgram — Common failover pair. part_of Speech-to-Text .</description>
-    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+    <title>Quipus 0.6 Speech</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/quipus-0-6-speech</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/quipus-0-6-speech</guid>
+    <description>...</description>
+    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Audio Representation</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/audio-representation</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/audio-representation</guid>
-    <description> A waveform is the microphone signal in the time domain: amplitude changing over time. Working directly with it preserves the original signal, but produces a long input sequence.</description>
-    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+    <title>Atomic chat </title>
+    <link>https://programmerraja.github.io/second-brain/ai-engineering/atomic-chat</link>
+    <guid>https://programmerraja.github.io/second-brain/ai-engineering/atomic-chat</guid>
+    <description> Google TurboQuant built-in Connections No outgoing connections.</description>
+    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Azure OpenAI / AI Foundry</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/azure-openai</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/azure-openai</guid>
-    <description>Not every model is in every region; TPM/RPM vary by model + region deploy region first. Provisioned throughput reserves capacity, but burst spillover is billed.</description>
-    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+    <title>colibri</title>
+    <link>https://programmerraja.github.io/second-brain/ai-engineering/colibri</link>
+    <guid>https://programmerraja.github.io/second-brain/ai-engineering/colibri</guid>
+    <description> Run frontier MoE models on hardware you already own — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. github.com/JustVugg/colibri Connections alternative_to Atomic chat .</description>
+    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Baseten</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/baseten</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/baseten</guid>
-    <description> Connections uses GLM 5.x part_of Large Language Model .</description>
-    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+    <title>tinyfish</title>
+    <link>https://programmerraja.github.io/second-brain/ai-engineering/tinyfish</link>
+    <guid>https://programmerraja.github.io/second-brain/ai-engineering/tinyfish</guid>
+    <description> Your agent gets live web search and clean page fetches, powered by TinyFish. No subscriptions, no API keys, no credit card. Connections No outgoing connections.</description>
+    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Benchmark</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/benchmark</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/benchmark</guid>
-    <description> Connections related_to Audio Realism Benchmark related_to Livekit LLM benchmark related_to Voice Agent benchmarks .</description>
-    <pubDate>Wed, 12 Aug 2026 00:00:00 GMT</pubDate>
+    <title>PhoneLLM</title>
+    <link>https://programmerraja.github.io/second-brain/voice-agent/phonellm</link>
+    <guid>https://programmerraja.github.io/second-brain/voice-agent/phonellm</guid>
+    <description>...</description>
+    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
