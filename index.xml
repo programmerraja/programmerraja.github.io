@@ -1,70 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
     <channel>
-      <title>🧠 Second Brain</title>
-      <link>https://programmerraja.github.io</link>
-      <description>Last 10 notes on 🧠 Second Brain</description>
+      <title>K. Boopathi</title>
+      <link>https://programmerraja.is-a.dev</link>
+      <description>Last 10 notes on K. Boopathi</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>The Curiosity Ledger</title>
+    <link>https://programmerraja.is-a.dev/field-guide</link>
+    <guid>https://programmerraja.is-a.dev/field-guide</guid>
+    <description>Your live reading ledger — points, ranks, series stamps, badges and hidden gems, all kept in your own browser and never sent anywhere.</description>
+    <pubDate>Sat, 05 Sep 2026 04:24:53 GMT</pubDate>
+  </item><item>
+    <title>K.Boopathi</title>
+    <link>https://programmerraja.is-a.dev/</link>
+    <guid>https://programmerraja.is-a.dev/</guid>
+    <description>K. Boopathi — Full Stack Developer writing production postmortems as detective stories. Real-time voice agents, Kubernetes, and the outages that taught me everything.</description>
+    <pubDate>Sat, 05 Sep 2026 02:56:45 GMT</pubDate>
+  </item><item>
     <title>How We Doubled Our Cache Hit Rate When Pre-Warming Wasn’t Enough</title>
-    <link>https://programmerraja.github.io/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</link>
-    <guid>https://programmerraja.github.io/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</guid>
+    <link>https://programmerraja.is-a.dev/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</link>
+    <guid>https://programmerraja.is-a.dev/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</guid>
     <description>Quick question. If you run a voice agent, do you know your prompt cache hit rate on turn 1? Not the average across the call. Just turn 1, when the caller has said hello and is sitting in silence waiting for your agent to speak.</description>
     <pubDate>Fri, 04 Sep 2026 23:58:22 GMT</pubDate>
   </item><item>
     <title>Argilla.io</title>
-    <link>https://programmerraja.github.io/second-brain/ai-engineering/argilla-io</link>
-    <guid>https://programmerraja.github.io/second-brain/ai-engineering/argilla-io</guid>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/argilla-io</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/argilla-io</guid>
     <description> Domain experts focus on key data for language model fine-tuning, RLHF, and evaluation. AI automates the rest, quickly moving from prototype to ongoing production maintenance where we can store and review data and Annotate dataset Connections No outgoing connections.</description>
     <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
     <title>evals-skills</title>
-    <link>https://programmerraja.github.io/second-brain/ai-engineering/evals-skills</link>
-    <guid>https://programmerraja.github.io/second-brain/ai-engineering/evals-skills</guid>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/evals-skills</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/evals-skills</guid>
     <description>Skills that guide AI coding agents to help you build product-specific AI evals (not foundation model benchmarks). These skills guard against common mistakes we’ve seen helping 50+ companies and teaching thousands of students in our AI Evals course.</description>
     <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
     <title>breezeblue</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/breezeblue</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/breezeblue</guid>
+    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/breezeblue</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/breezeblue</guid>
     <description>breezeblue Connections No outgoing connections.</description>
     <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
     <title>Audio8 TTS</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/audio8-tts</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/audio8-tts</guid>
+    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/audio8-tts</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/audio8-tts</guid>
     <description>...</description>
     <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
     <title>Quipus 0.6 Speech</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/quipus-0-6-speech</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/quipus-0-6-speech</guid>
+    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/quipus-0-6-speech</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/quipus-0-6-speech</guid>
     <description>...</description>
     <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
     <title>Atomic chat </title>
-    <link>https://programmerraja.github.io/second-brain/ai-engineering/atomic-chat</link>
-    <guid>https://programmerraja.github.io/second-brain/ai-engineering/atomic-chat</guid>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/atomic-chat</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/atomic-chat</guid>
     <description> Google TurboQuant built-in Connections No outgoing connections.</description>
     <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
   </item><item>
     <title>colibri</title>
-    <link>https://programmerraja.github.io/second-brain/ai-engineering/colibri</link>
-    <guid>https://programmerraja.github.io/second-brain/ai-engineering/colibri</guid>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/colibri</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/colibri</guid>
     <description> Run frontier MoE models on hardware you already own — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. github.com/JustVugg/colibri Connections alternative_to Atomic chat .</description>
     <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>tinyfish</title>
-    <link>https://programmerraja.github.io/second-brain/ai-engineering/tinyfish</link>
-    <guid>https://programmerraja.github.io/second-brain/ai-engineering/tinyfish</guid>
-    <description> Your agent gets live web search and clean page fetches, powered by TinyFish. No subscriptions, no API keys, no credit card. Connections No outgoing connections.</description>
-    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>PhoneLLM</title>
-    <link>https://programmerraja.github.io/second-brain/voice-agent/phonellm</link>
-    <guid>https://programmerraja.github.io/second-brain/voice-agent/phonellm</guid>
-    <description>...</description>
-    <pubDate>Thu, 27 Aug 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
