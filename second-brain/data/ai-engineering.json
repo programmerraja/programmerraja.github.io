@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-01",
+  "updated": "2026-09-07",
   "nodeTypes": [
     {
       "id": "domain",
@@ -71,6 +71,16 @@
       "id": "eval",
       "label": "Eval",
       "color": "#c98b62"
+    },
+    {
+      "id": "slm",
+      "label": "SLM",
+      "color": "#7c9cff"
+    },
+    {
+      "id": "coding-agent",
+      "label": "coding Agent",
+      "color": "#59c2a4"
     }
   ],
   "edgeTypes": [
@@ -132,6 +142,19 @@
       "updated": "2026-08-28"
     },
     {
+      "id": "bro-skill",
+      "type": "coding-agent",
+      "title": "Bro skill ",
+      "summary": "re-explains the last answer in plain language, for when the reply made you go 'bro what'. One-file skill for Hermes, Claude Code, Codex, and opencode.",
+      "tags": [
+        "coding",
+        "skill"
+      ],
+      "notes": "- https://github.com/luchasarie/bro-skill",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
       "id": "colibri",
       "type": "local-inference",
       "title": "colibri",
@@ -156,6 +179,71 @@
       "updated": "2026-09-01"
     },
     {
+      "id": "explain-diff",
+      "type": "coding-agent",
+      "title": "Explain Diff",
+      "summary": "make  a rich, interactive explanation of the specified code change.",
+      "tags": [
+        "coding",
+        "skill"
+      ],
+      "notes": "- https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "longcat-2",
+      "type": "coding-agent",
+      "title": "LongCat-2.0",
+      "summary": "1.6T open-source MoE for agentic coding with native 1M context.",
+      "tags": [
+        "coding",
+        "llm"
+      ],
+      "notes": "- https://www.longcatai.org/models/longcat-2\n- 1.6T MoE (activates ~33–56B, ~48B avg) trained for agentic coding. Native 1M context via LongCat Sparse Attention (linear, not quadratic).\n- Zero-computation experts skip easy tokens; MOPD fuses agent / reasoning / interaction expert groups into one model. Trained on 30T+ tokens on a 50k-card domestic cluster.\n- Headline numbers they cite: SWE-bench Pro 59.5, Terminal-Bench 2.1 70.8, BrowseComp 79.9. Preview on OpenRouter / longcat.ai; weights still pending HF.",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "needle-2",
+      "type": "slm",
+      "title": "Needle 2",
+      "summary": "Needle 2 is an open 45M-parameter model for tool calling, device use and structured extraction. The whole model is a single 14MB binary that runs a full session in about 28MB of RAM.",
+      "tags": [
+        "llm",
+        "SLM"
+      ],
+      "notes": "- https://github.com/cactus-compute/needle",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "new-node",
+      "type": "coding-agent",
+      "title": "New node",
+      "summary": "",
+      "tags": [
+        "coding",
+        "skill"
+      ],
+      "notes": "New node",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "pstack",
+      "type": "coding-agent",
+      "title": "pstack",
+      "summary": "",
+      "tags": [
+        "coding",
+        "skill"
+      ],
+      "notes": "- https://github.com/cursor/plugins/tree/main/pstack/skills",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
       "id": "tinyfish",
       "type": "llmscraper",
       "title": "tinyfish",
@@ -170,6 +258,12 @@
     }
   ],
   "edges": [
+    {
+      "id": "e-bro-skill-related_to-new-node",
+      "from": "bro-skill",
+      "to": "pstack",
+      "type": "related_to"
+    },
     {
       "id": "e-colibri-alternative_to-atomic-chat",
       "from": "colibri",

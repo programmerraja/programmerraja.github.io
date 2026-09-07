@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-01",
+  "updated": "2026-09-07",
   "nodeTypes": [
     {
       "id": "domain",
@@ -109,6 +109,19 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "aircaps",
+      "type": "provider",
+      "title": "AirCaps",
+      "summary": "Audio research lab focused on messy real-world speech — far-field, noise, overlap, and streaming edge ASR.",
+      "tags": [
+        "ASR",
+        "STT"
+      ],
+      "notes": "- https://research.aircaps.com/\n- Lab arguing that clean-benchmark ASR is the wrong problem. Real rooms (far-field, reverb, SNR < 5 dB, overlapping speech) break models that look great on Librispeech.\n- They don't ship one STT. Separate models for target-speaker extraction, directional enhancement, diarization, SSL, tracking, overlap separation, then jointly trained enhancement + STT.\n- Streaming-first and edge-oriented: causal, RTF < 1, meant to run on phones/laptops without a network. Use cases: home robots, wake-word in noise, in-cabin automotive.",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
       "id": "andromeda",
       "type": "provider",
       "title": "Andromeda",
@@ -146,13 +159,13 @@
       "id": "audio8-tts",
       "type": "model",
       "title": "Audio8 TTS",
-      "summary": "",
+      "summary": "0.6B multilingual TTS with zero-shot voice cloning; DualAR architecture, Apache 2.0.",
       "tags": [
         "tts"
       ],
-      "notes": "- Audio8 TTS is a compact, open-source multilingual text-to-speech model family featuring zero-shot voice cloning capabilities\n- DualAR Architecture: Inspired by Fish Audio S2 Pro, using a slow autoregressive (AR) transformer for semantic tokens and a fast AR transformer for codec codebooks",
+      "notes": "- https://huggingface.co/Audio8/Audio8-TTS-Preview-0.6b\n- 0.6B DualAR TTS (Fish S2 Pro-style): slow AR predicts semantic tokens, fast AR fills codec codebooks. Bundled 44.1 kHz codec, no extra vocoder.\n- Zero-shot clone from a short ref clip + exact transcript. 11 languages in this preview (EN, ZH, JA, KO, and several European). Apache 2.0.\n- Competitive Seed-TTS EN WER (1.506) vs much larger models. CPU path: ONNX INT4 (~1 GiB). GPU serving: SGLang Omni.",
       "created": "2026-08-31",
-      "updated": "2026-08-31"
+      "updated": "2026-09-07"
     },
     {
       "id": "azure-openai",
@@ -193,6 +206,30 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "best-open-speech-recognition-asr",
+      "type": "provider",
+      "title": "Best Open Speech Recognition (ASR)",
+      "summary": "",
+      "tags": [
+        "ASR"
+      ],
+      "notes": "- https://www.marktechpost.com/2026/07/23/best-open-speech-recognition-asr-models-in-2026-wer-languages-latency-and-license-compared/",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "breeze-tts-2",
+      "type": "model",
+      "title": "Breeze TTS 2",
+      "summary": "Open-weight bilingual TTS for real-time voice clone, voice design, and voice direction.",
+      "tags": [
+        "tts"
+      ],
+      "notes": "- https://huggingface.co/BreezeBlue/Breeze-TTS-2\n- ~3B open-weight bilingual (EN/ZH) TTS for real-time interaction. Voice clone from a ref clip, voice design from a text description, voice direction to keep identity while steering emotion/pace.\n- Inline vocal events: `(laugh)`, `(sigh)` in English; `[笑]`, `[叹气]` in Chinese.\n- Claims <40ms TTFA and ~0.32 RTF on H100 (warmed fast path). ~7.7 GiB GPU for eager inference. Weights are research/non-commercial; Apache 2.0 on the inference code.",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
       "id": "breezeblue",
       "type": "model",
       "title": "breezeblue",
@@ -200,7 +237,7 @@
       "tags": [
         "tts"
       ],
-      "notes": "breezeblue",
+      "notes": "- Company behind Breeze TTS. Real-time voice AI: clone, text-prompted voice design, and voice direction.\n- Open weights: https://huggingface.co/BreezeBlue/Breeze-TTS-2\n- Their voice-design eval: https://breezeblue.ai/benchmarks/tts-voice-design",
       "created": "2026-09-01",
       "updated": "2026-09-01"
     },
@@ -740,6 +777,19 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "moss-transcribe-diarize",
+      "type": "model",
+      "title": "MOSS-Transcribe-Diarize",
+      "summary": "A 0.9B model for long-form transcription in 50+ languages with speaker diarization, timestamps, and acoustic event awareness.",
+      "tags": [
+        "STT",
+        "ASR"
+      ],
+      "notes": "- https://github.com/OpenMOSS/MOSS-Transcribe-Diarize\n- 0.9B open end-to-end ASR: one pass does transcription + speaker diarization + timestamps + optional acoustic events. 50+ languages. Apache 2.0.\n- Output looks like `[0.48][S01]Welcome everyone[1.66]`. Built for long messy meetings/podcasts/lectures instead of stitching a separate diarizer onto Whisper.\n- Won 1st in the 2nd MLC-SLM Challenge (INTERSPEECH 2026, 14 languages). Serve via SGLang Omni, vLLM, or FunASR. A stronger “Pro” variant is playground-only.",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
       "id": "muse-glimmer",
       "type": "model",
       "title": "Muse Glimmer",
@@ -797,6 +847,18 @@
       "notes": "New node",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "new-node-4",
+      "type": "provider",
+      "title": "New node",
+      "summary": "",
+      "tags": [
+        "ASR"
+      ],
+      "notes": "New node",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
     },
     {
       "id": "new-node",
@@ -994,6 +1056,18 @@
       "updated": "2026-08-15"
     },
     {
+      "id": "pulse",
+      "type": "model",
+      "title": "Pulse",
+      "summary": "World's Most Accurate Speech to Text  by smallest.ai",
+      "tags": [
+        "STT"
+      ],
+      "notes": "-Real-time transcription across 38+ languages, 64ms latency, global accents and dialects.\n\n",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
       "id": "quantization",
       "type": "concept",
       "title": "Quantization",
@@ -1089,6 +1163,18 @@
       "notes": "Cited as a fast endpointing option that cuts turn-taking latency.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "sparrow-2",
+      "type": "model",
+      "title": "Sparrow-2",
+      "summary": "Tavus audio-native conversational understanding model — whole-scene turn-taking instead of silence-based endpointing.",
+      "tags": [
+        "turn-taking"
+      ],
+      "notes": "- https://www.tavus.io/blog/sparrow-2\n- Tavus conversational-understanding model. Treats the whole acoustic scene as evidence instead of cancelling noise and waiting for silence.\n- Jointly models semantics, prosody, speaker identity, backchannels, interruptions, background speech, and its own speaking state (semi-duplex). 10ms frames, ~7ms inference per 80ms of audio.\n- Can hold 6–8s mid-thought pauses, tell “mhm” from a real barge-in, and ask to repeat when audio is unintelligible. Preliminary TurnBench dev: 92.4% EOT recall, 97.4% interruption recall. GA on Tavus PALs/API.",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
     },
     {
       "id": "speaker-embedding-cache",
@@ -1303,6 +1389,19 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "tts-voice-design-benchmark",
+      "type": "metric",
+      "title": "TTS Voice Design Benchmark",
+      "summary": "Open benchmark for how well TTS models create distinctive, role-fitting voices from natural-language character descriptions.",
+      "tags": [
+        "Benchmark",
+        "tts"
+      ],
+      "notes": "- https://breezeblue.ai/benchmarks/tts-voice-design\n- Measures how well TTS models invent a distinctive voice from a natural-language character prompt, no reference clip.\n- Three scores: Role Fit (does it sound like that character), Voice Diversity (does the cast collapse into a few house voices), Transcript Pass (did it actually say the line).\n- 1,000 anonymized characters across seven media worlds. Breeze TTS 2 sits at the top of their public leaderboard.",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
       "id": "tts",
       "type": "domain",
       "title": "Text-to-Speech",
@@ -1325,6 +1424,18 @@
       "notes": "End-of-turn detection is the hard part: a pause mid-thought is not the same as a finished sentence.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "turnbench",
+      "type": "metric",
+      "title": "TurnBench",
+      "summary": "A multi-domain benchmark for evaluating conversational turn-taking. We hand-annotate end-of-turn and interruption events in dual-channel human conversations, and measure how accurately and how quickly models detect them.",
+      "tags": [
+        "benchmark"
+      ],
+      "notes": "- https://turnbench.sesame.com/",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
     },
     {
       "id": "twilio",
@@ -1506,6 +1617,12 @@
       "type": "part_of"
     },
     {
+      "id": "e-aircaps-related_to-stt",
+      "from": "aircaps",
+      "to": "stt",
+      "type": "related_to"
+    },
+    {
       "id": "e-assembly-deepgram",
       "from": "assemblyai",
       "to": "deepgram",
@@ -1570,6 +1687,36 @@
       "id": "e-benchmark-related_to-new-node-2",
       "from": "benchmark",
       "to": "new-node-2",
+      "type": "related_to"
+    },
+    {
+      "id": "e-best-open-speech-recognition-asr-part_of-stt",
+      "from": "best-open-speech-recognition-asr",
+      "to": "stt",
+      "type": "part_of"
+    },
+    {
+      "id": "e-breeze-tts-2-part_of-tts",
+      "from": "breeze-tts-2",
+      "to": "tts",
+      "type": "part_of"
+    },
+    {
+      "id": "e-breeze-tts-2-related_to-breezeblue",
+      "from": "breeze-tts-2",
+      "to": "breezeblue",
+      "type": "related_to"
+    },
+    {
+      "id": "e-breeze-tts-2-related_to-voice-cloning",
+      "from": "breeze-tts-2",
+      "to": "voice-cloning",
+      "type": "related_to"
+    },
+    {
+      "id": "e-breezeblue-related_to-breeze-tts-2",
+      "from": "breezeblue",
+      "to": "breeze-tts-2",
       "type": "related_to"
     },
     {
@@ -2034,6 +2181,12 @@
       "type": "uses"
     },
     {
+      "id": "e-moss-transcribe-diarize-part_of-stt",
+      "from": "moss-transcribe-diarize",
+      "to": "stt",
+      "type": "part_of"
+    },
+    {
       "id": "e-muse-glimmer-llm",
       "from": "muse-glimmer",
       "to": "llm",
@@ -2198,6 +2351,12 @@
       "type": "alternative_to"
     },
     {
+      "id": "e-pulse-part_of-stt",
+      "from": "pulse",
+      "to": "stt",
+      "type": "part_of"
+    },
+    {
       "id": "e-quantization-part_of-inference-optimization",
       "from": "quantization",
       "to": "inference-optimization",
@@ -2245,6 +2404,18 @@
       "from": "soniox",
       "to": "turn-taking",
       "type": "related_to"
+    },
+    {
+      "id": "e-sparrow-2-related_to-turn-taking",
+      "from": "sparrow-2",
+      "to": "turn-taking",
+      "type": "related_to"
+    },
+    {
+      "id": "e-sparrow-2-measured_by-turnbench",
+      "from": "sparrow-2",
+      "to": "turnbench",
+      "type": "measured_by"
     },
     {
       "id": "e-speaker-embedding-cache-part_of-inference-optimization",
@@ -2358,6 +2529,24 @@
       "note": "Fast TTFT does not imply low TTFA."
     },
     {
+      "id": "e-tts-voice-design-benchmark-part_of-benchmark",
+      "from": "tts-voice-design-benchmark",
+      "to": "benchmark",
+      "type": "part_of"
+    },
+    {
+      "id": "e-tts-voice-design-benchmark-related_to-tts",
+      "from": "tts-voice-design-benchmark",
+      "to": "tts",
+      "type": "related_to"
+    },
+    {
+      "id": "e-tts-voice-design-benchmark-related_to-breeze-tts-2",
+      "from": "tts-voice-design-benchmark",
+      "to": "breeze-tts-2",
+      "type": "related_to"
+    },
+    {
       "id": "e-tts-measured_by-pesq",
       "from": "tts",
       "to": "pesq",
@@ -2391,6 +2580,12 @@
       "id": "e-turn-vad",
       "from": "turn-taking",
       "to": "vad",
+      "type": "part_of"
+    },
+    {
+      "id": "e-turnbench-part_of-benchmark",
+      "from": "turnbench",
+      "to": "benchmark",
       "type": "part_of"
     },
     {

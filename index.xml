@@ -6,65 +6,65 @@
       <description>Last 10 notes on K. Boopathi</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>The Curiosity Ledger</title>
-    <link>https://programmerraja.is-a.dev/field-guide</link>
-    <guid>https://programmerraja.is-a.dev/field-guide</guid>
-    <description>Your live reading ledger — points, ranks, series stamps, badges and hidden gems, all kept in your own browser and never sent anywhere.</description>
-    <pubDate>Sat, 05 Sep 2026 04:24:53 GMT</pubDate>
+    <title>Bro skill </title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/bro-skill</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/bro-skill</guid>
+    <description> github.com/luchasarie/bro-skill Connections related_to pstack .</description>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>K.Boopathi</title>
-    <link>https://programmerraja.is-a.dev/</link>
-    <guid>https://programmerraja.is-a.dev/</guid>
-    <description>K. Boopathi — Full Stack Developer writing production postmortems as detective stories. Real-time voice agents, Kubernetes, and the outages that taught me everything.</description>
-    <pubDate>Sat, 05 Sep 2026 02:56:45 GMT</pubDate>
+    <title>Explain Diff</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/explain-diff</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/explain-diff</guid>
+    <description> gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524 Connections No outgoing connections.</description>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>How We Doubled Our Cache Hit Rate When Pre-Warming Wasn’t Enough</title>
-    <link>https://programmerraja.is-a.dev/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</link>
-    <guid>https://programmerraja.is-a.dev/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</guid>
-    <description>Quick question. If you run a voice agent, do you know your prompt cache hit rate on turn 1? Not the average across the call. Just turn 1, when the caller has said hello and is sitting in silence waiting for your agent to speak.</description>
-    <pubDate>Fri, 04 Sep 2026 23:58:22 GMT</pubDate>
+    <title>LongCat-2.0</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/longcat-2</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/longcat-2</guid>
+    <description> www.longcatai.org/models/longcat-2 1.6T MoE (activates ~33–56B, ~48B avg) trained for agentic coding. Native 1M context via LongCat Sparse Attention (linear, not quadratic).</description>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Argilla.io</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/argilla-io</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/argilla-io</guid>
-    <description> Domain experts focus on key data for language model fine-tuning, RLHF, and evaluation. AI automates the rest, quickly moving from prototype to ongoing production maintenance where we can store and review data and Annotate dataset Connections No outgoing connections.</description>
-    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+    <title>Needle 2</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/needle-2</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/needle-2</guid>
+    <description> github.com/cactus-compute/needle Connections No outgoing connections.</description>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>evals-skills</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/evals-skills</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/evals-skills</guid>
-    <description>Skills that guide AI coding agents to help you build product-specific AI evals (not foundation model benchmarks). These skills guard against common mistakes we’ve seen helping 50+ companies and teaching thousands of students in our AI Evals course.</description>
-    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+    <title>New node</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/new-node</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/new-node</guid>
+    <description>New node Connections No outgoing connections.</description>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>breezeblue</title>
-    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/breezeblue</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/breezeblue</guid>
-    <description>breezeblue Connections No outgoing connections.</description>
-    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+    <title>pstack</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/pstack</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/pstack</guid>
+    <description> github.com/cursor/plugins/tree/main/pstack/skills Connections No outgoing connections.</description>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Audio8 TTS</title>
-    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/audio8-tts</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/audio8-tts</guid>
+    <title>AirCaps</title>
+    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/aircaps</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/aircaps</guid>
+    <description> research.aircaps.com/ Lab arguing that clean-benchmark ASR is the wrong problem. Real rooms (far-field, reverb, SNR &lt; 5 dB, overlapping speech) break models that look great on Librispeech.</description>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Best Open Speech Recognition (ASR)</title>
+    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/best-open-speech-recognition-asr</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/best-open-speech-recognition-asr</guid>
     <description>...</description>
-    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Quipus 0.6 Speech</title>
-    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/quipus-0-6-speech</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/quipus-0-6-speech</guid>
+    <title>Breeze TTS 2</title>
+    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/breeze-tts-2</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/breeze-tts-2</guid>
+    <description> huggingface.co/BreezeBlue/Breeze-TTS-2 ~3B open-weight bilingual (EN/ZH) TTS for real-time interaction. Voice clone from a ref clip, voice design from a text description, voice direction to keep identity while steering emotion/pace.</description>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>MOSS-Transcribe-Diarize</title>
+    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/moss-transcribe-diarize</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/moss-transcribe-diarize</guid>
     <description>...</description>
-    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>Atomic chat </title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/atomic-chat</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/atomic-chat</guid>
-    <description> Google TurboQuant built-in Connections No outgoing connections.</description>
-    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>colibri</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/colibri</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/colibri</guid>
-    <description> Run frontier MoE models on hardware you already own — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. github.com/JustVugg/colibri Connections alternative_to Atomic chat .</description>
-    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+    <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
