@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-09-01",
+  "updated": "2026-09-07",
   "nodeTypes": [
     {
       "id": "domain",
@@ -71,6 +71,16 @@
       "id": "eval",
       "label": "Eval",
       "color": "#c98b62"
+    },
+    {
+      "id": "slm",
+      "label": "SLM",
+      "color": "#7c9cff"
+    },
+    {
+      "id": "coding-agent",
+      "label": "coding Agent",
+      "color": "#59c2a4"
     }
   ],
   "edgeTypes": [
@@ -132,6 +142,32 @@
       "updated": "2026-08-28"
     },
     {
+      "id": "bro-skill",
+      "type": "coding-agent",
+      "title": "Bro skill ",
+      "summary": "re-explains the last answer in plain language, for when the reply made you go 'bro what'. One-file skill for Hermes, Claude Code, Codex, and opencode.",
+      "tags": [
+        "coding",
+        "skill"
+      ],
+      "notes": "- https://github.com/luchasarie/bro-skill",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "cheaperinference",
+      "type": "cost-reduction",
+      "title": "Cheaper Inference",
+      "summary": "Discounted models from multiple providers through one OpenAI-compatible API.",
+      "tags": [
+        "cost",
+        "inference"
+      ],
+      "notes": "- https://www.cheaperinference.com/\n- Access leading discounted AI models from multiple providers through one OpenAI-compatible API, without changing request format.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
       "id": "colibri",
       "type": "local-inference",
       "title": "colibri",
@@ -142,6 +178,32 @@
       "notes": "- Run frontier MoE models on hardware you already own — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. \n- https://github.com/JustVugg/colibri",
       "created": "2026-08-28",
       "updated": "2026-08-28"
+    },
+    {
+      "id": "compound",
+      "type": "tool",
+      "title": "Compound",
+      "summary": "Compare pinned, verified hosts for an open model: success, cost, latency, cache hits.",
+      "tags": [
+        "inference",
+        "routing"
+      ],
+      "notes": "- https://github.com/aktasbatuhan/compound\n- Which host should serve your open model? Run a workload across pinned, verified providers and get one table: success, cost, latency, cache hits.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
+      "id": "context-ai",
+      "type": "tool",
+      "title": "Context",
+      "summary": "Build, deploy, and improve AI agents on your own infrastructure.",
+      "tags": [
+        "agents",
+        "evals"
+      ],
+      "notes": "- https://www.context.ai/\n- Context, execution, identity, and evals on one foundation. Run agents on your infrastructure (hosted, VPC, on-prem, air-gapped).",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
     },
     {
       "id": "evals-skills",
@@ -156,6 +218,187 @@
       "updated": "2026-09-01"
     },
     {
+      "id": "evox",
+      "type": "coding-agent",
+      "title": "Evox",
+      "summary": "Self-evolving swarm agent from EvoMap.",
+      "tags": [
+        "agents"
+      ],
+      "notes": "- https://evomap.ai/evox/\n- Marketed as a self-evolving swarm agent.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
+      "id": "explain-diff",
+      "type": "coding-agent",
+      "title": "Explain Diff",
+      "summary": "make  a rich, interactive explanation of the specified code change.",
+      "tags": [
+        "coding",
+        "skill"
+      ],
+      "notes": "- https://gist.github.com/geoffreylitt/a29df1b5f9865506e8952488eac3d524",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "freellm",
+      "type": "tool",
+      "title": "FreeLLM",
+      "summary": "Directory of models you can use for free (credits, daily check-ins, limited tiers).",
+      "tags": [
+        "catalog",
+        "free"
+      ],
+      "notes": "- https://freellm.sh/models\n- Curated directory of AI models you can use for free — signup credits, daily check-ins, and limited free tiers. Credits count as free access.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
+      "id": "layerscale",
+      "type": "tool",
+      "title": "LayerScale",
+      "summary": "Inference engine for agents and streams; processes data as it arrives.",
+      "tags": [
+        "inference",
+        "agents"
+      ],
+      "notes": "- https://layerscale.ai/\n- https://layerscale.ai/benchmarks\n- Inference engine built for agents and streams. Data is processed the moment it arrives, not when you query.\n- Cited numbers: 0.383ms flash query on a live 8k-token stream (p50); 2.818ms/token single-stream decode 128 in / 128 out (p50); 90,229.87 tok/s prefill on a 4,096-token prompt.\n- Free version also available.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
+      "id": "longcat-2",
+      "type": "coding-agent",
+      "title": "LongCat-2.0",
+      "summary": "1.6T open-source MoE for agentic coding with native 1M context.",
+      "tags": [
+        "coding",
+        "llm"
+      ],
+      "notes": "- https://www.longcatai.org/models/longcat-2\n- 1.6T MoE (activates ~33–56B, ~48B avg) trained for agentic coding. Native 1M context via LongCat Sparse Attention (linear, not quadratic).\n- Zero-computation experts skip easy tokens; MOPD fuses agent / reasoning / interaction expert groups into one model. Trained on 30T+ tokens on a 50k-card domestic cluster.\n- Headline numbers they cite: SWE-bench Pro 59.5, Terminal-Bench 2.1 70.8, BrowseComp 79.9. Preview on OpenRouter / longcat.ai; weights still pending HF.",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "minicpm5-2b",
+      "type": "slm",
+      "title": "MiniCPM5-2B",
+      "summary": "Dense 2B Transformer for on-device / local deployment; second model in the MiniCPM5 series.",
+      "tags": [
+        "SLM",
+        "local"
+      ],
+      "notes": "- https://github.com/OpenBMB/MiniCPM\n- Dense 2B Transformer that scales the MiniCPM5-1B training recipe for on-device, local, and resource-constrained use. Open-source 2B-class SOTA claim.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
+      "id": "modular",
+      "type": "tool",
+      "title": "Modular",
+      "summary": "Paid unified inference stack from kernel to cloud.",
+      "tags": [
+        "inference"
+      ],
+      "notes": "- https://www.modular.com/\n- Inference from kernel to cloud in one unified stack. Product is paid.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
+      "id": "needle-2",
+      "type": "slm",
+      "title": "Needle 2",
+      "summary": "Needle 2 is an open 45M-parameter model for tool calling, device use and structured extraction. The whole model is a single 14MB binary that runs a full session in about 28MB of RAM.",
+      "tags": [
+        "llm",
+        "SLM"
+      ],
+      "notes": "- https://github.com/cactus-compute/needle",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "new-node",
+      "type": "coding-agent",
+      "title": "New node",
+      "summary": "",
+      "tags": [
+        "coding",
+        "skill"
+      ],
+      "notes": "New node",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "pplx-garden",
+      "type": "local-inference",
+      "title": "pplx-garden",
+      "summary": "Perplexity open-source inference garden; Lily serves Qwen3.6-35B-A3B on Apple Silicon.",
+      "tags": [
+        "local",
+        "apple",
+        "inference"
+      ],
+      "notes": "- https://github.com/perplexityai/pplx-garden\n- Perplexity open-source garden for inference technology.\n- Lily: Rust and Metal inference server for Qwen3.6-35B-A3B on Apple Silicon. Greedy text generation through a minimal OpenAI-compatible HTTP API.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
+      "id": "pstack",
+      "type": "coding-agent",
+      "title": "pstack",
+      "summary": "",
+      "tags": [
+        "coding",
+        "skill"
+      ],
+      "notes": "- https://github.com/cursor/plugins/tree/main/pstack/skills",
+      "created": "2026-09-07",
+      "updated": "2026-09-07"
+    },
+    {
+      "id": "rapid-mlx",
+      "type": "local-inference",
+      "title": "Rapid-MLX",
+      "summary": "Local AI engine for Apple Silicon; OpenAI-compatible, tool calling, prompt cache.",
+      "tags": [
+        "local",
+        "apple"
+      ],
+      "notes": "- https://github.com/raullenchai/Rapid-MLX\n- Fastest local AI engine for Apple Silicon. Claims 4.2x faster than Ollama, 0.08s cached TTFT, 100% tool calling.\n- 17 tool parsers, prompt cache, reasoning separation, cloud routing. Drop-in OpenAI replacement. Works with Claude Code, Cursor, Aider.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
+      "id": "sie",
+      "type": "tool",
+      "title": "SIE",
+      "summary": "Open-source inference server for the models an agent needs, one API.",
+      "tags": [
+        "inference",
+        "agents"
+      ],
+      "notes": "- https://github.com/superlinked/sie\n- Open-source inference server and production cluster for the models an agent needs.\n- One API for search/retrieval, document-to-markdown, structured output, content safety, and the agent loop. Serves 100+ models, loading each on demand.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
+      "id": "taalas",
+      "type": "tool",
+      "title": "Taalas",
+      "summary": "Turns an AI model into custom silicon (“Hardcore Models”).",
+      "tags": [
+        "inference",
+        "hardware"
+      ],
+      "notes": "- https://taalas.com/\n- Platform for turning any AI model into custom silicon. Resulting Hardcore Models claimed 1000x more efficient than the software counterpart.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
+    },
+    {
       "id": "tinyfish",
       "type": "llmscraper",
       "title": "tinyfish",
@@ -167,14 +410,69 @@
       "notes": "- Your agent gets live web search and clean page fetches, powered by TinyFish. No subscriptions, no API keys, no credit card.",
       "created": "2026-08-27",
       "updated": "2026-08-27"
+    },
+    {
+      "id": "utopia",
+      "type": "memory",
+      "title": "Utopia",
+      "summary": "Open enterprise knowledge substrate with time-aware ontology; offline deploy.",
+      "tags": [
+        "memory",
+        "knowledge"
+      ],
+      "notes": "- https://github.com/deeplethe/utopia\n- Enterprise world model from DeepLethe (https://deeplethe.com/). Open substrate for knowledge engineering that learns passively and governs itself.\n- Puts time awareness and ontology in the base layer so the knowledge system evolves as material arrives. Conflict detection, reasoning, and decisions run against that ontology.\n- Deploys offline: knowledge foundation, decision core for agents, compliance audit trail on hardware you control.",
+      "created": "2026-09-13",
+      "updated": "2026-09-13"
     }
   ],
   "edges": [
+    {
+      "id": "e-bro-skill-related_to-new-node",
+      "from": "bro-skill",
+      "to": "pstack",
+      "type": "related_to"
+    },
     {
       "id": "e-colibri-alternative_to-atomic-chat",
       "from": "colibri",
       "to": "atomic-chat",
       "type": "alternative_to"
+    },
+    {
+      "id": "e-minicpm5-2b-related_to-needle-2",
+      "from": "minicpm5-2b",
+      "to": "needle-2",
+      "type": "related_to"
+    },
+    {
+      "id": "e-pplx-garden-alternative_to-rapid-mlx",
+      "from": "pplx-garden",
+      "to": "rapid-mlx",
+      "type": "alternative_to"
+    },
+    {
+      "id": "e-pplx-garden-alternative_to-colibri",
+      "from": "pplx-garden",
+      "to": "colibri",
+      "type": "alternative_to"
+    },
+    {
+      "id": "e-rapid-mlx-alternative_to-colibri",
+      "from": "rapid-mlx",
+      "to": "colibri",
+      "type": "alternative_to"
+    },
+    {
+      "id": "e-rapid-mlx-alternative_to-atomic-chat",
+      "from": "rapid-mlx",
+      "to": "atomic-chat",
+      "type": "alternative_to"
+    },
+    {
+      "id": "e-sie-related_to-layerscale",
+      "from": "sie",
+      "to": "layerscale",
+      "type": "related_to"
     }
   ]
 }

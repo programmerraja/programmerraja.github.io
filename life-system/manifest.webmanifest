@@ -1,0 +1,18 @@
+{
+  "name": "Dayforge",
+  "short_name": "Dayforge",
+  "description": "Forge the day: loops, plans, focus, and journal.",
+  "start_url": "./#plan/today",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ede6d4",
+  "theme_color": "#ede6d4",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

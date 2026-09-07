@@ -6,65 +6,65 @@
       <description>Last 10 notes on K. Boopathi</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>The Curiosity Ledger</title>
-    <link>https://programmerraja.is-a.dev/field-guide</link>
-    <guid>https://programmerraja.is-a.dev/field-guide</guid>
-    <description>Your live reading ledger — points, ranks, series stamps, badges and hidden gems, all kept in your own browser and never sent anywhere.</description>
-    <pubDate>Sat, 05 Sep 2026 04:24:53 GMT</pubDate>
+    <title>draft</title>
+    <link>https://programmerraja.is-a.dev/second-brain/draft</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/draft</guid>
+    <description>desertant.com/ The fastest models for your task, running on-device. product Small models that each do one job very well, with one native SDK that drops them into any product in a few lines of code.</description>
+    <pubDate>Mon, 14 Sep 2026 00:13:39 GMT</pubDate>
   </item><item>
-    <title>K.Boopathi</title>
-    <link>https://programmerraja.is-a.dev/</link>
-    <guid>https://programmerraja.is-a.dev/</guid>
-    <description>K. Boopathi — Full Stack Developer writing production postmortems as detective stories. Real-time voice agents, Kubernetes, and the outages that taught me everything.</description>
-    <pubDate>Sat, 05 Sep 2026 02:56:45 GMT</pubDate>
+    <title>Your progress</title>
+    <link>https://programmerraja.is-a.dev/progress</link>
+    <guid>https://programmerraja.is-a.dev/progress</guid>
+    <description>What you have read here, which notes are due to come back, and how the reading progress, ranks and badges work. Everything stays in your own browser.</description>
+    <pubDate>Sun, 13 Sep 2026 13:34:26 GMT</pubDate>
   </item><item>
-    <title>How We Doubled Our Cache Hit Rate When Pre-Warming Wasn’t Enough</title>
-    <link>https://programmerraja.is-a.dev/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</link>
-    <guid>https://programmerraja.is-a.dev/post/2026/How-We-Doubled-Our-Cache-Hit-Rate-When-Pre-Warming-Wasnt-Enough</guid>
-    <description>Quick question. If you run a voice agent, do you know your prompt cache hit rate on turn 1? Not the average across the call. Just turn 1, when the caller has said hello and is sitting in silence waiting for your agent to speak.</description>
-    <pubDate>Fri, 04 Sep 2026 23:58:22 GMT</pubDate>
-  </item><item>
-    <title>Argilla.io</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/argilla-io</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/argilla-io</guid>
-    <description> Domain experts focus on key data for language model fine-tuning, RLHF, and evaluation. AI automates the rest, quickly moving from prototype to ongoing production maintenance where we can store and review data and Annotate dataset Connections No outgoing connections.</description>
-    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>evals-skills</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/evals-skills</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/evals-skills</guid>
-    <description>Skills that guide AI coding agents to help you build product-specific AI evals (not foundation model benchmarks). These skills guard against common mistakes we’ve seen helping 50+ companies and teaching thousands of students in our AI Evals course.</description>
-    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>breezeblue</title>
-    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/breezeblue</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/breezeblue</guid>
-    <description>breezeblue Connections No outgoing connections.</description>
-    <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>Audio8 TTS</title>
-    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/audio8-tts</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/audio8-tts</guid>
+    <title>Cheaper Inference</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/cheaperinference</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/cheaperinference</guid>
     <description>...</description>
-    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Quipus 0.6 Speech</title>
-    <link>https://programmerraja.is-a.dev/second-brain/voice-agent/quipus-0-6-speech</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/voice-agent/quipus-0-6-speech</guid>
+    <title>Compound</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/compound</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/compound</guid>
     <description>...</description>
-    <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Atomic chat </title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/atomic-chat</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/atomic-chat</guid>
-    <description> Google TurboQuant built-in Connections No outgoing connections.</description>
-    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+    <title>Context</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/context-ai</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/context-ai</guid>
+    <description> www.context.ai/ Context, execution, identity, and evals on one foundation. Run agents on your infrastructure (hosted, VPC, on-prem, air-gapped). Connections No outgoing connections.</description>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>colibri</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/colibri</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/colibri</guid>
-    <description> Run frontier MoE models on hardware you already own — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. github.com/JustVugg/colibri Connections alternative_to Atomic chat .</description>
-    <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+    <title>Evox</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/evox</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/evox</guid>
+    <description> evomap.ai/evox/ Marketed as a self-evolving swarm agent. Connections No outgoing connections.</description>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>FreeLLM</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/freellm</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/freellm</guid>
+    <description> freellm.sh/models Curated directory of AI models you can use for free — signup credits, daily check-ins, and limited free tiers. Credits count as free access.</description>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>LayerScale</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/layerscale</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/layerscale</guid>
+    <description> layerscale.ai/ layerscale.ai/benchmarks Inference engine built for agents and streams. Data is processed the moment it arrives, not when you query. Cited numbers: 0.383ms flash query on a live 8k-token stream (p50); 2.818ms/token single-stream decode 128 in / 128 out (p50); 90,229.87 tok/s prefill on a 4,096-token prompt.</description>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>MiniCPM5-2B</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/minicpm5-2b</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/minicpm5-2b</guid>
+    <description> github.com/OpenBMB/MiniCPM Dense 2B Transformer that scales the MiniCPM5-1B training recipe for on-device, local, and resource-constrained use. Open-source 2B-class SOTA claim.</description>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+  </item><item>
+    <title>Modular</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/modular</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/modular</guid>
+    <description> www.modular.com/ Inference from kernel to cloud in one unified stack. Product is paid. Connections No outgoing connections.</description>
+    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>
