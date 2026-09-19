@@ -113,7 +113,7 @@ export function createStore(today = formatDate()) {
     })),
     tasks: [],
     days: {},
-    timerSettings: { focusMinutes: 25, breakMinutes: 5 },
+    timerSettings: { focusMinutes: 25, breakMinutes: 5, alert: "sound" },
     activeTimer: null,
     sessions: [],
     companion: { name: "", bond: 3, lastSeenAt: "", lastLine: "" },
@@ -281,6 +281,9 @@ export function startTimer(store, kind, note, minutes, now = new Date()) {
     endsAt: new Date(now.getTime() + duration * 60_000).toISOString(),
     remainingMs: null,
     plannedMinutes: duration,
+    pauses: 0,
+    pausedMs: 0,
+    pausedAt: null,
   }
 }
 
@@ -293,13 +296,34 @@ export function pauseTimer(store, now = Date.now()) {
   if (!timer || !timer.endsAt) return
   timer.remainingMs = Math.max(0, new Date(timer.endsAt).getTime() - now)
   timer.endsAt = null
+  timer.pauses = (timer.pauses || 0) + 1
+  timer.pausedAt = new Date(now).toISOString()
 }
 
 export function resumeTimer(store, now = Date.now()) {
   const timer = store.activeTimer
   if (!timer || timer.endsAt) return
+  timer.pausedMs = pausedMsFor(timer, now)
+  timer.pausedAt = null
   timer.endsAt = new Date(now + (timer.remainingMs ?? 0)).toISOString()
   timer.remainingMs = null
+}
+
+/** Idle time so far, including a pause that is still open. */
+export function pausedMsFor(timer, now = Date.now()) {
+  const extra = timer.pausedAt ? Math.max(0, now - new Date(timer.pausedAt).getTime()) : 0
+  return Math.max(0, (timer.pausedMs || 0) + extra)
+}
+
+/**
+ * Each pause costs at least a minute, and full idle minutes stack on top.
+ * Breaks are rest, so they are not taxed.
+ */
+export function pausePenalty(timer, now = Date.now()) {
+  if (!timer || timer.kind === "break") return 0
+  const pauses = timer.pauses || 0
+  if (!pauses && !timer.pausedAt) return 0
+  return Math.max(pauses, Math.ceil(pausedMsFor(timer, now) / 60_000))
 }
 
 function remainingMsFor(timer, now) {
@@ -312,7 +336,8 @@ export function finishTimer(store, endedAt = new Date().toISOString()) {
   if (!timer) return null
   const end = new Date(endedAt)
   const workedMs = timer.plannedMinutes * 60_000 - remainingMsFor(timer, end.getTime())
-  const elapsed = Math.max(1, Math.ceil(workedMs / 60_000))
+  const focused = Math.min(timer.plannedMinutes, Math.max(0, Math.ceil(workedMs / 60_000)))
+  const penalty = pausePenalty(timer, end.getTime())
   const session = {
     id: timer.id,
     kind: timer.kind,
@@ -321,7 +346,9 @@ export function finishTimer(store, endedAt = new Date().toISOString()) {
     startedAt: timer.startedAt,
     endedAt: end.toISOString(),
     plannedMinutes: timer.plannedMinutes,
-    actualMinutes: Math.min(timer.plannedMinutes, elapsed),
+    actualMinutes: Math.max(0, focused - penalty),
+    pauses: timer.pauses || 0,
+    pauseMinutes: Math.ceil(pausedMsFor(timer, end.getTime()) / 60_000),
   }
   store.sessions.push(session)
   store.activeTimer = null
@@ -369,6 +396,8 @@ export function dayLog(store, date) {
         title: session.kind === "focus" ? "Focus session" : "Break",
         notes: session.note,
         minutes: session.actualMinutes,
+        pauses: session.pauses || 0,
+        pauseMinutes: session.pauseMinutes || 0,
       })),
     ].sort((a, b) => String(a.at).localeCompare(String(b.at))),
   }
@@ -472,6 +501,7 @@ export function normalizeStore(input) {
     timerSettings: {
       focusMinutes: boundedMinutes(input.timerSettings?.focusMinutes, 25),
       breakMinutes: boundedMinutes(input.timerSettings?.breakMinutes, 5),
+      alert: input.timerSettings?.alert === "vibrate" ? "vibrate" : "sound",
     },
     activeTimer: normalizeTimer(input.activeTimer),
     sessions: Array.isArray(input.sessions)
@@ -522,6 +552,11 @@ function boundedMinutes(value, fallback) {
   return Number.isFinite(minutes) ? Math.max(1, Math.min(180, minutes)) : fallback
 }
 
+function boundedCount(value, fallback = 0) {
+  const count = Math.round(Number(value))
+  return Number.isFinite(count) ? Math.max(0, Math.min(180, count)) : fallback
+}
+
 function normalizeTimer(timer) {
   if (!timer || !timer.id || !timer.startedAt) return null
   const remaining = Number(timer.remainingMs)
@@ -535,6 +570,9 @@ function normalizeTimer(timer) {
     endsAt: paused ? null : text(timer.endsAt, 30),
     remainingMs: paused ? Math.max(0, Math.min(180 * 60_000, remaining)) : null,
     plannedMinutes: boundedMinutes(timer.plannedMinutes, 25),
+    pauses: boundedCount(timer.pauses),
+    pausedMs: Math.max(0, Math.min(12 * 60 * 60_000, Math.round(Number(timer.pausedMs) || 0))),
+    pausedAt: paused && /^\d{4}-\d{2}-\d{2}T/.test(timer.pausedAt || "") ? text(timer.pausedAt, 30) : null,
   }
 }
 
@@ -548,7 +586,9 @@ function normalizeSession(session) {
     startedAt: text(session.startedAt, 30),
     endedAt: text(session.endedAt, 30),
     plannedMinutes: boundedMinutes(session.plannedMinutes, 25),
-    actualMinutes: boundedMinutes(session.actualMinutes, 1),
+    actualMinutes: boundedCount(session.actualMinutes, 1),
+    pauses: boundedCount(session.pauses),
+    pauseMinutes: boundedCount(session.pauseMinutes),
   }
 }
 
@@ -586,7 +626,7 @@ function pack(store) {
         event.notes,
       ]),
     ]),
-    f: [store.timerSettings.focusMinutes, store.timerSettings.breakMinutes],
+    f: [store.timerSettings.focusMinutes, store.timerSettings.breakMinutes, store.timerSettings.alert],
     x: store.activeTimer
       ? [
           store.activeTimer.id,
@@ -596,6 +636,9 @@ function pack(store) {
           store.activeTimer.endsAt,
           store.activeTimer.plannedMinutes,
           store.activeTimer.remainingMs,
+          store.activeTimer.pauses,
+          store.activeTimer.pausedMs,
+          store.activeTimer.pausedAt,
         ]
       : null,
     p: store.sessions.map((session) => [
@@ -607,6 +650,8 @@ function pack(store) {
       session.endedAt,
       session.plannedMinutes,
       session.actualMinutes,
+      session.pauses,
+      session.pauseMinutes,
     ]),
     c: [
       store.companion.name,
@@ -659,6 +704,7 @@ function unpack(value) {
     timerSettings: {
       focusMinutes: value.f?.[0],
       breakMinutes: value.f?.[1],
+      alert: value.f?.[2],
     },
     activeTimer: value.x
       ? {
@@ -669,10 +715,13 @@ function unpack(value) {
           endsAt: value.x[4],
           plannedMinutes: value.x[5],
           remainingMs: value.x[6],
+          pauses: value.x[7],
+          pausedMs: value.x[8],
+          pausedAt: value.x[9],
         }
       : null,
     sessions: (value.p || []).map(
-      ([id, kind, note, date, startedAt, endedAt, plannedMinutes, actualMinutes]) => ({
+      ([id, kind, note, date, startedAt, endedAt, plannedMinutes, actualMinutes, pauses, pauseMinutes]) => ({
         id,
         kind,
         note,
@@ -681,6 +730,8 @@ function unpack(value) {
         endedAt,
         plannedMinutes,
         actualMinutes,
+        pauses,
+        pauseMinutes,
       }),
     ),
     companion: {

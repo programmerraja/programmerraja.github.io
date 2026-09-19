@@ -1290,11 +1290,65 @@ textarea:focus {
   max-width: 480px;
 }
 
+.timer-card > .pause-toll {
+  color: var(--danger);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.timer-card label {
+  display: grid;
+  gap: 6px;
+  margin: 0 auto 16px;
+  max-width: 480px;
+  text-align: left;
+  width: 100%;
+}
+
 .timer-settings {
   display: grid;
   gap: 10px;
   grid-template-columns: 1fr 1fr;
   margin-top: 12px;
+}
+
+.alert-choice {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.alert-choice > span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.segmented {
+  background: var(--raised);
+  border-radius: 999px;
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+}
+
+.segmented button {
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 8px 15px;
+}
+
+.segmented button.active {
+  background: var(--surface-strong);
+  color: var(--heading);
 }
 
 .timer-actions {
@@ -1314,6 +1368,91 @@ textarea:focus {
   color: var(--accent-dark);
   font-size: 13px;
   font-weight: 700;
+}
+
+.timeline-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  margin-top: 18px;
+  padding: 18px;
+}
+
+.timeline-totals {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  margin: 2px 0 14px;
+}
+
+.timeline-empty {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 18px;
+  text-align: center;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.block {
+  border-left: 2px solid var(--accent);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 54px minmax(0, 1fr);
+  padding: 0 0 14px 13px;
+}
+
+.block:last-child {
+  padding-bottom: 0;
+}
+
+.block.break {
+  border-left-color: var(--success);
+}
+
+/* Gaps are drawn hollow, so a day of them is visibly empty. */
+.block.idle {
+  border-left-color: var(--border-strong);
+  border-left-style: dashed;
+}
+
+.block > time {
+  color: var(--muted);
+  display: grid;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+
+.block > time span {
+  opacity: 0.6;
+}
+
+.block strong {
+  color: var(--heading);
+  font-size: 14px;
+}
+
+.block.idle strong {
+  color: var(--muted);
+}
+
+.block small {
+  color: var(--danger);
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.block p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 4px 0 0;
+  white-space: pre-wrap;
 }
 
 .chamber {
