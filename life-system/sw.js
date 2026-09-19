@@ -1,4 +1,4 @@
-const CACHE = "dayforge-v13"
+const CACHE = "dayforge-v17"
 const APP = [
   "./",
   "./index.html",
