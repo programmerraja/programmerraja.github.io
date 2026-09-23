@@ -6,6 +6,12 @@
       <description>Last 10 notes on K. Boopathi</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>How Jev Works: The Logit Trick Behind TypeSafe&#039;s System One Model</title>
+    <link>https://programmerraja.is-a.dev/post/2026/How-Jev-Works:-The-Logit-Trick-Behind-TypeSafe's-System-One-Model</link>
+    <guid>https://programmerraja.is-a.dev/post/2026/How-Jev-Works:-The-Logit-Trick-Behind-TypeSafe's-System-One-Model</guid>
+    <description>For the last few weeks my timeline has been nothing but Jev. TypeSafe AI shipped it, and within days there was an awesome-jev list, a jev-mcp server, a LangChain integration, and about ten thousand demos of someone routing support tickets in 90 milliseconds.</description>
+    <pubDate>Wed, 23 Sep 2026 14:00:00 GMT</pubDate>
+  </item><item>
     <title>draft</title>
     <link>https://programmerraja.is-a.dev/second-brain/draft</link>
     <guid>https://programmerraja.is-a.dev/second-brain/draft</guid>
@@ -58,12 +64,6 @@
     <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/minicpm5-2b</link>
     <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/minicpm5-2b</guid>
     <description> github.com/OpenBMB/MiniCPM Dense 2B Transformer that scales the MiniCPM5-1B training recipe for on-device, local, and resource-constrained use. Open-source 2B-class SOTA claim.</description>
-    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>Modular</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/modular</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/modular</guid>
-    <description> www.modular.com/ Inference from kernel to cloud in one unified stack. Product is paid. Connections No outgoing connections.</description>
     <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
