@@ -9,10 +9,6 @@
 <li>Avoid <strong>cutting words or sentences</strong> at fixed boundaries</li>
 </ol>
 <p>The design choices you see (30‑second windows, timestamps, seek logic, prompts) are all answers to these constraints.</p>
-<p>Keep this question in mind:</p>
-<blockquote>
-<p><em>How do we transcribe unbounded audio using a fixed-size neural network without losing continuity?</em></p>
-</blockquote>
 <p><img src="../../.././../../Images/Pasted-image-20260308071042.png" alt/></p>
 <h2 id="1-high-level-pipeline">1. High-Level Pipeline<a role="anchor" aria-hidden="true" tabindex="-1" data-no-popover="true" href="#1-high-level-pipeline" class="internal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a></h2>
 <pre><code>Audio → Log‑Mel Spectrogram → 30s Window
