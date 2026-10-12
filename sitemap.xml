@@ -887,26 +887,44 @@
     <loc>https://programmerraja.is-a.dev/projects/</loc>
     <lastmod>2025-05-04T04:25:25.252Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/agent-memory-benchmark</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/argilla-io</loc>
     <lastmod>2026-09-01T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/atomic-chat</loc>
     <lastmod>2026-08-28T00:00:00.000Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/benchlm</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/bro-skill</loc>
     <lastmod>2026-09-07T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/cactus</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/cheaperinference</loc>
     <lastmod>2026-09-13T00:00:00.000Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/cognee</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/colibri</loc>
     <lastmod>2026-08-28T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/composio</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/compound</loc>
     <lastmod>2026-09-13T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/context-ai</loc>
     <lastmod>2026-09-13T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/desertant</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/evals-skills</loc>
     <lastmod>2026-09-01T00:00:00.000Z</lastmod>
@@ -917,14 +935,35 @@
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/explain-diff</loc>
     <lastmod>2026-09-07T00:00:00.000Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/fastino</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/freellm</loc>
     <lastmod>2026-09-13T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/graphiti</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/hyperspell</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/layerscale</loc>
     <lastmod>2026-09-13T00:00:00.000Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/letta-code</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/letta</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/longcat-2</loc>
     <lastmod>2026-09-07T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/mem0</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/memu</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/minicpm5-2b</loc>
     <lastmod>2026-09-13T00:00:00.000Z</lastmod>
@@ -938,6 +977,15 @@
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/new-node</loc>
     <lastmod>2026-09-07T00:00:00.000Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/openmemory</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/openviking</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/parsebench</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/pplx-garden</loc>
     <lastmod>2026-09-13T00:00:00.000Z</lastmod>
   </url><url>
@@ -946,6 +994,9 @@
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/rapid-mlx</loc>
     <lastmod>2026-09-13T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/runanywhere</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/ai-engineering/sie</loc>
     <lastmod>2026-09-13T00:00:00.000Z</lastmod>
@@ -976,6 +1027,9 @@
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/audio-realism-benchmark</loc>
     <lastmod>2026-08-19T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/audio8-asr-infinite</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/audio8-tts</loc>
     <lastmod>2026-08-31T00:00:00.000Z</lastmod>
@@ -1022,8 +1076,14 @@
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/elevenlabs</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/eva</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/evaluation</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/fastdiar</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/featherless</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
@@ -1139,6 +1199,9 @@
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/nari</loc>
     <lastmod>2026-09-13T00:00:00.000Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/nemotron-3-diarization</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/nemotron-3</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
   </url><url>
@@ -1181,8 +1244,14 @@
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/orpheus</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
   </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/oruk</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/palabra</loc>
     <lastmod>2026-08-24T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/personaplex-7b</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/pesq</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>
@@ -1213,6 +1282,12 @@
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/quipus-0-6-speech</loc>
     <lastmod>2026-08-31T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/qwen3-asr</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
+  </url><url>
+    <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/raindrop</loc>
+    <lastmod>2026-10-12T00:00:00.000Z</lastmod>
   </url><url>
     <loc>https://programmerraja.is-a.dev/second-brain/voice-agent/rtf</loc>
     <lastmod>2026-08-12T00:00:00.000Z</lastmod>

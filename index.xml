@@ -6,65 +6,65 @@
       <description>Last 10 notes on K. Boopathi</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>Catalog</title>
-    <link>https://programmerraja.is-a.dev/notes/AI-ML/catalog</link>
-    <guid>https://programmerraja.is-a.dev/notes/AI-ML/catalog</guid>
-    <description>1. Mathematics Basic Maths — logs, exponents, functions, bias, geometry, and trig. Recall what a function and a bias are before any model. The calculus heading at the bottom of this note is the next file.</description>
-    <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+    <title>Agent Memory Benchmark</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/agent-memory-benchmark</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/agent-memory-benchmark</guid>
+    <description> github.com/vectorize-io/agent-memory-benchmark Connections No outgoing connections.</description>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>How Jev Works: The Logit Trick Behind TypeSafe&#039;s System One Model</title>
-    <link>https://programmerraja.is-a.dev/post/2026/How-Jev-Works:-The-Logit-Trick-Behind-TypeSafe's-System-One-Model</link>
-    <guid>https://programmerraja.is-a.dev/post/2026/How-Jev-Works:-The-Logit-Trick-Behind-TypeSafe's-System-One-Model</guid>
-    <description>For the last few weeks my timeline has been nothing but Jev. TypeSafe AI shipped it, and within days there was an awesome-jev list, a jev-mcp server, a LangChain integration, and about ten thousand demos of someone routing support tickets in 90 milliseconds.</description>
-    <pubDate>Wed, 23 Sep 2026 14:00:00 GMT</pubDate>
+    <title>BenchLM</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/benchlm</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/benchlm</guid>
+    <description> benchlm.ai/ LLM leaderboard and AI model benchmarks. Connections No outgoing connections.</description>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>draft</title>
-    <link>https://programmerraja.is-a.dev/second-brain/draft</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/draft</guid>
-    <description>desertant.com/ The fastest models for your task, running on-device. product Small models that each do one job very well, with one native SDK that drops them into any product in a few lines of code.</description>
-    <pubDate>Mon, 14 Sep 2026 00:13:39 GMT</pubDate>
+    <title>Cactus</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/cactus</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/cactus</guid>
+    <description> cactuscompute.com/ Low-latency AI engine for mobile devices and wearables. Energy-efficient inference engine. OpenAI-compatible APIs for C/C++, Swift, Kotlin, and Flutter.</description>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Your progress</title>
-    <link>https://programmerraja.is-a.dev/progress</link>
-    <guid>https://programmerraja.is-a.dev/progress</guid>
-    <description>What you have read here, which notes are due to come back, and how the reading progress, ranks and badges work. Everything stays in your own browser.</description>
-    <pubDate>Sun, 13 Sep 2026 13:34:26 GMT</pubDate>
+    <title>Cognee</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/cognee</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/cognee</guid>
+    <description> github.com/topoteretes/cognee Documents, code, and conversations become a knowledge graph. Connections No outgoing connections.</description>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Cheaper Inference</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/cheaperinference</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/cheaperinference</guid>
-    <description>...</description>
-    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+    <title>Composio</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/composio</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/composio</guid>
+    <description> composio.dev/ Secure access to 1,500+ apps in minutes. Third-party MCP is not an efficient way to do this. It wastes tokens. Connections No outgoing connections.</description>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Compound</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/compound</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/compound</guid>
-    <description>...</description>
-    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+    <title>Desertant</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/desertant</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/desertant</guid>
+    <description> desertant.com/ Fastest models for the task, running on-device. Small models that each do one job very well, with one native SDK that drops them into a product in a few lines of code.</description>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Context</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/context-ai</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/context-ai</guid>
-    <description> www.context.ai/ Context, execution, identity, and evals on one foundation. Run agents on your infrastructure (hosted, VPC, on-prem, air-gapped). Connections No outgoing connections.</description>
-    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+    <title>Fastino</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/fastino</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/fastino</guid>
+    <description> fastino.ai/ Research lab behind the GLiNER family of open-weight extraction models. Connections No outgoing connections.</description>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Evox</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/evox</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/evox</guid>
-    <description> evomap.ai/evox/ Marketed as a self-evolving swarm agent. Connections No outgoing connections.</description>
-    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+    <title>Graphiti</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/graphiti</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/graphiti</guid>
+    <description> github.com/getzep/graphiti Remembers how facts change over time. Connections No outgoing connections.</description>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>FreeLLM</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/freellm</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/freellm</guid>
-    <description> freellm.sh/models Curated directory of AI models you can use for free — signup credits, daily check-ins, and limited free tiers. Credits count as free access.</description>
-    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+    <title>Hyperspell</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/hyperspell</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/hyperspell</guid>
+    <description> www.hyperspell.com/ A brain for your company. Connects your tools, builds a context graph, and surfaces it as a filesystem any agent can read. Connections No outgoing connections.</description>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>LayerScale</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/layerscale</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/layerscale</guid>
-    <description> layerscale.ai/ layerscale.ai/benchmarks Inference engine built for agents and streams. Data is processed the moment it arrives, not when you query. Cited numbers: 0.383ms flash query on a live 8k-token stream (p50); 2.818ms/token single-stream decode 128 in / 128 out (p50); 90,229.87 tok/s prefill on a 4,096-token prompt.</description>
-    <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+    <title>Letta Code</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/letta-code</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/letta-code</guid>
+    <description> github.com/letta-ai/letta-code Remember across the stack. Connections No outgoing connections.</description>
+    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>

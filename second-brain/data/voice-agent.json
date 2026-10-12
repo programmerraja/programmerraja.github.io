@@ -156,6 +156,19 @@
       "updated": "2026-08-19"
     },
     {
+      "id": "audio8-asr-infinite",
+      "type": "model",
+      "title": "Audio8 ASR Infinite",
+      "summary": "Native streaming ASR with a selectable audio clock and unlimited-length audio.",
+      "tags": [
+        "stt",
+        "asr"
+      ],
+      "notes": "- https://huggingface.co/Edge0/Audio8-ASR-Infinite\n- Native streaming speech recognition, built to be as responsive as possible.\n- Selectable audio clock (80/120/160 ms) and a transcription delay of 240–560 ms.\n- Adapted vLLM build transcribes unlimited-length audio 24/7 without drifting.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
       "id": "audio8-tts",
       "type": "model",
       "title": "Audio8 TTS",
@@ -344,6 +357,18 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "eva",
+      "type": "tool",
+      "title": "EVA",
+      "summary": "End-to-end framework for evaluating voice agents.",
+      "tags": [
+        "eval"
+      ],
+      "notes": "- https://github.com/ServiceNow/eva\n- End-to-end framework for evaluating voice agents.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
       "id": "evaluation",
       "type": "domain",
       "title": "Evaluation",
@@ -354,6 +379,18 @@
       "notes": "- Audio quality, conversation quality and business outcome are different evaluations.\n- TTS: intelligibility, naturalness, speaker similarity and first-audio latency.\n- STT: WER by accent, language, noise and domain vocabulary — not one overall number.\n- Agent: task completion, tool correctness, interruption handling, escalation and end-to-end latency.\n- A polished demo can hide failures because the room, script and caller are controlled. Keep a small set of ugly real-world calls and rerun them on every meaningful change.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "fastdiar",
+      "type": "model",
+      "title": "FASTDIAR",
+      "summary": "Streaming diarizer. Frame-level speaker encoder, 960 ms delay. Diarization only, no transcript.",
+      "tags": [
+        "diarization"
+      ],
+      "notes": "- https://github.com/microsoft/fastdiar\n- Frame-level speaker encoder for streaming diarization. Confidence-gated online clustering at a fixed 960 ms delay.\n- Most accurate streaming diarizer on low-overlap benchmarks. Degrades less than cache-based systems beyond four speakers. Needs no diarization corpus in training.\n- Diarization only. No transcript.\n- Audio is 16 kHz. Every chunk goes through three steps:\n  1. VAD (Silero) marks speech versus silence. About 250 ms of confirmation delay.\n  2. Encoder turns each 80 ms frame into a 192-dimensional speaker embedding.\n  3. Clustering assigns a speaker id only when the embedding is confident enough. Labels come out about 960 ms behind the audio, then consecutive frames of the same speaker become one RTTM line.\n\n| Model | Parameters | Checkpoint |\n| --- | --- | --- |\n| small | 2.4 M | `fastdiar-small` |\n| medium | 4.6 M | `fastdiar-medium` |\n| large (default) | 10.4 M | `fastdiar-large` |",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "featherless",
@@ -563,9 +600,9 @@
       "tags": [
         "memory"
       ],
-      "notes": "- Hindsight is an agent memory system built to create smarter agents that learn over time. Most agent memory systems focus on recalling conversation history. Hindsight is focused on making agents that learn, not just remember.\n- Hindsight is the most accurate agent memory system ever tested according to benchmark performance. It has achieved state-of-the-art performance on the LongMemEval benchmark, widely used to assess memory system performance across a variety of conversational AI scenarios. The current reported performance of Hindsight and other agent memory solutions as of January 2026 is shown here:\n\n",
+      "notes": "- https://github.com/vectorize-io/hindsight\n- retain → recall → reflect\n- Hindsight is an agent memory system built to create smarter agents that learn over time. Most agent memory systems focus on recalling conversation history. Hindsight is focused on making agents that learn, not just remember.\n- Hindsight is the most accurate agent memory system ever tested according to benchmark performance. It has achieved state-of-the-art performance on the LongMemEval benchmark, widely used to assess memory system performance across a variety of conversational AI scenarios. The current reported performance of Hindsight and other agent memory solutions as of January 2026 is shown here:\n\n",
       "created": "2026-08-25",
-      "updated": "2026-08-25"
+      "updated": "2026-10-12"
     },
     {
       "id": "humannessindex",
@@ -823,9 +860,21 @@
         "TTS",
         "inference"
       ],
-      "notes": "- https://narilabs.com/\n- Multimodal inference aimed at lower latency and less infra work.\n- Introducing Nari Qwen3-TTS.",
+      "notes": "- https://narilabs.com/\n- Multimodal inference aimed at lower latency and less infra work.\n- Introducing Nari Qwen3-TTS.\n- Qwen3-ASR inference: https://narilabs.com/blog/achieving-the-pareto-frontier-for-stt/\n- PersonaPlex 7B writeup: https://narilabs.com/blog/personaplex-7b-80-sessions-one-h100/",
       "created": "2026-09-13",
-      "updated": "2026-09-13"
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "nemotron-3-diarization",
+      "type": "model",
+      "title": "Nemotron 3 Diarization",
+      "summary": "100M-parameter diarization model. Up to eight speakers, including overlap.",
+      "tags": [
+        "diarization"
+      ],
+      "notes": "- Tracks who spoke when, including when voices overlap.\n- Up to eight speakers. 100M parameters.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "nemotron-3",
@@ -999,6 +1048,18 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "oruk",
+      "type": "provider",
+      "title": "Oruk",
+      "summary": "Speech foundation models for words, tone, and emotion from audio.",
+      "tags": [
+        "speech"
+      ],
+      "notes": "- https://oruk.ai/\n- Research lab training speech foundation models to understand words, tone, and emotion directly from audio.\n- API for recognizing a hesitant answer or responding to a frustrated customer.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
       "id": "palabra",
       "type": "provider",
       "title": "palabra",
@@ -1009,6 +1070,19 @@
       "notes": "- 35 ms to first audio  conversations flow without the awkward pause.\n- ",
       "created": "2026-08-24",
       "updated": "2026-08-24"
+    },
+    {
+      "id": "personaplex-7b",
+      "type": "model",
+      "title": "PersonaPlex 7B",
+      "summary": "Full-duplex conversation model. Nari Labs writeup on 80 sessions on one H100.",
+      "tags": [
+        "speech-to-speech",
+        "full-duplex"
+      ],
+      "notes": "- PersonaPlex 7B. A full-duplex conversation model.\n- https://narilabs.com/blog/personaplex-7b-80-sessions-one-h100/",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "pesq",
@@ -1129,6 +1203,31 @@
       "notes": "- Built on a 𝗤𝘄𝗲𝗻𝟯 𝗯𝗮𝗰𝗸𝗯𝗼𝗻𝗲 and designed for applications like conversational AI, voice assistants, AI calling, accessibility, IVR and customer support.\n- 𝗤𝘂𝗶𝗽𝘂𝘀 𝟬.𝟲 𝗦𝗽𝗲𝗲𝗰𝗵 𝘃𝟮 𝘀𝘂𝗽𝗽𝗼𝗿𝘁𝘀 𝗮𝗹𝗹 𝟮𝟮 𝘀𝗰𝗵𝗲𝗱𝘂𝗹𝗲𝗱 𝗜𝗻𝗱𝗶𝗮𝗻 𝗹𝗮𝗻𝗴𝘂𝗮𝗴𝗲𝘀. 🇮🇳\n- 𝗥𝗧𝗙 𝟬.𝟮𝟯𝟯",
       "created": "2026-08-31",
       "updated": "2026-08-31"
+    },
+    {
+      "id": "qwen3-asr",
+      "type": "model",
+      "title": "Qwen3-ASR",
+      "summary": "Top-10 open ASR model. Nari's engine is ~4% WER, sub-50 ms time-to-final, $0.06/hour.",
+      "tags": [
+        "stt",
+        "asr"
+      ],
+      "notes": "- Qwen3-ASR has stayed in the top 10 of the [Hugging Face Open ASR Leaderboard](https://huggingface.co/spaces/hf-audio/open_asr_leaderboard) for over six months, competitive with closed models.\n- Inference support lagged the model. Nari built a custom engine to keep accuracy while improving speed and cost.\n- https://narilabs.com/blog/achieving-the-pareto-frontier-for-stt/\n- Ranked top 5 in accuracy (~4% WER) on Coval. Outperforms Gemini Transcribe 3.5, Cartesia Ink 2, and ElevenLabs Scribe v2 RT.\n- Fast: #1 time-to-final segment on Coval (sub-50 ms).\n- Standard: #1 lowest price of streaming STT models ($0.06 per hour).",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "raindrop",
+      "type": "tool",
+      "title": "Raindrop",
+      "summary": "Monitoring for AI agents. Finds silent failures in production.",
+      "tags": [
+        "observability"
+      ],
+      "notes": "- https://www.raindrop.ai/\n- Monitoring platform for AI agents. Same role Sentry plays for web apps: it finds silent agent failures in production.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "rtf",
@@ -1713,6 +1812,12 @@
       "type": "part_of"
     },
     {
+      "id": "e-audio8-asr-infinite-part_of-stt",
+      "from": "audio8-asr-infinite",
+      "to": "stt",
+      "type": "part_of"
+    },
+    {
       "id": "e-audio8-tts-part_of-tts",
       "from": "audio8-tts",
       "to": "tts",
@@ -1910,6 +2015,12 @@
       "type": "part_of"
     },
     {
+      "id": "e-eva-part_of-evaluation",
+      "from": "eva",
+      "to": "evaluation",
+      "type": "part_of"
+    },
+    {
       "id": "e-evaluation-part_of-voice-agent",
       "from": "evaluation",
       "to": "voice-agent",
@@ -1937,6 +2048,12 @@
       "id": "e-evaluation-uses-wer",
       "from": "evaluation",
       "to": "wer",
+      "type": "uses"
+    },
+    {
+      "id": "e-fastdiar-uses-silero-vad",
+      "from": "fastdiar",
+      "to": "silero-vad",
       "type": "uses"
     },
     {
@@ -2288,6 +2405,18 @@
       "type": "part_of"
     },
     {
+      "id": "e-nari-related_to-qwen3-asr",
+      "from": "nari",
+      "to": "qwen3-asr",
+      "type": "related_to"
+    },
+    {
+      "id": "e-nari-related_to-personaplex-7b",
+      "from": "nari",
+      "to": "personaplex-7b",
+      "type": "related_to"
+    },
+    {
       "id": "e-nemotron-3-llm",
       "from": "nemotron-3",
       "to": "llm",
@@ -2415,6 +2544,12 @@
       "type": "part_of"
     },
     {
+      "id": "e-personaplex-7b-part_of-full-duplex",
+      "from": "personaplex-7b",
+      "to": "full-duplex",
+      "type": "part_of"
+    },
+    {
       "id": "e-phonellm-part_of-llm",
       "from": "phonellm",
       "to": "llm",
@@ -2474,6 +2609,18 @@
       "from": "quipus-0-6-speech",
       "to": "tts",
       "type": "part_of"
+    },
+    {
+      "id": "e-qwen3-asr-part_of-stt",
+      "from": "qwen3-asr",
+      "to": "stt",
+      "type": "part_of"
+    },
+    {
+      "id": "e-raindrop-related_to-observability",
+      "from": "raindrop",
+      "to": "observability",
+      "type": "related_to"
     },
     {
       "id": "e-rumik-part_of-voice-agent",

@@ -122,6 +122,19 @@
   ],
   "nodes": [
     {
+      "id": "agent-memory-benchmark",
+      "type": "eval",
+      "title": "Agent Memory Benchmark",
+      "summary": "Benchmark for agent memory systems.",
+      "tags": [
+        "memory",
+        "eval"
+      ],
+      "notes": "- https://github.com/vectorize-io/agent-memory-benchmark",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
       "id": "argilla-io",
       "type": "dataset",
       "title": "Argilla.io",
@@ -142,6 +155,19 @@
       "updated": "2026-08-28"
     },
     {
+      "id": "benchlm",
+      "type": "eval",
+      "title": "BenchLM",
+      "summary": "LLM leaderboard and AI model benchmarks.",
+      "tags": [
+        "eval",
+        "benchmark"
+      ],
+      "notes": "- https://benchlm.ai/\n- LLM leaderboard and AI model benchmarks.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
       "id": "bro-skill",
       "type": "coding-agent",
       "title": "Bro skill ",
@@ -153,6 +179,19 @@
       "notes": "- https://github.com/luchasarie/bro-skill",
       "created": "2026-09-07",
       "updated": "2026-09-07"
+    },
+    {
+      "id": "cactus",
+      "type": "local-inference",
+      "title": "Cactus",
+      "summary": "Low-latency, energy-efficient inference engine for mobile devices and wearables.",
+      "tags": [
+        "inference",
+        "on-device"
+      ],
+      "notes": "- https://cactuscompute.com/\n- Low-latency AI engine for mobile devices and wearables.\n- Energy-efficient inference engine.\n- OpenAI-compatible APIs for C/C++, Swift, Kotlin, and Flutter. Supports tool calling, auto RAG, NPU acceleration, INT4 quantization, and hybrid cloud handoff for complex tasks.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "cheaperinference",
@@ -168,6 +207,19 @@
       "updated": "2026-09-13"
     },
     {
+      "id": "cognee",
+      "type": "memory",
+      "title": "Cognee",
+      "summary": "Documents, code, and conversations turned into a knowledge graph.",
+      "tags": [
+        "memory",
+        "knowledge-graph"
+      ],
+      "notes": "- https://github.com/topoteretes/cognee\n- Documents, code, and conversations become a knowledge graph.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
       "id": "colibri",
       "type": "local-inference",
       "title": "colibri",
@@ -178,6 +230,19 @@
       "notes": "- Run frontier MoE models on hardware you already own — pure C, zero deps, experts streamed from disk. Tiny engine, immense model. \n- https://github.com/JustVugg/colibri",
       "created": "2026-08-28",
       "updated": "2026-08-28"
+    },
+    {
+      "id": "composio",
+      "type": "tool",
+      "title": "Composio",
+      "summary": "Secure access to 1,500+ apps. Third-party MCP wastes tokens.",
+      "tags": [
+        "tools",
+        "mcp"
+      ],
+      "notes": "- https://composio.dev/\n- Secure access to 1,500+ apps in minutes.\n- Third-party MCP is not an efficient way to do this. It wastes tokens.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "compound",
@@ -204,6 +269,19 @@
       "notes": "- https://www.context.ai/\n- Context, execution, identity, and evals on one foundation. Run agents on your infrastructure (hosted, VPC, on-prem, air-gapped).",
       "created": "2026-09-13",
       "updated": "2026-09-13"
+    },
+    {
+      "id": "desertant",
+      "type": "local-inference",
+      "title": "Desertant",
+      "summary": "On-device small models, each doing one job, dropped in through one native SDK.",
+      "tags": [
+        "on-device",
+        "slm"
+      ],
+      "notes": "- https://desertant.com/\n- Fastest models for the task, running on-device.\n- Small models that each do one job very well, with one native SDK that drops them into a product in a few lines of code.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "evals-skills",
@@ -243,6 +321,18 @@
       "updated": "2026-09-07"
     },
     {
+      "id": "fastino",
+      "type": "provider",
+      "title": "Fastino",
+      "summary": "Research lab behind the GLiNER family of open-weight extraction models.",
+      "tags": [
+        "extraction"
+      ],
+      "notes": "- https://fastino.ai/\n- Research lab behind the GLiNER family of open-weight extraction models.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
       "id": "freellm",
       "type": "tool",
       "title": "FreeLLM",
@@ -254,6 +344,31 @@
       "notes": "- https://freellm.sh/models\n- Curated directory of AI models you can use for free — signup credits, daily check-ins, and limited free tiers. Credits count as free access.",
       "created": "2026-09-13",
       "updated": "2026-09-13"
+    },
+    {
+      "id": "graphiti",
+      "type": "memory",
+      "title": "Graphiti",
+      "summary": "Agent memory that remembers how facts change over time.",
+      "tags": [
+        "memory"
+      ],
+      "notes": "- https://github.com/getzep/graphiti\n- Remembers how facts change over time.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "hyperspell",
+      "type": "memory",
+      "title": "Hyperspell",
+      "summary": "Company context graph, exposed as a filesystem any agent can read.",
+      "tags": [
+        "memory",
+        "context"
+      ],
+      "notes": "- https://www.hyperspell.com/\n- A brain for your company.\n- Connects your tools, builds a context graph, and surfaces it as a filesystem any agent can read.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "layerscale",
@@ -269,6 +384,30 @@
       "updated": "2026-09-13"
     },
     {
+      "id": "letta-code",
+      "type": "memory",
+      "title": "Letta Code",
+      "summary": "Remember across the stack.",
+      "tags": [
+        "memory"
+      ],
+      "notes": "- https://github.com/letta-ai/letta-code\n- Remember across the stack.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "letta",
+      "type": "memory",
+      "title": "Letta",
+      "summary": "Memory and identity across sessions.",
+      "tags": [
+        "memory"
+      ],
+      "notes": "- https://github.com/letta-ai/letta\n- Memory and identity across sessions.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
       "id": "longcat-2",
       "type": "coding-agent",
       "title": "LongCat-2.0",
@@ -280,6 +419,30 @@
       "notes": "- https://www.longcatai.org/models/longcat-2\n- 1.6T MoE (activates ~33–56B, ~48B avg) trained for agentic coding. Native 1M context via LongCat Sparse Attention (linear, not quadratic).\n- Zero-computation experts skip easy tokens; MOPD fuses agent / reasoning / interaction expert groups into one model. Trained on 30T+ tokens on a 50k-card domestic cluster.\n- Headline numbers they cite: SWE-bench Pro 59.5, Terminal-Bench 2.1 70.8, BrowseComp 79.9. Preview on OpenRouter / longcat.ai; weights still pending HF.",
       "created": "2026-09-07",
       "updated": "2026-09-07"
+    },
+    {
+      "id": "mem0",
+      "type": "memory",
+      "title": "Mem0",
+      "summary": "Open-source agent memory. 66K+ GitHub stars.",
+      "tags": [
+        "memory"
+      ],
+      "notes": "- https://github.com/mem0ai/mem0\n- 66K+ stars.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "memu",
+      "type": "memory",
+      "title": "memU",
+      "summary": "Turns memory into knowledge.",
+      "tags": [
+        "memory"
+      ],
+      "notes": "- https://github.com/NevaMind-AI/memU\n- Turn memory into knowledge.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "minicpm5-2b",
@@ -317,7 +480,7 @@
       ],
       "notes": "- https://github.com/cactus-compute/needle",
       "created": "2026-09-07",
-      "updated": "2026-09-07"
+      "updated": "2026-10-12"
     },
     {
       "id": "new-node",
@@ -331,6 +494,44 @@
       "notes": "New node",
       "created": "2026-09-07",
       "updated": "2026-09-07"
+    },
+    {
+      "id": "openmemory",
+      "type": "memory",
+      "title": "OpenMemory",
+      "summary": "Open-source memory from the Mem0 org.",
+      "tags": [
+        "memory"
+      ],
+      "notes": "- https://github.com/mem0ai/openmemory",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "openviking",
+      "type": "memory",
+      "title": "OpenViking",
+      "summary": "Makes the agent stateful.",
+      "tags": [
+        "memory"
+      ],
+      "notes": "- https://github.com/volcengine/OpenViking\n- Make the agent stateful.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
+    },
+    {
+      "id": "parsebench",
+      "type": "eval",
+      "title": "ParseBench",
+      "summary": "Document parsing benchmark for AI agents, focused on semantic correctness rather than text similarity.",
+      "tags": [
+        "eval",
+        "benchmark",
+        "document-parsing"
+      ],
+      "notes": "- https://www.parsebench.ai/\n- The document parsing benchmark for AI agents.\n- The first benchmark that evaluates document parsing on what AI agents actually need: semantic correctness, not just text similarity.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "pplx-garden",
@@ -371,6 +572,19 @@
       "notes": "- https://github.com/raullenchai/Rapid-MLX\n- Fastest local AI engine for Apple Silicon. Claims 4.2x faster than Ollama, 0.08s cached TTFT, 100% tool calling.\n- 17 tool parsers, prompt cache, reasoning separation, cloud routing. Drop-in OpenAI replacement. Works with Claude Code, Cursor, Aider.",
       "created": "2026-09-13",
       "updated": "2026-09-13"
+    },
+    {
+      "id": "runanywhere",
+      "type": "local-inference",
+      "title": "RunAnywhere",
+      "summary": "Hand-written GPU and NPU kernels, with open-source SDKs that run models on every platform.",
+      "tags": [
+        "inference",
+        "on-device"
+      ],
+      "notes": "- https://www.runanywhere.ai/\n- Inference from the metal up.\n- Hand-written GPU and NPU kernels that make consumer silicon fast. Open-source SDKs, infrastructure, and console that run models on every platform.",
+      "created": "2026-10-12",
+      "updated": "2026-10-12"
     },
     {
       "id": "sie",
@@ -442,6 +656,12 @@
       "id": "e-minicpm5-2b-related_to-needle-2",
       "from": "minicpm5-2b",
       "to": "needle-2",
+      "type": "related_to"
+    },
+    {
+      "id": "e-needle-2-related_to-cactus",
+      "from": "needle-2",
+      "to": "cactus",
       "type": "related_to"
     },
     {
