@@ -118,7 +118,52 @@ export function createStore(today = formatDate()) {
     sessions: [],
     companion: { name: "", bond: 3, lastSeenAt: "", lastLine: "" },
     notes: [],
+    loopSkips: { date: "", ids: [] },
+    focusDay: null,
+    weekFocus: null,
   }
+}
+
+/** Monday of the local week, as YYYY-MM-DD. */
+export function weekOf(date = new Date()) {
+  const local = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+  const day = local.getDay()
+  local.setDate(local.getDate() + (day === 0 ? -6 : 1 - day))
+  return formatDate(local)
+}
+
+export function currentWeekFocus(store, date = new Date()) {
+  const focus = store.weekFocus
+  if (!focus || focus.week !== weekOf(date) || !focus.title) return null
+  return focus
+}
+
+export function weekFocusCount(store, date = new Date()) {
+  const start = weekOf(date)
+  const end = shiftDate(start, 7)
+  return (store.sessions || []).filter(
+    (session) => session.kind === "focus" && session.date >= start && session.date < end,
+  ).length
+}
+
+export function setWeekFocus(store, title, date = new Date()) {
+  const clean = text(title, 80).trim()
+  if (!clean) {
+    store.weekFocus = null
+    return
+  }
+  const week = weekOf(date)
+  store.weekFocus = {
+    week,
+    title: clean,
+    note: store.weekFocus?.week === week ? store.weekFocus.note || "" : "",
+  }
+}
+
+export function closeWeekFocus(store, note, date = new Date()) {
+  const focus = currentWeekFocus(store, date)
+  if (!focus) return
+  store.weekFocus = { ...focus, note: text(note, 280).trim() }
 }
 
 export function createPrivateStore() {
@@ -248,6 +293,20 @@ export function toggleLoop(store, loopId, date = formatDate()) {
   return toggleEvent(store, date, "loop", loop.id, loop.title)
 }
 
+/** Ignore today's reminder. The loop stays open; it just stops sitting in the shade. */
+export function skipLoop(store, loopId, date = formatDate()) {
+  const loop = store.loops.find((candidate) => candidate.id === loopId && !candidate.archived)
+  if (!loop) return false
+  const ids = store.loopSkips?.date === date ? store.loopSkips.ids.filter((id) => id !== loop.id) : []
+  ids.push(loop.id)
+  store.loopSkips = { date, ids: ids.slice(0, 40) }
+  return true
+}
+
+export function loopSkipped(store, loopId, date = formatDate()) {
+  return Boolean(store.loopSkips?.date === date && store.loopSkips.ids?.includes(loopId))
+}
+
 export function toggleTask(store, taskId, date = formatDate()) {
   const task = store.tasks.find((candidate) => candidate.id === taskId)
   if (!task) throw new Error("Task not found")
@@ -285,6 +344,71 @@ export function startTimer(store, kind, note, minutes, now = new Date()) {
     pausedMs: 0,
     pausedAt: null,
   }
+  if (store.focusDay) store.focusDay.nagging = false
+}
+
+export function isFocusDay(store, date = formatDate()) {
+  return store.focusDay?.date === date
+}
+
+export function focusBreakMinutes(store) {
+  if (store.focusDay?.hard) return 2
+  return Math.max(1, Math.min(180, Math.round(Number(store.timerSettings?.breakMinutes) || 5)))
+}
+
+export function startFocusDay(store, date = formatDate(), hard = false) {
+  store.focusDay = { date, hard: Boolean(hard), nagging: false }
+}
+
+export function endFocusDay(store) {
+  store.focusDay = null
+}
+
+export function setFocusHard(store, hard) {
+  if (store.focusDay) store.focusDay.hard = Boolean(hard)
+}
+
+/**
+ * The countdown hit zero. On a focus day, a finished focus starts the break,
+ * and a finished break rings until the next focus. A normal day just records it.
+ */
+export function advanceFocusDay(store, now = new Date()) {
+  const timer = store.activeTimer
+  if (!timer?.endsAt) return "idle"
+  const end = new Date(timer.endsAt).getTime()
+  if (Number.isNaN(end) || end > now.getTime()) return "running"
+  const kind = timer.kind
+  const on = isFocusDay(store, formatDate(now))
+  finishTimer(store, timer.endsAt)
+  if (!on) return "done"
+  if (kind === "focus") return beginFocusBreak(store, end, now)
+  store.focusDay.nagging = true
+  return "nag"
+}
+
+/** Finish the block early. A focus day still takes the break, then rings. */
+export function finishFocusBlock(store, now = new Date()) {
+  const timer = store.activeTimer
+  if (!timer) return "idle"
+  const kind = timer.kind
+  const on = isFocusDay(store, formatDate(now))
+  finishTimer(store, now.toISOString())
+  if (!on) return "done"
+  if (kind === "focus") return beginFocusBreak(store, now.getTime(), now)
+  store.focusDay.nagging = true
+  return "nag"
+}
+
+function beginFocusBreak(store, focusEndedAt, now) {
+  const breakMs = focusBreakMinutes(store) * 60_000
+  const breakEnd = focusEndedAt + breakMs
+  if (now.getTime() >= breakEnd) {
+    store.focusDay.nagging = true
+    return "nag"
+  }
+  startTimer(store, "break", "", focusBreakMinutes(store), new Date(focusEndedAt))
+  store.activeTimer.endsAt = new Date(breakEnd).toISOString()
+  return "break"
 }
 
 /**
@@ -508,6 +632,9 @@ export function normalizeStore(input) {
       ? input.sessions.slice(-5000).map(normalizeSession).filter(Boolean)
       : [],
     companion: normalizeCompanion(input.companion),
+    loopSkips: normalizeSkips(input.loopSkips),
+    focusDay: normalizeFocusDay(input.focusDay),
+    weekFocus: normalizeWeekFocus(input.weekFocus),
     notes: Array.isArray(input.notes)
       ? input.notes.slice(0, 1000).map((note) => ({
           id: text(note.id, 100),
@@ -535,6 +662,31 @@ export function normalizeStore(input) {
     }
   }
   return store
+}
+
+function normalizeWeekFocus(value) {
+  const week = text(value?.week, 10)
+  const title = text(value?.title, 80).trim()
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(week) || !title) return null
+  return { week, title, note: text(value?.note, 280).trim() }
+}
+
+function normalizeFocusDay(value) {
+  const date = text(value?.date, 10)
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null
+  return { date, hard: Boolean(value.hard), nagging: Boolean(value.nagging) }
+}
+
+function normalizeSkips(skips) {
+  const date = text(skips?.date, 10)
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return { date: "", ids: [] }
+  const ids = Array.isArray(skips.ids)
+    ? skips.ids
+        .slice(0, 40)
+        .map((id) => text(id, 100))
+        .filter(Boolean)
+    : []
+  return { date, ids }
 }
 
 function normalizeCompanion(companion) {

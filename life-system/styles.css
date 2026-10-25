@@ -68,6 +68,10 @@ html {
   background: var(--page);
   color: var(--body);
   min-height: 100%;
+  /* Capacitor measures the real status and gesture bars. Cap them so a bad
+     WebView inset cannot stretch the bottom nav over the page. */
+  --inset-top: min(64px, var(--safe-area-inset-top, env(safe-area-inset-top, 0px)));
+  --inset-bottom: min(48px, var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
 }
 
 body {
@@ -105,8 +109,8 @@ summary:focus-visible {
   border-bottom: 1px solid color-mix(in srgb, var(--border), transparent 25%);
   display: flex;
   gap: 24px;
-  height: 64px;
-  padding: 0 max(24px, calc((100vw - 980px) / 2));
+  height: calc(64px + var(--inset-top, 0px));
+  padding: var(--inset-top, 0px) max(24px, calc((100vw - 980px) / 2)) 0;
   position: sticky;
   top: 0;
   z-index: 30;
@@ -1038,6 +1042,14 @@ textarea {
   width: 100%;
 }
 
+input[type="checkbox"],
+input[type="radio"] {
+  height: 16px;
+  min-height: 0;
+  padding: 0;
+  width: 16px;
+}
+
 textarea {
   line-height: 1.5;
   resize: vertical;
@@ -1211,6 +1223,149 @@ textarea:focus {
 .charge-meta strong {
   color: var(--heading);
   font-size: 14px;
+}
+
+.focus-view .hero {
+  margin-bottom: 14px;
+}
+
+.focus-view .hero h1 {
+  font-size: clamp(32px, 8vw, 44px);
+  margin-bottom: 8px;
+}
+
+.timer-card > textarea {
+  margin-top: 8px;
+}
+
+.week-set {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+.week-set .primary-button,
+.week-set .quiet-button {
+  flex: 0 0 auto;
+}
+
+.week-set input {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+}
+
+.week-links {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  margin: -6px 0 12px;
+}
+
+.week-links .text-button {
+  padding: 0;
+}
+
+.week-links span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.time-row {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stepper {
+  align-items: center;
+  background: var(--raised);
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 28px minmax(2ch, auto) 28px;
+  padding: 6px;
+}
+
+.stepper span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  grid-column: 1 / -1;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.stepper button {
+  background: var(--surface);
+  border: 0;
+  border-radius: 8px;
+  color: var(--heading);
+  cursor: pointer;
+  font-size: 16px;
+  height: 28px;
+  line-height: 1;
+  width: 28px;
+}
+
+.stepper strong {
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.day-switch {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+  padding-bottom: 4px;
+}
+
+.day-switch > span {
+  color: var(--heading);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.switch {
+  background: var(--border);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  height: 22px;
+  padding: 2px;
+  width: 36px;
+}
+
+.switch i {
+  background: white;
+  border-radius: 50%;
+  display: block;
+  height: 18px;
+  width: 18px;
+}
+
+.switch.on {
+  background: var(--accent);
+}
+
+.switch.on i {
+  translate: 14px 0;
+}
+
+.timer-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-top: 4px;
+}
+
+.timer-extra .text-button {
+  padding: 6px 0;
 }
 
 .timer-card {
@@ -2579,8 +2734,8 @@ textarea:focus {
 
 @media (max-width: 680px) {
   .topbar {
-    height: 58px;
-    padding: 0 15px;
+    height: calc(58px + var(--inset-top, 0px));
+    padding: var(--inset-top, 0px) 15px 0;
   }
 
   .desktop-nav {
@@ -2616,7 +2771,7 @@ textarea:focus {
   }
 
   main {
-    padding: 32px 15px calc(96px + env(safe-area-inset-bottom));
+    padding: 32px 15px calc(96px + var(--inset-bottom, 0px));
   }
 
   .hero {
@@ -2664,7 +2819,7 @@ textarea:focus {
   }
 
   .companion-bubble {
-    top: 64px;
+    top: calc(64px + var(--inset-top, 0px));
   }
 
   .charge-card {
@@ -2728,9 +2883,9 @@ textarea:focus {
 
   .back-room {
     border-radius: 0;
-    margin: -32px -15px calc(-96px - env(safe-area-inset-bottom));
-    min-height: calc(100vh - 58px);
-    padding: 20px 15px calc(28px + env(safe-area-inset-bottom));
+    margin: -32px -15px calc(-96px - var(--inset-bottom, 0px));
+    min-height: calc(100vh - 58px - var(--inset-top, 0px));
+    padding: 20px 15px calc(28px + var(--inset-bottom, 0px));
   }
 
   .game-grid {
@@ -2754,7 +2909,7 @@ textarea:focus {
   .editor-card {
     border-radius: 20px 20px 0 0;
     max-height: 90vh;
-    padding: 18px 16px calc(18px + env(safe-area-inset-bottom));
+    padding: 18px 16px calc(18px + var(--inset-bottom, 0px));
   }
 
   .editor-fields {
@@ -2802,7 +2957,7 @@ textarea:focus {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     left: 0;
-    padding: 7px 7px calc(7px + env(safe-area-inset-bottom));
+    padding: 7px 7px calc(7px + var(--inset-bottom, 0px));
     position: fixed;
     right: 0;
     z-index: 40;
@@ -2831,7 +2986,7 @@ textarea:focus {
   }
 
   .toast {
-    bottom: calc(78px + env(safe-area-inset-bottom));
+    bottom: calc(78px + var(--inset-bottom, 0px));
     max-width: calc(100vw - 30px);
     text-align: center;
     white-space: nowrap;
