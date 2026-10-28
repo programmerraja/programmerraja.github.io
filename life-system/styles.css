@@ -1276,16 +1276,18 @@ textarea:focus {
   align-items: end;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 14px;
 }
 
 .stepper {
   align-items: center;
   background: var(--raised);
-  border-radius: 14px;
+  border-radius: 16px;
+  column-gap: 10px;
   display: grid;
-  grid-template-columns: 28px minmax(2ch, auto) 28px;
-  padding: 6px;
+  grid-template-columns: 36px 3ch 36px;
+  padding: 10px 12px 12px;
+  row-gap: 8px;
 }
 
 .stepper span {
@@ -1302,13 +1304,13 @@ textarea:focus {
 .stepper button {
   background: var(--surface);
   border: 0;
-  border-radius: 8px;
+  border-radius: 10px;
   color: var(--heading);
   cursor: pointer;
-  font-size: 16px;
-  height: 28px;
+  font-size: 18px;
+  height: 36px;
   line-height: 1;
-  width: 28px;
+  width: 36px;
 }
 
 .stepper strong {
@@ -1320,9 +1322,141 @@ textarea:focus {
 .day-switch {
   align-items: center;
   display: flex;
+  flex-basis: 100%;
+  justify-content: space-between;
+  margin-top: 2px;
+  padding: 2px 2px 0;
+}
+
+.goal-block {
+  margin-top: 14px;
+}
+
+.goal-row {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.goal-stepper {
+  grid-template-columns: 36px auto 36px;
+}
+
+.goal-stepper strong {
+  min-width: 4.5ch;
+  padding: 0 6px;
+}
+
+.goal-progress {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+  text-align: right;
+}
+
+.goal-progress.met {
+  color: var(--heading);
+  font-weight: 750;
+}
+
+.quiet-list {
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  margin-left: auto;
-  padding-bottom: 4px;
+  margin-top: 10px;
+}
+
+.quiet-chip {
+  align-items: center;
+  background: var(--raised);
+  border-radius: 999px;
+  display: inline-flex;
+  font-size: 13px;
+  gap: 2px;
+  padding: 4px 4px 4px 12px;
+}
+
+.quiet-chip button {
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 16px;
+  height: 28px;
+  line-height: 1;
+  width: 28px;
+}
+
+.quiet-add {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.quiet-add input[type="time"] {
+  flex: 1;
+  min-height: 36px;
+  min-width: 0;
+  padding: 4px 8px;
+  width: auto;
+}
+
+.one-loop {
+  color: var(--heading);
+  display: block;
+  font-size: 14px;
+  font-weight: 750;
+  margin: -4px 0 14px;
+}
+
+.one-loop::before {
+  color: var(--muted);
+  content: "One open · ";
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.block-name {
+  margin-top: 14px;
+}
+
+.goal-learned {
+  color: var(--heading);
+  font-size: 15px;
+  margin: 10px 0 0;
+}
+
+.torture-choice {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.torture-choice strong {
+  color: var(--heading);
+  display: block;
+  font-size: 14px;
+}
+
+.torture-choice small {
+  color: var(--muted);
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+  margin-top: 2px;
+  text-transform: none;
+}
+
+.torture-choice .switch {
+  flex: none;
 }
 
 .day-switch > span {
@@ -1373,6 +1507,7 @@ textarea:focus {
   border: 1px solid var(--border);
   border-radius: 20px;
   box-shadow: var(--small-shadow);
+  margin-bottom: 22px;
   padding: 20px;
 }
 

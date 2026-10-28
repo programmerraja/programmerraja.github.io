@@ -110,6 +110,7 @@ export function createStore(today = formatDate()) {
       time: "",
       createdAt: today,
       archived: false,
+      torture: false,
     })),
     tasks: [],
     days: {},
@@ -357,7 +358,68 @@ export function focusBreakMinutes(store) {
 }
 
 export function startFocusDay(store, date = formatDate(), hard = false) {
-  store.focusDay = { date, hard: Boolean(hard), nagging: false }
+  store.focusDay = { date, hard: Boolean(hard), nagging: false, goalMinutes: 180, quiet: [] }
+}
+
+export function focusGoalMinutes(store) {
+  const goal = Number(store.focusDay?.goalMinutes)
+  if (!Number.isFinite(goal)) return 180
+  return Math.max(30, Math.min(480, Math.round(goal / 30) * 30))
+}
+
+export function setFocusGoal(store, minutes) {
+  if (!store.focusDay) return
+  store.focusDay.goalMinutes = focusGoalMinutes({ focusDay: { goalMinutes: minutes } })
+}
+
+export function focusDoneMinutes(store, date = formatDate()) {
+  return (store.sessions || [])
+    .filter((session) => session.kind === "focus" && session.date === date)
+    .reduce((total, session) => total + (Number(session.actualMinutes) || 0), 0)
+}
+
+export function focusGoalMet(store, date = formatDate()) {
+  return isFocusDay(store, date) && focusDoneMinutes(store, date) >= focusGoalMinutes(store)
+}
+
+/** Same-day window. End is exclusive, so 14:00–16:00 is quiet until 16:00. */
+export function addFocusQuiet(store, start, end) {
+  if (!store.focusDay) return false
+  const from = canonicalClock(start)
+  const to = canonicalClock(end)
+  if (!from || !to || clockMinutes(to) <= clockMinutes(from)) return false
+  const quiet = store.focusDay.quiet || []
+  if (quiet.length >= 6) return false
+  if (quiet.some((range) => range.start === from && range.end === to)) return false
+  store.focusDay.quiet = [...quiet, { start: from, end: to }]
+  return true
+}
+
+export function removeFocusQuiet(store, index) {
+  if (!store.focusDay?.quiet) return
+  store.focusDay.quiet = store.focusDay.quiet.filter((_, item) => item !== index)
+}
+
+export function setFocusLearned(store, note) {
+  if (!store.focusDay) return
+  store.focusDay.learned = text(note, 280).trim()
+}
+
+/** One unfinished loop. The uncomfortable one wins, otherwise the first still open. */
+export function openLoop(store, date = formatDate()) {
+  const loops = (store.loops || []).filter(
+    (loop) =>
+      loop &&
+      !loop.archived &&
+      loop.title &&
+      !loopDone(store, loop.id, date),
+  )
+  return loops.find((loop) => /uncomfortable/i.test(loop.title)) || loops[0] || null
+}
+
+function loopDone(store, id, date) {
+  if (!store.days?.[date]) return false
+  return isDone(store, "loop", id, date) || loopSkipped(store, id, date)
 }
 
 export function endFocusDay(store) {
@@ -381,6 +443,10 @@ export function advanceFocusDay(store, now = new Date()) {
   const on = isFocusDay(store, formatDate(now))
   finishTimer(store, timer.endsAt)
   if (!on) return "done"
+  if (focusGoalMet(store, formatDate(now))) {
+    store.focusDay.nagging = false
+    return "met"
+  }
   if (kind === "focus") return beginFocusBreak(store, end, now)
   store.focusDay.nagging = true
   return "nag"
@@ -392,9 +458,16 @@ export function finishFocusBlock(store, now = new Date()) {
   if (!timer) return "idle"
   const kind = timer.kind
   const on = isFocusDay(store, formatDate(now))
-  finishTimer(store, now.toISOString())
+  const scheduled = timer.endsAt ? new Date(timer.endsAt).getTime() : NaN
+  const endedAt =
+    Number.isFinite(scheduled) && now.getTime() >= scheduled ? new Date(scheduled).toISOString() : now.toISOString()
+  finishTimer(store, endedAt)
   if (!on) return "done"
-  if (kind === "focus") return beginFocusBreak(store, now.getTime(), now)
+  if (focusGoalMet(store, formatDate(now))) {
+    store.focusDay.nagging = false
+    return "met"
+  }
+  if (kind === "focus") return beginFocusBreak(store, new Date(endedAt).getTime(), now)
   store.focusDay.nagging = true
   return "nag"
 }
@@ -609,6 +682,7 @@ export function normalizeStore(input) {
       time: text(loop.time, 5),
       createdAt: text(loop.createdAt, 10),
       archived: Boolean(loop.archived),
+      torture: Boolean(loop.torture),
     })),
     tasks: Array.isArray(input.tasks)
       ? input.tasks.slice(0, 2000).map((task) => ({
@@ -619,6 +693,7 @@ export function normalizeStore(input) {
           createdAt: text(task.createdAt, 10),
           doneAt: text(task.doneAt, 10) || null,
           notes: text(task.notes),
+          torture: Boolean(task.torture),
         }))
       : [],
     days: {},
@@ -671,10 +746,43 @@ function normalizeWeekFocus(value) {
   return { week, title, note: text(value?.note, 280).trim() }
 }
 
+function clockMinutes(value) {
+  const match = /^(\d{1,2}):(\d{2})$/.exec(String(value || ""))
+  if (!match) return null
+  const hour = Number(match[1])
+  const minute = Number(match[2])
+  if (hour > 23 || minute > 59) return null
+  return hour * 60 + minute
+}
+
+function canonicalClock(value) {
+  const minutes = clockMinutes(value)
+  if (minutes == null) return ""
+  return `${String(Math.floor(minutes / 60)).padStart(2, "0")}:${String(minutes % 60).padStart(2, "0")}`
+}
+
 function normalizeFocusDay(value) {
   const date = text(value?.date, 10)
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return null
-  return { date, hard: Boolean(value.hard), nagging: Boolean(value.nagging) }
+  const quiet = Array.isArray(value.quiet)
+    ? value.quiet
+        .slice(0, 6)
+        .map((range) => {
+          const start = canonicalClock(range?.start)
+          const end = canonicalClock(range?.end)
+          if (!start || !end || clockMinutes(end) <= clockMinutes(start)) return null
+          return { start, end }
+        })
+        .filter(Boolean)
+    : []
+  return {
+    date,
+    hard: Boolean(value.hard),
+    nagging: Boolean(value.nagging),
+    goalMinutes: focusGoalMinutes({ focusDay: value }),
+    quiet,
+    learned: text(value.learned, 280).trim(),
+  }
 }
 
 function normalizeSkips(skips) {

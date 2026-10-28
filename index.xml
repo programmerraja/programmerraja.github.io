@@ -6,6 +6,12 @@
       <description>Last 10 notes on K. Boopathi</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>PostgreSQL Internals and Operations</title>
+    <link>https://programmerraja.is-a.dev/notes/Engineering/Databases/PostgreSQL-Internals-and-Operations</link>
+    <guid>https://programmerraja.is-a.dev/notes/Engineering/Databases/PostgreSQL-Internals-and-Operations</guid>
+    <description>Second part of PostgreSQL. That note = using Postgres. This note = how it stores data on disk and how to run it in production. 1. Storage: pages &amp; tuples Postgres stores all its data in a directory sensibly called /var/lib/postgresql/data DirectoryExplanationbase/One subdirectory per database, holding the actual table and index filesglobal/Cluster-wide tables like pg_databasepg_wal/Write-Ahead Log files (section 2)pg_xact/Commit status of every transaction (committed / aborted)pg_multixact/Multitransactions → when several sessions row-lock the same rowpg_subtrans/Subtransactions (savepoints)pg_commit_ts/Commit timestamps (if enabled)pg_replslot/Replication slots → keep WAL around for a replica (section 7)pg_logical/Logical decoding status (turning WAL back into row changes)pg_snapshots/Exported snapshots, e.g.</description>
+    <pubDate>Wed, 28 Oct 2026 13:00:00 GMT</pubDate>
+  </item><item>
     <title>Agent Memory Benchmark</title>
     <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/agent-memory-benchmark</link>
     <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/agent-memory-benchmark</guid>
@@ -58,12 +64,6 @@
     <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/hyperspell</link>
     <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/hyperspell</guid>
     <description> www.hyperspell.com/ A brain for your company. Connects your tools, builds a context graph, and surfaces it as a filesystem any agent can read. Connections No outgoing connections.</description>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>Letta Code</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/letta-code</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/letta-code</guid>
-    <description> github.com/letta-ai/letta-code Remember across the stack. Connections No outgoing connections.</description>
     <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
