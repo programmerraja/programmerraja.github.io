@@ -6,6 +6,12 @@
       <description>Last 10 notes on K. Boopathi</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>Sherlock Holmes: Why Prewarming a Voice Agent Didn&#039;t Make the First Reply Faster</title>
+    <link>https://programmerraja.is-a.dev/post/2026/Sherlock-Holmes-Why-Prewarming-a-Voice-Agent-Didnt-Make-the-First-Reply-Faster</link>
+    <guid>https://programmerraja.is-a.dev/post/2026/Sherlock-Holmes-Why-Prewarming-a-Voice-Agent-Didnt-Make-the-First-Reply-Faster</guid>
+    <description>This one did not start as a latency mystery. It started as a bill. We prewarm a voice agent before the call connects. You send the model a request early, and you open the speech sockets early, so that if a person picks up, the first reply is already on its way.</description>
+    <pubDate>Thu, 29 Oct 2026 12:00:00 GMT</pubDate>
+  </item><item>
     <title>PostgreSQL Internals and Operations</title>
     <link>https://programmerraja.is-a.dev/notes/Engineering/Databases/PostgreSQL-Internals-and-Operations</link>
     <guid>https://programmerraja.is-a.dev/notes/Engineering/Databases/PostgreSQL-Internals-and-Operations</guid>
@@ -58,12 +64,6 @@
     <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/graphiti</link>
     <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/graphiti</guid>
     <description> github.com/getzep/graphiti Remembers how facts change over time. Connections No outgoing connections.</description>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>Hyperspell</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/hyperspell</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/hyperspell</guid>
-    <description> www.hyperspell.com/ A brain for your company. Connects your tools, builds a context graph, and surfaces it as a filesystem any agent can read. Connections No outgoing connections.</description>
     <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
