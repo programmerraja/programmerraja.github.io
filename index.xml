@@ -6,10 +6,16 @@
       <description>Last 10 notes on K. Boopathi</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>I Let AI Type the Code and Lost the Map</title>
+    <link>https://programmerraja.is-a.dev/post/2026/I-Let-AI-Type-the-Code-and-Lost-the-Map</link>
+    <guid>https://programmerraja.is-a.dev/post/2026/I-Let-AI-Type-the-Code-and-Lost-the-Map</guid>
+    <description>For about three years, when a feature was done, we could close the file and still remember it. We knew which function ran first, which query could return too much, and where a bad input would break.</description>
+    <pubDate>Mon, 02 Nov 2026 14:48:51 GMT</pubDate>
+  </item><item>
     <title>Sherlock Holmes: Why Prewarming a Voice Agent Didn&#039;t Make the First Reply Faster</title>
     <link>https://programmerraja.is-a.dev/post/2026/Sherlock-Holmes-Why-Prewarming-a-Voice-Agent-Didnt-Make-the-First-Reply-Faster</link>
     <guid>https://programmerraja.is-a.dev/post/2026/Sherlock-Holmes-Why-Prewarming-a-Voice-Agent-Didnt-Make-the-First-Reply-Faster</guid>
-    <description>This one did not start as a latency mystery. It started as a bill. We prewarm a voice agent before the call connects. You send the model a request early, and you open the speech sockets early, so that if a person picks up, the first reply is already on its way.</description>
+    <description>This is one case from the Sherlock Holmes series. Each write-up is a production problem me had to take apart. If you want the others, they are here. This one did not start as a latency mystery.</description>
     <pubDate>Thu, 29 Oct 2026 12:00:00 GMT</pubDate>
   </item><item>
     <title>PostgreSQL Internals and Operations</title>
@@ -58,12 +64,6 @@
     <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/fastino</link>
     <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/fastino</guid>
     <description> fastino.ai/ Research lab behind the GLiNER family of open-weight extraction models. Connections No outgoing connections.</description>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-  </item><item>
-    <title>Graphiti</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/graphiti</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/graphiti</guid>
-    <description> github.com/getzep/graphiti Remembers how facts change over time. Connections No outgoing connections.</description>
     <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>

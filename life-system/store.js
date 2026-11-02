@@ -122,6 +122,8 @@ export function createStore(today = formatDate()) {
     loopSkips: { date: "", ids: [] },
     focusDay: null,
     weekFocus: null,
+    dnd: false,
+    mandala: null,
   }
 }
 
@@ -694,6 +696,7 @@ export function normalizeStore(input) {
           doneAt: text(task.doneAt, 10) || null,
           notes: text(task.notes),
           torture: Boolean(task.torture),
+          mandala: text(task.mandala, 100),
         }))
       : [],
     days: {},
@@ -710,6 +713,8 @@ export function normalizeStore(input) {
     loopSkips: normalizeSkips(input.loopSkips),
     focusDay: normalizeFocusDay(input.focusDay),
     weekFocus: normalizeWeekFocus(input.weekFocus),
+    dnd: Boolean(input.dnd),
+    mandala: normalizeMandala(input.mandala),
     notes: Array.isArray(input.notes)
       ? input.notes.slice(0, 1000).map((note) => ({
           id: text(note.id, 100),
@@ -737,6 +742,75 @@ export function normalizeStore(input) {
     }
   }
   return store
+}
+
+function blankTheme() {
+  return { title: "", tasks: Array(8).fill("") }
+}
+
+function normalizeMandala(value) {
+  const title = text(value?.title, 80).trim()
+  if (!title) return null
+  const themes = Array.from({ length: 8 }, (_, index) => {
+    const theme = value.themes?.[index]
+    const tasks = Array.from({ length: 8 }, (_, slot) => text(theme?.tasks?.[slot], 100))
+    return { title: text(theme?.title, 80).trim(), tasks }
+  })
+  return { id: text(value.id, 100) || uid("mandala"), title, areaId: text(value.areaId, 100), themes }
+}
+
+export function startMandala(store, title, areaId) {
+  const clean = text(title, 80).trim()
+  if (!clean || store.mandala) return
+  store.mandala = { id: uid("mandala"), title: clean, areaId: text(areaId, 100), themes: Array.from({ length: 8 }, blankTheme) }
+}
+
+export function setMandalaTitle(store, title) {
+  const clean = text(title, 80).trim()
+  if (store.mandala && clean) store.mandala.title = clean
+}
+
+export function setMandalaTheme(store, index, title) {
+  const theme = store.mandala?.themes?.[index]
+  if (theme) theme.title = text(title, 80).trim()
+}
+
+export function setMandalaCell(store, themeIndex, slot, title, today = formatDate()) {
+  const chart = store.mandala
+  const theme = chart?.themes?.[themeIndex]
+  if (!theme || slot < 0 || slot > 7) return
+  const clean = text(title, 160).trim()
+  const existing = store.tasks.find((task) => task.id === theme.tasks[slot])
+  if (!clean) {
+    theme.tasks[slot] = ""
+    if (existing && existing.mandala === chart.id && !existing.doneAt && !existing.dueDate) {
+      store.tasks = store.tasks.filter((task) => task.id !== existing.id)
+    }
+    return
+  }
+  if (existing) {
+    existing.title = clean
+    return
+  }
+  const id = uid("task")
+  store.tasks.push({
+    id,
+    title: clean,
+    areaId: chart.areaId || "",
+    dueDate: null,
+    createdAt: today,
+    doneAt: null,
+    notes: "",
+    torture: false,
+    mandala: chart.id,
+  })
+  theme.tasks[slot] = id
+}
+
+export function clearMandala(store) {
+  const id = store.mandala?.id
+  if (id) store.tasks = store.tasks.filter((task) => task.mandala !== id || task.doneAt || task.dueDate)
+  store.mandala = null
 }
 
 function normalizeWeekFocus(value) {
