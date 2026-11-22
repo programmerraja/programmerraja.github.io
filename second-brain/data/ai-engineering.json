@@ -122,6 +122,31 @@
   ],
   "nodes": [
     {
+      "id": "agaram-2-5b",
+      "type": "model",
+      "title": "Agaram 2.5B",
+      "summary": "Tamil-first language model trained from scratch by MuraiLabs. Can call tools, as far as the lab knows.",
+      "tags": [
+        "llm",
+        "tamil"
+      ],
+      "notes": "- https://huggingface.co/spaces/mechramc/agaram-2.5b-chat\n- Tamil-first language model, trained from scratch by [MuraiLabs](https://x.com/MuraiLabsHQ), a small non-profit lab.\n- As far as the lab knows, it is the first Tamil model trained from scratch that can call tools.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "agent-beacon",
+      "type": "memory",
+      "title": "Agent Beacon",
+      "summary": "Cross-harness, self-improving memory layer for AI agents.",
+      "tags": [
+        "memory"
+      ],
+      "notes": "- https://github.com/Asymptote-Labs/agent-beacon\n- The cross-harness, self-improving memory layer for AI agents.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "agent-memory-benchmark",
       "type": "eval",
       "title": "Agent Memory Benchmark",
@@ -133,6 +158,45 @@
       "notes": "- https://github.com/vectorize-io/agent-memory-benchmark",
       "created": "2026-10-12",
       "updated": "2026-10-12"
+    },
+    {
+      "id": "aiperf",
+      "type": "tool",
+      "title": "AIPerf",
+      "summary": "Benchmarking tool for generative AI models served by any inference solution.",
+      "tags": [
+        "benchmark",
+        "inference"
+      ],
+      "notes": "- https://github.com/ai-dynamo/aiperf\n- Comprehensive benchmarking tool that measures the performance of generative AI models served by your preferred inference solution.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "airllm",
+      "type": "local-inference",
+      "title": "AirLLM",
+      "summary": "Runs large models on small GPUs by loading one layer at a time. A 70B model on 4GB VRAM at full precision, but slower.",
+      "tags": [
+        "local",
+        "inference"
+      ],
+      "notes": "- https://github.com/lyogavin/airllm\n- Normally a 70B model needs around 140GB of VRAM. AirLLM loads one layer at a time into GPU memory, runs the computation, saves the result, then swaps in the next. A 70B model runs on 4GB VRAM at full precision.\n- Like reading a book one page at a time instead of memorizing the whole thing.\n- Speed is traded for accessibility. Slower than full-VRAM inference, but private and local on hardware you already own.\n- Install with `pip install airllm`.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "anatomy",
+      "type": "tool",
+      "title": "Anatomy",
+      "summary": "Agent skill for detailed, interactive isometric illustrations of real-world machines and complex systems.",
+      "tags": [
+        "coding-agent",
+        "illustration"
+      ],
+      "notes": "- https://github.com/wheresryan22/anatomy\n- Agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems.\n- Generates polished SVGs with optional WebGL shaders and 3D effects.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "argilla-io",
@@ -271,6 +335,18 @@
       "updated": "2026-09-13"
     },
     {
+      "id": "deepinfer",
+      "type": "tool",
+      "title": "DeepInfer",
+      "summary": "High-performance, large-scale inference framework for DeepSeek models.",
+      "tags": [
+        "inference"
+      ],
+      "notes": "- https://github.com/deepseek-ai/DeepInfer\n- High-performance, large-scale inference framework for DeepSeek models.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "desertant",
       "type": "local-inference",
       "title": "Desertant",
@@ -358,6 +434,19 @@
       "updated": "2026-10-12"
     },
     {
+      "id": "hapsland",
+      "type": "tool",
+      "title": "Hapsland",
+      "summary": "Realtime semantic review for coding agents.",
+      "tags": [
+        "code-review",
+        "coding-agent"
+      ],
+      "notes": "- https://github.com/dearlordylord/hapsland\n- Realtime semantic review for coding agents.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "hyperspell",
       "type": "memory",
       "title": "Hyperspell",
@@ -369,6 +458,31 @@
       "notes": "- https://www.hyperspell.com/\n- A brain for your company.\n- Connects your tools, builds a context graph, and surfaces it as a filesystem any agent can read.",
       "created": "2026-10-12",
       "updated": "2026-10-12"
+    },
+    {
+      "id": "indra-ocr",
+      "type": "model",
+      "title": "Indra OCR",
+      "summary": "1M-parameter OCR model. Up to 49 pages per second on CPU.",
+      "tags": [
+        "ocr",
+        "documents"
+      ],
+      "notes": "- https://huggingface.co/datalab-to/indra-ocr\n- 1M-parameter OCR model that reads up to 49 pages per second on CPU.\n- Turns PDFs and images into markdown, plain text, or JSON with boxes.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "interactivelab",
+      "type": "concept",
+      "title": "Interactive Lab",
+      "summary": "Learn by playing, not by reading. Hard CS topics explained with live browser simulations.",
+      "tags": [
+        "learning"
+      ],
+      "notes": "- https://interactivelab.io/\n- Hard computer-science topics explained with live simulations that run in your browser: train models, mine blocks, watch algorithms step by step.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "layerscale",
@@ -408,6 +522,57 @@
       "updated": "2026-10-12"
     },
     {
+      "id": "lightonocr-3",
+      "type": "model",
+      "title": "LightOnOCR-3",
+      "summary": "Open-weight vision-language models that convert document images into clean Markdown.",
+      "tags": [
+        "ocr",
+        "documents"
+      ],
+      "notes": "- https://www.lighton.ai/research/lightonocr-3\n- Open-weight family of end-to-end VLMs from LightOn.\n- Converts PDFs, scans, receipts, and multi-column pages directly into clean, naturally ordered Markdown.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "ling-3-1-flash",
+      "type": "model",
+      "title": "Ling-3.1-flash",
+      "summary": "Native hybrid reasoning model. 560B total, 25B active per token, 1M-token context.",
+      "tags": [
+        "llm",
+        "reasoning"
+      ],
+      "notes": "- https://huggingface.co/inclusionAI/Ling-3.1-flash\n- Upgrade of Ling-3.0-flash for complex, real-world tasks: 560B total parameters, 25B active per token, 1M-token context.\n- Reported strengths: general-purpose agents, search, office productivity, software engineering. Benchmarks named in the release: GDPVal-AA V2.1, HealthBench Professional, FrontierSWE, Terminal-Bench 4.0.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "liquid-d1",
+      "type": "model",
+      "title": "Liquid d1 Decision Models",
+      "summary": "Two open-weight decision models from Liquid AI, d1-3B and d1-omni-600M.",
+      "tags": [
+        "decision"
+      ],
+      "notes": "- https://www.liquid.ai/blog/d1-decision-model\n- **d1-3B** and **d1-omni-600M**, two open-weight models in the d1 decision model family.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "llama-app",
+      "type": "local-inference",
+      "title": "Llama App",
+      "summary": "Tiny menu bar app that runs the latest open models on your Mac.",
+      "tags": [
+        "local",
+        "apple"
+      ],
+      "notes": "- https://llama.app/\n- Tiny menu bar app that runs the latest open models on your Mac.\n- Chat with them, or use them in your other apps.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "longcat-2",
       "type": "coding-agent",
       "title": "LongCat-2.0",
@@ -419,6 +584,18 @@
       "notes": "- https://www.longcatai.org/models/longcat-2\n- 1.6T MoE (activates ~33–56B, ~48B avg) trained for agentic coding. Native 1M context via LongCat Sparse Attention (linear, not quadratic).\n- Zero-computation experts skip easy tokens; MOPD fuses agent / reasoning / interaction expert groups into one model. Trained on 30T+ tokens on a 50k-card domestic cluster.\n- Headline numbers they cite: SWE-bench Pro 59.5, Terminal-Bench 2.1 70.8, BrowseComp 79.9. Preview on OpenRouter / longcat.ai; weights still pending HF.",
       "created": "2026-09-07",
       "updated": "2026-09-07"
+    },
+    {
+      "id": "maximem",
+      "type": "memory",
+      "title": "Maximem",
+      "summary": "AI memory and agent engineering.",
+      "tags": [
+        "memory"
+      ],
+      "notes": "- https://www.maximem.ai/\n- AI memory and agent engineering.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "mem0",
@@ -458,6 +635,19 @@
       "updated": "2026-09-13"
     },
     {
+      "id": "modern-web-guidance",
+      "type": "tool",
+      "title": "Modern Web Guidance",
+      "summary": "Google skills that embed web platform expertise into coding agents.",
+      "tags": [
+        "coding-agent",
+        "web"
+      ],
+      "notes": "- https://developer.chrome.com/docs/modern-web-guidance/guides\n- Skills that embed web platform expertise, best practices, and browser compatibility data into your coding agents.\n- Steers agents away from legacy patterns and toward the modern web platform.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "modular",
       "type": "tool",
       "title": "Modular",
@@ -468,6 +658,30 @@
       "notes": "- https://www.modular.com/\n- Inference from kernel to cloud in one unified stack. Product is paid.",
       "created": "2026-09-13",
       "updated": "2026-09-13"
+    },
+    {
+      "id": "moondream",
+      "type": "provider",
+      "title": "Moondream",
+      "summary": "State-of-the-art vision models. Build, fine-tune, and deploy visual AI.",
+      "tags": [
+        "vision"
+      ],
+      "notes": "- https://moondream.ai/\n- Build, fine-tune, and deploy visual AI that works on your real-world edge cases.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "nace-ai",
+      "type": "slm",
+      "title": "Nace",
+      "summary": "Run workflows with Nace small models.",
+      "tags": [
+        "SLM"
+      ],
+      "notes": "- https://www.nace.ai/developers\n- Execute your workflows with Nace small models.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "needle-2",
@@ -496,6 +710,31 @@
       "updated": "2026-09-07"
     },
     {
+      "id": "neywalabs",
+      "type": "local-inference",
+      "title": "Neywa Labs",
+      "summary": "Local AI native to Apple devices.",
+      "tags": [
+        "local",
+        "apple"
+      ],
+      "notes": "- https://www.neywalabs.ai/\n- Local AI native to your Apple device.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "open-dashboards",
+      "type": "tool",
+      "title": "Open Dashboards",
+      "summary": "Open-source Claude dashboards. Use any model, host it anywhere.",
+      "tags": [
+        "dashboards"
+      ],
+      "notes": "- https://opendashboards.com/\n- Open-source Claude dashboards. One app, infinite dashboards.\n- Use any model. Host it anywhere.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "openmemory",
       "type": "memory",
       "title": "OpenMemory",
@@ -506,6 +745,18 @@
       "notes": "- https://github.com/mem0ai/openmemory",
       "created": "2026-10-12",
       "updated": "2026-10-12"
+    },
+    {
+      "id": "openui",
+      "type": "tool",
+      "title": "OpenUI",
+      "summary": "Framework-agnostic Generative UI framework with a streaming-first language. Up to 67% fewer tokens than JSON.",
+      "tags": [
+        "generative-ui"
+      ],
+      "notes": "- https://github.com/thesysdev/openui\n- Full-stack, framework-agnostic Generative UI framework built around a compact, streaming-first language.\n- Runtimes for React, Vue, Svelte, and Angular. React also ships component libraries and ready-to-use chat interfaces.\n- OpenUI Lang uses up to 67% fewer tokens than JSON.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "openviking",
@@ -534,6 +785,32 @@
       "updated": "2026-10-12"
     },
     {
+      "id": "petals",
+      "type": "local-inference",
+      "title": "Petals",
+      "summary": "Run LLMs at home, BitTorrent-style. Inference and fine-tuning up to 10x faster than offloading.",
+      "tags": [
+        "local",
+        "distributed"
+      ],
+      "notes": "- https://github.com/bigscience-workshop/petals\n- Run LLMs at home, BitTorrent-style. Fine-tuning and inference up to 10x faster than offloading.\n- Generate text with distributed Llama 3.1 (up to 405B), Mixtral (8x22B), Falcon (40B+), or BLOOM (176B), from a desktop or Google Colab.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "pixelmatch",
+      "type": "tool",
+      "title": "pixelmatch",
+      "summary": "Pixel-level image comparison library.",
+      "tags": [
+        "testing",
+        "images"
+      ],
+      "notes": "- https://github.com/mapbox/pixelmatch",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "pplx-garden",
       "type": "local-inference",
       "title": "pplx-garden",
@@ -546,6 +823,32 @@
       "notes": "- https://github.com/perplexityai/pplx-garden\n- Perplexity open-source garden for inference technology.\n- Lily: Rust and Metal inference server for Qwen3.6-35B-A3B on Apple Silicon. Greedy text generation through a minimal OpenAI-compatible HTTP API.",
       "created": "2026-09-13",
       "updated": "2026-09-13"
+    },
+    {
+      "id": "pr-lens",
+      "type": "tool",
+      "title": "PR Lens",
+      "summary": "Review code 100x faster. Draws every PR as animated architecture and data-flow walkthroughs, inside the pull request.",
+      "tags": [
+        "code-review",
+        "coding-agent"
+      ],
+      "notes": "- https://github.com/coldteadotai/pr-lens\n- Draws every PR as animated architecture and data-flow walkthroughs, inside the pull request itself.\n- Available as a GitHub App, GitHub Action, CLI, or a skill for your coding agent.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "prime-intellect",
+      "type": "provider",
+      "title": "Prime Intellect",
+      "summary": "The open superintelligence stack. Train, deploy, and improve your own models.",
+      "tags": [
+        "training",
+        "inference"
+      ],
+      "notes": "- https://www.primeintellect.ai/\n- Train, deploy, and continuously improve your own models on an integrated compute, training, inference, and sandbox stack.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "pstack",
@@ -574,6 +877,31 @@
       "updated": "2026-09-13"
     },
     {
+      "id": "recursive-flint",
+      "type": "model",
+      "title": "Recursive Flint",
+      "summary": "Local model with the fastest inference and strongest coding performance in its class. Built with automated research.",
+      "tags": [
+        "local",
+        "coding"
+      ],
+      "notes": "- https://recursive.com/updates/introducing-recursive-flint\n- Local model with the fastest inference and strongest coding performance in its class.\n- Built with automated research.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "reducto",
+      "type": "tool",
+      "title": "Reducto",
+      "summary": "Agentic document platform. Turns documents into data.",
+      "tags": [
+        "documents"
+      ],
+      "notes": "- https://reducto.ai/\n- Turn documents into data. One platform for every document task, for teams that need enterprise performance at scale.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "runanywhere",
       "type": "local-inference",
       "title": "RunAnywhere",
@@ -598,6 +926,32 @@
       "notes": "- https://github.com/superlinked/sie\n- Open-source inference server and production cluster for the models an agent needs.\n- One API for search/retrieval, document-to-markdown, structured output, content safety, and the agent loop. Serves 100+ models, loading each on demand.",
       "created": "2026-09-13",
       "updated": "2026-09-13"
+    },
+    {
+      "id": "stealth-models",
+      "type": "eval",
+      "title": "Stealth Models",
+      "summary": "Game benchmarks (Latch and Foresight) that need planning with no code and no tools. Also follows stealth models from codename to reveal.",
+      "tags": [
+        "benchmark",
+        "games"
+      ],
+      "notes": "- https://stealthmodels.com/\n- Latch and Foresight are game benchmarks: intricate puzzles that take real planning, with no code and no tools to lean on.\n- Recorded runs can be watched, and the levels can be played by hand.\n- Follows stealth AI models from codename to reveal and tests them alongside established ones.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "stratallm",
+      "type": "local-inference",
+      "title": "StrataLLM",
+      "summary": "Runs 125B+ MoE models on consumer GPUs with dynamic sparse router offloading. Claims from the project page, not verified.",
+      "tags": [
+        "local",
+        "moe"
+      ],
+      "notes": "- https://stratallm.org/\n- Claims a 125B+ MoE model (Qwen3.8-Flash-Next 125B) on a single 12GB NVIDIA GPU and 64GB system RAM.\n- Predictive sparse routing: predicts which expert layers will be called 1-2 tokens ahead and queues them for PCIe transfer.\n- Tiered VRAM-RAM cache: critical attention heads and frequently used experts stay in VRAM. Dormant weights stream from DDR5.\n- Zero-copy pinned memory: weights go over async CUDA streams into tensor cores, bypassing CPU compute.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "taalas",
@@ -626,6 +980,45 @@
       "updated": "2026-08-27"
     },
     {
+      "id": "tracequest",
+      "type": "tool",
+      "title": "Tracequest",
+      "summary": "Trace intelligence for coding-agent sessions.",
+      "tags": [
+        "observability",
+        "coding-agent"
+      ],
+      "notes": "- https://github.com/viktor-com/tracequest\n- Trace intelligence for Claude Code, Codex, Cursor, OpenCode, Grok, and Droid sessions.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "treg-web-access",
+      "type": "tool",
+      "title": "treg WebAccess",
+      "summary": "Free web access for coding agents through one API. Falls back to the next vendor when a call comes back empty or blocked.",
+      "tags": [
+        "tools",
+        "web"
+      ],
+      "notes": "- https://treg.to/web-access\n- Agent searches the web and reads any page for $0. Works with Claude Code, Codex, OpenClaw, and Hermes.\n- When the free call comes back empty or blocked, treg tries the next vendor. Covers pages, sites, social posts, store listings, and reviews, through one API.\n- Open source, no plan.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "underdog-saluki",
+      "type": "model",
+      "title": "Underdog Saluki 27B",
+      "summary": "Qwen3.8-27B as a 2-bit build in a 7.89 GB file that runs on standard llama.cpp. Underdog's claims, not verified.",
+      "tags": [
+        "local",
+        "quantization"
+      ],
+      "notes": "- https://underdog.ai/saluki\n- Qwen3.8-27B squeezed into a 7.89 GB file that runs on standard llama.cpp, with no special software.\n- Underdog says it is the best 2-bit build they know of at picking the right tool.\n- Claim from the page: Qwen3.8-27B beats Claude Opus 4.6 Max, according to Artificial Analysis.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "utopia",
       "type": "memory",
       "title": "Utopia",
@@ -637,6 +1030,31 @@
       "notes": "- https://github.com/deeplethe/utopia\n- Enterprise world model from DeepLethe (https://deeplethe.com/). Open substrate for knowledge engineering that learns passively and governs itself.\n- Puts time awareness and ontology in the base layer so the knowledge system evolves as material arrives. Conflict detection, reasoning, and decisions run against that ontology.\n- Deploys offline: knowledge foundation, decision core for agents, compliance audit trail on hardware you control.",
       "created": "2026-09-13",
       "updated": "2026-09-13"
+    },
+    {
+      "id": "vals-ai",
+      "type": "eval",
+      "title": "Vals AI",
+      "summary": "Benchmarks AI models on economically valuable tasks. Most benchmarks are built in-house.",
+      "tags": [
+        "benchmark"
+      ],
+      "notes": "- https://www.vals.ai/home\n- Benchmarks leading models on tasks such as finance, software, cybersecurity, recursive self-improvement, and mental health.\n- Runs its own evaluations and creates many benchmarks in-house.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "veris-ai",
+      "type": "tool",
+      "title": "Veris AI",
+      "summary": "Simulation infrastructure for agents. A simulated copy of your systems, data, APIs, and users.",
+      "tags": [
+        "simulation",
+        "testing"
+      ],
+      "notes": "- http://veris.ai/\n- Simulation infrastructure for the agentic era.\n- A simulated copy of your systems, data, APIs, and users, where AI gets tested, trained, and built against before it touches production.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     }
   ],
   "edges": [
@@ -653,8 +1071,20 @@
       "type": "alternative_to"
     },
     {
+      "id": "e-indra-ocr-related_to-lightonocr-3",
+      "from": "indra-ocr",
+      "to": "lightonocr-3",
+      "type": "related_to"
+    },
+    {
       "id": "e-minicpm5-2b-related_to-needle-2",
       "from": "minicpm5-2b",
+      "to": "needle-2",
+      "type": "related_to"
+    },
+    {
+      "id": "e-nace-ai-related_to-needle-2",
+      "from": "nace-ai",
       "to": "needle-2",
       "type": "related_to"
     },

@@ -6,65 +6,65 @@
       <description>Last 10 notes on K. Boopathi</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>I Let AI Type the Code and Lost the Map</title>
-    <link>https://programmerraja.is-a.dev/post/2026/I-Let-AI-Type-the-Code-and-Lost-the-Map</link>
-    <guid>https://programmerraja.is-a.dev/post/2026/I-Let-AI-Type-the-Code-and-Lost-the-Map</guid>
-    <description>For about three years, when a feature was done, we could close the file and still remember it. We knew which function ran first, which query could return too much, and where a bad input would break.</description>
-    <pubDate>Mon, 02 Nov 2026 14:48:51 GMT</pubDate>
+    <title>Agaram 2.5B</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/agaram-2-5b</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/agaram-2-5b</guid>
+    <description> huggingface.co/spaces/mechramc/agaram-2.5b-chat Tamil-first language model, trained from scratch by MuraiLabs, a small non-profit lab. As far as the lab knows, it is the first Tamil model trained from scratch that can call tools.</description>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Sherlock Holmes: Why Prewarming a Voice Agent Didn&#039;t Make the First Reply Faster</title>
-    <link>https://programmerraja.is-a.dev/post/2026/Sherlock-Holmes-Why-Prewarming-a-Voice-Agent-Didnt-Make-the-First-Reply-Faster</link>
-    <guid>https://programmerraja.is-a.dev/post/2026/Sherlock-Holmes-Why-Prewarming-a-Voice-Agent-Didnt-Make-the-First-Reply-Faster</guid>
-    <description>This is one case from the Sherlock Holmes series. Each write-up is a production problem me had to take apart. If you want the others, they are here. This one did not start as a latency mystery.</description>
-    <pubDate>Thu, 29 Oct 2026 12:00:00 GMT</pubDate>
+    <title>Agent Beacon</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/agent-beacon</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/agent-beacon</guid>
+    <description> github.com/Asymptote-Labs/agent-beacon The cross-harness, self-improving memory layer for AI agents. Connections No outgoing connections.</description>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>PostgreSQL Internals and Operations</title>
-    <link>https://programmerraja.is-a.dev/notes/Engineering/Databases/PostgreSQL-Internals-and-Operations</link>
-    <guid>https://programmerraja.is-a.dev/notes/Engineering/Databases/PostgreSQL-Internals-and-Operations</guid>
-    <description>Second part of PostgreSQL. That note = using Postgres. This note = how it stores data on disk and how to run it in production. 1. Storage: pages &amp; tuples Postgres stores all its data in a directory sensibly called /var/lib/postgresql/data DirectoryExplanationbase/One subdirectory per database, holding the actual table and index filesglobal/Cluster-wide tables like pg_databasepg_wal/Write-Ahead Log files (section 2)pg_xact/Commit status of every transaction (committed / aborted)pg_multixact/Multitransactions → when several sessions row-lock the same rowpg_subtrans/Subtransactions (savepoints)pg_commit_ts/Commit timestamps (if enabled)pg_replslot/Replication slots → keep WAL around for a replica (section 7)pg_logical/Logical decoding status (turning WAL back into row changes)pg_snapshots/Exported snapshots, e.g.</description>
-    <pubDate>Wed, 28 Oct 2026 13:00:00 GMT</pubDate>
+    <title>AIPerf</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/aiperf</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/aiperf</guid>
+    <description>...</description>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Agent Memory Benchmark</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/agent-memory-benchmark</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/agent-memory-benchmark</guid>
-    <description> github.com/vectorize-io/agent-memory-benchmark Connections No outgoing connections.</description>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    <title>AirLLM</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/airllm</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/airllm</guid>
+    <description> github.com/lyogavin/airllm Normally a 70B model needs around 140GB of VRAM. AirLLM loads one layer at a time into GPU memory, runs the computation, saves the result, then swaps in the next.</description>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>BenchLM</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/benchlm</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/benchlm</guid>
-    <description> benchlm.ai/ LLM leaderboard and AI model benchmarks. Connections No outgoing connections.</description>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    <title>Anatomy</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/anatomy</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/anatomy</guid>
+    <description> github.com/wheresryan22/anatomy Agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems. Generates polished SVGs with optional WebGL shaders and 3D effects.</description>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Cactus</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/cactus</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/cactus</guid>
-    <description> cactuscompute.com/ Low-latency AI engine for mobile devices and wearables. Energy-efficient inference engine. OpenAI-compatible APIs for C/C++, Swift, Kotlin, and Flutter.</description>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    <title>DeepInfer</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/deepinfer</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/deepinfer</guid>
+    <description> github.com/deepseek-ai/DeepInfer High-performance, large-scale inference framework for DeepSeek models. Connections No outgoing connections.</description>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Cognee</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/cognee</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/cognee</guid>
-    <description> github.com/topoteretes/cognee Documents, code, and conversations become a knowledge graph. Connections No outgoing connections.</description>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    <title>Hapsland</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/hapsland</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/hapsland</guid>
+    <description> github.com/dearlordylord/hapsland Realtime semantic review for coding agents. Connections No outgoing connections.</description>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Composio</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/composio</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/composio</guid>
-    <description> composio.dev/ Secure access to 1,500+ apps in minutes. Third-party MCP is not an efficient way to do this. It wastes tokens. Connections No outgoing connections.</description>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    <title>Indra OCR</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/indra-ocr</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/indra-ocr</guid>
+    <description> huggingface.co/datalab-to/indra-ocr 1M-parameter OCR model that reads up to 49 pages per second on CPU. Turns PDFs and images into markdown, plain text, or JSON with boxes.</description>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Desertant</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/desertant</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/desertant</guid>
-    <description> desertant.com/ Fastest models for the task, running on-device. Small models that each do one job very well, with one native SDK that drops them into a product in a few lines of code.</description>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    <title>Interactive Lab</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/interactivelab</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/interactivelab</guid>
+    <description>...</description>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
   </item><item>
-    <title>Fastino</title>
-    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/fastino</link>
-    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/fastino</guid>
-    <description> fastino.ai/ Research lab behind the GLiNER family of open-weight extraction models. Connections No outgoing connections.</description>
-    <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    <title>LightOnOCR-3</title>
+    <link>https://programmerraja.is-a.dev/second-brain/ai-engineering/lightonocr-3</link>
+    <guid>https://programmerraja.is-a.dev/second-brain/ai-engineering/lightonocr-3</guid>
+    <description> www.lighton.ai/research/lightonocr-3 Open-weight family of end-to-end VLMs from LightOn. Converts PDFs, scans, receipts, and multi-column pages directly into clean, naturally ordered Markdown.</description>
+    <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
   </item>
     </channel>
   </rss>

@@ -139,7 +139,7 @@
       "tags": [
         "stt"
       ],
-      "notes": "",
+      "notes": "- **Universal-3.6 Pro (AssemblyAI).** Supports 32 languages plus automatic language detection.\n- **Conversation memory and contextual prompting.** We can send the agent's previous response as context to the STT model, so it knows what the user is responding to. It also carries over previous finalized user turns within the session.\n- **Domain prompts.** `prompt` and `keyterms_prompt` give extra domain context and improve recognition of names, terms, and terminology.\n\n```json\n{\n  \"type\": \"UpdateConfiguration\",\n  \"agent_context\": \"Are you interested in learning more about a VA home loan?\",\n  \"prompt\": \"Mortgage conversation where the user may provide loan amounts, names, dates, and email addresses.\",\n  \"keyterms_prompt\": [\"VA loan\", \"Federal Savings Bank\", \"refinance\"]\n}\n```\n\n- Not explored yet. Still need to play around with this.\n- Turn detection is untested. Planning to try it on staging.\n- **Pricing.** $0.45/hr ($0.0075/min). Billed for the whole time the STT socket is open, including idle time and while the agent is speaking. Deepgram Nova-3 is $0.0092/min of audio transcribed, so the cost model is different.\n- **Latency.** Turn latency stayed under 100 ms in our tests. Not a major improvement over the current setup.\n- **Turn detection tuning.** The plugin default is aggressive. It ends a turn after 100 ms of silence, which cuts callers off when they pause to think. Added `sttConfig.mode`, `sttConfig.minTurnSilence`, and `sttConfig.maxTurnSilence` to make it configurable.\n- **Balanced mode** (as the doc suggested) worked well in staging. It waits for 128 ms of silence and checks whether the transcript ends with punctuation (`.`, `?`, `!`). If it does, the turn ends. Otherwise it keeps waiting, up to 1,280 ms of silence.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
     },
@@ -281,6 +281,18 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "cekura",
+      "type": "provider",
+      "title": "Cekura",
+      "summary": "Voice benchmarks for speech-to-speech turn-taking and text-to-speech.",
+      "tags": [
+        "benchmark"
+      ],
+      "notes": "- Turn-taking benchmark: https://benchmarks.cekura.ai/speech-to-speech/turn-bench\n- TTS model benchmarks: https://benchmarks.cekura.ai/text-to-speech",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "cerebras",
       "type": "provider",
       "title": "Cerebras",
@@ -305,6 +317,18 @@
       "notes": "- Combines a text model, reference-audio tokenizer, speaker embedding and a flow-matching acoustic generator. The reference clip conditions both who is speaking and how they speak.\n- Useful example of why cloning quality depends on more than one speaker vector: reference speech can also carry rhythm and expression.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "decision-models",
+      "type": "concept",
+      "title": "Decision Models",
+      "summary": "Models that decide what happens next from the input, without waiting for text.",
+      "tags": [
+        "speech-to-speech"
+      ],
+      "notes": "- Audio decision models hear the conversation and decide the next action, without waiting for a transcript.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "deepgram",
@@ -343,6 +367,31 @@
       "notes": "- Useful only when it improves the signal that reaches VAD and STT. An aggressive filter can remove consonants or distort speaker cues — cleaner-sounding audio is not always better recognition input.\n- RTF matters because denoising sits on every incoming frame. A model that is accurate but eats the latency budget is the wrong front-end model.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "earshot",
+      "type": "tool",
+      "title": "Earshot",
+      "summary": "Lets AI hear, review, and make sound. CPU-only, open source.",
+      "tags": [
+        "audio"
+      ],
+      "notes": "- https://github.com/Leonxlnx/earshot\n- Lets AI hear, review, and make sound. CPU-only, open source.\n- Example from the README: `earshot describe enter.ogg` returns a plain-language reading of the sound, e.g. a short transient that sounds most like a mechanical keyboard key press.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
+      "id": "echospeaks",
+      "type": "cost-reduction",
+      "title": "Echo Speaks",
+      "summary": "Caches TTS phrases. Replaying a cached phrase costs about 1% of synthesizing it again.",
+      "tags": [
+        "TTS",
+        "cost"
+      ],
+      "notes": "- https://echospeaks.ai/\n- Text-to-speech is the largest line item in a typical voice AI stack, bigger than the LLM and transcriber together. Their claim: TTS is 60% of the cost of a call.\n- Echo caches away about half of that. Replaying a cached phrase costs 1% of synthesizing it again.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "elevenlabs",
@@ -457,6 +506,19 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "fluid-speech-pro",
+      "type": "model",
+      "title": "Fluid Speech Pro",
+      "summary": "0.63B speech recognition model built on Parakeet TDT 0.6B v3.",
+      "tags": [
+        "STT",
+        "ASR"
+      ],
+      "notes": "- https://huggingface.co/FluidVoice-Labs/fluid-speech-pro\n- From the team behind [FluidVoice](https://fluidvoice.com/). Built on NVIDIA's Parakeet TDT 0.6B v3, and keeps its 25 European languages.\n- Detects the language on its own, no prompt needed.\n- #2 open model on the Open ASR Leaderboard, with a 6.06 average WER. The most accurate open model under 1B parameters, and #2 among open models on noisy speech.\n- Runs at about 3,700x real time on one GPU.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "full-duplex",
       "type": "concept",
       "title": "Full Duplex",
@@ -550,7 +612,7 @@
         "TTS",
         "STT"
       ],
-      "notes": "- https://gradium.ai/\n- Advanced Voice AI for text-to-speech, speech-to-text, and voice cloning.",
+      "notes": "- https://gradium.ai/\n- Advanced Voice AI for text-to-speech, speech-to-text, and voice cloning.\n\n- Phonon 31m: Gradium's open-weight text-to-speech. Small enough to ship in any app (64 MB). Private, and works offline.",
       "created": "2026-09-13",
       "updated": "2026-09-13"
     },
@@ -724,6 +786,19 @@
       "notes": "For voice, time-to-first-token matters more than raw throughput; the user hears the pause.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "lokutor",
+      "type": "provider",
+      "title": "Lokutor",
+      "summary": "Speech models trained in-house, with the LLM included, billed by the second. Cloud, on-prem, or on-device.",
+      "tags": [
+        "TTS",
+        "STT"
+      ],
+      "notes": "- https://lokutor.com/\n- Built on speech models they train themselves, with the LLM included, billed by the second.\n- Cloud, on-prem, or on-device.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "mel-spectrogram",
@@ -1491,6 +1566,18 @@
       "updated": "2026-08-12"
     },
     {
+      "id": "tazo",
+      "type": "model",
+      "title": "Tazo",
+      "summary": "Audio decision model. Hears the conversation and decides what happens next, without waiting for text.",
+      "tags": [
+        "speech-to-speech"
+      ],
+      "notes": "- https://tazolabs.com/\n- Audio decision model. It hears the conversation and decides what happens next, without waiting for text to arrive.\n- Takes audio as input.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
+    },
+    {
       "id": "telephony",
       "type": "domain",
       "title": "Telephony",
@@ -1501,6 +1588,19 @@
       "notes": "Narrowband audio, jitter, and DTMF handling make phone calls harder than a browser mic.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "tiny-voca",
+      "type": "model",
+      "title": "tiny-voca",
+      "summary": "4.5M-parameter English TTS with two voices. About 70x faster than real time on four CPU threads.",
+      "tags": [
+        "TTS",
+        "tiny"
+      ],
+      "notes": "- https://huggingface.co/n4ze3m/tiny-voca\n- Small English text-to-speech model with two voices, F2 (female) and M2 (male).\n- The complete model, including the waveform generator, has 4.5M parameters. Trained from scratch on about 18 hours of synthetic speech.\n- Runs about 70x faster than real time on four CPU threads.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "together",
@@ -1686,6 +1786,18 @@
       "notes": "The A-to-Z map. Everything in this encyclopedia hangs off the pipeline stages below.\n\nStages: **turn detection -> STT -> LLM -> TTS -> transport**, with eval and deployment wrapped around them.",
       "created": "2026-08-12",
       "updated": "2026-08-12"
+    },
+    {
+      "id": "voice-ai-landscape",
+      "type": "concept",
+      "title": "Voice AI Landscape",
+      "summary": "Whitepaper examining available voice agents, split into cascaded vs speech-to-speech and half vs full duplex.",
+      "tags": [
+        "research"
+      ],
+      "notes": "- https://research.getbluejay.ai/whitepapers/voice-ai-landscape\n- Examines available voice agents, segmented into cascaded versus speech-to-speech, and half duplex versus full duplex.",
+      "created": "2026-11-22",
+      "updated": "2026-11-22"
     },
     {
       "id": "voice-benchmarks",
@@ -1927,6 +2039,18 @@
       "type": "part_of"
     },
     {
+      "id": "e-cekura-related_to-turn-taking",
+      "from": "cekura",
+      "to": "turn-taking",
+      "type": "related_to"
+    },
+    {
+      "id": "e-cekura-related_to-tts",
+      "from": "cekura",
+      "to": "tts",
+      "type": "related_to"
+    },
+    {
       "id": "e-cerebras-fireworks",
       "from": "cerebras",
       "to": "fireworks",
@@ -2000,6 +2124,12 @@
       "from": "denoising",
       "to": "vad",
       "type": "precedes"
+    },
+    {
+      "id": "e-echospeaks-related_to-tts",
+      "from": "echospeaks",
+      "to": "tts",
+      "type": "related_to"
     },
     {
       "id": "e-eleven-inworld",
@@ -2110,6 +2240,12 @@
       "from": "fish-speech",
       "to": "firefly-gan",
       "type": "uses"
+    },
+    {
+      "id": "e-fluid-speech-pro-part_of-stt",
+      "from": "fluid-speech-pro",
+      "to": "stt",
+      "type": "part_of"
     },
     {
       "id": "e-full-duplex-part_of-speech-to-speech",
@@ -2331,6 +2467,12 @@
       "from": "llm",
       "to": "voice-agent",
       "type": "part_of"
+    },
+    {
+      "id": "e-lokutor-related_to-tts",
+      "from": "lokutor",
+      "to": "tts",
+      "type": "related_to"
     },
     {
       "id": "e-mfcc-alternative_to-mel-spectrogram",
@@ -2770,9 +2912,27 @@
       "type": "measured_by"
     },
     {
+      "id": "e-tazo-part_of-decision-models",
+      "from": "tazo",
+      "to": "decision-models",
+      "type": "part_of"
+    },
+    {
+      "id": "e-tazo-related_to-speech-to-speech",
+      "from": "tazo",
+      "to": "speech-to-speech",
+      "type": "related_to"
+    },
+    {
       "id": "e-tel-va",
       "from": "telephony",
       "to": "voice-agent",
+      "type": "part_of"
+    },
+    {
+      "id": "e-tiny-voca-part_of-tts",
+      "from": "tiny-voca",
+      "to": "tts",
       "type": "part_of"
     },
     {
@@ -2920,6 +3080,18 @@
       "from": "voice-agent",
       "to": "ttfa",
       "type": "measured_by"
+    },
+    {
+      "id": "e-voice-ai-landscape-related_to-speech-to-speech",
+      "from": "voice-ai-landscape",
+      "to": "speech-to-speech",
+      "type": "related_to"
+    },
+    {
+      "id": "e-voice-ai-landscape-related_to-full-duplex",
+      "from": "voice-ai-landscape",
+      "to": "full-duplex",
+      "type": "related_to"
     },
     {
       "id": "e-voice-benchmarks-related_to-new-node-2",
